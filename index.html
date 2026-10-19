@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily App Collection 2</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
+  :root {
+    --bg:#0a0e17;--surface:#111827;--surface2:#1a2236;--border:#1e2d4a;
+    --text:#e8edf5;--text-dim:#7a8ba8;--accent:#6c5ce7;--accent-glow:rgba(108,92,231,0.3);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+  .bg-orbs{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+  .bg-orbs .orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.12;animation:orbFloat 20s ease-in-out infinite;}
+  .bg-orbs .orb:nth-child(1){width:500px;height:500px;background:var(--accent);top:-10%;left:-10%;}
+  .bg-orbs .orb:nth-child(2){width:400px;height:400px;background:#00b894;bottom:-10%;right:-10%;animation-delay:-7s;}
+  .bg-orbs .orb:nth-child(3){width:300px;height:300px;background:#fdcb6e;top:50%;left:50%;animation-delay:-14s;}
+  @keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(60px,-40px) scale(1.1)}66%{transform:translate(-40px,60px) scale(.9)}}
+  .app{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:40px 24px;}
+  .header{text-align:center;margin-bottom:32px;}
+  .header h1{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:800;background:linear-gradient(135deg,var(--accent),#fdcb6e);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px;}
+  .header .tagline{color:var(--text-dim);font-size:1rem;font-weight:300;letter-spacing:1px;}
+  .header .stats{display:flex;gap:16px;justify-content:center;margin-top:20px;flex-wrap:wrap;}
+  .header .stat{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:10px 20px;text-align:center;min-width:90px;}
+  .header .stat-val{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),#00b894);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  .header .stat-label{font-size:.65rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px;margin-top:2px;}
+  .controls{display:flex;justify-content:center;margin:24px 0 28px;}
+  .search{width:min(680px,100%);background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:14px 16px;color:var(--text);font-size:.95rem;outline:none;}
+  .search:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(108,92,231,.15);}
+  .sections{display:flex;flex-direction:column;gap:36px;}
+  .section{display:flex;flex-direction:column;gap:16px;}
+  .section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap;}
+  .section-title{font-family:'Playfair Display',serif;font-size:1.6rem;}
+  .section-meta{color:var(--text-dim);font-size:.85rem;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:28px;text-decoration:none;color:var(--text);transition:all .25s;position:relative;overflow:hidden;display:flex;flex-direction:column;}
+  .card:hover{border-color:var(--accent);box-shadow:0 0 30px var(--accent-glow);transform:translateY(-4px);}
+  .card .badge{position:absolute;top:16px;right:16px;background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:4px 12px;font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--accent);}
+  .card .date{color:var(--text-dim);font-size:.75rem;font-weight:500;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;}
+  .card h2{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;margin-bottom:8px;line-height:1.3;padding-right:72px;}
+  .card .desc{color:var(--text-dim);font-size:.85rem;line-height:1.6;flex:1;display:-webkit-box;-webkit-line-clamp:6;-webkit-box-orient:vertical;overflow:hidden;}
+  .card .arrow{display:inline-flex;align-items:center;gap:6px;margin-top:16px;color:var(--accent);font-size:.85rem;font-weight:600;transition:gap .2s;}
+  .card:hover .arrow{gap:10px;}
+  .empty{text-align:center;padding:60px 20px;color:var(--text-dim);grid-column:1/-1;}
+  @media(max-width:640px){.header h1{font-size:2rem;}.grid{grid-template-columns:1fr;}.app{padding:28px 16px;}}
+</style>
+</head>
+<body>
+<div class="bg-orbs"><div class="orb"></div><div class="orb"></div><div class="orb"></div></div>
+<div class="app">
+  <div class="header">
+    <h1>Daily App Lab 2</h1>
+    <div class="tagline">Mobile-first mini games, newest first</div>
+    <div class="stats">
+      <div class="stat"><div class="stat-val" id="total-apps">0</div><div class="stat-label">Apps</div></div>
+      <div class="stat"><div class="stat-val" id="total-saas">0</div><div class="stat-label">SaaS</div></div>
+      <div class="stat"><div class="stat-val" id="total-game">0</div><div class="stat-label">Games</div></div>
+    </div>
+  </div>
+  <p style="text-align:center;margin:16px"><a style="color:var(--accent)" href="https://xianghui.github.io/daily-app/">Explore the original collection →</a></p>
+  <div class="controls">
+    <input id="search" class="search" type="text" placeholder="Search by app name, folder, or description" />
+  </div>
+  <div class="sections" id="sections"></div>
+</div>
+<script>
+const BASE_URL='https://xianghui.github.io/daily-app2/';
+const APPS=[];
+
+const d=document;
+const sections=d.getElementById('sections');
+const search=d.getElementById('search');
+
+const areaOrder=['game','saas'];
+const areaLabels={game:'Mini Games',saas:'SaaS Apps'};
+
+d.getElementById('total-apps').textContent=APPS.length;
+d.getElementById('total-saas').textContent=APPS.filter(a=>a.area==='saas').length;
+d.getElementById('total-game').textContent=APPS.filter(a=>a.area==='game').length;
+
+function makeCard(app) {
+  const card=d.createElement('a');
+  card.className='card';
+  card.href=`${BASE_URL}${app.folder}/index.html`;
+  card.target='_blank';
+  card.rel='noopener';
+  card.innerHTML=`
+    <div class="badge">${app.area}</div>
+    <div class="date">${app.folder}</div>
+    <h2>${app.name}</h2>
+    <div class="desc">${app.desc}</div>
+    <div class="arrow">Open app →</div>
+  `;
+  return card;
+}
+
+function renderApps() {
+  const q=(search.value||'').trim().toLowerCase();
+  const filtered=APPS.filter(app => !q || [app.folder, app.name, app.desc, app.area].join(' ').toLowerCase().includes(q));
+  sections.innerHTML='';
+  if (!filtered.length) {
+    sections.innerHTML='<div class="empty">No games yet, or no games match your search.</div>';
+    return;
+  }
+
+  const grouped=new Map();
+  filtered.forEach(app=>{
+    const key=areaOrder.includes(app.area) ? app.area : 'other';
+    if(!grouped.has(key)) grouped.set(key, []);
+    grouped.get(key).push(app);
+  });
+
+  const orderedKeys=[...areaOrder.filter(k=>grouped.has(k)), ...[...grouped.keys()].filter(k=>!areaOrder.includes(k))];
+  orderedKeys.forEach(key=>{
+    const list=grouped.get(key);
+    const section=d.createElement('section');
+    section.className='section';
+
+    const head=d.createElement('div');
+    head.className='section-head';
+    head.innerHTML=`<div class="section-title">${areaLabels[key] || key.charAt(0).toUpperCase()+key.slice(1)}</div><div class="section-meta">${list.length} item${list.length===1?'':'s'}</div>`;
+
+    const grid=d.createElement('div');
+    grid.className='grid';
+    list.forEach(app=>grid.appendChild(makeCard(app)));
+
+    section.appendChild(head);
+    section.appendChild(grid);
+    sections.appendChild(section);
+  });
+}
+
+search.addEventListener('input', renderApps);
+renderApps();
+</script>
+</body>
+</html>

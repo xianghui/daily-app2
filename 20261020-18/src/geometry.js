@@ -1,0 +1,14 @@
+export const defaults={diameter:52,height:10,hole:22,clearance:0.4,grip:0.65,lobes:12};
+export const specs=[['diameter','Outer diameter',44,72,1],['height','Ring height',8,16,.5],['hole','Finger opening',16,28,1],['clearance','Radial running gap',.25,.6,.05],['grip','Grip scallop depth',0,1,.05],['lobes','Grip scallop count',8,20,1]];
+export function validate(p){const errors=[];for(const [k,label,min,max] of specs)if(!Number.isFinite(p[k])||p[k]<min||p[k]>max)errors.push(`${label}: enter ${min}–${max}${k==='lobes'?' whole scallops':' mm'}.`);if(!Number.isInteger(p.lobes))errors.push('Scallop count must be a whole number.');const R=p.diameter/2-6;if(R-1.8-p.hole/2-p.grip<2.4)errors.push('Inner ring wall is below 2.4 mm: reduce opening/grip or increase diameter.');return errors;}
+const N=240;
+function annulus(name,profile){const vertices=[],faces=[];for(const [z,inside,outside] of profile)for(let side=0;side<2;side++)for(let i=0;i<N;i++){const a=i*2*Math.PI/N,r=(side?outside:inside)(a);vertices.push([r*Math.cos(a),r*Math.sin(a),z]);}
+const at=(j,s,i)=>j*2*N+s*N+(i+N)%N;
+function quad(a,b,c,d){faces.push([a,b,c],[a,c,d]);}
+for(let j=0;j<profile.length-1;j++)for(let i=0;i<N;i++){quad(at(j,1,i),at(j,1,i+1),at(j+1,1,i+1),at(j+1,1,i));quad(at(j,0,i+1),at(j,0,i),at(j+1,0,i),at(j+1,0,i+1));}
+for(let i=0;i<N;i++){quad(at(0,0,i),at(0,0,i+1),at(0,1,i+1),at(0,1,i));const j=profile.length-1;quad(at(j,0,i+1),at(j,0,i),at(j,1,i),at(j,1,i+1));}
+return {name,vertices,faces};}
+export function generate(p){const errors=validate(p);if(errors.length)throw Error(errors.join(' '));const R=p.diameter/2-6,c=p.clearance,h=p.height;const z=[0,h/2,h],ridge=[R-1.8,R,R-1.8];return [annulus('Inner rotor',z.map((v,i)=>[v,a=>p.hole/2+p.grip*(1-Math.cos(p.lobes*a))/2,()=>ridge[i]])),annulus('Outer grip',z.map((v,i)=>[v,()=>ridge[i]+c,a=>p.diameter/2-p.grip*(1-Math.cos(p.lobes*a))/2]))];}
+export function binarySTL(parts){const count=parts.reduce((n,p)=>n+p.faces.length,0),buffer=new ArrayBuffer(84+count*50),v=new DataView(buffer);v.setUint32(80,count,true);let off=84;for(const part of parts)for(const face of part.faces){const [a,b,c]=face.map(i=>part.vertices[i]),u=b.map((x,i)=>x-a[i]),w=c.map((x,i)=>x-a[i]),n=[u[1]*w[2]-u[2]*w[1],u[2]*w[0]-u[0]*w[2],u[0]*w[1]-u[1]*w[0]],len=Math.hypot(...n);for(const x of [...n.map(x=>x/len),...a,...b,...c]){v.setFloat32(off,x,true);off+=4;}off+=2;}return buffer;}
+export function mechanical(p){const R=p.diameter/2-6;return {radialGap:p.clearance,minimumRotatedGap:p.clearance-R*(1-Math.cos(Math.PI/N)),axialRetention:1.8-p.clearance,innerWall:R-1.8-p.hole/2-p.grip,outerWall:6-p.clearance-p.grip,overhangDegrees:Math.atan(3.6/p.height)*180/Math.PI,axialPlayEstimate:p.clearance*p.height/3.6};}
+export function coupon(p){return generate({...p,diameter:44,height:8,hole:16,grip:0,lobes:8});}

@@ -9,7 +9,7 @@ Fresh continuation of [Daily App Lab](https://xianghui.github.io/daily-app/), re
 
 ## Builder workflow
 
-Hourly (Asia/Singapore), using the existing Daily App Builder cron job and model. Create `YYYYMMDD-N/`, scaffold React + Vite, install gh-pages, set Vite base to `/daily-app2/YYYYMMDD-N/`, and implement a useful mobile-friendly parametric STL generator for 3D printing. This replaces game generation from 2026-10-20 onward; existing games remain untouched.
+Hourly (Asia/Singapore), using the existing Daily App Builder cron job and model. Create `YYYYMMDD-N/`, scaffold React + Vite, install gh-pages, set Vite base to `/daily-app2/YYYYMMDD-N/`, and implement a mobile-friendly parametric STL generator specifically for 3D-printable physical fidget toys. This replaces game generation from 2026-10-20 onward; existing games remain untouched.
 
 Each app retains `predeploy: npm run build` and `deploy: gh-pages -d dist`. Validate actual STL generation/export, printable mesh topology, dimensions in millimeters, parameter limits, and mobile UX before adding its entry to `const APPS` in the root gallery. Check the original gallery for previously used ideas, but do not build or write into the original tree.
 
@@ -33,3 +33,11 @@ Each new app must offer meaningful dimension/shape controls, sensible presets, a
 Verify default and representative parameter extremes by parsing actual exported STL: finite coordinates, expected bounding dimensions, nondegenerate triangles, consistent winding, positive volume, and closed-manifold edge incidence after welding coincident vertices. Exercise a real browser download and phone layout. Do not claim physical print testing unless performed.
 
 Gallery entries use `area:"stl"`, labeled "STL Generators"; preserve earlier entries and their true categories. The daily digest labels each app by its actual type and covers both collections during transition.
+
+## Fidget focus (2026-10-20)
+
+Future generators focus exclusively on physical fidget toys: sliders, spinners, rings, rollers, ratchets, articulated chains, hinges, compliant clickers, and tactile worry toys. Each app should offer a distinct tactile interaction or mechanism rather than a cosmetic variation. Existing apps retain their original categories.
+
+Customize ergonomic size/shape, texture, and mechanism-specific dimensions and clearances in millimeters. Favor support-free, hardware-free, print-in-place mechanisms when feasible; otherwise provide all parts, assembly instructions, and explicit hardware sizes/quantities. Provide printer/material-dependent fit presets and calibration guidance; do not assume universal tolerances.
+
+Keep moving components separate and individually manifold. Check clearances, collisions, retention, movement limits, and release/assembly feasibility at representative settings in addition to STL mesh validation. Preview/export must agree. Geometry validation does not establish that a fidget was physically printed or feels a particular way; describe physical testing only if performed. The digest labels these apps "Fidget STL Generator" without relabeling prior general-purpose generators.

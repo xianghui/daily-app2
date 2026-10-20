@@ -1,0 +1,13 @@
+export const defaults={length:64,width:44,height:10,dish:3,relief:0.65,rings:6,shape:2};
+export const fields=[['length','Palm length',36,90,1,'mm'],['width','Palm width',24,64,1,'mm'],['height','Rim height',6,16,.2,'mm'],['dish','Thumb dish depth',1,6,.1,'mm'],['relief','Ripple relief',.2,1.2,.05,'mm'],['rings','Ripple count',3,10,1,'rings'],['shape','Outline fullness',2,3,.1,'ratio']];
+export function validate(p){const errors=[];for(const[k,label,min,max]of fields){if(!Number.isFinite(p[k])||p[k]<min||p[k]>max)errors.push(`${label}: enter ${min}–${max}.`)}if(!Number.isInteger(p.rings))errors.push('Ripple count must be a whole number.');if(p.width>p.length)errors.push('Palm width must not exceed length.');if(p.height-p.dish-p.relief<2.4)errors.push('Increase height or reduce dish/relief: minimum floor must be at least 2.4 mm.');if(p.width/(2*p.rings)<1.8)errors.push('Ripple pitch must be at least 1.8 mm: increase width or reduce count.');return errors;}
+export function generate(input,coupon=false){let p={...input};if(coupon)p={...p,length:36,width:24,height:6,dish:1, rings:3};const errors=validate(p);if(errors.length)throw Error(errors.join(' '));
+ const N=192,R=128,vertices=[],faces=[];const add=(x,y,z)=>{vertices.push([x,y,z]);return vertices.length-1};const tri=(a,b,c)=>faces.push([a,b,c]);
+ const top=r=>p.height-p.dish*(1-r*r)-p.relief*Math.sin(Math.PI*r*p.rings)**2*Math.sin(Math.PI*r)**2;
+ const center=add(0,0,top(0));let prev=[];
+ for(let j=1;j<=R;j++){let ring=[],r=j/R;for(let i=0;i<N;i++){const t=i*2*Math.PI/N,c=Math.cos(t),s=Math.sin(t),e=2/p.shape;ring.push(add(r*p.length/2*Math.sign(c)*Math.abs(c)**e,r*p.width/2*Math.sign(s)*Math.abs(s)**e,top(r)));}
+ for(let i=0;i<N;i++){let n=(i+1)%N;if(j===1)tri(center,ring[i],ring[n]);else {tri(prev[i],ring[i],ring[n]);tri(prev[i],ring[n],prev[n]);}}prev=ring;}
+ const bottom=add(0,0,0),br=prev.map(v=>add(vertices[v][0],vertices[v][1],0));for(let i=0;i<N;i++){let n=(i+1)%N;tri(bottom,br[n],br[i]);tri(prev[i],br[i],br[n]);tri(prev[i],br[n],prev[n]);}
+ return {vertices,faces,size:[p.length,p.width,p.height],parameters:p,floor:p.height-p.dish-p.relief,pitch:p.width/(2*p.rings)};
+}
+export function binarySTL(mesh){const {vertices:v,faces:f}=mesh,bytes=new Uint8Array(84+50*f.length),d=new DataView(bytes.buffer);new TextEncoder().encodeInto('Stillwater | millimeters | one closed tactile worry stone',bytes.subarray(0,80));d.setUint32(80,f.length,true);f.forEach((face,i)=>{const [a,b,c]=face.map(x=>v[x]),u=b.map((x,k)=>x-a[k]),w=c.map((x,k)=>x-a[k]),n=[u[1]*w[2]-u[2]*w[1],u[2]*w[0]-u[0]*w[2],u[0]*w[1]-u[1]*w[0]],len=Math.hypot(...n);let o=84+i*50;for(const x of [...n.map(x=>x/len),...a,...b,...c]){d.setFloat32(o,x,true);o+=4;}});return bytes;}

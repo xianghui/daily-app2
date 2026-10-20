@@ -52,7 +52,7 @@
 <div class="app">
   <div class="header">
     <h1>Daily App Lab 2</h1>
-    <div class="tagline">Mobile-first mini games, newest first</div>
+    <div class="tagline">Parametric STL generators for 3D printing, plus the original app collection</div>
     <div class="stats">
       <div class="stat"><div class="stat-val" id="total-apps">0</div><div class="stat-label">Apps</div></div>
       <div class="stat"><div class="stat-val" id="total-saas">0</div><div class="stat-label">SaaS</div></div>
@@ -68,6 +68,7 @@
 <script>
 const BASE_URL='https://xianghui.github.io/daily-app2/';
 const APPS=[
+  {folder:"20261020-13",name:"Wedge Works",area:"stl",desc:"Customize a printable door wedge with adjustable dimensions and grip grooves. Interactive 3D preview and local binary STL export."},
   {folder:"20261020-12",name:"Moonlit Matinee",area:"game",desc:"Arrange woodland performers from before, adjacency, and spacing clues. Six untimed, uniquely solvable lineup puzzles with large tap controls, hints, optional sound, and saved best festival scores."},
   {folder:"20261020-11",name:"Last Ferry Florist",area:"game",desc:"Arrange bouquet wrapping jobs before their ferry deadlines. Sacrifice small tips to save bigger ones across six untimed departures, compare with exact optimal arrangements, and chase a saved best shift. Touch-first, optional sound, and offline play."},
   {folder:"20261020-10",name:"Odds Atelier",area:"game",desc:"Sculpt six die faces to beat the house with exact odds. Redistribute a pip budget across six untimed commissions, discover optimal designs, and chase a saved best edition. Touch-first, optional sound, and offline play."},
@@ -87,8 +88,8 @@ const d=document;
 const sections=d.getElementById('sections');
 const search=d.getElementById('search');
 
-const areaOrder=['game','saas'];
-const areaLabels={game:'Mini Games',saas:'SaaS Apps'};
+const areaOrder=['stl','game','saas'];
+const areaLabels={stl:'STL Generators',game:'Mini Games',saas:'SaaS Apps'};
 
 d.getElementById('total-apps').textContent=APPS.length;
 d.getElementById('total-saas').textContent=APPS.filter(a=>a.area==='saas').length;
@@ -115,7 +116,7 @@ function renderApps() {
   const filtered=APPS.filter(app => !q || [app.folder, app.name, app.desc, app.area].join(' ').toLowerCase().includes(q));
   sections.innerHTML='';
   if (!filtered.length) {
-    sections.innerHTML='<div class="empty">No games yet, or no games match your search.</div>';
+    sections.innerHTML='<div class="empty">No apps match your search.</div>';
     return;
   }
 

@@ -1,0 +1,8 @@
+export const defaults={length:52,diameter:26,waist:2,grip:0.65,ribs:12};
+export const ranges={length:[32,80,1],diameter:[18,40,1],waist:[0,3,0.1],grip:[0,1.2,0.05],ribs:[6,20,2]};
+export function validate(p){for(const [k,[min,max]] of Object.entries(ranges)){if(!Number.isFinite(p[k])||p[k]<min||p[k]>max)return `${k} must be ${min}–${max} ${k==='ribs'?'ribs':'mm'}.`;} if(!Number.isInteger(p.ribs)||p.ribs%2)return 'Choose an even whole rib count.';return '';}
+export function generate(p){const err=validate(p);if(err)throw Error(err); const N=160,M=160,v=[],f=[];for(let j=0;j<=M;j++){let z=p.length*j/M,t=j/M,s=Math.sin(Math.PI*t)**2,bevel=0.8*Math.max(0,1-Math.min(z,p.length-z)/1.2);for(let i=0;i<N;i++){let a=2*Math.PI*i/N,r=p.diameter/2-p.waist*s-p.grip*(1-Math.cos(p.ribs*a))/2*s-bevel;v.push([r*Math.cos(a),r*Math.sin(a),z]);}}
+for(let j=0;j<M;j++)for(let i=0;i<N;i++){let a=j*N+i,b=j*N+(i+1)%N,c=b+N,d=a+N;f.push([a,b,d],[b,c,d]);}
+const bottom=v.length;v.push([0,0,0]);const top=v.length;v.push([0,0,p.length]);for(let i=0;i<N;i++){let next=(i+1)%N;f.push([bottom,next,i],[top,M*N+i,M*N+next]);}
+const min=[0,1,2].map(k=>Math.min(...v.map(x=>x[k]))),max=[0,1,2].map(k=>Math.max(...v.map(x=>x[k])));return {v,f,dimensions:max.map((x,k)=>x-min[k])};}
+export function binarySTL(mesh){let b=new ArrayBuffer(84+mesh.f.length*50),d=new DataView(b);d.setUint32(80,mesh.f.length,true);mesh.f.forEach((face,i)=>{let [a,c,e]=face.map(x=>mesh.v[x]),u=c.map((x,k)=>x-a[k]),v=e.map((x,k)=>x-a[k]),n=[u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0]],len=Math.hypot(...n),off=84+i*50;[...n.map(x=>x/len),...a,...c,...e].forEach((x,k)=>d.setFloat32(off+k*4,x,true));});return b;}

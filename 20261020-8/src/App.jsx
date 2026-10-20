@@ -1,0 +1,36 @@
+import {useState} from 'react';
+import {TEAS,makeRound,roundScore,teaName} from './game';
+import './App.css';
+const KEY='tea-leaf-society-best';
+const readBest=()=>{try{return Number(localStorage.getItem(KEY))||0}catch{return 0}};
+function Cup({tea}){return <span className={`tea-art ${tea.rose?'rose':'mint'}`} aria-hidden="true"><span className="steam">{tea.hot?'≈':'❄'}</span><span className="cup"><span className="liquid"/><span className="sugar">{tea.sweet?'◆ ◆':'—'}</span></span></span>}
+export default function App(){
+ const [round,setRound]=useState(()=>makeRound(0)),[index,setIndex]=useState(0),[score,setScore]=useState(0),[best,setBest]=useState(readBest),[started,setStarted]=useState(false),[done,setDone]=useState(false),[help,setHelp]=useState(false),[sound,setSound]=useState(false),[message,setMessage]=useState('Two complimentary samples are on the tray.'),[flash,setFlash]=useState(0);
+ function chime(good){if(!sound)return;try{const C=window.AudioContext||window.webkitAudioContext;const ctx=new C();const osc=ctx.createOscillator(),gain=ctx.createGain();osc.connect(gain);gain.connect(ctx.destination);osc.type='sine';osc.frequency.setValueAtTime(good?660:220,ctx.currentTime);osc.frequency.exponentialRampToValueAtTime(good?990:165,ctx.currentTime+.18);gain.gain.setValueAtTime(.07,ctx.currentTime);gain.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.3);osc.start();osc.stop(ctx.currentTime+.3);osc.onended=()=>ctx.close()}catch{/* Sound is optional. */}}
+ function probe(id){if(round.solved||round.seen.includes(id))return;const yes=round.answer.test(TEAS[id]);setRound({...round,seen:[...round.seen,id],probes:round.probes+1});setMessage(`${teaName(TEAS[id])}: ${yes?'accepted by':'rejected by'} the society.`);setFlash(f=>f+1);chime(yes)}
+ function guess(rule){if(round.solved||round.wrong.includes(rule.id))return;
+ if(rule.id===round.answer.id){const earned=roundScore(round),next=score+earned;setScore(next);setRound({...round,solved:true});setMessage(`Beautiful deduction. +${earned} points!`);if(next>best){setBest(next);try{localStorage.setItem(KEY,String(next))}catch{/* Private storage may be unavailable. */}}chime(true)}
+ else {const witness=TEAS.find(t=>rule.test(t)!==round.answer.test(t));setRound({...round,seen:[...new Set([...round.seen,witness.id])],wrong:[...round.wrong,rule.id]});setMessage(`Not quite. ${teaName(witness)} is ${round.answer.test(witness)?'accepted':'rejected'} — a counterexample. −40 points.`);chime(false)}
+ setFlash(f=>f+1)
+ }
+ function next(){if(index===4){setDone(true);return}setIndex(index+1);setRound(makeRound(index+1));setMessage('A new host, a new secret rule. Two samples are free.')}
+ function restart(){setRound(makeRound(0));setIndex(0);setScore(0);setDone(false);setMessage('A fresh tasting. Two complimentary samples are ready.')}
+ return <main>
+ <header><a href="../" className="back">← Collection</a><button className="quiet" onClick={()=>setSound(!sound)} aria-pressed={sound}>Sound {sound?'on':'off'}</button></header>
+ <div className="brand"><span className="eyebrow">THE MIDNIGHT TASTING CLUB</span><h1>Tea Leaf<br/><em>Society</em><span className="seal" aria-hidden="true">茶</span></h1><p>A little evidence. A lovely deduction.</p></div>
+ <div className="stats"><div><small>TASTING</small><strong>{index+1}<span> / 5</span></strong></div><div><small>SCORE</small><strong>{score}</strong></div><div><small>PERSONAL BEST</small><strong>{best}</strong></div></div>
+ {!started?<section className="welcome"><div className="hero-cups">{[3,4,7].map(id=><Cup key={id} tea={TEAS[id]}/>)}</div><h2>You’re invited.</h2><p>Our host accepts only certain teas. Find their secret rule from four possibilities.</p><ol><li><b>Read the samples.</b> ✓ means accepted; × means rejected.</li><li><b>Test a blend.</b> Each new sample costs 15 points.</li><li><b>Choose the rule.</b> Wrong guesses cost 40. No clock, no rush.</li></ol><p className="fine">Five tastings · Up to 750 points · Works offline after first visit</p><button className="primary" onClick={()=>setStarted(true)}>Take a seat <span>→</span></button></section>:
+ done?<section className="welcome finish"><span className="eyebrow">THE SOCIETY’S VERDICT</span><div className="medal">✧</div><h2>{score>=600?'Master of the leaves':score>=400?'A discerning palate':'A promising apprentice'}</h2><p>Five hosts. Five secrets uncovered.</p><div className="final-score">{score}<small> / 750 points</small></div><p>{score===best?'Your best tasting yet.':'Your next perfect deduction is brewing.'}</p><button className="primary" onClick={restart}>Another tasting →</button></section>:
+ <>
+ <section className="tray"><div className="section-head"><h2>The tasting tray</h2><button className="quiet" onClick={()=>setHelp(!help)} aria-expanded={help}>How to play {help?'−':'+'}</button></div>
+ {help&&<div className="help"><p>Every cup has three traits: <b>rose / mint</b>, <b>hot / iced</b>, and <b>sweet / plain</b>. Tap an untested cup to learn whether it fits the hidden rule. Then choose the only rule that matches <b>all</b> the evidence.</p><p>AND requires both traits. OR accepts either or both, unless “not both” is stated. A wrong guess reveals a counterexample. A tasting earns 150 − 15 per extra test − 40 per wrong guess, minimum 20.</p></div>}
+ <p className="sub">Tap an untested blend to gather evidence.</p><div className="tea-grid">{TEAS.map(tea=>{const seen=round.seen.includes(tea.id),yes=round.answer.test(tea);return <button key={tea.id} className={`tea-tile ${seen?(yes?'accepted':'rejected'):''}`} onClick={()=>probe(tea.id)} disabled={seen||round.solved} aria-label={`${teaName(tea)}: ${seen?(yes?'accepted':'rejected'):'untested, test for 15 points'}`}><Cup tea={tea}/><b>{tea.rose?'Rose':'Mint'}</b><span>{tea.hot?'Hot':'Iced'} · {tea.sweet?'Sweet':'Plain'}</span><strong className="result">{seen?(yes?'✓ Yes':'× No'):'Test −15'}</strong></button>})}</div>
+ <div className="tray-foot"><span>✓ Accepted &nbsp; × Rejected</span><span>{round.probes} extra test{round.probes!==1?'s':''}</span></div></section>
+ <div className={`message ${round.solved?'success':''}`} role="status" key={flash}>{message}</div>
+ <section className="hypotheses"><div className="section-head"><h2>{round.solved?'Secret uncovered':'What’s the secret rule?'}</h2><span className="points">{roundScore(round)} pts</span></div><p className="sub">{round.solved?'All the evidence fits. Nicely done.':'Choose the rule that fits every tested cup.'}</p><div className="rule-list">{round.options.map((rule,i)=><button key={rule.id} className={`rule ${round.solved&&rule.id===round.answer.id?'correct':''}`} disabled={round.solved||round.wrong.includes(rule.id)} onClick={()=>guess(rule)}><span className="rule-letter">{String.fromCharCode(65+i)}</span><span>{rule.label}</span><span className="rule-mark">{round.wrong.includes(rule.id)?'×':round.solved&&rule.id===round.answer.id?'✓':'→'}</span></button>)}</div></section>
+ {round.solved&&<button className="primary next" onClick={next}>{index===4?'See your invitation':'Meet the next host'} →</button>}
+ <div className="bottom"><span>Untimed. Stay curious.</span><button className="quiet" onClick={()=>{setHelp(false);restart()}}>Restart tasting</button></div>
+ </>}
+ <footer>EST. 2026 <span>✦</span> STEEPED IN CURIOSITY</footer>
+ </main>
+}

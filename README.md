@@ -50,3 +50,13 @@ Every future generator must support PNG/JPEG images and ASCII/binary STL through
 - STL: preview dimensions, confirm millimeter scale because STL is unitless, transform and integrate the mesh into a mechanically meaningful fidget part. Use valid solid operations or clearly defined separate printable/assembled parts; preserve motion clearances. Reject unsupported/nonmanifold input unless a verified repair path exists.
 - Keep files local; no external uploads or personal-input files in Git. Bound file size, pixels, triangles, resolution, and transforms. Provide clear errors, progress and replace/remove/reset controls plus synthetic sample fixtures.
 - Verify real browser imports for PNG, JPEG, binary STL and ASCII STL. Prove imported content and transformations affect exported geometry, exercise malformed/excessive input, and run existing topology, dimensions and mechanism checks on both import-derived output paths. The digest describes only implemented import features.
+
+## Vaseverse-inspired design studio (2026-10-21)
+
+Use [Vaseverse](https://vaseverse.org/) as a visual/interaction reference for future apps while retaining the fidget focus, both image and STL imports, existing artifact validation, and the current publishing contract. This is original design work, not a clone or affiliation. Existing apps are not redesigned automatically.
+
+- Model-first studio: large live 3D canvas, compact desktop right rail, slim header, persistent STL export; phone layout uses a useful preview and collapsible/tabbed bottom controls.
+- Warm ivory/sand surfaces, terracotta accents, restrained typography, rounded controls, soft shadows, matte tactile materials, visible millimeter dimensions, and preview colour swatches. STL is geometry-only.
+- Group Shape, Mechanism, Surface, Import, and Print/Export controls. Provide at least three real preset thumbnails, mechanically constrained random variations, and printable ribs/waves/fluting/grooves or imported image relief.
+- Support live geometry editing, undo/redo, and local JSON save/open. Restore imported assets through a bounded portable payload or explicit file reattachment. Provide part-specific STL downloads and an all-parts ZIP when relevant; distinguish assembled preview from export layout.
+- Verify all controls, preset/randomized outputs, phone/desktop layout, undo/save/reopen and actual part exports alongside existing import/mesh/mechanism tests. Prioritize working modeling/import/export over optional AR, 3MF or cloud features; no fake controls, slicer estimates, or unsupported print-ready claims.

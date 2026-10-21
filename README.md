@@ -9,7 +9,7 @@ Fresh continuation of [Daily App Lab](https://xianghui.github.io/daily-app/), re
 
 ## Builder workflow
 
-Hourly (Asia/Singapore), using the existing Daily App Builder cron job and model. Create `YYYYMMDD-N/`, scaffold React + Vite, install gh-pages, set Vite base to `/daily-app2/YYYYMMDD-N/`, and implement a mobile-friendly parametric STL generator specifically for 3D-printable physical fidget toys. This replaces game generation from 2026-10-20 onward; existing games remain untouched.
+Hourly (Asia/Singapore), using the existing Daily App Builder cron job and model. Create `YYYYMMDD-N/`, scaffold React + Vite, install gh-pages, set Vite base to `/daily-app2/YYYYMMDD-N/`, and implement a mobile-friendly parametric STL generator specifically for 3D-printable physical fidget toys with both image and STL import. This replaces game generation from 2026-10-20 onward; existing games remain untouched.
 
 Each app retains `predeploy: npm run build` and `deploy: gh-pages -d dist`. Validate actual STL generation/export, printable mesh topology, dimensions in millimeters, parameter limits, and mobile UX before adding its entry to `const APPS` in the root gallery. Check the original gallery for previously used ideas, but do not build or write into the original tree.
 
@@ -41,3 +41,12 @@ Future generators focus exclusively on physical fidget toys: sliders, spinners, 
 Customize ergonomic size/shape, texture, and mechanism-specific dimensions and clearances in millimeters. Favor support-free, hardware-free, print-in-place mechanisms when feasible; otherwise provide all parts, assembly instructions, and explicit hardware sizes/quantities. Provide printer/material-dependent fit presets and calibration guidance; do not assume universal tolerances.
 
 Keep moving components separate and individually manifold. Check clearances, collisions, retention, movement limits, and release/assembly feasibility at representative settings in addition to STL mesh validation. Preview/export must agree. Geometry validation does not establish that a fidget was physically printed or feels a particular way; describe physical testing only if performed. The digest labels these apps "Fidget STL Generator" without relabeling prior general-purpose generators.
+
+## Image and STL import focus (2026-10-21)
+
+Every future generator must support PNG/JPEG images and ASCII/binary STL through a local file picker (plus desktop drag/drop where supported). Imports are a core customization workflow and must change the actual exported fidget geometry, not merely decorate the preview or pass through an unchanged mesh. Earlier apps are not retroactively converted by this requirement.
+
+- Images: provide documented silhouette extrusion or height-map relief on a solid fidget part, preview, crop/fit, threshold or relief settings, millimeter size, depth/thickness, and placement where relevant. Do not claim full 3D reconstruction from one photo.
+- STL: preview dimensions, confirm millimeter scale because STL is unitless, transform and integrate the mesh into a mechanically meaningful fidget part. Use valid solid operations or clearly defined separate printable/assembled parts; preserve motion clearances. Reject unsupported/nonmanifold input unless a verified repair path exists.
+- Keep files local; no external uploads or personal-input files in Git. Bound file size, pixels, triangles, resolution, and transforms. Provide clear errors, progress and replace/remove/reset controls plus synthetic sample fixtures.
+- Verify real browser imports for PNG, JPEG, binary STL and ASCII STL. Prove imported content and transformations affect exported geometry, exercise malformed/excessive input, and run existing topology, dimensions and mechanism checks on both import-derived output paths. The digest describes only implemented import features.

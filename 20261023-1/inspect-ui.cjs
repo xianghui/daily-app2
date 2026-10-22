@@ -1,0 +1,1 @@
+const{chromium}=require('@playwright/test');(async()=>{const b=await chromium.launch(),p=await b.newPage({viewport:{width:1440,height:1000}});await p.goto('http://127.0.0.1:5273/daily-app2/20261023-1/');await p.waitForFunction(()=>!document.querySelector('.download').disabled);await p.screenshot({path:'desktop-validation.png',fullPage:true});await b.close()})()

@@ -23,7 +23,7 @@ All numeric inputs are bounded and impossible/nonfinite settings block export. V
 
 ## Image import
 
-PNG/JPEG contwelvet is checked before decode: maximum 2 MB, 12 MP, 6,000 pixels per side. Transparent pixels composite over white. The portable preview is normalized to at most 500 pixels on either side; the same normalized source is used before and after save/open. Fit/cover plus ±25% crop shifts feed a 20×20 luminance grid (0.2126R+0.7152G+0.0722B). Threshold 1–254 produces stepped raised silhouette heights; grayscale mode maps darkness to height. Heights are triangulated over a continuous 0.4 mm backing, closed with boundary walls and a bottom, then robustly unioned into the stationary tab with 0.15 mm overlap. Relief depth 0.4–3 mm. This is **2D-to-relief**, not full 3D reconstruction from one photo. All-white/empty relief blocks export.
+PNG/JPEG content is checked before decode: maximum 2 MB, 12 MP, 6,000 pixels per side. Transparent pixels composite over white. The portable preview is normalized to at most 500 pixels on either side; the same normalized source is used before and after save/open. Fit/cover plus ±25% crop shifts feed a 20×20 luminance grid (0.2126R+0.7152G+0.0722B). Threshold 1–254 produces stepped raised silhouette heights; grayscale mode maps darkness to height. Heights are triangulated over a continuous 0.4 mm backing, closed with boundary walls and a bottom, then robustly unioned into the stationary tab with 0.15 mm overlap. Relief depth 0.4–3 mm. This is **2D-to-relief**, not full 3D reconstruction from one photo. All-white/empty relief blocks export.
 
 ## STL import
 
@@ -33,7 +33,7 @@ Source dimensions and source 3D view remain available. Footprint 4–7 mm scales
 
 ## Assembly and printing
 
-Print twelve parts with broad faces down, pins upward, without intwelveded supports. Start with PLA or PETG, 0.4 mm nozzle, 0.16–0.20 mm layers, four walls. No bearings, magnets, screws or other hardware. Export a socket coupon first and test on a Ø3.6 mm shoulder peg. Start at 0.35 mm bearing clearance and −0.03 mm radial socket allowance; fits depend on machine, material and slicer. Caps have 0.02–0.16 mm diametral interference and must seat on shoulders, never squeeze moving faces. Adjust and reprint rather than force a tight cap.
+Print twelve parts with broad faces down, pins upward, without intended supports. Start with PLA or PETG, 0.4 mm nozzle, 0.16–0.20 mm layers, four walls. No bearings, magnets, screws or other hardware. Export a socket coupon first and test on a Ø3.6 mm shoulder peg. Start at 0.35 mm bearing clearance and −0.03 mm radial socket allowance; fits depend on machine, material and slicer. Caps have 0.02–0.16 mm diametral interference and must seat on shoulders, never squeeze moving faces. Adjust and reprint rather than force a tight cap.
 
 1. Fit upper-radius onto the base axle O, then lower-radius above it; seat origin-cap.
 2. Fit upper-inner onto A (upper-radius end), then lower-inner onto B (lower-radius end). Their other ends meet at C; seat inner-cap.
@@ -46,9 +46,9 @@ The exported print layout is separate from assembly. Pins stand vertically; no b
 
 ## Validation and limitations
 
-`validate.mjs` independently parses exported binary STL, checks finite coordinates/normals, nondegenerate triangles, matching dimensions, bed Z=0, welded edge incidence exactly two, opposite edge winding, connected components and positive enclosed volume. All intwelveded parts are checked separately. The solid kernel performs CSG rather than exporting intersecting visual shells.
+`validate.mjs` independently parses exported binary STL, checks finite coordinates/normals, nondegenerate triangles, matching dimensions, bed Z=0, welded edge incidence exactly two, opposite edge winding, connected components and positive enclosed volume. All intended parts are checked separately. The solid kernel performs CSG rather than exporting intersecting visual shells.
 
-Checks include default/minimum/maximum, all 128 bound combinations, three presets and deterministic variations; image and both STL sample outputs; analytic link closure, the reciprocal inversion relation, retwelvetion and clearances; and sampled real solid intersections over the two-angle motion window (intwelveded cap/peg press fits excluded). Separate print-layout bounding boxes are checked for overlap. These are digital geometry/mechanism checks, **not physical print tests**. Friction, wear, press-fit retwelvetion and tactile quality still require a real calibration print.
+Checks include default/minimum/maximum, all 128 bound combinations, three presets and deterministic variations; image and both STL sample outputs; analytic link closure, the reciprocal inversion relation, retention and clearances; and sampled real solid intersections over the two-angle motion window (intended cap/peg press fits excluded). Separate print-layout bounding boxes are checked for overlap. These are digital geometry/mechanism checks, **not physical print tests**. Friction, wear, press-fit retention and tactile quality still require a real calibration print.
 
 Browser scripts exercise real pickers/downloads, PNG and JPEG changes, ASCII/binary STL transforms and confirmation, malformed/open/nonmanifold/excessive files, empty silhouettes, reset/remove, presets/variations, exact preview/export signatures, portable JSON and undo/redo, ZIP/parts/coupon, phone touch orbit/pinch and 320/390 pixel layouts. Reports and screenshots are included after running. Worker bounds keep generation responsive; unsupported input is rejected before heavy solid work.
 

@@ -31,3 +31,9 @@ Root `npm run predeploy` packaged **105 apps, zero failures/skips**. Root deploy
 Build advisories: Vite externalizes Manifold's Node-only module branch and reports its >500 kB Three.js/React bundle. Bundled browser WASM is exercised by the browser tests. npm install reported zero vulnerabilities; an optional fsevents install-script warning was observed (Vite starts and builds successfully).
 
 Machine-readable results: geometry-validation.json, browser-validation.json, extra-validation.json, mobile-sheet-validation.json and gallery-validation.json. Production/live verification is recorded separately as completed.
+
+## Publication observed
+
+Production-bundle browser suite passed with **23 validated downloads**, zero app runtime errors, zero remote processing requests, malformed-file recovery and phone touch tests. GitHub Pages workflow [39984227763](https://github.com/xianghui/daily-app2/actions/runs/39984227763) concluded **success** after the root deploy.
+
+The public [Facet Drift studio](https://xianghui.github.io/daily-app2/20261024-1/) loaded successfully, converted its bundled PNG locally, and downloaded a closed-manifold positive-volume STL. The public root gallery showed Facet Drift newest. See public-validation.json for the live test's exported dimensions and results.

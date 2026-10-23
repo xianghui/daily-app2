@@ -12,3 +12,5 @@
 - Root monorepo build: 97 apps, zero failed or skipped; root HTML and all 97 deploy app paths verified.
 
 Detailed machine-readable reports accompany the source. No physical print, FEA, force, material strain, elastic-return or durability test was performed. Analytical rigid-leaf envelopes and uniform-curvature estimates are guides, not proof of dynamic behavior or fatigue life. Calibrate TPU with Soft Leaf and a gentle 15° trial; do not crease or force full closure.
+
+GitHub Pages deployment run 39922246074 completed successfully. Live public page verified: PNG sample import, actual downloaded STL manifold/volume/bounds checks, newest gallery entry, no failed requests or runtime errors. Initial propagation 404 resolved after deployment completion.

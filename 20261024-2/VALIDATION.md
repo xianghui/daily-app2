@@ -16,3 +16,5 @@ Root gallery/build/deploy and public checks are recorded in their generated vali
 ## Publication checks
 
 Root gallery inline scripts compiled with Node `new Function`; exactly one newest STL entry, all 105 earlier entries retained, search/rendering passed without runtime errors. Root predeploy assembled all 106 app folders plus the matching root index; zero failed/skipped builds. Root `npm run deploy` reported Published. Full browser import/export suite also passed against the built production bundle (`production-browser-validation.json`).
+
+Public GitHub Pages verification passed after propagation: app and gallery render without runtime errors or failed requests; the public app loads a local sample image and downloads a closed-manifold, outward-wound, positive-volume STL. See `public-validation.json`.

@@ -9,3 +9,7 @@
 - Tests repeated against built production bundle. Reports and desktop/mobile screenshots included.
 - Build emits nonblocking bundle-size and Manifold node:module externalization notices; production WASM/worker/browser tests pass. npm audit reports zero vulnerabilities.
 - No physical print, acoustic, closure-retention, fatigue or durability testing performed. Clearances require printer/material calibration.
+
+## Publication verification
+
+Root `npm run deploy` returned Published. GitHub Pages source remains `gh-pages` at `/`; deployment run 40037747759 completed successfully. Public https://xianghui.github.io/daily-app2/20261024-8/ loads, imports the PNG sample locally, downloads a manifold generated STL, and the public gallery lists Hush Chamber first. Zero public runtime errors or failed asset requests. See public-validation.json.

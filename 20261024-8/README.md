@@ -1,0 +1,34 @@
+# Hush Chamber
+
+A browser-based parametric inertial clapper fidget studio. Shake, tilt and settle a loose hexagonal puck inside a vented palm chamber. Unlike earlier bearing, captive-track or compliant designs, the unconstrained clapper makes repeated wall contact. Three individually printable solids: chamber, clapper and inverted seating lid.
+
+## Studio
+React + Vite, Three.js orbit/zoom/fit, Manifold WASM solid booleans, fflate ZIP. All dependencies bundled locally. No accounts, APIs, CDN or uploads. Model-first ivory/clay editor with right rail, mobile collapsible controls, real geometry thumbnails, three presets, bounded variations, live modeling, selection, preview colours, undo/redo and portable JSON save/open. Design direction: https://vaseverse.org/ ; fetched page revealed warm earth tones and a browser generator; original UI, no copied branding/assets/source. STL has no colour. Assembled pose is illustrative, not rigid-body simulation; printable/export layout is separate. Both previews use the exact export meshes.
+
+## Geometry and dimensions (all mm)
+Chamber interior width 22–30, length 28–40, wall height 10–16. Floor/side walls 2; clapper diameter 8–12, thickness 5; lid plate 2, seating skirt wall 1.5, depth 2.5. Lid seating clearance 0.12–0.30 per side. Palm dimple subtraction depth 0–0.6, palm thickness 2.4, center well depth 0.8. Rounded 2 mm exterior corners, four 3 × 3 wall vent windows and three 3 mm circular lid vents, diagonal 4.24 < clapper minimum caliper 5. Planar lid requires external restraint during shaking: positive clearance does NOT make a friction lock. Minimum vertical clapper travel 0.5. Grip safe radius 6.5; 15.5 minimum separation from chamber wall. All solids CSG-unioned, no overlapping shells posing as unions. Free bodies remain separate.
+
+## Image workflow
+PNG/JPEG picker on desktop/phones or single-file drag/drop. File maximum 2 MiB; image header checked before decode: ≤12 MP and ≤6000 pixels per side. Synthetic mark.png and waves.jpg bundled, generated for this studio family, no third-party assets.
+
+Images normalized locally to ≤500 px side and sampled as a bounded 20×20 luminance grid, composited onto white (including alpha). Contain or cover/crop, ±25% X/Y shift. Threshold 1–254 produces two-height silhouette relief; grayscale maps darkness continuously to height. Relief 0.4–3 on a continuous 0.4 backing. Grid triangles, closed sidewalls and bottom create a solid unioned 0.15 into palm floor. Empty white conversions rejected. This is 2D-to-relief, NOT automatic 3D reconstruction. Source and exact grid preview shown. Footprint 4–7, Z rotation ±180°, offsets X ±1.5 / Y ±2; unsafe placements blocked. Replacing/removing source and resetting transforms return real geometry to defaults.
+
+## STL workflow
+ASCII and binary .stl, ≤2 MiB and ≤1500 faces. One connected convex outward-wound watertight solid, no self-intersections; per-axis input dimensions 0.2–250. Broad flat Z-down bottom must occupy ≥25% footprint and contain all XY projections. Concave, hollow, overhanging, disconnected, open/nonmanifold or unsupported solids are rejected with actionable messages, never silently repaired. Triangle count, finite coordinates, degeneracy, welded edge incidence/winding, volume, connectivity, intersections, convexity and bottom footprint checked before heavy integration. Synthetic wedge-ascii.stl / gem-binary.stl supplied.
+
+STL has no unit metadata. Explicit mm checkbox required. Source dimensions and local source 3D preview shown. Uniform XY footprint fit 4–7 and independent Z height fit 0.6–5; Z rotation, centering and X/Y offsets available. Minimum fitted XY span 1.2. Robustly unioned to recessed palm landing; the import must connect into exactly one solid and stay inside safe zone. Image or mesh source visibly changes exported chamber. Preview and export share final worker meshes. No personal input files are committed or uploaded.
+
+## Save/export
+Download geometry-only binary STL for all separated parts or individual chamber/clapper/lid. ZIP contains three part STLs and ASSEMBLY.txt. Design JSON explicitly embeds bounded normalized image/pixel data or verified mesh arrays; imported files genuinely restore without hidden server storage. Invalid/missing payloads are rejected. JSON max 2 MiB. Primary STL button disabled during modeling, errors, unconfirmed units or stale geometry. Files processed by a local web worker. History bounded to 35 actions.
+
+## Print / calibration / assembly
+Use bed-flat Z=0 for every part: chamber open upwards, lid skirt upwards. Flip lid to seat skirt down after inserting clapper. No supports; 3 mm vent roofs are small bridges. PLA/PETG chamber/lid; TPU 95A clapper for muted taps, PLA for firmer taps. Start 0.4 nozzle / 0.2 layer and review slicer paths. Print Soft Hex chamber/lid as full-size seating calibration before clapper. Clearances vary with printer/material, not universal.
+
+For shaking, secure lid with ONE elastic band around body/lid or removable tape (not supplied); select a band that holds closure without warping walls, inspect before every use. Hardware-free fallback is upright gentle tilting with thumb physically holding lid. A positive-clearance skirt is only alignment and is not a latch. The vents retain the clapper with lid held shut; unsecured lid can release it. Keep small pieces away from children. No bearings/magnets/screws needed. Avoid force. No physical print, acoustic, lid-retention, fatigue or durability tests performed, and no sound level or print-time claims.
+
+## Reproduce validation
+`npm install`, `npm test`, `npm run predeploy`; `npm run dev -- --host 127.0.0.1 --port 5270`, then `node browser-test.cjs`, `node extra-browser.cjs`, `node mobile-sheet.cjs`.
+
+Mesh tests cover 78 combinations (default, min/max, presets, all 64 range corners, 8 variations), plus 24 imported-output cases. Each part and assembled export parsed independently: finite/nondegenerate faces, stored normals, welded edges exactly twice with opposed winding, positive volume per connected component, expected mm bounds. CSG intersection checks representative assembly poses, all print-layout pairs, empty interior and invariant mechanism geometry outside imported landing. Dimensions/retention/calibration are computational checks, not proof of physical performance. Browser tests exercise actual picker PNG/JPEG and ASCII/binary STL, geometry-changing edits and downloaded STL, invalid/truncated/oversized/open/nonmanifold/concave content, empty relief, replace/remove/reset, phone touch orbit/pinch, 320/390px layout, history, portable import save/open, presets, variations, ZIP parts and colour neutrality. Reports record observed results only.
+
+Per-app deploy scripts retained as required. Public site is published only through root monorepo deploy folder.

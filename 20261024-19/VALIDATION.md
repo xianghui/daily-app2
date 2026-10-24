@@ -1,0 +1,12 @@
+# Observed validation — 2026-10-24
+
+- `npm run predeploy`: passed (local bundled WASM); Vite warns about the large Three.js bundle and conditional `node:module` externalization. Browser runtime is verified separately.
+- `npm test`: 78 parameter cases (default, extrema, 64 corners, presets, 8 variations), 24 import cases and invalid-input assertions passed. Each solid's binary triangles, finite coordinates, normals, welded manifold edge incidence, winding, positive enclosed volume, component count, dimensions and bed contact checked.
+- Mechanism: 37 turn poses and 31 aligned passage poses, crosswise axial obstruction, upper-knob obstruction, disjoint print layout, unchanged toggle under imports and imported-geometry isolation passed for defaults/extrema/presets and import cases. No claim of real contact physics.
+- `browser-test.cjs`: passed actual file-picker PNG/JPEG/ASCII STL/binary STL imports, downloaded STL mesh checks, preview/export equality, content/threshold/depth/scale/crop/placement changes, replacement/removal/reset and per-part exports. Invalid/truncated/open/nonmanifold/concave/oversized files, excessive triangles/pixels, bad dimensions, empty relief and unsafe transforms rejected recoverably with export disabled. Phone picker/download, touch orbit/pinch and 320/390 px bounds passed; no external file-processing requests.
+- `extra-browser.cjs`: passed all three presets and four random variations through actual downloads plus mesh/mechanism checks, undo/redo, portable JSON round trips for all four imports, ZIP contents and both individual meshes, assembled rotation/aligned lift controls, geometry-neutral colours and drag/drop.
+- `mobile-sheet.cjs`: passed 320×740 collapse/expand, all five tabs and export always in viewport. Desktop and phone screenshots retained.
+- `gallery-test.cjs`: passed inline-script compilation, exact-once newest STL entry, all 122 preceding entries preserved and 123 rendered entries with working search and no runtime errors.
+- Root predeploy: 123 built/copied, zero failed/skipped.
+
+Production browser suite passed all 24 actual STL downloads and 10 malformed/excessive file rejections, with zero runtime errors or external processing requests. Public GitHub Pages app, local worker/WASM assets, image and STL customization/export and the 123-entry gallery were verified after deployment. Results are recorded in production-browser-validation.json and public-validation.json. No physical print, force, wear or cycle testing performed. FDM fits and overhang quality need physical calibration.

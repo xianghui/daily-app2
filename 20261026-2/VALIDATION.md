@@ -14,3 +14,9 @@ Run on 2026-10-26 against the actual Vite production output under `/daily-app2/2
 - `node gallery-validate.cjs` and `node gallery-test.cjs`: inline scripts compile, exactly one new STL entry, all 157 previous entries preserved in order, 158 rendered links, search works, STL category first and no runtime errors.
 
 Reports: `*-validation.json`; screenshots: `*-validation.png` and `view-*.png`. Tests use synthetic fixtures only. No physical print, torque, force, friction, wear or fatigue tests performed. Computational validity is not a guarantee of real printer tolerances. Use Pocket Sum and a loose cap allowance for initial calibration.
+
+## Published-site verification
+
+Root monorepo `npm run predeploy` / `npm run deploy` completed successfully: 158 app folders, zero failures/skips, and all 43 new app production files copied byte-for-byte. Public URL: https://xianghui.github.io/daily-app2/20261026-2/
+
+`node publication-test.cjs` passed against GitHub Pages: live app heading, worker/WASM loading, exact default signature, all four PNG/JPEG/ASCII-STL/binary-STL browser imports, independently parsed actual STL downloads matched current saved/preview geometry, motion/mesh checks, actual seven-part ZIP and current assembly notes, reset, public gallery entry and no runtime errors. Evidence: `publication-validation.json`. The publication check does not constitute a physical print test.

@@ -21,3 +21,7 @@ See JSON reports and desktop/phone/light/dark/view screenshots for recorded resu
 ## Not tested physically
 
 No printed specimen, friction coefficient, holding-force, fatigue, layer strength or real cap-retention measurement. Cap press-fit and washer binding depend on printer/material. Pocket Glide is the recommended full-size calibration coupon; never force the mechanism or use it for a load. Assembled poses estimate rigid positioning only, not friction or elastic simulation.
+
+## Publication verified
+
+Root `npm run deploy` reported Published. GitHub Pages run 40153257625 completed successfully. The public app and gallery returned successfully; live browser tests passed gallery rendering/search, WASM worker loading, sample image import and an actual downloaded closed three-component STL matching the preview fingerprint, with no runtime or failed-request errors. Main application commit: `41b63e9`.

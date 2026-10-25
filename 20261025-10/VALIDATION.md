@@ -14,3 +14,7 @@
 See `geometry-validation.json`, `browser-validation.json`, `feature-validation.json`, `resilience-validation.json`, gallery/production reports and screenshots for detailed evidence.
 
 These are geometry and software checks. No physical print, material constitutive simulation, fatigue test or reliable elastic-force prediction was performed. Begin with the small preset and calibrate TPU on the actual printer; do not force full closure.
+
+## Published verification
+
+Root predeploy assembled all 138 gallery app folders with zero failures/skips; root gh-pages deploy reported Published. GitHub Pages deployment completed successfully. Live gallery rendering/search/preservation and a live production WASM build, sample image import and actual closed-manifold STL download passed at https://xianghui.github.io/daily-app2/20261025-10/. See `live-validation.json` and `live-gallery-validation.json`. Source build commit: `1b68bd4`.

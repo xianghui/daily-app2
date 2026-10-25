@@ -19,3 +19,7 @@ Date: 2026-10-25. No physical print testing performed.
 The design is one connected compliant TPU solid. Multi-part exploded layouts and moving-body retention are inapplicable. Preview shows the printable undeformed rest state, not nonlinear flex/contact simulation. Solid intersection probes prove rest gaps and sections, not progressive-force performance, fatigue life, material return or print success. Print the Pocket Stack calibration design first and tune gaps/material/process. No claim of physical testing, automatic mesh repair, full photo reconstruction or STL colour storage.
 
 Detailed reproducible results: `geometry-validation.json`, `browser-validation.json`, `feature-validation.json`, `resilience-validation.json`, `production-validation.json` and gallery reports. Only synthetic fixture files are bundled.
+
+## Public deployment
+
+Root `npm run deploy` published the combined `deploy/` site. GitHub Pages build completed successfully. The initial public probe arrived during Pages propagation and returned 404; after the build reached `built`, the live app returned HTTP 200 and the real-browser production import/download/manifold check passed. The live gallery preserved all 141 existing entries, showed the new entry exactly once, rendered all 142 cards and passed search without runtime exceptions. Source commit `b98d6eb` was pushed to `origin/main`; live verification reports are retained alongside the local reports.

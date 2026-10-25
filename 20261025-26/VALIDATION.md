@@ -14,3 +14,7 @@
 Reports: `geometry-validation.json`, `stop-validation.json`, `browser-validation.json`, `feature-validation.json`, `hole-validation.json`, `interaction-validation.json`, `resilience-validation.json`, `production-validation.json`, `gallery-validation.json`; screenshots alongside.
 
 These are computational and browser checks only. No physical print, force, friction, fatigue, wear or universal-printer tolerance validation was performed. Pin preview lift is explicitly estimated positioning; lift-removable parts require horizontal hand-held use and space beneath the open tray slots. Calibration and assembly instructions are in README and exported ZIP notes.
+
+## Publication
+
+Root deploy built and copied all 154 apps with zero failures/skips. GitHub Pages run `40200895622` completed successfully. Public URL returned HTTP 200 and a real browser loaded the production worker/WASM, downloaded STL, matched its current-preview fingerprint and passed independent mesh validation with zero runtime/HTTP failures. The initial 404 was deployment propagation; the post-deployment retry passed. See `publication-validation.json`.

@@ -1,0 +1,1 @@
+import{t as e}from"./model.worker-Dki5B2Yh.js";var t=/* @__PURE__ */ e(((e,t)=>{t.exports={}}));export default t();

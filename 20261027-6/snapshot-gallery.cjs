@@ -1,0 +1,1 @@
+const fs=require('fs');const s=fs.readFileSync('../index.html','utf8');const a=new Function(s.match(/const APPS=(\[[\s\S]*?\]);/)[0]+'return APPS')();fs.writeFileSync('gallery-previous-entries.json',JSON.stringify(a,null,2));

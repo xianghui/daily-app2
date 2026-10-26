@@ -1,0 +1,68 @@
+import Module from 'manifold-3d';
+let api;export async function init(options={}){if(!api){api=await Module(options);api.setup();}return api;}
+export const fields=[['width','Palm diameter',22,28,1],['length','Drive disc radius',20,24,2],['spring','Follower wheel radius',5,7,1],['gap','Bearing / guide clearance',.3,.6,.1],['corner','Drive disc thickness',3,4,.5],['texture','Palm dimple depth',0,.6,.1]];
+export const defaults={width:25,length:22,spring:6,gap:.4,corner:3.5,texture:.3,shape:'round'};
+export const presets={'Gentle Start':{...defaults,width:22,length:20,spring:7,gap:.6,corner:3,texture:0,shape:'hex'},'Radius Rhythm':defaults,'Quick Orbit':{...defaults,width:28,length:24,spring:5,gap:.3,corner:4,texture:.6,shape:'oval'}};
+export const names=['palm-runway','drive-disc','radial-yoke','soft-follower','axle-pin'];
+export const transformDefaults={size:6,height:3,rotation:0,x:0,y:0};
+export const printNotes="Five hardware-free assembly parts. PLA/PETG palm-runway, drive-disc, radial-yoke and axle-pin; print soft-follower in TPU 95A (rigid PLA wheel is a lower-traction alternative, not equivalent grip). No bearings or other hardware. Exported yoke is upside down with its broad bridge on the bed and legs growing up; 3.6–4.2 mm horizontal bearing bores may need short bridge cleanup or local supports. Other four parts are bed-flat; pin is upright with head down, use a brim. Seat disc over the center post. Invert yoke from print orientation and lower its feet into the two open side channels. Put TPU wheel between bearing cheeks and slide pin through both bores and wheel. Turn the exposed disc rim gently; slide yoke radially to change roller speed. An outward position gives more follower turns per disc turn; dry friction may slip. Lift yoke to disengage, withdraw pin to release; disc lifts off. OPEN guides and pin are not captive: keep level, never invert or shake. Minimum cradle wall 0.9 mm at loosest fit; use 3 perimeters, 0.4 mm nozzle, 0.16–0.20 mm layers, PLA/PETG 20–35% infill, TPU slow with 3 walls. Bearings and guide gaps 0.3–0.6 mm per side are printer-dependent. Print Gentle Start as full-size fit/traction calibration: deburr, remove elephant foot, verify wheel spins freely before testing traction. Never force a jam. Nominal tread is tangent to the disc; no designed interference, guaranteed torque or universal fit. Preview separates touching surfaces by 0.01–0.02 mm and shows ideal no-slip rotations only, not friction/dynamics. Grip personalization stays isolated from all motion. Images are 2D-to-relief, not full 3D reconstruction. STL has no units or colours. No physical print, friction, wear or durability testing performed. Loose small parts: not for children.";
+export function validate(p){return [...(!['round','hex','oval'].includes(p.shape)?['Unknown palm shape.']:[]),...fields.filter(([k,,a,b])=>!Number.isFinite(p[k])||p[k]<a-1e-8||p[k]>b+1e-8).map(([k,l,a,b])=>`${l} must be ${a}–${b} mm.`)];}
+export function generate(p,source=null,t=transformDefaults){const errors=validate(p);if(errors.length)throw Error(errors.join(' '));if(!api)throw Error('Engine not ready');const {Manifold:M,Mesh}=api,all=[];const K=x=>(all.push(x),x),add=(a,b)=>K(a.add(b)),sub=(a,b)=>K(a.subtract(b)),move=(s,v)=>K(s.translate(v)),cyl=(r,h,n=96)=>K(M.cylinder(h,r,r,n)),rot=(s,v)=>K(s.rotate(v));
+try{const H=5,wellDepth=.8,C=44,R=p.length,r=p.spring,D=p.corner,g=p.gap,Y=R+7,xMin=8,xMax=R-6,Z=H+D+r,B=Z+r+2;
+const box=(size,pos)=>move(K(M.cube(size)),pos);
+let wheel=cyl(p.width/2,H,p.shape==='hex'?6:96);if(p.shape==='oval')wheel=K(wheel.scale([1,1.12,1]));
+wheel=add(wheel,box([C,8,H],[0,-4,0]));
+wheel=add(wheel,move(cyl(R+4,H),[C,0,0]));
+// Side lanes are separated from the drive disc; open tops permit deliberate lift-off.
+for(const sign of[-1,1]){const y=sign*Y;
+wheel=add(wheel,box([xMax-xMin+18,10,H],[C+xMin-9,y-5,0]));
+const xa=C+xMin-5-g,xb=C+xMax+5+g,ya=y-2-g,yb=y+2+g;
+for(const cy of[y-5,yb])wheel=add(wheel,box([xMax-xMin+18,cy===y-5?ya-(y-5):y+5-yb,2],[C+xMin-9,cy,H-.1]));
+for(const [x,w]of[[C+xMin-9,4-g],[xb,4-g]])wheel=add(wheel,box([w,10,2],[x,y-5,H-.1]));}
+wheel=add(wheel,move(cyl(2,D+1.3),[C,0,H-.1]));
+let disc=cyl(R,D);disc=sub(disc,move(cyl(2+g,D+2),[0,0,-1]));
+// Rim dimples are outside every permitted wheel-contact footprint.
+for(let i=0;i<18;i++){const a=i*2*Math.PI/18;disc=sub(disc,move(cyl(.5,.6,12),[(R-1.2)*Math.cos(a),(R-1.2)*Math.sin(a),D-.4]));}
+// Radial guide yoke is modeled assembled, then flipped for a supported print face.
+let yoke=box([16,2*(Y+2),3],[-8,-Y-2,B]);
+for(const sign of[-1,1]){
+yoke=add(yoke,box([10,4,B-H+.1],[-5,sign*Y-2,H]));
+yoke=add(yoke,box([3,6,B-(Z-3)+.1],[sign===1?5:-8,-3,Z-3]));
+const bore=move(rot(cyl(1.5+g,6,64),[0,90,0]),[sign===1?4:-9,0,Z]);yoke=sub(yoke,bore);}
+// Window exposes the rolling wheel without weakening its bearing cheeks.
+yoke=sub(yoke,box([6,2*r+2,5],[-3,-r-1,B-1]));
+yoke=move(rot(yoke,[180,0,0]),[0,0,B+3]);
+let roller=cyl(r,4);roller=sub(roller,move(cyl(1.5+g,6,64),[0,0,-1]));
+for(let i=0;i<7;i++){const a=i*2*Math.PI/7;roller=sub(roller,move(cyl(.5,.7,12),[(r-1.4)*Math.cos(a),(r-1.4)*Math.sin(a),3.5]));}
+// Flat head and upright shank: pin is intentionally removable, not a snap latch.
+let pin=cyl(2.8,1.5,64);pin=add(pin,move(cyl(1.5,21.1,64),[0,0,1.4]));
+wheel=sub(wheel,move(cyl(7.5,wellDepth+1),[0,0,H-wellDepth]));
+if(p.texture>0)for(let i=0;i<20;i++){const a=i*2*Math.PI/20;wheel=sub(wheel,move(cyl(.55,p.texture+1,12),[Math.round(9*Math.cos(a)*1e7)/1e7,Math.round(9*Math.sin(a)*1e7)/1e7,H-p.texture]));}
+let custom;
+if(source){for(const [k,lo,hi]of [['size',4,7],['height',.6,5],['rotation',-180,180],['x',-1.5,1.5],['y',-2,2]])if(!Number.isFinite(t[k])||t[k]<lo||t[k]>hi)throw Error(`Import ${k} must be ${lo}–${hi}${k==='rotation'?' degrees':' mm'}.`);
+if(source.kind==='image'){const {pixels,n,mode,threshold,depth}=source;if(!['threshold','relief'].includes(mode)||!Array.isArray(pixels)||!Number.isInteger(n)||n<8||n>24||pixels.length!==n*n||!pixels.every(v=>Number.isFinite(v)&&v>=0&&v<=255)||!Number.isFinite(depth)||depth<.4||depth>3||!Number.isFinite(threshold)||threshold<1||threshold>254)throw Error('Invalid bounded image settings.');const hs=pixels.map(v=>mode==='threshold'?(v<threshold?depth:0):depth*(1-v/255));if(Math.max(...hs)<.01)throw Error('Empty silhouette / relief. Raise threshold, use darker art, or change fit.');const v=[],idx=[];for(let y=0;y<n;y++)for(let x=0;x<n;x++)v.push((x/(n-1)-.5)*t.size,(y/(n-1)-.5)*t.size,.4+hs[y*n+x]);const at=(x,y)=>y*n+x;for(let y=0;y<n-1;y++)for(let x=0;x<n-1;x++){const a=at(x,y),b=at(x+1,y),d=at(x,y+1),c=at(x+1,y+1);idx.push(a,b,c,a,c,d);}const boundary=[];for(let x=0;x<n;x++)boundary.push(at(x,0));for(let y=1;y<n;y++)boundary.push(at(n-1,y));for(let x=n-2;x>=0;x--)boundary.push(at(x,n-1));for(let y=n-2;y>0;y--)boundary.push(at(0,y));const bottom=[];for(const a of boundary){bottom.push(v.length/3);v.push(v[a*3],v[a*3+1],0);}const center=v.length/3;v.push(0,0,0);for(let j=0;j<boundary.length;j++){const k=(j+1)%boundary.length,a=boundary[j],b=boundary[k],u=bottom[j],w=bottom[k];idx.push(a,u,w,a,w,b,center,w,u);}custom=K(new M(new Mesh({numProp:3,vertProperties:new Float32Array(v),triVerts:new Uint32Array(idx)})));}
+else if(source.kind==='stl'){if(!source.confirmed)throw Error('Confirm millimeter units before integrating STL.');if(!source.mesh||source.mesh.indices.length>4500)throw Error('Unsupported STL complexity.');const m=source.mesh,sz=m.dimensions;if(Math.min(sz[0],sz[1])*t.size/Math.max(sz[0],sz[1])<1.2)throw Error('Imported grip becomes thinner than 1.2 mm in XY. Increase footprint or use a less slender solid.');custom=K(new M(new Mesh({numProp:3,vertProperties:new Float32Array(m.vertices),triVerts:new Uint32Array(m.indices)})));custom=move(custom,m.min.map(x=>-x));custom=K(custom.scale([t.size/Math.max(sz[0],sz[1]),t.size/Math.max(sz[0],sz[1]),t.height/sz[2]]));custom=move(custom,[-sz[0]*t.size/Math.max(sz[0],sz[1])/2,-sz[1]*t.size/Math.max(sz[0],sz[1])/2,0]);}
+else throw Error('Unsupported source');
+const engraved=source.kind==='image'&&source.style==='engraved';if(engraved){if(source.depth>.6)throw Error('Engraving depth must be 0.4–0.6 mm to preserve the floor.');custom=K(custom.scale([1,1,-1]));}custom=K(custom.rotate([0,0,t.rotation]));custom=move(custom,[t.x,t.y,H-wellDepth+(engraved?.4:source.kind==='image'?-.4:-.15)]);const mesh=custom.getMesh();for(let i=0;i<mesh.vertProperties.length;i+=mesh.numProp){const x=mesh.vertProperties[i],y=mesh.vertProperties[i+1];if(Math.abs(x)>6.5||Math.abs(y)>6.5||Math.hypot(x,y)>6.5)throw Error('Grip leaves center well safe zone. Reduce size, center placement, or reset transforms.');}
+custom=move(custom,[0,0,0]);wheel=engraved?sub(wheel,custom):add(wheel,custom);
+}else{// Built-in raised thumb grip, fused at its base
+custom=K(cyl(2.7,1.8).scale([1,1.25,1]));wheel=add(wheel,move(custom,[0,0,H-wellDepth-.15]));}
+
+const solids=[wheel,disc,yoke,roller,pin];const parts=solids.map((s,i)=>{const components=s.decompose(),count=components.length;components.forEach(c=>c.delete());if(s.status()!=='NoError'||s.isEmpty()||count!==1)throw Error('Integration must form one connected closed solid per part. Use a broad flat-bottom grip.');const clean=K(K(s.asOriginal()).simplify(.0001)),mesh=clean.getMesh();return{name:names[i],vertices:Array.from(mesh.vertProperties),indices:Array.from(mesh.triVerts),stride:mesh.numProp};});
+const layout=[[0,0,0],[C+2*R+22,0,0],[C+3*R+40,0,0],[C+3*R+55+r,0,0],[C+3*R+72+2*r,0,0]],model={parameters:{...p},parts,layout,H,C,R,r,D,Y,Z,B,xMin,xMax,wellFloor:H-wellDepth};
+parts.forEach(verifySolid);parts.forEach((part,i)=>verifySolid({...part,vertices:part.vertices.map((v,j)=>j%part.stride<3?Math.fround(v+layout[i][j%part.stride]):v)}));model.mechanism=mechanismCheck(model);const bb=bounds(triangles(model));model.dimensions=bb.max.map((v,k)=>v-bb.min[k]);return model;
+}finally{for(const s of new Set(all.reverse()))s.delete();}}
+export function placements(m,fraction=0,radial=0){const theta=(fraction+1)*Math.PI,x=m.xMin+(m.xMax-m.xMin)*Math.min(1,Math.max(0,radial)),phi=theta*x/m.r;return[{pos:[0,0,0]},{pos:[m.C,0,m.H+.01],angle:theta},{pos:[m.C+x,0,m.B+3+.02],rotX:Math.PI},{pos:[m.C+x-2,0,m.Z+.02],rotX:phi,rotY:Math.PI/2},{pos:[m.C+x-10,0,m.Z+.02],rotY:Math.PI/2}];}
+export function mechanismCheck(m){const p=m.parameters,q={mechanism:'Radially adjustable disc-to-upright-wheel friction drive',partCount:5,sideClearanceMm:p.gap,contactRadiusMinMm:m.xMin,contactRadiusMaxMm:m.xMax,ratioMin:m.xMin/m.r,ratioMax:m.xMax/m.r,minimumBearingWallMm:3-(1.5+p.gap),bridgeAboveWheelMm:2,rollerToCheekSideGapMm:3,discToLaneMm:m.Y-5-m.R,nominalTreadGapMm:0,minimumEngravedPalmFloorMm:3.6,importIsolationMm:m.C-m.R-4-6.5,captive:false,hardwareRequired:false,materials:['PLA/PETG frame, disc and pin','TPU 95A follower'],physicalPrintTested:false};if(q.minimumBearingWallMm<.89||q.discToLaneMm<1.9||q.importIsolationMm<9||q.ratioMax<=q.ratioMin)throw Error('Unsafe bearing wall, lane separation or grip isolation.');return q;}
+export function triangles(model,selection='all'){const out=[];model.parts.forEach((part,i)=>{if(selection!=='all'&&selection!==part.name)return;const off=selection==='all'?model.layout[i]:[0,0,0];for(let j=0;j<part.indices.length;j+=3)out.push(part.indices.slice(j,j+3).map(idx=>[0,1,2].map(k=>part.vertices[idx*part.stride+k]+off[k])));});return out;}
+export function bounds(ts){const min=[Infinity,Infinity,Infinity],max=[-Infinity,-Infinity,-Infinity];for(const tri of ts)for(const v of tri)for(let k=0;k<3;k++){min[k]=Math.min(min[k],v[k]);max[k]=Math.max(max[k],v[k]);}return{min,max};}
+export function binarySTL(model,selection='all'){const ts=triangles(model,selection).map(tri=>tri.map(v=>v.map(Math.fround))),b=new ArrayBuffer(84+ts.length*50),v=new DataView(b);v.setUint32(80,ts.length,true);ts.forEach(([a,b,c],i)=>{const u=b.map((x,k)=>x-a[k]),w=c.map((x,k)=>x-a[k]),n=[u[1]*w[2]-u[2]*w[1],u[2]*w[0]-u[0]*w[2],u[0]*w[1]-u[1]*w[0]],len=Math.hypot(...n);let o=84+i*50;for(const val of [...n.map(x=>x/len),...a,...b,...c]){v.setFloat32(o,val,true);o+=4;}});return b;}
+export function fingerprint(buffer){let h=2166136261;for(const b of new Uint8Array(buffer)){h^=b;h=Math.imul(h,16777619);}return (h>>>0).toString(16);}
+
+// Independent final-mesh preflight runs in the worker for every edit, not only tests.
+function verifySolid(part){const {vertices:v,indices:ix,stride}=part,edges=new Map(),ids=new Map();let volume=0;
+const id=p=>{const key=p.map(x=>Math.round(x/1e-5)).join(',');if(!ids.has(key))ids.set(key,ids.size);return ids.get(key);};
+for(let j=0;j<ix.length;j+=3){const vs=ix.slice(j,j+3).map(i=>v.slice(i*stride,i*stride+3));if(!vs.flat().every(Number.isFinite))throw Error('Nonfinite final geometry. Reset the import or reduce detail.');const[a,b,c]=vs,u=b.map((x,k)=>x-a[k]),w=c.map((x,k)=>x-a[k]),n=[u[1]*w[2]-u[2]*w[1],u[2]*w[0]-u[0]*w[2],u[0]*w[1]-u[1]*w[0]];
+if(Math.hypot(...n)<=1e-8)throw Error('Final geometry has a degenerate face. Reduce detail or reset placement.');volume+=(a[0]*(b[1]*c[2]-b[2]*c[1])-a[1]*(b[0]*c[2]-b[2]*c[0])+a[2]*(b[0]*c[1]-b[1]*c[0]))/6;
+const ids3=vs.map(id);if(new Set(ids3).size!==3)throw Error('Detail exceeds numerical resolution. Reset transforms.');for(let k=0;k<3;k++){const a=ids3[k],b=ids3[(k+1)%3],key=[Math.min(a,b),Math.max(a,b)].join(':'),e=edges.get(key)||[0,0];e[0]++;e[1]+=a<b?1:-1;edges.set(key,e);}}
+if(!ix.length||volume<=0||[...edges.values()].some(([count,dir])=>count!==2||dir!==0))throw Error('Final '+part.name+' failed closed-manifold / winding validation. Reduce relief or center the import; no automatic repair is performed.');}

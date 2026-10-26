@@ -1,0 +1,18 @@
+# Validation — Crossed Cadence
+
+Validated 2026-10-26 using Node and headless Chromium against the actual Vite production output at `/daily-app2/20261026-20/`.
+
+- Application `npm run predeploy`: passed. Locally emitted worker/WASM loaded successfully. Non-fatal warnings: Manifold Node-module browser externalization and the Three.js-containing JS chunk exceeds 500 kB; production worker/browser execution verified. npm audit: zero vulnerabilities at installation.
+- **68 built-in parameter cases** (default, three presets, 64 extrema combinations) and **30 image/STL-derived cases** passed per-part and float32-translated plate checks: nonempty triangles, finite coordinates, correct mm bounds, unit/aligned normals, nondegenerate faces, opposite winding, exactly two incidents per welded edge at 0.00001 mm, positive volume for each closed component. Four intended independent solids.
+- Independent mechanism tests across 33 sector positions per built-in case, 25 per import case: zero unintended pairwise solid-intersection volume; exact crossed four-bar closure and bridge-pin alignment; actual support-shoulder contact under a small downward probe; bridge-first/arms-next vertical release; actual printed sector-stop contact beyond both endpoints; separated export layout; import isolation. Not a dynamics, force or fatigue test.
+- **26 actual browser STL downloads** in the main browser suite, plus feature/per-part/ZIP downloads. PNG/JPEG and ASCII/binary STL imported using real file inputs. Threshold/depth/crop/content/scale/rotation/placement alter final meshes. Current preview fingerprint equals actual download and regenerated portable JSON. Remove/reset reproduces default bytes.
+- **10 malformed/unsupported file cases** rejected in browser, plus empty relief, bad transforms, excessive placement and invalid dimensions. Open/nonmanifold, concave, excessive counts/size/dimensions, fake content and truncated data block export with recoverable feedback. No repair/hull substitution.
+- All presets, shape variations, text, six icons, SVG, engraving, background inversion, source transforms/up axes, undo/redo, named local saves including imported images across reload, bounded JSON assets and missing-payload reattachment verified. ZIP contents independently parsed.
+- Worker-script abort blocks export; reload recovers. Rapid/invalid edits and asynchronous imported-image normalization cannot overwrite newer valid state or enable stale export.
+- SVG ring's white hole and dark ring probed in the actual boolean solid for raised and engraved styles, not only preview pixels.
+- Desktop 374 px left rail/right viewer; phone 390 and 320 px preview-first controls/export layout, no horizontal overflow, reachable exports, PNG/STL phone imports/downloads; real CDP touch orbit/pinch verified by changed canvas captures. Saved dark theme, focus, collapsible sections, selected key states and reduced motion checked. Screenshots retained. App makes no remote requests while using local files.
+- Gallery and combined-root staging verification are recorded in `gallery-*.json`, `root-stage-validation.json` and `root-final-browser-validation.json`. Every previous gallery entry is preserved.
+
+## Limits
+
+No physical print was performed. Fits, friction, comfort, wear, strength and support-free printing remain printer/material-dependent. Calibrate with Gentle Start, do not force past stops, and keep the non-captive assembly level. STL integration deliberately accepts only a closed convex broad-flat-bottom overhang-free grip; unsupported source shapes are explicitly rejected. Image conversion is coarse sampled 2D relief, not complete 3D reconstruction.

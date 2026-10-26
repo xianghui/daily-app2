@@ -11,3 +11,11 @@ See `20261024-7/VALIDATION.md` and JSON reports for details. No physical print, 
 ## Public verification
 
 Root `npm run deploy` reported Published. Initial new-path 404 cleared on propagation retry. `node public-smoke.cjs` then verified HTTP 200, correct title, live worker/WASM, an actual STL download byte-matching the tested default, four closed outward-wound components (4,188 triangles; 155.50 × 48.00 × 12.50 mm plate), gallery newest-first and zero runtime errors.
+
+## 20261027-4 — Orbital Hush
+
+Open rolling-element annular thumb bearing, distinct from the earlier geared, sliding-ring and wedging mechanisms. Local PNG/JPEG/SVG relief and verified ASCII/binary STL grips alter the isolated palm geometry. Five bed-flat parts: PLA/PETG frame and race, three TPU rollers. Parts intentionally loose vertically; full-size Gentle Roll calibration preset and explicit compression/slip/bunching guidance.
+
+App build; 36 parameter and 35 imported-output mesh/mechanism cases; 27 actual download variants and 10 malformed-file rejections in the repeated combined-stage browser suite; exact preview/JSON/export fingerprints; phone 320/390 px touch orbit/pinch/import/download; presets, personalization, holes, undo/redo, persistence, worker errors, stale imports and ZIP checks passed. Root gallery preserves all 188 earlier entries, has one newest STL entry, and renders 189 cards. Root predeploy staged 189 apps with zero failures/skips; byte-identical app bundle checked. Root deploy reported Published. Initial Pages propagation 404 cleared; public HTTP 200, live worker/WASM, matching default STL download, newest gallery and zero runtime errors verified.
+
+See `20261027-4/VALIDATION.md`, scripts, JSON reports and screenshots. No physical print, traction, force, deformation or fatigue tests performed; compressed assembled poses remain estimated preview-only geometry.

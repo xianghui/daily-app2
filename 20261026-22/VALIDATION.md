@@ -1,0 +1,19 @@
+# Groove Relay verification — 2026-10-26
+
+All listed checks passed against this app's generated/exported geometry, not a static mockup.
+
+- `npm run predeploy`: production React/Vite build, correct `/daily-app2/20261026-22/` base, bundled worker/WASM/fonts/dependencies.
+- `npm test`: 68 built-in cases (default, three presets, all 64 parameter corners) plus 30 image/STL-derived output cases. Independent binary-STL parser validates exact byte length, finite/nondegenerate faces, normalized stored normals, opposite-directed two-face edge incidence at 1e-5 mm welding, expected mm bounds and positive per-component volumes. Each individual part and the translated separated plate checked.
+- `node transfer-check.mjs`: all nine radius/amplitude combinations, 193 full-revolution samples each, exact solid intersections, both groove walls constrain radial follower displacement, guide overlap and vertical disassembly. Zero unintended intersections. These are geometric checks, not force/friction simulations.
+- `node run-browser.cjs`: production Chromium real file-picker PNG/JPEG/ASCII/binary imports; threshold/depth/content/crop/scale/rotation/placement geometry changes; baseline/remove/reset equivalence; actual binary STL downloads and exact preview/JSON-regenerated export fingerprints; nonmanifold/open/truncated/concave/excessive/malformed input rejections and recoverability.
+- Studio features: presets/variations/palm outlines, text and all six original SVG icons, SVG hole probes in raised/engraved final solids, local named saves and reload, portable image/STL JSON round trips, missing-payload reattachment feedback, undo/redo, actual ZIP STLs/notes, per-part exports, assembled/exploded/print/palm/moving views, swatches geometry-neutral, saved light/dark theme, reduced motion, keyboard focus, collapsible sections, drag/drop, Y-up and -Z input transforms, invalid/stale export guards, asynchronous import race recovery, production worker abort blocks export and reload recovers.
+- `node view-test.cjs`: assembled, isolated cam and isolated follower render distinct views while preserving exact printable geometry signature.
+- Phones: 320/390 px, preview-first stacked layout, no horizontal overflow, reachable exports, actual image/STL import/download, CDP touch orbit and pinch verified by changed canvas pixels.
+- Gallery: inline script compiled using `new Function`; exactly one new `stl` entry, newest first. All 177 previous entries preserved unchanged. Browser renders 178 cards with STL category first; search/recovery without runtime errors.
+- Root `npm run predeploy`: **178 built, 0 failed, 0 skipped**. `root-stage-test.cjs` confirms every app staged, root gallery exact, all 43 new-app output files byte-identical to app dist.
+- `root-smoke.cjs`: actual combined-root production output repeats built-in and PNG/JPEG/ASCII/binary imports, real downloads, fingerprints, mesh and mechanism checks without runtime errors.
+- Desktop, assembled and phone screenshots visually reviewed. Individual browser run made zero unexpected remote requests. All input processing is local; only synthetic fixtures are stored.
+
+Reports: geometry-validation.json, dense-motion-validation.json, browser-validation.json, feature-validation.json, additional-validation.json, stale-import-validation.json, resilience-validation.json, hole-validation.json, view-validation.json, gallery-validation.json, gallery-browser-validation.json, root-stage-validation.json, root-final-browser-validation.json.
+
+**No physical printing, force, friction, wear, fatigue, durability or tactile-quality testing performed.** Running fit depends on printer/material; print Gentle Start first and deburr as required. The design is non-captive and held level; remove follower before cam. Motion is nominal kinematics, not a contact simulation. Unsupported STL geometry is rejected rather than repaired or replaced by a convex hull.

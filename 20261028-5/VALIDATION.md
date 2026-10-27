@@ -11,3 +11,5 @@
 - Combined gallery: all inline scripts compiled, 216 previous entries preserved, new entry exactly once and newest first in STL category. Root build copied 217 apps with zero failures/skips. Combined browser validation runs through actual `/daily-app2/20261028-5/` worker/WASM paths.
 
 Reports are reproducible with commands in README; synthetic fixtures only. **No physical print, friction, force, fatigue, load, stability or external slicer tests were performed.** Clearance calculations and closed mesh checks do not establish physical fit or durability.
+
+Public GitHub Pages smoke passed: HTTP 200, real worker/WASM load, PNG file-picker import and manifold STL download matching the current preview fingerprint; public gallery renders 217 cards with Pitch & Perch first and no runtime errors. See `public-validation.json`.

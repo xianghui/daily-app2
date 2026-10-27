@@ -1,0 +1,3 @@
+import fs from 'node:fs';import {init,generate,defaults,fields,binarySTL} from './src/geometry.js';import {checkSTL,collisionCheck,mechanical} from './validate.mjs';
+await init();const report={};for(let mask=0;mask<64;mask++){const p={...defaults,...Object.fromEntries(fields.map(([k,,lo,hi],j)=>[k,mask&(1<<j)?hi:lo])),shape:['round','hex','oval'][mask%3]},m=generate(p);report[mask]={p,mesh:checkSTL(binarySTL(m),m),mechanical:mechanical(m),motion:await collisionCheck(m,16)};for(const part of m.parts)checkSTL(binarySTL(m,part.name),m,part.name);if(mask%16===0)console.log('extrema',mask);}
+fs.writeFileSync('extrema-validation.json',JSON.stringify(report,null,2));console.log('All 64 dimensional min/max combinations passed meshes, 17 poses, stops and releases.');

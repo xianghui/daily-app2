@@ -1,0 +1,52 @@
+# Solar & Slot
+
+A browser-based **horizontal sundial kit-card generator**, for **30–55° northern latitude**. Snip eight real sacrificial tabs, stand the triangular gnomon upright and lower its tongue into a blind dial mortise. Three silhouette choices, three model-thumbnail presets, parametric latitude/diameter/run/fits, actual text/icon/image/STL personalization and local printable exports. No hardware, API keys, paid services or uploads.
+
+## Run and dependencies
+
+`npm install`, `npm run dev`; `npm test` runs independent geometry/assembly checks; `npm run predeploy` builds the app. React + Vite, Three.js / OrbitControls, Manifold WASM in a module worker, fflate, locally bundled Fredoka/Rubik (Fontsource/OFL). No CDN dependencies at runtime. Base `/daily-app2/20261027-22/`. Per-app gh-pages scripts are present; combined publication is from the root monorepo `deploy/`, not the per-app script.
+
+## Actual STL reference and adaptation
+
+Local STL collections under `/Volumes/ExternalHD/3d_printing_apps/` were searched first. The three local kit-card projects have no suitable STL assets; switch sockets, slider ghosts and fabric links are not sheet/card construction references. Public fallback: **White Cat Kit Card**, Mike Kasberg, [Printables 865769](https://www.printables.com/model/865769-theft-of-fire-white-cat-kit-card), [repository](https://github.com/mkasberg/white-cat-kit-card), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Read the repository licence and `kit_frame.scad`; downloaded and parsed the actual binary STL. Source URL, SHA-256 and detailed measurements are in `reference-analysis.json`; reproducible parser `reference-analysis.py` and measured sections `reference-sections.svg` / `.png` are included. Raw third-party mesh is NOT redistributed.
+
+SHA-256: `5cf08e5700cc18ded860a26c8584bb97dff324bd88f54a19f89fef8d87cf73ff`.
+
+Measured reference: **179.820 × 178.020 × 3.190 mm**, 30,616 triangles, two edge-connected regions at 1e-5 mm welding; source has coplanar/nonmanifold artifacts and is NOT used as production geometry or claimed repaired. Millimeters are an assumption corroborated by the source's 1.6 mm sheet setting, not STL metadata. Mesh sections at Z=.1/.5/1.59 expose sheet regions, perimeter rails and bridges. Measured sheet 1.6 mm, rail 1.6 mm, thin bridge planes .21/.22 mm.
+
+Adaptation: preserve 1.6 mm default sheets, connected perimeter carrier and sacrificial bridges. Deliberately reinforce frame to **2.4 mm**, tabs to **.8–1.4 mm width × .4–.6 mm height** for clipping. Reconstruct an original two-part solar instrument instead of the source spacecraft, or previous cross-lap stand/loom/bridge kits. The new blind tongue/mortise, polar triangle and latitude-dependent hour ticks are original design decisions, NOT source measurements. No convex-hull substitution.
+
+The current visual/interaction reference was read-only `keycap_generator2`: README, App, Viewer, CSS, worker, STL parser/export. Concrete patterns: lavender desk / white panels / coral selection, short solid button shadows, sticky maker header, 374 px left rail, labelled collapsible controls, slider+numeric pairs, large right orbit viewer, source preview and explicit unit gate, local saves and export block; phone preview-first layout and persisted dark theme. No keycap sockets are imposed on this kit.
+
+## Geometry, assembly and sun use
+
+- Dial, gnomon and connected carrier are genuine Manifold boolean solids. The card is one closed component; each de-tabbed part is one closed component. Tabs overlap their intended part and carrier, not merely nearby lines. Default frame outer envelope 170 × 180 mm; raised decoration increases Z beyond sheet thickness.
+- Gnomon polar edge has `rise = run × tan(latitude)`. Its tongue occupies 40–80% of the run and inserts vertically into a blind mortise. Mortise width `panel thickness + total allowance`, length `0.4 × run + allowance`, depth `tongue depth + allowance`. Floor must stay ≥.45 mm. Shoulders seat on the dial face. Joint is gravity-seated/removable, NOT a snap or captive fit.
+- Eleven raised ticks represent **7–17 local apparent solar hours** left to right, central long tick = noon, all referenced to the south foot of the polar edge. Horizontal-dial tick angle `atan(sin(latitude) × tan(15° × (hour−12)))`. The noon tick is beyond the gnomon's north end to avoid physical collision.
+- Set dial perfectly horizontal. Align long noon line to **true north**, not uncorrected magnetic north. High end of the polar edge points north. Read the **polar-edge** shadow. Civil time needs longitude / time-zone, equation-of-time and daylight-saving corrections. This small educational dial has no precision rating. Range intentionally excludes equatorial Singapore and southern latitudes; do not enter a false latitude to fit a site.
+- Print card OR individual dial+gnomon bed-flat at Z=0, 0.4 mm nozzle / 0.2 mm layers / three walls in PLA or PETG, no supports intended. Clip eight tabs with adult supervision, trim carrier nubs without damaging polar edge/tongue. Lower tongue until shoulders seat. Start with .20 mm TOTAL fit allowance (half per side); print the individual pair as a calibration trial and adjust for printer/material. Do not force it. Thin triangular polar edge is delicate. No glue/hardware required; not captive.
+- Assembled, exploded, isolated dial/gnomon, connected card and de-tabbed plate share exact part solids. Separation is a preview-only insertion illustration, not motion or solar simulation. Export always uses flat print orientation, never assembled overlap.
+
+## Supported ranges (all dimensions mm except latitude)
+
+Card width150–190, height160–200; dial diameter80–100; gnomon run24–32; latitude30–55° N; sheet1.6–2.4; tongue depth.6–.8; total joint allowance.1–.35; part spacing8–14; tabs width.8–1.4 / thickness.4–.6; dimple depth0–.4. Some mixed extremes do not fit the card and block export with feedback. Three dial silhouettes round/hex/oval are real geometry. Bounded variation keeps a large card but invalid configurations still block export.
+
+## Both local import workflows
+
+Native file picker (desktop/phone) plus drag-and-drop. Synthetic samples and direct fixture downloads: `mark.png`, `waves.jpg`, `ring.svg`, `wedge-ascii.stl`, `gem-binary.stl`; these are not personal or third-party meshes.
+
+**PNG/JPEG/SVG to actual relief:** files ≤2 MB, raster headers ≤12 MP and ≤6,000 px per side, normalize longest side≤500 px then sample an exact **20×20 height grid**. Light or dark-background removal, contain/cover and ±25% crop shifts, threshold1–254 or grayscale height; transparent pixels composite onto selected background. SVG simple filled shapes rasterize locally at256 px (≤2,000 elements); external resources/scripts/effects rejected. Raised relief depth.4–3; engraved depth.4–.6 to preserve floor. Triangulated sampled top and closed backing are boolean-unioned/subtracted from the dial's isolated southwest medallion at(-22,-17), radius6.5. White holes stay unraised/unengraved over the continuous backing, verified by solid probes. This is **2D-to-relief, NOT automatic full 3D reconstruction or exact vector tracing**. Checkerboard shows actual converted cutout; source and final solid are both visible.
+
+**ASCII/binary STL to dial geometry:** content parsing, bounds/finite faces, welded manifold/winding/positive-volume checks; ≤1,500 triangles, .2–250 mm each source axis, ≤2 MB. **Only a single closed outward-wound convex solid with broad flat base is supported**. Concavities, cavities, disconnected/open/nonmanifold shells, branches and overhangs are rejected with actionable errors, never hull-replaced or automatically repaired. Up axis Z/Y/−Z chosen before attaching. Explicit user confirmation of source millimeters (STL has no units) gates integration. XY scales proportionally to requested4–7 mm footprint; independent Z height.6–3 mm, Z rotation±180°, X±1.5 / Y±2 mm placement. Original supported mesh is genuinely unioned into the medallion with .15 mm insertion. Bounds must remain inside its safe circle; imports cannot reach slot or hour ticks. No unchanged re-export path.
+
+Both imports support replace/remove, transformation reset and return to built-in defaults; threshold, pixels, placement and scale measurably alter export. Source bytes stay local. JSON/named designs include bounded normalized image data or verified mesh payloads; missing image payload asks for reattachment. JSON≤2 MB. Up to six local named designs; undo/redo stores bounded state. Device-local storage may fail when full; portable JSON is the fallback.
+
+## Responsiveness, validation and exports
+
+Heavy CSG/parsing runs in a Web Worker with100 ms debouncing, request IDs and exact-state export gating. Imported conversion/loading errors and invalid current edits disable all STL/ZIP buttons; last-good preview is explicitly labelled, not silently exported. Worker failure disables exports and requests reload. Preview/export use the same current generated part meshes; visible fingerprint is checked against actual downloaded binary STL and JSON regeneration.
+
+Prominent card STL, each part STL, Everything ZIP with numbered assembly/print notes. STL stores geometry only, not preview colour. Binary serialization recalculates face normals. ZIP is a real ZIP, not a claimed 3MF.
+
+`validate.mjs`: exported float32 STL length, finite coordinates, nonzero triangles, normalized normals/outward winding, welded two-face opposite-direction edge incidence, per-component positive volume, millimeter bounds; default, all presets, extrema and variations; image/STL outputs. Separate mechanical checks: real mortise gauges and blind floor, all rigid intersections along insertion, actual tab clipping yields two parts plus carrier, exact preservation and nonoverlapping plate parts, polar angle and all eleven raised solar ticks, independent solar-angle formula. Browser scripts exercise real uploads/downloads, changed geometry, malformed inputs, all presets, saved portable assets, local designs, ZIP contents, worker failure/staleness, touch orbit/pinch and320/390 px preview-first layout. Reports and screenshots accompany the app. Serve built production with `node serve-production.cjs`; run `node browser-test.cjs` etc.
+
+**No physical printing, physical fit/strength testing or outdoor sundial/shadow accuracy test was performed.** Computational watertightness and geometric fit are not evidence of physical print or timekeeping accuracy.

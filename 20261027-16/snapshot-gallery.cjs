@@ -1,0 +1,1 @@
+const fs=require('node:fs'),s=fs.readFileSync('gallery-before.html','utf8'),m=s.match(/const APPS=(\[[\s\S]*?\]);/);if(!m)throw Error('Missing APPS');fs.writeFileSync('gallery-previous-entries.json',JSON.stringify(new Function(m[0]+'return APPS')(),null,2));

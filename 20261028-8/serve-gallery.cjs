@@ -1,0 +1,1 @@
+const http=require('node:http'),fs=require('node:fs'),path=require('node:path');http.createServer((q,r)=>{if(q.url.split('?')[0]!=='/daily-app2/'){r.writeHead(404);return r.end()}r.setHeader('Content-Type','text/html');r.end(fs.readFileSync(path.join(__dirname,'../index.html')))}).listen(5439,'127.0.0.1');

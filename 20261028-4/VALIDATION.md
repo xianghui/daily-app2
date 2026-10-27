@@ -16,3 +16,5 @@ Performed on the production Vite bundle under `/daily-app2/20261028-4/` using lo
 Reports are JSON files next to these reproducible scripts; screenshots include desktop, phone, dark, card, assembled/ghost/exploded and isolated views. `README.md` records method, limits, ranges, provenance and manufacturing guidance.
 
 These are **computational mesh/fit/path and browser tests only**. No physical print, slicer check, assembly force, friction, stability, strength or fatigue test was performed. The taper is a geometric removable stop; printer-specific contact/holding is not claimed verified.
+
+Publication verified: root build included all 216 apps with zero failures/skips. GitHub Pages run 40566510332 completed successfully. The public app returned HTTP 200, loaded worker/WASM, accepted an actual PNG file, and downloaded an independently checked STL matching its current preview signature. Public gallery rendered all 216 cards with Tusk & Tenon first and no runtime errors. See `public-validation.json`.

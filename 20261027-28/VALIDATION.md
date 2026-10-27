@@ -24,3 +24,5 @@
 Reports and scripts in this folder reproduce checks. These are computational and browser tests only; no physical print, force, fit, strength, capacity or durability test was performed.
 
 Root `npm run predeploy` and `npm run deploy` passed: 212 apps built/copied, zero failures/skips; gh-pages reported Published. Combined-root gallery and full browser import/download tests also passed (`combined-browser-validation.json`). Initial immediate public URL check returned 404 during Pages propagation; public readiness checked separately before completion.
+
+Public readiness subsequently passed: HTTP 200, production worker/WASM, real PNG file-picker import and STL download with matching geometry signature, and gallery showing 212 entries with Slide & Stow first (`public-validation.json`). GitHub Pages reports the gh-pages commit built without error.

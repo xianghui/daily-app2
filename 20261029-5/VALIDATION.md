@@ -52,6 +52,10 @@ Reject/recover checks include truncated/invalid STL, open/nonmanifold mesh, conc
 
 Root inline script compiled using `new Function`; missing script is fatal. New entry appears exactly once, area `stl`, newest first, correct folder. All **245 previous entries** retained. Root build staged **246 apps, zero failures/skips**. Browser gallery renders all cards, STL category first, search restores all entries, no runtime errors. Final browser checks rerun against the **combined root deploy folder**, not just app development output. See `combined-browser-validation.json`, `gallery-validation.json`, `gallery-browser-validation.json`, `root-staging-validation.json` and `publication-validation.json` for outcomes.
 
+## Live public verification
+
+`node public-smoke.cjs` passed against GitHub Pages: HTTP 200, real production worker, local PNG/STL file-picker integration, actual downloaded closed-manifold STL matching current UI fingerprint, and all 246 gallery cards with the new entry first. GitHub Pages workflow [40742707027](https://github.com/xianghui/daily-app2/actions/runs/40742707027) completed successfully. Published branch index exactly matches tested `dist/index.html`. Initial 404 was propagation before the Pages job finished, not an app runtime error. Details are in `publication-validation.json`.
+
 ## Explicitly not performed
 
 **No physical print, fatigue, adhesive, friction, stability, strength or load-bearing tests.** This is a stationary decorative miniature. Computational fit does not prove printer tolerances, structural performance or physical assembly feel. Calibrate actual printer/material; dry-fit before adhesive. Relief sampling is bounded and may lose small details.

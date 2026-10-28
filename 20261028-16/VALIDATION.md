@@ -16,3 +16,7 @@ Computational/browser validation only. **No physical print or stability test per
 - Root `npm run predeploy`:228 apps,0 failed,0 skipped. Staging has identical root index,all apps,and 43 hash-identical files for this app. Actual staged PNG/STL uploads and downloads passed (`root-stage-validation.json`).
 
 Nominal geometry and uniform-density restoring sign do not model friction,elasticity,contact forces,slicer errors,material anisotropy ordynamic tipping. Print the bird at symmetric 100% infill and calibrate stationary foot fit on your printer. Bird is lift-off,not captive. Import complexity isintentionally bounded;unsupported meshes are rejected,never silently repaired/replaced.
+
+## Publication
+
+Root `npm run deploy` published successfully. Main commit `293be4d` was pushed. After normal Pages propagation (initial 404, then successful retry), the public app returned200, loaded bundled worker/WASM, accepted a real PNG file-picker upload, downloaded a valid manifold STL matching the preview fingerprint, and showed all228 gallery entries with Wing & Poise first. See `public-validation.json`.

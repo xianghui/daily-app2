@@ -1,0 +1,18 @@
+# Validation — 2026-10-28
+
+Computational/browser validation only. **No physical print or stability test performed.**
+
+- Actual reference downloaded and parsed: source SHA,30,616 triangles,179.82×178.02×3.19 mm,2 edge-components,source defects,mesh cross-sections,measured sheet/rail/bridge levels recorded. Source mesh not bundled.
+- `npm test`:14 parameter cases (default,3 presets,minimum,maximum,8 cross-extremes) and30 image/STL integration cases passed. Every card and individual part: closed welded manifold,opposed edge winding,positive volume,finite/nondegenerate faces,expected mm bounds. Independent final export float32 centroid confirms symmetric mass below open seat.13 samples each for perch insertion/bird lift-off,all assembled pair intersections,flat-part separation,card containment and12-tab cutting yielding4 components passed.
+- During testing fixed a maximum-thickness tab/tongue clash by widening stationary shoulders and moving tabs outside the interface. Increased minimum perch height to 46 mm for>4 mm wing/table clearance across all supported combinations. Tests rerun successfully. No known failing check remains.
+- `browser-test.cjs`:real PNG,JPEG,ASCII STL,binary STL picker uploads and downloaded STL parsing;changed pixels/threshold/depth/scale/rotation/placement versus no-import;exact current-preview/export fingerprints;JSON regeneration equality;replace/remove/reset;min/max;truncated,nonmanifold,concave,oversize,invalid-transform and empty-silhouette recovery.320/390 px phone,touch orbit,pinch,image/STL downloads,no overflow,no runtime errors or remote app requests.
+- `feature-test.cjs`:all presets,bounded variations,three shapes,text,SVG ring,engraving,background inversion,portable four-format roundtrips,named-save persistence,undo/redo,ZIP with4 valid STLs and ASSEMBLY.txt,individual exports,all views,saved dark theme,colour-only preview changes,drag/drop,Y-up and keyboard/section controls passed.
+- `studio-layout-test.cjs`:374 px left rail/right viewer,phone preview-first,all isolated views,geometry-neutral view switching,reduced motion,no overflow passed. Screenshots inspected.
+- `resilience-test.cjs`:blocked worker script disables export;reload recovers;all6 icons produce distinct geometry. `stale-import-test.cjs`:delayed image decode cannot overwrite a newer import.
+- `portable-errors-test.cjs`:missing image payload requests reattachment,bad transforms,wrong app and bad dimensions block downloads and reset recovers.
+- `hole-test.cjs`:actual final-solid Boolean probes verify the SVG ring's center remains unraised/unengraved while the dark ring changes geometry.
+- `npm run predeploy`:production bundle passed with locally bundled worker,WASM,fonts and dependencies. Final0.03 mm nominal preview contact clearance independently checked by the repeated pure assembly suite.
+- Gallery inline script compiled with `new Function`,new folder appears exactly once with area stl and correct name/link. All227 older entries byte-preserved. Real browser renders228 cards with STL Generators first andsearch recovery.
+- Root `npm run predeploy`:228 apps,0 failed,0 skipped. Staging has identical root index,all apps,and 43 hash-identical files for this app. Actual staged PNG/STL uploads and downloads passed (`root-stage-validation.json`).
+
+Nominal geometry and uniform-density restoring sign do not model friction,elasticity,contact forces,slicer errors,material anisotropy ordynamic tipping. Print the bird at symmetric 100% infill and calibrate stationary foot fit on your printer. Bird is lift-off,not captive. Import complexity isintentionally bounded;unsupported meshes are rejected,never silently repaired/replaced.

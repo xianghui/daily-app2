@@ -1,0 +1,2 @@
+import {init,generate} from './geometry';import{parseSTL}from './imports';import wasm from 'manifold-3d/manifold.wasm?url';const ready=init({locateFile:()=>wasm});
+onmessage=async({data:d})=>{try{await ready;if(d.type==='parse')postMessage({id:d.id,type:'parsed',mesh:parseSTL(d.buffer,d.axis)});else postMessage({id:d.id,key:d.key,model:generate(d.p,d.source,d.t)});}catch(e){postMessage({id:d.id,type:d.type==='parse'?'parsed':'model',error:e.message});}};

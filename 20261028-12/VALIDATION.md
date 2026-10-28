@@ -24,3 +24,7 @@ Gallery scripts and all prior entries are checked by `gallery-validate.cjs`. Gal
 ## Not physically tested
 
 No physical print, assembly, strength, fit, force or durability test was performed. This static decorative kit has no moving joint. Computational collision-free assembly does not prove friction, print tolerance or mechanical strength. Tenons are not positively latched: recalibrate or optionally glue. Start with the joint-bearing pieces at .30 mm TOTAL allowance and adjust for actual printer/material. Not load-bearing or intended as a children's toy.
+
+## Completed publication
+
+Root `npm run predeploy`: **224 apps staged, zero failed/skipped**. Root `npm run deploy`: **Published**. Source commit `ed0d094` pushed to `origin/main`. All 43 staged app files hash-match the individual build. Gallery preserves 223 earlier entries, shows the new entry exactly once, and renders/searches without runtime errors. GitHub Pages initially returned 404 during propagation; bounded readiness polling reached HTTP 200, then `public-smoke.cjs` passed live worker/WASM loading, real PNG import, actual STL download/fingerprint/mesh validation and all 224 public gallery cards. See `public-validation.json`.

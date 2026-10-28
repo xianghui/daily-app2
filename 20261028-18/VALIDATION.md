@@ -22,3 +22,7 @@
 These are computational geometry/browser tests, **not a physical print test**. No physical print, joint-force, strength, fatigue, friction, child-safety or dynamic rocking certification. Calibrate runner/seat joints, trim elephant foot and tab nubs; fixed joints may need glue after calibration. Adult desk miniature; not a ride-on toy. Rock gently under±10° on level surface, no hard stops.
 
 Supported imported STLs are deliberately limited to one closed outward-facing convex flat-bottom solid. Concave/hollow/open/nonmanifold/disconnected/overhanging models reject explicitly; no convex hull substitution or automatic repair. Images are20×20 sampled height relief, not full3D reconstruction or exact vector tracing; bright holes preserve unraised saddle material rather than piercing it. STL does not store preview colors.
+
+## Publication confirmation
+
+ROOT `npm run deploy` published the combined230-app `deploy/` tree. GitHub Pages build reports `built`; public app returns HTTP200. `public-smoke.cjs` exercised the public worker/WASM, actual local PNG import and binary STL download, checked closed/wound mesh plus exact preview/export signature, and verified all230 gallery cards with the new entry first. Initial public404 was Pages propagation while the build was running; successful retest after completion. Main implementation commit `c4535f2` pushed to origin/main. No digest sent.

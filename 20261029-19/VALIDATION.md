@@ -24,3 +24,9 @@ Gallery: one nonempty inline script compiles with new Function; new entry exists
 The initial working tree already contained the completed, published but uncommitted 20261029-18 source and gallery entry. They were preserved (no source edits); its existing reference/browser/geometry/staging reports and successful public Pages propagation record were inspected. The requested git add -A retains that existing source alongside this new app rather than leaving its registered gallery link without committed source.
 
 Root gh-pages publication succeeded. The first public smoke attempt ran before GitHub Pages finished its asynchronous build and timed out on the not-yet-published route; local production/staging tests passed. Live checks are retried after Pages readiness rather than treating an old CDN 404 as the app build result.
+
+## Live publication confirmed
+
+GitHub Pages build/deployment run **40829271019** completed successfully (gh-pages commit `89b8a408cddbcac0fed2f2bb51e9ae9347796d9f`). Cache-busted live readiness returned HTTP 200. A fresh public smoke run passed **default + PNG + JPEG + ASCII STL + binary STL** imports/downloads with exact mesh signatures and closed-manifold, mm-dimension and positive-volume checks. The live gallery renders all **260** cards, Cell & Slot first, STL Generators first, working search, no runtime errors. Reports: `pages-propagation.json`, `public-validation.json`, `public-gallery-validation.json`. The first pre-propagation timeout was recovered without changing app geometry or weakening validation.
+
+Root deployment and main source push completed. Main commit `6d72eb3` contains the requested `20261029-19: Cell & Slot (stl)` source and preserves the initially uncommitted, already published 20261029-18 source. A follow-up evidence commit records these live checks. No physical print or load test is claimed.

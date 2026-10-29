@@ -17,3 +17,5 @@ All checks below are computational/browser checks. **No physical print, knitting
 Reproduction scripts and JSON reports are adjacent. `browser-test.cjs` runs on app dist under its real prefix and again on the combined deploy tree (report `combined-browser-validation.json`). `studio-test.cjs`, `supplemental-test.cjs`, `variation-test.cjs`, `hole-check.mjs`, `gallery-test.cjs`, `gallery-browser-test.cjs` cover the remaining behavior. Screenshots in `evidence/`, `desktop-validation.png` and `mobile-validation.png` document tested views.
 
 Root publication: `npm run deploy` completed with **Published** (gh-pages commit `d8e554e7d3b5cab8247e50a7884bddb6d9909dad`). GitHub Pages build/deployment run `40891315790` was triggered; public verification is recorded separately in `public-validation.json`.
+
+Public verification completed after GitHub Pages run `40891315790` succeeded: HTTP 200, browser worker/WASM loads, actual default/PNG/STL-generated downloads are closed manifold and match the current UI signature; imported outputs differ from default, with no browser runtime errors. See `public-validation.json`. Main source commit: `2b37bf8`.

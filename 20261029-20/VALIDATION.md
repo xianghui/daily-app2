@@ -1,0 +1,12 @@
+# Validation — 2026-10-29
+
+- Fresh public reference downloaded and parsed: 30,616 triangles, SHA and dimensions in reference-analysis.json; three actual mesh sections visually inspected. Source is nonwatertight; new solids are reconstructed rather than repairing/re-exporting it.
+- npm test: 20 built-in/preset/extreme configurations and 15 image/STL-derived configurations; every separately exported part and connected card checked for finite nondegenerate outward triangles, closed opposite-directed edge incidence, positive component volume and millimeter bounds. Two undersized mixed carrier configurations rejected.
+- Assembly: six mortises, nine samples on both vertical insertion paths, zero unintended pairwise intersections, three inward film guides, actual 0.2 mm film clearance, twelve accessible virtual snips yielding three panels plus waste frame, three-hit antiparallel ideal ray. Ring image center remains unraised above solid backing.
+- Production browser: 26 real STL downloads including PNG/JPEG, ASCII/binary STL, changed content/threshold/depth/crop/scale/rotate/place, remove/reset and individual parts. Preview fingerprint and exact JSON-regenerated geometry matched downloads. Ten malformed/unsupported fixture classes rejected; empty silhouette, invalid transforms and out-of-zone features also blocked exports.
+- Studio: every preset and silhouette, SVG/text/icon/engraving, image and original-mesh JSON/local save round trips, missing payload refusal, undo/redo, real ZIP decompression and STL validation, all views, theme persistence, focus/collapsibles, reduced-motion, worker load failure/reload recovery.
+- Mobile: actual file-picker imports/downloads, 320/390 px no overflow, preview-first stacking, touch orbit and pinch changed canvas. Desktop 374 px left panel and right viewer verified. Screenshots inspected. No browser runtime errors or external processing/CDN requests.
+- Individual npm run predeploy passed. Root predeploy: 261 built, 0 failed, 0 skipped. Combined gallery compiled its inline script and retained all 260 prior entries; new entry unique, newest, area stl. Local combined production gallery/app/worker/WASM loaded without runtime errors; public href verified.
+- Root npm run deploy returned Published. Public propagation checked separately below when available.
+
+No physical print, assembly force, adhesive strength, mirror installation or optical efficiency testing performed. Three mirror films and joint adhesive are required; printed panels alone are not reflective.

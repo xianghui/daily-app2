@@ -17,3 +17,5 @@ Completed 2026-10-29. Computational/browser checks only; **no physical print or 
 Reports: geometry-validation.json, extra-validation.json, browser-validation.json, production-preflight.json, final-smoke.json. Tests are reproducible with adjacent scripts; screenshots in evidence/. No personal input files or raw reference meshes are committed.
 
 A test fixture originally tried a 64 mm plinth in the default narrow carrier; the app correctly blocked insufficient layout space. Browser undo/redo verification uses a fitting 61 mm edit; wide-plinth tests use the wider carrier. This was not hidden by exporting the last-good model.
+
+Live GitHub Pages verification passed after successful Pages build `2dde511b`: gallery has 256 entries with Tunnel & Sight first; production worker/WASM loaded; real PNG import/download produced a closed-manifold STL; binary STL grip import and unit confirmation succeeded. No browser runtime errors. See live-validation.json. Initial cached 404 responses cleared after Pages propagation; query-versioned index was used for verification.

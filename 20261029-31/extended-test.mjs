@@ -1,0 +1,5 @@
+import fs from 'node:fs';import assert from 'node:assert/strict';import {init,generate,defaults,fields,transformDefaults} from './src/geometry.js';import {parseSTL} from './src/imports.js';import {fullCheck} from './validate.mjs';
+await init();const b=fs.readFileSync('public/samples/gem-binary.stl'),mesh=parseSTL(b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength));const cases=[];for(const extreme of ['minimum','maximum']){const p={...defaults};for(const[k,,lo,hi]of fields)p[k]=extreme==='minimum'?lo:hi;
+for(const[kind,source]of [['image',{kind:'image',n:20,pixels:Array.from({length:400},(_,i)=>i%3?0:255),mode:'threshold',threshold:130,depth:.4,style:'engraved'}],['stl',{kind:'stl',mesh,confirmed:true}]])cases.push({extreme,kind,...await fullCheck(generate(p,source,transformDefaults))});}
+assert.throws(()=>generate({...defaults,height:82,pitch:50,poise:36,thickness:1.6}),/Baffles too close/);
+fs.writeFileSync('extended-validation.json',JSON.stringify({cases,impossibleBaffleCombinationBlocked:true,physicalPrintTested:false},null,2));console.log('Imported image/STL at both parameter extrema: topology, card, snips and assembly passed.');

@@ -1,0 +1,20 @@
+# Verification — 2026-10-29
+
+Passed on the production build, including the root-combined deployment layout:
+
+- `npm run predeploy` for the individual app; exact required scripts and base path.
+- `npm test`: eight built-in cases (presets, min/max and three shapes), eight image/STL cases; all eight export files per case (connected card plus seven clean panels). Every final solid is one positive-volume closed oriented component. Independent binary STL normals/finite/area/edge incidence/component-volume/bounds checks; weld tolerance .00001 mm. Every undirected edge has two opposite incident faces.
+- CSG intersection checks: staged baffle/cheek X insertion, cheek/baffle-to-tray vertical insertion, rear/front vertical insertion, four upright shoulder stops, no assembled or flat part intersections. Actual 28 snips avoid functional parts and yield exactly eight components: carrier plus seven panels. Computational feed bound: 6 mm cube diagonal <14 mm nominal end opening, conservative inter-ramp separation ≥12 mm, exit width ≥13 mm and 30 mm exit height. Not a dynamics/rolling simulation.
+- `node extended-test.mjs`: image engraving and binary STL integration at both parameter extrema, with the same complete mesh/card/snipping/assembly tests. An impossible mixed baffle setting is rejected.
+- `node browser-test.cjs`: 30 real downloaded STL outputs, 10 malformed/unsupported input rejections, real PNG/JPEG and ASCII/binary file-picker uploads, source pixels/threshold/depth/crop/scale/rotation/placement changes, reset/replacement/removal, invalid edits and unit gating, all per-part exports. Every downloaded mesh is reparsed; signatures equal current preview and regenerated portable JSON. Import-derived models receive the same component and assembly checks. 320/390 px mobile, touch orbit and pinch changed screenshots; reachable exports and no overflow. No runtime errors or remote requests.
+- `node studio-test.cjs`: every preset, three silhouettes, actual text/icon/SVG relief, image and mesh JSON payload round trips, saved named designs across reload, missing payload errors, undo/redo, engraved geometry, actual ZIP unpacking and every STL parsed, all views, saved dark theme, keyboard focus, collapsibles, reduced motion, 374 px left rail and preview-first phone layout. Aborted production worker script blocks export; reload recovers.
+- `node supplemental-test.cjs`: Y-up/−Z-up mesh fixtures preserve source shape after normalization; rapid-edit current-state signatures, invalid edit blocks last-good export, recovery.
+- `node hole-check.mjs`: tiny Boolean probes of the actual raised/engraved ring show central unraised/unengraved backing while ring geometry changes. These are relief holes, not through-holes.
+- `node variation-test.cjs`: eight bounded variation clicks build valid current geometry; ghost/exploded evidence saved.
+- `node gallery-test.cjs`: every inline script compiled with `new Function`, unique newest `area:stl` entry, all **270 earlier entries unchanged**, correct STL category label/order.
+- ROOT `npm run predeploy`: **271 apps, zero failed, zero skipped**; root gallery byte-identical and all 47 new-app production files byte-identical in `deploy/20261029-31`.
+- `node gallery-browser-test.cjs` and local combined `public-smoke.cjs`: gallery renders 271 cards without errors, correct app route loads, worker/WASM loads under the real base prefix, and builtin/PNG/JPEG/ASCII/binary downloads are reparsed and signature-matched.
+
+See adjacent JSON reports, screenshots and reproducible scripts. Source evidence in `reference-analysis.json` and `evidence/reference-sections.png` came from actual parsed mesh/cross-sections; defects in the source are disclosed, not silently repaired. No raw third-party reference mesh or personal input is bundled.
+
+**No physical print, adhesive-strength, printer fit, flow, fair-roll, fatigue or durability tests were performed.** Retention requires adhesive; loose clearance seats are not snap locks. Feed one externally supplied 6 mm object at a time; not standard 16 mm dice. Calibrate material/printer first.

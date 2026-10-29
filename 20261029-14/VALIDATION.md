@@ -1,0 +1,14 @@
+# Release checks — 20261029-14 / Lace & Facet
+
+- Reference freshly downloaded and independently parsed: 30,616 binary STL triangles, SHA-256 in `reference-analysis.json`; actual mesh cross-sections viewed. No source mesh redistributed.
+- `npm run predeploy`: production Vite build passed, local worker/WASM/fonts bundled.
+- `npm test`: **22 built-in + 35 imported-output configurations**. Each card and each face independently checked after binary STL float32 serialization: finite/nondegenerate triangles, normal/winding agreement, positive volume per component, opposite edge directions and exactly two incidents at 1e−5 mm weld tolerance, expected dimensions and Z=0 orientation.
+- Same cases: no pairwise assembled collisions; correct thickness-aware inset, six seams with two matching eye pairs each, 24 open eyes; outward assembly/removal and ideal hand-guided fold paths sampled; 200 mm cord allowance per seam exceeds conservative threading/knot estimate. Sixteen safe cuts leave four faces plus one connected carrier.
+- `extra-validation.mjs`: 16 mixed configurations, actual raised/engraved ring-hole and backing probes, concave-mesh rejection and below-minimum-card rejection.
+- `browser-validation.mjs`: **39 downloaded-STL cases**, each matched to UI fingerprint and regenerated portable state, checked for mesh validity and assembly constraints. Real PNG/JPEG/SVG and ASCII/binary STL uploads, depth/threshold/crop/scale/rotation/placement, remove/replace/reset, undo/redo, portable/local saves, up-axis conversion, all part and ZIP members, invalid/empty/open/truncated/oversize files, missing payload recovery, worker failure, all views, theme/focus/collapsibles and 320/390 px touch orbit/pinch tested.
+- Full browser suite also targets the actual combined `deploy/` production bundle under `/daily-app2/20261029-14/`; see report URL.
+- `production-preflight.mjs`: all gallery inline scripts compile, 254 prior entries retained exactly, one new STL entry, STL category first, all 255 deploy app folders present, no gallery runtime errors; production concavity, excess triangles, invalid transform, nonmanifold and rapid-edit/variation checks passed.
+
+- Public Pages deployment succeeded; live gallery and five actual downloaded built-in/PNG/JPEG/ASCII-STL/binary-STL cases passed (`final-smoke.json`). Default headless public-host transport timed out; the diagnostic HTTP/1.1/QUIC-disabled harness succeeded. This is a test-harness transport setting, not a generation dependency.
+
+These are computational/browser checks, **not physical printing, cord/knot retention, force, stability, wear or fatigue tests**. Assembled positions and line cords are ideal explanatory views. This is an open-seam laced sculpture, not a sealed/load-bearing enclosure or child’s toy. Calibrate with two faces and the chosen cord before the full kit.

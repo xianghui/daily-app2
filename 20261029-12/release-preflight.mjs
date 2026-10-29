@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';import fs from 'node:fs';import {init,generate,defaults,fields,presets,names,binarySTL,transformDefaults} from './src/geometry.js';import {checkSTL,collisionCheck} from './validate.mjs';import {parseSTL} from './src/imports.js';
+await init();const report={cases:{},rejectedPacking:[]};const cases={...presets,minimum:{...defaults,...Object.fromEntries(fields.map(([k,,lo])=>[k,lo]))},maximum:{...defaults,...Object.fromEntries(fields.map(([k,,,hi])=>[k,hi]))}};
+for(let i=0;i<24;i++)cases['mixed-'+i]={...defaults,...Object.fromEntries(fields.map(([k,,lo,hi,step],j)=>[k,+(lo+((i*7+j*11)%Math.round((hi-lo)/step+1))*step).toFixed(4)])),width:280,length:250,shape:['round','hex','oval'][i%3]};
+for(const [name,p]of Object.entries(cases)){const m=generate(p);report.cases[name]={assembly:await collisionCheck(m,48),card:checkSTL(binarySTL(m),m),parts:names.slice(1).map(n=>checkSTL(binarySTL(m,n),m,n))};}
+// Packing failure must be explicit rather than relocating parts outside the declared envelope.
+const invalid={...defaults,width:240,bodyLength:100,spacing:7};assert.throws(()=>generate(invalid),/Card too narrow/);report.rejectedPacking.push(invalid);
+// Denser checks of image and imported-STL final models at dimensional extrema.
+const raw=fs.readFileSync('public/samples/gem-binary.stl'),source={kind:'stl',mesh:parseSTL(raw.buffer.slice(raw.byteOffset,raw.byteOffset+raw.byteLength)),confirmed:true};
+for(const [name,p]of Object.entries(cases).slice(0,5))for(const kind of ['stl','image']){const src=kind==='stl'?source:{kind:'image',n:20,pixels:Array.from({length:400},(_,i)=>(i*37)%256),mode:'threshold',threshold:130,depth:1.5};const m=generate(p,src,transformDefaults);report.cases[name+'-'+kind]={assembly:await collisionCheck(m,48),card:checkSTL(binarySTL(m),m),parts:names.slice(1).map(n=>checkSTL(binarySTL(m,n),m,n))};}
+fs.writeFileSync('release-preflight.json',JSON.stringify(report,null,2));console.log(Object.keys(report.cases).length+' dense assembly and final mesh cases passed.');

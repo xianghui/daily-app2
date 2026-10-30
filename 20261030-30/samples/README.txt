@@ -1,1 +1,1 @@
-Original synthetic studio fixtures. PNG/JPEG/SVG make real protected closure engravings; ASCII/binary STL create an exact Boolean mesh engraving in the same closure. No personal files or raw reference meshes included. Freely reusable.
+Original synthetic studio fixtures (CC0). PNG/JPEG/SVG make real protected handle engravings; ASCII/binary STL creates an exact Boolean mesh engraving in the same handle. No personal files or raw reference meshes included.

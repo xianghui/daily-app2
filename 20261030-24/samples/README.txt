@@ -1,0 +1,1 @@
+Original synthetic studio fixtures. PNG/JPEG/SVG make real protected panel engravings; ASCII/binary STL make an exact Boolean mesh cavity in the same protected panel badge. No personal files or raw third-party reference meshes included. Freely reusable.

@@ -1,0 +1,1694 @@
+export default [
+  {
+    "folder": "20261030-9",
+    "name": "Cradle & Stitch",
+    "area": "stl",
+    "desc": "Snip sixteen runners and slide two inclined-slot saddles onto paired wings for a four-part miniature bookbinding cradle. Customize V opening, open stitching channel and reference-derived calibrated tongue fits; local PNG/JPEG/SVG underside relief and verified ASCII/binary STL marks, connected-card, clean-part STLs and assembly ZIP. Adhesive required; no physical print or binding test."
+  },
+  {
+    "folder": "20261030-8",
+    "name": "Spire & String",
+    "area": "stl",
+    "desc": "Snip sixteen runners, cross-lap two uprights and seat eight deck tongues to build a ruled-string tower. Customize indexed cord eyes, lacing offset and calibrated reference-derived sheet joints; local PNG/JPEG/SVG relief and verified ASCII/binary STL lower-deck marks, real connected-card, clean-part STLs and assembly ZIP. Soft cord and adhesive required; no physical print test."
+  },
+  {
+    "folder": "20261030-7",
+    "name": "Fuse & Focus",
+    "area": "stl",
+    "desc": "Snip sixteen runners and seat two aperture/target panels plus an opaque septum in six calibrated deck sockets for a four-part lens-free stereo viewing kit. Customize eye spacing, target disparity and distance; measured sheet/socket reference, local PNG/JPEG/SVG relief and verified ASCII/binary STL deck marks, connected-card, part STLs and assembly ZIP. Adhesive required; no physical optical test."
+  },
+  {
+    "folder": "20261030-6",
+    "name": "Slit & Flicker",
+    "area": "stl",
+    "desc": "Snip twenty runners, seat a calibrated tower and bond a fixed axle and keeper around a free radial-slit optical wheel. Customize frame count, engraved dot phases, fits and foot silhouettes; measured sheet/socket reference, local PNG/JPEG/SVG relief and verified ASCII/binary STL tower marks, connected-card, five part STLs and assembly ZIP. Mirror and adhesive required; physical optical effect untested."
+  },
+  {
+    "folder": "20261030-5",
+    "name": "Wave & Phase",
+    "area": "stl",
+    "desc": "Snip 32 runners, bond two calibrated feet and hang five paired-cord bobs for a calculated drifting pendulum wave. Measured sheet/socket reference, adjustable effective lengths and local PNG/JPEG/SVG relief or verified ASCII/binary STL header marks; connected-card, eight part STLs and ZIP with length table. Cord and adhesive required; physical timing untested."
+  },
+  {
+    "folder": "20261030-4",
+    "name": "Spin & Skein",
+    "area": "stl",
+    "desc": "Snip twelve runners and cross two whorl arms on a gravity-seated shaft for a knock-down yarn spindle. Measured sheet/socket reference, calibrated indexing and local PNG/JPEG/SVG relief or verified ASCII/binary STL shaft marks; connected-card, clean-part STL and assembly ZIP. Yarn required; slow finger-spin only, no positive retention or physical print test."
+  },
+  {
+    "folder": "20261030-3",
+    "name": "Comb & Curl",
+    "area": "stl",
+    "desc": "Snip twelve runners and seat a blunt-tined spine in two calibrated feet for a standing paper-quilling comb kit. Adjust tine pitch, count, height and foot silhouettes; measured sheet/socket reference, local PNG/JPEG/SVG relief and verified ASCII/binary STL badges, connected-card and clean-part STL/ZIP. Paper and adhesive required; physical strength and release untested."
+  },
+  {
+    "folder": "20261030-2",
+    "name": "Trace & Tally",
+    "area": "stl",
+    "desc": "Snip sixteen runners, seat a flat axle and side-insert a keeper to build a four-part rolling-distance kit. Customize a graduated wheel, handle and calibrated bearing; local PNG/JPEG/SVG relief or verified ASCII/binary STL handle marks, connected-card and per-part STL/ZIP. Fixed joints need adhesive; calibrate against a known path, not a precision instrument."
+  },
+  {
+    "folder": "20261030-1",
+    "name": "Shed & Seat",
+    "area": "stl",
+    "desc": "Snip eight runners and seat a pierced reed in a calibrated socket handle. Alternate warp yarn through long slots and round eyes, then lift the heddle in an external loom setup. Measured sheet/socket reference, adjustable thread paths, local PNG/JPEG/SVG relief and verified ASCII/binary STL marks; connected-card, part STL and assembly ZIP. External warp, shuttle and adhesive required; weaving physically untested."
+  },
+  {
+    "folder": "20261029-33",
+    "name": "Skein & Cross",
+    "area": "stl",
+    "desc": "Snip eight runners, seat a T spine in a perpendicular crossarm and loosely wind four open tips to gather a miniature yarn hank. Measured sheet/socket reference, calibrated tongue fit and ergonomic grips; local PNG/JPEG/SVG relief and verified ASCII/binary STL grips, connected-card, two-part STL and assembly ZIP. Yarn, ties and adhesive required; physical winding and release untested."
+  },
+  {
+    "folder": "20261029-32",
+    "name": "Loop & Crown",
+    "area": "stl",
+    "desc": "Snip 28 runners, seat four forked pegs and two arched feet on an open-center deck for a seven-part knitting-loom kit card. Measured sheet/socket reference, calibrated joints, local PNG/JPEG/SVG relief and verified ASCII/binary STL grip marks; connected-card, clean-part STLs and assembly ZIP. Yarn, blunt hook and adhesive required; physical knitting untested."
+  },
+  {
+    "folder": "20261029-31",
+    "name": "Tumble & Tray",
+    "area": "stl",
+    "desc": "Snip 28 runners, seat two alternating inclined baffles between pierced cheeks and lower into a tray for a seven-panel miniature gravity tower. Measured sheet/socket reference, calibrated fits, local PNG/JPEG/SVG relief and verified ASCII/binary STL grips; connected-card, per-part STL and ZIP. Adhesive and external 6 mm bead/die required; flow physically untested."
+  },
+  {
+    "folder": "20261029-30",
+    "name": "Scoop & Sweep",
+    "area": "stl",
+    "desc": "Snip sixteen runners and seat two rising cheeks plus a rear wall in six calibrated floor joints for a four-panel miniature desk scoop. Measured sheet/socket reference, customizable floor and lip, local PNG/JPEG/SVG relief and verified ASCII/binary STL handle grips; connected-card and per-part STL/ZIP. Adhesive required; dry scraps only, not food-safe or watertight."
+  },
+  {
+    "folder": "20261029-29",
+    "name": "Caliper & Slide",
+    "area": "stl",
+    "desc": "Snip twelve runners, flip a tongue-bearing jaw and bond its underside keeper for a captive vernier teaching gauge. Measured sheet/socket reference, adjustable pitch, reach and calibrated gaps; local PNG/JPEG/SVG relief and verified ASCII/binary STL wing grips, connected-card and three-part STL/ZIP. Adhesive required; educational, not a calibrated instrument."
+  },
+  {
+    "folder": "20261029-28",
+    "name": "Glow & Gather",
+    "area": "stl",
+    "desc": "Snip 24 runners, seat four pierced screens and lower a vented lid for a six-part LED-only lantern. Measured sheet/socket reference, customizable windows and calibrated tongues; local PNG/JPEG/SVG relief and verified ASCII/binary STL wing grips, connected-card and per-part STL/ZIP. Bottom-seat adhesive required; optional battery LED, never flame."
+  },
+  {
+    "folder": "20261029-27",
+    "name": "Slide & Poise",
+    "area": "stl",
+    "desc": "Snip twenty runners, glue a calibrated mast and suspend an asymmetric beam, printed load and sliding cord-hung poise for a steelyard moment ritual. Measured sheet/socket reference, actual-mesh balance calculation, local PNG/JPEG/SVG relief and verified ASCII/binary STL plinth marks; connected-card, five-part STL and assembly ZIP. Thread and adhesive required; not a calibrated scale."
+  },
+  {
+    "folder": "20261029-26",
+    "name": "Tip & Cascade",
+    "area": "stl",
+    "desc": "Snip forty runners, glue two calibrated keyed runway halves and stand eight crown-shaped tiles for a gentle chain reaction. Measured sheet/carrier reference, adjustable tile height and station pitch; local PNG/JPEG/SVG relief and verified ASCII/binary STL runway marks, connected-card and per-part STL/ZIP export. Adhesive required; cascade not physically tested."
+  },
+  {
+    "folder": "20261029-25",
+    "name": "Braid & Gather",
+    "area": "stl",
+    "desc": "Snip twenty runners, seat three radial legs between an indexed top and open foot, then arrange soft cords among eight loose braiding guides. Measured pierced-sheet/socket reference, adjustable passage and calibrated fits; local PNG/JPEG/SVG relief and verified ASCII/binary STL top grips, connected-card and five-part STL/ZIP. Cord and six-socket adhesive required; no cord-clamping claim."
+  },
+  {
+    "folder": "20261029-24",
+    "name": "Stack & Transfer",
+    "area": "stl",
+    "desc": "Snip 32 runners, glue three shouldered posts into a calibrated base and lift four annular rings for a 15-move transfer ritual. Measured sheet/carrier reference, customizable ring sizes and fits, local PNG/JPEG/SVG relief and verified ASCII/binary STL base grips; connected-card, eight part STLs and assembly ZIP. Adhesive required; rings intentionally lift out."
+  },
+  {
+    "folder": "20261029-23",
+    "name": "Hang & Trace",
+    "area": "stl",
+    "desc": "Snip twelve runners, cross-lap a curve board onto two feet and drape a cord against a calculated engraved catenary. Measured sheet/carrier reference, adjustable eye span, sag and calibrated joints; local PNG/JPEG/SVG relief and verified ASCII/binary STL grips, connected-card and per-part STL/ZIP. Cord and adhesive required; ideal curve, no physical drape test."
+  },
+  {
+    "folder": "20261029-21",
+    "name": "Chord & Lattice",
+    "area": "stl",
+    "desc": "Snip twenty runners, seat three double-tenoned struts between two pierced crowns and lace indexed soft-thread chords into a hyperboloid sculpture. Measured sheet/carrier reference, adjustable eyes and calibrated joints, local PNG/JPEG/SVG relief and verified ASCII/binary STL labels; connected-card, five part STLs and assembly ZIP. Thread and adhesive required."
+  },
+  {
+    "folder": "20261029-20",
+    "name": "Corner & Return",
+    "area": "stl",
+    "desc": "Snip twelve runners and seat two perpendicular mirror panels in six calibrated floor joints for a trihedral reflection demonstrator. Measured sheet/carrier reference, adjustable mirror guides, local PNG/JPEG/SVG relief and verified ASCII/binary STL labels; connected-card, three part STLs and assembly ZIP. Mirror film and adhesive required; optical performance untested."
+  },
+  {
+    "folder": "20261029-19",
+    "name": "Cell & Slot",
+    "area": "stl",
+    "desc": "Snip 28 runners, seat two up-slotted rails and lower four down-slotted combs into a three-bay rack with eight cross-laps and fourteen floor tongues. Measured sheet/carrier reference, adjustable cells and calibrated fits, local PNG/JPEG/SVG relief and verified ASCII/binary STL label grips; connected-card, seven part STLs and assembly ZIP. Adhesive required."
+  },
+  {
+    "folder": "20261029-18",
+    "name": "Ray & Box",
+    "area": "stl",
+    "desc": "Snip 24 runners and seat six opaque panels into sixteen calibrated tongue joints for a pinhole projection chamber with a paper-screen window. Measured sheet/carrier reference, adjustable aperture and chamber, local PNG/JPEG/SVG relief and verified ASCII/binary STL label grips; connected-card, per-part STL and assembly ZIP. Paper, opaque tape and adhesive required; optical performance untested."
+  },
+  {
+    "folder": "20261029-17",
+    "name": "Shutter & Shimmer",
+    "area": "stl",
+    "desc": "Slowly turn mismatched N/N+1 radial screens to walk a wave of light through real apertures. Measured coaxial-sleeve reconstruction, calibrated plain bearing and bonded keeper; local PNG/JPEG/SVG relief and verified ASCII/binary STL palm grips, three bed-flat part STLs and assembly ZIP. Adhesive required for retention; horizontal lift-out alternative."
+  },
+  {
+    "folder": "20261029-16",
+    "name": "Thread & Span",
+    "area": "stl",
+    "desc": "Snip twenty runners, glue two portal towers into calibrated feet and tie four soft cords to suspend a personalized deck through their windows. Measured sheet/carrier reference, cord-clearance checked assembly, local PNG/JPEG/SVG relief and verified ASCII/binary STL medallions; connected-card, five part STLs and assembly ZIP. Cord and adhesive required; not load-bearing."
+  },
+  {
+    "folder": "20261029-15",
+    "name": "Tunnel & Sight",
+    "area": "stl",
+    "desc": "Snip twenty runners and seat four graded apertures in a marked eight-mortise plinth; look from a customizable eye point for aligned perspective rays and layered parallax. Measured sheet/carrier reference, calibrated seats, local PNG/JPEG/SVG relief and verified ASCII/binary STL grips; connected-card, part STL and assembly ZIP. Adhesive required; static optical sculpture."
+  },
+  {
+    "folder": "20261029-14",
+    "name": "Lace & Facet",
+    "area": "stl",
+    "desc": "Snip sixteen runners and lace four paired-eye triangular panels into a thickness-offset tetrahedron with six soft cords. Measured sheet/carrier reference, customizable seam gaps and eyes; local PNG/JPEG/SVG relief and verified ASCII/binary STL medallions, connected-card and per-part STL/ZIP export. Cord required; ideal tied pose, not a sealed box."
+  },
+  {
+    "folder": "20261029-13",
+    "name": "Tangram & Tuck",
+    "area": "stl",
+    "desc": "Snip 36 tabs, bond a finger-access rim to its backing and rearrange seven inward-offset tangram tiles in a calibrated square well. Measured sheet/carrier reference, customizable tray and gaps, local PNG/JPEG/SVG relief and verified ASCII/binary STL grips; connected-card, nine part STLs and assembly ZIP. Rim adhesive required; tiles remain loose."
+  },
+  {
+    "folder": "20261029-12",
+    "name": "Sweep & Soar",
+    "area": "stl",
+    "desc": "Snip 24 runners, side-thread a swept wing and tailplane through fuselage mortises, then seat the six-part display aircraft in twin open-notch cradles. Measured sheet/carrier reference, customizable foil envelopes and calibrated joints; local PNG/JPEG/SVG relief and verified ASCII/binary STL plinth grips, connected-card and individual STL/ZIP. Adhesive required; static model, not a flying glider."
+  },
+  {
+    "folder": "20261029-11",
+    "name": "Paddle & Turn",
+    "area": "stl",
+    "desc": "Snip 36 runners and assemble four shouldered paddles between two pierced cheeks, then thread a saddle-ended fixed axle through the wheel and glue it onto a seated U yoke. Measured sheet/carrier reference, calibrated bearings and joints, local PNG/JPEG/SVG relief and verified ASCII/binary STL foot grips; connected-card, part STL and assembly ZIP. Adhesive required; dry desk miniature."
+  },
+  {
+    "folder": "20261029-10",
+    "name": "Nudge & Echo",
+    "area": "stl",
+    "desc": "Snip 24 runners, glue a tongue-seated portal into two feet and tie six paired cords to three rim-contact bobs for gentle collision-pendulum releases. Measured sheet/carrier reference, bounded release geometry, local PNG/JPEG/SVG relief and verified ASCII/binary STL grips; connected-card, part STL and assembly ZIP. Cord and adhesive required; no ideal energy-transfer claim."
+  },
+  {
+    "folder": "20261029-9",
+    "name": "Chord & Pluck",
+    "area": "stl",
+    "desc": "Snip twelve tabs, glue an inclined-neck harp frame into its marked plinth and lace 4–8 loose soft-cord spans with the removable threading shuttle. Measured sheet/carrier reference, calibrated seats, local PNG/JPEG/SVG relief and verified ASCII/binary STL grips; connected-card, part STL and assembly ZIP. Cord and adhesive required; no tuning claim."
+  },
+  {
+    "folder": "20261029-8",
+    "name": "Keel & Frame",
+    "area": "stl",
+    "desc": "Snip 28 runners and lower five graded pierced bulkheads into complementary keel half-laps, then seat the hull skeleton on its marked plinth. Seven-part shipbuilding study with measured sheet/carrier reference, calibrated joints, local PNG/JPEG/SVG relief and verified ASCII/binary STL grips; connected-card, part STL and assembly ZIP. Adhesive required."
+  },
+  {
+    "folder": "20261029-7",
+    "name": "Turn & Tier",
+    "area": "stl",
+    "desc": "Snip forty runners, seat four height-indexed walls and slide four quarter-turn treads around a hollow tower, then lower its crown. Ten-part architectural kit with measured sheet/carrier reference, calibrated mortises, local PNG/JPEG/SVG relief and verified ASCII/binary STL plinth grips; connected-card, part STL and assembly ZIP. Adhesive required."
+  },
+  {
+    "folder": "20261029-6",
+    "name": "Trestle & Table",
+    "area": "stl",
+    "desc": "Snip twenty runners, stand two transverse trestles and lower twin benches plus a tabletop onto six shoulder-supported tongue joints for a five-part miniature picnic table. Measured sheet/carrier reference, customizable proportions and calibrated mortises; local PNG/JPEG/SVG relief, verified ASCII/binary STL grips, connected-card and per-part STL/ZIP. Adhesive required."
+  },
+  {
+    "folder": "20261029-5",
+    "name": "Crown & Canopy",
+    "area": "stl",
+    "desc": "Snip sixteen runners, seat a branching crown in two root feet and lower its perpendicular companion through complementary half-laps. Measured sheet/carrier reference, customizable branch tiers and calibrated joints; local PNG/JPEG/SVG relief, verified ASCII/binary STL grips, connected-card and per-part STL/ZIP. Adhesive required."
+  },
+  {
+    "folder": "20261029-4",
+    "name": "Veil & Shift",
+    "area": "stl",
+    "desc": "Snip sixteen runners and stand two differently pitched gratings in double-slot feet; shift the removable front screen for changing moiré bands. Measured sheet/carrier reference, calibrated guides, local PNG/JPEG/SVG relief and verified ASCII/binary STL rear-screen grips; connected-card, per-part STL and assembly ZIP. Rear-seat adhesive required."
+  },
+  {
+    "folder": "20261029-3",
+    "name": "Plumb & Plane",
+    "area": "stl",
+    "desc": "Snip sixteen runners, cross-lap a marked upright onto two feet and suspend a printed bob on thread for a gravity-angle desk demonstrator. Measured sheet/carrier reference, calibrated joints and angular ticks; local PNG/JPEG/SVG relief and verified ASCII/binary STL board grips, connected-card and per-part STL/ZIP. Thread and adhesive required; not a calibrated instrument."
+  },
+  {
+    "folder": "20261029-2",
+    "name": "Sift & Sort",
+    "area": "stl",
+    "desc": "Snip 24 tabs and seat a graduated sorting deck on two inclined supports, then hand-guide three size-matched tokens through their first matching holes. Measured sheet/carrier reference, adjustable slope and calibrated mortises, local PNG/JPEG/SVG relief and verified ASCII/binary STL deck grips; connected-card, per-part STL and assembly ZIP. Adhesive required."
+  },
+  {
+    "folder": "20261029-1",
+    "name": "Prism & Peek",
+    "area": "stl",
+    "desc": "Snip twenty tabs and capture two opposing 45° reflector seats between pierced cheeks, then seat the five-part periscope frame on its marked plinth. Measured sheet/carrier reference, calibrated mortises, local PNG/JPEG/SVG relief and verified ASCII/binary STL grips; connected-card, part STL and assembly ZIP. Thin mirror film and adhesive required."
+  },
+  {
+    "folder": "20261028-30",
+    "name": "Rake & Ritual",
+    "area": "stl",
+    "desc": "Snip eight tabs and lower a shouldered handle into a toothed rake head for a two-piece desk-sand miniature. Measured sheet/carrier reference, adjustable teeth and calibrated mortise, local PNG/JPEG/SVG relief and verified ASCII/binary STL grips; connected-card, part STL and assembly ZIP export. Adhesive required; sand/tray not included."
+  },
+  {
+    "folder": "20261028-29",
+    "name": "Lace & Fold",
+    "area": "stl",
+    "desc": "Snip twelve tabs and tie six thread loops to turn three pierced leaves into a folding miniature screen. Measured sheet/carrier reference, adjustable lacing bores and reveal, local PNG/JPEG/SVG relief and verified ASCII/binary STL grips; connected-card, per-part STL and assembly ZIP. Thread required."
+  },
+  {
+    "folder": "20261028-28",
+    "name": "Scene & Slot",
+    "area": "stl",
+    "desc": "Snip 24 tabs and seat a proscenium, two scenery wings and two lift-out actors in a marked floor for a six-part tabletop theatre. Measured sheet/carrier reference, calibrated mortises, local PNG/JPEG/SVG relief and verified ASCII/binary STL grips; connected-card, individual STL and assembly ZIP export."
+  },
+  {
+    "folder": "20261028-27",
+    "name": "Lace & Loop",
+    "area": "stl",
+    "desc": "Snip 24 tabs, seat six shouldered capstan posts and two risers, then route a loose cord into geometric patterns. Measured sheet/carrier reference, calibrated joints, local PNG/JPEG/SVG relief and verified ASCII/binary STL board grips; connected-card and per-part STL/ZIP export. Cord and adhesive required."
+  },
+  {
+    "folder": "20261028-26",
+    "name": "Roll & Relay",
+    "area": "stl",
+    "desc": "Snip 28 tabs and assemble three alternating ramps between two slotted guide cheeks; release a printed upright roller for a right-left-right cascade. Measured sheet/carrier reference, calibrated inclined joints, local PNG/JPEG/SVG relief and verified ASCII/binary STL base grips; connected-card and per-part STL/ZIP export. Adhesive required for fixed joints."
+  },
+  {
+    "folder": "20261028-25",
+    "name": "Tap & Suspend",
+    "area": "stl",
+    "desc": "Snip sixteen tabs, seat a shouldered portal and suspend a disk on two tied thread loops for gentle taps with a loose striker. Measured sheet/carrier reference, three silhouettes, calibrated slots, local PNG/JPEG/SVG relief and verified ASCII/binary STL base grips; connected-card, part STL and assembly ZIP export. Thread required; no tuned-tone claim."
+  },
+  {
+    "folder": "20261028-24",
+    "name": "Pull & Whirr",
+    "area": "stl",
+    "desc": "Wind a balanced two-hole rotor, gently pull two eye-handles apart, then relax for an alternating cord whirligig rhythm. Measured cord-eye reconstruction, bounded inertia/bore controls, local PNG/JPEG/SVG relief and verified ASCII/binary STL handle grips; three part STLs and assembly ZIP. Cord loop required."
+  },
+  {
+    "folder": "20261028-23",
+    "name": "Hoist & Hook",
+    "area": "stl",
+    "desc": "Snip forty tabs and assemble a ten-part hand-wound miniature crane with circular cheek bearings, keyed flanges, retained spindle and cord-guided hook. Reference-derived sheet/card fits, local PNG/JPEG/SVG relief and verified ASCII/binary STL base grips; connected-card, part STL and assembly ZIP export. Cord and fixed-flange adhesive required; no load-holding claim."
+  },
+  {
+    "folder": "20261028-22",
+    "name": "Wedge & Word",
+    "area": "stl",
+    "desc": "Snip forty tabs and assemble a ten-part miniature book press with guided platen and twin opposed wedge pairs. Measured sheet/carrier reference, customizable wedge rise and calibrated slots; local PNG/JPEG/SVG relief and verified ASCII/binary STL base marks, connected-card and individual STL/ZIP export."
+  },
+  {
+    "folder": "20261028-21",
+    "name": "Lift & Lock",
+    "area": "stl",
+    "desc": "Snip a ten-part bascule drawbridge kit: fit deck lugs, a keyed axle, circular cheek bearings and retaining keys, then lift the deck nose. Customize reference-derived sheet/card fits and local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; export a connected breakaway card and bed-flat parts."
+  },
+  {
+    "folder": "20261028-19",
+    "name": "Slide & Count",
+    "area": "stl",
+    "desc": "Snip sixty tabs, thread six sliding beads onto two rails and insert four transverse keeper keys for a fifteen-part counting frame. Measured sheet/carrier reference, calibrated running and fixed fits; local PNG/JPEG/SVG relief, verified ASCII/binary STL base marks, connected-card and per-part STL/ZIP export."
+  },
+  {
+    "folder": "20261028-18",
+    "name": "Saddle & Sway",
+    "area": "stl",
+    "desc": "Snip sixteen tabs, seat a saddle on matched circular runners and insert a horse spine for a four-part rocking miniature. Measured sheet/carrier reference, calibrated joints and checked static balance; local PNG/JPEG/SVG relief, verified ASCII/binary STL marks, connected-card and per-part STL/ZIP export."
+  },
+  {
+    "folder": "20261028-17",
+    "name": "Match & Drop",
+    "area": "stl",
+    "desc": "Snip 28 tabs, seat two pierced cheeks and lower a matched-aperture roof to assemble a seven-part miniature shape sorter. Measured sheet/carrier reference, calibrated joints and three distinct tokens; local PNG/JPEG/SVG relief, verified ASCII/binary STL floor grips, connected-card and per-part STL/ZIP export."
+  },
+  {
+    "folder": "20261028-16",
+    "name": "Wing & Poise",
+    "area": "stl",
+    "desc": "Snip twelve tabs, seat a tapered perch and balance a drooped-wing bird on its open V seat. Measured sheet/carrier reference, real mass-balance customization and calibrated foot; local PNG/JPEG/SVG relief, verified ASCII/binary STL marks, connected-card and per-part STL/ZIP export."
+  },
+  {
+    "folder": "20261028-15",
+    "name": "Ring & Pitch",
+    "area": "stl",
+    "desc": "Snip sixteen tabs, seat three shouldered posts and gently pitch three loose rings onto a marked target. Measured sheet/carrier reference, calibrated mortises and real ring clearance; local PNG/JPEG/SVG relief, verified ASCII/binary STL marks, connected-card and per-part STL/ZIP export."
+  },
+  {
+    "folder": "20261028-14",
+    "name": "Tether & Float",
+    "area": "stl",
+    "desc": "Snip twelve tabs, seat two opposed hooked masts and tie one lifting cord plus three stays for a four-part tensegrity display. Measured sheet/carrier reference, calibrated mortises, local PNG/JPEG/SVG relief and verified ASCII/binary STL marks; connected-card, per-part STL and assembly ZIP export. Thread required."
+  },
+  {
+    "folder": "20261028-13",
+    "name": "Rib & Halo",
+    "area": "stl",
+    "desc": "Snip twenty tabs and slide six curved ribs radially into two slotted hubs for an eight-part desk sculpture. Measured sheet/carrier reference, three silhouettes and calibrated cross-laps; local PNG/JPEG/SVG relief and verified ASCII/binary STL marks, connected-card and per-part STL/ZIP export."
+  },
+  {
+    "folder": "20261028-12",
+    "name": "Arc & Span",
+    "area": "stl",
+    "desc": "Snip twenty tabs and seat a marked deck plus two under-deck ties in pierced arch trusses to build a five-part miniature bridge. Measured sheet/carrier reference, three arch profiles and calibrated tenons; local PNG/JPEG/SVG relief and verified ASCII/binary STL marks, connected-card and per-part STL/ZIP export."
+  },
+  {
+    "folder": "20261028-11",
+    "name": "Tilt & Louver",
+    "area": "stl",
+    "desc": "Snip 28 tabs and assemble a seven-part screen with three independently rotating slats in circular cheek bores. Measured sheet/carrier reference, calibrated pivots and tie joints; local PNG/JPEG/SVG relief and verified ASCII/binary STL marks, connected-card, individual-part STL and assembly ZIP export."
+  },
+  {
+    "folder": "20261028-10",
+    "name": "Tier & Tripod",
+    "area": "stl",
+    "desc": "Snip twenty tabs, lower an annular brace past three stepped radial legs, then seat a personalized tray for a five-part miniature stand. Measured sheet/carrier reference, staged pass-over mortises and calibrated fits; local PNG/JPEG/SVG relief, verified ASCII/binary STL marks, connected-card and per-part STL/ZIP export."
+  },
+  {
+    "folder": "20261028-9",
+    "name": "Roll & Carry",
+    "area": "stl",
+    "desc": "Snip 32 tabs and assemble an eight-part rolling handcart with independent wheels, flat axle and removable keeper keys. Measured sheet/carrier reference, calibrated bores and mortises, local PNG/JPEG/SVG relief and verified ASCII/binary STL marks; connected-card, individual STL and assembly ZIP export."
+  },
+  {
+    "folder": "20261028-8",
+    "name": "Gable & Grove",
+    "area": "stl",
+    "desc": "Snip twenty tabs, seat portal gables in a marked floor and slide two rigid roof panes onto inclined tongues to build a five-part pavilion. Measured sheet/carrier reference, parametric roof pitch and calibrated mortises; local PNG/JPEG/SVG relief and verified ASCII/binary STL marks, connected-card and per-part STL/ZIP export."
+  },
+  {
+    "folder": "20261028-7",
+    "name": "Thread & Poise",
+    "area": "stl",
+    "desc": "Snip twenty tabs and tie a symmetric beam with twin three-cord pans on a mortised cantilever mast. Measured sheet/carrier reference, parametric beam and calibrated foot; local PNG/JPEG/SVG relief and verified ASCII/binary STL marks, connected-card and per-part STL/ZIP export. Requires thread; decorative, not a scale."
+  },
+  {
+    "folder": "20261028-6",
+    "name": "Quoin & Curve",
+    "area": "stl",
+    "desc": "Snip 26 tabs and erect seven radial wedge blocks between tied, tenoned abutments for a ten-part compression arch. Measured sheet/carrier reference, parametric ring and calibrated feet, real thrust/friction analysis; local PNG/JPEG/SVG relief and verified ASCII/binary STL marks, connected-card and per-part STL/ZIP export."
+  },
+  {
+    "folder": "20261028-5",
+    "name": "Pitch & Perch",
+    "area": "stl",
+    "desc": "Snip twenty tabs and choose paired 75°, 65° or 55° mortises to assemble a five-part re-indexable display easel. Measured sheet/carrier reference, custom display and stance, calibrated tongue fits; local PNG/JPEG/SVG relief, verified ASCII/binary STL marks, connected-card and per-part STL/ZIP export."
+  },
+  {
+    "folder": "20261028-4",
+    "name": "Tusk & Tenon",
+    "area": "stl",
+    "desc": "Snip twenty tabs, slide two broad-foot uprights over a marked beam and insert opposed tapered cross-keys for a five-part knockdown display frame. Measured sheet/carrier reference, real shoulder/key retention and calibrated fits; local PNG/JPEG/SVG relief, verified ASCII/binary STL marks, connected-card and per-part STL/ZIP export."
+  },
+  {
+    "folder": "20261028-3",
+    "name": "Tack & Twin",
+    "area": "stl",
+    "desc": "Snip twenty tabs, seat a deck and stern bridge on twin hulls, then slot in an upright mast/sail for a five-part display catamaran. Measured sheet/carrier reference, adjustable hull length/beam/sail and calibrated joints; local PNG/JPEG/SVG relief, verified ASCII/binary STL marks, connected-card and part STL/ZIP export."
+  },
+  {
+    "folder": "20261028-2",
+    "name": "Step & Stack",
+    "area": "stl",
+    "desc": "Snip twenty tabs and seat three slotted treads on two stepped stringers for a five-part miniature display stair. Measured sheet/carrier reference, adjustable rise/run and calibrated tenons; local PNG/JPEG/SVG relief and verified ASCII/binary STL marks, connected-card and per-part STL/ZIP export."
+  },
+  {
+    "folder": "20261028-1",
+    "name": "Glide & Slot",
+    "area": "stl",
+    "desc": "Snip sixteen tabs, seat a fuselage in its stand and slide a tapered wing and tailplane through calibrated slots to build a four-part display aircraft. Measured sheet/carrier reference, local PNG/JPEG/SVG relief and verified ASCII/binary STL wing marks; connected-card, individual STL and assembly ZIP export."
+  },
+  {
+    "folder": "20261027-28",
+    "name": "Slide & Stow",
+    "area": "stl",
+    "desc": "Snip 24 tabs, seat four tenoned walls and slide a personalized lid through mirrored blind guides to build a six-panel keepsake box. Measured sheet/carrier reference, calibrated mortises and lid travel; local PNG/JPEG/SVG relief and verified ASCII/binary STL grips, connected-card and per-part STL/ZIP export."
+  },
+  {
+    "folder": "20261027-27",
+    "name": "Spool & Snip",
+    "area": "stl",
+    "desc": "Snip sixteen tabs, cross two opposite-slotted core webs and seat two flanges to build a winding bobbin. Measured sheet/carrier reference, adjustable winding space and calibrated joints; local PNG/JPEG/SVG relief and verified ASCII/binary STL grips, connected-card and individual STL/ZIP export."
+  },
+  {
+    "folder": "20261027-26",
+    "name": "Crate & Carry",
+    "area": "stl",
+    "desc": "Snip twenty tabs, slide two walls onto a raised floor, then seat two windowed handle ends to make a five-panel desk tray. Measured sheet/carrier reference, three-plane calibrated joints, local PNG/JPEG/SVG relief and verified ASCII/binary STL marks; connected-card and individual STL/ZIP export."
+  },
+  {
+    "folder": "20261027-25",
+    "name": "Seat & Snip",
+    "area": "stl",
+    "desc": "Snip sixteen tabs, seat a tenoned backrest and slide two windowed cheeks over a miniature chair’s seat and backrest tongues. Measured sheet/carrier reference, calibrated mortises, local PNG/JPEG/SVG relief and verified ASCII/binary STL medallions; connected-card, four-part STL and assembly ZIP export."
+  },
+  {
+    "folder": "20261027-24",
+    "name": "Lattice & Label",
+    "area": "stl",
+    "desc": "Snip 24 tabs and cross six dividers at nine calibrated half-lap joints to build an open-bottom desk organizer. Measured sheet/carrier reference, real panel and cell customization, local PNG/JPEG/SVG relief and verified ASCII/binary STL labels; connected-card, per-part STL and assembly ZIP export."
+  },
+  {
+    "folder": "20261027-23",
+    "name": "Petal & Pivot",
+    "area": "stl",
+    "desc": "Snip sixteen tabs, seat an upright and hand-turn a windowed rotor on a headed calibrated axle. Reference-derived four-part kit card with real carrier, running/seat fits, local PNG/JPEG/SVG relief and verified ASCII/binary STL medallions; card/part STL and assembly ZIP export."
+  },
+  {
+    "folder": "20261027-22",
+    "name": "Solar & Slot",
+    "area": "stl",
+    "desc": "Snip eight tabs and seat a latitude-specific polar gnomon in a blind dial mortise: a two-part horizontal sundial kit card for 30–55° N. Measured sheet/carrier reference, calculated solar-hour ticks, local image/SVG relief and verified ASCII/binary STL medallions; card/part STL and assembly ZIP export."
+  },
+  {
+    "folder": "20261027-21",
+    "name": "Angle & Anchor",
+    "area": "stl",
+    "desc": "Snip sixteen tabs and cross-lap two inclined phone-support cheeks onto a pair of braces. Reference-derived connected kit card with adjustable incline, seat and calibrated fits; local PNG/JPEG/SVG relief and verified ASCII/binary STL medallions, card/part STL and assembly ZIP export."
+  },
+  {
+    "folder": "20261027-20",
+    "name": "Warp & Weft",
+    "area": "stl",
+    "desc": "Snip sixteen tabs to assemble a tabletop weaving loom with removable slotted feet and a forked yarn shuttle. Reference-derived sheet/card construction, adjustable warp pitch and calibrated fits; local PNG/JPEG/SVG relief and verified ASCII/binary STL medallions, connected-card and per-part STL/ZIP export."
+  },
+  {
+    "folder": "20261027-19",
+    "name": "Crosslap Launch",
+    "area": "stl",
+    "desc": "Snip twelve tabs, slide opposing half-lap rocket panels together at 90 degrees, and seat their crossed tenon in a personalized plinth. Reference-derived connected kit card, calibrated slots, local PNG/JPEG/SVG relief and verified ASCII/binary STL medallions; card/part STL and assembly ZIP export."
+  },
+  {
+    "folder": "20261027-18",
+    "name": "Span & Slot",
+    "area": "stl",
+    "desc": "Snip twelve tabs and seat a personalized deck on two pegged arch trestles: a genuine three-part bridge kit card. Reference-derived sheet/frame construction, calibrated slot fits, local PNG/JPEG/SVG relief and verified ASCII/binary STL grips; connected-card and individual-part STL/ZIP export."
+  },
+  {
+    "folder": "20261027-16",
+    "name": "Pulse Loop",
+    "area": "stl",
+    "desc": "Turn three rounded rotor lobes for progressive peristaltic squeeze and release along an open silicone tube. Personalize the isolated palm using local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; export two bed-flat parts with explicit tube and fit notes."
+  },
+  {
+    "folder": "20261027-15",
+    "name": "Bifilar Hush",
+    "area": "stl",
+    "desc": "Twist a two-cord suspended rotor for a gentle gravity-return rise. Customize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; export two bed-flat parts with explicit cord and knot notes."
+  },
+  {
+    "folder": "20261027-14",
+    "name": "Right Angle Reverie",
+    "area": "stl",
+    "desc": "Slide a thumb shoe to guide a perpendicular finger sweep through a Scott–Russell half-link linkage. Customize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; export four hardware-free bed-flat parts."
+  },
+  {
+    "folder": "20261027-13",
+    "name": "Swash & Settle",
+    "area": "stl",
+    "desc": "Turn a tilted-plane swash cam for a gravity-return axial thumb wave; contact radius tunes the stroke. Personalize its isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; export three hardware-free parts with a side-down follower."
+  },
+  {
+    "folder": "20261027-12",
+    "name": "Drumfold Brake",
+    "area": "stl",
+    "desc": "Spread hinged TPU shoes against an internal stationary drum to add drag, then fold inward to release. Customize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; export four hardware-free bed-flat parts."
+  },
+  {
+    "folder": "20261027-11",
+    "name": "Ratio Reverie",
+    "area": "stl",
+    "desc": "Turn a two-plane rigid compound gear train for a 4:1 same-direction thumb rhythm, or back-drive for faster motion. Personalize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; export four hardware-free bed-flat parts."
+  },
+  {
+    "folder": "20261027-10",
+    "name": "Accord Squeeze",
+    "area": "stl",
+    "desc": "Squeeze two opposing thumb racks through a shared involute pinion for synchronized equal-and-opposite strokes. Personalize the protected palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; export four hardware-free bed-flat parts."
+  },
+  {
+    "folder": "20261027-9",
+    "name": "Dwell & Drive",
+    "area": "stl",
+    "desc": "Turn a partial-tooth spur driver for a counter-turning pulse, then coast through its unlocked free interval. Customize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; export three hardware-free bed-flat parts."
+  },
+  {
+    "folder": "20261027-8",
+    "name": "Halfstep Roll",
+    "area": "stl",
+    "desc": "Guide a thumb sled over a free drum on a fixed runway for ideal half-speed rolling travel, then reverse. Personalize its isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; export three hardware-free bed-flat parts."
+  },
+  {
+    "folder": "20261027-7",
+    "name": "Collet Calm",
+    "area": "stl",
+    "desc": "Lower a tapered sleeve over six TPU collet fingers to add friction against a fixed post; turn and lift to release. Customize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips, then export three hardware-free bed-flat parts."
+  },
+  {
+    "folder": "20261027-6",
+    "name": "Delta Wind",
+    "area": "stl",
+    "desc": "Turn unequal coaxial cord drums to draw a return sheave by their radius difference: a stepped differential-windlass fidget. Personalize its isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; export four bed-flat parts with explicit cord and calibration notes."
+  },
+  {
+    "folder": "20261027-5",
+    "name": "Tempo Fork",
+    "area": "stl",
+    "desc": "Turn an eccentric crank to rock a slotted thumb lever through unequal-duration outward and return sweeps: a Whitworth quick-return fidget. Customize the isolated palm using local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; export three hardware-free bed-flat parts."
+  },
+  {
+    "folder": "20261027-4",
+    "name": "Orbital Hush",
+    "area": "stl",
+    "desc": "Turn an annular thumb race as three soft rollers orbit a fixed hub: an open rolling-element bearing. Customize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; export five hardware-free bed-flat parts."
+  },
+  {
+    "folder": "20261027-3",
+    "name": "Nip & Drift",
+    "area": "stl",
+    "desc": "Counter-turn two loose thumb rollers to feed an open TPU ribbon through a calibrated compression nip, then reverse. Personalize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; export four hardware-free bed-flat parts."
+  },
+  {
+    "folder": "20261027-2",
+    "name": "Quadrature Glide",
+    "area": "stl",
+    "desc": "Alternate perpendicular thumb strokes through a shared eccentric pin for a quarter-phase double-yoke orbit. Personalize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; calibrate fits and export four hardware-free bed-flat parts."
+  },
+  {
+    "folder": "20261027-1",
+    "name": "Pinch Brake",
+    "area": "stl",
+    "desc": "Turn a rigid thumb rotor, pinch two TPU caliper jaws against its rim, and release for adjustable friction. Customize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; calibrate gaps and export three hardware-free bed-flat parts."
+  },
+  {
+    "folder": "20261026-29",
+    "name": "Twin Gate Ritual",
+    "area": "stl",
+    "desc": "Align two independent rotary gates to admit a shared two-prong thumb key, withdraw and scramble. Customize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; calibrate fits and export four hardware-free bed-flat parts."
+  },
+  {
+    "folder": "20261026-28",
+    "name": "Diameter Drift",
+    "area": "stl",
+    "desc": "Thumb-roll a loose disc inside a nominal 2:1 circular guide for a near-diameter marker trace. Personalize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; calibrate guide allowance and export two hardware-free bed-flat parts."
+  },
+  {
+    "folder": "20261026-27",
+    "name": "Contra Arc",
+    "area": "stl",
+    "desc": "Guide a crossed antiparallelogram for opposite thumb turns at a changing ratio. Personalize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; calibrate pivot fits and export eight hardware-free bed-flat parts."
+  },
+  {
+    "folder": "20261026-26",
+    "name": "Toggle Dwell",
+    "area": "stl",
+    "desc": "Nudge a pinned knee across dead center against a removable printed TPU spring for a two-dwell toggle ritual. Customize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; calibrate fits and export eight hardware-free bed-flat parts."
+  },
+  {
+    "folder": "20261026-25",
+    "name": "Inversion Glide",
+    "area": "stl",
+    "desc": "Sweep a Peaucellier inversion cell to turn a thumb-crank arc into a straight output stroke without slide rails. Customize the isolated palm using local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; calibrate fits and export fourteen hardware-free parts."
+  },
+  {
+    "folder": "20261026-24",
+    "name": "Knee Cadence",
+    "area": "stl",
+    "desc": "Turn a crank to fold a two-loop six-bar knee and guide an extended toe through a dipping loop. Personalize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; calibrate running and cap fits, then export thirteen hardware-free parts."
+  },
+  {
+    "folder": "20261026-23",
+    "name": "Liftlink Turn",
+    "area": "stl",
+    "desc": "Lift a central idler gear to unlink two thumb wheels, turn them independently, then align and lower to reconnect. Personalize the isolated palm using local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; calibrate fits and export four hardware-free bed-flat parts."
+  },
+  {
+    "folder": "20261026-22",
+    "name": "Groove Relay",
+    "area": "stl",
+    "desc": "Turn a closed face-groove cam to positively drive a guided thumb follower outward and inward without a return spring. Customize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; calibrate running fits and export three bed-flat hardware-free parts."
+  },
+  {
+    "folder": "20261026-21",
+    "name": "Pinwheel Pause",
+    "area": "stl",
+    "desc": "Rock a two-pallet anchor to release and catch upright wheel pins in a hand-guided escapement rhythm. Customize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; calibrate fits and export three bed-flat hardware-free parts."
+  },
+  {
+    "folder": "20261026-20",
+    "name": "Crossed Cadence",
+    "area": "stl",
+    "desc": "Rock a floating thumb bridge as vertically staggered crossed arms counter-sweep between printed sector stops. Personalize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; calibrate fits and export four hardware-free parts."
+  },
+  {
+    "folder": "20261026-19",
+    "name": "Radius Rhythm",
+    "area": "stl",
+    "desc": "Turn a flat disc beneath an upright TPU wheel; slide its yoke radially to vary the friction-drive ratio. Customize the isolated palm using local PNG/JPEG/SVG relief or verified ASCII/binary STL grips, calibrate fits and export five hardware-free parts."
+  },
+  {
+    "folder": "20261026-18",
+    "name": "Tempo Sweep",
+    "area": "stl",
+    "desc": "Circle an offset crank pin to sway a slotted thumb rocker with uneven forward/return timing. Customize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; calibrate fits and export three hardware-free bed-flat parts."
+  },
+  {
+    "folder": "20261026-17",
+    "name": "Crosslock Pause",
+    "area": "stl",
+    "desc": "Move one thumb shuttle, return to center and exchange axes through a shared cross-shaped gate that blocks diagonal motion. Personalize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; calibrate fits and export three hardware-free printable parts."
+  },
+  {
+    "folder": "20261026-16",
+    "name": "Incline Exchange",
+    "area": "stl",
+    "desc": "Slide a sloping wedge to lift a vertically guided thumb follower, then hand-guide its return. Personalize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; calibrate side gaps and export three hardware-free bed-flat parts."
+  },
+  {
+    "folder": "20261026-15",
+    "name": "Crown Catch",
+    "area": "stl",
+    "desc": "Align and press four face dogs into slots for a positive shared thumb turn; lift to freewheel independently. Customize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips, calibrate fits and export three hardware-free parts."
+  },
+  {
+    "folder": "20261026-14",
+    "name": "Impulse Pause",
+    "area": "stl",
+    "desc": "Nudge two loose thumb pucks into contact, catch and reverse in a shallow open lane. Customize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; calibrate side gaps and export three hardware-free printable parts."
+  },
+  {
+    "folder": "20261026-13",
+    "name": "Catenary Calm",
+    "area": "stl",
+    "desc": "Roll a square thumb wheel across matched inverted-catenary arches for a near-level forward-and-return stroke. Customize its isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; export two hardware-free printable parts."
+  },
+  {
+    "folder": "20261026-12",
+    "name": "Cone Orbit",
+    "area": "stl",
+    "desc": "Roll a single tapered cone around its virtual apex on a flat circular runway, reverse and lift to reset. Customize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; export two hardware-free printable parts."
+  },
+  {
+    "folder": "20261026-11",
+    "name": "Triad Accord",
+    "area": "stl",
+    "desc": "Turn offset discs together through a bounded Schmidt parallel-link coupling. Personalize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; calibrate fits and export thirteen hardware-free printable parts."
+  },
+  {
+    "folder": "20261026-10",
+    "name": "Ellipse Ease",
+    "area": "stl",
+    "desc": "Guide two perpendicular shoes with a rigid bridge for an elliptical thumb arc, then reverse. Customize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; calibrate fits and export four hardware-free printable parts."
+  },
+  {
+    "folder": "20261026-9",
+    "name": "Tangent Turn",
+    "area": "stl",
+    "desc": "Gently squeeze four tangential TPU ligaments for a coupled central-hub turn and elastic return. Personalize the rigid hub with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips, calibrate flex and export one hardware-free solid."
+  },
+  {
+    "folder": "20261026-8",
+    "name": "Halo Sway",
+    "area": "stl",
+    "desc": "Tip and circle a loose annular thumb disc around a guide post for a settling nutation ritual. Customize the isolated palm using local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; calibrate tilt clearance and export two hardware-free parts."
+  },
+  {
+    "folder": "20261026-7",
+    "name": "Cycloid Settle",
+    "area": "stl",
+    "desc": "Thumb-roll a flanged spool uphill, release down a cycloidal runway, then lift and repeat. Personalize its isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; calibrate side gaps and export two hardware-free printable parts."
+  },
+  {
+    "folder": "20261026-6",
+    "name": "Elliptic Tempo",
+    "area": "stl",
+    "desc": "Turn two focal-axis TPU ellipses for an alternating quick/slow friction rhythm. Personalize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; calibrate soft contact and export five hardware-free printable parts."
+  },
+  {
+    "folder": "20261026-5",
+    "name": "Triad Drift",
+    "area": "stl",
+    "desc": "Turn a constant-width Reuleaux puck inside a square guide as its center traces a small orbit. Personalize an isolated palm using local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; calibrate side gaps and export two support-free hardware-free parts."
+  },
+  {
+    "folder": "20261026-4",
+    "name": "Takeup Turn",
+    "area": "stl",
+    "desc": "Turn through a curved-slot coupling’s free play, meet an end stop and reverse. Personalize the isolated palm using local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; calibrate fits and export two support-free hardware-free parts."
+  },
+  {
+    "folder": "20261026-3",
+    "name": "Oloid Wander",
+    "area": "stl",
+    "desc": "Nudge an orthogonal-circle oloid through a shifting circular-edge roll on an open palm runway. Customize its isolated grip with local PNG/JPEG/SVG relief or verified ASCII/binary STL models, then export both printable parts."
+  },
+  {
+    "folder": "20261026-2",
+    "name": "Differential Drift",
+    "area": "stl",
+    "desc": "Blend two thumb turns through a free sun, ring and carrier planetary differential. Personalize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; calibrate fits and export seven hardware-free parts."
+  },
+  {
+    "folder": "20261026-1",
+    "name": "Bight Lift",
+    "area": "stl",
+    "desc": "Draw a short cord around a guided return shoe for half-speed 2:1 travel, or thumb-glide cord-free. Customize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; export two bed-flat parts."
+  },
+  {
+    "folder": "20261025-28",
+    "name": "Divergent Drift",
+    "area": "stl",
+    "desc": "Roll a truncated double cone along rising, diverging rails while its axle descends. Customize an isolated palm grip with local image/SVG relief or verified ASCII/binary STL meshes, then export two hardware-free printable parts."
+  },
+  {
+    "folder": "20261025-27",
+    "name": "Threefold Seat",
+    "area": "stl",
+    "desc": "Lift a three-foot thumb plate, turn one third revolution and reseat rounded feet in radial V-grooves. Personalize the isolated palm using local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; export two support-free hardware-free parts."
+  },
+  {
+    "folder": "20261025-26",
+    "name": "Corner Cadence",
+    "area": "stl",
+    "desc": "Slide either thumb pin to exchange perpendicular strokes through a slotted bell crank. Personalize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; calibrate gaps and export four support-free hardware-free parts."
+  },
+  {
+    "folder": "20261025-25",
+    "name": "Snail’s Pace",
+    "area": "stl",
+    "desc": "Turn a stepped spiral cam for a slow outward follower rise, then hand-guide its cliff reset. Customize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; calibrate guide and bore gaps, then export three support-free hardware-free parts."
+  },
+  {
+    "folder": "20261025-24",
+    "name": "Cycloid Walk",
+    "area": "stl",
+    "desc": "Roll an eccentric-pip thumb wheel along a fixed toothed runway for a travelling trochoid sweep, then lift to release. Customize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; calibrate tooth backlash and export two support-free hardware-free parts."
+  },
+  {
+    "folder": "20261025-23",
+    "name": "Hook & Hold",
+    "area": "stl",
+    "desc": "Lift, squeeze and seat two TPU hooks for a hand-guided latch-and-release ritual. Customize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; tune flexures and latch clearance, then export one bed-flat hardware-free solid."
+  },
+  {
+    "folder": "20261025-22",
+    "name": "Cupped Fold",
+    "area": "stl",
+    "desc": "Gently flatten a transversely cupped TPU strip, then bend lengthwise and release. Customize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; tune shell geometry and export one hardware-free solid with support-calibration notes."
+  },
+  {
+    "folder": "20261025-21",
+    "name": "Quarterturn Passage",
+    "area": "stl",
+    "desc": "Slide a square-bore thumb ring along a twisted guide for a coupled partial turn, then reverse. Customize the isolated palm using local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; calibrate running and stop fits, then export three hardware-free parts."
+  },
+  {
+    "folder": "20261025-20",
+    "name": "Checkpoint Drift",
+    "area": "stl",
+    "desc": "Slide a double-taper thumb shuttle through three paired yielding TPU gates, then reverse. Customize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; tune elastic opening and export two bed-flat hardware-free parts."
+  },
+  {
+    "folder": "20261025-19",
+    "name": "Sprag Still",
+    "area": "stl",
+    "desc": "Gently turn a three-ramp cam toward TPU roller contact, then reverse to release. Customize the isolated stationary palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; calibrate running and cover fits, then export six support-free hardware-free parts."
+  },
+  {
+    "folder": "20261025-18",
+    "name": "Five Soft Notes",
+    "area": "stl",
+    "desc": "Pluck five independently free-ended TPU tongues with graduated stiffness. Customize the isolated palm using local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; tune tongue sections and export one support-free hardware-free solid."
+  },
+  {
+    "folder": "20261025-17",
+    "name": "Contrary Calm",
+    "area": "stl",
+    "desc": "Pinch the near pads to spread the far pads through opposed compliant reversing levers. Customize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; tune motion ratio and export one support-free TPU solid."
+  },
+  {
+    "folder": "20261025-16",
+    "name": "Lambda Loom",
+    "area": "stl",
+    "desc": "Guide an extended Chebyshev lambda arm around a looping return and near-straight thumb sweep. Customize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; calibrate pivot fits and export twelve hardware-free parts."
+  },
+  {
+    "folder": "20261025-15",
+    "name": "Waist & Widen",
+    "area": "stl",
+    "desc": "Gently stretch two re-entrant TPU cells to widen their inward knees, then release. Customize the isolated palm using local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; tune rib geometry and export one bed-flat hardware-free solid."
+  },
+  {
+    "folder": "20261025-14",
+    "name": "Layered Hush",
+    "area": "stl",
+    "desc": "Gently squeeze three TPU leaves into progressive sequential contact, then release. Customize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; tune leaf sections and open gaps, then export one bed-flat hardware-free solid."
+  },
+  {
+    "folder": "20261025-13",
+    "name": "Facet Cadence",
+    "area": "stl",
+    "desc": "Rock a hexagonal barrel over successive facets for gravity-indexed rise and settling on an open runway. Customize the isolated palm using local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; calibrate axial clearance and export two support-free hardware-free parts."
+  },
+  {
+    "folder": "20261025-12",
+    "name": "Tilt & Catch",
+    "area": "stl",
+    "desc": "Tip a thumb washer to bind gently on a straight post, then level it to glide. Personalize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; calibrate bore and cap fits, then export three hardware-free parts."
+  },
+  {
+    "folder": "20261025-11",
+    "name": "S-Curve Drift",
+    "area": "stl",
+    "desc": "Shuttle two rollers together in an anchored S-band guide, with opposing rolling directions and a flexible printed TPU ribbon. Customize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; calibrate fits and export four hardware-free parts."
+  },
+  {
+    "folder": "20261025-10",
+    "name": "Pleat Pause",
+    "area": "stl",
+    "desc": "Fold and reopen six radial fan facets through five broad TPU living hinges for a guided accordion ritual. Customize the isolated palm using local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; tune crease widths and export one bed-flat hardware-free solid."
+  },
+  {
+    "folder": "20261025-9",
+    "name": "Unfurl Lift",
+    "area": "stl",
+    "desc": "Gently lift a center knob to unfurl concentric TPU rings through alternating bridge pairs, then lower to settle. Customize the isolated palm using local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; tune ring thickness and annular slots, then export one bed-flat hardware-free solid."
+  },
+  {
+    "folder": "20261025-8",
+    "name": "Crosswise Calm",
+    "area": "stl",
+    "desc": "Turn two offset thumb discs through a floating cross-slider with perpendicular keys: a hand-guided Oldham coupling. Personalize the isolated input palm using local image/SVG relief or verified ASCII/binary STL grips; calibrate running clearances and export three hardware-free parts."
+  },
+  {
+    "folder": "20261025-7",
+    "name": "Pincer Pause",
+    "area": "stl",
+    "desc": "Gently pinch two rounded pads together on opposed curved TPU cantilevers, then release for elastic return. Customize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips; tune arm bow and contact opening, then export one support-free solid."
+  },
+  {
+    "folder": "20261025-6",
+    "name": "Meander Press",
+    "area": "stl",
+    "desc": "Gently squeeze twin serpentine TPU springs against a bounded compression stop. Personalize the rigid palm using local PNG/JPEG/SVG relief or verified ASCII/binary STL grips, then export one bed-flat hardware-free solid."
+  },
+  {
+    "folder": "20261025-5",
+    "name": "Ballast Sway",
+    "area": "stl",
+    "desc": "Tip a saddle seesaw to transfer a rolling ballast and reinforce either gravity-held dwell; lift to release. Customize the isolated palm with local PNG/JPEG/SVG relief or verified ASCII/binary STL grips, tune clearances and export three support-free parts."
+  },
+  {
+    "folder": "20261025-4",
+    "name": "Branch & Breathe",
+    "area": "stl",
+    "desc": "Follow branching round-ended grooves with a removable thumb stylus for a tactile tracing ritual. Customize an isolated palm landing using local image/SVG relief or verified ASCII/binary STL grips; tune nib clearance and export two support-free parts."
+  },
+  {
+    "folder": "20261025-3",
+    "name": "Wedge Whisper",
+    "area": "stl",
+    "desc": "Gently roll a loose thumb disc into a converging channel, then withdraw or lift to release. Customize the isolated palm with local PNG/JPEG relief or verified ASCII/binary STL grips; tune wall convergence and export two support-free hardware-free parts."
+  },
+  {
+    "folder": "20261025-2",
+    "name": "Seam Ritual",
+    "area": "stl",
+    "desc": "Press staggered T-head teeth together sideways, then peel two flexible TPU rails apart along an interlocking seam. Customize the isolated palm with local PNG/JPEG relief or verified ASCII/binary STL grips; calibrate tooth fits and export two bed-flat hardware-free parts."
+  },
+  {
+    "folder": "20261025-1",
+    "name": "Pinch Passage",
+    "area": "stl",
+    "desc": "Gently pinch a TPU collar to add friction to a retained sliding plunger, then release to glide. Customize the isolated palm with local PNG/JPEG relief or verified ASCII/binary STL grips; calibrate fits and export three hardware-free mixed-material parts."
+  },
+  {
+    "folder": "20261024-24",
+    "name": "Orbit Unfurl",
+    "area": "stl",
+    "desc": "Gently turn a yoke and fan two independently folding flyweights to vary rotational inertia. Customize the isolated palm with local PNG/JPEG relief or verified ASCII/binary STL grips; calibrate friction caps and export seven support-free hardware-free parts."
+  },
+  {
+    "folder": "20261024-23",
+    "name": "Breath Stroke",
+    "area": "stl",
+    "desc": "Slowly press and draw a vented piston with a separately printed TPU seal for an experimental air-resistance ritual. Customize the protected palm with local PNG/JPEG relief or verified ASCII/binary STL grips; calibrate fits and export four hardware-free parts."
+  },
+  {
+    "folder": "20261024-22",
+    "name": "Band & Pause",
+    "area": "stl",
+    "desc": "Pinch an open TPU wrap brake to add drag to an independent thumb drum, then release for a lighter turn. Customize the protected palm with local PNG/JPEG relief or verified ASCII/binary STL grips; calibrate fits and export four hardware-free mixed-material parts."
+  },
+  {
+    "folder": "20261024-21",
+    "name": "Belt Reverie",
+    "area": "stl",
+    "desc": "Pinch an endless TPU belt to couple two flanged thumb drums by friction, then release to slip. Customize the isolated palm with local PNG/JPEG relief or verified ASCII/binary STL grips; calibrate fits and export six hardware-free mixed-material parts."
+  },
+  {
+    "folder": "20261024-20",
+    "name": "Wedge Dwell",
+    "area": "stl",
+    "desc": "Slide a tapered key into long TPU jaws for progressive spreading resistance, then reverse to release. Customize the isolated palm with local PNG/JPEG relief or verified ASCII/binary STL grips; calibrate interference and export two hardware-free mixed-material parts."
+  },
+  {
+    "folder": "20261024-19",
+    "name": "Toggle Passage",
+    "area": "stl",
+    "desc": "Align an oblong button with its eye, pass through and turn crosswise for a removable orientation-gate ritual. Customize the isolated palm with local PNG/JPEG relief or verified ASCII/binary STL grips; calibrate passage fits and export two bed-flat hardware-free parts."
+  },
+  {
+    "folder": "20261024-18",
+    "name": "Bayonet Pause",
+    "area": "stl",
+    "desc": "Push, turn and lift a two-lug sleeve into bayonet locking pockets; press down to reverse and release. Customize the protected palm with local PNG/JPEG relief or verified ASCII/binary STL grips, calibrate fits and export two hardware-free parts."
+  },
+  {
+    "folder": "20261024-17",
+    "name": "Gate & Glide",
+    "area": "stl",
+    "desc": "Lower a double-flanged key through its broad release dock, glide into a narrow retaining lane, then return to lift it free. Customize the protected palm with local PNG/JPEG relief or verified ASCII/binary STL grips; calibrate clearances and export two support-free hardware-free parts."
+  },
+  {
+    "folder": "20261024-16",
+    "name": "Lace Pause",
+    "area": "stl",
+    "desc": "Weave a removable TPU ribbon up, down and up through three chamfered palm-board slots; draw gently, reverse and unweave. Customize the protected palm with local PNG/JPEG relief or verified ASCII/binary STL grips; export two hardware-free parts with explicit loose-bend and material-calibration guidance."
+  },
+  {
+    "folder": "20261024-15",
+    "name": "Wring Weave",
+    "area": "stl",
+    "desc": "Gently counter-tilt two grip rails to wring six parallel TPU rungs, then relax. Customize the protected palm landing with local PNG/JPEG relief or verified ASCII/binary STL grips; export one bed-flat hardware-free solid with material-calibration guidance."
+  },
+  {
+    "folder": "20261024-14",
+    "name": "Cone Accord",
+    "area": "stl",
+    "desc": "Press two coaxial thumb rotors into a conical seat for friction coupling, then lift for independent turning. Customize the isolated palm with local PNG/JPEG relief or verified ASCII/binary STL grips; calibrate fits and export four hardware-free parts."
+  },
+  {
+    "folder": "20261024-13",
+    "name": "Curl Current",
+    "area": "stl",
+    "desc": "Pull a cord to curl three serial TPU flexure stages, then release for elastic return—or curl directly, cord-free. Customize the isolated palm with local PNG/JPEG relief or verified ASCII/binary STL grips; export one bed-flat solid with tendon and material calibration guidance."
+  },
+  {
+    "folder": "20261024-12",
+    "name": "Peel Cadence",
+    "area": "stl",
+    "desc": "Press four yielding TPU sockets over chamfered studs, then peel them back in sequence. Customize the isolated palm landing with local PNG/JPEG relief or verified ASCII/binary STL grips; export two hardware-free parts with snap-fit calibration guidance."
+  },
+  {
+    "folder": "20261024-11",
+    "name": "Bristle Step",
+    "area": "stl",
+    "desc": "Gently press and release six inclined TPU feet for oblique spring return and experimental directional stick-slip. Customize the isolated palm tab with local PNG/JPEG relief or verified ASCII/binary STL grips; export one hardware-free solid with material-calibration guidance."
+  },
+  {
+    "folder": "20261024-10",
+    "name": "Ridge Whisper",
+    "area": "stl",
+    "desc": "Draw a flexible rounded scraper across transverse palm-board ridges for a scrape-and-return cadence. Customize the isolated palm landing with local PNG/JPEG relief or verified ASCII/binary STL grips; export two support-free hardware-free parts with surface and flex calibration guidance."
+  },
+  {
+    "folder": "20261024-9",
+    "name": "Threshold Bead",
+    "area": "stl",
+    "desc": "Press a tapered double bulb through a yielding TPU eyelet, then reverse for an elastic push-through ritual. Customize the isolated palm grip with local PNG/JPEG relief or verified ASCII/binary STL meshes; export two support-free parts with explicit interference-calibration guidance."
+  },
+  {
+    "folder": "20261024-8",
+    "name": "Hush Chamber",
+    "area": "stl",
+    "desc": "Shake, tilt and settle a loose hexagonal clapper inside a vented palm chamber. Customize the isolated landing with local PNG/JPEG relief or verified ASCII/binary STL grips; export three support-free parts with calibrated lid seating and explicit closure guidance."
+  },
+  {
+    "folder": "20261024-7",
+    "name": "Afterglide",
+    "area": "stl",
+    "desc": "Nudge two independently pivoting weighted links for a compound gravity swing. Customize the isolated palm handle with local PNG/JPEG relief or verified ASCII/binary STL grips; calibrate fits and export five support-free hardware-free assembly parts."
+  },
+  {
+    "folder": "20261024-6",
+    "name": "Seal & Peel",
+    "area": "stl",
+    "desc": "Press an inverted TPU cup onto a smooth surface, pause, then peel its palm tab for a seal-release ritual. Customize the isolated landing with local PNG/JPEG relief or verified ASCII/binary STL grips; export one hardware-free solid with explicit adhesion-calibration guidance."
+  },
+  {
+    "folder": "20261024-5",
+    "name": "Breath Vessel",
+    "area": "stl",
+    "desc": "Gently pinch a hollow TPU bulb to displace air through its crown vent, then release for elastic refill. Customize the isolated palm landing with local PNG/JPEG relief or verified ASCII/binary STL grips; export one hardware-free solid with airflow and material-calibration guidance."
+  },
+  {
+    "folder": "20261024-4",
+    "name": "Axis Quiet",
+    "area": "stl",
+    "desc": "Gently tilt a self-centering thumb pad through two orthogonal TPU torsion-flexure stages. Customize the isolated center with local PNG/JPEG relief or verified ASCII/binary STL grips; export one support-free hardware-free solid with compound-tilt calibration guidance."
+  },
+  {
+    "folder": "20261024-3",
+    "name": "Tread Soft",
+    "area": "stl",
+    "desc": "Roll and gently squeeze a TPU wheel as six swept spokes flex in sequence beneath its tread. Customize the protected hub with local PNG/JPEG relief or verified ASCII/binary STL grips; export one support-free solid with radial-compliance calibration guidance."
+  },
+  {
+    "folder": "20261024-2",
+    "name": "Poise Pebble",
+    "area": "stl",
+    "desc": "Nudge an omnidirectional bottom-heavy thumb wobbler and let gravity guide it upright. Customize its crown with local PNG/JPEG relief or verified ASCII/binary STL grips; export one solid with final-mesh mass-balance checks and explicit solid-infill/support guidance."
+  },
+  {
+    "folder": "20261024-1",
+    "name": "Facet Drift",
+    "area": "stl",
+    "desc": "Gently squeeze and turn a continuous triangulated TPU sleeve with twelve reinforced faces. Customize its isolated palm landing with local PNG/JPEG relief or verified ASCII/binary STL grips; export one hardware-free solid with material-calibration guidance."
+  },
+  {
+    "folder": "20261023-24",
+    "name": "Turnover Ritual",
+    "area": "stl",
+    "desc": "Spin and tilt a truncated-sphere tippe top to explore an experimental turnover onto its stem rim. Customize the recessed well with local PNG/JPEG relief or verified ASCII/binary STL grips, then export one hardware-free solid with support and finish guidance."
+  },
+  {
+    "folder": "20261023-23",
+    "name": "Fold Atlas",
+    "area": "stl",
+    "desc": "Gently fold and unfurl six raised facets on a Miura-inspired oblique TPU crease network. Customize its isolated palm landing with local PNG/JPEG relief or verified ASCII/binary STL grips; export one support-free body with material-calibration guidance."
+  },
+  {
+    "folder": "20261023-22",
+    "name": "Balance Branch",
+    "area": "stl",
+    "desc": "Alternate gentle nudges on a two-stage compliant whippletree with three yielding rocking beams. Customize its isolated palm landing with local PNG/JPEG relief or verified ASCII/binary STL grips; export one bed-flat hardware-free TPU solid with calibration guidance."
+  },
+  {
+    "folder": "20261023-21",
+    "name": "Comb Current",
+    "area": "stl",
+    "desc": "Gently pinch two yielding rails so eight staggered fingers interleave and return. Customize the isolated palm landing with local PNG/JPEG relief or verified ASCII/binary STL grips; export one bed-flat hardware-free TPU solid with calibration guidance."
+  },
+  {
+    "folder": "20261023-20",
+    "name": "Bow & Settle",
+    "area": "stl",
+    "desc": "Gently shorten a single pre-bowed TPU column to explore sideways elastic buckling. Customize the isolated palm pad with local PNG/JPEG relief or verified ASCII/binary STL grips; export one bed-flat hardware-free solid with material-calibration guidance."
+  },
+  {
+    "folder": "20261023-19",
+    "name": "Tape Tide",
+    "area": "stl",
+    "desc": "Gently curl a curved-section TPU tape to explore flattening resistance. Customize its isolated palm landing with local PNG/JPEG relief or verified ASCII/binary STL grips; export one hardware-free solid with support-removal and material-calibration guidance."
+  },
+  {
+    "folder": "20261023-18",
+    "name": "Chiral Hush",
+    "area": "stl",
+    "desc": "Gently unwind three inclined TPU struts for coupled twist-and-lift compliance. Customize the rigid thumb disc with local PNG/JPEG relief or verified ASCII/binary STL grips; export one hardware-free solid with explicit removable-support and material-calibration guidance."
+  },
+  {
+    "folder": "20261023-17",
+    "name": "Leaf Turn",
+    "area": "stl",
+    "desc": "Gently bend and return two thumb paddles on a broad TPU living hinge. Customize the protected palm landing with local PNG/JPEG relief or verified ASCII/binary STL grips; export one bed-flat hardware-free solid with material-calibration guidance."
+  },
+  {
+    "folder": "20261023-16",
+    "name": "Lattice Breath",
+    "area": "stl",
+    "desc": "Gently compress an open diamond-lattice TPU sleeve for a radial-opening squeeze ritual. Customize its isolated palm landing with local PNG/JPEG relief or verified ASCII/binary STL grips; export one hardware-free solid with support-removal and flex-calibration guidance."
+  },
+  {
+    "folder": "20261023-15",
+    "name": "Capstan Drift",
+    "area": "stl",
+    "desc": "Alternate gentle cord pulls through a figure-eight around two fixed posts for a sliding-friction ritual, or finger-trace cord-free. Customize the isolated palm landing with local PNG/JPEG relief or verified ASCII/binary STL grips; export one support-free solid with explicit cord and calibration guidance."
+  },
+  {
+    "folder": "20261023-14",
+    "name": "Slit & Settle",
+    "area": "stl",
+    "desc": "Gently pull and release a staggered-slit tensile kirigami sheet. Customize the isolated palm landing with local PNG/JPEG relief or verified ASCII/binary STL grips, then export one bed-flat hardware-free solid with TPU calibration guidance."
+  },
+  {
+    "folder": "20261023-13",
+    "name": "Fin Ray",
+    "area": "stl",
+    "desc": "Gently press a tapered flexible fin with five inclined cross ribs for a distributed squeeze-and-return ritual. Customize the isolated palm landing with local PNG/JPEG relief or verified ASCII/binary STL grips, then export one bed-flat hardware-free solid with TPU calibration guidance."
+  },
+  {
+    "folder": "20261023-12",
+    "name": "Square Bloom",
+    "area": "stl",
+    "desc": "Gently squeeze four counter-rotating square pads joined by compliant corner bridges. Customize the isolated palm landing with local PNG/JPEG relief or verified ASCII/binary STL grips, then export one bed-flat hardware-free solid with TPU calibration guidance."
+  },
+  {
+    "folder": "20261023-11",
+    "name": "Crossleaf Calm",
+    "area": "stl",
+    "desc": "Gently rock a thumb bridge on vertically offset crossed bending leaves for a hardware-free virtual-pivot ritual. Customize the stationary palm landing with local PNG/JPEG relief or verified ASCII/binary STL grips, then export one solid with TPU and removable-support calibration guidance."
+  },
+  {
+    "folder": "20261023-10",
+    "name": "Dimple Dwell",
+    "area": "stl",
+    "desc": "Gently press and release a curved circular diaphragm for a soft thumb ritual. Customize its rigid palm landing with local PNG/JPEG relief or verified ASCII/binary STL grips; export one hardware-free solid with TPU and removable-support calibration guidance."
+  },
+  {
+    "folder": "20261023-9",
+    "name": "Bellows Bend",
+    "area": "stl",
+    "desc": "Guide an open corrugated stem sideways for gentle multidirectional membrane flex. Customize the protected palm landing with local PNG/JPEG relief or verified ASCII/binary STL grips; export one hardware-free solid with TPU calibration guidance."
+  },
+  {
+    "folder": "20261023-8",
+    "name": "Reentrant Rest",
+    "area": "stl",
+    "desc": "Gently squeeze inward-waisted diagonals to contract a reentrant flexure cell vertically. Customize the stationary palm landing with local PNG/JPEG relief or verified ASCII/binary STL grips, then export one bed-flat hardware-free solid."
+  },
+  {
+    "folder": "20261023-7",
+    "name": "Return Spool",
+    "area": "stl",
+    "desc": "Wind and unwind a short cord around a fixed-axle yo-yo, or roll it cord-free between fingertips. Customize the outer face with local PNG/JPEG relief or verified ASCII/binary STL grips, then export one solid with support and friction-calibration guidance."
+  },
+  {
+    "folder": "20261023-6",
+    "name": "Coil Quiet",
+    "area": "stl",
+    "desc": "Gently press parallel thumb plates for axial return through a two-and-a-half-turn helical spring. Customize the upper grip with local PNG/JPEG relief or verified ASCII/binary STL meshes; export one hardware-free solid with support and flex-calibration guidance."
+  },
+  {
+    "folder": "20261023-5",
+    "name": "Contour Twice",
+    "area": "stl",
+    "desc": "Trace a half-twisted Möbius band through a continuous two-lap thumb circuit. Customize its widened landing with local PNG/JPEG relief or verified ASCII/binary STL grips; export one hardware-free solid with explicit support guidance."
+  },
+  {
+    "folder": "20261023-4",
+    "name": "Chord Rest",
+    "area": "stl",
+    "desc": "Gently pluck two, three or four fixed-fixed ribbons for elastic sideways return. Customize the rigid palm rail with local PNG/JPEG relief or verified ASCII/binary STL grips, then export one bed-flat hardware-free solid."
+  },
+  {
+    "folder": "20261023-3",
+    "name": "Keel Return",
+    "area": "stl",
+    "desc": "Rock and gently spin an elliptical rattleback with diagonal mass pockets. Customize its protected center with local PNG/JPEG relief or verified ASCII/binary STL grips, then export one closed solid; physical reversal remains experimental."
+  },
+  {
+    "folder": "20261023-2",
+    "name": "Dusk Precession",
+    "area": "stl",
+    "desc": "Tilt and spin a stemless rim-rolling wobble disc for a gravity-driven settling ritual. Customize the recessed center with local PNG/JPEG relief or verified ASCII/binary STL grips, then export one hardware-free solid."
+  },
+  {
+    "folder": "20261023-1",
+    "name": "Line & Orbit",
+    "area": "stl",
+    "desc": "Guide a pitch-circle thumb pip through a straight-line stroke as a 16-tooth planet rolls inside a 32-tooth ring. Customize the protected palm tab with local PNG/JPEG relief or verified ASCII/binary STL grips; calibrate fits and export five hardware-free parts."
+  },
+  {
+    "folder": "20261022-30",
+    "name": "Thread Reverie",
+    "area": "stl",
+    "desc": "Turn a captive thumb nut along a smooth continuous lead screw, then reverse for a travelling tactile rhythm. Customize the stationary palm tab with local PNG/JPEG relief or verified ASCII/binary STL grips; calibrate fits and export three hardware-free parts."
+  },
+  {
+    "folder": "20261022-29",
+    "name": "Sarrus Still",
+    "area": "stl",
+    "desc": "Lift and settle a parallel thumb platform on perpendicular spatial Sarrus folding chains. Customize its protected palm tab with local PNG/JPEG relief or verified ASCII/binary STL grips; calibrate fits and export eighteen hardware-free parts."
+  },
+  {
+    "folder": "20261022-28",
+    "name": "Watt Whisper",
+    "area": "stl",
+    "desc": "Guide a floating thumb pad along a near-straight Watt-linkage stroke. Customize its stationary palm tab with local PNG/JPEG relief or verified ASCII/binary STL grips; calibrate fits and export eight hardware-free parts."
+  },
+  {
+    "folder": "20261022-27",
+    "name": "Iris Accord",
+    "area": "stl",
+    "desc": "Turn an inclined-slot ring to gather and spread three radial thumb sliders in unison. Customize its stationary palm tab with local PNG/JPEG relief or verified ASCII/binary STL grips; calibrate fits and export seven hardware-free parts."
+  },
+  {
+    "folder": "20261022-26",
+    "name": "Reciprocal Reach",
+    "area": "stl",
+    "desc": "Draw one thumb joint inward to send the other outward through a six-link inversion cell. Customize its stationary palm tab with local PNG/JPEG relief or verified ASCII/binary STL grips; calibrate fits and export twelve hardware-free parts."
+  },
+  {
+    "folder": "20261022-25",
+    "name": "Echo Reach",
+    "area": "stl",
+    "desc": "Guide an inner joint while a hardware-free pantograph echoes its movement at twice the displacement. Customize the fixed palm tab with local PNG/JPEG relief or verified ASCII/binary STL grips; export ten calibrated assembly parts."
+  },
+  {
+    "folder": "20261022-24",
+    "name": "Fivefold Trace",
+    "area": "stl",
+    "desc": "Guide two independent rockers to steer a five-bar tracing tip. Customize the protected palm tab with local PNG/JPEG relief or verified ASCII/binary STL grips; calibrate fits and export ten hardware-free parts."
+  },
+  {
+    "folder": "20261022-23",
+    "name": "Mirror Fold",
+    "area": "stl",
+    "desc": "Sweep a crossed four-bar for an amplified floating-bridge turn. Customize the protected palm tab with local PNG/JPEG relief or verified ASCII/binary STL grips; calibrate fits and export eight hardware-free parts."
+  },
+  {
+    "folder": "20261022-22",
+    "name": "Slope Sonata",
+    "area": "stl",
+    "desc": "Turn an inclined swashplate to lift and settle a gravity-following thumb rocker. Customize the fixed palm tab with local PNG/JPEG relief or verified ASCII/binary STL grips; calibrate fits and export six hardware-free parts."
+  },
+  {
+    "folder": "20261022-21",
+    "name": "Rightline Ritual",
+    "area": "stl",
+    "desc": "Slide a Scott Russell linkage to turn horizontal motion into a perpendicular straight-line thumb sweep. Customize its stationary palm tab with local PNG/JPEG relief or verified ASCII/binary STL grips; calibrate fits and export eight hardware-free parts."
+  },
+  {
+    "folder": "20261022-20",
+    "name": "Orbit Almanac",
+    "area": "stl",
+    "desc": "Circle a revolving planet around a fixed sun for a double-turn epicyclic thumb orbit. Customize its stationary palm tab with local PNG/JPEG relief or verified ASCII/binary STL grips; calibrate fits and export five hardware-free parts."
+  },
+  {
+    "folder": "20261022-19",
+    "name": "Scissor Sway",
+    "area": "stl",
+    "desc": "Pinch and spread rounded crossed paddles through a bounded scissor sweep. Customize the upper thumb pad with local PNG/JPEG relief or verified ASCII/binary STL grips; calibrate fits and export three hardware-free assembly parts."
+  },
+  {
+    "folder": "20261022-18",
+    "name": "Twin Tide",
+    "area": "stl",
+    "desc": "Slide two opposed thumb racks through a shared pinion for synchronized counter-motion. Customize the turning hub with local PNG/JPEG relief or verified ASCII/binary STL grips; calibrate fits and export five hardware-free assembly parts."
+  },
+  {
+    "folder": "20261022-17",
+    "name": "Crosswind",
+    "area": "stl",
+    "desc": "Bend and twist two palm yokes around an orthogonal universal-joint cross. Customize the input grip with local PNG/JPEG relief or verified ASCII/binary STL imports; calibrate pin fits and export seven hardware-free assembly parts."
+  },
+  {
+    "folder": "20261022-16",
+    "name": "Petal Pulse",
+    "area": "stl",
+    "desc": "Turn a two-lobed polar cam to pulse a guided thumb shuttle twice per revolution. Customize its fixed palm grip with local PNG/JPEG relief or verified ASCII/binary STL imports; calibrate fits and export five hardware-free assembly parts."
+  },
+  {
+    "folder": "20261022-15",
+    "name": "Coin Current",
+    "area": "stl",
+    "desc": "Roll or slip an eccentric-pip coin around a retained circular race. Customize its fixed palm tab with local PNG/JPEG relief or verified ASCII/binary STL grips; tune clearances and export three hardware-free parts."
+  },
+  {
+    "folder": "20261022-14",
+    "name": "Fulcrum Drift",
+    "area": "stl",
+    "desc": "Rock a rounded beam while sliding it through a retained pivot to shift its balance point. Customize the fixed palm tab with local PNG/JPEG relief or verified ASCII/binary STL grips; calibrate fits and export three hardware-free parts."
+  },
+  {
+    "folder": "20261022-13",
+    "name": "Cascade Sway",
+    "area": "stl",
+    "desc": "Flick two serial pendulum arms for coupled wandering swings. Customize the fixed palm tab with local PNG/JPEG relief or verified ASCII/binary STL grips; tune independent bearing and cap fits, then export five hardware-free parts."
+  },
+  {
+    "folder": "20261022-12",
+    "name": "Slot Cadence",
+    "area": "stl",
+    "desc": "Turn a crank to sway a pivoted slotted lever with an uneven return rhythm. Customize its fixed palm grip with local PNG/JPEG relief or verified ASCII/binary STL import; calibrate fits and export six hardware-free parts."
+  },
+  {
+    "folder": "20261022-11",
+    "name": "Oloid Drift",
+    "area": "stl",
+    "desc": "Roll, catch and reverse a wandering two-lobed oloid fidget. Customize its recessed tactile well with local PNG/JPEG relief or verified ASCII/binary STL grips; calibrate joining pins and export four assembly parts."
+  },
+  {
+    "folder": "20261022-10",
+    "name": "Meander Palm",
+    "area": "stl",
+    "desc": "Tilt and nudge a captive puck through three lanes and two switchback returns beneath a slotted lid. Customize the palm grip with local PNG/JPEG relief or verified ASCII/binary STL import; tune running and seating fits, then export three hardware-free parts."
+  },
+  {
+    "folder": "20261022-9",
+    "name": "Cone Reverie",
+    "area": "stl",
+    "desc": "Roll a double cone along diverging rising rails for a gravity-driven uphill illusion; lift and reset. Customize the fixed palm tab with local PNG/JPEG relief or verified ASCII/binary STL grips, then export two hardware-free parts."
+  },
+  {
+    "folder": "20261022-8",
+    "name": "Incline Interlude",
+    "area": "stl",
+    "desc": "Slide an inclined-slot shuttle to drive a captured thumb follower along a perpendicular guide. Customize the fixed palm grip with local PNG/JPEG relief or verified ASCII/binary STL import; tune fits and export four hardware-free parts."
+  },
+  {
+    "folder": "20261022-7",
+    "name": "Rocker Reverie",
+    "area": "stl",
+    "desc": "Turn a short crank to sway a long rocker through a non-parallelogram four-bar linkage. Customize its fixed palm grip with local PNG/JPEG relief or verified ASCII/binary STL import; calibrate fits and export eight hardware-free parts."
+  },
+  {
+    "folder": "20261022-6",
+    "name": "Elliptic Ritual",
+    "area": "stl",
+    "desc": "Sweep a rigid thumb bridge on two captive perpendicular sliders for bounded trammel motion. Customize its palm grip with local PNG/JPEG relief or verified ASCII/binary STL import; calibrate fits and export seven hardware-free parts."
+  },
+  {
+    "folder": "20261022-5",
+    "name": "Quarter Pause",
+    "area": "stl",
+    "desc": "Turn a Geneva driver for a quarter-step and locked dwell on a four-slot wheel. Customize its fixed palm grip with local PNG/JPEG relief or verified ASCII/binary STL import; calibrate fits and export five hardware-free parts."
+  },
+  {
+    "folder": "20261022-4",
+    "name": "Offset Ritual",
+    "area": "stl",
+    "desc": "Turn two offset rotors together through an Oldham cross-disc sliding in perpendicular grooves. Customize the fixed palm grip with local PNG/JPEG relief or verified ASCII/binary STL import; calibrate fits and export five hardware-free parts."
+  },
+  {
+    "folder": "20261022-3",
+    "name": "Crank Quiet",
+    "area": "stl",
+    "desc": "Turn a crank and pivoted connecting rod to sweep a retained thumb slider. Customize the palm grip with local PNG/JPEG relief or verified ASCII/binary STL import; calibrate fits and export eight hardware-free parts."
+  },
+  {
+    "folder": "20261022-2",
+    "name": "Face Tide",
+    "area": "stl",
+    "desc": "Press and turn opposed axial face cams for a rising, settling thumb rhythm. Customize the stationary palm grip with local PNG/JPEG relief or verified ASCII/binary STL import; calibrate fits and export three hardware-free parts."
+  },
+  {
+    "folder": "20261022-1",
+    "name": "Cardan Calm",
+    "area": "stl",
+    "desc": "Rock a rigid thumb pad in two axes on nested orthogonal torsion bars: one hardware-free compliant cradle. Customize its real grip with local PNG/JPEG relief or verified ASCII/binary STL import, tune the flex and export a bed-flat solid."
+  },
+  {
+    "folder": "20261021-27",
+    "name": "Spoke Still",
+    "area": "stl",
+    "desc": "Gently press a rigid thumb pad on four, six or eight radial leaf springs for axial elastic return. Add local PNG/JPEG relief or verified ASCII/binary STL grips, tune leaf feel and export one hardware-free solid."
+  },
+  {
+    "folder": "20261021-26",
+    "name": "Rack Ritual",
+    "area": "stl",
+    "desc": "Turn a sixteen-tooth involute wheel to sweep a captive straight rack, or back-drive it with the thumb tab. Customize the raised hub with local PNG/JPEG relief or verified ASCII/binary STL grips; calibrate fits and export four hardware-free parts."
+  },
+  {
+    "folder": "20261021-25",
+    "name": "Helix Tide",
+    "area": "stl",
+    "desc": "Twist a captured collar through a half-turn to rise along a closed barrel-cam groove. Customize its outer thumb pad with local PNG/JPEG relief or verified ASCII/binary STL grips; calibrate fits and export three hardware-free parts."
+  },
+  {
+    "folder": "20261021-24",
+    "name": "Parallel Tide",
+    "area": "stl",
+    "desc": "Sweep a thumb bridge around a pinned parallelogram while keeping it parallel to your palm. Customize its solid grip using local PNG/JPEG relief or verified ASCII/binary STL import, tune four bearing fits, and export eight hardware-free parts."
+  },
+  {
+    "folder": "20261021-23",
+    "name": "Orbit Pebble",
+    "area": "stl",
+    "desc": "Circle and tilt a captured spherical thumb joint in any direction. Customize the raised pad using local PNG/JPEG relief or verified ASCII/binary STL grips; tune fits and export three hardware-free assembly parts."
+  },
+  {
+    "folder": "20261021-22",
+    "name": "Roller Ferry",
+    "area": "stl",
+    "desc": "Roll and slide a captive barrel along a printed spindle: a two-freedom cylindrical joint. Customize its shoulder with local PNG/JPEG relief or verified ASCII/binary STL grips; calibrate fits and export three hardware-free parts."
+  },
+  {
+    "folder": "20261021-21",
+    "name": "Cross Current",
+    "area": "stl",
+    "desc": "Trace thumb loops on two perpendicular dovetail slides with four printed travel stops. Customize the real top pad using local PNG/JPEG relief or verified ASCII/binary STL grips; calibrate fits and export seven hardware-free parts."
+  },
+  {
+    "folder": "20261021-20",
+    "name": "Page Tide",
+    "area": "stl",
+    "desc": "Fan and fold three independently rotating thumb leaves on a shared printed spine. Customize the upper grip with local PNG/JPEG relief or verified ASCII/binary STL import, tune calibrated fits and export five hardware-free solid parts."
+  },
+  {
+    "folder": "20261021-19",
+    "name": "Lift & Drift",
+    "area": "stl",
+    "desc": "Lift a captive thumb arm over four fences, turn and settle into the next sector. Customize the real grip with local PNG/JPEG relief or verified ASCII/binary STL import; tune running and cap fits, preview assembly and export three printable parts."
+  },
+  {
+    "folder": "20261021-18",
+    "name": "Diamond Breath",
+    "area": "stl",
+    "desc": "Squeeze opposing end pads to open a compliant diamond linkage sideways. Customize the rigid upper grip with local PNG/JPEG relief or verified ASCII/binary STL import; tune flexures, calibrated stops and export one hardware-free solid."
+  },
+  {
+    "folder": "20261021-17",
+    "name": "Quiet Shift",
+    "area": "stl",
+    "desc": "Nudge a parallel-motion thumb shuttle on four leaf flexures for a quiet elastic return. Customize the rigid pad with local PNG/JPEG relief or verified ASCII/binary STL grips, tune stroke and flex, and export one hardware-free printable solid."
+  },
+  {
+    "folder": "20261021-16",
+    "name": "Torsion Tea",
+    "area": "stl",
+    "desc": "Gently roll a thumb paddle on two straight torsion bars for elastic return. Customize its rigid grip with local PNG/JPEG relief or verified ASCII/binary STL import, tune flex and clearance, and export one printable solid."
+  },
+  {
+    "folder": "20261021-15",
+    "name": "Camber",
+    "area": "stl",
+    "desc": "Turn an eccentric thumb wheel against a yielding spring for a repeating resistance pulse. Customize the real grip with local PNG/JPEG relief or convex ASCII/binary STL import, tune millimeter fits, and export three printable solid parts."
+  },
+  {
+    "folder": "20261021-14",
+    "name": "Loop Loom",
+    "area": "stl",
+    "desc": "Customize a Scotch-yoke fidget that turns a thumb orbit into a captive shuttle stroke. Adjustable palm shape, grip, travel and calibrated fits; live 3D motion preview and local separate-part binary STL export."
+  },
+  {
+    "folder": "20261021-13",
+    "name": "Axis Nest",
+    "area": "stl",
+    "desc": "Customize a two-axis nested-ring gimbal fidget with printed friction-seat pivot pins. Adjustable palm size, comfort bevel, scalloped grip and calibrated bearing fits; live 3D preview and separate-part binary STL export."
+  },
+  {
+    "folder": "20261021-12",
+    "name": "Corner Waltz",
+    "area": "stl",
+    "desc": "Customize a constant-width triangular rotor that turns and wanders inside a square palm frame. Adjustable ergonomic corners, scalloped grip, running clearance and lid fit; live 3D motion preview and local separate-part binary STL export."
+  },
+  {
+    "folder": "20261021-11",
+    "name": "Whorl",
+    "area": "stl",
+    "desc": "Customize a one-piece fingertip spinning top: pinch the fluted stem, twist and release. Adjustable rim, ergonomic waist and contact tip, with live 3D preview, a small tip trial and local binary STL export."
+  },
+  {
+    "folder": "20261021-10",
+    "name": "Tangle Tide",
+    "area": "stl",
+    "desc": "Customize two flex-gate tumble loops that thread together and roll through your fingertips. Adjustable oval shape, flex section, tactile ripples and gate fit, with a live 3D preview, full-size material trial and local binary STL export."
+  },
+  {
+    "folder": "20261021-9",
+    "name": "Pendle",
+    "area": "stl",
+    "desc": "Customize a gravity-return eccentric pendulum fidget with an oval palm base, off-center bob and hardware-free retaining cap. Live 3D preview, calibrated fit coupon and local separate-part binary STL export."
+  },
+  {
+    "folder": "20261021-8",
+    "name": "Wanderform",
+    "area": "stl",
+    "desc": "Customize a sphericon fidget whose crossed cone halves create a weaving wobble-roll. Adjustable size, softened profile and recessed grip bands, with live 3D preview, trial model and whole or flat-half binary STL export."
+  },
+  {
+    "folder": "20261021-7",
+    "name": "Stillwater",
+    "area": "stl",
+    "desc": "Customize a thumb-rubbing worry stone with a concave dish, concentric tactile ripples and ergonomic palm shape. Live 3D preview, tactile coupon and support-free local binary STL export."
+  },
+  {
+    "folder": "20261021-6",
+    "name": "Fold Flow",
+    "area": "stl",
+    "desc": "Customize a one-piece concertina squeeze fidget with distributed return bends, scalloped end grips and adjustable flexure dimensions. Live 3D preview, flex coupon and local binary STL export."
+  },
+  {
+    "folder": "20261021-5",
+    "name": "Tick Tide",
+    "area": "stl",
+    "desc": "Customize a hardware-free thumb ratchet with a yielding tangent pawl, adjustable click rhythm and flexible spring dimensions. Live 3D preview, fit coupon and separate-part binary STL export."
+  },
+  {
+    "folder": "20261021-4",
+    "name": "Counterturn",
+    "area": "stl",
+    "desc": "Customize two coupled involute thumb gears on a scalloped palm base. Adjustable size, tooth count, running fit and hardware-free caps, with live 3D preview, calibration coupon and local binary STL export."
+  },
+  {
+    "folder": "20261021-3",
+    "name": "Link Drift",
+    "area": "stl",
+    "desc": "Customize a finger-walking articulated palm chain with rounded scalloped links, adjustable pivot clearance and hardware-free press-fit caps. Live 3D preview, fit coupon and separate-part binary STL export."
+  },
+  {
+    "folder": "20261021-2",
+    "name": "Pebble Vault",
+    "area": "stl",
+    "desc": "Customize a captive rolling-ball fidget with finger windows, grooved cage and adjustable running clearances. Live 3D preview, fit coupon and support-free assembly parts with local binary STL export."
+  },
+  {
+    "folder": "20261021-1",
+    "name": "Arch Pulse",
+    "area": "stl",
+    "desc": "Customize a hardware-free shallow-arch thumb press fidget with flared flexure roots, ergonomic grip and an integral travel stop. Live 3D preview, material sample and local binary STL export."
+  },
+  {
+    "folder": "20261020-23",
+    "name": "Slow Thread",
+    "area": "stl",
+    "desc": "Customize a hardware-free screw-winding fidget: turn a scalloped thumb nut along a sinusoidal threaded spindle. Live 3D preview, radial fit presets, calibration coupon and separate-part binary STL export."
+  },
+  {
+    "folder": "20261020-22",
+    "name": "Spiral Pause",
+    "area": "stl",
+    "desc": "Customize a one-piece planar torsion-spring fidget: gently twist the center against an ergonomic scalloped rim. Live 3D preview, web and turn controls, flex coupon and local binary STL export."
+  },
+  {
+    "folder": "20261020-21",
+    "name": "Thumb Harp",
+    "area": "stl",
+    "desc": "Customize a one-piece pluck-comb fidget with graduated cantilever tines, rounded roots and scalloped palm rail. Live 3D preview, flex test coupon and local binary STL export."
+  },
+  {
+    "folder": "20261020-20",
+    "name": "Shuttle Loop",
+    "area": "stl",
+    "desc": "Customize a captured linear thumb shuttle with a closed racetrack, scalloped pads and hardware-free press-fit cap. Live 3D preview, running-fit controls and local multi-part binary STL export."
+  },
+  {
+    "folder": "20261020-19",
+    "name": "Saddle Rock",
+    "area": "stl",
+    "desc": "Customize a hardware-free rocking thumb saddle with circular sole travel, concave crown and tactile ridges. Live 3D preview, ergonomic controls and local binary STL export."
+  },
+  {
+    "folder": "20261020-18",
+    "name": "Orbit Nest",
+    "area": "stl",
+    "desc": "Customize a print-in-place captive rotating-ring fidget with a V-profile race, scalloped grip and adjustable radial fit. Live 3D preview, fit coupon and local binary STL export."
+  },
+  {
+    "folder": "20261020-17",
+    "name": "Ripple Roll",
+    "area": "stl",
+    "desc": "Customize a hardware-free palm roller with an ergonomic waist and rhythmic longitudinal ribs. Live 3D preview, adjustable tactile relief and local binary STL export."
+  },
+  {
+    "folder": "20261020-16",
+    "name": "Palm Spring",
+    "area": "stl",
+    "desc": "Customize a compliant oval squeeze fidget with adjustable flexure walls, ergonomic dimensions and scalloped grip. Live 3D preview, flexibility coupon and local binary STL export."
+  },
+  {
+    "folder": "20261020-15",
+    "name": "Corner Keeper",
+    "area": "stl",
+    "desc": "Customize a right-angle assembly jig with independent arm lengths, rail width, height and bench-mount bores. Live 3D preview and local binary STL export."
+  },
+  {
+    "folder": "20261020-14",
+    "name": "Pourform",
+    "area": "stl",
+    "desc": "Design a hollow utility funnel with adjustable mouth, outlet bore, wall and bottle-fit clearance. Live 3D preview and local binary STL export."
+  },
+  {
+    "folder": "20261020-13",
+    "name": "Wedge Works",
+    "area": "stl",
+    "desc": "Customize a printable door wedge with adjustable dimensions and grip grooves. Interactive 3D preview and local binary STL export."
+  },
+  {
+    "folder": "20261020-12",
+    "name": "Moonlit Matinee",
+    "area": "game",
+    "desc": "Arrange woodland performers from before, adjacency, and spacing clues. Six untimed, uniquely solvable lineup puzzles with large tap controls, hints, optional sound, and saved best festival scores."
+  },
+  {
+    "folder": "20261020-11",
+    "name": "Last Ferry Florist",
+    "area": "game",
+    "desc": "Arrange bouquet wrapping jobs before their ferry deadlines. Sacrifice small tips to save bigger ones across six untimed departures, compare with exact optimal arrangements, and chase a saved best shift. Touch-first, optional sound, and offline play."
+  },
+  {
+    "folder": "20261020-10",
+    "name": "Odds Atelier",
+    "area": "game",
+    "desc": "Sculpt six die faces to beat the house with exact odds. Redistribute a pip budget across six untimed commissions, discover optimal designs, and chase a saved best edition. Touch-first, optional sound, and offline play."
+  },
+  {
+    "folder": "20261020-9",
+    "name": "Picnic Treaty",
+    "area": "game",
+    "desc": "Split eight treats into two baskets and let your guest choose first. Different tastes turn fair sharing into a six-picnic strategy puzzle. Untimed, touch-first, with exact optimal-split feedback, optional sound, and offline saved best scores."
+  },
+  {
+    "folder": "20261020-8",
+    "name": "Tea Leaf Society",
+    "area": "game",
+    "desc": "Test tea blends to uncover five secret tasting rules. Compare accepted and rejected samples, spend points on experiments, and make your deduction in a cozy, untimed, touch-first logic game. Optional sound, offline play, and saved best scores."
+  },
+  {
+    "folder": "20261020-7",
+    "name": "Prism Pact",
+    "area": "game",
+    "desc": "An untimed shared-trait strategy duel. Gift your rival a prism, then make four sharing color, shape, fill, or dot count. Three-round editions, large touch controls, optional sound, offline play, and saved best scores."
+  },
+  {
+    "folder": "20261020-6",
+    "name": "Dewdrop Duel",
+    "area": "game",
+    "desc": "A tiny botanical pawn-race duel. Grow mint sprouts to the far edge, capture diagonally, or block the rose gardener across five untimed rounds. Friendly or perfect-play AI, hints, undo, optional sound, offline play, and saved best scores."
+  },
+  {
+    "folder": "20261020-5",
+    "name": "Cocoa Gambit",
+    "area": "game",
+    "desc": "A five-round chocolate strategy duel. Preview corner bites, outfox a casual or perfect opponent, and leave the bitter piece behind. Touch-first, untimed, optional sound, and offline saved best scores."
+  },
+  {
+    "folder": "20261020-4",
+    "name": "Ribbon Bindery",
+    "area": "game",
+    "desc": "Flip ribbon bundles to reverse their order and turn their faces. Solve six untimed commissions at par in a cozy prefix-flip puzzle with big touch controls, undo, exact-path hints, optional sound, and offline saved best scores."
+  },
+  {
+    "folder": "20261020-3",
+    "name": "Orbit Atelier",
+    "area": "game",
+    "desc": "Draft twelve gemstones into a circular setting. Link matching neighbors and echo identical gems across the ring in a calm, touch-first jewelry puzzle. Optional sound, offline play, and saved best editions."
+  },
+  {
+    "folder": "20261020-2",
+    "name": "Stencil Studio",
+    "area": "game",
+    "desc": "Rotate two transparent ink layers to match eight colorful print commissions. An untimed registration puzzle with big touch controls, optional sound, offline play, and saved best editions."
+  },
+  {
+    "folder": "20261020-1",
+    "name": "Velvet Bids",
+    "area": "game",
+    "desc": "An untimed nine-card sealed-bid duel. Outfox the house, save strong cards for rich gem lots, and turn tied bids into rollover jackpots. Touch-first, optional sound, offline play, and saved records."
+  }
+];

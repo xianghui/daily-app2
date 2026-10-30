@@ -1,0 +1,1 @@
+Original synthetic studio fixtures. PNG/JPEG/SVG make real left-cheek engraving; ASCII/binary STL make an exact Boolean mesh cavity. No personal or raw third-party reference meshes are included. Freely reusable.

@@ -1,0 +1,16 @@
+# Validation — Tilt & Traverse
+
+Computational/browser validation on 2026-10-30. No physical print, assembly, rolling/friction, adhesive or safety testing.
+
+- Reference downloaded and independently parsed/hashed/sectioned for this run; see `reference-measurements.json`, `reference-analysis.json`, `evidence/reference-sections.png`. Source mesh defects disclosed, raw reference not redistributed.
+- `npm run predeploy`: production React/Vite bundle passes; locally bundled module worker/WASM/fonts, no CDN.
+- `npm test`:34 built-in cases (3presets,3silhouettes,simultaneous/single-field extrema) and8 image/STL-derived cases pass. Every connected card and every clean part passes independent actual binary-STL parsing, finite/nondegenerate faces, normals, welded 1e-5mm two-face edge incidence, consistent orientation, positive per-component volume and expected dimensions.
+- All cases:28 assembled part-pair checks, collision-free vertical insertion for all7walls, radius-matched sphere clearance along7route segments, disjoint print layout,32 accessible safe cuts yielding8parts+carrier,72 sampled print cross-sections supported by bed footprint. Wall seats intentionally need adhesive; ball is external and not captive. No rolling dynamics inferred.
+- `hole-check.mjs`: actual solid probes confirm white center stays solid, black ring engraves and backing remains continuous.
+- `browser-test.cjs`: real file picker PNG/JPEG/ASCII/binary imports; downloaded STL bytes match UI current-result fingerprint and Node regeneration from portable JSON. Pixel/threshold/depth/crop/grayscale/scale and mesh scale/rotation/placement changes survive export. Replace/remove/reset,mm-confirmation gate,simultaneous min/max,empty/invalid transforms and protected-zone errors checked. Malformed/truncated/open/nonmanifold/concave/excessive triangle/size/pixel/dimension inputs rejected recoverably; invalid export disabled. All9 per-part selections exported and independently parsed.
+- Phones390/320px: no horizontal overflow, preview first, reachable downloads, real image/STL file pickers; CDP touch orbit/pinch changes canvas. Desktop374px left rail/right viewer. See screenshots and JSON reports.
+- `studio-test.cjs`: all presets,real thumbnails,3silhouettes,text,searchable icons,SVG,local named designs and portable image/mesh JSON round trips,missing-payload rejection,undo/redo,all views,ZIP content and all enclosed STLs,theme persistence,focus,collapsible sections,reduced motion and worker abort/reload recovery passed.
+- `axis-test.cjs`:Y-up andnegative-Z source fixtures reorient and produce byte-identical expected engraving; axis changes explicitly clear attachment.
+- Gallery: inline scripts compiled with `new Function`, one correct newest STL entry,302 prior entries exactly preserved. Browser gallery/app runtime checked. Root combined build:303apps,0failed,0skipped;43 new-app production files hash-match dist. Complete import/download suite is rerun against the combined production route before publication.
+
+Reports: `validation-report.json`, `browser-validation.json`, `studio-validation.json`, `axis-validation.json`, `hole-validation.json`, `gallery-validation.json`, `gallery-browser-validation.json`, `combined-build-validation.json`, `combined-browser-validation.json`. Only synthetic test fixtures are stored.

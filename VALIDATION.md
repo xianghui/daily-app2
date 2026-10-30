@@ -19,3 +19,9 @@ Open rolling-element annular thumb bearing, distinct from the earlier geared, sl
 App build; 36 parameter and 35 imported-output mesh/mechanism cases; 27 actual download variants and 10 malformed-file rejections in the repeated combined-stage browser suite; exact preview/JSON/export fingerprints; phone 320/390 px touch orbit/pinch/import/download; presets, personalization, holes, undo/redo, persistence, worker errors, stale imports and ZIP checks passed. Root gallery preserves all 188 earlier entries, has one newest STL entry, and renders 189 cards. Root predeploy staged 189 apps with zero failures/skips; byte-identical app bundle checked. Root deploy reported Published. Initial Pages propagation 404 cleared; public HTTP 200, live worker/WASM, matching default STL download, newest gallery and zero runtime errors verified.
 
 See `20261027-4/VALIDATION.md`, scripts, JSON reports and screenshots. No physical print, traction, force, deformation or fatigue tests performed; compressed assembled poses remain estimated preview-only geometry.
+
+## Publication
+
+Root `npm run predeploy`: **291 built, 0 failed, 0 skipped**. Root `npm run deploy`: **Published** using combined `deploy/` output. All 47 new app production files byte-match combined output; root inline script compiles; 290 previous entries preserved and new STL entry exactly once. Combined gallery/browser route has no runtime errors.
+
+Live GitHub Pages check passed after workflow propagation: HTTP 200, worker/WASM loaded, actual live STL bytes match the independently generated default model and UI signature, mesh/assembly checks passed, all 291 gallery cards retained. See `publication-validation.json`. No separate digest sent.

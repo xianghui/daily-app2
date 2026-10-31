@@ -11,3 +11,5 @@
 - Per-app `npm run predeploy` passed;root gallery inline script compiled withnew Function,exactlyone newest STL entry,333 earlier entries unchanged,STL Generators category first. Root predeploy built/copied334 apps,failed0,skipped0. Every referenceddeploy folder exists,root HTML exact andallnew app assets match individualdist byte-for-byte. Combined-production root gallery andfull import/download/mobile browser suite passed at the actual base-path prefix.
 
 Reports are the adjacent *-validation.json files andvalidation-report.json;commands/tests are reproducible from this folder. Small Vite chunk-size andManifold Node-module externalization warnings are nonfatal;production WASM worker/import/export exercised successfully. **No physical print,assembly,adhesive strength,cord tension or chemical-accuracy test performed.** Computational results are not physical performance claims.
+
+Public-site follow-up: the full browser import/download/mobile suite also passed against https://xianghui.github.io (live-production-validation.json). Final wording correctly distinguishes measured source socket width from the redesigned nominal mast tongue; no geometry changed.

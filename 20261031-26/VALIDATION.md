@@ -61,3 +61,9 @@ Additional passing suites:
 ## Limits
 
 These tests do not establish real FDM tolerances, force, glue performance, cloth retention, fatigue or embroidery suitability. The source-inspired fit must be calibrated on the user's printer/material. The small craft frame needs external fabric, soft thread, blunt needle and adhesive, and must not be load-bearing. Unsupported STL topology is rejected, never silently hulled or repaired.
+
+## Public publication proof
+
+Root `npm run deploy` completed with `Published`. GitHub Pages build for deployment commit `a3914b281840fc7da53f26c7a855a1027a2529ac` reported `built` with no error. After propagation, `node live-production-test.cjs` passed against the public HTTPS site: HTTP 200, locally bundled production worker/WASM, actual PNG-derived and ASCII-STL-derived downloads matching their displayed mesh fingerprints, no phone overflow, 330-card gallery with the correct newest entry, and no runtime errors. See `live-production-validation.json` and `evidence/live-phone.png`.
+
+Main source commit `681ceca` was pushed to `origin/main`; it also preserved the previously staged 20261031-25 files, as required by the requested root `git add -A` workflow. A subsequent evidence-only commit stores this public verification.

@@ -1,23 +1,39 @@
-# Computational validation — 2026-10-31
+# Axis & Filter — computational validation, 2026-10-31
 
-## Passed
+The final product is a crossed-polarizer film-window kit. An initial scrape interaction was rejected after a late duplicate-description audit found Ridge Whisper; final geometry, screenshots and reports were regenerated. No scrape mechanism is present in the final app.
 
-- `npm run predeploy`: production React/Vite build; bundled local worker, Manifold WASM, Three.js and fonts. Only nonfatal bundle-size and Manifold Node-branch externalization warnings; real production worker/browser tests pass.
-- `npm test`: **45 built-in cases**, **18 image/STL-derived cases**, **28 parameter-bound rejections**. All three presets; minimum/maximum combinations; each field endpoint; all three peak/deck shapes crossed with minimum/maximum pitch and tooth depth. Every part and connected-card binary STL checked independently.
-- Mesh checks: exact binary count, finite float32 vertices/normals, nondegenerate faces, normalized winding-consistent normals, welded two-face opposite edge incidence at 1e−5 mm, closed connected solids, positive volume per component, expected mm envelope. Current card is 210 × 126 × 3.8 mm, three clean parts, one connected card.
-- Mechanical/kit checks: separate part pairs have no unintended intersection; exact vertical rail insertion at 17 positions; two total-allowance mortises and shoulder stops; twelve snip cutters do not damage parts; four components after cutting (three parts plus frame); carrier remains inside declared envelope; sampled upper sections stay over bed footprints. Import art remains away from seats.
-- **Exact complete wand** sweep: rotate its long axis across rail, overlap leading rounded tip .3 mm with rail rear edge, solve nonpenetrating top contact height at 33 sample positions. Complete wand clears deck/rail at solved positions and resolves >.1 mm tooth travel in every tested case (minimum observed approximately **.418 mm**). This checks geometric access/contact, not sound or force. Handheld wand is explicitly not captive; fixed rail retention needs adhesive.
-- `node hole-check.mjs`: actual Boolean probes prove white ring center remains solid/unengraved, dark ring recess is cut and continuous backing remains.
-- `node browser-test.cjs`: real PNG/JPEG and ASCII/binary file-picker imports, binary downloads parsed; default comparison, threshold/depth/pixel-content/crop/scale changes affect output; exact UI mesh fingerprint equals downloaded bytes and Node regeneration of saved JSON. Imported outputs pass full mesh/assembly checks. Remove/reset reproduces defaults. Malformed/truncated/open/nonmanifold/concave/excessive/mismatched files, large pixel counts, invalid dimensions, empty silhouette and bad transforms block export and recover.
-- `node studio-test.cjs`: presets and profiles, text/icon/SVG personalization, preserved portable image/mesh payloads, JSON open/save, named local design after reload, missing-file payload rejection, undo/redo, complete ZIP decompressed and every STL checked, all views, saved dark theme, focus, collapsible sections, reduced motion, 374 px left sidebar, phone preview-first, worker-script abort failure and reload recovery.
-- `node personalization-test.cjs`: all six bundled icons, text and SVG regenerated and passed full final-mesh/assembly checks. `node stale-test.cjs`: rapid geometry/image edits and invalid transforms immediately block stale exports; latest valid result matches Node exactly.
-- `node axis-test.cjs`: real Y-up and negative-Z synthetic mesh imports export identically to original Z-up model; up-axis change explicitly clears source and requires reattachment.
-- Phone widths 320/390 px: no horizontal overflow, touch orbit and pinch verified via CDP/screenshot changes, PNG/STL file picker and actual STL download, reachable export controls. Desktop and phone screenshots inspected.
-- Root gallery: every inline script compiled using `new Function`; exactly one new `area:"stl"` entry first, all **318 prior entries** unchanged; STL Generators category and focus tagline preserved. Gallery browser renders all **319 cards** with no runtime errors.
-- Root `npm run predeploy`: **319 built, zero failed/skipped**, root index and all 319 app routes present. New dist index matches combined output. Combined production route loads correct worker/WASM; every direct per-part STL button downloads exact current meshes, 320 px touch tests pass.
+## Geometry and fit
 
-Reports: validation-report.json, hole-validation.json, browser-validation.json, studio-validation.json, personalization-validation.json, stale-validation.json, axis-validation.json, gallery-validation.json, gallery-browser-validation.json, combined-build-validation.json, final-production-validation.json. Tests and synthetic fixtures are checked in for reproduction; no personal uploads or raw third-party reference STL.
+`npm run predeploy`: production build succeeds. Nonfatal Vite bundle-size/Manifold Node-branch externalization warnings; production browser worker/WASM tests are the loading gate.
 
-## Not performed / limits
+`npm test`: **39 built-in cases**, **18 image/STL-derived cases**, **28 parameter-bound rejections**. Covers all presets, minimum/maximum settings, each field endpoint, three profiles crossed with minimum/maximum apertures. Final card and all three clean-part STLs checked independently for exact binary count, finite float32 vertices/normals, nondegenerate faces, winding-consistent unit normals, two opposite incident faces per welded edge (1e−5 mm), positive volume per connected component and expected millimeter bounds. Default envelope **210 × 150 × 3.8 mm**, one connected card, three clean parts.
 
-No physical printing, physical assembly, adhesive/seat pull-out testing, tactile-force measurement, acoustics or fatigue tests. No claim of universal fits, child safety, load rating or physical verification. Calibrate tongue/socket on the user's printer/material. Unsupported STL concavity/open/nonmanifold geometry is rejected, not repaired or convex-hulled. Image art is bounded 20×20 sampled engraving, not exact outline tracing or full 3D reconstruction. Preview colors are not encoded in STL. The assembled wand's beside-deck location is illustrative, not simulated contact. No captive moving joint is claimed.
+Kernel intersection checks in every case:
+
+- All assembled part pairs free of unintended intersections; tower vertical insertion at 17 sample heights.
+- Two 6 mm-wide mounting tongues, source-derived sheet/socket clearance, shoulder stops and flush undersides.
+- Complete analyzer rotates by hand in front of deck/tower through 180° at 17 positions without collisions. It is freely handheld, not a captive joint. Preview hand positions are illustrative.
+- Two external .25 mm film discs fit actual .4 mm-deep pockets; independent total diametric allowance .2–.5 mm; annular support shelves remain ≥1.2 mm thick. Pocket insertion and unobstructed cylindrical sight apertures are probed in both frames. Tape retention is disclosed, not modeled as a snap fit.
+- Twelve snip cutters do not touch clean parts; cutting releases exactly three parts plus carrier. Card envelope, no clean-part overlaps, bed footprint support sampled at eight heights per solid. Deck engraving stays clear of both mounting interfaces.
+
+`node hole-check.mjs`: actual Boolean intersection probes show the bright ring center remains unengraved, dark ring is recessed and continuous backing remains.
+
+## Browser / production checks
+
+`node browser-test.cjs`: real PNG/JPEG and ASCII/binary STL file-picker imports; binary STL downloads independently parsed and exact bytes matched to visible current fingerprint plus Node regeneration from saved JSON. Changed pixel content, threshold, relief depth, crop, scale, rotation and placement measurably change final exported solids. Default/remove/reset reproduces exact baseline. Every imported case also passes final-part mesh and assembly/film checks. Invalid/truncated/open/nonmanifold/concave/excessive/mismatched files, pixel limits, bad dimensions, empty silhouette and transforms disable export and recover.
+
+`node studio-test.cjs`: all three presets/profiles, text/icon/SVG geometry, portable bounded image/mesh JSON, local named designs after reload, missing-payload rejection, undo/redo, actual ZIP decompression and mesh checks of all four STLs, all views, dark theme persistence, visible focus, collapsible controls, reduced motion, 374 px desktop left panel, phone preview-first ordering, worker-script abort failure and reload recovery.
+
+`node personalization-test.cjs`: six icons, text and SVG outputs regenerated and pass full mesh/fit checks. `node stale-test.cjs`: immediate stale-export gating under rapid parameter/image edits and invalid transforms; latest valid result matches Node. `node optical-test.cjs`: actual analyzer mesh rotates with preview slider while printable geometry remains unchanged; film-pocket allowance modifies real exported solids; fit and apertures rechecked.
+
+Phone widths **320 and 390 px**: no horizontal overflow; real touch orbit and pinch screenshot changes, PNG/STL picker imports and downloads, reachable export controls. Desktop and phone screenshots inspected. All processing stays local; isolated browser tests observe no remote runtime dependency requests.
+
+`node axis-test.cjs`: actual Y-up and negative-Z mesh fixtures reorient and engrave identically to Z-up; changing up-axis clears source and explicitly requests reattachment.
+
+Root gallery checks: compile every inline script via `new Function`; exactly one newest `area:"stl"` entry, all **318 earlier entries** unchanged, STL category/focus tagline retained. Combined root build contains index plus all **319 app routes**, zero failed/skipped. Combined gallery/browser tests load correct app/worker/WASM without errors; every direct part button downloads exact final part bytes. Phone touch checks rerun against combined production output.
+
+Reproducible scripts, synthetic fixtures, JSON reports and screenshots are included. `public-test.cjs` checks live GitHub Pages app, worker/WASM, exact default STL bytes and gallery route after propagation. deployment-validation.json records publication state.
+
+## Not performed
+
+No physical printing, physical assembly, adhesive strength, film cutting/axis alignment, optical transmission/contrast measurement or fatigue testing. No protective-eyewear, universal-fit, calibration, child-safety or physical-validation claim. Use purchased linear-polarizing film, tape and adhesive; never view sun/laser/intense sources. Optical outcome depends on film quality/alignment/illumination. Hand-angle preview does not simulate brightness or promise retention. Unsupported STL subsets are rejected, never repaired/hulled. Image conversion is bounded sampled 2D engraving, not exact outline tracing or full 3D reconstruction. STL stores no colors/units.

@@ -1,0 +1,27 @@
+# Completed validation — Petal & Preserve
+
+All results are computational/browser tests, **not a physical print, assembly, compression or botanical drying trial**.
+
+## Reproducible checks
+
+- `npm test` → **34 built-in cases, 18 import-derived cases, 27 bounds rejections**. Includes all presets/profiles, combined extrema, each numeric field endpoint, threshold/grayscale imagery, and ASCII/binary sources with transformed variants at min/default/max settings. See validation-report.json.
+- For every case, each of seven exports independently parsed: exact binary byte length, finite vertices, nonzero-area faces, normals matching winding, 1e−5 mm welded edge incidence exactly two/opposite direction, positive volume per closed component, expected mm bounds and bed alignment. Connected card exactly one solid; clean parts each one solid.
+- Independent Boolean assembly checks: 15 assembled pairs with zero unintended solid intersections, ordered insertion/removal of posts/lid/keys, two real lid lift-stop contacts, two key-head overtravel contacts, base-socket/tenon probes, unobstructed paper stack and nine through-vent probes. Not a compression/strength simulation. Keys have no positive latch; external bands required.
+- 24 actual snip cuts do not intersect clean parts and separate card into **seven components: six released parts + carrier**. Every part and carrier matches declared envelope; sampled upper sections lie inside bed footprints.
+- `node serve.mjs` then `node browser-test.cjs` → real production PNG/JPEG/ASCII/binary file-picker imports and downloads; export bytes match preview fingerprint and independently regenerated saved JSON. Changed pixels, thresholds, depth, crop, footprint, rotation and placement change geometry against default. Same mesh/assembly checks on image/STL outputs. Replacing/removing/reset returns exact baseline; bad/truncated/oversized/open/nonmanifold/concave/empty/invalid settings block export and recover.
+- `node studio-test.cjs` → actual preset exports and assemblies, silhouettes, text/icon/SVG, portable image/STL JSON and named local saves across reload, missing payload reattachment error, undo/redo, every ZIP STL parsed, numbered notes, all views, saved dark theme, visible focus, 374 px left rail, collapse, reduced motion, 320 px preview-first stack, aborted worker disabled exports and recovered on reload. See studio-validation.json.
+- `node personalization-test.cjs` → all six icons, text and hole-bearing SVG through full mesh/assembly preflight. `node hole-check.mjs` → actual Boolean probes establish white central hole unengraved, dark ring engraved, backing continuous. See personalization-validation.json and hole-validation.json.
+- `node axis-test.cjs` → Y-up and negative-Z original mesh fixtures transform to the exact same expected engraving/export; axis change explicitly clears import. See axis-validation.json.
+- `node stale-test.cjs` → rapid valid geometry edits and rapid image conversion settings immediately block export; only latest result becomes exportable. Invalid transform blocked, reset recovers. Initial reused test accidentally used obsolete 15/22/18 mm values outside this cassette's 4–8 mm stack range; corrected test inputs to 4/8/5 mm and reran successfully. No exporter bypass or parameter clamping added. See stale-validation.json.
+- Real 390 px touch orbit and pinch compared canvas images, PNG and binary-STL phone picker/download; 320/390 px no horizontal overflow and reachable exports. No remote requests/runtime errors in local production tests. See browser-validation.json and screenshots.
+- `npm run predeploy` passed. Root gallery inline script compiled with `new Function`; new entry exactly once, newest area `stl`, existing category/tagline retained, all **315 earlier entries preserved**. Root combined predeploy: **316 built, zero failed/skipped**. Hash comparison verifies all 43 new-app distribution files and root gallery copied exactly; all 316 gallery app routes present. See gallery-validation.json and combined-build-validation.json.
+
+The gallery/combined browser and publication reports supplement these prepublication checks. Postpublication status is recorded in deployment-validation.json and public-validation.json only after actual success. Runtime worker/WASM checked on actual combined production base path, not just development mode.
+
+## Limitations / calibration
+
+No physical printer, fit coupon print, adhesive test, elastic-band force test, fatigue, specimen trial, drying-time or archival preservation test. No supported force range. PLA/PETG, support-free bed-flat orientation, .16–.20 mm layers and .10–.35 mm TOTAL fit are starting guidance only. Print base/post and post/key pairs first. Use absorbent paper/blotters, two soft bands and adhesive; keys alone can slide out when tilted. No source mesh repair or raw redistribution.
+
+## Publication confirmed
+
+Root `npm run deploy` published the full deploy tree. GitHub Pages workflow [41153661566](https://github.com/xianghui/daily-app2/actions/runs/41153661566) completed successfully, Pages build `21f0c0470f75f81345e3385990f85e448f7251d1` is built. Initial 404 was observed while that build was in progress; retry after completion passed. Live HTTPS app returned 200, loaded its WASM worker, downloaded an exact-default binary STL that passed independent preflight, served the correct sample attribution and displayed exactly one new gallery entry, with zero page runtime errors. See public-validation.json and deployment-validation.json.

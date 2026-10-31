@@ -31,3 +31,7 @@ Individual `npm run predeploy` passes. Gallery inline script compiled with Node 
 ## Not performed
 
 **No physical print,assembly,adhesive strength,knot retention,loading/tip stability,filament fatigue,waterproofing or drying-performance test.** This is a light miniature-brush craft rack,not load-rated. Four adhesive joints and external soft loops/mat/square required. Geometric clearance and watertightness do not establish printer fits,forces or actual drying behavior.
+
+## Published verification
+
+Root `npm run deploy` returned Published. Main commit `bbd00ef` pushed. GitHub Pages action41233065571 succeeded;live app HTTP200,worker/current-solid ready,actual live STL download matches validated default bytes,closed-manifold reparse passes;live gallery335entries with new app first,zero page errors. See live-validation.json and reproducible live-test.cjs.

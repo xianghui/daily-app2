@@ -1,0 +1,19 @@
+# Cone & Cut — computational release preflight
+
+- `npm test`:44 mesh/assembly cases pass;39 invalid parameter cases rejected. Includes default,3 presets,3 profiles, each parameter min/max, combined bounds, image and ASCII/binary STL imports/transforms/extremes. Independent float32 STL validation,1e-5 mm weld, every edge exactly2 opposite incidents, outward normals, nonzero faces and positive per-component volume; all exports bed-aligned.
+- Real kernel assembly checks:33 ellipse insertion poses,13 rib insertion heights, zero unwanted intersections, two complete4.5 mm tongues/receiving slots, opposing open oblique slots,32 independently checked cone-equation points. Card bounded and connected;12 real tab cuts yield3 parts plus carrier; no packed overlaps; upper cross-sections supported by bed footprint.
+- `node browser-test.cjs`:production-path PNG/JPEG/ASCII/binary STL file-picker imports and actual STL downloads pass. Changed threshold/depth/pixels/scale/placement survive exports. UI checksum, portable JSON regeneration and downloaded STL match exactly; imported models run same solid/assembly checks. Invalid/truncated/open/nonmanifold/concave/oversize/excess-triangle/bad-dimension input and empty images reject recoverably. Unit confirmation required.
+- `node studio-test.cjs`:real preset downloads, shapes, text/icon/SVG, undo/redo, portable images/meshes, missing payload rejection, local named-save reload, all views, current-depth ZIP contents (each STL parsed), saved dark theme, keyboard focus, collapsible sections, reduced motion,374 px desktop rail, preview-first320 px phone, worker abort/export block/recovery pass.
+- `node icons-drop-test.cjs`:six icon geometry variants run solid/assembly checks; real drag-drop PNG succeeds.
+- `node orientation-test.cjs`:Z/Y/-Z orientation, explicit mm confirmation, regenerated final geometry pass.
+- `node rapid-test.cjs`:stale-worker and invalid-state gates, exact reset, background polarity, actual per-part button downloads pass.
+- `node mobile-regression.cjs`:320/390 px configured viewport, every tab, expanded long instructions, image import and actual JSON downloads; no overflow or runtime errors. Browser suite independently exercises actual touch orbit and pinch plus phone STL/image uploads/downloads.
+- `node preview-test.cjs`:insertion slider visibly changes actual pose, exact seated reset, printable checksum unchanged by assembly pose, ghost view changes rendering, seven distinct mesh views pass.
+- Actual reference downloaded and parsed independently; hash/source/component bounds/dimensions/sections recorded. Raw reference not redistributed. Public CC BY4.0 license fetched from upstream source.
+- Gallery:all inline scripts compile with `new Function`; new entry exactly once/first/STL;340 previous entries unchanged,341 render without runtime errors; search works. Root combined build:341 apps,0 failed,0 skipped; all341 route index files exist.
+
+Reports: `validation-report.json`, `browser-validation.json`, `studio-validation.json`, `icons-drop-validation.json`, `orientation-validation.json`, `rapid-validation.json`, `mobile-regression.json`, `preview-validation.json`, `gallery-validation.json`. Screenshots under `evidence/`, plus desktop/mobile validation images. `combined-validation.json` exercises actual combined deployment tree before publication.
+
+These are geometry/browser checks, NOT physical testing. No physical print, real assembly, printer-fit, adhesive strength or durability test was performed. Adhesive is required for the two base seats and the single lap; no snap retention or moving mechanism is claimed.
+
+Public release: root `npm run deploy` returned Published; GitHub Pages run41252296017 succeeded. `node live-test.cjs` verifies HTTP200, WASM worker, exact real default STL download, sample-image geometry change and gallery entry on the public site. Results in `live-validation.json`.

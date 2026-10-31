@@ -1,0 +1,2 @@
+# Local sample fixtures
+Original synthetic fixtures reused from this repository's maker studios: `mark.png` (high-contrast art), `waves.jpg` (grayscale pattern), `ring.svg` (hole), `wedge-ascii.stl` and `gem-binary.stl` (closed flat-bottom solids). No personal files or third-party source meshes. Try file pickers or sample buttons. STL coordinates assume millimeters. These become exact geometry engraving cutters, not unchanged model downloads.

@@ -1,0 +1,1 @@
+Ray & Split examples are synthetic original CC0 fixtures: mark.png, waves.jpg, ring.svg, wedge-ascii.stl and gem-binary.stl. Shared Daily Object Lab fixtures demonstrate local imports; no private upload or raw third-party reference mesh is included.

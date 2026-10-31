@@ -41,3 +41,7 @@ See `browser-validation.json`, `combined-browser-validation.json`, `final-produc
 ## Explicit limits
 
 These are computational/browser checks, NOT physical tests. No physical print, actual assembly, cord-hinge trial, impact/durability or acoustic test was performed. Two external soft cord loops and compatible fixed-seat adhesive are required. Your hands guide alignment. Proposed clearance and loop slack require printer/material-specific trial fitting; no universal fit, spring-return, rigid-pin hinge, sound pitch or strength claim.
+
+## Public-site verification
+
+GitHub Pages deployment completed successfully for the published gh-pages commit. Real public-site Chromium tests downloaded/manifold-checked PNG-, JPEG-, ASCII-STL- and binary-STL-derived exports, matched preview signatures, exercised the opening view and rendered all326 gallery cards without runtime errors. `live-production-validation.json` records the public run.

@@ -29,3 +29,9 @@ See `*-validation.json`, `validation-report.json`, `reference-analysis.json` and
 ## Explicitly not tested
 
 No physical printing, glue strength, practical assembly, sound, friction, hand force, wear or fatigue testing. Computational geometry does not establish those results. Two fixed seats require adhesive; free scraper is not captive. Calibrate the printer/material-specific socket fit before use. This is a light tactile craft instrument, not a tuned musical instrument or abrasive tool.
+
+## Public publication verified
+
+Root `npm run deploy` published successfully. GitHub Pages build/deploy completed successfully after its normal propagation delay. The first early public check timed out while Pages was still deploying; after waiting for the existing deployment (no duplicate deployment), the public-site check passed: loaded real worker/WASM, downloaded and parsed default STL, matched its UI fingerprint, imported PNG changed real geometry, and the331-entry public gallery points to Ridge & Rasp. See `live-production-validation.json`.
+
+Main source commit: `db04921` (`20261031-27: Ridge & Rasp (stl)`), pushed to origin.

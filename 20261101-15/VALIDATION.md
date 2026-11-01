@@ -1,0 +1,16 @@
+# Validation — Edge & Vertex
+
+All reports concern computational geometry and browser behavior, **not physical printing, assembly, load, fatigue or adhesive tests**.
+
+- `npm test`: 40 default/preset/outline/parameter-extreme/image/STL cases. Every output: valid finite nondegenerate float32 STL; normalized normals, positive volume for each component, closed welded manifold with opposite neighboring winding; expected bed-aligned mm bounds. Ten components in de-tabbed print layout; one in each individual part/card.
+- Per case: all 45 assembled pairs have no unintended intersections. Four hubs × 21 radial insertion positions × nine other components (756 kernel tests), twelve tongue/socket probes, backing/slot dimensions, exact card envelope, separated layouts and sampled bed support. Forty runner cuts release eleven components: ten parts plus carrier.
+- `personalization-check.mjs`: actual solid-volume probes verify bright ring center retains full surface, dark annulus is engraved and bottom backing remains; dynamic 1 mm radial socket keep-out at socket radii 8/9/10 mm; overflowing art rejects.
+- `browser-test.cjs`: production-base-path real PNG/JPEG/ASCII/binary file-picker imports, actual STL/JSON downloads, exact preview/JSON/regenerated-mesh signatures, image pixel/threshold/depth/crop/scale changes, STL size/rotation/placement/depth changes, reset/removal, range extrema and recoverable malformed/open/nonmanifold/concave/excessive/empty inputs. All ten parts and card downloaded and independently parsed. Phone file pickers, touch orbit/pinch and reachable exports at 320/390 px. No runtime errors or remote generation requests.
+- `studio-test.cjs`: all presets and hub shapes, real text/icon/SVG engraving, portable image and mesh JSON, named design reload, missing payload rejection, undo/redo, ZIP decompression and all contained STL meshes; views, ghost, keyboard focus, collapsibles, saved dark theme, reduced motion, desktop 374 px left rail, phone preview first, worker abort/recovery.
+- `mobile-test.cjs`: every editor section and expanded instructions stay within an actual 320 px viewport; real JSON download and SVG import.
+- `rapid-test.cjs`: spacing changes export, rapid invalid edits reject late worker output, exact reset, background polarity and every per-part button downloads valid matching geometry.
+- `orientation-test.cjs`: Z/Y/−Z source orientation, explicit millimeter confirmation and transformed final geometry/assembly.
+- `gallery-test.cjs`: every inline script compiled via `new Function`; new entry exactly once, area STL, correct target and first category; 345 earlier entries byte-equivalent as serialized data; gallery renders 346 entries without runtime errors and search works.
+- Root `npm run predeploy`: 346 apps, zero failures/skips. Combined production-folder tests exercise PNG/JPEG/ASCII/binary inputs, real exports/portable state, worker/WASM paths and phone layout. Machine-readable reports remain beside the scripts.
+
+Reference: fresh parse/hash/source/license and actual mesh-section image recorded. Source mesh not redistributed. Reference source defect (nonwatertight) is disclosed; the reconstructed generated model uses new robust solids. Fits are FDM starting points, not universal tolerances.

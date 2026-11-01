@@ -1,0 +1,19 @@
+# Curve & Tempo — validation record
+
+All checks below passed on 2026-11-01. These are computational/browser checks, **not physical printing or experimental timing tests**.
+
+- Actual reference downloaded, SHA-256 checked, 30,616 source triangles parsed, 27 edge-connected components recorded; measured sheet/socket interfaces and representative section plots inspected. Raw source is not redistributed.
+- `npm run predeploy`: passed. Production worker, WASM and local fonts loaded under `/daily-app2/20261101-21/`.
+- `npm test`: **42 geometry cases**: defaults, presets, all three silhouettes, individual/combined parameter extrema, image and STL imports and representative transforms.
+- Each case: every individual part, connected card and four-component de-tabbed layout parsed independently from actual float32 binary STL. Finite coordinates, nondegenerate triangles, unit normals consistent with winding, 1e-5 mm welded two-face opposite-direction edge incidence, positive enclosed volume per component and expected millimeter bounds.
+- Separate mechanical checks: six assembled part pairs, 21-step unobstructed fork insertion, two socket/tongue probes and shoulder stops, flush tips, print-layout nonintersection, card containment/envelope, bed-support footprint. Sixteen accessible cuts avoid functional parts and yield five components: carrier + four parts.
+- Exact curve samples and gauge notch spacing checked. Bob initial **free** swing translations sampled at −15..15°. This does not validate cord wrapping, friction, lateral tracking, period, fatigue, adhesive strength or physical stability.
+- `browser-test.cjs`: **27 actual downloaded outputs**, ten recorded malformed/excessive input cases plus empty silhouette/unsafe-transform recovery tests; actual PNG, JPEG, ASCII and binary STL file-picker paths. Pixel/threshold/depth/crop and mesh shape/scale/rotation/placement changes survive export; remove/reset restores default fingerprint. Current preview fingerprint matches actual STL bytes and Node regeneration from downloaded JSON. Imported outputs receive mesh and mechanical checks.
+- `studio-test.cjs`: every real preset, silhouettes, text/icons/SVG, all views, portable image/mesh JSON, named save/reload, missing-payload error, undo/redo, real Everything ZIP with all STL members independently parsed, saved dark theme, focus, collapse/reduced-motion, desktop 374px left rail, phone preview-first, worker loading abort and recovery.
+- Focused tests: final-solid bright-hole/dark-ring probes, all six icon outputs checked, actual drag/drop, source Z/Y/−Z orientations, rapid/stale worker gates, background polarity, every per-part download button.
+- Touch/mobile: 320/390px, touch orbit/pinch visibly alter canvas, real phone image/STL uploads/downloads; all five tabs and expanded assembly guides have exactly 320px page width; JSON-save button works after scrolling. Screenshots visually inspected.
+- Zero recorded app runtime errors or external requests. Inputs remain local; only synthetic/public fixtures saved.
+- Gallery: one inline script compiled with `new Function`; **352 entries**, **351 prior entries unchanged**; new entry exactly once, `stl`, newest first, correct folder/link. Browser rendering/search passed; STL Generators category first.
+- ROOT monorepo `npm run predeploy`: **352 apps present**, zero failed/skipped; gallery plus all app folders present in `deploy/`. Real combined-root production browser import/download suite and gallery/mobile checks passed again (`combined-*.json`).
+
+Reproduction commands and limits are in README.md. Exact reports and screenshots are stored beside the app. No physical print, assembly, oscillation, cord-contact, durability or timing test performed. Required external thread/adhesive and experimental limitations are stated in the studio and exported instructions.

@@ -19,3 +19,7 @@ For combined output: root `npm run predeploy`, then `PORT=5686 node serve-combin
 Reports: `geometry-validation.json`, `browser-validation.json`, `combined-browser-validation.json`, `studio-validation.json`, `rapid-validation.json`, `icons-drop-validation.json`, `orientation-validation.json`, `personalization-validation.json`, `gallery-validation.json`. Screenshots under `evidence/` plus desktop/mobile validation images. Reference provenance, hash, components, sections and mapping are recorded separately.
 
 Source reference defects are disclosed. Manifold CSG and mathematical clearance checks are not a physical-print or weaving-performance guarantee. Start with a calibrated anchor/sole trial and modest yarn tension.
+
+## Public release check
+
+Root `npm run deploy` published gh-pages commit `9aaed7342aa7dc741ac9c1905bbc7a001cb44491`. GitHub Pages reported `built` without errors. `node live-test.cjs` then verified the public app returns HTTP 200, the production worker builds, actual downloaded STL matches current source signature `c4fd7d99`, the live gallery finds the new entry, and no browser runtime errors occur. See `release-validation.json` and `evidence/published-studio.png`. Source implementation committed/pushed as `08ca77d`.

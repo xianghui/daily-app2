@@ -1,0 +1,12 @@
+# Validation — Plate & Node
+
+- Actual downloaded reference STL parsed, hashed, measured, sectioned and visually inspected. Raw source not redistributed; source defects not repaired.
+- `npm test`: 42 cases passed, including all presets, silhouettes, each parameter endpoint, combined extrema, height fields and both STL formats. Every individual STL and float32-translated loose plate checked at 1e-5 mm weld tolerance for finite/nondegenerate faces, correct normals, closed two-face/opposite-directed edges, component count/positive volume and mm dimensions.
+- Assembly kernel tests per model: three nonintersecting final pairs; 63 ordered insertion probes; three real socket/tongue probes; downward shoulder stops; flush tips; twelve accessible cuts release three parts plus carrier; card bounds and support footprints.
+- Production browser file-picker tests: real PNG/JPEG/SVG/ASCII/binary STL uploads and actual downloads; compare to defaults, source content, threshold/depth, footprint/scale, orientation and placement. Download bytes match final-preview signature and independently regenerated portable JSON. All intended parts also checked after each import.
+- Negative files: invalid/truncated, open, nonmanifold, too large, excessive pixels/triangles/dimensions, unsupported concavity, empty silhouettes, invalid settings/placement and missing portable payload. Export disabled until recoverable correction.
+- Real preset, text, six-icon and SVG marks; geometric bright-hole/dark-ring probes; actual per-part and ZIP contents parsed; named save/reload and JSON image/mesh round trips; undo/redo; stale edit/worker failure and reload recovery.
+- Desktop 374 px left rail/right viewer, saved light/dark theme, keyboard focus, collapsible sections and reduced motion. Phone preview-first at 320/390 px, no overflow, actual touch orbit/pinch, PNG/STL picker and reachable downloads.
+- `npm run predeploy` passed; production base-path worker/WASM tested, no external generation requests. Root build contains all 349 app folders with 0 failures/skips; previous 348 gallery entries retained unchanged and inline scripts compiled with new Function. Combined production import/export browser checks run before publication.
+
+Reports are JSON and reproducible scripts are checked in; screenshots under evidence/ and root app folder. These are computational geometry and UI checks, not physical validation. **No physical print, assembly, resonance, sand-pattern, adhesive, strength or fatigue testing performed.**

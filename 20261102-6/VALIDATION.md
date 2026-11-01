@@ -1,0 +1,24 @@
+# Validation — Bone & Product
+
+All checks below are computational/browser checks; **no physical print, fit, assembly, legibility, strength or tactile tests**.
+
+- `npm run predeploy`: production React/Vite bundle passes; local worker, WASM and fonts bundled.
+- `npm test`: 46 cases covering defaults, all3presets, all3silhouettes, each scalar extreme, combined extremes, varied digits, PNG-style threshold/grayscale solids and ASCII/binary mesh-derived engravings, including imported parameter extremes. Every card, seven separate parts and translated loose plate checked independently as float32 STL. Source/invalid dimension cases rejected.
+- STL parser independently verifies exact binary length, nonempty finite triangles, nonzero areas, matching unit normals, positive volume per connected component,1e−5mm welded edge incidence exactly2 with opposite directions, expected mm bounds and Z=0. Card1component; clean parts1each; loose plate7. No automatic repairs.
+- Kernel checks21assembled pairs; independent vertical lowering of both fences and all4rods through representative paths;4socket/tongue probes;2shoulder stops; exact side/inter-rod gaps;21flat-plate pairs;28snips miss intended parts and release7pieces+carrier; declared card envelope, no floating sheet features. Rods intentionally loose;4fixed seats need adhesive.
+- `numeral-check.mjs`: all10digit choices,90product cells,2,850actual engraved bit-center section probes match expected glyphs. Diagonal carrying arithmetic validated for9rows in every geometry case. Physical print legibility untested.
+- `browser-test.cjs`: 30 actual downloaded STL cases, 10 malformed/unsupported file cases. Native picker PNG/JPEG/ASCII/binary, pixel/threshold/depth/crop/background changes, STL shape/scale/rotation/placement/reset, replace/remove/reset, min/max and invalid dimensions, empty silhouette, excessive inputs, concave/open/nonmanifold/truncated STL, invalid transforms. Downloaded bytes match current visible geometry signature; portable JSON reconstructs exact bytes in Node. Imported outputs get full mesh/mechanism checks, not just successful downloads.
+- `digits-browser.cjs`: each of4digit selectors changes downloaded geometry; exact Node/browser signature and full mesh/assembly checks.
+- `studio-test.cjs`: real preset downloads, allsilhouettes, text/icon/SVG geometry, image/STL portable JSON, named local save/reload, missing payload recovery, undo/redo, ZIP opened and every contained STL validated, assembled/exploded/isolated/card/loose views, saved dark theme, keyboard focus, collapsible controls, reduced motion. Aborted production worker blocks export; reload recovers.
+- `stale-test.cjs`: rapid dimension and image edits immediately disable stale export; newest result matches Node; invalid transforms recover. An initial cross-runtime signature discrepancy was isolated to cyclic triangle vertex order (same geometry/volume), then fixed with canonical winding-preserving serialization and all suites rerun.
+- `orientation-test.cjs`: real picker tests Z/Y/−Z source axes, mm confirmation, expected source dimensions and final mesh/assembly.
+- `icons-drop-test.cjs`: all6searchable icons affect actual solid geometry with independent mesh and assembly checks; actual drag-drop PNG works.
+- `personalization-check.mjs`: actual Boolean probes confirm dark ring cuts while bright center hole retains backing.
+- `phone-views-test.cjs` + browser suite:320/390px phone contexts, preview first, all tabs/views and expanded guide no overflow, reachable exports/JSON, image and mesh picker workflows, CDP touch orbit and pinch proven by changed canvas screenshots.
+- `gallery-test.cjs`: allinline scripts compile with new Function;366entries,365previous entries unchanged, exactly1new STL entry, STL Generators first, no render/runtime errors. `deploy-check.mjs`:366app indexes, exact root index and43new-app distribution files byte-identical; root build0failed/0skipped.
+
+Screenshots are in evidence/. Reports are adjacent JSON files. Test files use synthetic fixtures only. Reference source was freshly downloaded and parsed with cross-sections; see reference-measurements.json, reference-analysis.json and evidence/reference-sections.png. Raw source mesh is not in the repository. Public deployment results are recorded separately in public-validation.json after publication.
+
+## Published verification
+
+Root `npm run deploy` returned Published. Live https://xianghui.github.io/daily-app2/20261102-6/ passed browser checks: app and bundled WASM load, real PNG file-picker import, actual outward closed-manifold STL download, exact preview/export signature, root gallery366entries and0runtime errors. See public-validation.json; GitHub Pages propagation completed before this record. Main-branch commit/push follows this verification.

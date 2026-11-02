@@ -13,7 +13,7 @@
 - `node gallery-browser.cjs`: 386 gallery cards rendered with no runtime errors; search/restore works and correct app URL.
 - Root `npm run predeploy`: 386 apps copied/built, 0 failed, 0 skipped. Root index and `deploy/20261102-28/index.html` exist.
 - Repeated full browser import/download suite on actual combined `deploy/` tree under `/daily-app2/20261102-28/`: passed (`staged-browser-validation.json`).
-- Root `npm run deploy`: gh-pages reported Published; public Pages verification tracked in `public-validation.json` once Pages build finishes.
+- Root `npm run deploy`: gh-pages reported Published; GitHub Pages workflow 41422665974 completed build/deploy successfully. Public URL returned HTTP 200. `public-validation.json` verifies real current built-in, PNG-derived and ASCII-STL-derived downloads directly from public Pages, parsed manifold and exactly matching UI fingerprints. `public-gallery-validation.json` confirms all 386 public gallery entries render without errors.
 
 All fixtures synthetic. All user-file processing stays local. Reference STL freshly parsed/sectioned and hash/source/license recorded; no raw reference redistributed.
 

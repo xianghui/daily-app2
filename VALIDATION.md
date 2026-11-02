@@ -27,3 +27,7 @@ Root `npm run predeploy`: **291 built, 0 failed, 0 skipped**. Root `npm run depl
 Live GitHub Pages check passed after workflow propagation: HTTP 200, worker/WASM loaded, actual live STL bytes match the independently generated default model and UI signature, mesh/assembly checks passed, all 291 gallery cards retained. See `publication-validation.json`. No separate digest sent.
 
 Live public-site smoke test also passed at https://xianghui.github.io/daily-app2/20261102-19/: current WASM/worker loaded; default, actual PNG and ASCII-STL uploads produced three downloaded STLs with exact preview/export/JSON fingerprints and independent mesh/assembly checks; live gallery rendered all 379 entries with the new app first and no runtime errors. See `public-validation.json`.
+
+## Public publication check
+
+Root `npm run deploy` returned `Published`. After initial Pages propagation404, the new app returned200. Real Chromium public-page downloads for built-in, PNG-derived and STL-derived models matched local fingerprints and passed independent STL manifold/volume checks; `public-validation.json`. Public gallery rendered all394 entries with no runtime errors and correct searchable new entry; `public-gallery-validation.json`. Public smoke tests reran successfully after propagation; no unverified availability claim.

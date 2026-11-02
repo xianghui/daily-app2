@@ -1,0 +1,15 @@
+# Validation — Cipher & Turn (20261102-35)
+
+Computational and browser checks only. **No physical print, turning-force, durability, adhesive or readability testing.**
+
+- Actual downloaded reference parsed again: 30,616 triangles; SHA256, source, CC BY4.0 evidence, dimensions,27 edge-connected components, sockets and sheet planes recorded. Three mesh cross-sections inspected. Raw source stays outside repository.
+- `node validate.mjs`: **39** presets/parameter/import variants. Every connected card, clean part and translated de-tabbed plate passes independent binary STL validation: finite coordinates, nonzero faces, unit normals/winding,1e−5 mm welded two-face opposite-directed edges, per-component positive volume and expected mm bounds. Every variant passes full-turn53-pose and four lateral-offset checks per pose; bore-envelope containment, head withdrawal block, axial clearance, pre-bond insertion, separate solids, bed-supported sampled slices,12-runner cuts and exact card envelope. Cut card releases carrier plus three intact kit parts.
+- Image-derived threshold, depth, grayscale, holes and transformed STL variants receive the same mechanism/mesh checks; bright-hole probe confirms retained backing. Unsupported files rejected, never hull-substituted.
+- `browser-test.cjs`: actual production file-picker PNG/JPEG/ASCII/binary imports, downloads parsed, preview/download/JSON regeneration fingerprints compared. Source-pixel/threshold/depth/crop/scale/rotation/placement changes alter output. Remove/reset reproduces built-in bytes. Bounds, invalid transforms, truncated/open/nonmanifold/concave/excessive/dimension-invalid meshes, fake/oversized/empty images block export and recover. Phone390/320px, real touch orbit/pinch and imports/downloads; no runtime errors or external requests.
+- `studio-test.cjs`: all three presets, silhouettes, text, icon search, SVG, portable image/mesh JSON, missing-payload rejection, named save/reload, undo/redo, real ZIP extraction and all enclosed STL checks; assembled/exploded/card/loose/isolated, ghost, saved dark theme, visible keyboard focus, collapsibles, reduced-motion,374px left rail and320px preview-first. Worker script abort disables export; reload recovers.
+- `icons-drop-test.cjs`: all six bundled marks independently validated as real changed geometry; drag/drop PNG works.
+- `orientation-test.cjs`: Z/Y/−Z imports, oriented dimensions, explicit mm confirmation, exact resulting meshes and full assembly checks.
+- `stale-test.cjs`: three rapid dimension edits and three rapid image edits immediately disable stale export; only newest result exportable, invalid transform recovery.
+- `presentation-test.cjs`: actual screenshots of assembled/card/exploded/base/loose views, isolated parts, visible shift and ghost changes with unchanged print signature; every editor tab at320/390px without overflow and reachable exports.
+
+Reports contain precise observed results. `README.md` documents limits, nonuniform rectangular-spine float and calibration. `ASSEMBLY.txt` explains bond-before-capture dependency and pre-bond threading sequence. Mesh inspection is not physical testing.

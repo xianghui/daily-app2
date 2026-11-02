@@ -1,0 +1,25 @@
+# Validation — 2026-11-02
+
+Completed against production Vite assets under `/daily-app2/20261102-17/`.
+
+- `npm run predeploy`: passed; worker, WASM, fonts and samples bundled locally.
+- `npm test`: **34 parameter/import cases** passed; every separately exported part, connected card and four-part de-tabbed float32 plate checked. Nonempty finite nondegenerate faces, normalized outward normals, 1e−5 mm welded two-incident opposite-directed edges, positive volume per component, expected bounds and component counts. Every preset/shape, individual scalar extrema, combined extrema, threshold/grayscale images, ASCII and binary STL-derived models.
+- New kit-specific Boolean checks: no assembled part intersections; 18 vertical mast insertion positions, shoulder support; three real through sockets; sixteen accessible snip paths release exactly four separate clean parts plus carrier; no print-layout overlap; all upper slices within bed footprints; card within declared dimensions. Actual open tie eyes and gauge bores; 19 nominal tube-sphere samples clear the saddle; centreline bend radius at least 4× tube OD. Adhesive required in all three tongue joints. No flow simulation.
+- `personalization-check.mjs`: actual Boolean probes confirm bright central image hole retains backing while dark ring becomes an engraved void; same final mesh and assembly checks.
+- `browser-test.cjs`: real PNG/JPEG/ASCII/binary picker imports and STL downloads; changed threshold, pixel content, grayscale/depth, crop, scale, rotation/XY placement alter geometry. Download signatures equal UI geometry and same JSON regenerated in Node. Replace/remove/reset, min/max settings, per-part downloads, bad/truncated/open/nonmanifold/concave/excessive files, empty silhouettes, invalid dimensions/transforms, explicit units and safe-zone errors tested. Invalid exports disabled; recovery works. 320/390 px, real CDP touch orbit/pinch, reachable STL actions; no external requests or browser runtime errors.
+- `studio-test.cjs`: all presets; three silhouettes; text/icons/SVG; JSON image/STL and six-slot local named save round trips; missing payload requires reattachment; undo/redo; actual ZIP contents independently parsed; all layouts, saved dark theme, keyboard focus, collapsible sections, reduced motion, 374 px left rail, 320 px preview-first stacking; intentional worker-load failure blocks export and reload recovers.
+- `orientation-test.cjs`: Z/Y/−Z source orientation, explicit mm confirmation and final solid validation.
+- `icons-drop-test.cjs`: all six icons change actual geometry and pass mesh/assembly checks; real file drag/drop.
+- `phone-views-test.cjs`: 320 px all tabs, expanded instructions and JSON download, JPEG/ASCII import, background inversion and all layouts have no overflow; 390 px also checked.
+- `presentation-test.cjs`: all four isolated parts, connected/assembled/exploded layouts, view/export separation, invalid large/zero/empty values and recovery. Desktop/card/phone screenshots visually inspected.
+- `stale-test.cjs`: rapid geometry/image edits immediately block stale export; only latest valid result matches Node; bad transform recoverable.
+- Reference reparsed: full measurements/hash/components in `reference-measurements.json`; inspected sections in `evidence/reference-sections.png`; source/license and measured-versus-proposed design mapping in `reference-analysis.json` and README. Private local reference trees remained read-only; no source STL redistributed.
+- Root gallery: every inline script compiled using `new Function` (missing script fails); new entry exactly once with `area:stl`; **376 previous entries preserved**, **377 total**, STL category first; live rendering/search without runtime errors.
+- Root `npm run predeploy`: **Built 377 / Failed 0 / Skipped 0**. `deploy-check.mjs`: root index identical and **41** new app production files byte-identical to `dist`.
+- Combined deploy server: real worker/WASM, PNG/STL uploads and three actual mesh-checked downloads; preserved gallery. `combined-browser-validation.json`.
+
+Commands/scripts and generated JSON reports are saved beside this document. These are computational/browser checks, not physical certification. **No physical print, tube fit/kink, water-flow, adhesive strength, breakaway force, stability, durability or usability experiment was performed.** External tube/vessel setup and manufacturer bend limits must be verified in practice.
+
+## Publication verification
+
+Root `npm run deploy` completed with `Published`. GitHub Pages build for commit `3624d5e9f0a97ac65ca7fa016b28e1b21f547276` reported `built` with no error. Live https://xianghui.github.io/daily-app2/20261102-17/ passed `public-smoke.cjs`: real WASM/worker, PNG and ASCII STL uploads, three actual downloaded STLs compared to UI fingerprints and Node-regenerated JSON, final mesh/assembly checks and 377 gallery cards with zero runtime errors. See `public-validation.json`. Initial propagation 404 resolved without changing the app or republishing.

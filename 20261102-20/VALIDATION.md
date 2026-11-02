@@ -1,0 +1,23 @@
+# Validation — Maxwell & Unwind
+
+All reports are from actual computational/browser runs, not physical prints.
+
+- `npm run predeploy`: production bundle passes; worker and WASM bundled locally.
+- `npm test`: **14 parameter/import cases** (three presets, three silhouettes, all-minimum/all-maximum, two STL formats with two transforms each, threshold and grayscale ring inputs). Every case checks connected card, seven separate parts and de-tabbed seven-component plate. Independent binary-STL parser verifies exact lengths, finite/nondegenerate faces, outward stored normals, opposite directed two-face edge incidence at 1e-5 mm weld tolerance, expected component counts, positive per-component volume and mm bounds.
+- `collisionCheck`: each case checks assembly/plate nonintersection, vertical pillar insertion, lintel lowering, lateral wheel passage, **72 rotor configurations** (24 angular positions at three elevations), accessible 24 cuts, eight post-snip components, continuous bed support, socket cut-through and card envelope. Six glue seats are designed with clearance, not untested friction retention. Cord length/knots must be adjusted physically; no cord dynamics are claimed.
+- `browser-test.cjs`: real file picker PNG/JPEG/ASCII/binary inputs and actual downloaded STLs, compared with exact preview signatures and portable-state Node reconstruction. Threshold/depth/crop/pixel/scale/rotate/place materially change exports; reset matches defaults. Every downloaded imported model runs mesh and assembly checks. Malformed/truncated/open/nonmanifold/concave/oversized/empty sources and invalid dimensions/transforms fail recoverably. Per-part downloads, 320/390 px touch orbit/pinch and phone import/export pass. No runtime errors or external generation requests.
+- `studio-test.cjs`: all three actual preset thumbnails/results, three silhouettes, text, searched icon, SVG hole-bearing sample, portable image and mesh JSON, named-design reload, missing payload blocked, undo/redo, real ZIP with every STL parsed, all main views, ghost base, saved dark theme, focus, collapsible sections, reduced-motion context, desktop 374 px left rail, phone preview-first and aborted-worker recovery pass.
+- `orientation-test.cjs`: Z/Y/−Z, source dimensions, explicit unit confirmation, portable source triangles and final assembly checks pass.
+- `phone-views-test.cjs`: every editor tab at 320 px, expanded guide/JSON controls, JPEG/ASCII imports, background inversion geometry and all five views without horizontal overflow pass.
+- `icons-drop-test.cjs`: all six bundled marks produce real validated solids and assembly; actual PNG drag/drop passes.
+- `stale-test.cjs`: rapid parameter and threshold edits immediately block stale export; only the newest model becomes exportable. Invalid transform recovery passes.
+- `presentation-test.cjs`: every isolated part, main layouts, view-independent export and excessive/zero/empty number guards pass. Screenshots visually inspected for desktop and reference cross-sections.
+- `personalization-check.mjs`: Boolean probes confirm a sampled ring's bright center remains at full sheet height and dark annulus is genuinely engraved; no texture-only substitution.
+- Gallery: all inline scripts compile using `new Function`; missing scripts/errors fail assertions. New entry exactly once, `stl` first. **379 previous entries preserved unchanged; 380 total.** Browser rendering/search has no errors.
+- Root `npm run predeploy`: **380 built, 0 failed, 0 skipped**. `deploy-check.mjs` checks every app index, identical root index and all **41 new production files byte-for-byte**. Combined production path is re-exercised by browser tests before publication.
+
+Reference evidence: actual downloaded 30,616-triangle STL, SHA-256, 27 edge-adjacent groups, local rejected candidate parses, measured 1.60 mm sheet and 4.50×1.700012 mm sockets. Cross-sections at .10/.50/1.59 mm inspected. Raw source mesh not bundled.
+
+Fixed during validation: corrected test-only Manifold transform to its required 16-element column-major matrix and updated the inherited width-bound assertion to the new 230–260 mm range; reruns passed. Neither failure was ignored or published as success.
+
+**NOT performed:** physical printing, physical fit/assembly/snipping, knot/adhesive strength, drop dynamics, automatic rewind, cord tracking, friction, fatigue or durability. The rectangular axle is not a constant-radius spindle. Estimated straight cord lines and static poses are preview-only. Use compatible glue, calibrate wheel/axle fit, measure disc spacing while bonding and tune equal cord lengths before use.

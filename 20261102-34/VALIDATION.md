@@ -35,3 +35,11 @@ Computational tests only. No physical print, external slicer, adhesive-strength,
 - Root `npm run predeploy`: **392 built/copied,0 failed,0 skipped**.
 - `node deployment-check.cjs`:392 entrypoints exist; root index and42 current-app assets byte/hash match source production dist.
 - Combined gallery browser and full real-import/download suite rerun on ROOT deploy assets before publication; see staged-browser-validation.json and gallery-browser-validation.json.
+
+## Publication
+
+- ROOT `npm run deploy`: Published through `gh-pages -d deploy`; all392 entries included.
+- Public URL: https://xianghui.github.io/daily-app2/20261102-34/
+- Initial public request returned404 during Pages propagation; the branch already contained the correct production assets. After propagation the page returned200 and `node public-test.cjs` passed: actual current built-in, PNG-derived and ASCII-STL-derived downloads independently validated and compared to the exact current preview signature; imported geometry differs from built-in. No public runtime errors.
+- Public gallery browser test:392 rendered entries, STL category first, new entry exactly once, correct link, search/restore works, no runtime errors. Evidence in public-validation.json, public-gallery-validation.json and evidence/public-gallery.png.
+- Main source commit6d6c403 pushed successfully. Existing pending scheduled outputs20261102-32 and20261102-33 were preserved/included by the required `git add -A` flow; this run's new app is20261102-34.

@@ -13,6 +13,7 @@
 - Root gallery inline scripts compile with `new Function`; new entry once, STL category first, all 383 earlier entries preserved.
 - Root `npm run predeploy`: 384 apps staged, zero failures/skips.
 - `node staged-site-test.cjs`: actual combined deployment tree renders 384 gallery cards without runtime errors; search/new entry correct; all four real file-format imports and downloaded meshes pass.
-- Root `npm run deploy`: Published successfully (including its predeploy lifecycle).
+- Root `npm run deploy`: Published successfully (including its predeploy lifecycle). GitHub Pages build reached `built`.
+- `node live-test.cjs`: public URL HTTP 200, no runtime errors, real default binary STL download matches both browser preview fingerprint and independent Node generation.
 
 Reports and screenshots are app-local. Checks are computational. **No physical printing, fit, glue strength, friction or number legibility test.**

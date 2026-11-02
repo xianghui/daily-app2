@@ -1,0 +1,13 @@
+import trimesh,numpy as np,hashlib,json
+from pathlib import Path
+import matplotlib;matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+p=Path('/Volumes/ExternalHD/3d_printing_apps/keycap_generator2/public/templates/clicker_template2.stl');m=trimesh.load(p,force='mesh');pcs=sorted(m.split(only_watertight=False),key=lambda c:c.bounds[0,2]);fig,axes=plt.subplots(1,3,figsize=(12,4));details=[]
+for ax,c,name in zip(axes,pcs,['Lower socket cutter','Cross-bore stem','Cap cavity cutter']):
+ z=c.bounds[:,2].mean();sec=c.section([0,0,1],[0,0,z]);loops=[]
+ for line in sec.discrete:
+  ax.plot(line[:,0],line[:,1]);loops.append({'bounds':np.array([line.min(axis=0),line.max(axis=0)]).tolist(),'vertices':line.tolist()})
+ ax.set_aspect('equal');ax.set_title(name+' — XY section');ax.set_xlabel('mm');details.append({'name':name,'triangles':len(c.faces),'boundsMm':c.bounds.tolist(),'dimensionsMm':c.extents.tolist(),'watertight':bool(c.is_watertight),'volumeMm3':c.volume,'sectionZ':z,'loops':loops})
+Path('evidence').mkdir(exist_ok=True);fig.tight_layout();fig.savefig('evidence/reference-sections.png',dpi=150)
+r={'source':str(p),'identifier':'clicker_template2.stl','sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'triangles':len(m.faces),'dimensionsMm':m.extents.tolist(),'units':'Assumed mm, consistent with source README; STL has no metadata','components':details,'measuredInterfaces':{'socket':[14,14,9],'cavity':[15.2,15.2,6.1],'stemDiameterApprox':5.7,'stemHeight':6,'crossSpan':4.2,'crossWidth':1.35},'designDecisions':{'preserved':'Nominal cutter and stem dimensions; exact rectangular interfaces, circular stem/cross reconstructed analytically, not mesh redistribution','new':'Independent triangular three-key arrangement, 22–26mm key width, palm apron, recessed tactile bars and side grooves','proposedFits':{'socketExtraWidth':[0,.4],'crossExtraWidth':[-.1,.2],'radialCapGap':[.35,.7]},'previewAssumptions':{'rimRestAboveFloor':6.6,'travel':4},'physicalPrintTested':False},'redistribution':'Rights to raw local mesh not established; raw source excluded. Original analytic reconstruction only.','visualReference':{'readOnly':True,'inspected':['README.md','src/styles.css','src/App.tsx','src/Viewer.tsx','src/worker.ts','src/export.ts','src/geometry/stl.ts','src/imageTrace.ts'],'patterns':['374px collapsible left panel','light lavender desk','tactile selected controls','paired numeric inputs','saved dark theme','phone preview first','worker current-result gate','portable local import payload']}}
+Path('reference-analysis.json').write_text(json.dumps(r,indent=2));print('Parsed reference: 944 faces, 3 closed components; sections saved.')

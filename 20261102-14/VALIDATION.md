@@ -1,0 +1,17 @@
+# Computational preflight — 2026-11-02
+
+- Individual `npm run predeploy`: passed. Production worker, WASM, fonts and samples served under the exact `/daily-app2/20261102-14/` base.
+- `npm test`: **38** model cases; every connected-card and all13 clean part STLs plus float32-translated loose plates independently parsed. Closed welded edges, opposite winding, finite/nondegenerate triangles, normalized normals, positive volume per component and expected millimeter bounds.
+- Actual solid checks:12 non-equivalent free pentominoes,60 cells covered exactly once, tile-gap profile inflation, pairwise assembled/card collision checks,72 vertical insertion poses, continuous supporting floor,52 non-destructive runner cuts releasing13 parts plus carrier, envelope and bed footprint support.
+- Browser file-picker/download suite: **36** actual STL downloads, including default, PNG/JPEG, ASCII/binary STL, changed content/settings/scale/rotation/placement, reset, extrema, every individual export and phone imports. Exact current UI fingerprint = download = Node regeneration of saved design. Same suite passed again from the combined production deployment.
+- Invalid/truncated/oversize/open/nonmanifold/concave input, empty images, dimensions and transforms: rejected recoverably, export disabled. Real images and source meshes change actual exported geometry.
+- Studio: all3 thumbnail presets,3 silhouettes, text, all6 searchable icons, SVG holes, checkerboard/source preview, background inversion, crop/depth, drag/drop, undo/redo, saved design reload, portable image/mesh JSON, missing-payload blocking, ZIP with every actual part STL parsed, saved theme, keyboard focus, collapsible sections, reduced-motion and worker failure/reload recovery.
+- Responsive:374px left controls/right viewer desktop;320/390px preview-first phone; all sections/views, expanded guide and JSON save reachable with no horizontal overflow. CDP touch orbit/pinch visibly changed the canvas. All13 isolated views exercised. Preview-only view/lift transforms do not change export.
+- Gallery: all inline scripts compiled with `new Function`; new entry exactly once, area STL first; **373 prior entries unchanged**,374 total; browser render/search passed without runtime errors.
+- Root `npm run predeploy`: **374 built,0 failed,0 skipped**. Root index identical, each app index present, all40 new app files byte-identical to individual production output. Combined browser tests passed.
+
+Reports: geometry-validation.json, browser-validation.json, combined-browser-validation.json, studio-validation.json, phone-views-validation.json, stale-validation.json, orientation-validation.json, personalization-validation.json, icons-drop-validation.json, presentation-validation.json, gallery-validation.json and deploy-validation.json. Source measurements and screenshots are under reference-* and evidence/.
+
+The first preflight found a runner landing near a tile corner: landings were relocated to stable cell-row interiors, then all geometry and browser tests passed. A CSS minifier syntax error was corrected before the successful production build.
+
+**No physical print, fit, friction, handling, strength, runner-force or durability test was performed.** Proposed tolerances require a real tray/tile-P fit trial. Reference source is nonwatertight and was used only as a measured design reference, never silently repaired or re-exported.

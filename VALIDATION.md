@@ -25,3 +25,5 @@ See `20261027-4/VALIDATION.md`, scripts, JSON reports and screenshots. No physic
 Root `npm run predeploy`: **291 built, 0 failed, 0 skipped**. Root `npm run deploy`: **Published** using combined `deploy/` output. All 47 new app production files byte-match combined output; root inline script compiles; 290 previous entries preserved and new STL entry exactly once. Combined gallery/browser route has no runtime errors.
 
 Live GitHub Pages check passed after workflow propagation: HTTP 200, worker/WASM loaded, actual live STL bytes match the independently generated default model and UI signature, mesh/assembly checks passed, all 291 gallery cards retained. See `publication-validation.json`. No separate digest sent.
+
+Live public-site smoke test also passed at https://xianghui.github.io/daily-app2/20261102-19/: current WASM/worker loaded; default, actual PNG and ASCII-STL uploads produced three downloaded STLs with exact preview/export/JSON fingerprints and independent mesh/assembly checks; live gallery rendered all 379 entries with the new app first and no runtime errors. See `public-validation.json`.

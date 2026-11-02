@@ -1,0 +1,20 @@
+# Validation — Cavalieri & Slice
+
+All checks refer to this app's actual implementation; no physical print was performed.
+
+- `npm run predeploy`: production bundle built successfully, including local worker/WASM and fonts.
+- `npm test`: 14 built-in/preset/silhouette/minimum/maximum/image/STL cases. Each connected card and each clean part is one closed outward-wound component; de-tabbed plate has seven disjoint closed components. Independent binary parsing checks 1e-5 mm welded edge incidence, normals, finite/nondegenerate triangles, positive per-component volumes, dimensions and bed-flat Z.
+- `collisionCheck` on each case: 58 insertion checks (18 spine-lift and 40 shelf-slide), assembled pair intersections, shoulders, six sockets, carrier bounds, individual-part inclusion, 20 safe snips releasing eight components (seven parts plus carrier), and support-free bed-footprint samples. Nominal paired section areas and polygon approximation error checked separately from watertightness. Adhesive is explicitly required in six seats.
+- `browser-test.cjs`: actual production-base-path PNG/JPEG and ASCII/binary STL file picker imports; current mesh, real downloads and portable JSON regeneration share signatures. Image pixel/threshold/depth/crop changes and original STL shape/scale/rotation/placement measurably change exports. Every resulting part repeats mesh/assembly checks. Excessive/truncated/open/nonmanifold/concave/bad-dimension/empty files fail recoverably with invalid export disabled. Remove/reset reproduce default fingerprints. Individual-part downloads parsed. 320/390 px touch orbit/pinch and phone image/STL downloads pass; no runtime errors or remote modeling requests.
+- `studio-test.cjs`: every preset, silhouettes, text/searchable marks/SVG, saved JSON/image/mesh restoration, missing-payload blocking, local named saves/reload, undo/redo, ZIP decompression and all eight STLs parsed, main views, persistent dark theme, focus/collapse/reduced-motion, 374px desktop rail/preview-first phone, worker abort/recovery.
+- `orientation-test.cjs`: Z/Y/-Z-up source transforms and actual post-integration solids.
+- `personalization-check.mjs`: actual Boolean probes verify bright hole retains solid surface and dark ring cuts a recess.
+- `phone-views-test.cjs`: all editor tabs, expanded assembly instructions, reachable real JSON save, JPEG/ASCII imports, dark-background geometry change, all main views at strict 320px viewport; no horizontal overflow.
+- `presentation-test.cjs`, `stale-test.cjs`, `icons-drop-test.cjs`: every isolated part, card/assembled/exploded screenshots, zero/excessive/empty values, rapid geometry/image edits, latest-state fingerprint, invalid transform recovery, six actual icon meshes and PNG drag/drop.
+- Actual source STL independently downloaded, SHA-256 hashed, parsed and sectioned. Reference screenshots were inspected, including real 4.50×1.700012 mm socket loops. Original reconstruction uses measured sheet/tongue dimensions with explicitly proposed clearances and stronger runners. Raw mesh is not redistributed.
+- Root gallery: inline script(s) compiled with `new Function`, new entry exactly once and first in `stl`, 378 earlier entries unchanged. Browser renders 379 cards without runtime errors, STL category first, search working.
+- Root `npm run predeploy`: 379 apps, 0 failed, 0 skipped. Combined deployment has root index and every app index; 41 new-app files byte-identical to individual dist. Combined production browser checks import real files and parse real downloads.
+
+See adjacent JSON reports, reproducible scripts and `evidence/` screenshots. Physical fit, adhesive strength, sheet sag, snipping force, tactile feel, durability and use are **unverified**. The two sample levels are not a full-volume model; nominal equal areas exclude mounting stems and use disclosed polygon approximations.
+
+Publication: root `npm run deploy` completed successfully (`Published`). The combined local production smoke test passed for default, real PNG and ASCII-STL uploads and independently checked STL downloads; live public-site smoke report is recorded separately.

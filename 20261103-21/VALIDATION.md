@@ -1,0 +1,26 @@
+# Cascade & Swing — validation
+
+Computational validation only. **No physical printing, swinging, friction, fatigue, fastener loosening or chaos testing.** Two metal M3 axle assemblies are required; independent viewer poses are not dynamics simulation.
+
+## Passed before publication
+
+- Actual public reference STL downloaded, SHA-256 verified, parsed (30,616 triangles, 27 edge-adjacent components), measured and three mesh cross-sections visually inspected. Local switch/fabric candidate meshes parsed and rejected as inappropriate sheet references. Source defect/nonwatertight status documented; new closed solid reconstruction, no repair claim or raw-source redistribution.
+- `npm test`: 52 complete geometry cases — three presets, each field min/max, 16 combined fit/sheet/reach corners, all-min/all-max, all three silhouettes, ASCII/binary STL with transforms, threshold/relief with holes. Every card, clean part and translated float32 print plate checked independently for finite/nondegenerate triangles, byte lengths, mm dimensions, normalized normals/winding, two oppositely directed faces per welded edge, component count and per-component positive volume.
+- Each case: 12 tabs, one connected card, correct declared envelope, no loose-part overlap, support footprint/short engraving bridge keep-in, 12 cutter operations producing waste carrier + three preserved parts. At least 1 mm grip backing.
+- 35 two-joint poses per case: upper −60…60°, lower −180…180°. Boolean intersections check independent sheets, both nominal 3 mm shafts, lower screw-head envelope vs grip, upper nut envelope vs lower link. Head/nut diameters retain maximum bore. Axial insertion clear. 3.5 mm-radius conservative head/nut envelopes used. Analytic lower-bob-to-upper-axis and plane-gap bounds complement sampled poses. No printed stops; upper range is a use limitation, not captive travel.
+- `browser-test.cjs`: production-base-path real picker imports PNG/JPEG/ASCII/binary STL, downloaded actual STLs, changed pixel content/threshold/depth/crop/relief/scale and transformed STL footprint/rotation/placement/depth affect exported bytes. Every variant regenerated independently from real saved JSON and passed final mesh/mechanism checks; preview signature equals download signature. Replace/remove/reset return to default signature. Both all-min/all-max UI combinations exported and checked.
+- Browser rejects truncated/open/nonmanifold/concave/excessive STL, wrong/truncated image content, huge pixels/dimensions/triangle counts, empty silhouettes, invalid transforms and safe-zone violations. Errors recoverable; invalid/stale export disabled.
+- `studio-test.cjs`: three real presets and thumbnails, silhouettes, text/icons/SVG, portable image/STL JSON, named saves across reload, missing-payload reattachment error, undo/redo, real Everything ZIP unzipped and every contained STL parsed, all views/isolators/ghost, saved dark theme, keyboard focus, collapsible sections, reduced-motion context, 374 px desktop left rail, phone preview-first order. Worker script intentionally aborted, export blocked; reload recovered.
+- `orientation-test.cjs`: Z/Y/−Z source orientations, explicit mm gating, source dimensions and final geometry match saved state.
+- `presentation-test.cjs`: every tab at 320/390 px, expanded instructions and real JSON-save clicks, exact document/visual viewport widths, reachable STL exports, assembled/card/exploded/clean/isolated screenshots, preview colours do not change STL.
+- `stale-test.cjs`: rapid parameter/image updates immediately block stale export; latest result matches independent Node regeneration; invalid transform recoverable.
+- `icons-drop-test.cjs`: all six bundled icons change and validate real solids, actual drag/drop PNG workflow.
+- `hole-check.mjs`: actual browser-imported SVG portable state probed in final Boolean solid: bright center remains full material, dark ring is recessed, continuous backing preserved.
+- `pose-test.cjs`: upper/lower preview controls independently change rendered serial-link poses, ghost changes rendering, none changes print STL signature.
+- Real 320/390 px touch contexts: orbit and pinch change actual canvas screenshots; phone PNG/STL picker imports and downloaded solids checked; no overflow or runtime errors. Generation/import tests made no external requests.
+- App `npm run predeploy` passed. Fonts, WASM and worker bundled locally. Production app tested at `/daily-app2/20261103-21/`, not just Vite development server.
+- Gallery: every inline script compiled with `new Function`; missing/empty scripts fail; all earlier entries retained byte-for-byte, new entry exactly once and first with `area: stl`, correct href, category first, runtime/search checks pass.
+
+Machine-readable reports: geometry-validation.json, browser-validation.json, studio-validation.json, orientation-validation.json, presentation-validation.json, stale-validation.json, icons-drop-validation.json, hole-validation.json, pose-validation.json, gallery-validation.json. Build/deployment/public verification recorded separately after their commands finish.
+
+Initial reused test expectations for the old ghost button label and old parameter values were corrected to this app's controls, then rerun successfully. No unresolved exporter, mesh or browser failure.

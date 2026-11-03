@@ -44,3 +44,9 @@ Early failures fixed before publication: missingPythonanalysisdependencies;assem
 ## Combined staging — PASS
 
 Root `npm run predeploy`: **425 built,0failed,0skipped**. Complete import/error/export/touch suite rerun against actual combined `deploy/` under the base prefix; `staged-validation.json` passed. Root gallery renders all425cards with no runtime errors.
+
+## Live Pages — PASS
+
+Deployed to `gh-pages` and verified against the public production URL `https://xianghui.github.io/daily-app2/20261104-2/`: HTTP200, worker/WASM production path live, real local PNG file-picker upload, real binary STL download matching the exact current preview signature, gallery renders **425 cards** with the new entry first and zero runtime errors. `deployment-validation.json` records the run.
+
+Runtime and font license notices are bundled under `public/licenses/` (React/ReactDOM MIT, Three MIT, Manifold Apache-2.0, fflate MIT, Fredoka/Rubik SIL OFL, reference CC-BY-4.0) and confirmed reachable on Pages.

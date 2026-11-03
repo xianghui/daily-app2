@@ -1,0 +1,10 @@
+import fs from 'node:fs';import assert from 'node:assert/strict';import{init,generate,defaults,fields,transformDefaults,binarySTL,names}from'./src/geometry.js';import{checkSTL,collisionCheck}from'./validate.mjs';import{parseSTL}from'./src/imports.js';
+const api=await init(),{Manifold:M,Mesh}=api,report=[];
+const pixels=Array.from({length:400},(_,i)=>{const x=i%20,y=Math.floor(i/20),r=Math.hypot(x-9.5,y-9.5);return r<3?255:r<8?60:255;});
+for(const high of[false,true])for(const kind of['image','stl']){const p={...defaults};for(const[k,,lo,hi]of fields)p[k]=high?hi:lo;let source={kind:'image',n:20,pixels,mode:'threshold',threshold:130,depth:.6,style:'engraved'};
+if(kind==='stl'){const b=fs.readFileSync('public/samples/wedge-ascii.stl');source={kind,mesh:parseSTL(b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength)),confirmed:true};}
+const m=generate(p,source,transformDefaults),parts={};for(const name of names)parts[name]=checkSTL(binarySTL(m,name),m,name);parts.loose=checkSTL(binarySTL(m,'loose'),m,'loose',13);report.push({high,kind,parts,assembly:await collisionCheck(m)});
+}
+// Verify bright image holes remain intact at engraving depth, while dark annulus is recessed.
+const model=generate(defaults,{kind:'image',n:20,pixels,mode:'threshold',threshold:130,depth:.6,style:'engraved'}),p=model.parts[1],o=model.printOrigins[0],body=new M(new Mesh({numProp:p.stride,vertProperties:new Float32Array(p.vertices),triVerts:new Uint32Array(p.indices)}));const probe=(x,y,z)=>{const b=M.cube([.1,.1,.1]).translate([o[0]+model.markX+x-.05,o[1]+model.markY+y-.05,z]),i=body.intersect(b),v=i.volume();b.delete();i.delete();return v;};assert(Math.abs(probe(0,0,1.2)-.001)<1e-6,'bright hole retains upper material');assert(probe(1.6,0,1.2)<1e-7,'dark ring actually engraved');assert(Math.abs(probe(1.6,0,.2)-.001)<1e-6,'continuous lower backing');body.delete();
+fs.writeFileSync('import-extremes-validation.json',JSON.stringify({cases:report,brightHoleProbe:true,darkRingEngraved:true,continuousBacking:true,physicalPrintTested:false},null,2));console.log('Imported-image/STL min/max, bright hole and continuous backing passed');

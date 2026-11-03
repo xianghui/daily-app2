@@ -21,3 +21,7 @@ Reports:geometry-validation.json,browser-validation.json,staged-validation.json,
 ## Not performed
 
 No physical print,bond strength,winding tension,thermal,electrical,magnetic,fatigue or safety certification testing. This passive former is not a validated powered circuit. External wire/thread,adhesive and optional compass are not generated. Calibrate fit for your printer/material.
+
+## Public delivery
+
+Root gh-pages publication succeeded; GitHub Pages build/deploy run41600568393 completed successfully. Main build commit df7e48f3 pushed. After Pages propagation, `public-test.cjs` verified HTTP200 at https://xianghui.github.io/daily-app2/20261103-23/ , actual production worker/WASM loading, PNG file-picker import, downloaded manifold STL with exact preview/export fingerprint, and newest gallery entry without runtime errors. Public results recorded in public-validation.json. Initial rollout404 resolved when Pages completed; no generator change was needed.

@@ -1,0 +1,51 @@
+# Jet & Labium — keyed air-jet kit-card studio
+
+An original **five-part laminated air-jet experiment**: signature floor, U-channel core, windowed/beveled roof and two T alignment keys. Snip 20 runners, dry-stack, insert keys, then bond/seal both core faces and keys. A real narrow windway opens into a wider closed-end chamber below the labium window. This is **not a tuned instrument**: sound, pitch, air sealing, physical printing and assembly have not been tested. Use a clean low-pressure hand bulb/nozzle, not mouth contact. Adhesives/plastics are not certified food-contact. Blower and adhesive are external consumables.
+
+## Run
+
+Node22.12+: `npm install`, `npm run dev`, `npm test`, `npm run predeploy`. React+Vite, Three/OrbitControls, Manifold WASM and fflate bundled locally. Fontsource Fredoka/Rubik fonts (OFL) are local; Three/fflate MIT, Manifold Apache2. No CDN, API key, server-side model generation or paid service. Public base `/daily-app2/20261103-26/`. Per-app gh-pages installed; exactly `predeploy: npm run build`, `deploy: gh-pages -d dist`. Public monorepo publication uses ROOT deploy flow, not this app's deploy command.
+
+## Reference-first evidence
+
+Read-only inspection of local keycap_generator2 README.md, App.tsx, styles.css, Viewer.tsx, worker.ts, export.ts, imageTrace.ts and geometry/stl.ts informed concrete patterns:374px left rail, preview-first phone, paired range/mm fields, tactile pink selections, local fonts, saved light/dark theme, source transform editor, checkerboard conversion, worker-owned kernel and current-state export gating. No history/dependency tree copied. Reused this monorepo's local editor/import/export infrastructure; new physical geometry, mechanism checks and assembly instructions.
+
+Parsed local switch-template and diamond-link STL candidates first; their dimensions/components and rejection reasons are recorded. Neither is a sheet carrier/reference socket structure. Downloaded and parsed **White Cat Kit Card**, Mike Kasberg, [Printables865769](https://www.printables.com/model/865769-theft-of-fire-white-cat-kit-card), [source/instructions](https://github.com/mkasberg/white-cat-kit-card), [CC BY4.0](https://creativecommons.org/licenses/by/4.0/). Retained upstream README and license. No endorsement or reuse of source spaceship art is implied.
+
+SHA256 `5cf08e5700cc18ded860a26c8584bb97dff324bd88f54a19f89fef8d87cf73ff`; actual binary STL30,616triangles,179.82×178.02×3.19mm,27edge-connected components, nonwatertight. STL has no unit metadata: millimeters assumed from the source construction. Actual cross-sections at Z=.1,.5,1.59mm reveal1.60mm sheets,4.50×1.700012mm rectangular sockets and .21–.22mm low runners. See reference-measurements.json, reference-analysis.json and evidence/reference-sections.png. `reference-measure.py /path/to/reference.stl` reproduces measurement with trimesh/numpy/matplotlib/scipy/shapely/networkx. Raw source STL is not redistributed; original robust-CSG reconstruction does not claim source repair.
+
+Measured source sheet and socket dimensions map to three sheet layers and two full-stack alignment keys. Key width4.50mm retained; proposed sockets4.50+allowance by sheet+allowance, default4.65×1.75mm, differ from measured4.50×1.70. Source-inspired runners redesigned at .4–.6mm height. This kit introduces an actual windway, chamber, open jet window and geometric bevel (.45–.8mm edge rising over4mm), rather than a spaceship or generic acoustic chamber. Local engravings are isolated on an exterior floor lug.
+
+## Parameters (all mm, except degrees and image values)
+
+- Card width90–150; height280–420; defaults110×330. Layout failures are blocked; not every combination fits. Use loose parts on smaller beds.
+- Chamber width10–16; downstream length24–42 plus window4–8; windway length16–22 and width4–7. Channel height is actual sheet1.6–2.4. End wall4; side lands≥6. Labium edge .45–.8, bevel run4. No frequency/acoustic promise.
+- Sheet1.6–2.4; part spacing3–5; breakaway tab width.8–1.2, height.4–.6; total key/socket clearance.10–.30, not per-side. Print core and key first for printer/material-dependent calibration.
+- Rounded and two chamfered body profiles; three actual mesh presets/thumbnails; bounded variation, undo/redo, six local named saves and portable JSON.
+- Art footprint4–7; rotation±180°; X±1.5, Y±2; depth.4–.6. A6.5mm keep-in radius protects mechanism, leaving≥1mm solid backing. Unsupported/cut-through placement is blocked.
+
+## Local image workflow
+
+File picker on desktop/phone and drag/drop accept real PNG and JPEG up to2MB,12MP and6000px per side, checked before decoding. Downscale to≤500px, fit/crop with±25% shifts, light/transparent-background removal or dark inversion. Simple SVG≤2000elements rasterized locally to256px after rejecting scripts, links, external resources and unsupported content. Text (8characters) and six searchable bundled icons use this same pipeline.
+
+The exact conversion is a **20×20 luminance height field**: threshold1–254 selects recessed samples or grayscale sets proportional depth. A closed triangulated cutter is Boolean-subtracted from the floor lug; no textures-only export. Checkerboard shows selected samples; bright/transparent holes remain unengraved solid, continuously backed. This is sampled 2D-to-relief, **not automatic full3D reconstruction from a photo** or exact vector tracing. Empty artwork/invalid settings block export. Replace/remove/reset recover. Only engraved marks are supported intentionally: raised marks would break sheet/bed constraints. STL colours are preview-only.
+
+## Local STL workflow
+
+Binary and ASCII STL≤2MB/1500triangles; each axis .2–250mm. Parse coordinates, weld at1e-5mm, reject nonfinite/degenerate faces, wrong winding, nonpositive volume, open/nonmanifold/self-intersecting surfaces or disconnected components. Current integration contract is one **closed, convex, broad-flat-bottom, nonoverhanging solid**. Concavities/cavities/branches are explicitly unsupported and rejected, not filled or convex-hull substituted. No automatic repair is claimed. A2D hull is used solely for bed-contact validation, never to replace the mesh.
+
+Source dimensions/format/triangle count and separate source3D preview shown; explicit checkbox confirms millimeters (STL has no units). Select Z/Y/−Z up before attaching; axis changes clear source and request reattachment. XY scales proportionally to footprint, Z independently to engraving depth; factors shown. Rotate, center and place original triangles, then exact Boolean subtraction integrates the mesh into the floor lug while preserving air passages, key clearances and backing. Footprints below1.2mm are rejected. All imports stay local. Bundle only synthetic sample PNG/JPEG/SVG and ASCII/binary STL. Portable JSON≤2MB contains bounded image/mesh payloads (images≤250kpx); missing images explicitly request reattachment. Never stores personal files in repository or uploads them.
+
+## Views / export / printing
+
+Assembled, exploded (illustrative gaps), connected card, clean print plate and all isolated parts share the same solids. See-through upper layers explain the internal channel; no airflow/dynamics simulation. Orbit, touch/pinch, zoom and fit supported. Worker CSG uses100ms debounce, bounded image/triangle resolution, current-state keys/stale-result guards and error recovery. Invalid/currently rebuilding edits disable every STL/ZIP export instead of exporting stale last-good geometry. Final solids use1µm kernel simplification tolerance to remove numerical slivers, followed by independent manifold/winding checks; this does not repair unsupported imported meshes.
+
+Binary connected-card STL, clean combined plate, each of five separate parts and Everything ZIP (card+all parts+portable design+numbered ASSEMBLY.txt). Dimensions explicitly mm and current-mesh signature shown as data attribute. Print flat,100% scale, PLA/PETG, .4mm nozzle,.16–.20mm layers,3+walls. Floor art down, roof bevel up; no supports intended, inspect shallow engraving bridges in slicer. All20 runners contact bed and connect to frame/crossbars; key runners are on broad head edges, never functional shaft ends. Snip1.8mm outside outlines and smooth. Flat parts stay distinct after runner removal.
+
+Stack floor/core/roof in that order; lower both keys until heads seat on roof. Both source-derived registration slots align through all layers; keys' shafts reach the floor bottom. Glue needed: heads stop insertion but do not prevent withdrawal. Dry-fit core/key calibration pair first. Thin adhesive only on solid core lands and fixed keys, clamp flat; avoid filling inlet, windway/chamber/window. Low-pressure hand bulb exploration only after cure. Roughness, leaks and alignment can prevent tone; tune experimentally. No pressure rating, strength, force or sound claim.
+
+## Verification
+
+`npm test`: independent binarySTL parser checks byte count, finite coordinates, nonzero triangles, normalized outward normals, welded edges(two opposite incidences), per-component positive volume, expected components/mm dimensions. All parts and translated combined plate checked. `collisionCheck` separately verifies no flat/assembled overlaps, actual20-runner release into carrier+five undamaged parts, card envelope, support-free footprints (except bounded art bridge), insertion paths, both head shoulder seats, key slot allowances, open windway/chamber/window, actual bevel and≥1mm floor backing. Parameter minima/maxima, all presets/profiles and imported outputs included.
+
+Production browser scripts exercise real PNG/JPEG/ASCII/binary picker and drag/drop, actual downloaded bytes vs UI signature and regenerated portable state, different pixels/threshold/depth/crop/transforms vs default, malformed/excessive/empty/nonmanifold/unsupported inputs, reset/recovery, every preset, text/icons/SVG holes, ZIP parts, portable saves, undo/redo, worker abortion/reload, stale edits, saved theme/focus/collapsible sections and320/390px preview-first touch orbit/pinch. See validation JSON/logs and evidence screenshots. Additional hole probes and full-extreme imported models have independent mesh/assembly checks. These are computational checks, **not physical printing, assembly, bonding, air-leak, airflow, acoustic or fatigue testing**.

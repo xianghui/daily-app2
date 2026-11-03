@@ -31,3 +31,5 @@ Live public-site smoke test also passed at https://xianghui.github.io/daily-app2
 ## Public publication check
 
 Root `npm run deploy` returned `Published`. After initial Pages propagation404, the new app returned200. Real Chromium public-page downloads for built-in, PNG-derived and STL-derived models matched local fingerprints and passed independent STL manifold/volume checks; `public-validation.json`. Public gallery rendered all394 entries with no runtime errors and correct searchable new entry; `public-gallery-validation.json`. Public smoke tests reran successfully after propagation; no unverified availability claim.
+
+`node public-test.cjs` passed against https://xianghui.github.io/daily-app2/20261103-12/ : HTTP 200, exact latest production HTML, working public worker/WASM, actual local PNG import changes geometry, downloaded STL matches the visible geometry signature and passes independent closed-mesh checks; public root gallery entry present, no page errors. See `deployment-validation.json`.

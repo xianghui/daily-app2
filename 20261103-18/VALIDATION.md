@@ -14,3 +14,7 @@
 Evidence: geometry-validation.json, browser-validation.json, studio-validation.json, presentation-validation.json, orientation-validation.json, icons-drop-validation.json, hole-validation.json, depth-validation.json, stale-validation.json, gallery-validation.json, staged-validation.json and screenshots under evidence/.
 
 **No physical print, seam fit, adhesive strength, optical effect or handling test performed.** Computational assembly checks are not strength or printer certification. Tape and adhesive are required.
+
+## Publication
+
+Root `npm run deploy` returned Published. GitHub Pages run 41582428165 completed successfully for gh-pages commit `3e8068faff097e6f04e81ca9869d1e6cec021d7d`. Initial verification encountered the expected pre-publication 404 while Pages was building; retry after deployment succeeded. The public gallery (413 entries), production worker/WASM and actual built-in/PNG/JPEG/ASCII/binary STL downloads all passed. See deployment-validation.json.

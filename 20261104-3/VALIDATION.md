@@ -1,0 +1,23 @@
+# Validation — Monge & Project
+
+2026-11-04, computational checks only; no physical print/assembly, dimensional fit, adhesive, thread-load or strength test.
+
+- `npm test`: **40** complete geometry/assembly cases passed: all presets, each parameter minimum/maximum, simultaneous limits, three silhouettes, binary/ASCII STL fixtures, threshold/grayscale image-derived outputs. Every exported part and translated loose plate independently checked in final float32 STL format.
+- Default connected card: **220 × 280 × 1.60000002 mm**, **2428 triangles**, **one closed manifold connected component**, positive volume **27805.744 mm³**, consistent outward winding. Five de-tabbed parts independently closed; connected carrier contains 20 real runners. Cutting releases six components (carrier + five undamaged parts).
+- Per-case checks include every edge incident to two opposite-wound faces, finite/nondegenerate triangles, complete STL bytes, unit normals, positive volume per component, bed contact, card bounds, support-free upper footprints, ten assembled pairs without intersection, six aligned sockets, sampled insertion paths, actual open eye positions, unobstructed thread corridor, projection-groove probes and backing.
+- `node browser-test.cjs`: **passed** against production `dist` at `/daily-app2/20261104-3/`. Actual PNG/JPEG/ASCII/binary picker imports and downloaded STLs. Pixel/threshold/depth/crop/scale/rotation/placement effects vs no-import output; exact current preview/export signature and independent Node regeneration; each imported output checked with all assembly/mesh tests. Replace/remove/reset; invalid/truncated/nonmanifold/concave/excessive/dimension/empty/unsafe cases recoverably block export. Touch orbit/pinch and real phone file imports/downloads passed; no app runtime errors or remote generation requests.
+- `node studio-test.cjs`: **passed after updating a reused test input from old out-of-range 60mm to supported 52mm**. Real presets/thumbnails/silhouettes, text/icons/SVG, bounded portable image and STL JSON, named-save reload, missing-payload rejection, undo/redo, actual ZIP extraction and every contained STL parsed, all views, saved dark theme, keyboard focus, collapsible sections, reduced motion, desktop374px left rail, preview-first phone layout, intentionally aborted worker/reload recovery.
+- `node import-extremes.mjs`: **passed**, actual accepted STL at simultaneous geometry/fit limits, ring-hole backing and dark-pixel engraving probes on final Boolean model.
+- `node stale-test.cjs`: **passed**, rapid parameter/image edits immediately gate old exports; only newest key becomes exportable; invalid transformation recovery works.
+- `node isolated-test.cjs`: **passed**, all five isolated views and actual per-part STL downloads independently validated.
+- `node orientation-test.cjs`: **passed**, Z/Y/−Z actual source dimensions/transforms, mm confirmation, final solids and assembly checks.
+- `node icons-drop-test.cjs`: **passed**, six icons regenerated and independently checked, real drag-drop PNG event.
+- `node mobile-layout.cjs`: **passed**, all five tabs plus expanded instructions at **320/390px**, no document/viewport overflow, reachable exports and preview-first stack. Desktop/card and phone screenshots in `evidence/`.
+- `node gallery-test.cjs`: **passed**, every inline script compiled using `new Function` (missing scripts fail), new entry exactly once/newest/areaSTL/correct URL, STL category first, **425 previous entries unchanged**, gallery render/search without runtime errors.
+- `npm run predeploy`: **passed**. Runtime fonts, libraries, worker and WASM are bundled locally; Vite's informational node:module externalization and large-chunk warnings are not build failures.
+
+Reproducible scripts and detailed `*-validation.json` accompany the app. Reference fresh-download/hash/mesh components and actual cross-sections are documented in `reference-analysis.json`, `reference-measurements.json`, `reference-measure.py`, `evidence/reference-sections.png` and README. Source reference defects are not repaired or published; original geometry is separately validated.
+
+Root monorepo `npm run predeploy` completed: **426 apps built/copied, 0 failures, 0 skips**. `deploy/index.html` and `deploy/20261104-3/index.html` present. Earlier gallery categories/entries retained. Runtime dependency/font license texts are bundled under `public/licenses/`.
+
+Root `npm run deploy` exited 0 with **Published**. The deploy payload's gallery, all new app asset bytes, worker and WASM were checked against the validated build before publication. GitHub Pages CDN propagation is checked separately after publication.

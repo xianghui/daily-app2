@@ -12,3 +12,7 @@
 Reports: geometry-validation.json, browser-validation.json, studio-validation.json, advanced-validation.json, personalization-validation.json, mobile-layout-validation.json, extra-validation.json, gallery-validation.json and gallery-browser-validation.json. Screenshots and a synthetic browser SVG-state fixture are under evidence/.
 
 **Not performed:** physical printing, human assembly dexterity, fit/adhesion/strength/stability, fatigue or structural testing. This kit is not load-bearing. Computational geometry checks are not physical proof.
+
+## Publication
+
+Root predeploy built/copied all 446 routes with 0 failures and 0 skipped. The combined deploy tree was byte-compared to the app dist and retested through a real base-path server. ROOT `npm run deploy` returned Published. Live GitHub Pages app, worker/WASM, default/PNG/binary-STL downloads, exact preview/export signatures and newest-first 446-entry gallery were browser-verified. See deployment-validation.json, combined-browser-validation.json and publication-validation.json.

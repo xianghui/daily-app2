@@ -1,0 +1,26 @@
+# Validation — Pulse & Vortex / 20261104-20
+
+## Passed before publication
+
+- Source reference downloaded afresh, actual STL parsed and sectioned. Local candidates also parsed. SHA-256, source/license, source dimensions, component bounds and measured interfaces in `reference-analysis.json`; actual source-section evidence visually inspected. Raw third-party mesh not redistributed.
+- `npm run predeploy`: production React/Vite build passed. Local Manifold WASM and worker work under `/daily-app2/20261104-20/`. Warnings about bundled Manifold's Node-only branch and large Three.js chunk are nonfatal; actual browser WASM verified.
+- `npm test`: **75** full geometry/assembly cases, default, all three presets, three floor shapes, individual range ends, joint extrema, 32 chamber corners, image-derived and both STL-derived outputs. Every separately printed solid and translated float32 clean plate checked independently.
+- STL byte-length/triangle count, finite coordinates, no degenerate faces, expected mm bounds, normalized normals, opposite directed edge pairs after 1e-5 mm welding, positive enclosed volume per connected component. All eight exported selections are closed/manifold. Connected card has one solid; clean plate has seven distinct components.
+- Simulated cutting of all **28 runners** leaves **one carrier plus seven intact parts**, no detached fragments or damage. Envelope matches declared card width/height/sheet. Pairwise clean-plate and assembled parts do not overlap. Bed-footprint cross-sections show no unsupported XY overhang at checked upper layers.
+- **Eight** source-derived sheet sockets clear in connected-card and clean-floor meshes; tongue tips flush underneath and shoulders/lid seats aligned. **51** assembly path samples per case: two sides, nozzle panel, rear panel and lid lower without intersections; rear ring approaches without collisions. Inner chamber void unobstructed; nozzle, rear opening and ring aperture clear in card and assembled meshes. Protected art backing ≥1.4 mm and outside chamber.
+- Production browser: actual PNG/JPEG and ASCII/binary STL file-picker uploads on desktop and phone, real STL downloads. Changed pixels, threshold, relief depth, grayscale/crop, imported mesh, footprint scale, rotation and placement affect exact downloaded geometry. UI mesh fingerprint equals downloaded bytes and Node regeneration of the actual saved JSON. Every imported result also passes mesh/assembly checks. Source previews and explicit STL mm confirmation work; Z/Y/−Z up-axis fixtures restore identical source geometry.
+- Replace/remove/reset reproduce default hash. Truncated, open, nonmanifold, oversized, too-many-triangle, excessive-dimension, fake-image, concave and empty-image inputs rejected recoverably; invalid dimensions/transforms and impossible packing disable exports. Rapid valid/invalid edits cannot expose stale last-good export. Aborted worker loading disables export and recovers on reload.
+- Three mesh-thumbnail presets, all six bundled icons, text and SVG actually change exported geometry. Actual browser-rasterized ring SVG independently probed: white centre retains solid backing, dark arc removes material. No false texture-only geometry or convex-hull replacement.
+- Actual per-part downloads parsed. Everything ZIP unzipped: eight real STLs, portable JSON and numbered print/assembly instructions; every contained STL parsed/validated. No fake 3MF or STL-colour claim.
+- Undo/redo, local named saves/reload, image and mesh portable JSON round trips, explicit missing-image reattachment errors, saved light/dark toggle, keyboard focus, collapsed sections and reduced-motion preference tested.
+- Desktop left panel measured **374 px**, viewer right. Phone **320 and 390 px** preview-first; all five editor tabs and expanded guide fit viewport without overflow, exports/JSON save reachable. Real CDP touch orbit and pinch change rendered canvas.
+- Gallery: every inline script compiled with `new Function`, required script present. New entry exactly once, newest first, area `stl`; STL Generators first. **442** previous entries preserved byte-equivalently at parsed-object level and in original order. Browser shows **443** cards, search works, no runtime errors.
+- Root `npm run predeploy`: **443 built, 0 failed, 0 skipped**. Root `deploy/index.html` equals gallery source; all gallery app folders present; new app's production assets match byte-for-byte. Real imports/downloads tested again from combined `deploy/` server. Browser tests record zero app remote requests and zero page errors.
+
+## Publication
+
+Root monorepo `npm run deploy` publishes `deploy/`, never an individual app in isolation. `publication-validation.json` records actual public route/worker/STL/gallery checks after Pages propagation. Main commit and push recorded in job output.
+
+## Explicitly not performed
+
+No physical print, physical assembly, force/strength/retention testing, seam airtightness, film response, airflow/pressure measurement, vortex formation or fluid simulation. Film/tape are required external consumables. The ring is taped, not mechanically clamped; slip-fit tongues are locators, not locks. Printer-dependent fit must be calibrated. Transparent film preview is explanatory and not exported.

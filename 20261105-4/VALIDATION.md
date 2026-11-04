@@ -1,0 +1,21 @@
+# Computational validation — 2026-11-05
+
+- `npm run predeploy`: passed production Vite build, including bundled WASM, worker and local fonts.
+- `npm test`: **67 cases passed**. Defaults, all presets, each parameter endpoint, all simultaneous minima/maxima, three handle silhouettes and 24 shape/chord/thickness/camber corners, both synthetic STL formats and image threshold/grayscale/transformed imports. Every exported solid and loose plate independently parsed for finite nondegenerate triangles, float32 bounds, unit outward normals, welded closed-manifold edge incidence and positive component volume.
+- Card checks: declared bounds; exactly one connected card; all sixteen runner cuts leave carrier plus four unharmed intended parts; no print-plate overlaps; four mortises probed in clean parts AND card; minimum 1.2 mm port walls; ≥1 mm art backing; upper cross-sections bed-supported.
+- Assembly: actual transformed rib/spar meshes do not intersect. Fifty sampled full-stroke axial spar insertion positions pass. Four mortise heights follow mean line; independent eight-point NACA contour discrepancy <.025 mm. Glue needed for retention; force/adhesion not simulated.
+- `browser-test.cjs`: passed real production file-picker PNG/JPEG/ASCII/binary imports and real STL downloads; pixels, threshold, relief depth, XY/Z scale, rotation and placement alter final geometry; exact UI fingerprint = downloaded binary = regenerated portable JSON. Every imported output receives same mesh/assembly checks. Empty/invalid/truncated/oversized/unsupported/nonmanifold inputs block export and recover through replace/remove/reset. 320/390 px, touch orbit/pinch and phone imports/downloads pass. Zero runtime errors and external requests.
+- `studio-test.cjs`: all real presets, handle silhouettes, text/icons/SVG, per-part ZIP content parsing, JSON and local named saves across reload, missing-payload errors, undo/redo, all views, saved dark theme, visible keyboard focus, reduced-motion, collapsible sections, 374 px desktop rail / phone preview-first layout, intentionally failed worker with disabled exports then reload recovery: passed.
+- `extra-test.cjs`: boolean probes confirm bright SVG ring hole preserves original surface and dark regions cut exported solid; changed synthetic PNG pixels change actual STL; isolated views and rapid-edit stale-result guards passed.
+- `personalization-test.cjs`: all six icons downloaded, independently parsed and assembly-checked.
+- `orientation-test.cjs`: Y-up and inverted-Z reattachments reproduce exact integrated source geometry.
+- `mobile-layout.cjs`: all editor tabs and expanded print guide have no overflow at configured 320/390 px viewport; actual JSON save after guide scrolling and STL export reachable. Saved screenshots visually inspected (desktop assembly and 320 px preview).
+- `interaction-test.cjs`: real text export, sample-file button, background inversion, vertical crop shift and drag/drop STL outputs pass the same downloaded-byte/manifold/backing/assembly checks.
+- Combined root predeploy: 452 apps, zero failures/skips. Root index exact; all 20 new-app production files hash-match dist. Full browser import/export suite rerun against the combined deploy folder passed.
+- Gallery inline JavaScript compiles; unique correct STL entry, all 451 earlier entries unchanged; all 452 render and search without runtime errors.
+
+- ROOT `npm run deploy`: Published to gh-pages commit `1cbdd136bd5e5739559e712cf00798406e2ce935`. GitHub Pages workflow 41894482620 completed successfully. Initial 404 occurred while deployment was pending; retry after workflow success passed. Live `public-test.cjs` verified HTTP 200, default/PNG/JPEG/ASCII/binary real STL downloads and exact preview signatures; public gallery retained all 452 entries with no runtime errors.
+
+Reference mesh freshly downloaded, parsed, SHA-256 verified, sectioned and measured before geometry selection. License freshly fetched and hash-verified. Selected source is nonmanifold; original reconstructed geometry is independently checked, not a repair/re-export. No private/raw third-party STL is bundled.
+
+Build reports and screenshots accompany the app. No physical printing, actual material/printer fit, loading, bonding or aerodynamic performance was tested. Those remain unverified.

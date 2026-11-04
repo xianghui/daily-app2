@@ -1,0 +1,19 @@
+# Validation — Dürer & Grid
+
+- **93 geometry cases passed**: defaults, three presets, all field extrema, 48 shape/grid-width/eye-distance/grid-height/sheet corner cases, and image/ASCII/binary STL-derived models including transformed/extreme cases.
+- Every clean part, connected card and loose plate parsed from exported float32 STL: finite/nondegenerate triangles, unit normals/winding, two opposite-directed incident faces after 1e-5 mm welding, positive volume per component, expected mm dimensions and component counts.
+- Independent CSG checks: twelve runner cuts release exactly carrier + three intact parts; no print-plate or assembled intersections; 20 sampled vertical frame insertion positions; four blind sockets and floors; all opposing thread holes plus the eye aperture open in clean AND card meshes; minimum backing, grid webs, registered eye height and supported bed footprints.
+- Actual production-base-path browser file-picker PNG/JPEG/ASCII/binary STL imports and real STL downloads. Changed pixels, threshold, grayscale relief, depth, crop, scale, rotation and placement alter final geometry; source and final previews work. Download fingerprint equals current preview and Node regeneration from exported JSON.
+- Invalid/truncated/open/nonmanifold/concave files, excessive file/pixel/triangle/dimension inputs, empty silhouettes, invalid transforms and keep-out violations fail recoverably and disable export. No hull substitution or unverified repair.
+- All presets, silhouettes, text, six searchable icons and SVG tested. A real browser-imported SVG ring is probed in the Boolean solid: bright hole retains material, dark ring is engraved, ≥1 mm backing survives.
+- Portable image/STL JSON and local named saves round-trip; missing payload requests reattachment; undo/redo, ZIP member STLs/instructions, source up-axis variants, rapid stale edits, view differences, isolated parts, preview-only colour, dark-theme persistence, focus, collapses, reduced motion and worker abort/recovery passed.
+- 320/390 px phones: every editor tab and expanded guide fit viewport, preview first, JSON/STL exports reachable; CDP touch orbit and pinch change canvas rendering. No runtime errors or external runtime requests.
+- Gallery inline scripts compile with `new Function`; new entry appears exactly once, first, with area `stl`. All 447 earlier entries preserved exactly; all 448 entries render and search without runtime errors.
+
+Physical printing, printer/material fit, adhesive strength, thread tension/retention and drawing accuracy remain **untested**. Computational mesh and assembly checks do not establish them. Preview thread/sightline are explanatory only, not an optical or tension simulation.
+
+Reproducible scripts and JSON reports are included. Screenshots and synthetic portable states live in `evidence/`. Publication checks are recorded after the root monorepo build/deploy.
+
+Root `npm run predeploy`: **448 built, 0 failed, 0 skipped**. Every combined route exists, inline gallery scripts compile and the new app output exactly matches its validated `dist/`. The full file-picker/download/error/touch browser suite passed again against root `deploy/` under the real `/daily-app2/20261104-25/` prefix (`combined-browser-validation.json`). The combined 448-entry gallery also rendered and searched successfully.
+
+Published with root `npm run deploy`. [GitHub Pages workflow](https://github.com/xianghui/daily-app2/actions/runs/41855350826) completed successfully. Live-page browser checks verified real default, PNG-derived and binary-STL-derived STL downloads, closed meshes, exact current UI signatures, and signatures identical to independently checked local production outputs. The public 448-entry gallery retains the new entry first. Initial 90-second route check expired while Pages was still building; retry after workflow completion passed. See `publication-validation.json` and `pages-workflow-validation.json`.

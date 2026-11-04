@@ -13,3 +13,7 @@
 - Root predeploy: **449 built, 0 failed, 0 skipped**. Root index and every new app asset in deploy/ exactly match the tested outputs. Combined-output browser smoke confirms worker, PNG/STL imports and actual changed geometry downloads; combined mobile/gallery checks pass.
 
 See machine-readable *validation.json reports and reproducible scripts. Computational validation does not establish a successful physical print, fit, balance, structural strength, aerodynamic response or desk stability. Those remain explicitly **untested**.
+
+## Publication blocker
+
+Root `npm run deploy` returned Published, and source commit e9552eba was pushed to main. GitHub Pages workflow 41864992718 remained queued without a runner for about nine and a half minutes. Initial public-route retries and an additional eight-minute workflow wait expired; the new public route still returned 404. Public browser verification therefore remains BLOCKED by GitHub Pages, not marked passed. No redundant republish was attempted because it would not resolve an unassigned external runner. The tested combined output remains deployed on gh-pages.

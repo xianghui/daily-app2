@@ -28,3 +28,7 @@ No physical print, friction, fit, adhesive-strength, fatigue or motion testing w
 All production import/generation requests stay local; runtime error and remote runtime request lists are empty. Vite's large-chunk warning is informational; actual worker/WASM loading was exercised successfully. Bounds that do not fit the selected card are explicitly rejected, not silently repacked beyond the envelope.
 
 A mathematical route plus sampled rigid collision checks is not proof of physical usability or universal FDM tolerances. Print/calibrate the foot/deck pair; the loose needle is hand-guided, not automatically driven. Adhesive is required for normal assembly; no snap-fit or captive retention is claimed.
+
+## Live publication
+
+Root `npm run deploy` published the combined `deploy/` site. After GitHub Pages deployment propagation, `public-smoke.cjs` passed against the real HTTPS URL: worker/WASM load, actual default STL download/manifold checks, preview/download signature equality and a real local ASCII-STL import producing a different valid downloaded tray. No live runtime errors. `public-validation.json` and `evidence/public-app.png` contain the result. Source commit `2cf01c1b` was pushed to `origin/main`.

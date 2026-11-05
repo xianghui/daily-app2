@@ -17,3 +17,7 @@ Computational and browser checks only. **No physical printing, hardware fit, fri
 Initial preflight found and corrected sequential boss unions refilling minimum crank bores and a long ground axle entering the coupler sweep. Final tests rerun after correction. The final stack puts all grounded rods lowest, leg middle and coupler highest, with 4 mm air gaps and explicitly bounded hardware. Instructions require external support blocks to clear underside heads.
 
 Reports: `*-validation.json`; reproducible scripts live beside this document. Public publication smoke is recorded in `public-validation.json` and `public-gallery-validation.json` when complete. Mesh checks do not establish material durability, physical printing, low friction, fastener availability, precision or walking ability.
+
+## Publication
+
+ROOT `npm run deploy` published successfully. GitHub Pages deployment `8d7af6ff60ac11a6d5aef26e977be7232653a31e` built successfully. Public app default, PNG, JPEG, ASCII STL and binary STL imports produced actual checked downloads; public gallery rendered all 471 entries and its newest app link loaded valid worker geometry without runtime errors. Initial public smoke reached the prior site during Pages propagation; the rerun after deployment settled passed.

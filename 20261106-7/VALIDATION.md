@@ -19,3 +19,9 @@
 ## Not performed
 
 Physical printing, fit, friction, strength and durability. This is a hand-held open-joint educational kit, not a captive fidget, structural connector or freestanding display. Proposed FDM gaps depend on material/printer and require a calibration print.
+
+## Published verification
+
+Root `npm run predeploy` built/copied all **478** gallery apps with zero failures/skips. Root `npm run deploy` published combined deploy/. Gallery inline script compiled, new STL entry exactly once, all 477 prior entries unchanged. All new production files match combined-deploy bytes.
+
+GitHub Pages run42118956212 completed successfully for branch commit40b6827c618dde4118a16a8e5394ef2e39be75a6. Initial new-route404 during that build resolved after completion; no republish needed. Live public-site browser checked exact production module, worker/WASM, five real default/PNG/JPEG/ASCII/binary STL downloads against preview fingerprints and independent mesh validation; gallery renders478 entries and newest link loads the app. Source committed and pushed to main. See public-validation.json, public-gallery-validation.json and pages-deployment-validation.json.

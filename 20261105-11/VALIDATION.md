@@ -40,3 +40,7 @@ node gallery-test.cjs
 Run the combined root predeploy before `serve-combined.cjs` (port 5962), then `node gallery-browser.cjs` and `TEST_BASE=http://127.0.0.1:5962 TEST_REPORT=combined-browser-validation.json node browser-test.cjs`.
 
 See JSON reports for exact dimensions, volumes, counts, filenames and rejection messages, not a guarantee of a successful physical print.
+
+## Publication result
+
+Root `npm run deploy` reported Published. GitHub Pages workflow [41953427867](https://github.com/xianghui/daily-app2/actions/runs/41953427867) completed successfully. The public smoke test passed against https://xianghui.github.io/daily-app2/20261105-11/: all 458 gallery entries, production worker/WASM, real local PNG/STL imports and downloaded closed-manifold STLs with current-preview fingerprints. `public-browser-validation.json` and `public-validation.png` record it. Initial public checks saw the prior gallery while Pages was still building; retry after workflow completion passed.

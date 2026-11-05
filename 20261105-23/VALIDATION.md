@@ -23,3 +23,5 @@ Reproducible commands are in README; reports are the `*-validation.json` files. 
 ## Combined publication
 
 Root `npm run predeploy` and the deploy lifecycle each reported **470 built, 0 failed, 0 skipped**. `combined-files-validation.json` verifies all app paths and exact equality of all 26 new production files. Combined-production real browser import/download suite passed again (`combined-browser-validation.json`), as did gallery rendering and its new working link. Root `npm run deploy` returned `Published`.
+
+Public Pages deployment [42042607208](https://github.com/xianghui/daily-app2/actions/runs/42042607208) completed successfully. After the normal build-time 404 cleared, `public-smoke.cjs` verified HTTP 200, production worker loading, default/PNG/imported-STL generated downloads, exact preview signatures and independent closed-manifold checks. The public gallery also rendered all 470 entries and loaded the new working app link without runtime errors. Results: `public-validation.json`, `public-gallery-validation.json`, `pages-deployment-validation.json` and actual-browser screenshots.

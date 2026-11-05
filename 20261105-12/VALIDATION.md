@@ -18,3 +18,5 @@ Reference analysis includes actual source hash/units/bounds/component anomalies 
 External soft cotton thread and adhesive required. Thread chord preview is explanatory and not printed. Geometric insertion/clearance tests are not tests of force, adhesion, stability, tension, comfort or fatigue. Physical printing, fits, assembly, lacing and durability are **untested**.
 
 Combined monorepo predeploy: 459 apps, 0 failed, 0 skipped. All 458 prior gallery entries unchanged; one new entry first, area stl. Root inline script compiles; combined gallery runtime and new link passed. Combined production worker/WASM plus real PNG/STL uploads and downloaded manifold STL checked before publication.
+
+Publication: root gh-pages publish succeeded; GitHub Pages build/deploy run 41960018750 completed successfully for bc8c0c13636d0acbf5b6446c211d5dae185ccf10. Public https://xianghui.github.io/daily-app2/20261105-12/ verified in Chromium: 459-entry gallery, live worker/WASM, actual PNG and binary-STL uploads change downloaded closed-manifold STLs with exact preview/export signatures, no runtime errors. Main implementation commit 66608705 pushed.

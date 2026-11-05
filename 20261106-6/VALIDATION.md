@@ -37,3 +37,9 @@ Browser scripts use installed Chrome (`channel: 'chrome'`), not an assumed Playw
 ## Unperformed physical checks
 
 **No physical print, real sleeve/scarf fit, friction, force, strength, fatigue, durability or user testing performed.** Computational closed solids and assembly paths do not establish these. Calibrate clean sleeve/tips with your own printer/material. This is a loose end-to-end splice demonstration, not a secure or structural joint.
+
+## Publication verified
+
+Root `npm run deploy` succeeded. GitHub Pages build/deploy [42110655517](https://github.com/xianghui/daily-app2/actions/runs/42110655517) completed successfully for gh-pages SHA `b4ff6968f44af2160044c125954749d77d089323`. Initial public 404s occurred while Pages was building, then cleared. Public app returns HTTP 200 with the exact latest bundle; default, PNG, JPEG, ASCII STL and binary STL workflows downloaded real checked geometry. Public gallery retains all 477 entries and its newest link loads valid worker geometry with no runtime errors. See public-validation.json, public-gallery-validation.json and pages-deployment-validation.json.
+
+Source commit `fe4f6ecc` pushed to main. Pre-existing unrelated untracked `20261105-7/` was preserved and excluded from this run’s commit.

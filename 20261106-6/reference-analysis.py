@@ -1,7 +1,7 @@
 from pathlib import Path
 import struct,hashlib,json,urllib.request,collections,math,sys
 url='https://files.printables.com/media/prints/865769/stls/6646811_320bc296-72b9-4782-b22e-16138e11e7dd_11d4099f-a327-467e-8a5c-f5c4ed73b100/white-cat-kit-card_kit.stl'
-p=Path(sys.argv[1]) if len(sys.argv)>1 else Path('/tmp/lap-frame-reference.stl')
+p=Path(sys.argv[1]) if len(sys.argv)>1 else Path('/tmp/scarf-slide-reference.stl')
 if not p.exists():p.write_bytes(urllib.request.urlopen(url).read())
 out=Path(__file__).resolve().parent
 reports=[]

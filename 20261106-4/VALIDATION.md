@@ -12,3 +12,5 @@
 These are computational geometry and browser tests only. No physical print, fit, strength, durability, assembly or handling tests performed.
 
 Root predeploy built 475 apps with 0 failures/skips. Gallery inline script compiled, newest entry exactly once, all 474 prior entries unchanged. Combined production gallery/link and five actual default/import downloads passed. Root gh-pages publication returned Published.
+
+GitHub Pages run 42091121901 succeeded. Public app and gallery verification passed: exact production script, default and all four import formats, actual manifold STL downloads and zero browser runtime errors. See public-validation.json and public-gallery-validation.json.

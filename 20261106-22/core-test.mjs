@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import {examples,inputs,validateVectors,artifact,metrics} from './src/core.js';
+const sample=examples['Store changes'];
+for(const text of ['id,description,owner\na,x,','id,description,owner\na,x,'+'a'.repeat(81),'id,description,owner\n'+Array.from({length:31},(_,i)=>`a${i},article,Owner`).join('\n'),'id,description,owner\na,x,Team\na,y,Team'])assert.throws(()=>inputs(sample.changes,text,.45));
+for(const t of [0.1,0.9,NaN,Infinity])assert.throws(()=>inputs(sample.changes,sample.articles,t));
+for(const v of [null,[],[[NaN]],Array.from({length:8},()=>Array(383).fill(0)),Array.from({length:8},()=>Array(384).fill(Infinity))])assert.throws(()=>validateVectors(v,8));
+const fs=await import('node:fs');const a=JSON.parse(fs.readFileSync('export-test.json','utf8'));
+assert.deepEqual(artifact(a.articles,a.original),a);assert.equal(metrics(a.articles,a.original).reviewed,2);
+for(const bad of [a.articles.slice(1),[a.articles[0],...a.articles.slice(0,-1)],a.articles.map((r,i)=>i? r:{...r,action:'invented'}),a.articles.map((r,i)=>i? r:{...r,matches:[]})])assert.throws(()=>artifact(bad,a.original));
+console.log('Schema: missing/duplicate rows, invalid actions and malformed links rejected; article limits, threshold limits and malformed vectors rejected; actual export validated.');

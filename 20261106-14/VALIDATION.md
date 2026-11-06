@@ -38,3 +38,7 @@ After first inference, an online reload reused persistent weights with zero mode
 ## Known boundaries
 
 Only small English synthetic fixtures; lexical baseline happens to equal the two main fixtures and fails on the extra wording-gap fixture. No measured time savings, real staffing accuracy, phone memory benchmark, employment fairness claim, credential validation, date availability or safe medical staffing. No offline cold navigation. Tests of device failure use injected unavailable APIs. Inputs remain in memory; exports intentionally contain original synthetic/user data and should be handled accordingly.
+
+## Final public result
+
+Public URL: https://xianghui.github.io/daily-app2/20261106-14/ . Pages commit `ed260368ae225cc360b89576218888a76d6c3ab1` reached `built`; workflow 42166742780 completed successfully. An initial live attempt before Pages finished returned 404; once the existing Pages build was explicitly requested and completed, the full real-model browser suite passed publicly, including all three fixtures, export/copy, offline warm-page inference, persistent model cache reuse, cancel/retry, stale guard, limits, imports, and injected failure states. Public JS/worker/WASM/factory and rendered gallery categories passed separately. No fake inference fallback was introduced.

@@ -1,0 +1,269 @@
+{
+  "url": "http://127.0.0.1:6170/daily-app2/20261106-20/",
+  "workshop": {
+    "ids": [
+      "S1",
+      "S2",
+      "S3",
+      "S4"
+    ],
+    "reuse": [
+      1,
+      4,
+      2,
+      1
+    ],
+    "scores": [
+      "AI suggested: S1Closest same-unit source: Cordless power drilling tool · cosine 0.690 (not confidence)",
+      "AI suggested: S2Closest same-unit source: Protective eyewear safety goggles · cosine 0.843 (not confidence)",
+      "AI suggested: S3Closest same-unit source: Shipping carton sealing tape · cosine 0.601 (not confidence)",
+      "AI suggested: S4Closest same-unit source: Metal fabric cutting shears · cosine 0.678 (not confidence)"
+    ],
+    "metrics": "2/4\nCurrent fully covered lines\n0/4\nBaseline fully covered: exact description\n2\nLines still needing purchase"
+  },
+  "overAllocationBlocked": true,
+  "artifact": {
+    "schema": "stock-again/v1",
+    "model": "Xenova/all-MiniLM-L6-v2 q8",
+    "policy": "Input-order greedy allocation; one stock source per request, exact unit match; semantic similarity is not compatibility verification.",
+    "requests": [
+      {
+        "id": "R1",
+        "description": "Portable electric drill for making holes",
+        "quantity": 2,
+        "unit": "each"
+      },
+      {
+        "id": "R2",
+        "description": "Safety glasses eye protection",
+        "quantity": 4,
+        "unit": "each"
+      },
+      {
+        "id": "R3",
+        "description": "Adhesive tape for packing boxes",
+        "quantity": 3,
+        "unit": "roll"
+      },
+      {
+        "id": "R4",
+        "description": "Heavy duty scissors for cutting fabric",
+        "quantity": 1,
+        "unit": "each"
+      }
+    ],
+    "records": [
+      {
+        "id": "R1",
+        "description": "Portable electric drill for making holes",
+        "quantity": 2,
+        "unit": "each",
+        "stockId": "S1",
+        "reuse": 1,
+        "note": "Owner, \"inspect\" = check rating",
+        "suggested": "S1",
+        "alternatives": [
+          {
+            "id": "S1",
+            "description": "Cordless power drilling tool",
+            "quantity": 1,
+            "unit": "each",
+            "score": 0.6901199647464272
+          },
+          {
+            "id": "S4",
+            "description": "Metal fabric cutting shears",
+            "quantity": 2,
+            "unit": "each",
+            "score": 0.17899079407156707
+          },
+          {
+            "id": "S2",
+            "description": "Protective eyewear safety goggles",
+            "quantity": 6,
+            "unit": "each",
+            "score": 0.017719862634682868
+          }
+        ],
+        "buy": 1
+      },
+      {
+        "id": "R2",
+        "description": "Safety glasses eye protection",
+        "quantity": 4,
+        "unit": "each",
+        "stockId": "",
+        "reuse": 0,
+        "note": "",
+        "suggested": "S2",
+        "alternatives": [
+          {
+            "id": "S2",
+            "description": "Protective eyewear safety goggles",
+            "quantity": 6,
+            "unit": "each",
+            "score": 0.8428121924341738
+          },
+          {
+            "id": "S4",
+            "description": "Metal fabric cutting shears",
+            "quantity": 2,
+            "unit": "each",
+            "score": 0.10643885815744765
+          },
+          {
+            "id": "S1",
+            "description": "Cordless power drilling tool",
+            "quantity": 1,
+            "unit": "each",
+            "score": -0.03493191080989963
+          }
+        ],
+        "buy": 4
+      },
+      {
+        "id": "R3",
+        "description": "Adhesive tape for packing boxes",
+        "quantity": 3,
+        "unit": "roll",
+        "stockId": "S3",
+        "reuse": 2,
+        "note": "",
+        "suggested": "S3",
+        "alternatives": [
+          {
+            "id": "S3",
+            "description": "Shipping carton sealing tape",
+            "quantity": 2,
+            "unit": "roll",
+            "score": 0.6008496559120792
+          }
+        ],
+        "buy": 1
+      },
+      {
+        "id": "R4",
+        "description": "Heavy duty scissors for cutting fabric",
+        "quantity": 1,
+        "unit": "each",
+        "stockId": "S4",
+        "reuse": 1,
+        "note": "",
+        "suggested": "S4",
+        "alternatives": [
+          {
+            "id": "S4",
+            "description": "Metal fabric cutting shears",
+            "quantity": 2,
+            "unit": "each",
+            "score": 0.6782593312021665
+          },
+          {
+            "id": "S1",
+            "description": "Cordless power drilling tool",
+            "quantity": 1,
+            "unit": "each",
+            "score": 0.26139587275086457
+          },
+          {
+            "id": "S2",
+            "description": "Protective eyewear safety goggles",
+            "quantity": 6,
+            "unit": "each",
+            "score": 0.1766773132967073
+          }
+        ],
+        "buy": 0
+      }
+    ],
+    "stock": [
+      {
+        "id": "S1",
+        "description": "Cordless power drilling tool",
+        "quantity": 1,
+        "unit": "each",
+        "used": 1,
+        "remaining": 0
+      },
+      {
+        "id": "S2",
+        "description": "Protective eyewear safety goggles",
+        "quantity": 6,
+        "unit": "each",
+        "used": 0,
+        "remaining": 6
+      },
+      {
+        "id": "S3",
+        "description": "Shipping carton sealing tape",
+        "quantity": 2,
+        "unit": "roll",
+        "used": 2,
+        "remaining": 0
+      },
+      {
+        "id": "S4",
+        "description": "Metal fabric cutting shears",
+        "quantity": 2,
+        "unit": "each",
+        "used": 1,
+        "remaining": 1
+      }
+    ]
+  },
+  "reviewRejectUndo": true,
+  "kitchen": {
+    "ids": [
+      "I1",
+      "I2",
+      "I3",
+      "I4"
+    ],
+    "reuse": [
+      2,
+      1,
+      2,
+      2
+    ],
+    "scores": [
+      "AI suggested: I1Closest same-unit source: Stainless steel stockpot cooking vessel · cosine 0.402 (not confidence)",
+      "AI suggested: I2Closest same-unit source: Digital food weighing balance · cosine 0.605 (not confidence)",
+      "AI suggested: I3Closest same-unit source: Insulated oven mitts · cosine 0.560 (not confidence)",
+      "AI suggested: I4Closest same-unit source: Manual potato peeler · cosine 0.627 (not confidence)"
+    ],
+    "metrics": "3/4\nCurrent fully covered lines\n0/4\nBaseline fully covered: exact description\n1\nLines still needing purchase"
+  },
+  "offlineFreshWorker": true,
+  "cachedModelReload": true,
+  "invalidInputs": 10,
+  "importQuotedFormula": true,
+  "maxBatch60Texts": true,
+  "semanticNoMatch": true,
+  "unitMismatchRejected": true,
+  "cancelRetry": true,
+  "staleInputGuard": true,
+  "layouts": [
+    1440,
+    390,
+    320
+  ],
+  "network": {
+    "count": 14,
+    "hosts": [
+      "huggingface.co",
+      "us.aws.cdn.hf.co"
+    ],
+    "noContentBodies": true
+  },
+  "pageErrors": [],
+  "networkFailure": "Failed to fetch Retry or reduce the batch; check internet and allow model downloads.",
+  "networkRetry": true,
+  "coldDownloadCancelRetry": true,
+  "unsupported": "Web Workers and WebAssembly required. Use a current desktop browser with WASM enabled.",
+  "wasm-unavailable": "Web Workers and WebAssembly required. Use a current desktop browser with WASM enabled.",
+  "malformed": "Malformed AI output: expected normalized finite 384-dimensional vectors. Retry or reduce the batch; check internet and allow model downloads.",
+  "timeout": "AI timed out after 180 seconds. Retry or reduce the batch; check internet and allow model downloads.",
+  "worker-error": "Injected worker failure Retry or reduce the batch; check internet and allow model downloads.",
+  "cancelledLateResponseIgnored": true,
+  "fileStaleGuard": true
+}

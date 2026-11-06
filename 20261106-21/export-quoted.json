@@ -1,0 +1,92 @@
+{
+  "schema": "test-loom/v1",
+  "model": "Xenova/all-MiniLM-L6-v2 q8",
+  "method": "Mean-pooled normalized embeddings; cosine threshold; greedy weighted-coverage/minute selection. Human review required.",
+  "budget": 15,
+  "threshold": 0.45,
+  "summary": {
+    "minutes": 6,
+    "covered": 1,
+    "weight": 5,
+    "changes": [
+      {
+        "id": "C1",
+        "description": "Customers can pay by credit card at checkout",
+        "priority": 5,
+        "covered": true,
+        "matches": [
+          {
+            "testId": "Q",
+            "score": 0.6994769043774436
+          }
+        ]
+      },
+      {
+        "id": "C2",
+        "description": "Customers can reset a forgotten password by email",
+        "priority": 4,
+        "covered": false,
+        "matches": []
+      },
+      {
+        "id": "C3",
+        "description": "Warehouse inventory decreases when an order is placed",
+        "priority": 3,
+        "covered": false,
+        "matches": []
+      }
+    ]
+  },
+  "original": {
+    "changes": [
+      {
+        "id": "C1",
+        "description": "Customers can pay by credit card at checkout",
+        "priority": 5
+      },
+      {
+        "id": "C2",
+        "description": "Customers can reset a forgotten password by email",
+        "priority": 4
+      },
+      {
+        "id": "C3",
+        "description": "Warehouse inventory decreases when an order is placed",
+        "priority": 3
+      }
+    ],
+    "tests": [
+      {
+        "id": "Q",
+        "description": "=Purchase using Visa, \"credit card\"\ncheckout",
+        "minutes": 6
+      }
+    ],
+    "budget": 15,
+    "threshold": 0.45
+  },
+  "tests": [
+    {
+      "id": "Q",
+      "description": "=Purchase using Visa, \"credit card\"\ncheckout",
+      "minutes": 6,
+      "selected": true,
+      "note": "",
+      "matches": [
+        {
+          "changeId": "C1",
+          "score": 0.6994769043774436
+        },
+        {
+          "changeId": "C2",
+          "score": 0.15175304740619291
+        },
+        {
+          "changeId": "C3",
+          "score": 0.061779612052463566
+        }
+      ],
+      "suggested": true
+    }
+  ]
+}

@@ -1,0 +1,278 @@
+{
+  "url": "http://127.0.0.1:6171/daily-app2/20261106-21/",
+  "commerce": {
+    "selected": [
+      false,
+      true,
+      true,
+      true,
+      false
+    ],
+    "links": [
+      "Inspect source changes & cosine scoresC1 · 0.109 · below thresholdCustomers can pay by credit card at checkoutC2 · 0.042 · below thresholdCustomers can reset a forgotten password by emailC3 · -0.079 · below thresholdWarehouse inventory decreases when an order is placedScores are cosine similarity, not confidence or tested coverage.",
+      "Inspect source changes & cosine scoresC1 · 0.487 · linkedCustomers can pay by credit card at checkoutC2 · 0.181 · below thresholdCustomers can reset a forgotten password by emailC3 · 0.104 · below thresholdWarehouse inventory decreases when an order is placedScores are cosine similarity, not confidence or tested coverage.",
+      "Inspect source changes & cosine scoresC2 · 0.613 · linkedCustomers can reset a forgotten password by emailC1 · 0.075 · below thresholdCustomers can pay by credit card at checkoutC3 · -0.081 · below thresholdWarehouse inventory decreases when an order is placedScores are cosine similarity, not confidence or tested coverage.",
+      "Inspect source changes & cosine scoresC3 · 0.616 · linkedWarehouse inventory decreases when an order is placedC1 · 0.268 · below thresholdCustomers can pay by credit card at checkoutC2 · 0.183 · below thresholdCustomers can reset a forgotten password by emailScores are cosine similarity, not confidence or tested coverage.",
+      "Inspect source changes & cosine scoresC3 · 0.093 · below thresholdWarehouse inventory decreases when an order is placedC2 · 0.080 · below thresholdCustomers can reset a forgotten password by emailC1 · 0.020 · below thresholdCustomers can pay by credit card at checkoutScores are cosine similarity, not confidence or tested coverage."
+    ],
+    "metrics": "3/3\nReviewed semantic coverage\n2/3\nInput-order baseline coverage\n15/15\nEstimated minutes"
+  },
+  "budgetBlocked": true,
+  "artifact": {
+    "schema": "test-loom/v1",
+    "model": "Xenova/all-MiniLM-L6-v2 q8",
+    "method": "Mean-pooled normalized embeddings; cosine threshold; greedy weighted-coverage/minute selection. Human review required.",
+    "budget": 15,
+    "threshold": 0.45,
+    "summary": {
+      "minutes": 10,
+      "covered": 2,
+      "weight": 8,
+      "changes": [
+        {
+          "id": "C1",
+          "description": "Customers can pay by credit card at checkout",
+          "priority": 5,
+          "covered": true,
+          "matches": [
+            {
+              "testId": "T1",
+              "score": 0.4873674069476644
+            }
+          ]
+        },
+        {
+          "id": "C2",
+          "description": "Customers can reset a forgotten password by email",
+          "priority": 4,
+          "covered": false,
+          "matches": []
+        },
+        {
+          "id": "C3",
+          "description": "Warehouse inventory decreases when an order is placed",
+          "priority": 3,
+          "covered": true,
+          "matches": [
+            {
+              "testId": "T3",
+              "score": 0.6163185222653834
+            }
+          ]
+        }
+      ]
+    },
+    "original": {
+      "changes": [
+        {
+          "id": "C1",
+          "description": "Customers can pay by credit card at checkout",
+          "priority": 5
+        },
+        {
+          "id": "C2",
+          "description": "Customers can reset a forgotten password by email",
+          "priority": 4
+        },
+        {
+          "id": "C3",
+          "description": "Warehouse inventory decreases when an order is placed",
+          "priority": 3
+        }
+      ],
+      "tests": [
+        {
+          "id": "T0",
+          "description": "Check homepage banner colors and fonts",
+          "minutes": 4
+        },
+        {
+          "id": "T1",
+          "description": "Complete a purchase using Visa payment details",
+          "minutes": 6
+        },
+        {
+          "id": "T2",
+          "description": "Recover account access using the password reset link",
+          "minutes": 5
+        },
+        {
+          "id": "T3",
+          "description": "Verify inventory is reduced after a customer places an order",
+          "minutes": 4
+        },
+        {
+          "id": "T4",
+          "description": "Search the product catalog by keyword",
+          "minutes": 3
+        }
+      ],
+      "budget": 15,
+      "threshold": 0.45
+    },
+    "tests": [
+      {
+        "id": "T0",
+        "description": "Check homepage banner colors and fonts",
+        "minutes": 4,
+        "selected": false,
+        "note": "",
+        "matches": [
+          {
+            "changeId": "C1",
+            "score": 0.10896930750427541
+          },
+          {
+            "changeId": "C2",
+            "score": 0.0418062840024079
+          },
+          {
+            "changeId": "C3",
+            "score": -0.07896854395436645
+          }
+        ],
+        "suggested": false
+      },
+      {
+        "id": "T1",
+        "description": "Complete a purchase using Visa payment details",
+        "minutes": 6,
+        "selected": true,
+        "note": "=One, \"two\" three",
+        "matches": [
+          {
+            "changeId": "C1",
+            "score": 0.4873674069476644
+          },
+          {
+            "changeId": "C2",
+            "score": 0.18077978748557272
+          },
+          {
+            "changeId": "C3",
+            "score": 0.10448633051989312
+          }
+        ],
+        "suggested": true
+      },
+      {
+        "id": "T2",
+        "description": "Recover account access using the password reset link",
+        "minutes": 5,
+        "selected": false,
+        "note": "",
+        "matches": [
+          {
+            "changeId": "C1",
+            "score": 0.07532529728806768
+          },
+          {
+            "changeId": "C2",
+            "score": 0.6132744366140108
+          },
+          {
+            "changeId": "C3",
+            "score": -0.08067091461911705
+          }
+        ],
+        "suggested": true
+      },
+      {
+        "id": "T3",
+        "description": "Verify inventory is reduced after a customer places an order",
+        "minutes": 4,
+        "selected": true,
+        "note": "",
+        "matches": [
+          {
+            "changeId": "C1",
+            "score": 0.26848717772318087
+          },
+          {
+            "changeId": "C2",
+            "score": 0.18295556868288865
+          },
+          {
+            "changeId": "C3",
+            "score": 0.6163185222653834
+          }
+        ],
+        "suggested": true
+      },
+      {
+        "id": "T4",
+        "description": "Search the product catalog by keyword",
+        "minutes": 3,
+        "selected": false,
+        "note": "",
+        "matches": [
+          {
+            "changeId": "C1",
+            "score": 0.020351439717916673
+          },
+          {
+            "changeId": "C2",
+            "score": 0.08020379240821535
+          },
+          {
+            "changeId": "C3",
+            "score": 0.09337532072921145
+          }
+        ],
+        "suggested": false
+      }
+    ]
+  },
+  "reviewRejectUndo": true,
+  "clinic": {
+    "selected": [
+      false,
+      true,
+      true,
+      true,
+      false
+    ],
+    "links": [
+      "Inspect source changes & cosine scoresH2 · 0.084 · below thresholdMedication allergy warnings display before prescribingH3 · 0.062 · below thresholdDownload a patient billing invoice as PDFH1 · -0.094 · below thresholdPatients can book a medical appointment with a doctorScores are cosine similarity, not confidence or tested coverage.",
+      "Inspect source changes & cosine scoresH1 · 0.735 · linkedPatients can book a medical appointment with a doctorH3 · 0.399 · below thresholdDownload a patient billing invoice as PDFH2 · 0.296 · below thresholdMedication allergy warnings display before prescribingScores are cosine similarity, not confidence or tested coverage.",
+      "Inspect source changes & cosine scoresH2 · 0.775 · linkedMedication allergy warnings display before prescribingH1 · 0.179 · below thresholdPatients can book a medical appointment with a doctorH3 · 0.080 · below thresholdDownload a patient billing invoice as PDFScores are cosine similarity, not confidence or tested coverage.",
+      "Inspect source changes & cosine scoresH3 · 0.702 · linkedDownload a patient billing invoice as PDFH1 · 0.261 · below thresholdPatients can book a medical appointment with a doctorH2 · 0.053 · below thresholdMedication allergy warnings display before prescribingScores are cosine similarity, not confidence or tested coverage.",
+      "Inspect source changes & cosine scoresH1 · 0.142 · below thresholdPatients can book a medical appointment with a doctorH3 · 0.109 · below thresholdDownload a patient billing invoice as PDFH2 · 0.001 · below thresholdMedication allergy warnings display before prescribingScores are cosine similarity, not confidence or tested coverage."
+    ],
+    "metrics": "3/3\nReviewed semantic coverage\n2/3\nInput-order baseline coverage\n15/15\nEstimated minutes"
+  },
+  "offlineFreshWorker": true,
+  "cachedModelReload": true,
+  "invalidInputs": 9,
+  "invalidBudget": 4,
+  "importQuotedFormula": true,
+  "maxBatch50Texts": true,
+  "semanticNoMatch": true,
+  "cancelRetry": true,
+  "staleInputGuard": true,
+  "layouts": [
+    1440,
+    390,
+    320
+  ],
+  "network": {
+    "count": 14,
+    "hosts": [
+      "huggingface.co",
+      "us.aws.cdn.hf.co"
+    ],
+    "noContentBodies": true
+  },
+  "pageErrors": [],
+  "networkFailure": "Failed to fetch Check internet/model downloads, reduce the batch or retry.",
+  "networkRetry": true,
+  "coldDownloadCancelRetry": true,
+  "unsupported": "Web Workers and WebAssembly required. Enable WASM in a current desktop browser. No WebGPU is needed.",
+  "wasm-unavailable": "Web Workers and WebAssembly required. Enable WASM in a current desktop browser. No WebGPU is needed.",
+  "malformed": "Malformed AI embeddings: expected one finite 384-dimensional vector per description. Check internet/model downloads, reduce the batch or retry.",
+  "timeout": "AI timed out after 180 seconds. Check internet/model downloads, reduce the batch or retry.",
+  "worker-error": "Injected worker failure Check internet/model downloads, reduce the batch or retry.",
+  "worker-construction": "Could not create AI worker: Injected construction failure Allow workers and retry.",
+  "cancelledLateResponseIgnored": true,
+  "fileStaleGuard": true
+}

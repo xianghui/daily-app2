@@ -1,0 +1,7 @@
+from http.server import ThreadingHTTPServer,SimpleHTTPRequestHandler
+from pathlib import Path
+class Handler(SimpleHTTPRequestHandler):
+ def translate_path(self,path):
+  prefix='/daily-app2/20261106-17/'
+  return str(Path('dist')/path.split('?',1)[0].removeprefix(prefix)) if path.startswith(prefix) else str(Path('dist')/'index.html')
+ThreadingHTTPServer(('127.0.0.1',6167),Handler).serve_forever()

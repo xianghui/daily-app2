@@ -24,3 +24,7 @@ Reports: `browser-validation.json`, `quality-validation.json`, `export-roundtrip
 ## Publication
 
 Publish through root predeploy/deploy only. Public verification is recorded separately in `deployment-validation.json`, `public-browser-validation.json` and `public-gallery-validation.json` when completed. Do not treat these local results as proof of public hosting before those reports exist.
+
+## Completed public verification
+
+GitHub Pages revision `b2ef34e16bef61826d73c0096dbac62455b78df8` reached built and its workflow deployment succeeded. Every public app asset and the shared WASM fetched and hashed identically to the local production build. The actual public app ran real MiniLM inference on both materially different fixtures (6/6 intended routes), resolved basename collisions, completed fresh-worker inference with all networking disabled, downloaded edited reviewed JSON/CSV, passed independent public CSV/JSON field checks and rendered without overflow at 390/320px. Asset-only model downloads and no content uploads observed. Public gallery rendered 502 cards, preserved older categories, and found Folder Ferry exactly once; search passed. See `deployment-validation.json`, `public-browser-validation.json`, `public-export-roundtrip-validation.json` and `public-gallery-validation.json`.

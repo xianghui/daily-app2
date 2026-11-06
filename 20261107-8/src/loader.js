@@ -1,0 +1,2 @@
+import workerAsset from './ai.worker.js?worker&url';
+export async function cachedWorkerURL(){const url=new URL(workerAsset,location.origin).href;let cache;try{cache=await caches.open('folder-ferry-worker-v1')}catch{}let response=cache?await cache.match(url):null;if(!response){response=await fetch(url);if(!response.ok)throw Error('AI worker download failed.');if(cache)await cache.put(url,response.clone());}return URL.createObjectURL(new Blob([await response.text()],{type:'text/javascript'}));}

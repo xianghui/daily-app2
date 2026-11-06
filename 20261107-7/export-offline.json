@@ -1,0 +1,102 @@
+{
+  "schema": "veil-desk/1",
+  "model": "Xenova/bert-base-NER q8",
+  "original": "My name is Sarah and I live in London. I work for Microsoft.\n\nJohn Smith joined Google in Berlin. He prefers working from home.",
+  "redacted": "My name is [PER] and I live in [LOC]. I work for [ORG].\n\n[PER] joined [ORG] in [LOC]. He prefers working from home.",
+  "chunks": [
+    {
+      "id": 1,
+      "text": "My name is Sarah and I live in London. I work for Microsoft.",
+      "offset": 0
+    },
+    {
+      "id": 2,
+      "text": "John Smith joined Google in Berlin. He prefers working from home.",
+      "offset": 62
+    }
+  ],
+  "review": {
+    "entities": [
+      {
+        "id": "e0",
+        "chunk": 0,
+        "start": 11,
+        "end": 16,
+        "kind": "PER",
+        "original": "Sarah",
+        "selected": true,
+        "replacement": "[PER]",
+        "origin": "neural token classification"
+      },
+      {
+        "id": "e1",
+        "chunk": 0,
+        "start": 31,
+        "end": 37,
+        "kind": "LOC",
+        "original": "London",
+        "selected": true,
+        "replacement": "[LOC]",
+        "origin": "neural token classification"
+      },
+      {
+        "id": "e2",
+        "chunk": 0,
+        "start": 50,
+        "end": 59,
+        "kind": "ORG",
+        "original": "Microsoft",
+        "selected": true,
+        "replacement": "[ORG]",
+        "origin": "neural token classification"
+      },
+      {
+        "id": "e3",
+        "chunk": 1,
+        "start": 0,
+        "end": 10,
+        "kind": "PER",
+        "original": "John Smith",
+        "selected": true,
+        "replacement": "[PER]",
+        "origin": "neural token classification"
+      },
+      {
+        "id": "e4",
+        "chunk": 1,
+        "start": 18,
+        "end": 24,
+        "kind": "ORG",
+        "original": "Google",
+        "selected": true,
+        "replacement": "[ORG]",
+        "origin": "neural token classification"
+      },
+      {
+        "id": "e5",
+        "chunk": 1,
+        "start": 28,
+        "end": 34,
+        "kind": "LOC",
+        "original": "Berlin",
+        "selected": true,
+        "replacement": "[LOC]",
+        "origin": "neural token classification"
+      }
+    ],
+    "reviewed": [
+      true,
+      true
+    ]
+  },
+  "metrics": {
+    "excerpts": 2,
+    "reviewed": 2,
+    "neuralCandidates": 6,
+    "manualCandidates": 0,
+    "selected": 6,
+    "literalBaseline": 1,
+    "sourceCharacters": 127,
+    "maskedCharacters": 42
+  }
+}

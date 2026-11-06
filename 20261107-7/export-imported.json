@@ -1,0 +1,86 @@
+{
+  "schema": "veil-desk/1",
+  "model": "Xenova/bert-base-NER q8",
+  "original": "Sarah lives in London.\r\n\r\nJohn Smith works at Google.\r\n\r\nThe meeting begins at noon.",
+  "redacted": "[PER] lives in [LOC].\r\n\r\n[PER] works at [ORG].\r\n\r\nThe meeting begins at noon.",
+  "chunks": [
+    {
+      "id": 1,
+      "text": "Sarah lives in London.",
+      "offset": 0
+    },
+    {
+      "id": 2,
+      "text": "John Smith works at Google.",
+      "offset": 26
+    },
+    {
+      "id": 3,
+      "text": "The meeting begins at noon.",
+      "offset": 57
+    }
+  ],
+  "review": {
+    "entities": [
+      {
+        "id": "e0",
+        "chunk": 0,
+        "start": 0,
+        "end": 5,
+        "kind": "PER",
+        "original": "Sarah",
+        "selected": true,
+        "replacement": "[PER]",
+        "origin": "neural token classification"
+      },
+      {
+        "id": "e1",
+        "chunk": 0,
+        "start": 15,
+        "end": 21,
+        "kind": "LOC",
+        "original": "London",
+        "selected": true,
+        "replacement": "[LOC]",
+        "origin": "neural token classification"
+      },
+      {
+        "id": "e2",
+        "chunk": 1,
+        "start": 0,
+        "end": 10,
+        "kind": "PER",
+        "original": "John Smith",
+        "selected": true,
+        "replacement": "[PER]",
+        "origin": "neural token classification"
+      },
+      {
+        "id": "e3",
+        "chunk": 1,
+        "start": 20,
+        "end": 26,
+        "kind": "ORG",
+        "original": "Google",
+        "selected": true,
+        "replacement": "[ORG]",
+        "origin": "neural token classification"
+      }
+    ],
+    "reviewed": [
+      true,
+      true,
+      true
+    ]
+  },
+  "metrics": {
+    "excerpts": 3,
+    "reviewed": 3,
+    "neuralCandidates": 4,
+    "manualCandidates": 0,
+    "selected": 4,
+    "literalBaseline": 1,
+    "sourceCharacters": 84,
+    "maskedCharacters": 27
+  }
+}

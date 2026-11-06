@@ -1,0 +1,127 @@
+{
+  "schema": "veil-desk/1",
+  "model": "Xenova/bert-base-NER q8",
+  "original": "Marie Curie worked in Paris. Albert Einstein moved to Princeton.\n\nApple is based in California. Tim Cook visited London.",
+  "redacted": "[PER] worked in [LOC]. [PER] moved to [LOC].\n\n[ORG] is based in [LOC]. [PER] visited [LOC].",
+  "literalBaselineTerms": [
+    "Sarah"
+  ],
+  "chunks": [
+    {
+      "id": 1,
+      "text": "Marie Curie worked in Paris. Albert Einstein moved to Princeton.",
+      "offset": 0
+    },
+    {
+      "id": 2,
+      "text": "Apple is based in California. Tim Cook visited London.",
+      "offset": 66
+    }
+  ],
+  "review": {
+    "entities": [
+      {
+        "id": "e0",
+        "chunk": 0,
+        "start": 0,
+        "end": 11,
+        "kind": "PER",
+        "original": "Marie Curie",
+        "selected": true,
+        "replacement": "[PER]",
+        "origin": "neural token classification"
+      },
+      {
+        "id": "e1",
+        "chunk": 0,
+        "start": 22,
+        "end": 27,
+        "kind": "LOC",
+        "original": "Paris",
+        "selected": true,
+        "replacement": "[LOC]",
+        "origin": "neural token classification"
+      },
+      {
+        "id": "e2",
+        "chunk": 0,
+        "start": 29,
+        "end": 44,
+        "kind": "PER",
+        "original": "Albert Einstein",
+        "selected": true,
+        "replacement": "[PER]",
+        "origin": "neural token classification"
+      },
+      {
+        "id": "e3",
+        "chunk": 0,
+        "start": 54,
+        "end": 63,
+        "kind": "LOC",
+        "original": "Princeton",
+        "selected": true,
+        "replacement": "[LOC]",
+        "origin": "neural token classification"
+      },
+      {
+        "id": "e4",
+        "chunk": 1,
+        "start": 0,
+        "end": 5,
+        "kind": "ORG",
+        "original": "Apple",
+        "selected": true,
+        "replacement": "[ORG]",
+        "origin": "neural token classification"
+      },
+      {
+        "id": "e5",
+        "chunk": 1,
+        "start": 18,
+        "end": 28,
+        "kind": "LOC",
+        "original": "California",
+        "selected": true,
+        "replacement": "[LOC]",
+        "origin": "neural token classification"
+      },
+      {
+        "id": "e6",
+        "chunk": 1,
+        "start": 30,
+        "end": 38,
+        "kind": "PER",
+        "original": "Tim Cook",
+        "selected": true,
+        "replacement": "[PER]",
+        "origin": "neural token classification"
+      },
+      {
+        "id": "e7",
+        "chunk": 1,
+        "start": 47,
+        "end": 53,
+        "kind": "LOC",
+        "original": "London",
+        "selected": true,
+        "replacement": "[LOC]",
+        "origin": "neural token classification"
+      }
+    ],
+    "reviewed": [
+      true,
+      true
+    ]
+  },
+  "metrics": {
+    "excerpts": 2,
+    "reviewed": 2,
+    "neuralCandidates": 8,
+    "manualCandidates": 0,
+    "selected": 8,
+    "literalBaseline": 0,
+    "sourceCharacters": 120,
+    "maskedCharacters": 69
+  }
+}

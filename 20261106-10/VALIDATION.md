@@ -38,3 +38,9 @@ Individual `npm run predeploy`: PASS. Root `npm run predeploy`: **481 built/copi
 **No physical print, friction, wear, drawing accuracy, pencil-fit, force or user assembly test.** Computational collision/mesh checks do not prove these. Pinion is loose and hand-guided, not captive. Fine pencil, paper, tape and flush cutters required. Root runner scars must be flush-trimmed to <=.1 mm; clean parts make the calibration sample. Clearances are proposed FDM starting settings, not universal tolerances. Source itself has edge anomalies and was not repaired or asserted printable.
 
 Root `npm run deploy`: **Published** using `gh-pages -d deploy` after its root predeploy rebuilt/copied all 481 folders. Publication uses the combined root flow, not individual app deployment. Existing unrelated untracked `20261105-7/` was not modified or included in this commit.
+
+## Live public Pages: PASS
+
+[Pages run 42142301807](https://github.com/xianghui/daily-app2/actions/runs/42142301807) completed successfully. Public https://xianghui.github.io/daily-app2/20261106-10/ returned HTTP200. `node live-smoke.cjs` verified actual live worker/WASM, generated/downloaded manifold default/image/STL cards, exact UI/export fingerprints, remove/reset baseline and newest-first gallery with all 481 entries, zero runtime errors. See live-validation.json, pages-build-validation.json and live-production-validation.png. Initial public404 during the asynchronous build resolved after Pages deployment completed; no app or server changes were required.
+
+App implementation committed/pushed to main as `c2234c00`; live-verification evidence saved in a follow-up commit. No unrelated working files included.

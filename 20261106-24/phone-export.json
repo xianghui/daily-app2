@@ -1,0 +1,145 @@
+{
+  "format": "column-bridge-v1",
+  "model": "Xenova/all-MiniLM-L6-v2 q8 / WASM",
+  "original": {
+    "headers": [
+      "Given name",
+      "Family name",
+      "Electronic mail address",
+      "Cellular telephone",
+      "Employer organization",
+      "Internal memo"
+    ],
+    "records": [
+      [
+        "Ada",
+        "Quinn",
+        "ada@example.test",
+        "+1-202-555-0101",
+        "North Lab",
+        "Requested a callback"
+      ],
+      [
+        "Bo",
+        "River",
+        "bo@example.test",
+        "+1-202-555-0102",
+        "South Studio",
+        "Met at a synthetic event"
+      ],
+      [
+        "Cy",
+        "Stone",
+        "cy@example.test",
+        "+1-202-555-0103",
+        "East Works",
+        "Send a sample catalog"
+      ]
+    ]
+  },
+  "schema": [
+    {
+      "field": "first_name",
+      "description": "Person first given name",
+      "required": false
+    },
+    {
+      "field": "last_name",
+      "description": "Person family surname",
+      "required": false
+    },
+    {
+      "field": "email",
+      "description": "Electronic email address",
+      "required": true
+    },
+    {
+      "field": "phone",
+      "description": "Mobile telephone number",
+      "required": false
+    },
+    {
+      "field": "company",
+      "description": "Employer company organization",
+      "required": false
+    }
+  ],
+  "mapping": [
+    {
+      "field": "first_name",
+      "source": 0,
+      "note": "Phone review",
+      "sourceHeader": "Given name",
+      "similarity": 0.4923883694462975
+    },
+    {
+      "field": "last_name",
+      "source": 1,
+      "note": "",
+      "sourceHeader": "Family name",
+      "similarity": 0.7335404281233331
+    },
+    {
+      "field": "email",
+      "source": 2,
+      "note": "",
+      "sourceHeader": "Electronic mail address",
+      "similarity": 0.9003185829175728
+    },
+    {
+      "field": "phone",
+      "source": 3,
+      "note": "",
+      "sourceHeader": "Cellular telephone",
+      "similarity": 0.5083122978781375
+    },
+    {
+      "field": "company",
+      "source": 4,
+      "note": "",
+      "sourceHeader": "Employer organization",
+      "similarity": 0.8915348877467225
+    }
+  ],
+  "unmappedSource": [
+    "Internal memo"
+  ],
+  "rows": [
+    {
+      "row": 1,
+      "values": [
+        "Ada",
+        "Quinn",
+        "ada@example.test",
+        "+1-202-555-0101",
+        "North Lab"
+      ]
+    },
+    {
+      "row": 2,
+      "values": [
+        "Bo",
+        "River",
+        "bo@example.test",
+        "+1-202-555-0102",
+        "South Studio"
+      ]
+    },
+    {
+      "row": 3,
+      "values": [
+        "Cy",
+        "Stone",
+        "cy@example.test",
+        "+1-202-555-0103",
+        "East Works"
+      ]
+    }
+  ],
+  "issues": [],
+  "metrics": {
+    "exactHeaderBaseline": 0,
+    "reviewedMapped": 5,
+    "recordsRetained": 3
+  }
+}

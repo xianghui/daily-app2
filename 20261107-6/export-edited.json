@@ -1,0 +1,88 @@
+{
+  "app": "Split Sentinel",
+  "version": 1,
+  "model": "Xenova/all-MiniLM-L6-v2 q8",
+  "threshold": 0.7,
+  "metrics": {
+    "trainingRows": 3,
+    "evaluationRows": 3,
+    "pairsCompared": 9,
+    "exactBaselineFlags": 1,
+    "semanticFlags": 2,
+    "additionalSemanticFlags": 1,
+    "quarantined": 2,
+    "keptEvaluation": 1,
+    "reviewedEvaluation": 3
+  },
+  "rows": [
+    {
+      "id": "T1",
+      "split": "train",
+      "text": "Customers may return a product within thirty days for a full refund.",
+      "decision": "keep",
+      "reviewed": false,
+      "note": "",
+      "finding": null
+    },
+    {
+      "id": "T2",
+      "split": "train",
+      "text": "Reset your forgotten password by clicking the recovery link in the sign in page.",
+      "decision": "keep",
+      "reviewed": false,
+      "note": "",
+      "finding": null
+    },
+    {
+      "id": "T3",
+      "split": "train",
+      "text": "Shipping is free for orders over fifty dollars.",
+      "decision": "keep",
+      "reviewed": false,
+      "note": "",
+      "finding": null
+    },
+    {
+      "id": "E1",
+      "split": "eval",
+      "text": "You can get all your money back if you send the item back within thirty days.",
+      "decision": "quarantine",
+      "reviewed": true,
+      "note": "Confirmed, \"paraphrase\"\nCheck with curator.",
+      "finding": {
+        "match": "T1",
+        "score": 0.7440973659916371,
+        "exact": false,
+        "flag": true
+      }
+    },
+    {
+      "id": "E2",
+      "split": "eval",
+      "text": "Shipping is free for orders over fifty dollars.",
+      "decision": "quarantine",
+      "reviewed": true,
+      "note": "",
+      "finding": {
+        "match": "T3",
+        "score": 0.9948120562326297,
+        "exact": true,
+        "flag": true
+      }
+    },
+    {
+      "id": "E3",
+      "split": "eval",
+      "text": "The botanical garden opens a new orchid exhibition on Saturday.",
+      "decision": "keep",
+      "reviewed": true,
+      "note": "",
+      "finding": {
+        "match": "T1",
+        "score": 0.04156312389271195,
+        "exact": false,
+        "flag": false
+      }
+    }
+  ]
+}

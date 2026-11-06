@@ -1,0 +1,56 @@
+{
+  "app": "Split Sentinel",
+  "version": 1,
+  "model": "Xenova/all-MiniLM-L6-v2 q8",
+  "threshold": 0.7,
+  "metrics": {
+    "trainingRows": 1,
+    "evaluationRows": 2,
+    "pairsCompared": 2,
+    "exactBaselineFlags": 0,
+    "semanticFlags": 1,
+    "additionalSemanticFlags": 1,
+    "quarantined": 1,
+    "keptEvaluation": 1,
+    "reviewedEvaluation": 2
+  },
+  "rows": [
+    {
+      "id": "=Vendor, \"Q\"",
+      "split": "train",
+      "text": "=Wear safety glasses\nwhen working with chemicals.",
+      "decision": "keep",
+      "reviewed": false,
+      "note": "",
+      "finding": null
+    },
+    {
+      "id": "B",
+      "split": "eval",
+      "text": "Protect your eyes with goggles when handling chemical substances.",
+      "decision": "quarantine",
+      "reviewed": true,
+      "note": "=Quoted, \"note\"\nsecond line",
+      "finding": {
+        "match": "=Vendor, \"Q\"",
+        "score": 0.7118532206098536,
+        "exact": false,
+        "flag": true
+      }
+    },
+    {
+      "id": "C",
+      "split": "eval",
+      "text": "The jazz trio performs at the festival this evening.",
+      "decision": "keep",
+      "reviewed": true,
+      "note": "",
+      "finding": {
+        "match": "=Vendor, \"Q\"",
+        "score": -0.042568980413328225,
+        "exact": false,
+        "flag": false
+      }
+    }
+  ]
+}

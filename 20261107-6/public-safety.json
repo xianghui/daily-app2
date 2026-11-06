@@ -1,0 +1,88 @@
+{
+  "app": "Split Sentinel",
+  "version": 1,
+  "model": "Xenova/all-MiniLM-L6-v2 q8",
+  "threshold": 0.7,
+  "metrics": {
+    "trainingRows": 3,
+    "evaluationRows": 3,
+    "pairsCompared": 9,
+    "exactBaselineFlags": 0,
+    "semanticFlags": 2,
+    "additionalSemanticFlags": 2,
+    "quarantined": 2,
+    "keptEvaluation": 1,
+    "reviewedEvaluation": 3
+  },
+  "rows": [
+    {
+      "id": "T1",
+      "split": "train",
+      "text": "Wear protective goggles to shield your eyes when handling chemical substances.",
+      "decision": "keep",
+      "reviewed": false,
+      "note": "",
+      "finding": null
+    },
+    {
+      "id": "T2",
+      "split": "train",
+      "text": "In case of fire leave the building using the nearest emergency exit.",
+      "decision": "keep",
+      "reviewed": false,
+      "note": "",
+      "finding": null
+    },
+    {
+      "id": "T3",
+      "split": "train",
+      "text": "Wash your hands with soap before preparing food.",
+      "decision": "keep",
+      "reviewed": false,
+      "note": "",
+      "finding": null
+    },
+    {
+      "id": "E1",
+      "split": "eval",
+      "text": "Put on safety glasses to protect your eyes while working with chemicals.",
+      "decision": "quarantine",
+      "reviewed": true,
+      "note": "Public verification, reviewed",
+      "finding": {
+        "match": "T1",
+        "score": 0.8368560386302341,
+        "exact": false,
+        "flag": true
+      }
+    },
+    {
+      "id": "E2",
+      "split": "eval",
+      "text": "If a fire breaks out evacuate through the closest emergency door.",
+      "decision": "quarantine",
+      "reviewed": true,
+      "note": "",
+      "finding": {
+        "match": "T2",
+        "score": 0.7739592140273605,
+        "exact": false,
+        "flag": true
+      }
+    },
+    {
+      "id": "E3",
+      "split": "eval",
+      "text": "The jazz trio performs at the riverside festival this evening.",
+      "decision": "keep",
+      "reviewed": true,
+      "note": "",
+      "finding": {
+        "match": "T3",
+        "score": 0.020340278634780478,
+        "exact": false,
+        "flag": false
+      }
+    }
+  ]
+}

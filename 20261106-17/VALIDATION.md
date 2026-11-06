@@ -15,3 +15,9 @@ Production Vite bundle tested with actual MiniLM q8 inference in headless deskto
 - `npm run predeploy`, core checks and artifact round-trip passed. One initial model load was slow; a fresh diagnostic browser completed real inference, and the full final workflow suite subsequently passed. Errors never substitute sample output.
 
 Public verification is recorded in `deployment-validation.json`, `live-browser-validation.json`, and `live-gallery-validation.json` after deployment.
+
+## Public deployment
+
+Root predeploy assembled 488 apps with zero failures/skips. Gallery inline script compiled, the new entry appeared exactly once, and all 487 previous entries remained unchanged. Local and public gallery render/search checks passed. Pages built commit `81d67e13c7b636cb0acf3c369f7b9e5cfe01fc99`, matching the published gh-pages head. Every served production file matched local SHA-256, including the worker, WASM and JS runtime factory.
+
+The full real-inference browser suite was rerun against https://xianghui.github.io/daily-app2/20261106-17/ and passed: both known-answer fixtures, 24-proposal batching, offline fresh-worker inference, cached reload, editing/undo/replanning, budget/group apply guards, live downloads/copy, responsive layouts, input invalidation, cancel/retry, network failure/recovery, malformed vectors, unsupported runtime and deadline handling. Public downloads were parsed again and preserved all records, notes and valid agenda offsets. No page errors; model requests remained GET/HEAD-only without content bodies.

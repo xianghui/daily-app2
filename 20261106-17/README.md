@@ -36,3 +36,7 @@ After one complete run with browser caching permitted, inference on new proposal
 ## Validation and limitations
 
 See `VALIDATION.md`, `browser-validation.json`, `browser-test.cjs`, `core-test.mjs`. Synthetic fixtures only. Similarity can miss duplicates or merge distinct/negated discussions. Model similarity must never be treated as an authoritative cancellation of a proposal. Group numbers and every selection are human-reviewable; the parking lot is always retained. Priority values are user judgments, not model-generated urgency. Any times shown are computed meeting durations, not measured human time savings.
+
+### Reproducing checks
+
+Run `node core-test.mjs`; serve the production bundle with `python3 serve-test.py` on port 6167, then run `node browser-test.cjs` and `python3 export-roundtrip.py`. The browser harness uses the workstation's Playwright installation at `~/.openclaw/workspace/node_modules/playwright` (override with `PLAYWRIGHT_PATH`) and installed Chrome; this is test tooling, not a production dependency. `verify-deployment.py` requires GitHub CLI authentication to inspect public Pages build metadata, but the app itself needs no authentication.

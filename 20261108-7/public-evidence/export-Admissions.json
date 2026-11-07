@@ -1,0 +1,250 @@
+{
+  "version": 1,
+  "model": "Xenova/all-MiniLM-L6-v2 q8",
+  "input": {
+    "types": [
+      {
+        "id": "identity",
+        "text": "Government photo identity document, passport or national identity card"
+      },
+      {
+        "id": "address",
+        "text": "Proof of residential address such as utility bill or bank statement"
+      },
+      {
+        "id": "education",
+        "text": "Academic transcript, school diploma or university degree certificate"
+      }
+    ],
+    "documents": [
+      {
+        "id": "A1",
+        "packet": "Applicant A",
+        "name": "travel-scan.pdf",
+        "text": "Scanned passport showing photo, nationality and passport number"
+      },
+      {
+        "id": "A2",
+        "packet": "Applicant A",
+        "name": "grades.pdf",
+        "text": "University academic transcript showing courses and final grades"
+      },
+      {
+        "id": "B1",
+        "packet": "Applicant B",
+        "name": "id-front.jpg",
+        "text": "National identity card with name, photograph and identity number"
+      },
+      {
+        "id": "B2",
+        "packet": "Applicant B",
+        "name": "identity-copy.pdf",
+        "text": "Copy of passport identification page with holder photo"
+      },
+      {
+        "id": "B3",
+        "packet": "Applicant B",
+        "name": "power-bill.pdf",
+        "text": "Electricity utility bill showing customer residential street address"
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "A1",
+      "packet": "Applicant A",
+      "name": "travel-scan.pdf",
+      "text": "Scanned passport showing photo, nationality and passport number",
+      "suggested": "identity",
+      "target": "identity",
+      "evidence": [
+        {
+          "id": "identity",
+          "text": "Government photo identity document, passport or national identity card",
+          "score": 0.5875111790450582
+        },
+        {
+          "id": "education",
+          "text": "Academic transcript, school diploma or university degree certificate",
+          "score": 0.19684373332756175
+        },
+        {
+          "id": "address",
+          "text": "Proof of residential address such as utility bill or bank statement",
+          "score": 0.1736111717284024
+        }
+      ],
+      "decision": "accept",
+      "note": ""
+    },
+    {
+      "id": "A2",
+      "packet": "Applicant A",
+      "name": "grades.pdf",
+      "text": "University academic transcript showing courses and final grades",
+      "suggested": "education",
+      "target": "education",
+      "evidence": [
+        {
+          "id": "education",
+          "text": "Academic transcript, school diploma or university degree certificate",
+          "score": 0.6488169164809091
+        },
+        {
+          "id": "address",
+          "text": "Proof of residential address such as utility bill or bank statement",
+          "score": 0.11802218966798683
+        },
+        {
+          "id": "identity",
+          "text": "Government photo identity document, passport or national identity card",
+          "score": 0.08880346489258305
+        }
+      ],
+      "decision": "accept",
+      "note": ""
+    },
+    {
+      "id": "B1",
+      "packet": "Applicant B",
+      "name": "id-front.jpg",
+      "text": "National identity card with name, photograph and identity number",
+      "suggested": "identity",
+      "target": "identity",
+      "evidence": [
+        {
+          "id": "identity",
+          "text": "Government photo identity document, passport or national identity card",
+          "score": 0.8007699347854688
+        },
+        {
+          "id": "address",
+          "text": "Proof of residential address such as utility bill or bank statement",
+          "score": 0.3307191893068584
+        },
+        {
+          "id": "education",
+          "text": "Academic transcript, school diploma or university degree certificate",
+          "score": 0.22590736212337506
+        }
+      ],
+      "decision": "accept",
+      "note": ""
+    },
+    {
+      "id": "B2",
+      "packet": "Applicant B",
+      "name": "identity-copy.pdf",
+      "text": "Copy of passport identification page with holder photo",
+      "suggested": "identity",
+      "target": "identity",
+      "evidence": [
+        {
+          "id": "identity",
+          "text": "Government photo identity document, passport or national identity card",
+          "score": 0.6092228063619288
+        },
+        {
+          "id": "address",
+          "text": "Proof of residential address such as utility bill or bank statement",
+          "score": 0.2776576689513159
+        },
+        {
+          "id": "education",
+          "text": "Academic transcript, school diploma or university degree certificate",
+          "score": 0.2211281695322044
+        }
+      ],
+      "decision": "accept",
+      "note": ""
+    },
+    {
+      "id": "B3",
+      "packet": "Applicant B",
+      "name": "power-bill.pdf",
+      "text": "Electricity utility bill showing customer residential street address",
+      "suggested": "address",
+      "target": "address",
+      "evidence": [
+        {
+          "id": "address",
+          "text": "Proof of residential address such as utility bill or bank statement",
+          "score": 0.6456539213881052
+        },
+        {
+          "id": "identity",
+          "text": "Government photo identity document, passport or national identity card",
+          "score": 0.19082028938246975
+        },
+        {
+          "id": "education",
+          "text": "Academic transcript, school diploma or university degree certificate",
+          "score": 0.003787106116933975
+        }
+      ],
+      "decision": "accept",
+      "note": ""
+    }
+  ],
+  "packets": [
+    {
+      "packet": "Applicant A",
+      "slots": [
+        {
+          "type": "identity",
+          "documents": [
+            "A1"
+          ],
+          "status": "present"
+        },
+        {
+          "type": "address",
+          "documents": [],
+          "status": "missing"
+        },
+        {
+          "type": "education",
+          "documents": [
+            "A2"
+          ],
+          "status": "present"
+        }
+      ],
+      "held": []
+    },
+    {
+      "packet": "Applicant B",
+      "slots": [
+        {
+          "type": "identity",
+          "documents": [
+            "B1",
+            "B2"
+          ],
+          "status": "duplicate"
+        },
+        {
+          "type": "address",
+          "documents": [
+            "B3"
+          ],
+          "status": "present"
+        },
+        {
+          "type": "education",
+          "documents": [],
+          "status": "missing"
+        }
+      ],
+      "held": []
+    }
+  ],
+  "metrics": {
+    "total": 5,
+    "held": 0,
+    "missing": 2,
+    "duplicates": 1,
+    "aiVsFirstType": 2,
+    "reviewOverrides": 0
+  }
+}

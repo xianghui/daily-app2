@@ -70,3 +70,7 @@ Construct reviewed train/evaluation partitions using local MiniLM semantic compo
 ## Redirect Harbor — 20261108-6
 
 Local MiniLM semantic matching helps editors route retired web pages to live replacements. Every redirect requires acceptance or hold; disjoint local paths prevent self-redirects, chains and loops. Export all originals as JSON/CSV and approved Netlify-style rules without changing a website. Six simple known-answer targets matched across two synthetic migrations; a negation challenge selected an opposing policy, so similarity is not policy equivalence and human review is mandatory. Reuses the shared immutable WASM from `20261107-2`; preserve its asset. See [workflow](20261108-6/README.md) and [observed validation](20261108-6/VALIDATION.md).
+
+## Packet Proof — 20261108-7
+
+Local MiniLM document-type inference assists application/vendor manifest completeness audits. Review every assignment or hold, inspect missing and duplicate required slots and export complete JSON/CSV plus a Markdown handoff checklist. Nine simple types matched across two synthetic fixtures; a negated expiry challenge failed, so this is manifest reconciliation, never document validity/authenticity certification. Reuses the shared immutable WASM from `20261107-2`; preserve that asset. See [workflow](20261108-7/README.md) and [observed validation](20261108-7/VALIDATION.md).

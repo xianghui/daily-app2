@@ -1,0 +1,147 @@
+{
+  "schema": "mention-atlas/1",
+  "model": "Xenova/bert-base-NER q8",
+  "original": "Sarah Jones visited London. Sarah works at Microsoft.",
+  "chunks": [
+    {
+      "id": 1,
+      "text": "Sarah Jones visited London. Sarah works at Microsoft.",
+      "offset": 0
+    }
+  ],
+  "reviewed": [
+    true
+  ],
+  "mentions": [
+    {
+      "id": "e0",
+      "chunk": 0,
+      "start": 0,
+      "end": 11,
+      "kind": "PER",
+      "original": "Sarah Jones",
+      "selected": true,
+      "canonical": "Sarah Jones",
+      "note": "",
+      "origin": "neural token classification",
+      "excerpt": 1,
+      "globalStart": 0,
+      "globalEnd": 11
+    },
+    {
+      "id": "e1",
+      "chunk": 0,
+      "start": 20,
+      "end": 26,
+      "kind": "LOC",
+      "original": "London",
+      "selected": true,
+      "canonical": "London",
+      "note": "",
+      "origin": "neural token classification",
+      "excerpt": 1,
+      "globalStart": 20,
+      "globalEnd": 26
+    },
+    {
+      "id": "e2",
+      "chunk": 0,
+      "start": 28,
+      "end": 33,
+      "kind": "PER",
+      "original": "Sarah",
+      "selected": true,
+      "canonical": "Sarah Jones",
+      "note": "",
+      "origin": "neural token classification",
+      "excerpt": 1,
+      "globalStart": 28,
+      "globalEnd": 33
+    },
+    {
+      "id": "e3",
+      "chunk": 0,
+      "start": 43,
+      "end": 52,
+      "kind": "ORG",
+      "original": "Microsoft",
+      "selected": true,
+      "canonical": "Microsoft",
+      "note": "",
+      "origin": "neural token classification",
+      "excerpt": 1,
+      "globalStart": 43,
+      "globalEnd": 52
+    }
+  ],
+  "index": [
+    {
+      "kind": "LOC",
+      "canonical": "London",
+      "aliases": [
+        "London"
+      ],
+      "references": [
+        {
+          "mention": "e1",
+          "excerpt": 1,
+          "start": 20,
+          "end": 26,
+          "note": ""
+        }
+      ]
+    },
+    {
+      "kind": "ORG",
+      "canonical": "Microsoft",
+      "aliases": [
+        "Microsoft"
+      ],
+      "references": [
+        {
+          "mention": "e3",
+          "excerpt": 1,
+          "start": 43,
+          "end": 52,
+          "note": ""
+        }
+      ]
+    },
+    {
+      "kind": "PER",
+      "canonical": "Sarah Jones",
+      "aliases": [
+        "Sarah Jones",
+        "Sarah"
+      ],
+      "references": [
+        {
+          "mention": "e0",
+          "excerpt": 1,
+          "start": 0,
+          "end": 11,
+          "note": ""
+        },
+        {
+          "mention": "e2",
+          "excerpt": 1,
+          "start": 28,
+          "end": 33,
+          "note": ""
+        }
+      ]
+    }
+  ],
+  "baselineTerms": [
+    "Sarah"
+  ],
+  "metrics": {
+    "excerpts": 1,
+    "reviewed": 1,
+    "neuralCandidates": 4,
+    "literalBaseline": 2,
+    "accepted": 4,
+    "indexEntries": 3,
+    "rejected": 0
+  }
+}

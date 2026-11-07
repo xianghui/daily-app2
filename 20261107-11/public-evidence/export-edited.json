@@ -1,0 +1,223 @@
+{
+  "schema": "mention-atlas/1",
+  "model": "Xenova/bert-base-NER q8",
+  "original": "My name is Sarah and I live in London. I work for Microsoft.\n\nJohn Smith joined Google in Berlin. He prefers working from home.",
+  "chunks": [
+    {
+      "id": 1,
+      "text": "My name is Sarah and I live in London. I work for Microsoft.",
+      "offset": 0
+    },
+    {
+      "id": 2,
+      "text": "John Smith joined Google in Berlin. He prefers working from home.",
+      "offset": 62
+    }
+  ],
+  "reviewed": [
+    true,
+    true
+  ],
+  "mentions": [
+    {
+      "id": "e0",
+      "chunk": 0,
+      "start": 11,
+      "end": 16,
+      "kind": "PER",
+      "original": "Sarah",
+      "selected": true,
+      "canonical": "Sarah Lee",
+      "note": "Confirm, \"identity\"",
+      "origin": "neural token classification",
+      "excerpt": 1,
+      "globalStart": 11,
+      "globalEnd": 16
+    },
+    {
+      "id": "e1",
+      "chunk": 0,
+      "start": 31,
+      "end": 37,
+      "kind": "LOC",
+      "original": "London",
+      "selected": true,
+      "canonical": "London",
+      "note": "",
+      "origin": "neural token classification",
+      "excerpt": 1,
+      "globalStart": 31,
+      "globalEnd": 37
+    },
+    {
+      "id": "e2",
+      "chunk": 0,
+      "start": 50,
+      "end": 59,
+      "kind": "ORG",
+      "original": "Microsoft",
+      "selected": true,
+      "canonical": "Microsoft",
+      "note": "",
+      "origin": "neural token classification",
+      "excerpt": 1,
+      "globalStart": 50,
+      "globalEnd": 59
+    },
+    {
+      "id": "e3",
+      "chunk": 1,
+      "start": 0,
+      "end": 10,
+      "kind": "PER",
+      "original": "John Smith",
+      "selected": true,
+      "canonical": "John Smith",
+      "note": "",
+      "origin": "neural token classification",
+      "excerpt": 2,
+      "globalStart": 62,
+      "globalEnd": 72
+    },
+    {
+      "id": "e4",
+      "chunk": 1,
+      "start": 18,
+      "end": 24,
+      "kind": "ORG",
+      "original": "Google",
+      "selected": true,
+      "canonical": "Google",
+      "note": "",
+      "origin": "neural token classification",
+      "excerpt": 2,
+      "globalStart": 80,
+      "globalEnd": 86
+    },
+    {
+      "id": "e5",
+      "chunk": 1,
+      "start": 28,
+      "end": 34,
+      "kind": "LOC",
+      "original": "Berlin",
+      "selected": true,
+      "canonical": "Berlin",
+      "note": "",
+      "origin": "neural token classification",
+      "excerpt": 2,
+      "globalStart": 90,
+      "globalEnd": 96
+    }
+  ],
+  "index": [
+    {
+      "kind": "LOC",
+      "canonical": "Berlin",
+      "aliases": [
+        "Berlin"
+      ],
+      "references": [
+        {
+          "mention": "e5",
+          "excerpt": 2,
+          "start": 28,
+          "end": 34,
+          "note": ""
+        }
+      ]
+    },
+    {
+      "kind": "ORG",
+      "canonical": "Google",
+      "aliases": [
+        "Google"
+      ],
+      "references": [
+        {
+          "mention": "e4",
+          "excerpt": 2,
+          "start": 18,
+          "end": 24,
+          "note": ""
+        }
+      ]
+    },
+    {
+      "kind": "PER",
+      "canonical": "John Smith",
+      "aliases": [
+        "John Smith"
+      ],
+      "references": [
+        {
+          "mention": "e3",
+          "excerpt": 2,
+          "start": 0,
+          "end": 10,
+          "note": ""
+        }
+      ]
+    },
+    {
+      "kind": "LOC",
+      "canonical": "London",
+      "aliases": [
+        "London"
+      ],
+      "references": [
+        {
+          "mention": "e1",
+          "excerpt": 1,
+          "start": 31,
+          "end": 37,
+          "note": ""
+        }
+      ]
+    },
+    {
+      "kind": "ORG",
+      "canonical": "Microsoft",
+      "aliases": [
+        "Microsoft"
+      ],
+      "references": [
+        {
+          "mention": "e2",
+          "excerpt": 1,
+          "start": 50,
+          "end": 59,
+          "note": ""
+        }
+      ]
+    },
+    {
+      "kind": "PER",
+      "canonical": "Sarah Lee",
+      "aliases": [
+        "Sarah"
+      ],
+      "references": [
+        {
+          "mention": "e0",
+          "excerpt": 1,
+          "start": 11,
+          "end": 16,
+          "note": "Confirm, \"identity\""
+        }
+      ]
+    }
+  ],
+  "baselineTerms": [
+    "Sarah"
+  ],
+  "metrics": {
+    "excerpts": 2,
+    "reviewed": 2,
+    "neuralCandidates": 6,
+    "literalBaseline": 1,
+    "accepted": 6,
+    "indexEntries": 6,
+    "rejected": 0
+  }
+}

@@ -1,0 +1,192 @@
+{
+  "schema": "mention-atlas/1",
+  "model": "Xenova/bert-base-NER q8",
+  "original": "Sarah works for Microsoft in London.\r\n\r\nSarah visited Paris.",
+  "chunks": [
+    {
+      "id": 1,
+      "text": "Sarah works for Microsoft in London.",
+      "offset": 0
+    },
+    {
+      "id": 2,
+      "text": "Sarah visited Paris.",
+      "offset": 40
+    }
+  ],
+  "reviewed": [
+    true,
+    true
+  ],
+  "mentions": [
+    {
+      "id": "e0",
+      "chunk": 0,
+      "start": 0,
+      "end": 5,
+      "kind": "MANUAL",
+      "original": "Sarah",
+      "selected": true,
+      "canonical": "=Alias, \"Q\"",
+      "note": "=Review, \"quoted\"",
+      "origin": "neural token classification",
+      "excerpt": 1,
+      "globalStart": 0,
+      "globalEnd": 5
+    },
+    {
+      "id": "e1",
+      "chunk": 0,
+      "start": 16,
+      "end": 25,
+      "kind": "ORG",
+      "original": "Microsoft",
+      "selected": true,
+      "canonical": "Microsoft",
+      "note": "",
+      "origin": "neural token classification",
+      "excerpt": 1,
+      "globalStart": 16,
+      "globalEnd": 25
+    },
+    {
+      "id": "e2",
+      "chunk": 0,
+      "start": 29,
+      "end": 35,
+      "kind": "LOC",
+      "original": "London",
+      "selected": true,
+      "canonical": "London",
+      "note": "",
+      "origin": "neural token classification",
+      "excerpt": 1,
+      "globalStart": 29,
+      "globalEnd": 35
+    },
+    {
+      "id": "e3",
+      "chunk": 1,
+      "start": 0,
+      "end": 5,
+      "kind": "PER",
+      "original": "Sarah",
+      "selected": true,
+      "canonical": "Sarah",
+      "note": "",
+      "origin": "neural token classification",
+      "excerpt": 2,
+      "globalStart": 40,
+      "globalEnd": 45
+    },
+    {
+      "id": "e4",
+      "chunk": 1,
+      "start": 14,
+      "end": 19,
+      "kind": "LOC",
+      "original": "Paris",
+      "selected": true,
+      "canonical": "Paris",
+      "note": "",
+      "origin": "neural token classification",
+      "excerpt": 2,
+      "globalStart": 54,
+      "globalEnd": 59
+    }
+  ],
+  "index": [
+    {
+      "kind": "MANUAL",
+      "canonical": "=Alias, \"Q\"",
+      "aliases": [
+        "Sarah"
+      ],
+      "references": [
+        {
+          "mention": "e0",
+          "excerpt": 1,
+          "start": 0,
+          "end": 5,
+          "note": "=Review, \"quoted\""
+        }
+      ]
+    },
+    {
+      "kind": "LOC",
+      "canonical": "London",
+      "aliases": [
+        "London"
+      ],
+      "references": [
+        {
+          "mention": "e2",
+          "excerpt": 1,
+          "start": 29,
+          "end": 35,
+          "note": ""
+        }
+      ]
+    },
+    {
+      "kind": "ORG",
+      "canonical": "Microsoft",
+      "aliases": [
+        "Microsoft"
+      ],
+      "references": [
+        {
+          "mention": "e1",
+          "excerpt": 1,
+          "start": 16,
+          "end": 25,
+          "note": ""
+        }
+      ]
+    },
+    {
+      "kind": "LOC",
+      "canonical": "Paris",
+      "aliases": [
+        "Paris"
+      ],
+      "references": [
+        {
+          "mention": "e4",
+          "excerpt": 2,
+          "start": 14,
+          "end": 19,
+          "note": ""
+        }
+      ]
+    },
+    {
+      "kind": "PER",
+      "canonical": "Sarah",
+      "aliases": [
+        "Sarah"
+      ],
+      "references": [
+        {
+          "mention": "e3",
+          "excerpt": 2,
+          "start": 0,
+          "end": 5,
+          "note": ""
+        }
+      ]
+    }
+  ],
+  "baselineTerms": [
+    "Sarah"
+  ],
+  "metrics": {
+    "excerpts": 2,
+    "reviewed": 2,
+    "neuralCandidates": 5,
+    "literalBaseline": 2,
+    "accepted": 5,
+    "indexEntries": 5,
+    "rejected": 0
+  }
+}

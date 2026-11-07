@@ -1,0 +1,112 @@
+{
+  "schema": "pack-relay/v1",
+  "model": "Xenova/all-MiniLM-L6-v2 q8 / WASM",
+  "original": {
+    "orders": [
+      {
+        "id": "=Order, \"Q\"",
+        "instructions": "=Glass jars\nneed padding against breakage",
+        "units": 2
+      },
+      {
+        "id": "S2",
+        "instructions": "Printed paper at ambient temperature",
+        "units": 3
+      }
+    ],
+    "profiles": [
+      {
+        "id": "COLD",
+        "procedure": "Frozen chain",
+        "description": "Keep goods frozen below zero prevent thawing use freezer packs"
+      },
+      {
+        "id": "FRAGILE",
+        "procedure": "Protect breakables",
+        "description": "Fragile glass ceramics delicate items break shatter cushion protect from impacts"
+      },
+      {
+        "id": "AMBIENT",
+        "procedure": "Standard dry",
+        "description": "Ordinary dry paper printed books manuals room temperature no special handling"
+      }
+    ],
+    "capacity": 6
+  },
+  "metrics": {
+    "waves": 2,
+    "sourceOrderWaves": 2,
+    "units": 5,
+    "held": 0,
+    "plannedUnits": 5,
+    "capacity": 6
+  },
+  "waves": [
+    {
+      "id": "W1",
+      "profile": "AMBIENT",
+      "units": 3,
+      "orders": [
+        "S2"
+      ]
+    },
+    {
+      "id": "W2",
+      "profile": "FRAGILE",
+      "units": 2,
+      "orders": [
+        "=Order, \"Q\""
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "id": "=Order, \"Q\"",
+      "instructions": "=Glass jars\nneed padding against breakage",
+      "units": 2,
+      "profile": "FRAGILE",
+      "suggested": "FRAGILE",
+      "scores": [
+        {
+          "id": "FRAGILE",
+          "value": 0.5062103270899481
+        },
+        {
+          "id": "COLD",
+          "value": 0.18634380363926398
+        },
+        {
+          "id": "AMBIENT",
+          "value": 0.15407832705119964
+        }
+      ],
+      "note": "=Quoted, \"note\"\nsecond line",
+      "reviewed": true,
+      "wave": "W2"
+    },
+    {
+      "id": "S2",
+      "instructions": "Printed paper at ambient temperature",
+      "units": 3,
+      "profile": "AMBIENT",
+      "suggested": "AMBIENT",
+      "scores": [
+        {
+          "id": "AMBIENT",
+          "value": 0.6511928735539498
+        },
+        {
+          "id": "COLD",
+          "value": 0.25093051305321024
+        },
+        {
+          "id": "FRAGILE",
+          "value": 0.03815458334286545
+        }
+      ],
+      "note": "",
+      "reviewed": true,
+      "wave": "W1"
+    }
+  ]
+}

@@ -1,0 +1,821 @@
+{
+  "schema": "pack-relay/v1",
+  "model": "Xenova/all-MiniLM-L6-v2 q8 / WASM",
+  "original": {
+    "orders": [
+      {
+        "id": "S0",
+        "instructions": "Keep ice cream frozen during delivery",
+        "units": 2
+      },
+      {
+        "id": "S1",
+        "instructions": "Glass jars need padding against breakage",
+        "units": 2
+      },
+      {
+        "id": "S2",
+        "instructions": "Printed paper at ambient temperature",
+        "units": 2
+      },
+      {
+        "id": "S3",
+        "instructions": "Keep ice cream frozen during delivery",
+        "units": 2
+      },
+      {
+        "id": "S4",
+        "instructions": "Glass jars need padding against breakage",
+        "units": 2
+      },
+      {
+        "id": "S5",
+        "instructions": "Printed paper at ambient temperature",
+        "units": 2
+      },
+      {
+        "id": "S6",
+        "instructions": "Keep ice cream frozen during delivery",
+        "units": 2
+      },
+      {
+        "id": "S7",
+        "instructions": "Glass jars need padding against breakage",
+        "units": 2
+      },
+      {
+        "id": "S8",
+        "instructions": "Printed paper at ambient temperature",
+        "units": 2
+      },
+      {
+        "id": "S9",
+        "instructions": "Keep ice cream frozen during delivery",
+        "units": 2
+      },
+      {
+        "id": "S10",
+        "instructions": "Glass jars need padding against breakage",
+        "units": 2
+      },
+      {
+        "id": "S11",
+        "instructions": "Printed paper at ambient temperature",
+        "units": 2
+      },
+      {
+        "id": "S12",
+        "instructions": "Keep ice cream frozen during delivery",
+        "units": 2
+      },
+      {
+        "id": "S13",
+        "instructions": "Glass jars need padding against breakage",
+        "units": 2
+      },
+      {
+        "id": "S14",
+        "instructions": "Printed paper at ambient temperature",
+        "units": 2
+      },
+      {
+        "id": "S15",
+        "instructions": "Keep ice cream frozen during delivery",
+        "units": 2
+      },
+      {
+        "id": "S16",
+        "instructions": "Glass jars need padding against breakage",
+        "units": 2
+      },
+      {
+        "id": "S17",
+        "instructions": "Printed paper at ambient temperature",
+        "units": 2
+      },
+      {
+        "id": "S18",
+        "instructions": "Keep ice cream frozen during delivery",
+        "units": 2
+      },
+      {
+        "id": "S19",
+        "instructions": "Glass jars need padding against breakage",
+        "units": 2
+      },
+      {
+        "id": "S20",
+        "instructions": "Printed paper at ambient temperature",
+        "units": 2
+      },
+      {
+        "id": "S21",
+        "instructions": "Keep ice cream frozen during delivery",
+        "units": 2
+      },
+      {
+        "id": "S22",
+        "instructions": "Glass jars need padding against breakage",
+        "units": 2
+      },
+      {
+        "id": "S23",
+        "instructions": "Printed paper at ambient temperature",
+        "units": 2
+      }
+    ],
+    "profiles": [
+      {
+        "id": "COLD",
+        "procedure": "Frozen chain",
+        "description": "Keep goods frozen below zero prevent thawing use freezer packs"
+      },
+      {
+        "id": "FRAGILE",
+        "procedure": "Protect breakables",
+        "description": "Fragile glass ceramics delicate items break shatter cushion protect from impacts"
+      },
+      {
+        "id": "AMBIENT",
+        "procedure": "Standard dry",
+        "description": "Ordinary dry paper printed books manuals room temperature no special handling"
+      }
+    ],
+    "capacity": 6
+  },
+  "metrics": {
+    "waves": 9,
+    "sourceOrderWaves": 24,
+    "units": 48,
+    "held": 0,
+    "plannedUnits": 48,
+    "capacity": 6
+  },
+  "waves": [
+    {
+      "id": "W1",
+      "profile": "COLD",
+      "units": 6,
+      "orders": [
+        "S0",
+        "S3",
+        "S6"
+      ]
+    },
+    {
+      "id": "W2",
+      "profile": "FRAGILE",
+      "units": 6,
+      "orders": [
+        "S1",
+        "S4",
+        "S7"
+      ]
+    },
+    {
+      "id": "W3",
+      "profile": "AMBIENT",
+      "units": 6,
+      "orders": [
+        "S2",
+        "S5",
+        "S8"
+      ]
+    },
+    {
+      "id": "W4",
+      "profile": "COLD",
+      "units": 6,
+      "orders": [
+        "S9",
+        "S12",
+        "S15"
+      ]
+    },
+    {
+      "id": "W5",
+      "profile": "FRAGILE",
+      "units": 6,
+      "orders": [
+        "S10",
+        "S13",
+        "S16"
+      ]
+    },
+    {
+      "id": "W6",
+      "profile": "AMBIENT",
+      "units": 6,
+      "orders": [
+        "S11",
+        "S14",
+        "S17"
+      ]
+    },
+    {
+      "id": "W7",
+      "profile": "COLD",
+      "units": 4,
+      "orders": [
+        "S18",
+        "S21"
+      ]
+    },
+    {
+      "id": "W8",
+      "profile": "FRAGILE",
+      "units": 4,
+      "orders": [
+        "S19",
+        "S22"
+      ]
+    },
+    {
+      "id": "W9",
+      "profile": "AMBIENT",
+      "units": 4,
+      "orders": [
+        "S20",
+        "S23"
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "id": "S0",
+      "instructions": "Keep ice cream frozen during delivery",
+      "units": 2,
+      "profile": "COLD",
+      "suggested": "COLD",
+      "scores": [
+        {
+          "id": "COLD",
+          "value": 0.5004206509575047
+        },
+        {
+          "id": "AMBIENT",
+          "value": 0.10215982428788133
+        },
+        {
+          "id": "FRAGILE",
+          "value": 0.078325602414466
+        }
+      ],
+      "note": "",
+      "reviewed": true,
+      "wave": "W1"
+    },
+    {
+      "id": "S1",
+      "instructions": "Glass jars need padding against breakage",
+      "units": 2,
+      "profile": "FRAGILE",
+      "suggested": "FRAGILE",
+      "scores": [
+        {
+          "id": "FRAGILE",
+          "value": 0.5127740880039326
+        },
+        {
+          "id": "COLD",
+          "value": 0.15711724747230993
+        },
+        {
+          "id": "AMBIENT",
+          "value": 0.13187266386823843
+        }
+      ],
+      "note": "",
+      "reviewed": true,
+      "wave": "W2"
+    },
+    {
+      "id": "S2",
+      "instructions": "Printed paper at ambient temperature",
+      "units": 2,
+      "profile": "AMBIENT",
+      "suggested": "AMBIENT",
+      "scores": [
+        {
+          "id": "AMBIENT",
+          "value": 0.6504165482012623
+        },
+        {
+          "id": "COLD",
+          "value": 0.2627938286423187
+        },
+        {
+          "id": "FRAGILE",
+          "value": 0.045074170457776216
+        }
+      ],
+      "note": "",
+      "reviewed": true,
+      "wave": "W3"
+    },
+    {
+      "id": "S3",
+      "instructions": "Keep ice cream frozen during delivery",
+      "units": 2,
+      "profile": "COLD",
+      "suggested": "COLD",
+      "scores": [
+        {
+          "id": "COLD",
+          "value": 0.5004206509575047
+        },
+        {
+          "id": "AMBIENT",
+          "value": 0.10215982428788133
+        },
+        {
+          "id": "FRAGILE",
+          "value": 0.078325602414466
+        }
+      ],
+      "note": "",
+      "reviewed": true,
+      "wave": "W1"
+    },
+    {
+      "id": "S4",
+      "instructions": "Glass jars need padding against breakage",
+      "units": 2,
+      "profile": "FRAGILE",
+      "suggested": "FRAGILE",
+      "scores": [
+        {
+          "id": "FRAGILE",
+          "value": 0.5127740880039326
+        },
+        {
+          "id": "COLD",
+          "value": 0.15711724747230993
+        },
+        {
+          "id": "AMBIENT",
+          "value": 0.13187266386823843
+        }
+      ],
+      "note": "",
+      "reviewed": true,
+      "wave": "W2"
+    },
+    {
+      "id": "S5",
+      "instructions": "Printed paper at ambient temperature",
+      "units": 2,
+      "profile": "AMBIENT",
+      "suggested": "AMBIENT",
+      "scores": [
+        {
+          "id": "AMBIENT",
+          "value": 0.6504165482012623
+        },
+        {
+          "id": "COLD",
+          "value": 0.2627938286423187
+        },
+        {
+          "id": "FRAGILE",
+          "value": 0.045074170457776216
+        }
+      ],
+      "note": "",
+      "reviewed": true,
+      "wave": "W3"
+    },
+    {
+      "id": "S6",
+      "instructions": "Keep ice cream frozen during delivery",
+      "units": 2,
+      "profile": "COLD",
+      "suggested": "COLD",
+      "scores": [
+        {
+          "id": "COLD",
+          "value": 0.5004206509575047
+        },
+        {
+          "id": "AMBIENT",
+          "value": 0.10215982428788133
+        },
+        {
+          "id": "FRAGILE",
+          "value": 0.078325602414466
+        }
+      ],
+      "note": "",
+      "reviewed": true,
+      "wave": "W1"
+    },
+    {
+      "id": "S7",
+      "instructions": "Glass jars need padding against breakage",
+      "units": 2,
+      "profile": "FRAGILE",
+      "suggested": "FRAGILE",
+      "scores": [
+        {
+          "id": "FRAGILE",
+          "value": 0.5127740880039326
+        },
+        {
+          "id": "COLD",
+          "value": 0.15711724747230993
+        },
+        {
+          "id": "AMBIENT",
+          "value": 0.13187266386823843
+        }
+      ],
+      "note": "",
+      "reviewed": true,
+      "wave": "W2"
+    },
+    {
+      "id": "S8",
+      "instructions": "Printed paper at ambient temperature",
+      "units": 2,
+      "profile": "AMBIENT",
+      "suggested": "AMBIENT",
+      "scores": [
+        {
+          "id": "AMBIENT",
+          "value": 0.6504165482012623
+        },
+        {
+          "id": "COLD",
+          "value": 0.2627938286423187
+        },
+        {
+          "id": "FRAGILE",
+          "value": 0.045074170457776216
+        }
+      ],
+      "note": "",
+      "reviewed": true,
+      "wave": "W3"
+    },
+    {
+      "id": "S9",
+      "instructions": "Keep ice cream frozen during delivery",
+      "units": 2,
+      "profile": "COLD",
+      "suggested": "COLD",
+      "scores": [
+        {
+          "id": "COLD",
+          "value": 0.5004206509575047
+        },
+        {
+          "id": "AMBIENT",
+          "value": 0.10215982428788133
+        },
+        {
+          "id": "FRAGILE",
+          "value": 0.078325602414466
+        }
+      ],
+      "note": "",
+      "reviewed": true,
+      "wave": "W4"
+    },
+    {
+      "id": "S10",
+      "instructions": "Glass jars need padding against breakage",
+      "units": 2,
+      "profile": "FRAGILE",
+      "suggested": "FRAGILE",
+      "scores": [
+        {
+          "id": "FRAGILE",
+          "value": 0.5127740880039326
+        },
+        {
+          "id": "COLD",
+          "value": 0.15711724747230993
+        },
+        {
+          "id": "AMBIENT",
+          "value": 0.13187266386823843
+        }
+      ],
+      "note": "",
+      "reviewed": true,
+      "wave": "W5"
+    },
+    {
+      "id": "S11",
+      "instructions": "Printed paper at ambient temperature",
+      "units": 2,
+      "profile": "AMBIENT",
+      "suggested": "AMBIENT",
+      "scores": [
+        {
+          "id": "AMBIENT",
+          "value": 0.6504165482012623
+        },
+        {
+          "id": "COLD",
+          "value": 0.2627938286423187
+        },
+        {
+          "id": "FRAGILE",
+          "value": 0.045074170457776216
+        }
+      ],
+      "note": "",
+      "reviewed": true,
+      "wave": "W6"
+    },
+    {
+      "id": "S12",
+      "instructions": "Keep ice cream frozen during delivery",
+      "units": 2,
+      "profile": "COLD",
+      "suggested": "COLD",
+      "scores": [
+        {
+          "id": "COLD",
+          "value": 0.5004206509575047
+        },
+        {
+          "id": "AMBIENT",
+          "value": 0.10215982428788133
+        },
+        {
+          "id": "FRAGILE",
+          "value": 0.078325602414466
+        }
+      ],
+      "note": "",
+      "reviewed": true,
+      "wave": "W4"
+    },
+    {
+      "id": "S13",
+      "instructions": "Glass jars need padding against breakage",
+      "units": 2,
+      "profile": "FRAGILE",
+      "suggested": "FRAGILE",
+      "scores": [
+        {
+          "id": "FRAGILE",
+          "value": 0.5127740880039326
+        },
+        {
+          "id": "COLD",
+          "value": 0.15711724747230993
+        },
+        {
+          "id": "AMBIENT",
+          "value": 0.13187266386823843
+        }
+      ],
+      "note": "",
+      "reviewed": true,
+      "wave": "W5"
+    },
+    {
+      "id": "S14",
+      "instructions": "Printed paper at ambient temperature",
+      "units": 2,
+      "profile": "AMBIENT",
+      "suggested": "AMBIENT",
+      "scores": [
+        {
+          "id": "AMBIENT",
+          "value": 0.6504165482012623
+        },
+        {
+          "id": "COLD",
+          "value": 0.2627938286423187
+        },
+        {
+          "id": "FRAGILE",
+          "value": 0.045074170457776216
+        }
+      ],
+      "note": "",
+      "reviewed": true,
+      "wave": "W6"
+    },
+    {
+      "id": "S15",
+      "instructions": "Keep ice cream frozen during delivery",
+      "units": 2,
+      "profile": "COLD",
+      "suggested": "COLD",
+      "scores": [
+        {
+          "id": "COLD",
+          "value": 0.5004206509575047
+        },
+        {
+          "id": "AMBIENT",
+          "value": 0.10215982428788133
+        },
+        {
+          "id": "FRAGILE",
+          "value": 0.078325602414466
+        }
+      ],
+      "note": "",
+      "reviewed": true,
+      "wave": "W4"
+    },
+    {
+      "id": "S16",
+      "instructions": "Glass jars need padding against breakage",
+      "units": 2,
+      "profile": "FRAGILE",
+      "suggested": "FRAGILE",
+      "scores": [
+        {
+          "id": "FRAGILE",
+          "value": 0.5127740880039326
+        },
+        {
+          "id": "COLD",
+          "value": 0.15711724747230993
+        },
+        {
+          "id": "AMBIENT",
+          "value": 0.13187266386823843
+        }
+      ],
+      "note": "",
+      "reviewed": true,
+      "wave": "W5"
+    },
+    {
+      "id": "S17",
+      "instructions": "Printed paper at ambient temperature",
+      "units": 2,
+      "profile": "AMBIENT",
+      "suggested": "AMBIENT",
+      "scores": [
+        {
+          "id": "AMBIENT",
+          "value": 0.6504165482012623
+        },
+        {
+          "id": "COLD",
+          "value": 0.2627938286423187
+        },
+        {
+          "id": "FRAGILE",
+          "value": 0.045074170457776216
+        }
+      ],
+      "note": "",
+      "reviewed": true,
+      "wave": "W6"
+    },
+    {
+      "id": "S18",
+      "instructions": "Keep ice cream frozen during delivery",
+      "units": 2,
+      "profile": "COLD",
+      "suggested": "COLD",
+      "scores": [
+        {
+          "id": "COLD",
+          "value": 0.5004206509575047
+        },
+        {
+          "id": "AMBIENT",
+          "value": 0.10215982428788133
+        },
+        {
+          "id": "FRAGILE",
+          "value": 0.078325602414466
+        }
+      ],
+      "note": "",
+      "reviewed": true,
+      "wave": "W7"
+    },
+    {
+      "id": "S19",
+      "instructions": "Glass jars need padding against breakage",
+      "units": 2,
+      "profile": "FRAGILE",
+      "suggested": "FRAGILE",
+      "scores": [
+        {
+          "id": "FRAGILE",
+          "value": 0.5127740880039326
+        },
+        {
+          "id": "COLD",
+          "value": 0.15711724747230993
+        },
+        {
+          "id": "AMBIENT",
+          "value": 0.13187266386823843
+        }
+      ],
+      "note": "",
+      "reviewed": true,
+      "wave": "W8"
+    },
+    {
+      "id": "S20",
+      "instructions": "Printed paper at ambient temperature",
+      "units": 2,
+      "profile": "AMBIENT",
+      "suggested": "AMBIENT",
+      "scores": [
+        {
+          "id": "AMBIENT",
+          "value": 0.6504165482012623
+        },
+        {
+          "id": "COLD",
+          "value": 0.2627938286423187
+        },
+        {
+          "id": "FRAGILE",
+          "value": 0.045074170457776216
+        }
+      ],
+      "note": "",
+      "reviewed": true,
+      "wave": "W9"
+    },
+    {
+      "id": "S21",
+      "instructions": "Keep ice cream frozen during delivery",
+      "units": 2,
+      "profile": "COLD",
+      "suggested": "COLD",
+      "scores": [
+        {
+          "id": "COLD",
+          "value": 0.5004206509575047
+        },
+        {
+          "id": "AMBIENT",
+          "value": 0.10215982428788133
+        },
+        {
+          "id": "FRAGILE",
+          "value": 0.078325602414466
+        }
+      ],
+      "note": "",
+      "reviewed": true,
+      "wave": "W7"
+    },
+    {
+      "id": "S22",
+      "instructions": "Glass jars need padding against breakage",
+      "units": 2,
+      "profile": "FRAGILE",
+      "suggested": "FRAGILE",
+      "scores": [
+        {
+          "id": "FRAGILE",
+          "value": 0.5127740880039326
+        },
+        {
+          "id": "COLD",
+          "value": 0.15711724747230993
+        },
+        {
+          "id": "AMBIENT",
+          "value": 0.13187266386823843
+        }
+      ],
+      "note": "",
+      "reviewed": true,
+      "wave": "W8"
+    },
+    {
+      "id": "S23",
+      "instructions": "Printed paper at ambient temperature",
+      "units": 2,
+      "profile": "AMBIENT",
+      "suggested": "AMBIENT",
+      "scores": [
+        {
+          "id": "AMBIENT",
+          "value": 0.6504165482012623
+        },
+        {
+          "id": "COLD",
+          "value": 0.2627938286423187
+        },
+        {
+          "id": "FRAGILE",
+          "value": 0.045074170457776216
+        }
+      ],
+      "note": "",
+      "reviewed": true,
+      "wave": "W9"
+    }
+  ]
+}

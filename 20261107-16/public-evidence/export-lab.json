@@ -1,0 +1,239 @@
+{
+  "schema": "pack-relay/v1",
+  "model": "Xenova/all-MiniLM-L6-v2 q8 / WASM",
+  "original": {
+    "orders": [
+      {
+        "id": "L1",
+        "instructions": "Frozen tissue samples must remain below zero",
+        "units": 3
+      },
+      {
+        "id": "L2",
+        "instructions": "Delicate microscope slides may shatter in transit",
+        "units": 2
+      },
+      {
+        "id": "L3",
+        "instructions": "Dry manuals can be shipped in ordinary ambient conditions",
+        "units": 3
+      },
+      {
+        "id": "L4",
+        "instructions": "Ice packs must not thaw before arrival",
+        "units": 3
+      },
+      {
+        "id": "L5",
+        "instructions": "Glass laboratory vessels need padding against breakage",
+        "units": 4
+      },
+      {
+        "id": "L6",
+        "instructions": "Paper labels have no special handling needs",
+        "units": 3
+      }
+    ],
+    "profiles": [
+      {
+        "id": "COLD",
+        "procedure": "Frozen chain",
+        "description": "Keep goods frozen below zero prevent thawing use freezer packs"
+      },
+      {
+        "id": "FRAGILE",
+        "procedure": "Protect breakables",
+        "description": "Fragile glass ceramics delicate items break shatter cushion protect from impacts"
+      },
+      {
+        "id": "AMBIENT",
+        "procedure": "Standard dry",
+        "description": "Ordinary dry paper printed books manuals room temperature no special handling"
+      }
+    ],
+    "capacity": 6
+  },
+  "metrics": {
+    "waves": 3,
+    "sourceOrderWaves": 6,
+    "units": 18,
+    "held": 0,
+    "plannedUnits": 18,
+    "capacity": 6
+  },
+  "waves": [
+    {
+      "id": "W1",
+      "profile": "FRAGILE",
+      "units": 6,
+      "orders": [
+        "L5",
+        "L2"
+      ]
+    },
+    {
+      "id": "W2",
+      "profile": "COLD",
+      "units": 6,
+      "orders": [
+        "L1",
+        "L4"
+      ]
+    },
+    {
+      "id": "W3",
+      "profile": "AMBIENT",
+      "units": 6,
+      "orders": [
+        "L3",
+        "L6"
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "id": "L1",
+      "instructions": "Frozen tissue samples must remain below zero",
+      "units": 3,
+      "profile": "COLD",
+      "suggested": "COLD",
+      "scores": [
+        {
+          "id": "COLD",
+          "value": 0.5662958687430806
+        },
+        {
+          "id": "AMBIENT",
+          "value": 0.2357810277961139
+        },
+        {
+          "id": "FRAGILE",
+          "value": 0.05780417039738159
+        }
+      ],
+      "note": "",
+      "reviewed": true,
+      "wave": "W2"
+    },
+    {
+      "id": "L2",
+      "instructions": "Delicate microscope slides may shatter in transit",
+      "units": 2,
+      "profile": "FRAGILE",
+      "suggested": "FRAGILE",
+      "scores": [
+        {
+          "id": "FRAGILE",
+          "value": 0.563524494159128
+        },
+        {
+          "id": "COLD",
+          "value": 0.12515364726640288
+        },
+        {
+          "id": "AMBIENT",
+          "value": 0.09511176955673076
+        }
+      ],
+      "note": "",
+      "reviewed": true,
+      "wave": "W1"
+    },
+    {
+      "id": "L3",
+      "instructions": "Dry manuals can be shipped in ordinary ambient conditions",
+      "units": 3,
+      "profile": "AMBIENT",
+      "suggested": "AMBIENT",
+      "scores": [
+        {
+          "id": "AMBIENT",
+          "value": 0.6283254640025576
+        },
+        {
+          "id": "COLD",
+          "value": 0.21814215348927726
+        },
+        {
+          "id": "FRAGILE",
+          "value": 0.06231137797322295
+        }
+      ],
+      "note": "",
+      "reviewed": true,
+      "wave": "W3"
+    },
+    {
+      "id": "L4",
+      "instructions": "Ice packs must not thaw before arrival",
+      "units": 3,
+      "profile": "COLD",
+      "suggested": "COLD",
+      "scores": [
+        {
+          "id": "COLD",
+          "value": 0.6842552424195072
+        },
+        {
+          "id": "AMBIENT",
+          "value": 0.20979908854972748
+        },
+        {
+          "id": "FRAGILE",
+          "value": 0.05326121816349734
+        }
+      ],
+      "note": "",
+      "reviewed": true,
+      "wave": "W2"
+    },
+    {
+      "id": "L5",
+      "instructions": "Glass laboratory vessels need padding against breakage",
+      "units": 4,
+      "profile": "FRAGILE",
+      "suggested": "FRAGILE",
+      "scores": [
+        {
+          "id": "FRAGILE",
+          "value": 0.516971856741626
+        },
+        {
+          "id": "AMBIENT",
+          "value": 0.17815331110583726
+        },
+        {
+          "id": "COLD",
+          "value": 0.14625677860945013
+        }
+      ],
+      "note": "",
+      "reviewed": true,
+      "wave": "W1"
+    },
+    {
+      "id": "L6",
+      "instructions": "Paper labels have no special handling needs",
+      "units": 3,
+      "profile": "AMBIENT",
+      "suggested": "AMBIENT",
+      "scores": [
+        {
+          "id": "AMBIENT",
+          "value": 0.3946316800571905
+        },
+        {
+          "id": "COLD",
+          "value": 0.2219788357803323
+        },
+        {
+          "id": "FRAGILE",
+          "value": 0.08501883925140591
+        }
+      ],
+      "note": "",
+      "reviewed": true,
+      "wave": "W3"
+    }
+  ]
+}

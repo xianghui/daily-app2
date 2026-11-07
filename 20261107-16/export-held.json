@@ -1,0 +1,211 @@
+{
+  "schema": "pack-relay/v1",
+  "model": "Xenova/all-MiniLM-L6-v2 q8 / WASM",
+  "original": {
+    "orders": [
+      {
+        "id": "F1",
+        "instructions": "Keep ice cream frozen during delivery",
+        "units": 4
+      },
+      {
+        "id": "F2",
+        "instructions": "Glass jars break easily protect from impacts",
+        "units": 3
+      },
+      {
+        "id": "F3",
+        "instructions": "Store gelato below freezing until handover",
+        "units": 2
+      },
+      {
+        "id": "F4",
+        "instructions": "Ceramic mugs need cushioning and careful handling",
+        "units": 3
+      },
+      {
+        "id": "F5",
+        "instructions": "Printed leaflets can travel at room temperature",
+        "units": 4
+      },
+      {
+        "id": "F6",
+        "instructions": "Books need no special temperature or breakage precautions",
+        "units": 2
+      }
+    ],
+    "profiles": [
+      {
+        "id": "COLD",
+        "procedure": "Frozen chain",
+        "description": "Keep goods frozen below zero prevent thawing use freezer packs"
+      },
+      {
+        "id": "FRAGILE",
+        "procedure": "Protect breakables",
+        "description": "Fragile glass ceramics delicate items break shatter cushion protect from impacts"
+      },
+      {
+        "id": "AMBIENT",
+        "procedure": "Standard dry",
+        "description": "Ordinary dry paper printed books manuals room temperature no special handling"
+      }
+    ],
+    "capacity": 6
+  },
+  "metrics": {
+    "waves": 0,
+    "sourceOrderWaves": 0,
+    "units": 18,
+    "held": 6,
+    "plannedUnits": 0,
+    "capacity": 6
+  },
+  "waves": [],
+  "rows": [
+    {
+      "id": "F1",
+      "instructions": "Keep ice cream frozen during delivery",
+      "units": 4,
+      "profile": "HOLD",
+      "suggested": "COLD",
+      "scores": [
+        {
+          "id": "COLD",
+          "value": 0.5000304182859335
+        },
+        {
+          "id": "AMBIENT",
+          "value": 0.1242156090560115
+        },
+        {
+          "id": "FRAGILE",
+          "value": 0.09001783572822605
+        }
+      ],
+      "note": "",
+      "reviewed": true,
+      "wave": "HOLD"
+    },
+    {
+      "id": "F2",
+      "instructions": "Glass jars break easily protect from impacts",
+      "units": 3,
+      "profile": "HOLD",
+      "suggested": "FRAGILE",
+      "scores": [
+        {
+          "id": "FRAGILE",
+          "value": 0.6725600805685136
+        },
+        {
+          "id": "COLD",
+          "value": 0.15863113537184356
+        },
+        {
+          "id": "AMBIENT",
+          "value": 0.09294339658366961
+        }
+      ],
+      "note": "",
+      "reviewed": true,
+      "wave": "HOLD"
+    },
+    {
+      "id": "F3",
+      "instructions": "Store gelato below freezing until handover",
+      "units": 2,
+      "profile": "HOLD",
+      "suggested": "COLD",
+      "scores": [
+        {
+          "id": "COLD",
+          "value": 0.5391914337311187
+        },
+        {
+          "id": "AMBIENT",
+          "value": 0.2616408793046288
+        },
+        {
+          "id": "FRAGILE",
+          "value": 0.12933946973890406
+        }
+      ],
+      "note": "",
+      "reviewed": true,
+      "wave": "HOLD"
+    },
+    {
+      "id": "F4",
+      "instructions": "Ceramic mugs need cushioning and careful handling",
+      "units": 3,
+      "profile": "HOLD",
+      "suggested": "FRAGILE",
+      "scores": [
+        {
+          "id": "FRAGILE",
+          "value": 0.5375339950944686
+        },
+        {
+          "id": "AMBIENT",
+          "value": 0.13588235423614922
+        },
+        {
+          "id": "COLD",
+          "value": 0.0649762141214507
+        }
+      ],
+      "note": "",
+      "reviewed": true,
+      "wave": "HOLD"
+    },
+    {
+      "id": "F5",
+      "instructions": "Printed leaflets can travel at room temperature",
+      "units": 4,
+      "profile": "HOLD",
+      "suggested": "AMBIENT",
+      "scores": [
+        {
+          "id": "AMBIENT",
+          "value": 0.5334304704426339
+        },
+        {
+          "id": "COLD",
+          "value": 0.31873631208121855
+        },
+        {
+          "id": "FRAGILE",
+          "value": 0.0827990071166062
+        }
+      ],
+      "note": "",
+      "reviewed": true,
+      "wave": "HOLD"
+    },
+    {
+      "id": "F6",
+      "instructions": "Books need no special temperature or breakage precautions",
+      "units": 2,
+      "profile": "HOLD",
+      "suggested": "AMBIENT",
+      "scores": [
+        {
+          "id": "AMBIENT",
+          "value": 0.6759561842546072
+        },
+        {
+          "id": "COLD",
+          "value": 0.41276460641857243
+        },
+        {
+          "id": "FRAGILE",
+          "value": 0.21498597651241372
+        }
+      ],
+      "note": "",
+      "reviewed": true,
+      "wave": "HOLD"
+    }
+  ]
+}

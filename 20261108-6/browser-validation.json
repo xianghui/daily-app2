@@ -1,0 +1,494 @@
+{
+  "checks": [
+    "real inference Shop migration",
+    "real inference Campus migration",
+    "review hold edit undo export invalidation and artifacts",
+    "offline fresh worker real inference",
+    "24 plus 24 record chunking and JSON roundtrip",
+    "empty invalid bounds paths overlap bad JSON",
+    "cancel stale run input changes and retry",
+    "unsupported file and real reimport",
+    "phone 320 and 390 layout working reviewed export",
+    "network download failure and real retry",
+    "late failed worker fetch cannot cancel newer run",
+    "malformed AI output",
+    "unsupported runtime worker error timeout",
+    "escaping formula-like multiline content",
+    "privacy downloads only no content uploads JS errors"
+  ],
+  "fixtures": [
+    {
+      "name": "Shop migration",
+      "expectedCorrect": 3,
+      "observedCorrect": 3,
+      "firstTargetCorrect": 1,
+      "records": [
+        {
+          "path": "/old/coffee",
+          "text": "How to brew coffee using a French press and ground beans",
+          "suggested": "/guides/cafetiere",
+          "target": "/guides/cafetiere",
+          "evidence": [
+            {
+              "path": "/guides/cafetiere",
+              "text": "French press coffee brewing instructions",
+              "score": 0.7841778803199284
+            },
+            {
+              "path": "/help/delivery",
+              "text": "Shipping fees and delivery time estimates",
+              "score": -0.004180760146880701
+            },
+            {
+              "path": "/help/returns",
+              "text": "Product returns, refunds and reimbursement policy",
+              "score": -0.01505840583306212
+            }
+          ],
+          "decision": "accept",
+          "note": ""
+        },
+        {
+          "path": "/old/shipping",
+          "text": "Delivery charges and parcel shipping times",
+          "suggested": "/help/delivery",
+          "target": "/help/delivery",
+          "evidence": [
+            {
+              "path": "/help/delivery",
+              "text": "Shipping fees and delivery time estimates",
+              "score": 0.8240457100565259
+            },
+            {
+              "path": "/help/returns",
+              "text": "Product returns, refunds and reimbursement policy",
+              "score": 0.1915833495385278
+            },
+            {
+              "path": "/guides/cafetiere",
+              "text": "French press coffee brewing instructions",
+              "score": -0.07643195223460857
+            }
+          ],
+          "decision": "accept",
+          "note": ""
+        },
+        {
+          "path": "/old/refunds",
+          "text": "Returning purchases and receiving your money back",
+          "suggested": "/help/returns",
+          "target": "/help/returns",
+          "evidence": [
+            {
+              "path": "/help/returns",
+              "text": "Product returns, refunds and reimbursement policy",
+              "score": 0.6447665695903197
+            },
+            {
+              "path": "/help/delivery",
+              "text": "Shipping fees and delivery time estimates",
+              "score": 0.13602186447652023
+            },
+            {
+              "path": "/guides/cafetiere",
+              "text": "French press coffee brewing instructions",
+              "score": -0.07585177894847266
+            }
+          ],
+          "decision": "accept",
+          "note": ""
+        }
+      ],
+      "metrics": {
+        "total": 3,
+        "approved": 3,
+        "held": 0,
+        "aiVsFirstDestination": 2,
+        "reviewOverrides": 0
+      }
+    },
+    {
+      "name": "Campus migration",
+      "expectedCorrect": 3,
+      "observedCorrect": 3,
+      "firstTargetCorrect": 1,
+      "records": [
+        {
+          "path": "/old/books",
+          "text": "Borrowing library books and renewing loans",
+          "suggested": "/library/loans",
+          "target": "/library/loans",
+          "evidence": [
+            {
+              "path": "/library/loans",
+              "text": "Library book borrowing and loan renewals",
+              "score": 0.9164327627732358
+            },
+            {
+              "path": "/finance/payments",
+              "text": "Tuition fee payment and student billing",
+              "score": 0.286464202363984
+            },
+            {
+              "path": "/students/residence",
+              "text": "Student housing applications and dormitory rooms",
+              "score": 0.20202261064272953
+            }
+          ],
+          "decision": "accept",
+          "note": ""
+        },
+        {
+          "path": "/old/tuition",
+          "text": "Paying university tuition fees and student invoices",
+          "suggested": "/finance/payments",
+          "target": "/finance/payments",
+          "evidence": [
+            {
+              "path": "/finance/payments",
+              "text": "Tuition fee payment and student billing",
+              "score": 0.791300156031093
+            },
+            {
+              "path": "/students/residence",
+              "text": "Student housing applications and dormitory rooms",
+              "score": 0.2582904705611182
+            },
+            {
+              "path": "/library/loans",
+              "text": "Library book borrowing and loan renewals",
+              "score": 0.22685578517019558
+            }
+          ],
+          "decision": "accept",
+          "note": ""
+        },
+        {
+          "path": "/old/housing",
+          "text": "Apply for student dormitory accommodation",
+          "suggested": "/students/residence",
+          "target": "/students/residence",
+          "evidence": [
+            {
+              "path": "/students/residence",
+              "text": "Student housing applications and dormitory rooms",
+              "score": 0.8146644477150939
+            },
+            {
+              "path": "/finance/payments",
+              "text": "Tuition fee payment and student billing",
+              "score": 0.2922180092928492
+            },
+            {
+              "path": "/library/loans",
+              "text": "Library book borrowing and loan renewals",
+              "score": 0.21000604741231144
+            }
+          ],
+          "decision": "accept",
+          "note": ""
+        }
+      ],
+      "metrics": {
+        "total": 3,
+        "approved": 3,
+        "held": 0,
+        "aiVsFirstDestination": 2,
+        "reviewOverrides": 0
+      }
+    }
+  ],
+  "requests": [
+    {
+      "url": "http://127.0.0.1:6246/daily-app2/20261108-6/",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6246/daily-app2/20261108-6/assets/index-BfYPhnlq.js",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6246/daily-app2/20261108-6/assets/index-k0uY9ESV.css",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6246/daily-app2/20261108-6/assets/ai.worker-CQJMrsGS.js",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6246/a93361f4-7e72-4f92-bd4f-06645cd15d3c",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6246/daily-app2/20261108-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6246/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6246/041b5fa2-9514-40cc-93a1-b62b80c7bec9",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6246/5a710424-5da9-4aee-9bdd-6c9efeabd049",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6246/82fe807a-dcf8-46a9-a4e0-409b4190a3a8",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6246/18d96974-a66a-4b80-bf2a-8417b1021bb9",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6246/03ed890d-16c4-4bc9-81f4-2a42289ccd9b",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6246/51565f5e-2ce3-4c5f-bd46-1000893984b9",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6246/d358b98a-f7e8-4958-bfcb-09d460e16bd0",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6246/13aabe06-dcf7-4c1c-89be-fa5dd7f0dff1",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6246/7cac5cce-e5f0-4df9-91db-aa5e12b41494",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6246/40ae7d6e-926c-4531-b605-e6841c6a4a53",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6246/410e3d00-5685-4e0e-b9b6-c9db6af47533",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6246/de42726c-1f28-444a-8ff7-5ab086159142",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6246/5c811d76-7409-45c4-a62a-a1b486809c7e",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6246/3ff1baa6-fb3a-49d1-9471-81f20adcd880",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6246/989578a0-4e9c-4dde-a32d-fcef1ad2a45a",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6246/fc2d4700-8df3-4707-b3e2-8960c7c8e326",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6246/6aee46d7-8fcf-4ebd-aabc-115485311df6",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6246/265ad7e7-18fd-41e7-a685-ddc12ce6c754",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6246/abc2b26b-fe88-46d6-b88c-57856c53f1a3",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6246/48365c97-b2b1-4828-a25d-6a0961993f61",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6246/0642e5ec-0230-47de-996b-51a70583a306",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6246/daily-app2/20261108-6/assets/ai.worker-CQJMrsGS.js",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6246/daily-app2/20261108-6/assets/ai.worker-CQJMrsGS.js",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6246/492aa924-6ac0-49bc-ac01-26947a095eb4",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6246/daily-app2/20261108-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6246/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6246/51fb87c0-c14c-48d9-ba84-44f9c6f524c6",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6246/ab1e2ca0-5e64-40e8-b909-9894d1354b56",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6246/daily-app2/20261108-6/assets/ai.worker-CQJMrsGS.js",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6246/ddfb2c1a-7c95-4ce3-86c9-c345a584af9d",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6246/daily-app2/20261108-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6246/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6246/bfa32af0-f1c4-4711-bc8e-4243471f949a",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6246/1770e708-1e33-433c-a6fd-8456dc7a5e10",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6246/d4eeb14c-d92b-4bee-a552-f1764156dba8",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6246/b5234da0-3dba-4fb3-b878-0ebb7a1d642b",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6246/ebb7ff67-2b17-4518-939e-8aabf965916b",
+      "method": "GET",
+      "body": null
+    }
+  ],
+  "errors": []
+}

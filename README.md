@@ -66,3 +66,7 @@ Local MiniLM contextual acronym disambiguation for technical editors. Review eve
 ## Evidence Split — 20261108-5
 
 Construct reviewed train/evaluation partitions using local MiniLM semantic components and exact group-size allocation. Originals and holds survive JSON/CSV export. Six known paraphrase pairs across two interleaved synthetic batches were grouped correctly; the negation challenge overmerged opposing instructions, so semantic similarity is not equivalence or a leakage guarantee. Reuses the immutable WASM from `20261107-2`; preserve its asset. See [workflow](20261108-5/README.md) and [observed checks](20261108-5/VALIDATION.md).
+
+## Redirect Harbor — 20261108-6
+
+Local MiniLM semantic matching helps editors route retired web pages to live replacements. Every redirect requires acceptance or hold; disjoint local paths prevent self-redirects, chains and loops. Export all originals as JSON/CSV and approved Netlify-style rules without changing a website. Six simple known-answer targets matched across two synthetic migrations; a negation challenge selected an opposing policy, so similarity is not policy equivalence and human review is mandatory. Reuses the shared immutable WASM from `20261107-2`; preserve its asset. See [workflow](20261108-6/README.md) and [observed validation](20261108-6/VALIDATION.md).

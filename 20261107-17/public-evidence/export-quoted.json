@@ -1,0 +1,86 @@
+{
+  "schema": "form-pruner/v1",
+  "model": "Xenova/all-MiniLM-L6-v2 q8 / WASM",
+  "original": {
+    "questions": [
+      {
+        "id": "=Q, \"1\"",
+        "question": "=Rate the event\noverall",
+        "response": "scale",
+        "seconds": 20,
+        "protected": true
+      },
+      {
+        "id": "Q2",
+        "question": "How satisfied were you with the event overall?",
+        "response": "scale",
+        "seconds": 20,
+        "protected": false
+      }
+    ],
+    "threshold": 0.75,
+    "budget": 120
+  },
+  "metrics": {
+    "originalQuestions": 2,
+    "keptQuestions": 2,
+    "originalSeconds": 40,
+    "reviewedSeconds": 40,
+    "targetSeconds": 120,
+    "protectedQuestions": 1
+  },
+  "form": [
+    {
+      "id": "=Q, \"1\"",
+      "question": "=Rate the event\noverall",
+      "response": "scale",
+      "seconds": 20
+    },
+    {
+      "id": "Q2",
+      "question": "How satisfied were you with the event overall?",
+      "response": "scale",
+      "seconds": 20
+    }
+  ],
+  "rows": [
+    {
+      "id": "=Q, \"1\"",
+      "question": "=Rate the event\noverall",
+      "response": "scale",
+      "seconds": 20,
+      "protected": true,
+      "decision": "keep",
+      "replacement": "",
+      "suggested": "keep",
+      "edited": "=Rate the event\noverall",
+      "note": "=Quoted, \"note\"\nsecond line",
+      "reviewed": true,
+      "scores": [
+        {
+          "id": "Q2",
+          "value": 0.4694322977985768
+        }
+      ]
+    },
+    {
+      "id": "Q2",
+      "question": "How satisfied were you with the event overall?",
+      "response": "scale",
+      "seconds": 20,
+      "protected": false,
+      "decision": "keep",
+      "replacement": "",
+      "suggested": "keep",
+      "edited": "How satisfied were you with the event overall?",
+      "note": "",
+      "reviewed": true,
+      "scores": [
+        {
+          "id": "=Q, \"1\"",
+          "value": 0.4694322977985768
+        }
+      ]
+    }
+  ]
+}

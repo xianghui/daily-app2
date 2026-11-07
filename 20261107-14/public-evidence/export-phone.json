@@ -1,0 +1,123 @@
+{
+  "app": "Retention Desk",
+  "version": 1,
+  "model": "Xenova/all-MiniLM-L6-v2 q8",
+  "original": {
+    "before": [
+      {
+        "id": "P1",
+        "text": "Customer invoices receipts and billing payment records.",
+        "months": 24
+      },
+      {
+        "id": "P2",
+        "text": "Job applicant resumes recruitment applications and interview notes.",
+        "months": 6
+      },
+      {
+        "id": "P3",
+        "text": "Building equipment inspection repair and maintenance reports.",
+        "months": 12
+      }
+    ],
+    "after": [
+      {
+        "id": "R1",
+        "text": "Receipts for customer payments and monthly sales bills.",
+        "closed": "2023-10-01",
+        "hold": false
+      },
+      {
+        "id": "R2",
+        "text": "Candidate CVs and hiring interview evaluations.",
+        "closed": "2026-04-30",
+        "hold": false
+      },
+      {
+        "id": "R3",
+        "text": "Repair log for the office air conditioning equipment.",
+        "closed": "2023-08-01",
+        "hold": true
+      }
+    ],
+    "threshold": 0.38,
+    "asOf": "2026-11-07"
+  },
+  "rows": [
+    {
+      "id": "R1",
+      "policy": "P1",
+      "suggested": "P1",
+      "scores": [
+        0.7568946304489106,
+        0.21814197531732119,
+        0.35378711376921584
+      ],
+      "reviewed": true,
+      "extraHold": false,
+      "note": "Phone reviewed",
+      "source": {
+        "id": "R1",
+        "text": "Receipts for customer payments and monthly sales bills.",
+        "closed": "2023-10-01",
+        "hold": false
+      },
+      "due": "2025-10-01",
+      "hold": false,
+      "state": "DUE — human authorization needed"
+    },
+    {
+      "id": "R2",
+      "policy": "P2",
+      "suggested": "P2",
+      "scores": [
+        0.17881017473405109,
+        0.6028426031085417,
+        0.14689198164257952
+      ],
+      "reviewed": true,
+      "extraHold": false,
+      "note": "",
+      "source": {
+        "id": "R2",
+        "text": "Candidate CVs and hiring interview evaluations.",
+        "closed": "2026-04-30",
+        "hold": false
+      },
+      "due": "2026-10-30",
+      "hold": false,
+      "state": "DUE — human authorization needed"
+    },
+    {
+      "id": "R3",
+      "policy": "P3",
+      "suggested": "P3",
+      "scores": [
+        0.20859673795897593,
+        0.026761465324100515,
+        0.48073310241428213
+      ],
+      "reviewed": true,
+      "extraHold": false,
+      "note": "",
+      "source": {
+        "id": "R3",
+        "text": "Repair log for the office air conditioning equipment.",
+        "closed": "2023-08-01",
+        "hold": true
+      },
+      "due": "2024-08-01",
+      "hold": true,
+      "state": "HOLD — do not dispose"
+    }
+  ],
+  "metrics": {
+    "records": 3,
+    "held": 1,
+    "dueForReview": 2,
+    "unassigned": 0,
+    "exactTextBaseline": 0,
+    "aiProposals": 3
+  },
+  "notice": "Planning only. User-supplied illustrative policies are not legal advice. No files are deleted; human authorization required."
+}

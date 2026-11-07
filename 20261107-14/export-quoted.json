@@ -1,0 +1,67 @@
+{
+  "app": "Retention Desk",
+  "version": 1,
+  "model": "Xenova/all-MiniLM-L6-v2 q8",
+  "original": {
+    "before": [
+      {
+        "id": "P1",
+        "text": "Customer invoices receipts and billing payment records.",
+        "months": 24
+      },
+      {
+        "id": "P2",
+        "text": "Job applicant resumes recruitment applications and interview notes.",
+        "months": 6
+      },
+      {
+        "id": "P3",
+        "text": "Building equipment inspection repair and maintenance reports.",
+        "months": 12
+      }
+    ],
+    "after": [
+      {
+        "id": "=Vendor, \"Q\"",
+        "text": "=Customer payments\nand billing invoices.",
+        "closed": "2024-01-31",
+        "hold": false
+      }
+    ],
+    "threshold": 0.38,
+    "asOf": "2026-11-07"
+  },
+  "rows": [
+    {
+      "id": "=Vendor, \"Q\"",
+      "policy": "P1",
+      "suggested": "P1",
+      "scores": [
+        0.7533658610352829,
+        0.20036983670809871,
+        0.31941470515718184
+      ],
+      "reviewed": true,
+      "extraHold": false,
+      "note": "=Quoted, \"note\"\nsecond line",
+      "source": {
+        "id": "=Vendor, \"Q\"",
+        "text": "=Customer payments\nand billing invoices.",
+        "closed": "2024-01-31",
+        "hold": false
+      },
+      "due": "2026-01-31",
+      "hold": false,
+      "state": "DUE — human authorization needed"
+    }
+  ],
+  "metrics": {
+    "records": 1,
+    "held": 0,
+    "dueForReview": 1,
+    "unassigned": 0,
+    "exactTextBaseline": 0,
+    "aiProposals": 1
+  },
+  "notice": "Planning only. User-supplied illustrative policies are not legal advice. No files are deleted; human authorization required."
+}

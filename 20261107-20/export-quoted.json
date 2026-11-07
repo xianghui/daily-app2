@@ -1,0 +1,58 @@
+{
+  "schema": "rewrite-guard/v1",
+  "model": "Xenova/all-MiniLM-L6-v2 q8; WASM CPU",
+  "original": {
+    "pairs": [
+      {
+        "id": "=ID, \"1\"",
+        "original": "=Reset, please\nthe password",
+        "revision": "=Please reset\nthe password"
+      },
+      {
+        "id": "Q2",
+        "original": "Keep the door clear",
+        "revision": "Do not block the doorway"
+      }
+    ],
+    "threshold": 0.65
+  },
+  "rows": [
+    {
+      "id": "=ID, \"1\"",
+      "original": "=Reset, please\nthe password",
+      "revision": "=Please reset\nthe password",
+      "score": 0.9496536177144554,
+      "numeric": false,
+      "flagged": false,
+      "suggested": "revision",
+      "decision": "revision",
+      "owner": "",
+      "note": "=Quoted, \"note\"\nsecond line",
+      "reviewed": true,
+      "output": "=Please reset\nthe password"
+    },
+    {
+      "id": "Q2",
+      "original": "Keep the door clear",
+      "revision": "Do not block the doorway",
+      "score": 0.6442833932683235,
+      "numeric": false,
+      "flagged": true,
+      "suggested": "hold",
+      "decision": "hold",
+      "owner": "",
+      "note": "",
+      "reviewed": true,
+      "output": null
+    }
+  ],
+  "metrics": {
+    "total": 2,
+    "exactChanged": 2,
+    "flagged": 1,
+    "numericWarnings": 0,
+    "lowSimilarity": 1,
+    "held": 1,
+    "released": 1
+  }
+}

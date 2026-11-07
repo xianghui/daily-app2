@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import {inputs,examples,validateVectors,numericGap,artifact,csvOutput,propose,issues} from './src/core.js';
+import Papa from 'papaparse';
+const d=inputs(examples['Service launch'].claims,examples['Service launch'].sources,.55);
+for(const v of[null,[],[[NaN]],Array.from({length:7},()=>Array(384).fill(Infinity))])assert.throws(()=>validateVectors(v,7));
+assert(numericGap('Refund within 7 days','Refund within 14 days'));assert(!numericGap('Pay 12.5 today','Pay 12.5 per month'));assert(!numericGap('No numerical claim','Reference 200'));
+const v=Array.from({length:7},(_,i)=>Array.from({length:384},(_,j)=>Number(j===i%3)));const rows=propose(d,v).map(r=>({...r,reviewed:true}));let a=artifact(d,rows);assert.equal(a.rows.length,4);assert.equal(a.original.sources.length,3);assert(a.rows.every(r=>r.output===null));assert.throws(()=>artifact(d,rows.map(r=>({...r,reviewed:false}))));
+rows[0].decision='supported';assert(issues(d,rows).length);rows[0].note='Manually verified wording';assert.equal(issues(d,rows).length,0);rows[0].sourceId='S1';rows[0].note='=Literal, "quoted"\nsecond line';a=artifact(d,rows);const csv=Papa.parse(csvOutput(a),{header:true});assert.equal(csv.errors.length,0);assert.equal(csv.data[0].note,"'"+rows[0].note);assert.equal(csv.data[0].claim,rows[0].text);assert.equal(JSON.parse(JSON.stringify(a)).rows.length,4);
+for(const key of Object.keys(examples))assert.equal(inputs(examples[key].claims,examples[key].sources,.55).claims.length,4);
+assert.throws(()=>inputs('id,text\nx,a\nx,b',examples['Service launch'].sources,.55));console.log('Core validation, numeric guard, schema, source preservation and CSV escaping passed.');

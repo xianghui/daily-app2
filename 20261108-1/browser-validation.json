@@ -1,0 +1,306 @@
+{
+  "checks": [
+    "real inference Facilities",
+    "real inference Digital operations",
+    "review, reject, undo, capacity guard, snapshot invalidation and CSV/copy",
+    "offline fresh worker inference",
+    "24 job chunking and no lost orders",
+    "empty malformed oversized invalid IDs/counts and durations",
+    "cancel, stale input change, retry",
+    "file import, roundtrip and unsupported format",
+    "phone 320/390 layout and editable exports",
+    "network failure and retry",
+    "malformed result rejected",
+    "unsupported runtime, worker error, timeout",
+    "all requests are downloads, no content uploads/page errors"
+  ],
+  "fixtures": [
+    {
+      "name": "Facilities",
+      "expected": [
+        "water",
+        "power",
+        "water",
+        "power"
+      ],
+      "actual": [
+        "water",
+        "power",
+        "water",
+        "power"
+      ],
+      "metrics": {
+        "reviewed": {
+          "assigned": 4,
+          "minutes": 175,
+          "meanCosine": 0.3408971120430105
+        },
+        "baseline": {
+          "assigned": 4,
+          "minutes": 175,
+          "meanCosine": 0.22139493807588184
+        }
+      }
+    },
+    {
+      "name": "Digital operations",
+      "expected": [
+        "design",
+        "data",
+        "design",
+        "data"
+      ],
+      "actual": [
+        "design",
+        "data",
+        "design",
+        "data"
+      ],
+      "metrics": {
+        "reviewed": {
+          "assigned": 4,
+          "minutes": 175,
+          "meanCosine": 0.35735467945189187
+        },
+        "baseline": {
+          "assigned": 4,
+          "minutes": 175,
+          "meanCosine": 0.19839167682672432
+        }
+      }
+    }
+  ],
+  "requests": [
+    {
+      "url": "http://127.0.0.1:6241/daily-app2/20261108-1/",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6241/daily-app2/20261108-1/assets/index-9vkr2qnR.js",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6241/daily-app2/20261108-1/assets/index-DJLC24Kd.css",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6241/daily-app2/20261108-1/assets/ai.worker-Ce-e4LAi.js",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6241/b541a175-670f-475c-b326-3e4763b73f33",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6241/daily-app2/20261108-1/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6241/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json?%2FXenova%2Fall-MiniLM-L6-v2%2Fresolve%2Fmain%2Fconfig.json=&etag=%2272147e4ff4426ebedbfa2146c4a0999def51a313%22",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json?%2FXenova%2Fall-MiniLM-L6-v2%2Fresolve%2Fmain%2Ftokenizer_config.json=&etag=%2237fca74771bc76a8e01178ce3a6055a0995f8093%22",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json?%2FXenova%2Fall-MiniLM-L6-v2%2Fresolve%2Fmain%2Ftokenizer.json=&etag=%22c17ed520ed8438736732a54957a69306b8822215%22",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194?user_id=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27model_quantized.onnx%3B+filename%3D%22model_quantized.onnx%22%3B&X-Xet-Cas-Uid=public&xip=q0RSU3c762g&Expires=1794071038&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNjQ1MTkyYjc1ZmI0MGI5ZjUwYjcxOTE0L2M5NmY1ZjFlMmFlZTY0M2JkODE5MWJiNTIwYTNlMTc1ZGI3YjA1ODIxNTc5YTAyYTcwYWNkZjMxZTY1NWQxOTRcXD91c2VyX2lkPXB1YmxpYyZyZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPWlubGluZSUzQitmaWxlbmFtZSUyQSUzRFVURi04JTI3JTI3bW9kZWxfcXVhbnRpemVkLm9ubnglM0IrZmlsZW5hbWUlM0QlMjJtb2RlbF9xdWFudGl6ZWQub25ueCUyMiUzQiZYLVhldC1DYXMtVWlkPXB1YmxpYyZ4aXA9cTBSU1UzYzc2MmciLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc5NDA3MTAzOH19fV19&Signature=MEUCIQCpOswH25VqXNlRG3JdC4FtkDRp5yK2KO4e-FibYDFlpgIgJZQCaVd2BXhBkC0sY1CVgK-whlojuiLCr1m8WldWDQE_&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194?response-content-disposition=inline%3B+filename*%3DUTF-8%27%27model_quantized.onnx%3B+filename%3D%22model_quantized.onnx%22%3B&X-Xet-Cas-Uid=public&xip=q0RSU3c762g&user_id=public&Expires=1794071039&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNjQ1MTkyYjc1ZmI0MGI5ZjUwYjcxOTE0L2M5NmY1ZjFlMmFlZTY0M2JkODE5MWJiNTIwYTNlMTc1ZGI3YjA1ODIxNTc5YTAyYTcwYWNkZjMxZTY1NWQxOTRcXD9yZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPWlubGluZSUzQitmaWxlbmFtZSUyQSUzRFVURi04JTI3JTI3bW9kZWxfcXVhbnRpemVkLm9ubnglM0IrZmlsZW5hbWUlM0QlMjJtb2RlbF9xdWFudGl6ZWQub25ueCUyMiUzQiZYLVhldC1DYXMtVWlkPXB1YmxpYyZ4aXA9cTBSU1UzYzc2MmcmdXNlcl9pZD1wdWJsaWMiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc5NDA3MTAzOX19fV19&Signature=MEYCIQC323pHKQnX%7Eg8%7EpQJM5ZChwszBA0D%7EBXYMqxVbNky8PgIhAPFwkapyQ0tyF8dSXpca3Q5g8iwr8tT3oIRDsnS0l5fZ&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json?%2FXenova%2Fall-MiniLM-L6-v2%2Fresolve%2Fmain%2Ftokenizer.json=&etag=%22c17ed520ed8438736732a54957a69306b8822215%22",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json?%2FXenova%2Fall-MiniLM-L6-v2%2Fresolve%2Fmain%2Ftokenizer_config.json=&etag=%2237fca74771bc76a8e01178ce3a6055a0995f8093%22",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6241/e969ba61-4eac-44eb-b529-0b6a69113144",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6241/961192da-904f-451e-93ba-d6305a66c0cd",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6241/ca850db0-ce33-415f-b35b-6f6826f26039",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6241/c55d53a7-7218-4ce9-b777-fe2464d125e1",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6241/7735b698-8a40-41fd-b448-aad22f4fdb04",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6241/ec760fb7-4816-47c8-92e6-d7e27d5d62a2",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6241/245130c2-0312-46e3-9a01-50312380089e",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6241/77a800ba-a452-4e15-8c88-56127ce3267d",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6241/a8efd4b4-296f-4ba2-b2ad-590236628884",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6241/5c8d34ae-e828-4a38-80d8-c474927b074e",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6241/fb36112c-8cba-485c-b774-db076d70f827",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6241/a0268f20-0cbd-461f-b675-51d443dff7e6",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6241/2dcba1e5-4574-4e2d-aa6c-012b48ca6507",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6241/2f6c1814-28e4-4fe5-897b-599230396457",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6241/37e1bcad-829c-466c-a6ec-16698dc0777b",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6241/f8d7d0a6-d78f-4738-af5b-490184dee741",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6241/7a818256-e292-4bd9-8eb4-79dcc1f82d0a",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6241/fc3a5dd5-dbd7-4a41-ba86-f5010fcfacf3",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6241/daily-app2/20261108-1/assets/ai.worker-Ce-e4LAi.js",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6241/daily-app2/20261108-1/assets/ai.worker-Ce-e4LAi.js",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6241/c23ec32d-2e5e-4a59-bd9f-b33d0c38a183",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6241/daily-app2/20261108-1/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6241/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6241/c44f6449-6044-4d6c-bf48-59ba918d6a68",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6241/4a57817a-ef78-49e2-be5f-3449e62eab89",
+      "method": "GET",
+      "body": null
+    }
+  ],
+  "errors": []
+}

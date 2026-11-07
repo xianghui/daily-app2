@@ -1,0 +1,1 @@
+MiniLM-L6-v2 / Xenova ONNX conversion and Transformers.js: Apache-2.0. ONNX Runtime Web: MIT. React, Vite, gh-pages: MIT. License notices for shared runtime are in licenses/. Model files are downloaded by the user from https://huggingface.co/Xenova/all-MiniLM-L6-v2 and are not redistributed in the repository. Preserve upstream notices when redistributing dependencies.

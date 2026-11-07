@@ -33,3 +33,9 @@ Each fixture produced 3 groups of 2, a 2-row evaluation set and 4 training rows 
 ## Build/gallery/publication
 
 `npm run predeploy` passed. Root inline scripts compile with Node `new Function`; new entry occurs exactly once as `ai-utility`, newest first, all older gallery entries unchanged. Root predeploy/deploy and public runtime checks are recorded in deployment reports. Public browser inference must pass before this run is marked complete; branch push alone is not proof.
+
+### Public verification complete
+
+Published URL: https://xianghui.github.io/daily-app2/20261108-5/
+
+GitHub Pages built commit `01faedf8f4776fa914c68b32a227992496e7b7be` matches the remote gh-pages head. All production assets, local worker/factory and shared WASM fetched from public URLs match local SHA-256 hashes. Public gallery renders 521 cards, AI Utilities first, one new entry, older categories intact and search works. All 13 browser check groups reran successfully against the live public app, including both real AI fixtures, offline fresh-worker inference, 40-row chunking/JSON reimport, edited downloads/copy, cancel/stale/retry, invalid inputs, network failure, malformed/runtime/timeout handling, mobile layouts and request privacy. Public downloaded JSON/CSV independently parsed; every source and reviewed field survived. See `public-evidence/`, `public-gallery-validation.json` and `deployment-validation.json`. No new Pages trigger or retry was necessary.

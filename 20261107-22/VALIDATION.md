@@ -33,3 +33,7 @@ English-focused embeddings can miss subtle transitions. Forced count/length may 
 ### Test harness note
 
 An initial download-cancel test waited for a page-owned request, but model downloads are worker-owned. The harness was corrected to observe browser-context requests; complete local production runs then passed. A local gallery check was initially attempted during root deployment directory reconstruction; rerunning after assembly verified all 514 entries. Neither was substituted for real inference.
+
+## Public verification — passed
+
+GitHub Pages reports **built** for `db59bf93cb742ede2009186a149142eb1c74eb30`, exactly the remote gh-pages head. Public HTML, app JS/CSS, AI worker, WASM factory and shared WASM match validated production bytes. The entire real browser suite passed at https://xianghui.github.io/daily-app2/20261107-22/ including the three real inference fixtures, 32-paragraph batching, fresh-worker offline inference, review/undo/exports, network/runtime failures and retries, stale/cancelled guards and desktop/phone layouts. Downloaded public JSON artifacts were independently parsed/reconciled with Python. Public gallery has all 514 cards, AI Utilities first, old categories intact and working search. See `public-evidence/browser-validation.json`, `deployment-validation.json` and `public-gallery-validation.json`.

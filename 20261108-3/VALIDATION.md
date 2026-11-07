@@ -31,3 +31,9 @@
 - App intentionally offers no psychometric validity, clinical cutoff, imputation, instrument reliability or universal polarity accuracy. Upstream model revision is not pinned; future weights can change suggestions.
 
 Publication evidence is recorded separately in deployment/public validation files after root publishing. A successful branch push alone is not public verification.
+
+## Public publication verification
+
+Combined root publishing succeeded. GitHub Pages build/deploy workflow `42399940741` completed successfully for gh-pages commit `e87768ed79e91e554504a39d9c64f37fc5e72abc`; Pages API reports built for that same remote head. `verify-deployment.py` downloaded and SHA-256 compared every app asset, worker, local factory and the shared WASM: byte-identical. Public gallery browser validation confirms all 519 cards and previous categories.
+
+The full production-browser suite was rerun at https://xianghui.github.io/daily-app2/20261108-3/: all 13 checks passed, including both real-model fixtures, offline fresh-worker inference, 3,200-cell conservation, the 145 KB full audit file reimport, review/edit/hold/undo, downloads/copy, phone widths and defensive failure paths. Public downloaded JSON/CSV were independently parsed and checked. Evidence is in `public-evidence/`, `deployment-validation.json` and `public-gallery-validation.json`. The known double-negative limitation remains documented; no universal accuracy claim.

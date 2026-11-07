@@ -1,0 +1,128 @@
+{
+  "version": 1,
+  "app": "Sense Margin",
+  "input": {
+    "document": "The PC has a keyboard, monitor and a fast processor for desktop software.\nPlease install the operating system on each PC before connecting the screens.\n\nThe officer established PC to arrest the suspect after reviewing evidence.\nThe judge evaluated whether PC justified the search warrant.",
+    "senses": [
+      {
+        "id": "computer",
+        "term": "PC",
+        "expansion": "personal computer",
+        "description": "A desktop or laptop computing device with processor, operating system, keyboard and screen."
+      },
+      {
+        "id": "legal",
+        "term": "PC",
+        "expansion": "probable cause",
+        "description": "A legal standard of sufficient evidence to justify an arrest, police search or warrant."
+      }
+    ]
+  },
+  "model": "Xenova/all-MiniLM-L6-v2 q8; normalized mean-pool; WASM CPU",
+  "records": [
+    {
+      "id": "o1",
+      "term": "PC",
+      "start": 4,
+      "end": 6,
+      "context": "The PC has a keyboard, monitor and a fast processor for desktop software",
+      "ranked": [
+        {
+          "sense": "computer",
+          "score": 0.6285460395798118
+        },
+        {
+          "sense": "legal",
+          "score": 0.046492677597266524
+        }
+      ],
+      "suggested": "computer",
+      "margin": 0.5820533619825453,
+      "sense": "computer",
+      "expansion": "personal computer",
+      "decision": "hold",
+      "note": "Reviewed, \"quoted\" second line",
+      "replacement": "PC"
+    },
+    {
+      "id": "o2",
+      "term": "PC",
+      "start": 118,
+      "end": 120,
+      "context": "Please install the operating system on each PC before connecting the screens",
+      "ranked": [
+        {
+          "sense": "computer",
+          "score": 0.30329982523936017
+        },
+        {
+          "sense": "legal",
+          "score": -0.005288209509180422
+        }
+      ],
+      "suggested": "computer",
+      "margin": 0.3085880347485406,
+      "sense": "computer",
+      "expansion": "personal computer",
+      "decision": "accept",
+      "note": "",
+      "replacement": "personal computer (PC)"
+    },
+    {
+      "id": "o3",
+      "term": "PC",
+      "start": 177,
+      "end": 179,
+      "context": "The officer established PC to arrest the suspect after reviewing evidence",
+      "ranked": [
+        {
+          "sense": "legal",
+          "score": 0.4617715427308038
+        },
+        {
+          "sense": "computer",
+          "score": 0.18315584109541588
+        }
+      ],
+      "suggested": "legal",
+      "margin": 0.2786157016353879,
+      "sense": "legal",
+      "expansion": "probable cause",
+      "decision": "accept",
+      "note": "",
+      "replacement": "probable cause (PC)"
+    },
+    {
+      "id": "o4",
+      "term": "PC",
+      "start": 256,
+      "end": 258,
+      "context": "The judge evaluated whether PC justified the search warrant",
+      "ranked": [
+        {
+          "sense": "legal",
+          "score": 0.30495970240676595
+        },
+        {
+          "sense": "computer",
+          "score": 0.11897066070770329
+        }
+      ],
+      "suggested": "legal",
+      "margin": 0.18598904169906266,
+      "sense": "legal",
+      "expansion": "probable cause",
+      "decision": "accept",
+      "note": "",
+      "replacement": "probable cause (PC)"
+    }
+  ],
+  "document": "The PC has a keyboard, monitor and a fast processor for desktop software.\nPlease install the operating system on each personal computer (PC) before connecting the screens.\n\nThe officer established probable cause (PC) to arrest the suspect after reviewing evidence.\nThe judge evaluated whether probable cause (PC) justified the search warrant.",
+  "metrics": {
+    "occurrences": 4,
+    "accepted": 3,
+    "held": 1,
+    "aiDiffersFromFirstSense": 2,
+    "reviewDiffersFromAI": 0
+  }
+}

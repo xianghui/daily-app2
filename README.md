@@ -58,3 +58,7 @@ Real local MiniLM inference matched eight known-answer room aliases across two s
 ## Scale Compass — 20261108-3
 
 Local MiniLM opposing-anchor inference assists survey-item direction review before deterministic reverse scoring. Every item requires human acceptance or hold; originals and missing cells survive JSON/CSV export. Simple fixtures matched 8/8 keys, but a double-negative challenge failed: this is a scoring-key review aid, not psychometric validation. Reuses the immutable shared WASM from `20261107-2`; preserve that asset. See [workflow](20261108-3/README.md) and [observed checks](20261108-3/VALIDATION.md).
+
+## Sense Margin — 20261108-4
+
+Local MiniLM contextual acronym disambiguation for technical editors. Review every source occurrence against approved glossary senses, edit or hold expansions and export exact-span expanded TXT plus complete JSON/CSV. Simple fixtures matched 8/8 meanings versus 4/8 first-sense baseline, but a negation challenge failed; mandatory human review remains essential. Reuses the immutable shared WASM from `20261107-2`. See [workflow](20261108-4/README.md) and [observed checks](20261108-4/VALIDATION.md).

@@ -1,0 +1,68 @@
+{
+  "app": "Revision Dock",
+  "version": 1,
+  "model": "Xenova/all-MiniLM-L6-v2 q8",
+  "threshold": 0.42,
+  "original": {
+    "before": [
+      {
+        "id": "A",
+        "step": "Help a user recover a forgotten account password by email."
+      },
+      {
+        "id": "B",
+        "step": "Download the monthly sales report as a spreadsheet."
+      },
+      {
+        "id": "C",
+        "step": "Send a welcome email to newly registered members."
+      }
+    ],
+    "after": [
+      {
+        "id": "=Vendor, \"Q\"",
+        "step": "=Reset a lost login password\nusing recovery email."
+      }
+    ],
+    "threshold": 0.42
+  },
+  "rows": [
+    {
+      "id": "=Vendor, \"Q\"",
+      "previous": "A",
+      "suggested": "A",
+      "scores": [
+        0.7240563484096547,
+        0.01921699598820322,
+        0.30554625873507646
+      ],
+      "reviewed": true,
+      "owner": "",
+      "note": "=Quoted, \"note\"\nsecond line",
+      "previousStep": "Help a user recover a forgotten account password by email.",
+      "step": "=Reset a lost login password\nusing recovery email.",
+      "change": "linked revision"
+    }
+  ],
+  "retired": [
+    {
+      "id": "B",
+      "step": "Download the monthly sales report as a spreadsheet."
+    },
+    {
+      "id": "C",
+      "step": "Send a welcome email to newly registered members."
+    }
+  ],
+  "retiredReviewed": true,
+  "metrics": {
+    "oldSteps": 3,
+    "newSteps": 1,
+    "linked": 1,
+    "added": 0,
+    "retired": 2,
+    "exactTextBaseline": 0,
+    "aiNonliteralProposals": 1,
+    "overrides": 0
+  }
+}

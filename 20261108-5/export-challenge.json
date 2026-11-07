@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "model": "Xenova/all-MiniLM-L6-v2 q8 / WASM",
+  "input": {
+    "target": 33,
+    "threshold": 0.65,
+    "records": [
+      {
+        "id": "yes",
+        "text": "Reset the password for the customer account.",
+        "label": "do"
+      },
+      {
+        "id": "no",
+        "text": "Do not reset the password for the customer account.",
+        "label": "do-not"
+      },
+      {
+        "id": "other",
+        "text": "Plant apple trees in the orchard during winter.",
+        "label": "garden"
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "yes",
+      "text": "Reset the password for the customer account.",
+      "label": "do",
+      "group": "G1",
+      "decision": "accept",
+      "note": "",
+      "suggestedGroup": "G1",
+      "split": "train"
+    },
+    {
+      "id": "no",
+      "text": "Do not reset the password for the customer account.",
+      "label": "do-not",
+      "group": "G1",
+      "decision": "accept",
+      "note": "",
+      "suggestedGroup": "G1",
+      "split": "train"
+    },
+    {
+      "id": "other",
+      "text": "Plant apple trees in the orchard during winter.",
+      "label": "garden",
+      "group": "G3",
+      "decision": "accept",
+      "note": "",
+      "suggestedGroup": "G3",
+      "split": "evaluation"
+    }
+  ],
+  "pairs": [
+    {
+      "a": "yes",
+      "b": "no",
+      "cosine": 0.8776974323024965
+    }
+  ],
+  "metrics": {
+    "records": 3,
+    "requestedEvaluation": 1,
+    "allocatedEvaluation": 1,
+    "exportedEvaluation": 1,
+    "held": 0,
+    "baselineCrossPairs": 1,
+    "reviewedCrossPairs": 0,
+    "detectedPairs": 1
+  },
+  "policy": "Groups are indivisible during allocation. Held rows excluded from train/evaluation; preserved in full audit. Similarity is not proof of equivalence. Review detected crossings before use."
+}

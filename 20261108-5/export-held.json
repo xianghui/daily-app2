@@ -1,0 +1,130 @@
+{
+  "version": 1,
+  "model": "Xenova/all-MiniLM-L6-v2 q8 / WASM",
+  "input": {
+    "target": 33,
+    "threshold": 0.65,
+    "records": [
+      {
+        "id": "R1",
+        "text": "Solar panels convert sunlight into electrical energy using photovoltaic cells.",
+        "label": "energy"
+      },
+      {
+        "id": "R3",
+        "text": "Honeybees pollinate flowering crops and support agricultural biodiversity.",
+        "label": "ecology"
+      },
+      {
+        "id": "R5",
+        "text": "Encryption protects confidential messages with cryptographic keys.",
+        "label": "security"
+      },
+      {
+        "id": "R2",
+        "text": "Photovoltaic cells in solar panels turn sunlight into electricity.",
+        "label": "energy"
+      },
+      {
+        "id": "R4",
+        "text": "Bees support biodiversity by pollinating flowers and agricultural crops.",
+        "label": "ecology"
+      },
+      {
+        "id": "R6",
+        "text": "Cryptographic keys encrypt messages to keep communications confidential.",
+        "label": "security"
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "R1",
+      "text": "Solar panels convert sunlight into electrical energy using photovoltaic cells.",
+      "label": "energy",
+      "group": "G1",
+      "decision": "hold",
+      "note": "Reviewed, \"quoted\" second line",
+      "suggestedGroup": "G1",
+      "split": "hold"
+    },
+    {
+      "id": "R3",
+      "text": "Honeybees pollinate flowering crops and support agricultural biodiversity.",
+      "label": "ecology",
+      "group": "G2",
+      "decision": "accept",
+      "note": "",
+      "suggestedGroup": "G2",
+      "split": "train"
+    },
+    {
+      "id": "R5",
+      "text": "Encryption protects confidential messages with cryptographic keys.",
+      "label": "security",
+      "group": "G3",
+      "decision": "accept",
+      "note": "",
+      "suggestedGroup": "G3",
+      "split": "train"
+    },
+    {
+      "id": "R2",
+      "text": "Photovoltaic cells in solar panels turn sunlight into electricity.",
+      "label": "energy",
+      "group": "G1",
+      "decision": "accept",
+      "note": "",
+      "suggestedGroup": "G1",
+      "split": "evaluation"
+    },
+    {
+      "id": "R4",
+      "text": "Bees support biodiversity by pollinating flowers and agricultural crops.",
+      "label": "ecology",
+      "group": "G2",
+      "decision": "accept",
+      "note": "",
+      "suggestedGroup": "G2",
+      "split": "train"
+    },
+    {
+      "id": "R6",
+      "text": "Cryptographic keys encrypt messages to keep communications confidential.",
+      "label": "security",
+      "group": "G3",
+      "decision": "accept",
+      "note": "",
+      "suggestedGroup": "G3",
+      "split": "train"
+    }
+  ],
+  "pairs": [
+    {
+      "a": "R1",
+      "b": "R2",
+      "cosine": 0.9287023639364076
+    },
+    {
+      "a": "R3",
+      "b": "R4",
+      "cosine": 0.8293029409659812
+    },
+    {
+      "a": "R5",
+      "b": "R6",
+      "cosine": 0.8381674497144631
+    }
+  ],
+  "metrics": {
+    "records": 6,
+    "requestedEvaluation": 2,
+    "allocatedEvaluation": 2,
+    "exportedEvaluation": 1,
+    "held": 1,
+    "baselineCrossPairs": 2,
+    "reviewedCrossPairs": 0,
+    "detectedPairs": 3
+  },
+  "policy": "Groups are indivisible during allocation. Held rows excluded from train/evaluation; preserved in full audit. Similarity is not proof of equivalence. Review detected crossings before use."
+}

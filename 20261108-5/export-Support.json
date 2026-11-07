@@ -1,0 +1,130 @@
+{
+  "version": 1,
+  "model": "Xenova/all-MiniLM-L6-v2 q8 / WASM",
+  "input": {
+    "target": 33,
+    "threshold": 0.65,
+    "records": [
+      {
+        "id": "S1",
+        "text": "I forgot my password and need to reset it.",
+        "label": "account"
+      },
+      {
+        "id": "S3",
+        "text": "The parcel arrived with a broken glass vase.",
+        "label": "delivery"
+      },
+      {
+        "id": "S5",
+        "text": "Please send a copy of my invoice for this purchase.",
+        "label": "billing"
+      },
+      {
+        "id": "S2",
+        "text": "How can I reset a forgotten password?",
+        "label": "account"
+      },
+      {
+        "id": "S4",
+        "text": "My glass vase was shattered when the package arrived.",
+        "label": "delivery"
+      },
+      {
+        "id": "S6",
+        "text": "I need a duplicate invoice for my order.",
+        "label": "billing"
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "S1",
+      "text": "I forgot my password and need to reset it.",
+      "label": "account",
+      "group": "G1",
+      "decision": "accept",
+      "note": "",
+      "suggestedGroup": "G1",
+      "split": "evaluation"
+    },
+    {
+      "id": "S3",
+      "text": "The parcel arrived with a broken glass vase.",
+      "label": "delivery",
+      "group": "G2",
+      "decision": "accept",
+      "note": "",
+      "suggestedGroup": "G2",
+      "split": "train"
+    },
+    {
+      "id": "S5",
+      "text": "Please send a copy of my invoice for this purchase.",
+      "label": "billing",
+      "group": "G3",
+      "decision": "accept",
+      "note": "",
+      "suggestedGroup": "G3",
+      "split": "train"
+    },
+    {
+      "id": "S2",
+      "text": "How can I reset a forgotten password?",
+      "label": "account",
+      "group": "G1",
+      "decision": "accept",
+      "note": "",
+      "suggestedGroup": "G1",
+      "split": "evaluation"
+    },
+    {
+      "id": "S4",
+      "text": "My glass vase was shattered when the package arrived.",
+      "label": "delivery",
+      "group": "G2",
+      "decision": "accept",
+      "note": "",
+      "suggestedGroup": "G2",
+      "split": "train"
+    },
+    {
+      "id": "S6",
+      "text": "I need a duplicate invoice for my order.",
+      "label": "billing",
+      "group": "G3",
+      "decision": "accept",
+      "note": "",
+      "suggestedGroup": "G3",
+      "split": "train"
+    }
+  ],
+  "pairs": [
+    {
+      "a": "S1",
+      "b": "S2",
+      "cosine": 0.8687492960584847
+    },
+    {
+      "a": "S3",
+      "b": "S4",
+      "cosine": 0.7972392409653306
+    },
+    {
+      "a": "S5",
+      "b": "S6",
+      "cosine": 0.734549178336917
+    }
+  ],
+  "metrics": {
+    "records": 6,
+    "requestedEvaluation": 2,
+    "allocatedEvaluation": 2,
+    "exportedEvaluation": 2,
+    "held": 0,
+    "baselineCrossPairs": 2,
+    "reviewedCrossPairs": 0,
+    "detectedPairs": 3
+  },
+  "policy": "Groups are indivisible during allocation. Held rows excluded from train/evaluation; preserved in full audit. Similarity is not proof of equivalence. Review detected crossings before use."
+}

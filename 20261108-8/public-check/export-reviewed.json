@@ -1,0 +1,190 @@
+{
+  "version": 1,
+  "model": "Xenova/all-MiniLM-L6-v2 q8",
+  "input": {
+    "perQuestion": 1,
+    "perParticipant": 1,
+    "minSimilarity": 0.25,
+    "questions": [
+      {
+        "id": "hours",
+        "text": "Library opening hours, late evenings and weekend access"
+      },
+      {
+        "id": "noise",
+        "text": "Quiet study spaces, noise and concentration in the library"
+      },
+      {
+        "id": "loans",
+        "text": "Renewing borrowed library books and returning overdue items"
+      }
+    ],
+    "quotes": [
+      {
+        "id": "L1",
+        "participant": "Eli",
+        "text": "I wish the library stayed open later on weekends."
+      },
+      {
+        "id": "L2",
+        "participant": "Eli",
+        "text": "Noisy conversations make it hard to study in the library."
+      },
+      {
+        "id": "L3",
+        "participant": "Fay",
+        "text": "It is difficult to concentrate because the study area is so loud."
+      },
+      {
+        "id": "L4",
+        "participant": "Gus",
+        "text": "I want to renew my borrowed books before the return date."
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "L1",
+      "participant": "Eli",
+      "text": "I wish the library stayed open later on weekends.",
+      "suggested": "hours",
+      "top": "hours",
+      "proposed": true,
+      "target": "noise",
+      "evidence": [
+        {
+          "id": "hours",
+          "text": "Library opening hours, late evenings and weekend access",
+          "score": 0.7031680685517485
+        },
+        {
+          "id": "loans",
+          "text": "Renewing borrowed library books and returning overdue items",
+          "score": 0.3828198637629103
+        },
+        {
+          "id": "noise",
+          "text": "Quiet study spaces, noise and concentration in the library",
+          "score": 0.36451974851761687
+        }
+      ],
+      "decision": "hold",
+      "note": "Reviewed, \"quoted\"\nsecond line"
+    },
+    {
+      "id": "L2",
+      "participant": "Eli",
+      "text": "Noisy conversations make it hard to study in the library.",
+      "suggested": "noise",
+      "top": "noise",
+      "proposed": false,
+      "target": "noise",
+      "evidence": [
+        {
+          "id": "noise",
+          "text": "Quiet study spaces, noise and concentration in the library",
+          "score": 0.745590675152334
+        },
+        {
+          "id": "hours",
+          "text": "Library opening hours, late evenings and weekend access",
+          "score": 0.29385021648554005
+        },
+        {
+          "id": "loans",
+          "text": "Renewing borrowed library books and returning overdue items",
+          "score": 0.2513397909970811
+        }
+      ],
+      "decision": "hold",
+      "note": ""
+    },
+    {
+      "id": "L3",
+      "participant": "Fay",
+      "text": "It is difficult to concentrate because the study area is so loud.",
+      "suggested": "noise",
+      "top": "noise",
+      "proposed": true,
+      "target": "noise",
+      "evidence": [
+        {
+          "id": "noise",
+          "text": "Quiet study spaces, noise and concentration in the library",
+          "score": 0.6132593287730506
+        },
+        {
+          "id": "hours",
+          "text": "Library opening hours, late evenings and weekend access",
+          "score": 0.15733915634953016
+        },
+        {
+          "id": "loans",
+          "text": "Renewing borrowed library books and returning overdue items",
+          "score": 0.05246496014944694
+        }
+      ],
+      "decision": "accept",
+      "note": ""
+    },
+    {
+      "id": "L4",
+      "participant": "Gus",
+      "text": "I want to renew my borrowed books before the return date.",
+      "suggested": "loans",
+      "top": "loans",
+      "proposed": true,
+      "target": "loans",
+      "evidence": [
+        {
+          "id": "loans",
+          "text": "Renewing borrowed library books and returning overdue items",
+          "score": 0.7682957091760435
+        },
+        {
+          "id": "hours",
+          "text": "Library opening hours, late evenings and weekend access",
+          "score": 0.26295949777554123
+        },
+        {
+          "id": "noise",
+          "text": "Quiet study spaces, noise and concentration in the library",
+          "score": 0.09341525649938631
+        }
+      ],
+      "decision": "accept",
+      "note": ""
+    }
+  ],
+  "board": [
+    {
+      "id": "hours",
+      "text": "Library opening hours, late evenings and weekend access",
+      "quotes": []
+    },
+    {
+      "id": "noise",
+      "text": "Quiet study spaces, noise and concentration in the library",
+      "quotes": [
+        "L3"
+      ]
+    },
+    {
+      "id": "loans",
+      "text": "Renewing borrowed library books and returning overdue items",
+      "quotes": [
+        "L4"
+      ]
+    }
+  ],
+  "metrics": {
+    "total": 4,
+    "included": 2,
+    "held": 2,
+    "unanswered": 1,
+    "participants": 2,
+    "aiVsFirstQuestion": 3,
+    "reviewOverrides": 1,
+    "belowThreshold": 0
+  }
+}

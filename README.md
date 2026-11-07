@@ -74,3 +74,7 @@ Local MiniLM semantic matching helps editors route retired web pages to live rep
 ## Packet Proof — 20261108-7
 
 Local MiniLM document-type inference assists application/vendor manifest completeness audits. Review every assignment or hold, inspect missing and duplicate required slots and export complete JSON/CSV plus a Markdown handoff checklist. Nine simple types matched across two synthetic fixtures; a negated expiry challenge failed, so this is manifest reconciliation, never document validity/authenticity certification. Reuses the shared immutable WASM from `20261107-2`; preserve that asset. See [workflow](20261108-7/README.md) and [observed validation](20261108-7/VALIDATION.md).
+
+## Inquiry Grid — 20261108-8
+
+Local MiniLM quote-to-question inference plus min-cost flow creates participant-balanced interview evidence boards under both question and participant caps. Review every proposal, hold irrelevant excerpts and export a complete JSON/CSV audit plus source-linked Markdown. Two simple fixtures matched 9/9 topics versus 3/9 first-question baseline; a negation challenge failed, so this is a human source-curation tool, not automated interpretation. Reuses immutable shared WASM from `20261107-2`; preserve that asset. See [workflow](20261108-8/README.md) and [observed validation](20261108-8/VALIDATION.md).

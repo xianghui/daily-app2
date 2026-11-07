@@ -1,0 +1,289 @@
+{
+  "checks": [
+    "real inference Help desk",
+    "real inference Library desk",
+    "review, hold, undo, snapshot invalidation and CSV/copy",
+    "offline fresh-worker inference",
+    "40 record chunking and conservation",
+    "empty malformed oversized invalid schema and labels",
+    "cancel, stale input change, retry",
+    "file import, lossless original roundtrip and unsupported format",
+    "phone 320/390 layout and editable exports",
+    "download network failure and real retry",
+    "malformed AI result rejected",
+    "unsupported runtime, worker error, timeout",
+    "all requests downloads, no content uploads/page errors"
+  ],
+  "fixtures": [
+    {
+      "name": "Help desk",
+      "knownError": "h3",
+      "expected": "Access",
+      "actual": "Access",
+      "flags": [
+        "h1",
+        "h2",
+        "h3"
+      ],
+      "metrics": {
+        "records": 6,
+        "exactConflictRecords": 0,
+        "semanticFlagRecords": 3,
+        "changedLabels": 1,
+        "heldRecords": 0
+      }
+    },
+    {
+      "name": "Library desk",
+      "knownError": "l3",
+      "expected": "Loans",
+      "actual": "Loans",
+      "flags": [
+        "l1",
+        "l2",
+        "l3"
+      ],
+      "metrics": {
+        "records": 6,
+        "exactConflictRecords": 0,
+        "semanticFlagRecords": 3,
+        "changedLabels": 1,
+        "heldRecords": 0
+      }
+    }
+  ],
+  "requests": [
+    {
+      "url": "http://127.0.0.1:6242/daily-app2/20261108-2/",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6242/daily-app2/20261108-2/assets/index-DTrhV8XP.js",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6242/daily-app2/20261108-2/assets/index-D2jUB-Zm.css",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6242/daily-app2/20261108-2/assets/ai.worker-B4A_0Wfs.js",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6242/d372ce8b-d567-419a-9ff6-c54686654392",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6242/daily-app2/20261108-2/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6242/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6242/403ce89e-7933-40e4-98f6-6f67017d1453",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6242/a4a74462-e453-4912-a99c-7952ae2e4e42",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6242/5b7eb355-b99a-4437-91b5-569a46f15752",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6242/f158b658-1357-4c48-99b1-212d366ddb92",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6242/74868ddc-8622-4b9b-8b56-a658dea0bf66",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6242/9d463975-656d-49c7-b482-10ed086aaa57",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6242/25befddb-79c0-4588-a1c0-ed6cf547c775",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6242/f42d9713-b4f1-493f-947c-a38e847cf969",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6242/8b9234bc-920c-4acd-847d-2793abcd8e7a",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6242/899782d3-3937-468e-88ea-a91f7a05e997",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6242/c17a599d-09a8-419b-8069-9bf4fcf6d585",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6242/8e4754a6-c420-4032-9147-d1e13884ac38",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6242/21e9e823-95bd-48dd-9993-713f77e78b8e",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6242/21701bb2-59bd-489e-8416-d8a3d1e69b33",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6242/72c96100-d14d-4cfb-9057-c13e94d0083c",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6242/bb6563b4-5d2f-415d-9cb2-d97a2d467265",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6242/80f8ccb8-60c2-4ccc-ad88-e917dbab0ce0",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6242/c4bcc9ca-ec7f-4c60-890c-b739c68178eb",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6242/daily-app2/20261108-2/assets/ai.worker-B4A_0Wfs.js",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6242/daily-app2/20261108-2/assets/ai.worker-B4A_0Wfs.js",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6242/0c42883f-0114-4fa8-8134-8535c297fede",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6242/daily-app2/20261108-2/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6242/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6242/9581504d-4f4d-401e-add3-b0b017cf2e45",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6242/0068dfc2-6942-4c44-a146-cc9cffd663d9",
+      "method": "GET",
+      "body": null
+    }
+  ],
+  "errors": [],
+  "requestQueryPolicy": "Download redirect query strings omitted; all methods/body checks used original in-memory requests."
+}

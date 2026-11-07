@@ -1,0 +1,296 @@
+{
+  "schema": "label-lens/v1",
+  "input": {
+    "records": [
+      {
+        "id": "h1",
+        "text": "I forgot my password and cannot sign in to my account.",
+        "label": "Access"
+      },
+      {
+        "id": "h2",
+        "text": "Please help me reset my login password.",
+        "label": "Access"
+      },
+      {
+        "id": "h3",
+        "text": "My password is lost. I need to recover access to my account.",
+        "label": "Billing"
+      },
+      {
+        "id": "h4",
+        "text": "My credit card was charged twice for the subscription invoice.",
+        "label": "Billing"
+      },
+      {
+        "id": "h5",
+        "text": "Please refund the duplicate payment on my invoice.",
+        "label": "Billing"
+      },
+      {
+        "id": "h6",
+        "text": "I was billed twice for my subscription and need my money back.",
+        "label": "Billing"
+      }
+    ]
+  },
+  "floor": 0.3,
+  "model": "Xenova/all-MiniLM-L6-v2 q8 / WASM",
+  "analysis": [
+    {
+      "id": "h1",
+      "neighbors": [
+        {
+          "id": "h3",
+          "label": "Billing",
+          "text": "My password is lost. I need to recover access to my account.",
+          "score": 0.8123553642560326,
+          "index": 2
+        },
+        {
+          "id": "h2",
+          "label": "Access",
+          "text": "Please help me reset my login password.",
+          "score": 0.7976939636167181,
+          "index": 1
+        },
+        {
+          "id": "h6",
+          "label": "Billing",
+          "text": "I was billed twice for my subscription and need my money back.",
+          "score": 0.44238417971742605,
+          "index": 5
+        }
+      ],
+      "proposed": "Billing",
+      "flag": true,
+      "reason": "Similarity-weighted vote of up to three other records. This is a review cue, not ground truth."
+    },
+    {
+      "id": "h2",
+      "neighbors": [
+        {
+          "id": "h1",
+          "label": "Access",
+          "text": "I forgot my password and cannot sign in to my account.",
+          "score": 0.7976939636167181,
+          "index": 0
+        },
+        {
+          "id": "h3",
+          "label": "Billing",
+          "text": "My password is lost. I need to recover access to my account.",
+          "score": 0.7561018795918633,
+          "index": 2
+        },
+        {
+          "id": "h6",
+          "label": "Billing",
+          "text": "I was billed twice for my subscription and need my money back.",
+          "score": 0.34935285893558826,
+          "index": 5
+        }
+      ],
+      "proposed": "Billing",
+      "flag": true,
+      "reason": "Similarity-weighted vote of up to three other records. This is a review cue, not ground truth."
+    },
+    {
+      "id": "h3",
+      "neighbors": [
+        {
+          "id": "h1",
+          "label": "Access",
+          "text": "I forgot my password and cannot sign in to my account.",
+          "score": 0.8123553642560326,
+          "index": 0
+        },
+        {
+          "id": "h2",
+          "label": "Access",
+          "text": "Please help me reset my login password.",
+          "score": 0.7561018795918633,
+          "index": 1
+        },
+        {
+          "id": "h6",
+          "label": "Billing",
+          "text": "I was billed twice for my subscription and need my money back.",
+          "score": 0.4133583914205211,
+          "index": 5
+        }
+      ],
+      "proposed": "Access",
+      "flag": true,
+      "reason": "Similarity-weighted vote of up to three other records. This is a review cue, not ground truth."
+    },
+    {
+      "id": "h4",
+      "neighbors": [
+        {
+          "id": "h6",
+          "label": "Billing",
+          "text": "I was billed twice for my subscription and need my money back.",
+          "score": 0.7478651833212241,
+          "index": 5
+        },
+        {
+          "id": "h5",
+          "label": "Billing",
+          "text": "Please refund the duplicate payment on my invoice.",
+          "score": 0.6729441389666453,
+          "index": 4
+        }
+      ],
+      "proposed": "Billing",
+      "flag": false,
+      "reason": "Similarity-weighted vote of up to three other records. This is a review cue, not ground truth."
+    },
+    {
+      "id": "h5",
+      "neighbors": [
+        {
+          "id": "h4",
+          "label": "Billing",
+          "text": "My credit card was charged twice for the subscription invoice.",
+          "score": 0.6729441389666453,
+          "index": 3
+        },
+        {
+          "id": "h6",
+          "label": "Billing",
+          "text": "I was billed twice for my subscription and need my money back.",
+          "score": 0.6195834599298251,
+          "index": 5
+        }
+      ],
+      "proposed": "Billing",
+      "flag": false,
+      "reason": "Similarity-weighted vote of up to three other records. This is a review cue, not ground truth."
+    },
+    {
+      "id": "h6",
+      "neighbors": [
+        {
+          "id": "h4",
+          "label": "Billing",
+          "text": "My credit card was charged twice for the subscription invoice.",
+          "score": 0.7478651833212241,
+          "index": 3
+        },
+        {
+          "id": "h5",
+          "label": "Billing",
+          "text": "Please refund the duplicate payment on my invoice.",
+          "score": 0.6195834599298251,
+          "index": 4
+        },
+        {
+          "id": "h1",
+          "label": "Access",
+          "text": "I forgot my password and cannot sign in to my account.",
+          "score": 0.44238417971742605,
+          "index": 0
+        }
+      ],
+      "proposed": "Billing",
+      "flag": false,
+      "reason": "Similarity-weighted vote of up to three other records. This is a review cue, not ground truth."
+    }
+  ],
+  "review": [
+    {
+      "id": "h1",
+      "label": "Access",
+      "decision": "keep",
+      "note": ""
+    },
+    {
+      "id": "h2",
+      "label": "Access",
+      "decision": "keep",
+      "note": ""
+    },
+    {
+      "id": "h3",
+      "label": "Access",
+      "decision": "correct",
+      "note": ""
+    },
+    {
+      "id": "h4",
+      "label": "Billing",
+      "decision": "keep",
+      "note": ""
+    },
+    {
+      "id": "h5",
+      "label": "Billing",
+      "decision": "keep",
+      "note": ""
+    },
+    {
+      "id": "h6",
+      "label": "Billing",
+      "decision": "keep",
+      "note": ""
+    }
+  ],
+  "metrics": {
+    "records": 6,
+    "exactConflictRecords": 0,
+    "semanticFlagRecords": 3,
+    "changedLabels": 1,
+    "heldRecords": 0
+  },
+  "records": [
+    {
+      "id": "h1",
+      "text": "I forgot my password and cannot sign in to my account.",
+      "label": "Access",
+      "originalLabel": "Access",
+      "decision": "keep",
+      "note": ""
+    },
+    {
+      "id": "h2",
+      "text": "Please help me reset my login password.",
+      "label": "Access",
+      "originalLabel": "Access",
+      "decision": "keep",
+      "note": ""
+    },
+    {
+      "id": "h3",
+      "text": "My password is lost. I need to recover access to my account.",
+      "label": "Access",
+      "originalLabel": "Billing",
+      "decision": "correct",
+      "note": ""
+    },
+    {
+      "id": "h4",
+      "text": "My credit card was charged twice for the subscription invoice.",
+      "label": "Billing",
+      "originalLabel": "Billing",
+      "decision": "keep",
+      "note": ""
+    },
+    {
+      "id": "h5",
+      "text": "Please refund the duplicate payment on my invoice.",
+      "label": "Billing",
+      "originalLabel": "Billing",
+      "decision": "keep",
+      "note": ""
+    },
+    {
+      "id": "h6",
+      "text": "I was billed twice for my subscription and need my money back.",
+      "label": "Billing",
+      "originalLabel": "Billing",
+      "decision": "keep",
+      "note": ""
+    }
+  ]
+}

@@ -24,6 +24,10 @@ Keep the polished responsive utility styling; familiar lavender/pink accents are
 
 Notice Atelier (`20261107-3`), Brief Quarry (`20261107-4`), Split Sentinel (`20261107-6`), Veil Desk (`20261107-7`), Folder Ferry (`20261107-8`), Scope Harbor (`20261107-9`), Revision Dock (`20261107-10`), Mention Atlas (`20261107-11`), Outcome Map (`20261107-12`), Retention Desk (`20261107-14`), Parallel Room (`20261107-15`), Pack Relay (`20261107-16`), Form Pruner (`20261107-17`), Queue Mosaic (`20261107-18`), Rewrite Guard (`20261107-20`), Claim Ledger (`20261107-21`), Chapter Cut (`20261107-22`), Anchor Desk (`20261107-23`) and Distractor Desk (`20261107-24`) reuse the byte-identical ONNX Runtime WASM already hosted at `20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm`, avoiding 26,861,777 duplicate deployed bytes. Their Vite builds rewrite fallback URLs to that immutable same-origin asset. Preserve referenced older app builds and paths when assembling the collection; the app README and asset/deployment audits record the SHA-256 and production-bundle/offline validation. No model inference or user content moves to a server.
 
+## Label Lens — 20261108-2
+
+Local semantic label-consistency auditing with MiniLM leave-one-out neighbor evidence, human corrections/holds and lossless JSON plus reviewed CSV. Reuses the immutable shared WASM from `20261107-2`; preserve that app asset when deploying. Both seeded errors in two synthetic batches were flagged, along with four false-positive neighbor cues: this is a human audit aid, not an automatic label fixer. See [workflow and requirements](20261108-2/README.md) and [observed validation](20261108-2/VALIDATION.md).
+
 ## Builder and publishing workflow
 
 Preserve the existing enabled hourly Asia/Singapore cron, model, run budget, routing and delivery settings. Create `YYYYMMDD-N/`, scaffold React + Vite, install gh-pages and use Vite base `/daily-app2/YYYYMMDD-N/`. Each app retains `predeploy: npm run build` and `deploy: gh-pages -d dist`. Validate the working AI flow and artifacts, add the gallery entry, run root predeploy/deploy, commit and push main using `YYYYMMDD-N: App Name (ai-utility)`.

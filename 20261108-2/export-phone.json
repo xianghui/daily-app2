@@ -1,0 +1,296 @@
+{
+  "schema": "label-lens/v1",
+  "input": {
+    "records": [
+      {
+        "id": "l1",
+        "text": "Can I renew the borrowed library book for another week?",
+        "label": "Loans"
+      },
+      {
+        "id": "l2",
+        "text": "I need an extension on my library book loan due date.",
+        "label": "Loans"
+      },
+      {
+        "id": "l3",
+        "text": "Please let me keep my borrowed book longer before returning it.",
+        "label": "Events"
+      },
+      {
+        "id": "l4",
+        "text": "What time does the author talk start at the library?",
+        "label": "Events"
+      },
+      {
+        "id": "l5",
+        "text": "I want to attend the library author reading event.",
+        "label": "Events"
+      },
+      {
+        "id": "l6",
+        "text": "How do I register for the visiting author lecture?",
+        "label": "Events"
+      }
+    ]
+  },
+  "floor": 0.3,
+  "model": "Xenova/all-MiniLM-L6-v2 q8 / WASM",
+  "analysis": [
+    {
+      "id": "l1",
+      "neighbors": [
+        {
+          "id": "l3",
+          "label": "Events",
+          "text": "Please let me keep my borrowed book longer before returning it.",
+          "score": 0.6606955875495384,
+          "index": 2
+        },
+        {
+          "id": "l2",
+          "label": "Loans",
+          "text": "I need an extension on my library book loan due date.",
+          "score": 0.552268605529241,
+          "index": 1
+        },
+        {
+          "id": "l4",
+          "label": "Events",
+          "text": "What time does the author talk start at the library?",
+          "score": 0.37540563385756964,
+          "index": 3
+        }
+      ],
+      "proposed": "Events",
+      "flag": true,
+      "reason": "Similarity-weighted vote of up to three other records. This is a review cue, not ground truth."
+    },
+    {
+      "id": "l2",
+      "neighbors": [
+        {
+          "id": "l1",
+          "label": "Loans",
+          "text": "Can I renew the borrowed library book for another week?",
+          "score": 0.552268605529241,
+          "index": 0
+        },
+        {
+          "id": "l5",
+          "label": "Events",
+          "text": "I want to attend the library author reading event.",
+          "score": 0.4659302041061787,
+          "index": 4
+        },
+        {
+          "id": "l3",
+          "label": "Events",
+          "text": "Please let me keep my borrowed book longer before returning it.",
+          "score": 0.43996675661556045,
+          "index": 2
+        }
+      ],
+      "proposed": "Events",
+      "flag": true,
+      "reason": "Similarity-weighted vote of up to three other records. This is a review cue, not ground truth."
+    },
+    {
+      "id": "l3",
+      "neighbors": [
+        {
+          "id": "l1",
+          "label": "Loans",
+          "text": "Can I renew the borrowed library book for another week?",
+          "score": 0.6606955875495384,
+          "index": 0
+        },
+        {
+          "id": "l2",
+          "label": "Loans",
+          "text": "I need an extension on my library book loan due date.",
+          "score": 0.43996675661556045,
+          "index": 1
+        }
+      ],
+      "proposed": "Loans",
+      "flag": true,
+      "reason": "Similarity-weighted vote of up to three other records. This is a review cue, not ground truth."
+    },
+    {
+      "id": "l4",
+      "neighbors": [
+        {
+          "id": "l5",
+          "label": "Events",
+          "text": "I want to attend the library author reading event.",
+          "score": 0.5504194045950171,
+          "index": 4
+        },
+        {
+          "id": "l1",
+          "label": "Loans",
+          "text": "Can I renew the borrowed library book for another week?",
+          "score": 0.37540563385756964,
+          "index": 0
+        },
+        {
+          "id": "l6",
+          "label": "Events",
+          "text": "How do I register for the visiting author lecture?",
+          "score": 0.3431673318533925,
+          "index": 5
+        }
+      ],
+      "proposed": "Events",
+      "flag": false,
+      "reason": "Similarity-weighted vote of up to three other records. This is a review cue, not ground truth."
+    },
+    {
+      "id": "l5",
+      "neighbors": [
+        {
+          "id": "l6",
+          "label": "Events",
+          "text": "How do I register for the visiting author lecture?",
+          "score": 0.5635258592566013,
+          "index": 5
+        },
+        {
+          "id": "l4",
+          "label": "Events",
+          "text": "What time does the author talk start at the library?",
+          "score": 0.5504194045950171,
+          "index": 3
+        },
+        {
+          "id": "l2",
+          "label": "Loans",
+          "text": "I need an extension on my library book loan due date.",
+          "score": 0.4659302041061787,
+          "index": 1
+        }
+      ],
+      "proposed": "Events",
+      "flag": false,
+      "reason": "Similarity-weighted vote of up to three other records. This is a review cue, not ground truth."
+    },
+    {
+      "id": "l6",
+      "neighbors": [
+        {
+          "id": "l5",
+          "label": "Events",
+          "text": "I want to attend the library author reading event.",
+          "score": 0.5635258592566013,
+          "index": 4
+        },
+        {
+          "id": "l4",
+          "label": "Events",
+          "text": "What time does the author talk start at the library?",
+          "score": 0.3431673318533925,
+          "index": 3
+        }
+      ],
+      "proposed": "Events",
+      "flag": false,
+      "reason": "Similarity-weighted vote of up to three other records. This is a review cue, not ground truth."
+    }
+  ],
+  "review": [
+    {
+      "id": "l1",
+      "label": "Loans",
+      "decision": "keep",
+      "note": "Phone edit"
+    },
+    {
+      "id": "l2",
+      "label": "Loans",
+      "decision": "keep",
+      "note": ""
+    },
+    {
+      "id": "l3",
+      "label": "Events",
+      "decision": "keep",
+      "note": ""
+    },
+    {
+      "id": "l4",
+      "label": "Events",
+      "decision": "keep",
+      "note": ""
+    },
+    {
+      "id": "l5",
+      "label": "Events",
+      "decision": "keep",
+      "note": ""
+    },
+    {
+      "id": "l6",
+      "label": "Events",
+      "decision": "keep",
+      "note": ""
+    }
+  ],
+  "metrics": {
+    "records": 6,
+    "exactConflictRecords": 0,
+    "semanticFlagRecords": 3,
+    "changedLabels": 0,
+    "heldRecords": 0
+  },
+  "records": [
+    {
+      "id": "l1",
+      "text": "Can I renew the borrowed library book for another week?",
+      "label": "Loans",
+      "originalLabel": "Loans",
+      "decision": "keep",
+      "note": "Phone edit"
+    },
+    {
+      "id": "l2",
+      "text": "I need an extension on my library book loan due date.",
+      "label": "Loans",
+      "originalLabel": "Loans",
+      "decision": "keep",
+      "note": ""
+    },
+    {
+      "id": "l3",
+      "text": "Please let me keep my borrowed book longer before returning it.",
+      "label": "Events",
+      "originalLabel": "Events",
+      "decision": "keep",
+      "note": ""
+    },
+    {
+      "id": "l4",
+      "text": "What time does the author talk start at the library?",
+      "label": "Events",
+      "originalLabel": "Events",
+      "decision": "keep",
+      "note": ""
+    },
+    {
+      "id": "l5",
+      "text": "I want to attend the library author reading event.",
+      "label": "Events",
+      "originalLabel": "Events",
+      "decision": "keep",
+      "note": ""
+    },
+    {
+      "id": "l6",
+      "text": "How do I register for the visiting author lecture?",
+      "label": "Events",
+      "originalLabel": "Events",
+      "decision": "keep",
+      "note": ""
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "schema": "dependency-loom/v1",
+  "original": [
+    {
+      "id": "C",
+      "task": "Send invitations",
+      "produces": "Invitations delivered to guests",
+      "needs": "Completed invitation design"
+    },
+    {
+      "id": "A",
+      "task": "Confirm venue",
+      "produces": "Confirmed venue address and room capacity",
+      "needs": "-"
+    },
+    {
+      "id": "B",
+      "task": "Design invitation",
+      "produces": "Invitation artwork with event location",
+      "needs": "Venue address and capacity confirmed"
+    }
+  ],
+  "floor": 0.35,
+  "order": [
+    "A",
+    "B",
+    "C"
+  ],
+  "rows": [
+    {
+      "id": "C",
+      "parent": "B",
+      "suggested": "B",
+      "scores": [
+        -1,
+        0.34178126904930106,
+        0.5712083074464215
+      ],
+      "reviewed": true,
+      "note": "",
+      "source": {
+        "id": "C",
+        "task": "Send invitations",
+        "produces": "Invitations delivered to guests",
+        "needs": "Completed invitation design"
+      },
+      "stage": 3
+    },
+    {
+      "id": "A",
+      "parent": "",
+      "suggested": "",
+      "scores": [
+        0.06490275359453031,
+        -1,
+        0.04536652850957509
+      ],
+      "reviewed": true,
+      "note": "",
+      "source": {
+        "id": "A",
+        "task": "Confirm venue",
+        "produces": "Confirmed venue address and room capacity",
+        "needs": "-"
+      },
+      "stage": 1
+    },
+    {
+      "id": "B",
+      "parent": "A",
+      "suggested": "A",
+      "scores": [
+        0.2533373575484649,
+        0.9031792554234549,
+        -1
+      ],
+      "reviewed": true,
+      "note": "",
+      "source": {
+        "id": "B",
+        "task": "Design invitation",
+        "produces": "Invitation artwork with event location",
+        "needs": "Venue address and capacity confirmed"
+      },
+      "stage": 2
+    }
+  ],
+  "metrics": {
+    "tasks": 3,
+    "linked": 2,
+    "stages": 3,
+    "exactBaseline": 0
+  }
+}

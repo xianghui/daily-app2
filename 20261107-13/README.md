@@ -1,0 +1,27 @@
+# Dependency Loom — UNPUBLISHED DRAFT
+
+**Publication blocked (2026-11-07):** three GitHub Pages deployment attempts built successfully but timed out/failed during deployment synchronization/queue. The public app remained unavailable. Excluded from the gallery and combined deploy; local validation is not public verification. See publication-status.json.
+
+Operations coordinators paste/import a task manifest (`id,task,produces,needs`), run local AI to identify prerequisite handoffs, review/edit/reject links and add notes, then apply a cycle-free execution plan. JSON preserves original tasks, proposals, per-candidate similarity scores, reviewed links, notes, stages and ordering; CSV exports every task in executable order. Nothing executes or sends tasks externally. `-` means no prerequisite.
+
+## Actual AI and useful difference
+
+Xenova/all-MiniLM-L6-v2, Apache-2.0, https://huggingface.co/Xenova/all-MiniLM-L6-v2; quantized q8 model, ~23 MB model/tokenizer plus ~27 MB ONNX runtime. Transformers.js 4.3.2 / ONNX Runtime Web 1.31.0-dev.20260914-8d85527a0 WASM CPU (see installed lockfile for exact versions and third-party notices). Real normalized mean-pooled 384-dimensional embeddings match each need against every other deliverable. This bridges paraphrases missed by the displayed exact-text baseline. Candidate counts are not accuracy or measured time savings. Highest cosine above the chosen floor, self-link exclusion, cycle detection, topological sorting and dependency-depth stages are deterministic, not AI. Similarity is not confidence or proof of causality.
+
+## Runtime / privacy / caching
+
+No API key, server, remote inference, analytics or content upload. Content stays in browser memory and the local worker; explicit file downloads/clipboard exports leave the app only at the user's request. Public weights/tokenizer download from huggingface.co and its CDN (hf.co / xethub.hf.co hosts). App/worker/factory are bundled same-origin. The byte-identical 26,861,777-byte WASM is shared from `/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm`; preserve that older app in combined deploy. SHA-256: 49871f5a4409519797e127440868a6d1923339d9185907f301a5b2a1d90af082. Cache API bridges worker, factory and binary for fresh-worker inference; Transformers caches model files. Only the tested open-page, post-success offline inference scope is promised, NOT offline navigation/reload. Storage eviction/private mode can require internet again; clear browser site data to remove caches. Task content is not persisted by this app. Download may be cancelled and partial files remain cached.
+
+Web Workers + WebAssembly required; CPU works without WebGPU. Modern Chrome/Edge/Firefox/Safari recommended, desktop first. Actual verification uses desktop Chrome with 1440, 390 and 320px viewports, not physical phones or every browser. First download needs internet and sufficient memory/storage. Worker errors, blocked network, unsupported runtime, timeout, invalid AI schemas surface errors with retry; no deterministic imitation replaces failed AI.
+
+## Limits and review
+
+1–12 tasks; one incoming prerequisite per task. This deliberately simple single-handoff planner is not a full multi-input dependency scheduler. Split tasks or track additional prerequisites separately. 16 KB CSV, id ≤40 characters, other fields ≤240, unique IDs, all fields required. At most 24 embedded descriptions, batches of four, 256-token context. English short descriptions work best. Model can mistake topical similarity for causality, reverse links, miss negation and propose cycles. All links require human review; unresolved external needs stay visible and export intact. No dates, durations or resource capacity; stages are graph depth, not readiness promises. Cycle and blocked-descendant IDs are shown and apply is disabled until fixed. Imported text is untrusted data, not a prompt or credential request.
+
+Changing inputs terminates workers and invalidates reviews/exports. Cancelling invalidates run IDs; late messages/file reads cannot overwrite new work. Edits reset that record's review and remove the applied export snapshot. Undo keeps 40 review states; originals remain unchanged. All tasks, including rejected/unlinked ones, survive export. CSV uses formula-leading escaping (including multiline fields); JSON is the lossless source/audit format. Exported CSV is a handoff plan, not the four-column input schema.
+
+## Build / test / publish
+
+`npm install`, then `npm run predeploy`. For full local production inference use `python3 serve-test.py` (port 6193); it also serves the shared WASM from the older app build. `npm run dev` previews UI but needs an equivalent shared-asset route to perform inference. App base `/daily-app2/20261107-13/`. `npm run deploy` remains for contract compatibility but publish ONLY through root `npm run predeploy` then root `npm run deploy`, preserving the full collection.
+
+`node core-check.mjs`; `python3 serve-test.py` then `node browser-test.cjs`; `node reordered-test.cjs`; `python3 export-roundtrip.py`; `python3 audit-assets.py`. Browser tests require Playwright and Chrome. `TEST_URL` and `REPORT` allow the same real-inference suite against public Pages. See VALIDATION.md and generated evidence for actual results. Defensive tests inject faults only; successful runs use real weights and inference. Fixtures are wholly synthetic. No claim of general workflow accuracy.

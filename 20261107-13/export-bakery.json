@@ -1,0 +1,94 @@
+{
+  "schema": "dependency-loom/v1",
+  "original": [
+    {
+      "id": "B1",
+      "task": "Order ingredients",
+      "produces": "Flour sugar and butter delivered",
+      "needs": "-"
+    },
+    {
+      "id": "B2",
+      "task": "Bake pastries",
+      "produces": "Fresh baked croissants and cakes",
+      "needs": "Delivered baking ingredients"
+    },
+    {
+      "id": "B3",
+      "task": "Stock counter",
+      "produces": "Display case filled with pastries",
+      "needs": "Finished cakes and croissants"
+    }
+  ],
+  "floor": 0.35,
+  "order": [
+    "B1",
+    "B2",
+    "B3"
+  ],
+  "rows": [
+    {
+      "id": "B1",
+      "parent": "",
+      "suggested": "",
+      "scores": [
+        -1,
+        -0.005881813868167464,
+        0.06045464493389434
+      ],
+      "reviewed": true,
+      "note": "",
+      "source": {
+        "id": "B1",
+        "task": "Order ingredients",
+        "produces": "Flour sugar and butter delivered",
+        "needs": "-"
+      },
+      "stage": 1
+    },
+    {
+      "id": "B2",
+      "parent": "B1",
+      "suggested": "B1",
+      "scores": [
+        0.5977634288266336,
+        -1,
+        0.15580564807045455
+      ],
+      "reviewed": true,
+      "note": "",
+      "source": {
+        "id": "B2",
+        "task": "Bake pastries",
+        "produces": "Fresh baked croissants and cakes",
+        "needs": "Delivered baking ingredients"
+      },
+      "stage": 2
+    },
+    {
+      "id": "B3",
+      "parent": "B2",
+      "suggested": "B2",
+      "scores": [
+        0.34019018852891847,
+        0.8116669162455207,
+        -1
+      ],
+      "reviewed": true,
+      "note": "",
+      "source": {
+        "id": "B3",
+        "task": "Stock counter",
+        "produces": "Display case filled with pastries",
+        "needs": "Finished cakes and croissants"
+      },
+      "stage": 3
+    }
+  ],
+  "metrics": {
+    "tasks": 3,
+    "linked": 2,
+    "stages": 3,
+    "exactBaseline": 0
+  }
+}

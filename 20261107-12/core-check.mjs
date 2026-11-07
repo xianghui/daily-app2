@@ -1,0 +1,8 @@
+import assert from 'node:assert/strict';import fs from 'node:fs';import {inputs,suggest,artifact,coverage,examples,validateVectors} from './src/core.js';
+let checks=0;function bad(fn){assert.throws(fn);checks++;}
+for(const t of ['','id,text,points\nA,a,0','id,text,points\nA,a,1.5','id,text,points\nA,a,101','id,text,points\nA,a,1\nA,b,2','id,text,points\nA,'+'a'.repeat(301)+',2'])bad(()=>inputs(examples['Digital skills'].before,t,.42));
+bad(()=>validateVectors([[NaN]],1));bad(()=>validateVectors(Array(6).fill(Array(384).fill(0)),6));
+const d=inputs(examples['Digital skills'].before,examples['Digital skills'].after,.42),v=Array.from({length:6},(_,i)=>Array.from({length:384},(_,j)=>j===i%3?1:0));const rows=suggest(d,v);rows.forEach(r=>r.reviewed=true);const a=artifact(d,rows,true);assert.equal(a.metrics.totalMarks,13);assert.equal(a.coverage.reduce((s,o)=>s+o.assigned,0),13);assert.equal(a.rows.length,3);assert.equal(a.original.before.length,3);
+bad(()=>artifact(d,rows.map((r,i)=>({...r,points:i? r.points:0})),true));bad(()=>artifact(d,rows.map(r=>({...r,reviewed:false})),true));bad(()=>artifact(d,rows.slice(1),true));bad(()=>artifact(d,rows.map(r=>({...r,objective:'missing'})),true));bad(()=>artifact(d,rows.map(r=>({...r,objective:''})),false));
+rows[2].objective='L1';const c=coverage(d,rows);assert.equal(c[0].assigned,7);assert.equal(c[2].deficit,5);assert.equal(c.reduce((s,o)=>s+o.assigned,0),13);checks+=8;
+fs.writeFileSync('core-validation.json',JSON.stringify({checks,defensiveVectorsOnly:true,realInference:'see browser-validation.json',marksConserved:true,manyToOne:true},null,2));console.log('PASS',checks,'schema/coverage checks');

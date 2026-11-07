@@ -1,0 +1,54 @@
+{
+  "app": "Scope Harbor",
+  "version": 1,
+  "model": "Xenova/all-MiniLM-L6-v2 q8",
+  "margin": 0.08,
+  "minimumSimilarity": 0.25,
+  "charter": [
+    {
+      "id": "C1",
+      "boundary": "IN",
+      "example": "Account authentication login password reset and profile management"
+    },
+    {
+      "id": "C2",
+      "boundary": "OUT",
+      "example": "Online shop checkout payment processing product sales and billing"
+    }
+  ],
+  "metrics": {
+    "records": 1,
+    "inScope": 1,
+    "outOfScope": 0,
+    "needsDiscussion": 0,
+    "lexicalDecided": 1,
+    "aiDecided": 1,
+    "disagreements": 0,
+    "overrides": 0
+  },
+  "rows": [
+    {
+      "id": "=Vendor, \"Q\"",
+      "title": "Password",
+      "summary": "=Recover a forgotten password\nthrough recovery email.",
+      "decision": "IN",
+      "suggested": "IN",
+      "inside": {
+        "id": "C1",
+        "boundary": "IN",
+        "example": "Account authentication login password reset and profile management",
+        "score": 0.4523496570424187
+      },
+      "outside": {
+        "id": "C2",
+        "boundary": "OUT",
+        "example": "Online shop checkout payment processing product sales and billing",
+        "score": 0.025101814809634082
+      },
+      "baseline": "IN",
+      "reviewed": true,
+      "owner": "",
+      "note": "=Quoted, \"note\"\nsecond line"
+    }
+  ]
+}

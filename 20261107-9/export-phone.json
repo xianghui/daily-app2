@@ -1,0 +1,100 @@
+{
+  "app": "Scope Harbor",
+  "version": 1,
+  "model": "Xenova/all-MiniLM-L6-v2 q8",
+  "margin": 0.08,
+  "minimumSimilarity": 0.25,
+  "charter": [
+    {
+      "id": "C1",
+      "boundary": "IN",
+      "example": "Account authentication login password reset and profile management"
+    },
+    {
+      "id": "C2",
+      "boundary": "OUT",
+      "example": "Online shop checkout payment processing product sales and billing"
+    }
+  ],
+  "metrics": {
+    "records": 3,
+    "inScope": 1,
+    "outOfScope": 1,
+    "needsDiscussion": 1,
+    "lexicalDecided": 1,
+    "aiDecided": 2,
+    "disagreements": 1,
+    "overrides": 0
+  },
+  "rows": [
+    {
+      "id": "R1",
+      "title": "Lost login",
+      "summary": "Let members recover a forgotten password using a recovery email.",
+      "decision": "IN",
+      "suggested": "IN",
+      "inside": {
+        "id": "C1",
+        "boundary": "IN",
+        "example": "Account authentication login password reset and profile management",
+        "score": 0.47174944957146747
+      },
+      "outside": {
+        "id": "C2",
+        "boundary": "OUT",
+        "example": "Online shop checkout payment processing product sales and billing",
+        "score": 0.03225228687979512
+      },
+      "baseline": "IN",
+      "reviewed": true,
+      "owner": "",
+      "note": "Phone reviewed"
+    },
+    {
+      "id": "R2",
+      "title": "Checkout",
+      "summary": "Accept credit card payments for products in a shopping basket.",
+      "decision": "OUT",
+      "suggested": "OUT",
+      "inside": {
+        "id": "C1",
+        "boundary": "IN",
+        "example": "Account authentication login password reset and profile management",
+        "score": 0.12825853878024296
+      },
+      "outside": {
+        "id": "C2",
+        "boundary": "OUT",
+        "example": "Online shop checkout payment processing product sales and billing",
+        "score": 0.5626566493807249
+      },
+      "baseline": "REVIEW",
+      "reviewed": true,
+      "owner": "",
+      "note": ""
+    },
+    {
+      "id": "R3",
+      "title": "Profile photo",
+      "summary": "Allow members to update their avatar and personal information.",
+      "decision": "REVIEW",
+      "suggested": "REVIEW",
+      "inside": {
+        "id": "C1",
+        "boundary": "IN",
+        "example": "Account authentication login password reset and profile management",
+        "score": 0.2448929584686079
+      },
+      "outside": {
+        "id": "C2",
+        "boundary": "OUT",
+        "example": "Online shop checkout payment processing product sales and billing",
+        "score": 0.010315043938920958
+      },
+      "baseline": "REVIEW",
+      "reviewed": true,
+      "owner": "",
+      "note": ""
+    }
+  ]
+}

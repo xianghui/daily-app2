@@ -1,0 +1,20 @@
+# Scope Harbor validation — 2026-11-07
+
+Validated the actual Vite **production bundle** in headless installed desktop Chrome with Playwright. No mocked inference was used for successful workflow checks. Browser tests and downloaded artifacts are retained beside this report.
+
+- `npm run predeploy` passed. 7 emitted production assets audited, no credential-pattern hits; manual code inspection found no remote inference, content POST, telemetry or API key handling.
+- Real MiniLM q8 WASM CPU inference on two materially different synthetic projects: member portal vs library launch. Six human-labeled expected decisions IN/OUT/IN and IN/OUT/IN. Observed IN/OUT/REVIEW and IN/OUT/IN: five correct decided suggestions, one deferred, zero wrong decided suggestions. Profile-photo request strongest IN score 0.245 fell below the 0.25 rule. This is a deliberately small check, not universal accuracy; review remains required.
+- 60 requests + 12 charter examples (18 model chunks), all 60 unique request IDs and original records survive. Review constraints and computed metric totals reconcile. Larger batches rejected.
+- Online run, terminate worker, disable **all** networking, new worker, real inference and export passed. Cached online reload required no more model-host requests. This establishes open-tab offline reuse only, not offline navigation/reload.
+- No external requests before explicit loading. Captured subsequent external traffic comprised 14 GET/HEAD downloads to huggingface.co and us.aws.cdn.hf.co with no content bodies or request text in URLs. Worker/runtime assets were same-origin. No content-upload code exists.
+- Review all, reject to discussion, owner/note edits, review invalidation, apply invalidation, undo, downloads and clipboard passed. Independently parsed JSON/CSV preserve edited owner and multiline/quoted notes, IDs and summaries. Formula-leading multiline CSV values are spreadsheet escaped; JSON preserves originals. 60-record conservation verified independently.
+- Empty/bad/duplicate/oversized request inputs, wrong headers, missing side/invalid/duplicate charter boundaries, out-of-range margin, wrong format and >40 KB file uploads rejected. Margin 1 defers all rows as specified.
+- Real network download failure and WASM fetch failure both surfaced errors without fake output and succeeded on retry. Download cancellation and inference cancellation followed by retry passed. Changed inputs, late cancelled callbacks and delayed file reads cannot restore stale results.
+- Fault-injection-only defensive checks: absent Worker, absent WebAssembly, worker construction/error, malformed embedding output and accelerated timeout all yielded actionable errors and no results. Successful inference tests used the real downloaded model.
+- Desktop 1440 and narrow 390/320 layouts checked for overflow, input/review/export interactions and keyboard focus; screenshots retained. 320 screenshot visually inspected; no clipped content observed. Actual phone hardware, assistive-reader audit, non-Chrome browsers and low-memory devices **not tested**.
+
+`browser-validation.json`, `export-roundtrip-validation.json`, `asset-audit.json` are machine-readable evidence. Gallery and public Pages results are recorded separately after combined publication; do not infer publication from this local report.
+
+## Public verification — passed
+
+Published via root combined workflow. Pages reports `built` for matching gh-pages commit `8b9f312539a59eef08c65a3ac6757a285fc7fe1f`. Every app asset, worker, factory and shared WASM fetched from the public site and SHA-256 matched the production build. Public real-model inference reproduced both fixtures, offline fresh-worker inference succeeded, edited JSON/CSV downloads were independently parsed, and both phone widths passed. Public gallery contains 503 apps, Scope Harbor exactly once, AI Utilities first, old categories retained and search works. See deployment-validation.json, public-browser-validation.json, public-export-roundtrip-validation.json and public-gallery-validation.json.

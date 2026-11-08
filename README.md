@@ -95,3 +95,7 @@ Local MiniLM hard-negative mining for contrastive training data with mandatory p
 ## Route Caliper — 20261108-12
 
 Local MiniLM request-routing evaluation with calibration-only abstention thresholds and independent holdout precision/coverage reporting. Review/correct gold labels, exclude ambiguous samples, preserve all originals and export JSON/CSV/Markdown. Both simple fixtures matched 12/12 in-domain labels, but thresholding abstained on three valid cases and a negation challenge was misclassified before abstaining. This is a small-sample evaluation aid, not production accuracy assurance. Reuses the immutable shared WASM from `20261107-2`; preserve it. See [workflow](20261108-12/README.md) and [observed validation](20261108-12/VALIDATION.md).
+
+## Repeat Radar — 20261108-13
+
+Local MiniLM paraphrase grouping turns weekly task diaries into a reviewed automation-opportunity backlog; exact setup-budget optimization uses explicitly editable savings assumptions. Confirm/split/merge or hold tasks and export complete JSON/CSV/Markdown audits. Three of four tiny known paraphrase pairs grouped; one interview-scheduling pair required a human merge. Estimated savings are not measured productivity gains or feasibility predictions. Reuses the immutable shared WASM from `20261107-2`; preserve that asset. See [workflow](20261108-13/README.md) and [observed checks](20261108-13/VALIDATION.md).

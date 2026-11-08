@@ -1,0 +1,8 @@
+import assert from 'node:assert/strict';
+import {examples,parse,suggest,plan,csv,markdown} from './src/core.js';
+const d=parse(JSON.stringify(examples[0]));
+for(const v of [[],Array(9).fill(Array(384).fill(0)),Array(9).fill(Array(384).fill(NaN))])assert.throws(()=>suggest(d,v));
+const v=Array.from({length:9},(_,i)=>Array.from({length:384},(_,j)=>Number(j===i%4)));
+let rows=suggest(d,v);assert.throws(()=>plan(d,rows),/Review every/);rows=rows.map(r=>({...r,decision:'approve',links:[]}));let a=plan(d,rows);assert.equal(a.metrics.orphans,3);assert.equal(a.metrics.gaps,4);rows[0].links=['R1','R2'];a=plan(d,rows);assert.equal(a.metrics.reviewedCovered,2);assert.equal(a.metrics.gaps,2);rows[0].decision='hold';assert.equal(plan(d,rows).metrics.reviewedCovered,0);rows[0].links=['unknown'];assert.throws(()=>plan(d,rows),/Invalid/);rows[0].links=['R1','R1'];assert.throws(()=>plan(d,rows),/Invalid/);assert.throws(()=>plan(d,[rows[1],rows[1],rows[2]]));assert.deepEqual(parse(JSON.stringify(a)),d);
+console.log('PASS malformed vectors, approvals, orphan/many-to-many/held metrics, forged links/records, JSON input roundtrip');
+rows=suggest(d,v).map(r=>({...r,decision:'approve',links:['R1'],kind:'success'}));a=plan(d,rows);assert.equal(a.metrics.requiredSlots,8);assert.equal(a.metrics.coveredSlots,1);assert.equal(a.metrics.slotGaps,7);assert.equal(a.metrics.completeRequirements,0);rows[1].kind='failure';a=plan(d,rows);assert.equal(a.metrics.coveredSlots,2);assert.equal(a.metrics.completeRequirements,1);rows[1].decision='hold';assert.equal(plan(d,rows).metrics.completeRequirements,0);rows[0].kind='bogus';assert.throws(()=>plan(d,rows),/Invalid/);console.log('PASS two-axis scenario cells, completion AND semantics, holds, forged kind');

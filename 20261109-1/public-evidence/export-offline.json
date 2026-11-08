@@ -1,0 +1,318 @@
+{
+  "schema": "coverage-loom/v1",
+  "originalInput": {
+    "name": "Library release",
+    "floor": 0.35,
+    "requirements": [
+      {
+        "id": "R1",
+        "text": "Readers can renew borrowed books to extend the loan period.",
+        "kinds": [
+          "success",
+          "failure"
+        ]
+      },
+      {
+        "id": "R2",
+        "text": "Readers can reserve a book that is currently checked out.",
+        "kinds": [
+          "success",
+          "failure"
+        ]
+      },
+      {
+        "id": "R3",
+        "text": "Librarians can collect overdue fines for late books.",
+        "kinds": [
+          "success",
+          "failure"
+        ]
+      },
+      {
+        "id": "R4",
+        "text": "Readers can change their account email address.",
+        "kinds": [
+          "success",
+          "failure"
+        ]
+      }
+    ],
+    "tests": [
+      {
+        "id": "T1",
+        "text": "Successfully renew a borrowed library book to extend its due date."
+      },
+      {
+        "id": "T2",
+        "text": "Successfully place a reservation on an unavailable library book."
+      },
+      {
+        "id": "T3",
+        "text": "Attempt to pay overdue library fines with invalid card details; reject the payment and show an error."
+      }
+    ],
+    "kinds": [
+      {
+        "id": "success",
+        "text": "A normal valid request succeeds and the expected operation completes successfully."
+      },
+      {
+        "id": "failure",
+        "text": "An invalid request is rejected with an error; the operation must fail safely."
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "R1",
+      "text": "Readers can renew borrowed books to extend the loan period.",
+      "kinds": [
+        "success",
+        "failure"
+      ],
+      "tests": [
+        "T1",
+        "T2"
+      ],
+      "slots": [
+        {
+          "kind": "success",
+          "tests": [
+            "T1"
+          ]
+        },
+        {
+          "kind": "failure",
+          "tests": [
+            "T2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R2",
+      "text": "Readers can reserve a book that is currently checked out.",
+      "kinds": [
+        "success",
+        "failure"
+      ],
+      "tests": [
+        "T1",
+        "T2"
+      ],
+      "slots": [
+        {
+          "kind": "success",
+          "tests": [
+            "T1"
+          ]
+        },
+        {
+          "kind": "failure",
+          "tests": [
+            "T2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R3",
+      "text": "Librarians can collect overdue fines for late books.",
+      "kinds": [
+        "success",
+        "failure"
+      ],
+      "tests": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "slots": [
+        {
+          "kind": "success",
+          "tests": [
+            "T1"
+          ]
+        },
+        {
+          "kind": "failure",
+          "tests": [
+            "T2",
+            "T3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R4",
+      "text": "Readers can change their account email address.",
+      "kinds": [
+        "success",
+        "failure"
+      ],
+      "tests": [],
+      "slots": [
+        {
+          "kind": "success",
+          "tests": []
+        },
+        {
+          "kind": "failure",
+          "tests": []
+        }
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "id": "T1",
+      "text": "Successfully renew a borrowed library book to extend its due date.",
+      "kind": "success",
+      "suggestedKind": "success",
+      "kindRanks": [
+        {
+          "id": "success",
+          "similarity": 0.0897128655088097
+        },
+        {
+          "id": "failure",
+          "similarity": 0.06736314406143207
+        }
+      ],
+      "proposed": [
+        "R1",
+        "R3",
+        "R2"
+      ],
+      "links": [
+        "R1",
+        "R3",
+        "R2"
+      ],
+      "ranks": [
+        {
+          "id": "R1",
+          "similarity": 0.7670427356538664
+        },
+        {
+          "id": "R3",
+          "similarity": 0.5226772222820092
+        },
+        {
+          "id": "R2",
+          "similarity": 0.4396990668640683
+        },
+        {
+          "id": "R4",
+          "similarity": 0.20041064083355611
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "T2",
+      "text": "Successfully place a reservation on an unavailable library book.",
+      "kind": "failure",
+      "suggestedKind": "failure",
+      "kindRanks": [
+        {
+          "id": "failure",
+          "similarity": 0.1956173852872463
+        },
+        {
+          "id": "success",
+          "similarity": 0.16671731952546767
+        }
+      ],
+      "proposed": [
+        "R2",
+        "R3",
+        "R1"
+      ],
+      "links": [
+        "R2",
+        "R3",
+        "R1"
+      ],
+      "ranks": [
+        {
+          "id": "R2",
+          "similarity": 0.5801691247753975
+        },
+        {
+          "id": "R3",
+          "similarity": 0.46202332024396364
+        },
+        {
+          "id": "R1",
+          "similarity": 0.37209603137848707
+        },
+        {
+          "id": "R4",
+          "similarity": 0.2300120043271257
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "T3",
+      "text": "Attempt to pay overdue library fines with invalid card details; reject the payment and show an error.",
+      "kind": "failure",
+      "suggestedKind": "failure",
+      "kindRanks": [
+        {
+          "id": "failure",
+          "similarity": 0.32632243170888875
+        },
+        {
+          "id": "success",
+          "similarity": 0.22889289936097926
+        }
+      ],
+      "proposed": [
+        "R3"
+      ],
+      "links": [
+        "R3"
+      ],
+      "ranks": [
+        {
+          "id": "R3",
+          "similarity": 0.515330398519287
+        },
+        {
+          "id": "R1",
+          "similarity": 0.20753922674871747
+        },
+        {
+          "id": "R2",
+          "similarity": 0.17214274413407565
+        },
+        {
+          "id": "R4",
+          "similarity": 0.16852565719168314
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "metrics": {
+    "requiredSlots": 8,
+    "coveredSlots": 6,
+    "slotGaps": 2,
+    "completeRequirements": 3,
+    "requirements": 4,
+    "tests": 3,
+    "exactBaseline": 0,
+    "aiProposed": 3,
+    "reviewedCovered": 3,
+    "gaps": 1,
+    "approved": 3,
+    "held": 0,
+    "orphans": 0,
+    "floor": 0.35
+  }
+}

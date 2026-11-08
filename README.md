@@ -140,3 +140,7 @@ Local MiniLM retrieves supplied bibliography candidates from rough citation note
 ## Dependency Lens — 20261108-23
 
 Local MiniLM matches required task inputs to other tasks’ deliverables, with mandatory human review, cycle rejection, transitive blocked-task propagation and earliest-start planning. Complete JSON/CSV/Markdown audits retain every task and input. Both tiny known-answer fixtures matched six links; a negated prerequisite still retrieved an unsuitable producer. Timing is a dependency-only lower bound with unlimited resources, not a staffed schedule or measured gain. Reuses the immutable WASM from `20261107-2`; preserve that asset. See [workflow](20261108-23/README.md) and [observed checks](20261108-23/VALIDATION.md).
+
+## Coverage Loom — 20261109-1
+
+Local MiniLM retrieves requirement links and classifies scenario intent for an explicit requirement × scenario coverage matrix, with mandatory human review, held/orphan tracking and complete JSON/CSV/Markdown gap checklists. Six intended feature top candidates matched across two tiny synthetic releases, but scenario labels matched only 4/6; the library batch produced four extra links and a negation challenge failed. Linked coverage is not test adequacy or execution evidence. Reuses immutable shared WASM from `20261107-2`; preserve that asset. See [workflow](20261109-1/README.md) and [observed validation](20261109-1/VALIDATION.md).

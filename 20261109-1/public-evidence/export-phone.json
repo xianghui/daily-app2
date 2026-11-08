@@ -1,0 +1,299 @@
+{
+  "schema": "coverage-loom/v1",
+  "originalInput": {
+    "name": "Shop release",
+    "floor": 0.35,
+    "requirements": [
+      {
+        "id": "R1",
+        "text": "Customers can reset a forgotten password using a recovery email.",
+        "kinds": [
+          "success",
+          "failure"
+        ]
+      },
+      {
+        "id": "R2",
+        "text": "Shoppers can pay for their cart using a credit card.",
+        "kinds": [
+          "success",
+          "failure"
+        ]
+      },
+      {
+        "id": "R3",
+        "text": "Customers can download a PDF invoice after a purchase.",
+        "kinds": [
+          "success",
+          "failure"
+        ]
+      },
+      {
+        "id": "R4",
+        "text": "The checkout supports keyboard-only navigation.",
+        "kinds": [
+          "success",
+          "failure"
+        ]
+      }
+    ],
+    "tests": [
+      {
+        "id": "T1",
+        "text": "Successfully request password recovery, open the emailed link and set a new login secret."
+      },
+      {
+        "id": "T2",
+        "text": "Attempt to pay for a shopping cart with an invalid credit card; reject the payment and show an error."
+      },
+      {
+        "id": "T3",
+        "text": "Successfully download the invoice as a PDF document after purchasing an item."
+      }
+    ],
+    "kinds": [
+      {
+        "id": "success",
+        "text": "A normal valid request succeeds and the expected operation completes successfully."
+      },
+      {
+        "id": "failure",
+        "text": "An invalid request is rejected with an error; the operation must fail safely."
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "R1",
+      "text": "Customers can reset a forgotten password using a recovery email.",
+      "kinds": [
+        "success",
+        "failure"
+      ],
+      "tests": [
+        "T1"
+      ],
+      "slots": [
+        {
+          "kind": "success",
+          "tests": []
+        },
+        {
+          "kind": "failure",
+          "tests": [
+            "T1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R2",
+      "text": "Shoppers can pay for their cart using a credit card.",
+      "kinds": [
+        "success",
+        "failure"
+      ],
+      "tests": [
+        "T2"
+      ],
+      "slots": [
+        {
+          "kind": "success",
+          "tests": []
+        },
+        {
+          "kind": "failure",
+          "tests": [
+            "T2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R3",
+      "text": "Customers can download a PDF invoice after a purchase.",
+      "kinds": [
+        "success",
+        "failure"
+      ],
+      "tests": [
+        "T3"
+      ],
+      "slots": [
+        {
+          "kind": "success",
+          "tests": [
+            "T3"
+          ]
+        },
+        {
+          "kind": "failure",
+          "tests": []
+        }
+      ]
+    },
+    {
+      "id": "R4",
+      "text": "The checkout supports keyboard-only navigation.",
+      "kinds": [
+        "success",
+        "failure"
+      ],
+      "tests": [],
+      "slots": [
+        {
+          "kind": "success",
+          "tests": []
+        },
+        {
+          "kind": "failure",
+          "tests": []
+        }
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "id": "T1",
+      "text": "Successfully request password recovery, open the emailed link and set a new login secret.",
+      "kind": "failure",
+      "suggestedKind": "failure",
+      "kindRanks": [
+        {
+          "id": "failure",
+          "similarity": 0.23923151075528346
+        },
+        {
+          "id": "success",
+          "similarity": 0.19636697181521856
+        }
+      ],
+      "proposed": [
+        "R1"
+      ],
+      "links": [
+        "R1"
+      ],
+      "ranks": [
+        {
+          "id": "R1",
+          "similarity": 0.6545845623067958
+        },
+        {
+          "id": "R4",
+          "similarity": 0.049708746613427515
+        },
+        {
+          "id": "R3",
+          "similarity": 0.008463148940269121
+        },
+        {
+          "id": "R2",
+          "similarity": -0.022216614773906036
+        }
+      ],
+      "decision": "approve",
+      "note": "Phone review"
+    },
+    {
+      "id": "T2",
+      "text": "Attempt to pay for a shopping cart with an invalid credit card; reject the payment and show an error.",
+      "kind": "failure",
+      "suggestedKind": "failure",
+      "kindRanks": [
+        {
+          "id": "failure",
+          "similarity": 0.3683410726998748
+        },
+        {
+          "id": "success",
+          "similarity": 0.25180306858243856
+        }
+      ],
+      "proposed": [
+        "R2"
+      ],
+      "links": [
+        "R2"
+      ],
+      "ranks": [
+        {
+          "id": "R2",
+          "similarity": 0.566751332987874
+        },
+        {
+          "id": "R1",
+          "similarity": 0.2730972296604189
+        },
+        {
+          "id": "R3",
+          "similarity": 0.19002794332890027
+        },
+        {
+          "id": "R4",
+          "similarity": 0.15014403934888074
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "T3",
+      "text": "Successfully download the invoice as a PDF document after purchasing an item.",
+      "kind": "success",
+      "suggestedKind": "success",
+      "kindRanks": [
+        {
+          "id": "success",
+          "similarity": 0.2511255321004017
+        },
+        {
+          "id": "failure",
+          "similarity": 0.21095775476440137
+        }
+      ],
+      "proposed": [
+        "R3"
+      ],
+      "links": [
+        "R3"
+      ],
+      "ranks": [
+        {
+          "id": "R3",
+          "similarity": 0.8340072915491032
+        },
+        {
+          "id": "R2",
+          "similarity": 0.1845040651347808
+        },
+        {
+          "id": "R1",
+          "similarity": 0.16827762512714523
+        },
+        {
+          "id": "R4",
+          "similarity": 0.04777107979161843
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "metrics": {
+    "requiredSlots": 8,
+    "coveredSlots": 3,
+    "slotGaps": 5,
+    "completeRequirements": 0,
+    "requirements": 4,
+    "tests": 3,
+    "exactBaseline": 0,
+    "aiProposed": 3,
+    "reviewedCovered": 3,
+    "gaps": 1,
+    "approved": 3,
+    "held": 0,
+    "orphans": 0,
+    "floor": 0.35
+  }
+}

@@ -1,0 +1,17 @@
+kind,id,source,links,decision,note,scenario
+requirement,R1,Readers can renew borrowed books to extend the loan period.,,gap,,
+requirement,R2,Readers can reserve a book that is currently checked out.,T2,linked,,
+requirement,R3,Librarians can collect overdue fines for late books.,T3,linked,,
+requirement,R4,Readers can change their account email address.,,gap,,
+scenario-slot,R1:success,Readers can renew borrowed books to extend the loan period.,,gap,,success
+scenario-slot,R1:failure,Readers can renew borrowed books to extend the loan period.,,gap,,failure
+scenario-slot,R2:success,Readers can reserve a book that is currently checked out.,,gap,,success
+scenario-slot,R2:failure,Readers can reserve a book that is currently checked out.,T2,linked,,failure
+scenario-slot,R3:success,Librarians can collect overdue fines for late books.,T3,linked,,success
+scenario-slot,R3:failure,Librarians can collect overdue fines for late books.,,gap,,failure
+scenario-slot,R4:success,Readers can change their account email address.,,gap,,success
+scenario-slot,R4:failure,Readers can change their account email address.,,gap,,failure
+test,T1,Successfully renew a borrowed library book to extend its due date.,R1,hold,"'=1+1
+Reviewed, ""quoted""",success
+test,T2,Successfully place a reservation on an unavailable library book.,R2,approve,,failure
+test,T3,Attempt to pay overdue library fines with invalid card details; reject the payment and show an error.,R3,approve,,success

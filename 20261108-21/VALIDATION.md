@@ -18,3 +18,9 @@
 - Root inline scripts compile using Node `new Function`, the new AI-utility entry appears once and all prior gallery entries remain byte-identical in order. Local real-browser gallery render and narrow layout checked.
 
 Evidence: `browser-validation.json`, `core-validation.json`, `network-validation.json`, `boundary-validation.json`, `artifact-validation.json`, actual `export-*` files and `asset-audit.json`. Public hosting and runtime verification are recorded separately when complete; a branch push alone is not proof.
+
+## Public GitHub Pages verification
+
+Matching gh-pages commit `cfe56b66a0f4d1771b9315753be023687e09a488` reached **built**; the Pages workflow completed successfully. The public index, app assets, worker, local WASM factory and immutable shared WASM hash-match the validated production files. Public gallery renders the new entry once with all 536 previous entries preserved.
+
+All 13 browser workflow/defensive checks were rerun against `https://xianghui.github.io/daily-app2/20261108-21/`, including both real-model fixtures, fresh-worker offline inference, maximum batching, current exports and narrow layouts. Independent parsing of downloaded public CSV/JSON/Markdown confirmed current reviewed fields and complete source sequences. See `public-evidence/`, `public-assets-validation.json`, `public-gallery-validation.json` and `deployment-validation.json`.

@@ -1,0 +1,23 @@
+# Observed validation — 2026-11-08
+
+## Production-bundle local Chrome
+
+- `npm run predeploy`: passed. Real browser worker and shared WASM path loaded outside the dev server.
+- Real MiniLM inference on Cloud launch: login / storage / payment, 3/3 expected candidates. Community event: food / venue / staff, 3/3. Each fixture had zero exact-text baseline links and three reviewed links. These six hand-authored examples establish execution/usefulness, not population accuracy or causal adequacy.
+- Challenge: **0/2 suitable outcomes**. Privacy exposure with successful logins wrongly proposed login (cosine 0.418; correct action is hold because no privacy indicator exists). Password guessing with plentiful storage wrongly proposed storage (0.526; expected login). This demonstrates negation/causal weaknesses. Mandatory review/hold, visible warnings and source descriptions are essential. No claim of automatic risk monitoring or safety assurance.
+- Full bound: 32 risks + 12 indicators, four-text chunks. Every original risk and indicator survives; approved assignment counts reconcile. Audit JSON reimport preserves original input and restarts review.
+- Review fields/target changes, required-field validation, hold, shared-indicator counts, notes, undo and export invalidation passed. Different indicator restores supplied defaults and requires fresh approval. High similarity floor held all three risks; a deliberate human override produced exactly one reviewed link.
+- Actual JSON/CSV/Markdown downloads and clipboard tested. Python independent CSV parser checked all reviewed fields, quoted commas/newlines and formula-like multiline cells. JSON stays lossless. Markdown includes changed trigger/cadence/owner and every held gap.
+- Cancellation followed by real retry, changed-input invalidation, delayed rejected worker fetch and delayed imported-file read could not overwrite newer state. Unsupported/invalid/empty/duplicate/oversize inputs and files rejected.
+- Actual fresh-context model-host abort produced an error and no result; recovery ran real inference. Worker asset abort/retry passed. Fault-injected malformed vectors, unsupported Worker, worker error and accelerated 180-second timeout all produced errors without fabricated output. Fault injection is used only for defensive checks, never successful AI checks.
+- Offline: after online loading, every worker is terminated at completion. With browser context networking disabled, a **new worker** reran real inference successfully from Cache API. Scope: page remains open. Offline reload/navigation/first use not claimed.
+- Request capture: no model-host download before explicit Run, all captured requests GET with no request body, no test content in URLs. Source inspection finds no external inference provider or content upload path. Built credential-pattern scan clear; scan is not exhaustive proof for arbitrary dependencies.
+- 320px and 390px layouts: no horizontal overflow, touch controls usable, review/export and keyboard focus passed. Desktop and phone screenshots inspected. Chrome desktop only; actual phone performance and other engines not tested.
+
+Reports: `browser-validation.json`, `extra-validation.json`, `artifact-validation.json`, `core-validation.json`, `asset-audit.json`. Public/deployment reports are recorded after combined publication. No real personal data or credentials used. A test assertion initially attempted programmatic (not keyboard) focus-visible; corrected to actual Tab/Shift+Tab and full suite passed.
+
+## Public publication verification
+
+Root predeploy assembled 526 app builds, zero failures/skips, with matching root index and every gallery folder present. Root `npm run deploy` published commit `f3ebe8e52388d9d8911aae9ecc21991d324b51a6`; Pages workflow `42432816224` completed successfully and latest Pages build reports matching commit `built`.
+
+At https://xianghui.github.io/daily-app2/20261108-10/ the complete real browser suite passed again: both real model fixtures, offline fresh-worker inference, full batch, review/undo/current exported artifacts, cancellation/stale guards, input validation, worker network failure/retry, malformed/unsupported/timeout defenses and 320/390px layout checks. Public request capture remains content-free GETs. All public app/worker/factory/shared-WASM hashes match the validated production assets. Public gallery renders 526 cards, AI Utilities first; all 525 prior entries preserved and search works. See `public-browser-validation.json`, `public-assets-validation.json`, `public-gallery-validation.json`, `deployment-validation.json` and `publication-status.json`. Public artifacts were parsed again independently. Source commit/push follows these verified checks.

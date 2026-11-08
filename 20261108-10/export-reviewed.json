@@ -1,0 +1,215 @@
+{
+  "version": 1,
+  "model": "Xenova/all-MiniLM-L6-v2 q8",
+  "input": {
+    "minSimilarity": 0.3,
+    "risks": [
+      {
+        "id": "E1",
+        "text": "Guests with food allergies may receive meals containing allergens."
+      },
+      {
+        "id": "E2",
+        "text": "Too many guests arrive for the venue to accommodate safely."
+      },
+      {
+        "id": "E3",
+        "text": "Volunteer staffing is insufficient to cover the event shifts."
+      }
+    ],
+    "indicators": [
+      {
+        "id": "staff",
+        "name": "Unfilled volunteer shifts",
+        "description": "Count of volunteer shifts with no assigned staff member.",
+        "trigger": "Any shift uncovered 48 hours before event",
+        "cadence": "Daily",
+        "owner": "Volunteer lead"
+      },
+      {
+        "id": "food",
+        "name": "Unverified allergen labels",
+        "description": "Number of catering dishes missing checked food allergy ingredient labels.",
+        "trigger": "Any unchecked dish before service",
+        "cadence": "Before service",
+        "owner": "Catering lead"
+      },
+      {
+        "id": "venue",
+        "name": "Registration versus capacity",
+        "description": "Registered attendee count compared with the safe venue occupancy limit.",
+        "trigger": "Registrations above 90% of capacity",
+        "cadence": "Daily",
+        "owner": "Event lead"
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "E1",
+      "text": "Guests with food allergies may receive meals containing allergens.",
+      "suggested": "food",
+      "target": "staff",
+      "proposed": true,
+      "evidence": [
+        {
+          "id": "food",
+          "name": "Unverified allergen labels",
+          "description": "Number of catering dishes missing checked food allergy ingredient labels.",
+          "trigger": "Any unchecked dish before service",
+          "cadence": "Before service",
+          "owner": "Catering lead",
+          "score": 0.5211871792412546
+        },
+        {
+          "id": "venue",
+          "name": "Registration versus capacity",
+          "description": "Registered attendee count compared with the safe venue occupancy limit.",
+          "trigger": "Registrations above 90% of capacity",
+          "cadence": "Daily",
+          "owner": "Event lead",
+          "score": 0.18988397707094495
+        },
+        {
+          "id": "staff",
+          "name": "Unfilled volunteer shifts",
+          "description": "Count of volunteer shifts with no assigned staff member.",
+          "trigger": "Any shift uncovered 48 hours before event",
+          "cadence": "Daily",
+          "owner": "Volunteer lead",
+          "score": 0.15349761191532227
+        }
+      ],
+      "decision": "accept",
+      "trigger": "Any uncovered catering shift",
+      "cadence": "Every morning",
+      "owner": "Casey, \"lead\"",
+      "note": "Reviewed, \"quoted\"\nsecond line"
+    },
+    {
+      "id": "E2",
+      "text": "Too many guests arrive for the venue to accommodate safely.",
+      "suggested": "venue",
+      "target": "venue",
+      "proposed": true,
+      "evidence": [
+        {
+          "id": "venue",
+          "name": "Registration versus capacity",
+          "description": "Registered attendee count compared with the safe venue occupancy limit.",
+          "trigger": "Registrations above 90% of capacity",
+          "cadence": "Daily",
+          "owner": "Event lead",
+          "score": 0.6112173763948634
+        },
+        {
+          "id": "staff",
+          "name": "Unfilled volunteer shifts",
+          "description": "Count of volunteer shifts with no assigned staff member.",
+          "trigger": "Any shift uncovered 48 hours before event",
+          "cadence": "Daily",
+          "owner": "Volunteer lead",
+          "score": 0.1619642033037496
+        },
+        {
+          "id": "food",
+          "name": "Unverified allergen labels",
+          "description": "Number of catering dishes missing checked food allergy ingredient labels.",
+          "trigger": "Any unchecked dish before service",
+          "cadence": "Before service",
+          "owner": "Catering lead",
+          "score": 0.10861516797326852
+        }
+      ],
+      "decision": "accept",
+      "trigger": "Registrations above 90% of capacity",
+      "cadence": "Daily",
+      "owner": "Event lead",
+      "note": ""
+    },
+    {
+      "id": "E3",
+      "text": "Volunteer staffing is insufficient to cover the event shifts.",
+      "suggested": "staff",
+      "target": "staff",
+      "proposed": true,
+      "evidence": [
+        {
+          "id": "staff",
+          "name": "Unfilled volunteer shifts",
+          "description": "Count of volunteer shifts with no assigned staff member.",
+          "trigger": "Any shift uncovered 48 hours before event",
+          "cadence": "Daily",
+          "owner": "Volunteer lead",
+          "score": 0.6676159077555995
+        },
+        {
+          "id": "venue",
+          "name": "Registration versus capacity",
+          "description": "Registered attendee count compared with the safe venue occupancy limit.",
+          "trigger": "Registrations above 90% of capacity",
+          "cadence": "Daily",
+          "owner": "Event lead",
+          "score": 0.28967097360179633
+        },
+        {
+          "id": "food",
+          "name": "Unverified allergen labels",
+          "description": "Number of catering dishes missing checked food allergy ingredient labels.",
+          "trigger": "Any unchecked dish before service",
+          "cadence": "Before service",
+          "owner": "Catering lead",
+          "score": 0.11467316435715211
+        }
+      ],
+      "decision": "accept",
+      "trigger": "Any shift uncovered 48 hours before event",
+      "cadence": "Daily",
+      "owner": "Volunteer lead",
+      "note": ""
+    }
+  ],
+  "monitors": [
+    {
+      "id": "staff",
+      "name": "Unfilled volunteer shifts",
+      "description": "Count of volunteer shifts with no assigned staff member.",
+      "trigger": "Any shift uncovered 48 hours before event",
+      "cadence": "Daily",
+      "owner": "Volunteer lead",
+      "risks": [
+        "E1",
+        "E3"
+      ]
+    },
+    {
+      "id": "food",
+      "name": "Unverified allergen labels",
+      "description": "Number of catering dishes missing checked food allergy ingredient labels.",
+      "trigger": "Any unchecked dish before service",
+      "cadence": "Before service",
+      "owner": "Catering lead",
+      "risks": []
+    },
+    {
+      "id": "venue",
+      "name": "Registration versus capacity",
+      "description": "Registered attendee count compared with the safe venue occupancy limit.",
+      "trigger": "Registrations above 90% of capacity",
+      "cadence": "Daily",
+      "owner": "Event lead",
+      "risks": [
+        "E2"
+      ]
+    }
+  ],
+  "metrics": {
+    "total": 3,
+    "baselineLinked": 0,
+    "reviewedLinked": 3,
+    "held": 0,
+    "used": 2,
+    "shared": 1,
+    "overrides": 1
+  }
+}

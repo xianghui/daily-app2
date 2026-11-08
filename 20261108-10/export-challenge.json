@@ -1,0 +1,169 @@
+{
+  "version": 1,
+  "model": "Xenova/all-MiniLM-L6-v2 q8",
+  "input": {
+    "minSimilarity": 0.3,
+    "risks": [
+      {
+        "id": "N1",
+        "text": "Customers can sign in successfully but private customer records are exposed to unauthorized readers."
+      },
+      {
+        "id": "N2",
+        "text": "Database storage is plentiful; attackers are guessing customer account passwords."
+      }
+    ],
+    "indicators": [
+      {
+        "id": "storage",
+        "name": "Database disk utilization",
+        "description": "Percentage of database storage space used; remaining free disk capacity.",
+        "trigger": "Used disk exceeds 80%",
+        "cadence": "Daily",
+        "owner": "Platform"
+      },
+      {
+        "id": "payment",
+        "name": "Duplicate payment rate",
+        "description": "Number of duplicate charges for the same customer purchase.",
+        "trigger": "Any duplicated charge",
+        "cadence": "Daily",
+        "owner": "Finance"
+      },
+      {
+        "id": "login",
+        "name": "Login failure rate",
+        "description": "Proportion of customer authentication and sign-in attempts failing.",
+        "trigger": "Failed logins exceed 5%",
+        "cadence": "Hourly",
+        "owner": "Identity"
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "N1",
+      "text": "Customers can sign in successfully but private customer records are exposed to unauthorized readers.",
+      "suggested": "login",
+      "target": "login",
+      "proposed": true,
+      "evidence": [
+        {
+          "id": "login",
+          "name": "Login failure rate",
+          "description": "Proportion of customer authentication and sign-in attempts failing.",
+          "trigger": "Failed logins exceed 5%",
+          "cadence": "Hourly",
+          "owner": "Identity",
+          "score": 0.41787245924732114
+        },
+        {
+          "id": "payment",
+          "name": "Duplicate payment rate",
+          "description": "Number of duplicate charges for the same customer purchase.",
+          "trigger": "Any duplicated charge",
+          "cadence": "Daily",
+          "owner": "Finance",
+          "score": 0.230099449336712
+        },
+        {
+          "id": "storage",
+          "name": "Database disk utilization",
+          "description": "Percentage of database storage space used; remaining free disk capacity.",
+          "trigger": "Used disk exceeds 80%",
+          "cadence": "Daily",
+          "owner": "Platform",
+          "score": 0.09479997832915495
+        }
+      ],
+      "decision": "accept",
+      "trigger": "Failed logins exceed 5%",
+      "cadence": "Hourly",
+      "owner": "Identity",
+      "note": ""
+    },
+    {
+      "id": "N2",
+      "text": "Database storage is plentiful; attackers are guessing customer account passwords.",
+      "suggested": "storage",
+      "target": "storage",
+      "proposed": true,
+      "evidence": [
+        {
+          "id": "storage",
+          "name": "Database disk utilization",
+          "description": "Percentage of database storage space used; remaining free disk capacity.",
+          "trigger": "Used disk exceeds 80%",
+          "cadence": "Daily",
+          "owner": "Platform",
+          "score": 0.5262454520459765
+        },
+        {
+          "id": "login",
+          "name": "Login failure rate",
+          "description": "Proportion of customer authentication and sign-in attempts failing.",
+          "trigger": "Failed logins exceed 5%",
+          "cadence": "Hourly",
+          "owner": "Identity",
+          "score": 0.4164192614740669
+        },
+        {
+          "id": "payment",
+          "name": "Duplicate payment rate",
+          "description": "Number of duplicate charges for the same customer purchase.",
+          "trigger": "Any duplicated charge",
+          "cadence": "Daily",
+          "owner": "Finance",
+          "score": 0.22358550659173196
+        }
+      ],
+      "decision": "accept",
+      "trigger": "Used disk exceeds 80%",
+      "cadence": "Daily",
+      "owner": "Platform",
+      "note": ""
+    }
+  ],
+  "monitors": [
+    {
+      "id": "storage",
+      "name": "Database disk utilization",
+      "description": "Percentage of database storage space used; remaining free disk capacity.",
+      "trigger": "Used disk exceeds 80%",
+      "cadence": "Daily",
+      "owner": "Platform",
+      "risks": [
+        "N2"
+      ]
+    },
+    {
+      "id": "payment",
+      "name": "Duplicate payment rate",
+      "description": "Number of duplicate charges for the same customer purchase.",
+      "trigger": "Any duplicated charge",
+      "cadence": "Daily",
+      "owner": "Finance",
+      "risks": []
+    },
+    {
+      "id": "login",
+      "name": "Login failure rate",
+      "description": "Proportion of customer authentication and sign-in attempts failing.",
+      "trigger": "Failed logins exceed 5%",
+      "cadence": "Hourly",
+      "owner": "Identity",
+      "risks": [
+        "N1"
+      ]
+    }
+  ],
+  "metrics": {
+    "total": 2,
+    "baselineLinked": 0,
+    "reviewedLinked": 2,
+    "held": 0,
+    "used": 2,
+    "shared": 0,
+    "overrides": 0
+  }
+}

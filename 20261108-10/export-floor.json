@@ -1,0 +1,210 @@
+{
+  "version": 1,
+  "model": "Xenova/all-MiniLM-L6-v2 q8",
+  "input": {
+    "minSimilarity": 0.9,
+    "risks": [
+      {
+        "id": "R1",
+        "text": "Customers cannot sign in after the authentication release."
+      },
+      {
+        "id": "R2",
+        "text": "The production database fills up and stops accepting new writes."
+      },
+      {
+        "id": "R3",
+        "text": "Subscription billing charges a customer twice for the same purchase."
+      }
+    ],
+    "indicators": [
+      {
+        "id": "storage",
+        "name": "Database disk utilization",
+        "description": "Percentage of database storage space used; remaining free disk capacity.",
+        "trigger": "Used disk exceeds 80%",
+        "cadence": "Daily",
+        "owner": "Platform"
+      },
+      {
+        "id": "payment",
+        "name": "Duplicate payment rate",
+        "description": "Number of duplicate charges for the same customer purchase.",
+        "trigger": "Any duplicated charge",
+        "cadence": "Daily",
+        "owner": "Finance"
+      },
+      {
+        "id": "login",
+        "name": "Login failure rate",
+        "description": "Proportion of customer authentication and sign-in attempts failing.",
+        "trigger": "Failed logins exceed 5%",
+        "cadence": "Hourly",
+        "owner": "Identity"
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "R1",
+      "text": "Customers cannot sign in after the authentication release.",
+      "suggested": "login",
+      "target": "login",
+      "proposed": false,
+      "evidence": [
+        {
+          "id": "login",
+          "name": "Login failure rate",
+          "description": "Proportion of customer authentication and sign-in attempts failing.",
+          "trigger": "Failed logins exceed 5%",
+          "cadence": "Hourly",
+          "owner": "Identity",
+          "score": 0.5876413209915115
+        },
+        {
+          "id": "payment",
+          "name": "Duplicate payment rate",
+          "description": "Number of duplicate charges for the same customer purchase.",
+          "trigger": "Any duplicated charge",
+          "cadence": "Daily",
+          "owner": "Finance",
+          "score": 0.12970464559310085
+        },
+        {
+          "id": "storage",
+          "name": "Database disk utilization",
+          "description": "Percentage of database storage space used; remaining free disk capacity.",
+          "trigger": "Used disk exceeds 80%",
+          "cadence": "Daily",
+          "owner": "Platform",
+          "score": 0.05417485870409043
+        }
+      ],
+      "decision": "hold",
+      "trigger": "Failed logins exceed 5%",
+      "cadence": "Hourly",
+      "owner": "Identity",
+      "note": ""
+    },
+    {
+      "id": "R2",
+      "text": "The production database fills up and stops accepting new writes.",
+      "suggested": "storage",
+      "target": "storage",
+      "proposed": false,
+      "evidence": [
+        {
+          "id": "storage",
+          "name": "Database disk utilization",
+          "description": "Percentage of database storage space used; remaining free disk capacity.",
+          "trigger": "Used disk exceeds 80%",
+          "cadence": "Daily",
+          "owner": "Platform",
+          "score": 0.39476146114901184
+        },
+        {
+          "id": "login",
+          "name": "Login failure rate",
+          "description": "Proportion of customer authentication and sign-in attempts failing.",
+          "trigger": "Failed logins exceed 5%",
+          "cadence": "Hourly",
+          "owner": "Identity",
+          "score": 0.0935873575024769
+        },
+        {
+          "id": "payment",
+          "name": "Duplicate payment rate",
+          "description": "Number of duplicate charges for the same customer purchase.",
+          "trigger": "Any duplicated charge",
+          "cadence": "Daily",
+          "owner": "Finance",
+          "score": 0.09113040618898086
+        }
+      ],
+      "decision": "hold",
+      "trigger": "Used disk exceeds 80%",
+      "cadence": "Daily",
+      "owner": "Platform",
+      "note": ""
+    },
+    {
+      "id": "R3",
+      "text": "Subscription billing charges a customer twice for the same purchase.",
+      "suggested": "payment",
+      "target": "payment",
+      "proposed": false,
+      "evidence": [
+        {
+          "id": "payment",
+          "name": "Duplicate payment rate",
+          "description": "Number of duplicate charges for the same customer purchase.",
+          "trigger": "Any duplicated charge",
+          "cadence": "Daily",
+          "owner": "Finance",
+          "score": 0.6906390438264846
+        },
+        {
+          "id": "login",
+          "name": "Login failure rate",
+          "description": "Proportion of customer authentication and sign-in attempts failing.",
+          "trigger": "Failed logins exceed 5%",
+          "cadence": "Hourly",
+          "owner": "Identity",
+          "score": 0.21018651127428867
+        },
+        {
+          "id": "storage",
+          "name": "Database disk utilization",
+          "description": "Percentage of database storage space used; remaining free disk capacity.",
+          "trigger": "Used disk exceeds 80%",
+          "cadence": "Daily",
+          "owner": "Platform",
+          "score": 0.11643425978367372
+        }
+      ],
+      "decision": "hold",
+      "trigger": "Any duplicated charge",
+      "cadence": "Daily",
+      "owner": "Finance",
+      "note": ""
+    }
+  ],
+  "monitors": [
+    {
+      "id": "storage",
+      "name": "Database disk utilization",
+      "description": "Percentage of database storage space used; remaining free disk capacity.",
+      "trigger": "Used disk exceeds 80%",
+      "cadence": "Daily",
+      "owner": "Platform",
+      "risks": []
+    },
+    {
+      "id": "payment",
+      "name": "Duplicate payment rate",
+      "description": "Number of duplicate charges for the same customer purchase.",
+      "trigger": "Any duplicated charge",
+      "cadence": "Daily",
+      "owner": "Finance",
+      "risks": []
+    },
+    {
+      "id": "login",
+      "name": "Login failure rate",
+      "description": "Proportion of customer authentication and sign-in attempts failing.",
+      "trigger": "Failed logins exceed 5%",
+      "cadence": "Hourly",
+      "owner": "Identity",
+      "risks": []
+    }
+  ],
+  "metrics": {
+    "total": 3,
+    "baselineLinked": 0,
+    "reviewedLinked": 0,
+    "held": 3,
+    "used": 0,
+    "shared": 0,
+    "overrides": 0
+  }
+}

@@ -82,3 +82,7 @@ Local MiniLM quote-to-question inference plus min-cost flow creates participant-
 ## Search Rescue — 20261108-9
 
 Local MiniLM query-to-concept inference helps search editors repair missed queries with reviewed one-way synonyms. Collision guards preserve canonical identities; all originals and holds survive JSON/CSV, while approved new rules export as directional synonym JSON. Two simple fixtures matched 8/8 targets and recovered three exact-dictionary misses each. An instruction-like semantic false positive confirms that threshold adoption is not relevance validation. Reuses immutable shared WASM from `20261107-2`; preserve its asset. See [workflow](20261108-9/README.md) and [observed validation](20261108-9/VALIDATION.md).
+
+## Sentinel Sheet — 20261108-10
+
+Local MiniLM links risk statements to user-supplied monitoring indicators. Review source descriptions, approve/hold risks, edit triggers/cadence/owners, inspect coverage gaps/shared signals and export a complete JSON/CSV/Markdown register. Six simple known-answer links matched; two negation/causal challenges failed suitability, so mandatory human review is essential and no safety assurance is claimed. Reuses immutable shared WASM from `20261107-2`; preserve that asset. See [workflow](20261108-10/README.md) and [observed checks](20261108-10/VALIDATION.md).

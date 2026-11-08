@@ -161,3 +161,7 @@ Real local MiniLM identity alignment assists three-way checklist merging. Review
 ## Recall Calendar — 20261109-5
 
 Real local MiniLM reference/misconception comparisons help learners review recall attempts, then a human-approved bounded SM-2 scheduler exports all-day ICS plus complete JSON/CSV/Markdown audits. Six simple synthetic labels matched, but a negation challenge failed; this is study planning, never automatic correctness/mastery certification. Reuses the immutable shared WASM from `20261107-2`; preserve that asset. See [workflow](20261109-5/README.md) and [observed validation](20261109-5/VALIDATION.md).
+
+## Privilege Quilt — 20261109-6
+
+Local MiniLM duty-to-permission matching plus exhaustive minimum-extra-access role bundling. Mandatory review/holds, forbidden-permission and cap checks; complete JSON/CSV/Markdown access plans without account changes. Six simple fixture links matched; a negated deletion need failed semantically and was blocked by the deterministic forbidden gate. Reuses shared WASM from `20261107-2`; preserve that asset. See [workflow](20261109-6/README.md) and [observed validation](20261109-6/VALIDATION.md).

@@ -1,0 +1,179 @@
+{
+  "schema": "privilege-quilt-audit/v1",
+  "originalInput": {
+    "name": "Support onboarding",
+    "schema": "privilege-quilt/v1",
+    "maxExtra": 0,
+    "forbidden": [
+      "delete"
+    ],
+    "permissions": [
+      {
+        "id": "read",
+        "text": "Read customer support tickets and conversations"
+      },
+      {
+        "id": "reply",
+        "text": "Write replies to customer support tickets"
+      },
+      {
+        "id": "export",
+        "text": "Export financial billing reports and invoices"
+      },
+      {
+        "id": "delete",
+        "text": "Permanently delete customer accounts"
+      }
+    ],
+    "roles": [
+      {
+        "id": "reader",
+        "permissions": [
+          "read"
+        ]
+      },
+      {
+        "id": "responder",
+        "permissions": [
+          "read",
+          "reply"
+        ]
+      },
+      {
+        "id": "finance",
+        "permissions": [
+          "export"
+        ]
+      },
+      {
+        "id": "admin",
+        "permissions": [
+          "read",
+          "reply",
+          "export",
+          "delete"
+        ]
+      }
+    ],
+    "needs": [
+      {
+        "id": "N1",
+        "text": "Look up incoming helpdesk cases and read the conversation."
+      },
+      {
+        "id": "N2",
+        "text": "Send an answer to a customer asking for help."
+      },
+      {
+        "id": "N3",
+        "text": "Download a spreadsheet of billing invoices for month end."
+      }
+    ]
+  },
+  "needs": [
+    {
+      "id": "N1",
+      "text": "Look up incoming helpdesk cases and read the conversation.",
+      "candidates": [
+        {
+          "id": "read",
+          "score": 0.4469892111998388
+        },
+        {
+          "id": "reply",
+          "score": 0.32341315295583845
+        },
+        {
+          "id": "delete",
+          "score": 0.006311030925117736
+        },
+        {
+          "id": "export",
+          "score": -0.04887858199906808
+        }
+      ],
+      "proposed": "read",
+      "permission": "read",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "N2",
+      "text": "Send an answer to a customer asking for help.",
+      "candidates": [
+        {
+          "id": "reply",
+          "score": 0.5331866144797877
+        },
+        {
+          "id": "read",
+          "score": 0.49811387177883093
+        },
+        {
+          "id": "delete",
+          "score": 0.22520005215276417
+        },
+        {
+          "id": "export",
+          "score": 0.0548845616923446
+        }
+      ],
+      "proposed": "reply",
+      "permission": "reply",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "N3",
+      "text": "Download a spreadsheet of billing invoices for month end.",
+      "candidates": [
+        {
+          "id": "export",
+          "score": 0.6267855602202403
+        },
+        {
+          "id": "read",
+          "score": 0.2659421262349603
+        },
+        {
+          "id": "reply",
+          "score": 0.20761635333588221
+        },
+        {
+          "id": "delete",
+          "score": 0.16441958769008494
+        }
+      ],
+      "proposed": "export",
+      "permission": "export",
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "required": [
+    "read",
+    "reply",
+    "export"
+  ],
+  "bundle": {
+    "roles": [
+      "responder",
+      "finance"
+    ],
+    "granted": [
+      "read",
+      "reply",
+      "export"
+    ],
+    "extras": []
+  },
+  "metrics": {
+    "total": 3,
+    "approved": 3,
+    "held": 0,
+    "exactBaseline": 0,
+    "aiSuggested": 3,
+    "extraPermissions": 0,
+    "roleCount": 2
+  }
+}

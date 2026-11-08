@@ -1,0 +1,176 @@
+{
+  "schema": "privilege-quilt-audit/v1",
+  "originalInput": {
+    "name": "Publishing onboarding",
+    "schema": "privilege-quilt/v1",
+    "maxExtra": 0,
+    "forbidden": [
+      "erase"
+    ],
+    "permissions": [
+      {
+        "id": "draft",
+        "text": "Create and edit draft blog articles"
+      },
+      {
+        "id": "publish",
+        "text": "Publish approved blog articles to the public website"
+      },
+      {
+        "id": "stats",
+        "text": "Read website traffic analytics and visitor reports"
+      },
+      {
+        "id": "erase",
+        "text": "Permanently erase the entire website"
+      }
+    ],
+    "roles": [
+      {
+        "id": "author",
+        "permissions": [
+          "draft"
+        ]
+      },
+      {
+        "id": "editor",
+        "permissions": [
+          "draft",
+          "publish"
+        ]
+      },
+      {
+        "id": "analyst",
+        "permissions": [
+          "stats"
+        ]
+      },
+      {
+        "id": "owner",
+        "permissions": [
+          "draft",
+          "publish",
+          "stats",
+          "erase"
+        ]
+      }
+    ],
+    "needs": [
+      {
+        "id": "N1",
+        "text": "Write unpublished posts and revise article drafts."
+      },
+      {
+        "id": "N2",
+        "text": "Make an approved blog post live on the site."
+      },
+      {
+        "id": "N3",
+        "text": "Inspect visitor counts and traffic dashboards."
+      }
+    ]
+  },
+  "needs": [
+    {
+      "id": "N1",
+      "text": "Write unpublished posts and revise article drafts.",
+      "candidates": [
+        {
+          "id": "draft",
+          "score": 0.6106327890914671
+        },
+        {
+          "id": "publish",
+          "score": 0.44690611737110586
+        },
+        {
+          "id": "erase",
+          "score": 0.17871216772952414
+        },
+        {
+          "id": "stats",
+          "score": 0.12097998607920477
+        }
+      ],
+      "proposed": "draft",
+      "permission": "draft",
+      "decision": "approve",
+      "note": "=1+1\nReviewed, \"scoped\" 🪷"
+    },
+    {
+      "id": "N2",
+      "text": "Make an approved blog post live on the site.",
+      "candidates": [
+        {
+          "id": "publish",
+          "score": 0.703266074334841
+        },
+        {
+          "id": "draft",
+          "score": 0.41583400801460657
+        },
+        {
+          "id": "erase",
+          "score": 0.24824000480702857
+        },
+        {
+          "id": "stats",
+          "score": 0.15095326576852675
+        }
+      ],
+      "proposed": "publish",
+      "permission": "publish",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "N3",
+      "text": "Inspect visitor counts and traffic dashboards.",
+      "candidates": [
+        {
+          "id": "stats",
+          "score": 0.7381425503794385
+        },
+        {
+          "id": "publish",
+          "score": 0.1217299159705049
+        },
+        {
+          "id": "erase",
+          "score": 0.08303670019011607
+        },
+        {
+          "id": "draft",
+          "score": -0.01695793459765803
+        }
+      ],
+      "proposed": "stats",
+      "permission": "stats",
+      "decision": "hold",
+      "note": ""
+    }
+  ],
+  "required": [
+    "draft",
+    "publish"
+  ],
+  "bundle": {
+    "roles": [
+      "editor"
+    ],
+    "granted": [
+      "draft",
+      "publish"
+    ],
+    "extras": []
+  },
+  "metrics": {
+    "total": 3,
+    "approved": 2,
+    "held": 1,
+    "exactBaseline": 0,
+    "aiSuggested": 3,
+    "extraPermissions": 0,
+    "roleCount": 1
+  }
+}

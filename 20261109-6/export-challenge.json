@@ -1,0 +1,108 @@
+{
+  "schema": "privilege-quilt-audit/v1",
+  "originalInput": {
+    "name": "Support onboarding",
+    "schema": "privilege-quilt/v1",
+    "maxExtra": 0,
+    "forbidden": [
+      "delete"
+    ],
+    "permissions": [
+      {
+        "id": "read",
+        "text": "Read customer support tickets and conversations"
+      },
+      {
+        "id": "reply",
+        "text": "Write replies to customer support tickets"
+      },
+      {
+        "id": "export",
+        "text": "Export financial billing reports and invoices"
+      },
+      {
+        "id": "delete",
+        "text": "Permanently delete customer accounts"
+      }
+    ],
+    "roles": [
+      {
+        "id": "reader",
+        "permissions": [
+          "read"
+        ]
+      },
+      {
+        "id": "responder",
+        "permissions": [
+          "read",
+          "reply"
+        ]
+      },
+      {
+        "id": "finance",
+        "permissions": [
+          "export"
+        ]
+      },
+      {
+        "id": "admin",
+        "permissions": [
+          "read",
+          "reply",
+          "export",
+          "delete"
+        ]
+      }
+    ],
+    "needs": [
+      {
+        "id": "NO",
+        "text": "Do not permanently delete any customer accounts."
+      }
+    ]
+  },
+  "needs": [
+    {
+      "id": "NO",
+      "text": "Do not permanently delete any customer accounts.",
+      "candidates": [
+        {
+          "id": "delete",
+          "score": 0.8317807696148929
+        },
+        {
+          "id": "read",
+          "score": 0.26014758725443204
+        },
+        {
+          "id": "reply",
+          "score": 0.21229417901940664
+        },
+        {
+          "id": "export",
+          "score": 0.12681892908647235
+        }
+      ],
+      "proposed": "delete",
+      "permission": "delete",
+      "decision": "hold",
+      "note": ""
+    }
+  ],
+  "required": [],
+  "bundle": {
+    "roles": [],
+    "granted": [],
+    "extras": []
+  },
+  "metrics": {
+    "total": 1,
+    "approved": 0,
+    "held": 1,
+    "exactBaseline": 0,
+    "aiSuggested": 1,
+    "extraPermissions": 0,
+    "roleCount": 0
+  }
+}

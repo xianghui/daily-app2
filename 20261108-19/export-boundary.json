@@ -1,0 +1,99 @@
+{
+  "version": 1,
+  "input": {
+    "name": "Refund procedure",
+    "roles": [
+      {
+        "id": "support",
+        "description": "Customer support handles incoming customer complaints and asks customers for order information."
+      },
+      {
+        "id": "finance",
+        "description": "Finance reviews refund amounts, approves reimbursements and transfers money to customers."
+      },
+      {
+        "id": "warehouse",
+        "description": "Warehouse staff receive returned parcels and inspect damaged products."
+      }
+    ],
+    "steps": [
+      {
+        "id": "q",
+        "text": "=HYPERLINK(\"x\")\nReceive returned parcels, \"inspect\", damaged goods."
+      },
+      {
+        "id": "n",
+        "text": "Do not refund the customer or transfer money. Ask support for help."
+      }
+    ]
+  },
+  "steps": [
+    {
+      "id": "q",
+      "text": "=HYPERLINK(\"x\")\nReceive returned parcels, \"inspect\", damaged goods.",
+      "suggested": "warehouse",
+      "role": "warehouse",
+      "ranks": [
+        {
+          "id": "warehouse",
+          "similarity": 0.5359719251843125
+        },
+        {
+          "id": "finance",
+          "similarity": 0.3177171526416009
+        },
+        {
+          "id": "support",
+          "similarity": 0.3146133276164954
+        }
+      ],
+      "decision": "approve",
+      "note": "",
+      "handoff": ""
+    },
+    {
+      "id": "n",
+      "text": "Do not refund the customer or transfer money. Ask support for help.",
+      "suggested": "finance",
+      "role": "finance",
+      "ranks": [
+        {
+          "id": "finance",
+          "similarity": 0.48152263685041397
+        },
+        {
+          "id": "support",
+          "similarity": 0.41717143071893614
+        },
+        {
+          "id": "warehouse",
+          "similarity": 0.3211257690012433
+        }
+      ],
+      "decision": "approve",
+      "note": "",
+      "handoff": ""
+    }
+  ],
+  "transitions": [
+    {
+      "from": "q",
+      "to": "n",
+      "fromRole": "warehouse",
+      "toRole": "finance",
+      "status": "missing",
+      "deliverable": ""
+    }
+  ],
+  "metrics": {
+    "total": 2,
+    "approved": 2,
+    "held": 0,
+    "changedAssignments": 0,
+    "roleChanges": 1,
+    "missingHandoffs": 1,
+    "blockedBoundaries": 0,
+    "baselineUnassigned": 2,
+    "reviewedUnassigned": 0
+  }
+}

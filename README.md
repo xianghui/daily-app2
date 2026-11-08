@@ -120,3 +120,7 @@ Real local MiniLM retrieval helps English → French localization editors reuse 
 ## Cohort Current — 20261108-18
 
 Compare two feedback periods using local MiniLM topic inference, mandatory assignment review and explicit approved-record denominators. Export complete JSON/CSV/Markdown trend audits. Ten known-answer synthetic topics matched across two batches; unrelated text still receives a nearest topic and must be held. Reuses immutable WASM from `20261107-2`; preserve that asset. See [workflow](20261108-18/README.md) and [observed validation](20261108-18/VALIDATION.md).
+
+## Handoff Trace — 20261108-19
+
+Local MiniLM responsibility inference turns ordered SOP steps into reviewed cross-role handoff checklists. Holds explicitly block adjacent boundaries; human deliverables, originals and all ordered steps survive JSON/CSV/Markdown. Two tiny known-answer fixtures matched 8/8 owners, but a negated refund instruction still matched Finance: this is not authorization or competence certification. Reuses immutable shared WASM from `20261107-2`; preserve that asset. See [workflow](20261108-19/README.md) and [observed validation](20261108-19/VALIDATION.md).

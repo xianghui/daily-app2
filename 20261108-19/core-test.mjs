@@ -1,0 +1,4 @@
+import assert from 'node:assert/strict';import {examples,parse,suggest,plan} from './src/core.js';
+const d=parse(JSON.stringify(examples[0])),v=Array.from({length:7},()=>Array(384).fill(0));for(let i=0;i<3;i++)v[i][i]=1;for(let i=0;i<4;i++)v[3+i][[0,2,1,0][i]]=1;
+const rows=suggest(d,v).map(r=>({...r,decision:'approve'}));assert.equal(plan(d,rows).metrics.missingHandoffs,3);rows[1].decision='hold';assert.equal(plan(d,rows).metrics.blockedBoundaries,2);assert.equal(plan(d,rows).transitions.length,3);
+assert.throws(()=>plan(d,rows.slice(1)),/conservation/);assert.throws(()=>plan(d,rows.map((r,i)=>i? r:{...r,text:'changed'})),/conservation/);assert.throws(()=>plan(d,rows.map(r=>({...r,role:'invented'}))),/schema/);assert.throws(()=>suggest(d,[[NaN]]),/schema/);console.log('PASS schema, conservation and held-boundary checks (synthetic vectors for deterministic unit tests only)');

@@ -1,0 +1,169 @@
+{
+  "version": 1,
+  "input": {
+    "name": "Refund procedure",
+    "roles": [
+      {
+        "id": "support",
+        "description": "Customer support handles incoming customer complaints and asks customers for order information."
+      },
+      {
+        "id": "finance",
+        "description": "Finance reviews refund amounts, approves reimbursements and transfers money to customers."
+      },
+      {
+        "id": "warehouse",
+        "description": "Warehouse staff receive returned parcels and inspect damaged products."
+      }
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "text": "Ask the customer for their order number and complaint details."
+      },
+      {
+        "id": "s2",
+        "text": "Receive the returned parcel and inspect the damaged item."
+      },
+      {
+        "id": "s3",
+        "text": "Approve the refund amount and reimburse the customer."
+      },
+      {
+        "id": "s4",
+        "text": "Tell the customer their complaint has been resolved."
+      }
+    ]
+  },
+  "steps": [
+    {
+      "id": "s1",
+      "text": "Ask the customer for their order number and complaint details.",
+      "suggested": "support",
+      "role": "support",
+      "ranks": [
+        {
+          "id": "support",
+          "similarity": 0.5025269505962423
+        },
+        {
+          "id": "warehouse",
+          "similarity": 0.335723525054416
+        },
+        {
+          "id": "finance",
+          "similarity": 0.2374591164052455
+        }
+      ],
+      "decision": "approve",
+      "note": "Phone review",
+      "handoff": ""
+    },
+    {
+      "id": "s2",
+      "text": "Receive the returned parcel and inspect the damaged item.",
+      "suggested": "warehouse",
+      "role": "warehouse",
+      "ranks": [
+        {
+          "id": "warehouse",
+          "similarity": 0.6226738048899811
+        },
+        {
+          "id": "support",
+          "similarity": 0.3315660608947598
+        },
+        {
+          "id": "finance",
+          "similarity": 0.2600169004498094
+        }
+      ],
+      "decision": "approve",
+      "note": "",
+      "handoff": ""
+    },
+    {
+      "id": "s3",
+      "text": "Approve the refund amount and reimburse the customer.",
+      "suggested": "finance",
+      "role": "finance",
+      "ranks": [
+        {
+          "id": "finance",
+          "similarity": 0.5772498154288538
+        },
+        {
+          "id": "support",
+          "similarity": 0.39578926146142923
+        },
+        {
+          "id": "warehouse",
+          "similarity": 0.31288863942906575
+        }
+      ],
+      "decision": "approve",
+      "note": "",
+      "handoff": ""
+    },
+    {
+      "id": "s4",
+      "text": "Tell the customer their complaint has been resolved.",
+      "suggested": "support",
+      "role": "support",
+      "ranks": [
+        {
+          "id": "support",
+          "similarity": 0.5527299910078968
+        },
+        {
+          "id": "warehouse",
+          "similarity": 0.30462992456774457
+        },
+        {
+          "id": "finance",
+          "similarity": 0.2379227466054697
+        }
+      ],
+      "decision": "approve",
+      "note": "",
+      "handoff": ""
+    }
+  ],
+  "transitions": [
+    {
+      "from": "s1",
+      "to": "s2",
+      "fromRole": "support",
+      "toRole": "warehouse",
+      "status": "missing",
+      "deliverable": ""
+    },
+    {
+      "from": "s2",
+      "to": "s3",
+      "fromRole": "warehouse",
+      "toRole": "finance",
+      "status": "missing",
+      "deliverable": ""
+    },
+    {
+      "from": "s3",
+      "to": "s4",
+      "fromRole": "finance",
+      "toRole": "support",
+      "status": "missing",
+      "deliverable": ""
+    }
+  ],
+  "metrics": {
+    "total": 4,
+    "approved": 4,
+    "held": 0,
+    "changedAssignments": 0,
+    "roleChanges": 3,
+    "missingHandoffs": 3,
+    "blockedBoundaries": 0,
+    "baselineUnassigned": 4,
+    "reviewedUnassigned": 0
+  }
+}

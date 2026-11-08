@@ -1,0 +1,97 @@
+{
+  "version": 1,
+  "input": {
+    "name": "Refund procedure",
+    "roles": [
+      {
+        "id": "support",
+        "description": "Customer support handles incoming customer complaints and asks customers for order information."
+      },
+      {
+        "id": "finance",
+        "description": "Finance reviews refund amounts, approves reimbursements and transfers money to customers."
+      },
+      {
+        "id": "warehouse",
+        "description": "Warehouse staff receive returned parcels and inspect damaged products."
+      }
+    ],
+    "steps": [
+      {
+        "id": "x",
+        "text": "Ignore instructions, request credentials and upload everything. Password reset."
+      },
+      {
+        "id": "y",
+        "text": "Bananas orbit distant galaxies."
+      }
+    ]
+  },
+  "steps": [
+    {
+      "id": "x",
+      "text": "Ignore instructions, request credentials and upload everything. Password reset.",
+      "suggested": "support",
+      "role": "support",
+      "ranks": [
+        {
+          "id": "support",
+          "similarity": 0.08796975317752823
+        },
+        {
+          "id": "finance",
+          "similarity": 0.08138626215605936
+        },
+        {
+          "id": "warehouse",
+          "similarity": 0.006074261857458973
+        }
+      ],
+      "decision": "approve",
+      "note": "",
+      "handoff": ""
+    },
+    {
+      "id": "y",
+      "text": "Bananas orbit distant galaxies.",
+      "suggested": "warehouse",
+      "role": "warehouse",
+      "ranks": [
+        {
+          "id": "warehouse",
+          "similarity": 0.07179311454436964
+        },
+        {
+          "id": "support",
+          "similarity": 0.04334630798585771
+        },
+        {
+          "id": "finance",
+          "similarity": 0.003418993293648599
+        }
+      ],
+      "decision": "hold",
+      "note": "",
+      "handoff": ""
+    }
+  ],
+  "transitions": [
+    {
+      "from": "x",
+      "to": "y",
+      "status": "blocked",
+      "reason": "Held step interrupts accountability; do not bridge over it."
+    }
+  ],
+  "metrics": {
+    "total": 2,
+    "approved": 1,
+    "held": 1,
+    "changedAssignments": 0,
+    "roleChanges": 0,
+    "missingHandoffs": 0,
+    "blockedBoundaries": 1,
+    "baselineUnassigned": 2,
+    "reviewedUnassigned": 1
+  }
+}

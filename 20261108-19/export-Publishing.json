@@ -1,0 +1,169 @@
+{
+  "version": 1,
+  "input": {
+    "name": "Publishing procedure",
+    "roles": [
+      {
+        "id": "editor",
+        "description": "Editorial team writes articles, checks spelling and revises written copy."
+      },
+      {
+        "id": "designer",
+        "description": "Design team creates illustrations, graphics and visual layouts."
+      },
+      {
+        "id": "developer",
+        "description": "Web developers implement HTML pages and deploy website code to production."
+      }
+    ],
+    "steps": [
+      {
+        "id": "p1",
+        "text": "Draft the article and proofread the text for spelling mistakes."
+      },
+      {
+        "id": "p2",
+        "text": "Create the cover illustration and prepare the visual graphics."
+      },
+      {
+        "id": "p3",
+        "text": "Revise the written copy and correct grammatical errors."
+      },
+      {
+        "id": "p4",
+        "text": "Implement the web page in HTML and deploy the code."
+      }
+    ]
+  },
+  "steps": [
+    {
+      "id": "p1",
+      "text": "Draft the article and proofread the text for spelling mistakes.",
+      "suggested": "editor",
+      "role": "editor",
+      "ranks": [
+        {
+          "id": "editor",
+          "similarity": 0.5728669751038062
+        },
+        {
+          "id": "developer",
+          "similarity": 0.13825558280049524
+        },
+        {
+          "id": "designer",
+          "similarity": 0.11885600826195328
+        }
+      ],
+      "decision": "approve",
+      "note": "",
+      "handoff": ""
+    },
+    {
+      "id": "p2",
+      "text": "Create the cover illustration and prepare the visual graphics.",
+      "suggested": "designer",
+      "role": "designer",
+      "ranks": [
+        {
+          "id": "designer",
+          "similarity": 0.5387184412548074
+        },
+        {
+          "id": "developer",
+          "similarity": 0.1887558406539512
+        },
+        {
+          "id": "editor",
+          "similarity": 0.08339056326390078
+        }
+      ],
+      "decision": "approve",
+      "note": "",
+      "handoff": ""
+    },
+    {
+      "id": "p3",
+      "text": "Revise the written copy and correct grammatical errors.",
+      "suggested": "editor",
+      "role": "editor",
+      "ranks": [
+        {
+          "id": "editor",
+          "similarity": 0.49988237902716604
+        },
+        {
+          "id": "developer",
+          "similarity": 0.10780065116432344
+        },
+        {
+          "id": "designer",
+          "similarity": 0.08610171476812412
+        }
+      ],
+      "decision": "approve",
+      "note": "",
+      "handoff": ""
+    },
+    {
+      "id": "p4",
+      "text": "Implement the web page in HTML and deploy the code.",
+      "suggested": "developer",
+      "role": "developer",
+      "ranks": [
+        {
+          "id": "developer",
+          "similarity": 0.6913505880783568
+        },
+        {
+          "id": "designer",
+          "similarity": 0.20611226310101632
+        },
+        {
+          "id": "editor",
+          "similarity": 0.12327668661290574
+        }
+      ],
+      "decision": "approve",
+      "note": "",
+      "handoff": ""
+    }
+  ],
+  "transitions": [
+    {
+      "from": "p1",
+      "to": "p2",
+      "fromRole": "editor",
+      "toRole": "designer",
+      "status": "missing",
+      "deliverable": ""
+    },
+    {
+      "from": "p2",
+      "to": "p3",
+      "fromRole": "designer",
+      "toRole": "editor",
+      "status": "missing",
+      "deliverable": ""
+    },
+    {
+      "from": "p3",
+      "to": "p4",
+      "fromRole": "editor",
+      "toRole": "developer",
+      "status": "missing",
+      "deliverable": ""
+    }
+  ],
+  "metrics": {
+    "total": 4,
+    "approved": 4,
+    "held": 0,
+    "changedAssignments": 0,
+    "roleChanges": 3,
+    "missingHandoffs": 3,
+    "blockedBoundaries": 0,
+    "baselineUnassigned": 4,
+    "reviewedUnassigned": 0
+  }
+}

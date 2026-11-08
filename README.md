@@ -157,3 +157,7 @@ Local MiniLM links reworded invoice lines to received purchase orders; human rev
 ## Branch Harbor — 20261109-4
 
 Real local MiniLM identity alignment assists three-way checklist merging. Review every branch link and every edit/delete resolution, preserve all originals and export a merged checklist plus complete JSON/CSV/Markdown audit. Two tiny synthetic workflows matched 13/13 expected identities/additions; a negated backup instruction was still mislinked, so human review is mandatory. Output order is base order with appended additions, not inferred process sequencing. Reuses immutable WASM from `20261107-2`. See [workflow/privacy](20261109-4/README.md) and [observed validation](20261109-4/VALIDATION.md).
+
+## Recall Calendar — 20261109-5
+
+Real local MiniLM reference/misconception comparisons help learners review recall attempts, then a human-approved bounded SM-2 scheduler exports all-day ICS plus complete JSON/CSV/Markdown audits. Six simple synthetic labels matched, but a negation challenge failed; this is study planning, never automatic correctness/mastery certification. Reuses the immutable shared WASM from `20261107-2`; preserve that asset. See [workflow](20261109-5/README.md) and [observed validation](20261109-5/VALIDATION.md).

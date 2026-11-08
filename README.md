@@ -153,3 +153,7 @@ Reconcile independently named qualitative codebooks with real local MiniLM defin
 ## Invoice Moor — 20261109-3
 
 Local MiniLM links reworded invoice lines to received purchase orders; human review feeds many-to-one quantity reconciliation and integer-cent unit-price checks. All eight simple fixture links matched and both split-line overages were caught; negated/unrelated text still receives unsuitable nearest proposals. This is an exception-planning desk, not payment authorization. Complete JSON/CSV/Markdown preserves all receipts, lines and cents. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261109-3/README.md) and [observed validation](20261109-3/VALIDATION.md).
+
+## Branch Harbor — 20261109-4
+
+Real local MiniLM identity alignment assists three-way checklist merging. Review every branch link and every edit/delete resolution, preserve all originals and export a merged checklist plus complete JSON/CSV/Markdown audit. Two tiny synthetic workflows matched 13/13 expected identities/additions; a negated backup instruction was still mislinked, so human review is mandatory. Output order is base order with appended additions, not inferred process sequencing. Reuses immutable WASM from `20261107-2`. See [workflow/privacy](20261109-4/README.md) and [observed validation](20261109-4/VALIDATION.md).

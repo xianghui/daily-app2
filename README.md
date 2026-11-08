@@ -132,3 +132,7 @@ Real local MiniLM links reported accessibility barriers to supplied remedies; ma
 ## Script Stitch — 20261108-21
 
 Local MiniLM semantic inference and order-preserving gap-tolerant alignment help speakers audit rehearsal transcripts against planned cues. Review every spoken segment, block crossing/duplicate approved links and export both complete source sequences as JSON/CSV/Markdown. Two tiny fixtures matched six links, two digressions and two unconfirmed cues; a negated photography instruction still matched the opposing cue, so this is mandatory human review, not verified script delivery. Reuses immutable WASM from `20261107-2`; preserve that asset. See [workflow](20261108-21/README.md) and [observed checks](20261108-21/VALIDATION.md).
+
+## Citation Loom — 20261108-22
+
+Local MiniLM retrieves supplied bibliography candidates from rough citation notes. Review sources, hold uncertain links and export first-appearance-numbered Markdown with complete JSON/CSV audits. Eight simple known-answer links matched; a negated claim still retrieved a topically related paper, so this is retrieval, not fact verification. Reuses the immutable WASM from 20261107-2; preserve that asset. See [workflow](20261108-22/README.md) and [observed validation](20261108-22/VALIDATION.md).

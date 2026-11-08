@@ -112,3 +112,7 @@ Local MiniLM answer-to-anchor comparison assists human second marking for a sing
 ## Purpose Fence — 20261108-16
 
 Local MiniLM purpose matching helps privacy coordinators minimize proposed data-use fields and retention within user-supplied policy limits. Review every purpose and approve or hold; export a complete JSON/CSV audit and approved manifest. Two tiny synthetic batches matched 6/6 intended purposes, but a prohibited negated marketing request still matched scheduling: this is planning, not consent/legal authorization or compliance verification. Reuses immutable shared WASM from `20261107-2`; preserve that asset. See [workflow](20261108-16/README.md) and [observed validation](20261108-16/VALIDATION.md).
+
+## Locale Relay — 20261108-17
+
+Real local MiniLM retrieval helps English → French localization editors reuse bilingual translation memories beyond exact-source lookup. Human-reviewed targets, deterministic placeholder parity and valid XLIFF 2.0 releases plus complete JSON/CSV audits. Six fixture matches passed; a negation challenge selected opposing meaning, so every draft requires human review. Reuses the immutable shared WASM from `20261107-2`; preserve that asset. See [workflow](20261108-17/README.md) and [observed validation](20261108-17/VALIDATION.md).

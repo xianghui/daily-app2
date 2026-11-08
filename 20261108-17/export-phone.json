@@ -1,0 +1,129 @@
+{
+  "schema": "locale-relay/v1",
+  "input": {
+    "name": "Account interface",
+    "memory": [
+      {
+        "id": "password",
+        "source": "Reset your password using the link sent by email.",
+        "target": "Réinitialisez votre mot de passe avec le lien envoyé par e-mail."
+      },
+      {
+        "id": "delete",
+        "source": "Permanently delete your account and all saved data.",
+        "target": "Supprimez définitivement votre compte et toutes les données enregistrées."
+      },
+      {
+        "id": "welcome",
+        "source": "Welcome back, {name}!",
+        "target": "Bon retour, {name} !"
+      }
+    ],
+    "records": [
+      {
+        "id": "a1",
+        "source": "Recover a forgotten password through an emailed reset link."
+      },
+      {
+        "id": "a2",
+        "source": "Remove my account permanently, including stored information."
+      },
+      {
+        "id": "a3",
+        "source": "Welcome back, {firstName}!"
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "a1",
+      "source": "Recover a forgotten password through an emailed reset link.",
+      "suggested": "password",
+      "memory": "password",
+      "target": "Réinitialisez votre mot de passe avec le lien envoyé par e-mail.",
+      "decision": "approve",
+      "note": "Phone review",
+      "ranks": [
+        {
+          "id": "password",
+          "similarity": 0.7172859411136144
+        },
+        {
+          "id": "delete",
+          "similarity": 0.31435592675557944
+        },
+        {
+          "id": "welcome",
+          "similarity": 0.17028161114952722
+        }
+      ]
+    },
+    {
+      "id": "a2",
+      "source": "Remove my account permanently, including stored information.",
+      "suggested": "delete",
+      "memory": "delete",
+      "target": "Supprimez définitivement votre compte et toutes les données enregistrées.",
+      "decision": "approve",
+      "note": "",
+      "ranks": [
+        {
+          "id": "delete",
+          "similarity": 0.8178094371652926
+        },
+        {
+          "id": "password",
+          "similarity": 0.5064873073140629
+        },
+        {
+          "id": "welcome",
+          "similarity": 0.21153080903338664
+        }
+      ]
+    },
+    {
+      "id": "a3",
+      "source": "Welcome back, {firstName}!",
+      "suggested": "welcome",
+      "memory": "welcome",
+      "target": "Bon retour, {name} !",
+      "decision": "hold",
+      "note": "",
+      "ranks": [
+        {
+          "id": "welcome",
+          "similarity": 0.9145745217118576
+        },
+        {
+          "id": "delete",
+          "similarity": 0.18616185093569484
+        },
+        {
+          "id": "password",
+          "similarity": 0.15827995630180353
+        }
+      ]
+    }
+  ],
+  "metrics": {
+    "total": 3,
+    "approved": 2,
+    "held": 1,
+    "exactSourceMatches": 0,
+    "aiProposals": 3,
+    "initialPlaceholderMismatches": 1,
+    "approvedPlaceholderMismatches": 0
+  },
+  "approved": [
+    {
+      "id": "a1",
+      "source": "Recover a forgotten password through an emailed reset link.",
+      "target": "Réinitialisez votre mot de passe avec le lien envoyé par e-mail."
+    },
+    {
+      "id": "a2",
+      "source": "Remove my account permanently, including stored information.",
+      "target": "Supprimez définitivement votre compte et toutes les données enregistrées."
+    }
+  ]
+}

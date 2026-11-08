@@ -1,0 +1,17 @@
+# Observed validation — 2026-11-08
+
+- React/Vite production build passes, required per-app scripts/dependency/base configured.
+- Real q8 MiniLM WASM CPU inference: Account interface password/delete/welcome 3/3 intended memories; Shop interface shipping/refund/basket 3/3. Exact English source baseline 0/6, versus six AI draft candidates. This tiny fixture is not general accuracy evidence.
+- Both renamed-placeholder examples block release until editing/approval. Reviewed targets preserve exact placeholder names and multiplicities. Negated account-deletion challenge retrieved deletion at cosine ~0.847 despite opposite intent; documented human-review limitation. Instruction text remained inert.
+- Full 12-memory/24-record limit processed in batches of four; every source id survives. JSON original-input reimport round-trip; all-held release retains all audit records and empty XLIFF group marker.
+- Real fresh-worker inference succeeds with context fully offline after online caching. Offline page reload not claimed. Local production worker, factory and shared WASM paths tested.
+- Review/hold/undo, memory/target edit resets, stale export invalidation, apply, downloads and clipboard passed. Independent Python CSV/XML/JSON parsing verifies current edited targets, ampersands/quotes/newlines, formula-safe notes, counts and original conservation.
+- Empty/invalid/oversized/duplicate/schema/unsupported plain-text formats rejected. Core tests reject malformed vectors, wrong dimensions/norms, altered originals and repeated/mismatched placeholders. Invalid XML controls/unpaired surrogates rejected. Simple placeholders only, not ICU.
+- Cancel/retry, input changes during run, delayed obsolete fetch errors, late cancelled-worker responses, worker download failure/recovery, constructor/runtime failure, worker crash, malformed output and accelerated timeout passed. Fault injection used for defensive tests only, never successful AI results.
+- Separate fresh-context model-host abort produces visible failure with no fabricated rows; unblocking permits real inference retry (network-validation.json).
+- Desktop + 320/390 CSS px layouts, form focus outlines, editing/apply/export passed; no horizontal overflow. Screenshots retained; Chrome emulation, not physical devices. No other browsers tested.
+- Captured requests are static/model GET only with no bodies; no source text in request URLs. No model download before explicit run. Built-text credential-pattern scan and source review found no provider integration/embedded credentials. Runtime assets and shared binary hashes audited.
+
+Browser reports and scripts are reproducible synthetic evidence, not claims about translation quality, universal offline support or every device. Public validation reports are generated separately after publication.
+
+Official OASIS XLIFF 2.0 XSD validation added beyond XML parsing. It exposed that an empty `<file>` is invalid for all-held exports; fixed by an empty `<group id="no-approved-units"/>`. XLIFF unit IDs now require ASCII XML-name-token-safe identifiers at import. Approved and all-held exports are validated against the official schema plus the W3C XML schema copy in this folder. These fetched schema files retain their upstream license notices. Boundary browser checks cover invalid XML characters, empty targets and extra placeholders. The corrected bundle was rebuilt and the full workflow suite rerun before final publication.

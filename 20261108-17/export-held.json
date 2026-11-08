@@ -1,0 +1,129 @@
+{
+  "schema": "locale-relay/v1",
+  "input": {
+    "name": "Shop interface",
+    "memory": [
+      {
+        "id": "shipping",
+        "source": "Track your parcel using the shipment tracking number.",
+        "target": "Suivez votre colis avec le numéro de suivi."
+      },
+      {
+        "id": "refund",
+        "source": "Request a refund for a returned purchase.",
+        "target": "Demandez le remboursement d’un achat retourné."
+      },
+      {
+        "id": "basket",
+        "source": "Your basket contains {count} items.",
+        "target": "Votre panier contient {count} articles."
+      }
+    ],
+    "records": [
+      {
+        "id": "s1",
+        "source": "Where is my package? Follow its delivery progress."
+      },
+      {
+        "id": "s2",
+        "source": "Get my money back after sending an order back."
+      },
+      {
+        "id": "s3",
+        "source": "There are {quantity} products in your cart."
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "s1",
+      "source": "Where is my package? Follow its delivery progress.",
+      "suggested": "shipping",
+      "memory": "shipping",
+      "target": "Suivez le colis & confirmez \"reçu\".\nMerci !",
+      "decision": "approve",
+      "note": "=1+1\nReviewed, \"quoted\"",
+      "ranks": [
+        {
+          "id": "shipping",
+          "similarity": 0.463864842441991
+        },
+        {
+          "id": "refund",
+          "similarity": 0.24433324686514873
+        },
+        {
+          "id": "basket",
+          "similarity": 0.08216971149656511
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "source": "Get my money back after sending an order back.",
+      "suggested": "refund",
+      "memory": "refund",
+      "target": "Demandez le remboursement d’un achat retourné.",
+      "decision": "hold",
+      "note": "",
+      "ranks": [
+        {
+          "id": "refund",
+          "similarity": 0.7181915044429525
+        },
+        {
+          "id": "shipping",
+          "similarity": 0.302522748332696
+        },
+        {
+          "id": "basket",
+          "similarity": 0.14620141242189183
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "source": "There are {quantity} products in your cart.",
+      "suggested": "basket",
+      "memory": "basket",
+      "target": "Texte relu {quantity}.",
+      "decision": "approve",
+      "note": "",
+      "ranks": [
+        {
+          "id": "basket",
+          "similarity": 0.5408126677798231
+        },
+        {
+          "id": "shipping",
+          "similarity": 0.3132496378920102
+        },
+        {
+          "id": "refund",
+          "similarity": 0.25212390403915547
+        }
+      ]
+    }
+  ],
+  "metrics": {
+    "total": 3,
+    "approved": 2,
+    "held": 1,
+    "exactSourceMatches": 0,
+    "aiProposals": 3,
+    "initialPlaceholderMismatches": 1,
+    "approvedPlaceholderMismatches": 0
+  },
+  "approved": [
+    {
+      "id": "s1",
+      "source": "Where is my package? Follow its delivery progress.",
+      "target": "Suivez le colis & confirmez \"reçu\".\nMerci !"
+    },
+    {
+      "id": "s3",
+      "source": "There are {quantity} products in your cart.",
+      "target": "Texte relu {quantity}."
+    }
+  ]
+}

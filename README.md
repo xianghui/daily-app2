@@ -124,3 +124,7 @@ Compare two feedback periods using local MiniLM topic inference, mandatory assig
 ## Handoff Trace — 20261108-19
 
 Local MiniLM responsibility inference turns ordered SOP steps into reviewed cross-role handoff checklists. Holds explicitly block adjacent boundaries; human deliverables, originals and all ordered steps survive JSON/CSV/Markdown. Two tiny known-answer fixtures matched 8/8 owners, but a negated refund instruction still matched Finance: this is not authorization or competence certification. Reuses immutable shared WASM from `20261107-2`; preserve that asset. See [workflow](20261108-19/README.md) and [observed validation](20261108-19/VALIDATION.md).
+
+## Barrier Budget — 20261108-20
+
+Real local MiniLM links reported accessibility barriers to supplied remedies; mandatory human review feeds a shared-fix hours-budget optimizer. Complete JSON/CSV/Markdown audits retain originals, held and deferred reports. Both simple synthetic batches matched 8/8 links; a reviewed cost/impact scenario improved computed planning points from 8 to 10 at five hours, not measured accessibility gains. A negation challenge still returned an unsuitable nearest remedy. Reuses the immutable WASM from `20261107-2`; preserve that asset. See [workflow](20261108-20/README.md) and [observed checks](20261108-20/VALIDATION.md).

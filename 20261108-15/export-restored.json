@@ -1,0 +1,210 @@
+{
+  "input": {
+    "name": "Water cycle",
+    "prompt": "Explain the water cycle.",
+    "criterion": "0: off topic or no mechanism; 1: describes evaporation only; 2: connects evaporation, condensation and precipitation.",
+    "maxScore": 2,
+    "anchors": [
+      {
+        "id": "W0",
+        "text": "I do not know. My favorite sport is football.",
+        "score": 0
+      },
+      {
+        "id": "W1",
+        "text": "The sun heats water and it evaporates into water vapor.",
+        "score": 1
+      },
+      {
+        "id": "W2",
+        "text": "Water evaporates, cools and condenses into clouds, then falls as precipitation and collects again.",
+        "score": 2
+      }
+    ],
+    "records": [
+      {
+        "id": "W-A",
+        "text": "Sunlight warms liquid water so it changes into vapor.",
+        "score": 2
+      },
+      {
+        "id": "W-B",
+        "text": "Evaporation lifts water vapor; cooling forms cloud droplets by condensation, and rain returns water to the ground.",
+        "score": 1
+      },
+      {
+        "id": "W-C",
+        "text": "I have no answer. I like playing football.",
+        "score": 0
+      },
+      {
+        "id": "W-D",
+        "text": "Water turns into vapor when heated by the sun.",
+        "score": 2
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "W-A",
+      "text": "Sunlight warms liquid water so it changes into vapor.",
+      "score": 2,
+      "suggested": 1,
+      "anchor": "W1",
+      "similarity": 0.8196193937329026,
+      "margin": 0.25502081582594227,
+      "ranks": [
+        {
+          "id": "W1",
+          "score": 1,
+          "similarity": 0.8196193937329026
+        },
+        {
+          "id": "W2",
+          "score": 2,
+          "similarity": 0.5645985779069603
+        },
+        {
+          "id": "W0",
+          "score": 0,
+          "similarity": -0.0559706344012994
+        }
+      ],
+      "finalScore": 2,
+      "decision": "confirm",
+      "note": ""
+    },
+    {
+      "id": "W-B",
+      "text": "Evaporation lifts water vapor; cooling forms cloud droplets by condensation, and rain returns water to the ground.",
+      "score": 1,
+      "suggested": 2,
+      "anchor": "W2",
+      "similarity": 0.8273094470274134,
+      "margin": 0.1691445662049571,
+      "ranks": [
+        {
+          "id": "W2",
+          "score": 2,
+          "similarity": 0.8273094470274134
+        },
+        {
+          "id": "W1",
+          "score": 1,
+          "similarity": 0.6581648808224563
+        },
+        {
+          "id": "W0",
+          "score": 0,
+          "similarity": -0.028069848515804564
+        }
+      ],
+      "finalScore": 1,
+      "decision": "confirm",
+      "note": ""
+    },
+    {
+      "id": "W-C",
+      "text": "I have no answer. I like playing football.",
+      "score": 0,
+      "suggested": 0,
+      "anchor": "W0",
+      "similarity": 0.688787307308991,
+      "margin": 0.6908155991612922,
+      "ranks": [
+        {
+          "id": "W0",
+          "score": 0,
+          "similarity": 0.688787307308991
+        },
+        {
+          "id": "W1",
+          "score": 1,
+          "similarity": -0.002028291852301199
+        },
+        {
+          "id": "W2",
+          "score": 2,
+          "similarity": -0.02700444806001513
+        }
+      ],
+      "finalScore": 0,
+      "decision": "confirm",
+      "note": ""
+    },
+    {
+      "id": "W-D",
+      "text": "Water turns into vapor when heated by the sun.",
+      "score": 2,
+      "suggested": 1,
+      "anchor": "W1",
+      "similarity": 0.8875708310139258,
+      "margin": 0.2511461714738371,
+      "ranks": [
+        {
+          "id": "W1",
+          "score": 1,
+          "similarity": 0.8875708310139258
+        },
+        {
+          "id": "W2",
+          "score": 2,
+          "similarity": 0.6364246595400886
+        },
+        {
+          "id": "W0",
+          "score": 0,
+          "similarity": -0.03978031206451396
+        }
+      ],
+      "finalScore": 2,
+      "decision": "confirm",
+      "note": ""
+    }
+  ],
+  "queue": [
+    "W-B",
+    "W-D",
+    "W-A",
+    "W-C"
+  ],
+  "metrics": {
+    "records": 4,
+    "approved": 4,
+    "held": 0,
+    "aiDisagreements": 3,
+    "changed": 0,
+    "originalTotal": 5,
+    "reviewedTotal": 5,
+    "originalHistogram": [
+      {
+        "score": 0,
+        "count": 1
+      },
+      {
+        "score": 1,
+        "count": 1
+      },
+      {
+        "score": 2,
+        "count": 2
+      }
+    ],
+    "reviewedHistogram": [
+      {
+        "score": 0,
+        "count": 1
+      },
+      {
+        "score": 1,
+        "count": 1
+      },
+      {
+        "score": 2,
+        "count": 2
+      }
+    ]
+  },
+  "model": "Xenova/all-MiniLM-L6-v2 / q8 / mean-pooled 384d / WASM CPU",
+  "notice": "Similarity is not factual correctness or rubric mastery. Human review is mandatory. Totals compare the same approved subset; holds have no released mark."
+}

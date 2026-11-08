@@ -103,3 +103,8 @@ Local MiniLM paraphrase grouping turns weekly task diaries into a reviewed autom
 ## Practice Weave — 20261108-14
 
 Local MiniLM topic discovery helps educators interleave practice question banks. Review topics and supplied answers, hold prompts and optimize a no-same-topic-neighbors sequence; export learner Markdown, separate answer keys and complete JSON/CSV audits. Both synthetic banks recovered their intended topic pairs and reduced same-topic adjacency from 2 to 0; this is not a learning-gain claim and answers are not fact-checked. Reuses the immutable WASM from `20261107-2`; preserve that asset. See [workflow](20261108-14/README.md) and [observed checks](20261108-14/VALIDATION.md).
+
+
+## Rubric Relay — 20261108-15
+
+Local MiniLM answer-to-anchor comparison assists human second marking for a single supplied rubric criterion. Review every final mark, hold uncertain answers, preserve originals and export complete JSON/CSV/Markdown audits. The two simple synthetic batches matched 8/8 intended anchor levels versus 2/8 deliberately inconsistent original marks; a negated incorrect answer still matched the full-credit anchor, so this is not an automatic grader or accuracy guarantee. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow](20261108-15/README.md) and [observed checks](20261108-15/VALIDATION.md).

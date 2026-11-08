@@ -1,0 +1,210 @@
+{
+  "input": {
+    "name": "Database indexes",
+    "prompt": "Explain a database index and its trade-off.",
+    "criterion": "0: unrelated or no answer; 1: explains faster row lookup only; 2: faster lookup plus storage and write-maintenance trade-off.",
+    "maxScore": 2,
+    "anchors": [
+      {
+        "id": "D0",
+        "text": "I do not know. I prefer cooking pasta.",
+        "score": 0
+      },
+      {
+        "id": "D1",
+        "text": "A database index lets a query find rows faster without scanning the whole table.",
+        "score": 1
+      },
+      {
+        "id": "D2",
+        "text": "An index speeds row lookup but consumes additional storage and slows writes because updates must maintain the index.",
+        "score": 2
+      }
+    ],
+    "records": [
+      {
+        "id": "D-A",
+        "text": "An index helps you locate matching database records quickly instead of reading every row.",
+        "score": 2
+      },
+      {
+        "id": "D-B",
+        "text": "Indexes speed searches, but require extra disk space and add maintenance work on insert and update operations.",
+        "score": 1
+      },
+      {
+        "id": "D-C",
+        "text": "I have no idea. I enjoy cooking pasta.",
+        "score": 0
+      },
+      {
+        "id": "D-D",
+        "text": "Index structures allow quick queries that avoid a full table scan.",
+        "score": 2
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "D-A",
+      "text": "An index helps you locate matching database records quickly instead of reading every row.",
+      "score": 2,
+      "suggested": 1,
+      "anchor": "D1",
+      "similarity": 0.9028631693117566,
+      "margin": 0.2419573279546543,
+      "ranks": [
+        {
+          "id": "D1",
+          "score": 1,
+          "similarity": 0.9028631693117566
+        },
+        {
+          "id": "D2",
+          "score": 2,
+          "similarity": 0.6609058413571023
+        },
+        {
+          "id": "D0",
+          "score": 0,
+          "similarity": 0.07211944465501066
+        }
+      ],
+      "finalScore": 1,
+      "decision": "confirm",
+      "note": "=1+1\nReviewed, \"quoted\""
+    },
+    {
+      "id": "D-B",
+      "text": "Indexes speed searches, but require extra disk space and add maintenance work on insert and update operations.",
+      "score": 1,
+      "suggested": 2,
+      "anchor": "D2",
+      "similarity": 0.6425236550918647,
+      "margin": 0.022975040557788762,
+      "ranks": [
+        {
+          "id": "D2",
+          "score": 2,
+          "similarity": 0.6425236550918647
+        },
+        {
+          "id": "D1",
+          "score": 1,
+          "similarity": 0.619548614534076
+        },
+        {
+          "id": "D0",
+          "score": 0,
+          "similarity": 0.041073151569644
+        }
+      ],
+      "finalScore": 1,
+      "decision": "confirm",
+      "note": ""
+    },
+    {
+      "id": "D-C",
+      "text": "I have no idea. I enjoy cooking pasta.",
+      "score": 0,
+      "suggested": 0,
+      "anchor": "D0",
+      "similarity": 0.9307592708625809,
+      "margin": 0.7916367040775518,
+      "ranks": [
+        {
+          "id": "D0",
+          "score": 0,
+          "similarity": 0.9307592708625809
+        },
+        {
+          "id": "D1",
+          "score": 1,
+          "similarity": 0.13912256678502916
+        },
+        {
+          "id": "D2",
+          "score": 2,
+          "similarity": 0.08505513890075955
+        }
+      ],
+      "finalScore": 0,
+      "decision": "confirm",
+      "note": ""
+    },
+    {
+      "id": "D-D",
+      "text": "Index structures allow quick queries that avoid a full table scan.",
+      "score": 2,
+      "suggested": 1,
+      "anchor": "D1",
+      "similarity": 0.8097337240045402,
+      "margin": 0.24414400589394814,
+      "ranks": [
+        {
+          "id": "D1",
+          "score": 1,
+          "similarity": 0.8097337240045402
+        },
+        {
+          "id": "D2",
+          "score": 2,
+          "similarity": 0.5655897181105921
+        },
+        {
+          "id": "D0",
+          "score": 0,
+          "similarity": 0.18886313761427487
+        }
+      ],
+      "finalScore": 2,
+      "decision": "confirm",
+      "note": ""
+    }
+  ],
+  "queue": [
+    "D-B",
+    "D-A",
+    "D-D",
+    "D-C"
+  ],
+  "metrics": {
+    "records": 4,
+    "approved": 4,
+    "held": 0,
+    "aiDisagreements": 3,
+    "changed": 1,
+    "originalTotal": 5,
+    "reviewedTotal": 4,
+    "originalHistogram": [
+      {
+        "score": 0,
+        "count": 1
+      },
+      {
+        "score": 1,
+        "count": 1
+      },
+      {
+        "score": 2,
+        "count": 2
+      }
+    ],
+    "reviewedHistogram": [
+      {
+        "score": 0,
+        "count": 1
+      },
+      {
+        "score": 1,
+        "count": 2
+      },
+      {
+        "score": 2,
+        "count": 1
+      }
+    ]
+  },
+  "model": "Xenova/all-MiniLM-L6-v2 / q8 / mean-pooled 384d / WASM CPU",
+  "notice": "Similarity is not factual correctness or rubric mastery. Human review is mandatory. Totals compare the same approved subset; holds have no released mark."
+}

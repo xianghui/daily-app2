@@ -1,0 +1,495 @@
+{
+  "checks": [
+    "actual inference Research requests",
+    "actual inference Store operations",
+    "review hold undo field retention guards export clipboard",
+    "offline fresh worker actual inference",
+    "max 24 requests 8 policies batching and JSON roundtrip",
+    "empty invalid oversized duplicate fields schema bounds",
+    "cancel retry input invalidation unsupported files",
+    "phone layouts fields edit export keyboard focus",
+    "worker network failure retry",
+    "stale failed fetch cannot replace newer run",
+    "malformed vectors unsupported runtime crash timeout",
+    "late cancelled worker result ignored after newer success",
+    "negation challenge and instruction text real inference inert"
+  ],
+  "fixtures": [
+    {
+      "name": "Research requests",
+      "expected": [
+        "scheduling",
+        "analysis",
+        "incentives"
+      ],
+      "suggestions": [
+        "scheduling",
+        "analysis",
+        "incentives"
+      ],
+      "cosines": [
+        0.7188279751304636,
+        0.6040571128567988,
+        0.6068913538907853
+      ],
+      "metrics": {
+        "records": 3,
+        "approved": 3,
+        "held": 0,
+        "baselinePolicyViolations": 4,
+        "reviewedPolicyViolations": 0,
+        "approvedOriginalFields": 10,
+        "approvedPlanFields": 8,
+        "shortenedRetentions": 2
+      },
+      "correct": 3,
+      "firstPolicyBaseline": 1
+    },
+    {
+      "name": "Store operations",
+      "expected": [
+        "delivery",
+        "returns",
+        "stock"
+      ],
+      "suggestions": [
+        "delivery",
+        "returns",
+        "stock"
+      ],
+      "cosines": [
+        0.6371581334988118,
+        0.6946846626702416,
+        0.6078719729724632
+      ],
+      "metrics": {
+        "records": 3,
+        "approved": 3,
+        "held": 0,
+        "baselinePolicyViolations": 5,
+        "reviewedPolicyViolations": 0,
+        "approvedOriginalFields": 11,
+        "approvedPlanFields": 8,
+        "shortenedRetentions": 2
+      },
+      "correct": 3,
+      "firstPolicyBaseline": 1
+    }
+  ],
+  "challenge": [
+    {
+      "id": "NEG",
+      "suggested": "scheduling",
+      "cosine": 0.7233846954839531
+    },
+    {
+      "id": "INJECT",
+      "suggested": "scheduling",
+      "cosine": 0.690426740307493
+    }
+  ],
+  "requests": [
+    {
+      "url": "http://127.0.0.1:6256/daily-app2/20261108-16/",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "http://127.0.0.1:6256/daily-app2/20261108-16/assets/index-ByJDKhAr.js",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "http://127.0.0.1:6256/daily-app2/20261108-16/assets/index-D3z_9CPV.css",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "http://127.0.0.1:6256/daily-app2/20261108-16/assets/ai.worker-SQd-yvay.js",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "http://127.0.0.1:6256/daily-app2/20261108-16/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "http://127.0.0.1:6256/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": [
+        "response-content-disposition",
+        "X-Xet-Cas-Uid",
+        "xip",
+        "user_id",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": [
+        "X-Xet-Cas-Uid",
+        "user_id",
+        "response-content-disposition",
+        "xip",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ]
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "http://127.0.0.1:6256/daily-app2/20261108-16/assets/ai.worker-SQd-yvay.js",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "http://127.0.0.1:6256/daily-app2/20261108-16/assets/ai.worker-SQd-yvay.js",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "http://127.0.0.1:6256/daily-app2/20261108-16/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "http://127.0.0.1:6256/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "http://127.0.0.1:6256/daily-app2/20261108-16/assets/ai.worker-SQd-yvay.js",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "http://127.0.0.1:6256/daily-app2/20261108-16/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "http://127.0.0.1:6256/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,208 @@
+{
+  "input": {
+    "name": "Store operations",
+    "policies": [
+      {
+        "id": "delivery",
+        "text": "Ship customer orders, print shipping labels and notify recipients about delivery.",
+        "fields": [
+          "order_id",
+          "address",
+          "email"
+        ],
+        "maxDays": 45
+      },
+      {
+        "id": "returns",
+        "text": "Process merchandise returns and issue customer refunds.",
+        "fields": [
+          "order_id",
+          "refund_reference",
+          "email"
+        ],
+        "maxDays": 60
+      },
+      {
+        "id": "stock",
+        "text": "Forecast product inventory demand from aggregated sales counts.",
+        "fields": [
+          "sku",
+          "daily_units"
+        ],
+        "maxDays": 180
+      }
+    ],
+    "records": [
+      {
+        "id": "S1",
+        "text": "Prepare parcel labels with the destination and send tracking updates.",
+        "fields": [
+          "order_id",
+          "address",
+          "email",
+          "refund_reference"
+        ],
+        "days": 90
+      },
+      {
+        "id": "S2",
+        "text": "Reimburse shoppers after returned items have been received.",
+        "fields": [
+          "order_id",
+          "refund_reference",
+          "email",
+          "address"
+        ],
+        "days": 60
+      },
+      {
+        "id": "S3",
+        "text": "Predict replenishment needs using product sales totals.",
+        "fields": [
+          "sku",
+          "daily_units",
+          "email"
+        ],
+        "days": 365
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "S1",
+      "text": "Prepare parcel labels with the destination and send tracking updates.",
+      "fields": [
+        "order_id",
+        "address",
+        "email",
+        "refund_reference"
+      ],
+      "days": 90,
+      "suggested": "delivery",
+      "policy": "delivery",
+      "ranks": [
+        {
+          "id": "delivery",
+          "similarity": 0.6371581334988118
+        },
+        {
+          "id": "returns",
+          "similarity": 0.26295027001111015
+        },
+        {
+          "id": "stock",
+          "similarity": 0.18894928970778072
+        }
+      ],
+      "selectedFields": [
+        "order_id",
+        "address",
+        "email"
+      ],
+      "retention": 45,
+      "decision": "hold",
+      "note": "=1+1\nReviewed, \"quoted\""
+    },
+    {
+      "id": "S2",
+      "text": "Reimburse shoppers after returned items have been received.",
+      "fields": [
+        "order_id",
+        "refund_reference",
+        "email",
+        "address"
+      ],
+      "days": 60,
+      "suggested": "returns",
+      "policy": "returns",
+      "ranks": [
+        {
+          "id": "returns",
+          "similarity": 0.6946846626702416
+        },
+        {
+          "id": "delivery",
+          "similarity": 0.3197708845798697
+        },
+        {
+          "id": "stock",
+          "similarity": 0.19070281746992868
+        }
+      ],
+      "selectedFields": [
+        "order_id",
+        "refund_reference",
+        "email"
+      ],
+      "retention": 60,
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "S3",
+      "text": "Predict replenishment needs using product sales totals.",
+      "fields": [
+        "sku",
+        "daily_units",
+        "email"
+      ],
+      "days": 365,
+      "suggested": "stock",
+      "policy": "stock",
+      "ranks": [
+        {
+          "id": "stock",
+          "similarity": 0.6078719729724632
+        },
+        {
+          "id": "returns",
+          "similarity": 0.44646174851626386
+        },
+        {
+          "id": "delivery",
+          "similarity": 0.33109796189055635
+        }
+      ],
+      "selectedFields": [
+        "sku",
+        "daily_units"
+      ],
+      "retention": 180,
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "manifest": [
+    {
+      "id": "S2",
+      "purpose": "returns",
+      "fields": [
+        "order_id",
+        "refund_reference",
+        "email"
+      ],
+      "retentionDays": 60
+    },
+    {
+      "id": "S3",
+      "purpose": "stock",
+      "fields": [
+        "sku",
+        "daily_units"
+      ],
+      "retentionDays": 180
+    }
+  ],
+  "metrics": {
+    "records": 3,
+    "approved": 2,
+    "held": 1,
+    "baselinePolicyViolations": 5,
+    "reviewedPolicyViolations": 0,
+    "approvedOriginalFields": 7,
+    "approvedPlanFields": 5,
+    "shortenedRetentions": 1
+  },
+  "model": "Xenova/all-MiniLM-L6-v2 / q8 / mean-pooled 384d / WASM CPU",
+  "notice": "Human-reviewed planning only. Similarity is not consent, legal authority, necessity or compliance. Policy limits are user supplied, not independently verified. Baseline counts forbidden fields plus over-limit retention against the SAME reviewed purpose assignments across all original requests; reviewed counts approved subset only, holds excluded."
+}

@@ -108,3 +108,7 @@ Local MiniLM topic discovery helps educators interleave practice question banks.
 ## Rubric Relay — 20261108-15
 
 Local MiniLM answer-to-anchor comparison assists human second marking for a single supplied rubric criterion. Review every final mark, hold uncertain answers, preserve originals and export complete JSON/CSV/Markdown audits. The two simple synthetic batches matched 8/8 intended anchor levels versus 2/8 deliberately inconsistent original marks; a negated incorrect answer still matched the full-credit anchor, so this is not an automatic grader or accuracy guarantee. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow](20261108-15/README.md) and [observed checks](20261108-15/VALIDATION.md).
+
+## Purpose Fence — 20261108-16
+
+Local MiniLM purpose matching helps privacy coordinators minimize proposed data-use fields and retention within user-supplied policy limits. Review every purpose and approve or hold; export a complete JSON/CSV audit and approved manifest. Two tiny synthetic batches matched 6/6 intended purposes, but a prohibited negated marketing request still matched scheduling: this is planning, not consent/legal authorization or compliance verification. Reuses immutable shared WASM from `20261107-2`; preserve that asset. See [workflow](20261108-16/README.md) and [observed validation](20261108-16/VALIDATION.md).

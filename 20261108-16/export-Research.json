@@ -1,0 +1,216 @@
+{
+  "input": {
+    "name": "Research requests",
+    "policies": [
+      {
+        "id": "scheduling",
+        "text": "Contact research volunteers to arrange interview appointments and send session reminders.",
+        "fields": [
+          "participant_id",
+          "email",
+          "availability"
+        ],
+        "maxDays": 30
+      },
+      {
+        "id": "analysis",
+        "text": "Analyze anonymized interview transcripts to identify themes and summarize study findings.",
+        "fields": [
+          "participant_id",
+          "transcript"
+        ],
+        "maxDays": 90
+      },
+      {
+        "id": "incentives",
+        "text": "Send participant reward vouchers and reconcile research incentive payments.",
+        "fields": [
+          "participant_id",
+          "email",
+          "voucher_code"
+        ],
+        "maxDays": 14
+      }
+    ],
+    "records": [
+      {
+        "id": "R1",
+        "text": "Email volunteers to book a convenient time for their research session.",
+        "fields": [
+          "participant_id",
+          "email",
+          "availability",
+          "transcript"
+        ],
+        "days": 60
+      },
+      {
+        "id": "R2",
+        "text": "Read anonymized conversations and code the recurring research themes.",
+        "fields": [
+          "participant_id",
+          "transcript",
+          "email"
+        ],
+        "days": 90
+      },
+      {
+        "id": "R3",
+        "text": "Deliver gift card rewards to the study participants.",
+        "fields": [
+          "participant_id",
+          "email",
+          "voucher_code"
+        ],
+        "days": 45
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "R1",
+      "text": "Email volunteers to book a convenient time for their research session.",
+      "fields": [
+        "participant_id",
+        "email",
+        "availability",
+        "transcript"
+      ],
+      "days": 60,
+      "suggested": "scheduling",
+      "policy": "scheduling",
+      "ranks": [
+        {
+          "id": "scheduling",
+          "similarity": 0.7188279751304636
+        },
+        {
+          "id": "incentives",
+          "similarity": 0.40775682294896815
+        },
+        {
+          "id": "analysis",
+          "similarity": 0.2140096771063298
+        }
+      ],
+      "selectedFields": [
+        "participant_id",
+        "email",
+        "availability"
+      ],
+      "retention": 30,
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "R2",
+      "text": "Read anonymized conversations and code the recurring research themes.",
+      "fields": [
+        "participant_id",
+        "transcript",
+        "email"
+      ],
+      "days": 90,
+      "suggested": "analysis",
+      "policy": "analysis",
+      "ranks": [
+        {
+          "id": "analysis",
+          "similarity": 0.6040571128567988
+        },
+        {
+          "id": "incentives",
+          "similarity": 0.3610856938726894
+        },
+        {
+          "id": "scheduling",
+          "similarity": 0.35627397903753866
+        }
+      ],
+      "selectedFields": [
+        "participant_id",
+        "transcript"
+      ],
+      "retention": 90,
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "R3",
+      "text": "Deliver gift card rewards to the study participants.",
+      "fields": [
+        "participant_id",
+        "email",
+        "voucher_code"
+      ],
+      "days": 45,
+      "suggested": "incentives",
+      "policy": "incentives",
+      "ranks": [
+        {
+          "id": "incentives",
+          "similarity": 0.6068913538907853
+        },
+        {
+          "id": "scheduling",
+          "similarity": 0.32898083369937375
+        },
+        {
+          "id": "analysis",
+          "similarity": 0.15129797272687923
+        }
+      ],
+      "selectedFields": [
+        "participant_id",
+        "email",
+        "voucher_code"
+      ],
+      "retention": 14,
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "manifest": [
+    {
+      "id": "R1",
+      "purpose": "scheduling",
+      "fields": [
+        "participant_id",
+        "email",
+        "availability"
+      ],
+      "retentionDays": 30
+    },
+    {
+      "id": "R2",
+      "purpose": "analysis",
+      "fields": [
+        "participant_id",
+        "transcript"
+      ],
+      "retentionDays": 90
+    },
+    {
+      "id": "R3",
+      "purpose": "incentives",
+      "fields": [
+        "participant_id",
+        "email",
+        "voucher_code"
+      ],
+      "retentionDays": 14
+    }
+  ],
+  "metrics": {
+    "records": 3,
+    "approved": 3,
+    "held": 0,
+    "baselinePolicyViolations": 4,
+    "reviewedPolicyViolations": 0,
+    "approvedOriginalFields": 10,
+    "approvedPlanFields": 8,
+    "shortenedRetentions": 2
+  },
+  "model": "Xenova/all-MiniLM-L6-v2 / q8 / mean-pooled 384d / WASM CPU",
+  "notice": "Human-reviewed planning only. Similarity is not consent, legal authority, necessity or compliance. Policy limits are user supplied, not independently verified. Baseline counts forbidden fields plus over-limit retention against the SAME reviewed purpose assignments across all original requests; reviewed counts approved subset only, holds excluded."
+}

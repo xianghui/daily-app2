@@ -99,3 +99,7 @@ Local MiniLM request-routing evaluation with calibration-only abstention thresho
 ## Repeat Radar — 20261108-13
 
 Local MiniLM paraphrase grouping turns weekly task diaries into a reviewed automation-opportunity backlog; exact setup-budget optimization uses explicitly editable savings assumptions. Confirm/split/merge or hold tasks and export complete JSON/CSV/Markdown audits. Three of four tiny known paraphrase pairs grouped; one interview-scheduling pair required a human merge. Estimated savings are not measured productivity gains or feasibility predictions. Reuses the immutable shared WASM from `20261107-2`; preserve that asset. See [workflow](20261108-13/README.md) and [observed checks](20261108-13/VALIDATION.md).
+
+## Practice Weave — 20261108-14
+
+Local MiniLM topic discovery helps educators interleave practice question banks. Review topics and supplied answers, hold prompts and optimize a no-same-topic-neighbors sequence; export learner Markdown, separate answer keys and complete JSON/CSV audits. Both synthetic banks recovered their intended topic pairs and reduced same-topic adjacency from 2 to 0; this is not a learning-gain claim and answers are not fact-checked. Reuses the immutable WASM from `20261107-2`; preserve that asset. See [workflow](20261108-14/README.md) and [observed checks](20261108-14/VALIDATION.md).

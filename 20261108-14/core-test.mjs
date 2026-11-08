@@ -1,0 +1,7 @@
+import assert from 'node:assert/strict';import fs from 'node:fs';import {parse,plan,examples,suggest} from './src/core.js';
+const checks=[];
+function perm(a){return a.length?a.flatMap((x,i)=>perm(a.filter((_,j)=>j!==i)).map(p=>[x,...p])):[[]]}
+for(const n of [2,4,6,8]){const input={...parse(JSON.stringify(examples[0])),records:Array.from({length:n},(_,i)=>({id:String(i),text:'Q'+i,answer:'A'+i}))};input.matrix=Array.from({length:n},(_,i)=>Array.from({length:n},(_,j)=>i===j?1:Math.cos(i+j)*.3+.5));const rows=input.records.map((r,i)=>({...r,group:'T'+(i%2),decision:'confirm',note:''}));const a=plan(input,rows);const costs=perm([...Array(n).keys()]).filter(p=>p.every((x,i)=>!i||rows[x].group!==rows[p[i-1]].group)).map(p=>p.slice(1).reduce((s,x,i)=>s+input.matrix[x][p[i]],0));assert(Math.abs(a.metrics.cost-Math.min(...costs))<1e-8);assert.equal(new Set(a.sequence).size,n);assert.equal(a.metrics.adjacentTopics,0);checks.push('exact constrained optimum vs brute force n='+n);rows.forEach(r=>r.decision='hold');assert.equal(plan(input,rows).sequence.length,0)}
+for(const v of [[],[[NaN]],Array(4).fill(Array(384).fill(0))])assert.throws(()=>suggest(examples[0],v));
+for(const text of ['null','{}','[]','bad'])assert.throws(()=>parse(text));
+fs.writeFileSync('core-validation.json',JSON.stringify({checks,defenses:['malformed zero/nonfinite/wrong vector shape','invalid schema','all held lossless empty worksheet']},null,2));console.log(checks);

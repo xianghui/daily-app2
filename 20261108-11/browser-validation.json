@@ -1,0 +1,418 @@
+{
+  "checks": [
+    "real inference Service intents",
+    "real inference Library topics",
+    "hold edit undo pair reapproval current exports clipboard",
+    "offline fresh worker actual inference",
+    "48 record batching conservation and import roundtrip",
+    "empty invalid oversize duplicate schema and split guards",
+    "cancel input invalidation stale retry",
+    "holdout cannot be approved and negative reuse blocks",
+    "unsupported import clears result",
+    "phone 320 and 390 edit export focus no overflow",
+    "worker download failure retry",
+    "late failed worker fetch cannot overwrite newer run",
+    "malformed vectors error no fake result",
+    "unsupported runtime worker crash timeout",
+    "formula newline escaping network privacy"
+  ],
+  "fixtures": [
+    {
+      "name": "Service intents",
+      "positiveExpected": [
+        "A2",
+        "B2",
+        "C2",
+        "A1",
+        "B1",
+        "C1",
+        ""
+      ],
+      "positiveObserved": [
+        "A2",
+        "B2",
+        "C2",
+        "A1",
+        "B1",
+        "C1",
+        ""
+      ],
+      "negativeObserved": [
+        "B1",
+        "A1",
+        "A2",
+        "B2",
+        "A1",
+        "B2",
+        ""
+      ],
+      "metrics": {
+        "total": 7,
+        "holdout": 1,
+        "approved": 6,
+        "held": 1,
+        "baselineCount": 6,
+        "aiCount": 6,
+        "baselineSimilarity": 0.2993373065152186,
+        "aiSimilarity": 0.3435867008780273,
+        "reviewedSimilarity": 0.3435867008780273,
+        "overrides": 0
+      }
+    },
+    {
+      "name": "Library topics",
+      "positiveExpected": [
+        "L2",
+        "M2",
+        "N2",
+        "L1",
+        "M1",
+        "N1",
+        ""
+      ],
+      "positiveObserved": [
+        "L2",
+        "M2",
+        "N2",
+        "L1",
+        "M1",
+        "N1",
+        ""
+      ],
+      "negativeObserved": [
+        "N2",
+        "L1",
+        "L2",
+        "N2",
+        "L1",
+        "L2",
+        ""
+      ],
+      "metrics": {
+        "total": 7,
+        "holdout": 1,
+        "approved": 6,
+        "held": 1,
+        "baselineCount": 6,
+        "aiCount": 6,
+        "baselineSimilarity": 0.11082823616863675,
+        "aiSimilarity": 0.1415041761935216,
+        "reviewedSimilarity": 0.1415041761935216,
+        "overrides": 0
+      }
+    }
+  ],
+  "requests": [
+    {
+      "url": "http://127.0.0.1:6251/daily-app2/20261108-11/",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6251/daily-app2/20261108-11/assets/index-0U8zSGgr.js",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6251/daily-app2/20261108-11/assets/index-CuS-f290.css",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6251/daily-app2/20261108-11/favicon.svg",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6251/daily-app2/20261108-11/assets/ai.worker-XJmiNSL1.js",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6251/72f6f839-79ed-4504-872f-d51622bd792f",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6251/daily-app2/20261108-11/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6251/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json?%2FXenova%2Fall-MiniLM-L6-v2%2Fresolve%2Fmain%2Fconfig.json=&etag=%2272147e4ff4426ebedbfa2146c4a0999def51a313%22",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json?%2FXenova%2Fall-MiniLM-L6-v2%2Fresolve%2Fmain%2Ftokenizer_config.json=&etag=%2237fca74771bc76a8e01178ce3a6055a0995f8093%22",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json?%2FXenova%2Fall-MiniLM-L6-v2%2Fresolve%2Fmain%2Ftokenizer.json=&etag=%22c17ed520ed8438736732a54957a69306b8822215%22",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194?X-Xet-Cas-Uid=public&user_id=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27model_quantized.onnx%3B+filename%3D%22model_quantized.onnx%22%3B&xip=q0RSU3c762g&Expires=1794107193&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNjQ1MTkyYjc1ZmI0MGI5ZjUwYjcxOTE0L2M5NmY1ZjFlMmFlZTY0M2JkODE5MWJiNTIwYTNlMTc1ZGI3YjA1ODIxNTc5YTAyYTcwYWNkZjMxZTY1NWQxOTRcXD9YLVhldC1DYXMtVWlkPXB1YmxpYyZ1c2VyX2lkPXB1YmxpYyZyZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPWlubGluZSUzQitmaWxlbmFtZSUyQSUzRFVURi04JTI3JTI3bW9kZWxfcXVhbnRpemVkLm9ubnglM0IrZmlsZW5hbWUlM0QlMjJtb2RlbF9xdWFudGl6ZWQub25ueCUyMiUzQiZ4aXA9cTBSU1UzYzc2MmciLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc5NDEwNzE5M319fV19&Signature=MEYCIQClLXL1bejXI5HYyvEaZAdrgTrpq03ymC7pnHtqKRGoSgIhALsc7seSOM4acw53wozVIuo85yppV6tDThkIamp-vzUj&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json?%2FXenova%2Fall-MiniLM-L6-v2%2Fresolve%2Fmain%2Ftokenizer_config.json=&etag=%2237fca74771bc76a8e01178ce3a6055a0995f8093%22",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json?%2FXenova%2Fall-MiniLM-L6-v2%2Fresolve%2Fmain%2Ftokenizer.json=&etag=%22c17ed520ed8438736732a54957a69306b8822215%22",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194?X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27model_quantized.onnx%3B+filename%3D%22model_quantized.onnx%22%3B&xip=q0RSU3c762g&user_id=public&Expires=1794107193&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNjQ1MTkyYjc1ZmI0MGI5ZjUwYjcxOTE0L2M5NmY1ZjFlMmFlZTY0M2JkODE5MWJiNTIwYTNlMTc1ZGI3YjA1ODIxNTc5YTAyYTcwYWNkZjMxZTY1NWQxOTRcXD9YLVhldC1DYXMtVWlkPXB1YmxpYyZyZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPWlubGluZSUzQitmaWxlbmFtZSUyQSUzRFVURi04JTI3JTI3bW9kZWxfcXVhbnRpemVkLm9ubnglM0IrZmlsZW5hbWUlM0QlMjJtb2RlbF9xdWFudGl6ZWQub25ueCUyMiUzQiZ4aXA9cTBSU1UzYzc2MmcmdXNlcl9pZD1wdWJsaWMiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc5NDEwNzE5M319fV19&Signature=MEUCIEnlvA7AUQeE1M80pdE3AVyGpZ47cLjyWtYaczcgUUVcAiEAsB8S4MFfzY4VEuRFDlKvcC0gDlrg7da961LSBgxIRII_&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6251/daa004f6-c596-4020-ad3d-2a25b129f715",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6251/6bbc27ab-e553-471d-9723-c03f94dcf804",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6251/4910460e-8fff-4c72-b29c-3d7c656fe913",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6251/8c2083c2-14f5-42ca-b4d3-4682348b3fd4",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6251/3ef1fded-0fcd-4b42-b299-aff3d8a370da",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6251/1848a976-22d2-4ed7-8f48-772192acc43c",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6251/039d1843-32f5-4942-95fb-b38f09aaab7a",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6251/327c3b64-c811-4928-b365-94f4d03f9c89",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6251/eab1c92b-078c-4040-98d2-abfce3693ab1",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6251/7edf862a-182b-4b13-9f92-93242ce86b8f",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6251/a77a8312-4aea-46c9-bdd4-73ab21a64589",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6251/96f12988-0d52-4a8a-a547-92d1772c81ef",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6251/0016d716-eae0-4bc6-8a42-6b6f42f23518",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6251/7db104b5-d0c2-4915-a32e-31b08ead7c64",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6251/72c43e1f-c85b-457c-b38a-2c3b838b9ee1",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6251/ea94021b-6fbc-4f47-aa69-7c5a3c75ebb7",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6251/d27fa78c-a199-4829-82d4-0c4988024323",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6251/2a1ee491-062a-4da3-a6cf-b0898877d166",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6251/58f8a399-5944-484d-be11-68c65a0027f4",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6251/d8cb02d6-a56c-4e63-8762-90e273e7b6f2",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6251/dbb38f49-b0fe-45a5-8849-b13d75b082d3",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6251/ed209e1c-c99d-4104-bd31-4a7063250af8",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6251/ebe011f4-8dfc-4257-8ef7-bc9a05314789",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6251/c9b5bef6-0f93-4485-af03-dc02b0bffa74",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6251/daily-app2/20261108-11/assets/ai.worker-XJmiNSL1.js",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6251/daily-app2/20261108-11/assets/ai.worker-XJmiNSL1.js",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6251/59a32428-3f27-42bb-9f69-92785194c4f0",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6251/daily-app2/20261108-11/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6251/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6251/c71bb553-83da-4494-ad98-1bd6cf976a44",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6251/a6c33b8b-857f-4a7b-a874-7ecba586b236",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6251/daily-app2/20261108-11/assets/ai.worker-XJmiNSL1.js",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6251/05dbda47-c038-4dde-9676-5f56121f23cb",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6251/daily-app2/20261108-11/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:6251/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6251/b6503803-f318-434c-9095-d6eb49b2106f",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6251/14be3f00-3246-434f-925f-ad7ebc2277e0",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6251/6b08c535-cb89-4dbc-85ba-4dd658f163c6",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6251/8f2fb3fa-86c4-40c9-8464-00c6b6795754",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:http://127.0.0.1:6251/a4130c8b-957d-4d27-a369-2f1ef4028b66",
+      "method": "GET",
+      "body": null
+    }
+  ],
+  "errors": []
+}

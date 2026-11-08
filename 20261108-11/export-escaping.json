@@ -1,0 +1,499 @@
+{
+  "version": 1,
+  "model": "Xenova/all-MiniLM-L6-v2 q8",
+  "input": {
+    "maxNegativeReuse": 2,
+    "records": [
+      {
+        "id": "A1",
+        "label": "password",
+        "group": "user1",
+        "text": "=1+1\nSynthetic, \"quoted\" password account login",
+        "split": "train"
+      },
+      {
+        "id": "B1",
+        "label": "email",
+        "group": "user2",
+        "text": "I need to update the email address on my account.",
+        "split": "train"
+      },
+      {
+        "id": "C1",
+        "label": "refund",
+        "group": "user3",
+        "text": "Please return the money for my last purchase.",
+        "split": "train"
+      },
+      {
+        "id": "A2",
+        "label": "password",
+        "group": "user4",
+        "text": "Help me recover access by choosing a new password.",
+        "split": "train"
+      },
+      {
+        "id": "B2",
+        "label": "email",
+        "group": "user5",
+        "text": "Change my registered email to a different address.",
+        "split": "train"
+      },
+      {
+        "id": "C2",
+        "label": "refund",
+        "group": "user6",
+        "text": "I want a refund for the order I bought yesterday.",
+        "split": "train"
+      },
+      {
+        "id": "H1",
+        "label": "password",
+        "group": "reserved",
+        "text": "My password was forgotten; how do I reset it?",
+        "split": "holdout"
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "A1",
+      "label": "password",
+      "group": "user1",
+      "text": "=1+1\nSynthetic, \"quoted\" password account login",
+      "split": "train",
+      "positive": "A2",
+      "negative": "B1",
+      "suggestedPositive": "A2",
+      "suggestedNegative": "B1",
+      "baselineNegative": "B1",
+      "positives": [
+        {
+          "id": "A2",
+          "label": "password",
+          "group": "user4",
+          "text": "Help me recover access by choosing a new password.",
+          "split": "train",
+          "score": 0.3596584125093202
+        }
+      ],
+      "negatives": [
+        {
+          "id": "B1",
+          "label": "email",
+          "group": "user2",
+          "text": "I need to update the email address on my account.",
+          "split": "train",
+          "score": 0.23791293675953018
+        },
+        {
+          "id": "B2",
+          "label": "email",
+          "group": "user5",
+          "text": "Change my registered email to a different address.",
+          "split": "train",
+          "score": 0.16820925417974725
+        },
+        {
+          "id": "C1",
+          "label": "refund",
+          "group": "user3",
+          "text": "Please return the money for my last purchase.",
+          "split": "train",
+          "score": 0.09349367415297566
+        },
+        {
+          "id": "C2",
+          "label": "refund",
+          "group": "user6",
+          "text": "I want a refund for the order I bought yesterday.",
+          "split": "train",
+          "score": 0.04347052885362861
+        }
+      ],
+      "decision": "accept",
+      "note": "=1+1\nNote, \"quoted\"",
+      "reason": "Nearest eligible positive and capped hard negative; review labels and meaning."
+    },
+    {
+      "id": "B1",
+      "label": "email",
+      "group": "user2",
+      "text": "I need to update the email address on my account.",
+      "split": "train",
+      "positive": "B2",
+      "negative": "A2",
+      "suggestedPositive": "B2",
+      "suggestedNegative": "A2",
+      "baselineNegative": "A1",
+      "positives": [
+        {
+          "id": "B2",
+          "label": "email",
+          "group": "user5",
+          "text": "Change my registered email to a different address.",
+          "split": "train",
+          "score": 0.7372161006705957
+        }
+      ],
+      "negatives": [
+        {
+          "id": "A2",
+          "label": "password",
+          "group": "user4",
+          "text": "Help me recover access by choosing a new password.",
+          "split": "train",
+          "score": 0.28453559369982767
+        },
+        {
+          "id": "A1",
+          "label": "password",
+          "group": "user1",
+          "text": "=1+1\nSynthetic, \"quoted\" password account login",
+          "split": "train",
+          "score": 0.23791293675953018
+        },
+        {
+          "id": "C2",
+          "label": "refund",
+          "group": "user6",
+          "text": "I want a refund for the order I bought yesterday.",
+          "split": "train",
+          "score": 0.16999705859046477
+        },
+        {
+          "id": "C1",
+          "label": "refund",
+          "group": "user3",
+          "text": "Please return the money for my last purchase.",
+          "split": "train",
+          "score": 0.13933522501180168
+        }
+      ],
+      "decision": "accept",
+      "note": "",
+      "reason": "Nearest eligible positive and capped hard negative; review labels and meaning."
+    },
+    {
+      "id": "C1",
+      "label": "refund",
+      "group": "user3",
+      "text": "Please return the money for my last purchase.",
+      "split": "train",
+      "positive": "C2",
+      "negative": "A2",
+      "suggestedPositive": "C2",
+      "suggestedNegative": "A2",
+      "baselineNegative": "A1",
+      "positives": [
+        {
+          "id": "C2",
+          "label": "refund",
+          "group": "user6",
+          "text": "I want a refund for the order I bought yesterday.",
+          "split": "train",
+          "score": 0.6290159777148759
+        }
+      ],
+      "negatives": [
+        {
+          "id": "A2",
+          "label": "password",
+          "group": "user4",
+          "text": "Help me recover access by choosing a new password.",
+          "split": "train",
+          "score": 0.2562579952657915
+        },
+        {
+          "id": "B2",
+          "label": "email",
+          "group": "user5",
+          "text": "Change my registered email to a different address.",
+          "split": "train",
+          "score": 0.16826293026969913
+        },
+        {
+          "id": "B1",
+          "label": "email",
+          "group": "user2",
+          "text": "I need to update the email address on my account.",
+          "split": "train",
+          "score": 0.13933522501180168
+        },
+        {
+          "id": "A1",
+          "label": "password",
+          "group": "user1",
+          "text": "=1+1\nSynthetic, \"quoted\" password account login",
+          "split": "train",
+          "score": 0.09349367415297566
+        }
+      ],
+      "decision": "accept",
+      "note": "",
+      "reason": "Nearest eligible positive and capped hard negative; review labels and meaning."
+    },
+    {
+      "id": "A2",
+      "label": "password",
+      "group": "user4",
+      "text": "Help me recover access by choosing a new password.",
+      "split": "train",
+      "positive": "A1",
+      "negative": "B2",
+      "suggestedPositive": "A1",
+      "suggestedNegative": "B2",
+      "baselineNegative": "B1",
+      "positives": [
+        {
+          "id": "A1",
+          "label": "password",
+          "group": "user1",
+          "text": "=1+1\nSynthetic, \"quoted\" password account login",
+          "split": "train",
+          "score": 0.3596584125093202
+        }
+      ],
+      "negatives": [
+        {
+          "id": "B2",
+          "label": "email",
+          "group": "user5",
+          "text": "Change my registered email to a different address.",
+          "split": "train",
+          "score": 0.32640268056643473
+        },
+        {
+          "id": "B1",
+          "label": "email",
+          "group": "user2",
+          "text": "I need to update the email address on my account.",
+          "split": "train",
+          "score": 0.28453559369982767
+        },
+        {
+          "id": "C1",
+          "label": "refund",
+          "group": "user3",
+          "text": "Please return the money for my last purchase.",
+          "split": "train",
+          "score": 0.2562579952657915
+        },
+        {
+          "id": "C2",
+          "label": "refund",
+          "group": "user6",
+          "text": "I want a refund for the order I bought yesterday.",
+          "split": "train",
+          "score": 0.13540550828180298
+        }
+      ],
+      "decision": "accept",
+      "note": "",
+      "reason": "Nearest eligible positive and capped hard negative; review labels and meaning."
+    },
+    {
+      "id": "B2",
+      "label": "email",
+      "group": "user5",
+      "text": "Change my registered email to a different address.",
+      "split": "train",
+      "positive": "B1",
+      "negative": "C2",
+      "suggestedPositive": "B1",
+      "suggestedNegative": "C2",
+      "baselineNegative": "C1",
+      "positives": [
+        {
+          "id": "B1",
+          "label": "email",
+          "group": "user2",
+          "text": "I need to update the email address on my account.",
+          "split": "train",
+          "score": 0.7372161006705957
+        }
+      ],
+      "negatives": [
+        {
+          "id": "A2",
+          "label": "password",
+          "group": "user4",
+          "text": "Help me recover access by choosing a new password.",
+          "split": "train",
+          "score": 0.32640268056643473
+        },
+        {
+          "id": "C2",
+          "label": "refund",
+          "group": "user6",
+          "text": "I want a refund for the order I bought yesterday.",
+          "split": "train",
+          "score": 0.18114551790582853
+        },
+        {
+          "id": "C1",
+          "label": "refund",
+          "group": "user3",
+          "text": "Please return the money for my last purchase.",
+          "split": "train",
+          "score": 0.16826293026969913
+        },
+        {
+          "id": "A1",
+          "label": "password",
+          "group": "user1",
+          "text": "=1+1\nSynthetic, \"quoted\" password account login",
+          "split": "train",
+          "score": 0.16820925417974725
+        }
+      ],
+      "decision": "accept",
+      "note": "",
+      "reason": "Nearest eligible positive and capped hard negative; review labels and meaning."
+    },
+    {
+      "id": "C2",
+      "label": "refund",
+      "group": "user6",
+      "text": "I want a refund for the order I bought yesterday.",
+      "split": "train",
+      "positive": "C1",
+      "negative": "B2",
+      "suggestedPositive": "C1",
+      "suggestedNegative": "B2",
+      "baselineNegative": "A2",
+      "positives": [
+        {
+          "id": "C1",
+          "label": "refund",
+          "group": "user3",
+          "text": "Please return the money for my last purchase.",
+          "split": "train",
+          "score": 0.6290159777148759
+        }
+      ],
+      "negatives": [
+        {
+          "id": "B2",
+          "label": "email",
+          "group": "user5",
+          "text": "Change my registered email to a different address.",
+          "split": "train",
+          "score": 0.18114551790582853
+        },
+        {
+          "id": "B1",
+          "label": "email",
+          "group": "user2",
+          "text": "I need to update the email address on my account.",
+          "split": "train",
+          "score": 0.16999705859046477
+        },
+        {
+          "id": "A2",
+          "label": "password",
+          "group": "user4",
+          "text": "Help me recover access by choosing a new password.",
+          "split": "train",
+          "score": 0.13540550828180298
+        },
+        {
+          "id": "A1",
+          "label": "password",
+          "group": "user1",
+          "text": "=1+1\nSynthetic, \"quoted\" password account login",
+          "split": "train",
+          "score": 0.04347052885362861
+        }
+      ],
+      "decision": "accept",
+      "note": "",
+      "reason": "Nearest eligible positive and capped hard negative; review labels and meaning."
+    },
+    {
+      "id": "H1",
+      "label": "password",
+      "group": "reserved",
+      "text": "My password was forgotten; how do I reset it?",
+      "split": "holdout",
+      "positive": "",
+      "negative": "",
+      "suggestedPositive": "",
+      "suggestedNegative": "",
+      "baselineNegative": "",
+      "positives": [],
+      "negatives": [],
+      "decision": "hold",
+      "note": "",
+      "reason": "Holdout: excluded from training."
+    }
+  ],
+  "triplets": [
+    {
+      "anchor": "=1+1\nSynthetic, \"quoted\" password account login",
+      "positive": "Help me recover access by choosing a new password.",
+      "negative": "I need to update the email address on my account.",
+      "anchor_id": "A1",
+      "positive_id": "A2",
+      "negative_id": "B1"
+    },
+    {
+      "anchor": "I need to update the email address on my account.",
+      "positive": "Change my registered email to a different address.",
+      "negative": "Help me recover access by choosing a new password.",
+      "anchor_id": "B1",
+      "positive_id": "B2",
+      "negative_id": "A2"
+    },
+    {
+      "anchor": "Please return the money for my last purchase.",
+      "positive": "I want a refund for the order I bought yesterday.",
+      "negative": "Help me recover access by choosing a new password.",
+      "anchor_id": "C1",
+      "positive_id": "C2",
+      "negative_id": "A2"
+    },
+    {
+      "anchor": "Help me recover access by choosing a new password.",
+      "positive": "=1+1\nSynthetic, \"quoted\" password account login",
+      "negative": "Change my registered email to a different address.",
+      "anchor_id": "A2",
+      "positive_id": "A1",
+      "negative_id": "B2"
+    },
+    {
+      "anchor": "Change my registered email to a different address.",
+      "positive": "I need to update the email address on my account.",
+      "negative": "I want a refund for the order I bought yesterday.",
+      "anchor_id": "B2",
+      "positive_id": "B1",
+      "negative_id": "C2"
+    },
+    {
+      "anchor": "I want a refund for the order I bought yesterday.",
+      "positive": "Please return the money for my last purchase.",
+      "negative": "Change my registered email to a different address.",
+      "anchor_id": "C2",
+      "positive_id": "C1",
+      "negative_id": "B2"
+    }
+  ],
+  "negativeUse": {
+    "B1": 1,
+    "A2": 2,
+    "B2": 2,
+    "C2": 1
+  },
+  "metrics": {
+    "total": 7,
+    "holdout": 1,
+    "approved": 6,
+    "held": 1,
+    "baselineCount": 6,
+    "aiCount": 6,
+    "baselineSimilarity": 0.19292059665389436,
+    "aiSimilarity": 0.24456670701720684,
+    "reviewedSimilarity": 0.24456670701720684,
+    "overrides": 0
+  }
+}

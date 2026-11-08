@@ -1,0 +1,196 @@
+{
+  "checks": [
+    "Fresh model-host failure produces error without results",
+    "Model-host recovery executes real inference",
+    "Delayed file read cannot overwrite changed source"
+  ],
+  "fixtures": [
+    {
+      "name": "Account and orders",
+      "knownAnswerCorrect": 8,
+      "total": 8,
+      "baselineCorrect": 4,
+      "outcomes": [
+        {
+          "id": "X0a",
+          "expectedNegativeLabel": "change",
+          "actualNegativeLabel": "change",
+          "baselineNegativeLabel": "change",
+          "negative": "X1b"
+        },
+        {
+          "id": "X0b",
+          "expectedNegativeLabel": "change",
+          "actualNegativeLabel": "change",
+          "baselineNegativeLabel": "change",
+          "negative": "X1b"
+        },
+        {
+          "id": "X1a",
+          "expectedNegativeLabel": "reset",
+          "actualNegativeLabel": "reset",
+          "baselineNegativeLabel": "reset",
+          "negative": "X0b"
+        },
+        {
+          "id": "X1b",
+          "expectedNegativeLabel": "reset",
+          "actualNegativeLabel": "reset",
+          "baselineNegativeLabel": "reset",
+          "negative": "X0a"
+        },
+        {
+          "id": "X2a",
+          "expectedNegativeLabel": "refund",
+          "actualNegativeLabel": "refund",
+          "baselineNegativeLabel": "reset",
+          "negative": "X3a"
+        },
+        {
+          "id": "X2b",
+          "expectedNegativeLabel": "refund",
+          "actualNegativeLabel": "refund",
+          "baselineNegativeLabel": "reset",
+          "negative": "X3b"
+        },
+        {
+          "id": "X3a",
+          "expectedNegativeLabel": "cancel",
+          "actualNegativeLabel": "cancel",
+          "baselineNegativeLabel": "change",
+          "negative": "X2a"
+        },
+        {
+          "id": "X3b",
+          "expectedNegativeLabel": "cancel",
+          "actualNegativeLabel": "cancel",
+          "baselineNegativeLabel": "change",
+          "negative": "X2b"
+        }
+      ],
+      "metrics": {
+        "total": 8,
+        "holdout": 0,
+        "approved": 8,
+        "held": 0,
+        "baselineCount": 8,
+        "aiCount": 8,
+        "baselineSimilarity": 0.3529833446266543,
+        "aiSimilarity": 0.6365274821507716,
+        "reviewedSimilarity": 0.6365274821507716,
+        "overrides": 0
+      }
+    },
+    {
+      "name": "Garden and baking",
+      "knownAnswerCorrect": 8,
+      "total": 8,
+      "baselineCorrect": 4,
+      "outcomes": [
+        {
+          "id": "X0a",
+          "expectedNegativeLabel": "flowers",
+          "actualNegativeLabel": "flowers",
+          "baselineNegativeLabel": "flowers",
+          "negative": "X1b"
+        },
+        {
+          "id": "X0b",
+          "expectedNegativeLabel": "flowers",
+          "actualNegativeLabel": "flowers",
+          "baselineNegativeLabel": "flowers",
+          "negative": "X1b"
+        },
+        {
+          "id": "X1a",
+          "expectedNegativeLabel": "vegetables",
+          "actualNegativeLabel": "vegetables",
+          "baselineNegativeLabel": "vegetables",
+          "negative": "X0a"
+        },
+        {
+          "id": "X1b",
+          "expectedNegativeLabel": "vegetables",
+          "actualNegativeLabel": "vegetables",
+          "baselineNegativeLabel": "vegetables",
+          "negative": "X0b"
+        },
+        {
+          "id": "X2a",
+          "expectedNegativeLabel": "cake",
+          "actualNegativeLabel": "cake",
+          "baselineNegativeLabel": "vegetables",
+          "negative": "X3b"
+        },
+        {
+          "id": "X2b",
+          "expectedNegativeLabel": "cake",
+          "actualNegativeLabel": "cake",
+          "baselineNegativeLabel": "vegetables",
+          "negative": "X3b"
+        },
+        {
+          "id": "X3a",
+          "expectedNegativeLabel": "bread",
+          "actualNegativeLabel": "bread",
+          "baselineNegativeLabel": "flowers",
+          "negative": "X2b"
+        },
+        {
+          "id": "X3b",
+          "expectedNegativeLabel": "bread",
+          "actualNegativeLabel": "bread",
+          "baselineNegativeLabel": "flowers",
+          "negative": "X2b"
+        }
+      ],
+      "metrics": {
+        "total": 8,
+        "holdout": 0,
+        "approved": 8,
+        "held": 0,
+        "baselineCount": 8,
+        "aiCount": 8,
+        "baselineSimilarity": 0.3193774191107984,
+        "aiSimilarity": 0.5229063310903049,
+        "reviewedSimilarity": 0.5229063310903049,
+        "overrides": 0
+      }
+    }
+  ],
+  "challenge": {
+    "description": "Opposing rules are intentionally close hard-negative candidates, not evidence that labels are trustworthy. One deliberately wrong same-label annotation is also tested.",
+    "observed": [
+      {
+        "id": "X0a",
+        "positive": "X0b",
+        "negative": "X1a",
+        "positiveCosine": 0.8658972645061614,
+        "negativeCosine": 0.8870354514488719
+      },
+      {
+        "id": "X0b",
+        "positive": "X0a",
+        "negative": "X1b",
+        "positiveCosine": 0.8658972645061614,
+        "negativeCosine": 0.8081900543965302
+      },
+      {
+        "id": "X1a",
+        "positive": "X1b",
+        "negative": "X0a",
+        "positiveCosine": 0.8741655943882951,
+        "negativeCosine": 0.8870354514488719
+      },
+      {
+        "id": "X1b",
+        "positive": "X1a",
+        "negative": "X0a",
+        "positiveCosine": 0.8741655943882951,
+        "negativeCosine": 0.8743227183328989
+      }
+    ],
+    "wrongLabelProposed": "X0b",
+    "limitation": "Existing labels are trusted for eligibility. AI does not detect incorrect labels: the deliberately mislabeled positive remains a proposal and requires human rejection."
+  }
+}

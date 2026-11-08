@@ -1,0 +1,418 @@
+{
+  "checks": [
+    "real inference Service intents",
+    "real inference Library topics",
+    "hold edit undo pair reapproval current exports clipboard",
+    "offline fresh worker actual inference",
+    "48 record batching conservation and import roundtrip",
+    "empty invalid oversize duplicate schema and split guards",
+    "cancel input invalidation stale retry",
+    "holdout cannot be approved and negative reuse blocks",
+    "unsupported import clears result",
+    "phone 320 and 390 edit export focus no overflow",
+    "worker download failure retry",
+    "late failed worker fetch cannot overwrite newer run",
+    "malformed vectors error no fake result",
+    "unsupported runtime worker crash timeout",
+    "formula newline escaping network privacy"
+  ],
+  "fixtures": [
+    {
+      "name": "Service intents",
+      "positiveExpected": [
+        "A2",
+        "B2",
+        "C2",
+        "A1",
+        "B1",
+        "C1",
+        ""
+      ],
+      "positiveObserved": [
+        "A2",
+        "B2",
+        "C2",
+        "A1",
+        "B1",
+        "C1",
+        ""
+      ],
+      "negativeObserved": [
+        "B1",
+        "A1",
+        "A2",
+        "B2",
+        "A1",
+        "B2",
+        ""
+      ],
+      "metrics": {
+        "total": 7,
+        "holdout": 1,
+        "approved": 6,
+        "held": 1,
+        "baselineCount": 6,
+        "aiCount": 6,
+        "baselineSimilarity": 0.2993373065152186,
+        "aiSimilarity": 0.3435867008780273,
+        "reviewedSimilarity": 0.3435867008780273,
+        "overrides": 0
+      }
+    },
+    {
+      "name": "Library topics",
+      "positiveExpected": [
+        "L2",
+        "M2",
+        "N2",
+        "L1",
+        "M1",
+        "N1",
+        ""
+      ],
+      "positiveObserved": [
+        "L2",
+        "M2",
+        "N2",
+        "L1",
+        "M1",
+        "N1",
+        ""
+      ],
+      "negativeObserved": [
+        "N2",
+        "L1",
+        "L2",
+        "N2",
+        "L1",
+        "L2",
+        ""
+      ],
+      "metrics": {
+        "total": 7,
+        "holdout": 1,
+        "approved": 6,
+        "held": 1,
+        "baselineCount": 6,
+        "aiCount": 6,
+        "baselineSimilarity": 0.11082823616863675,
+        "aiSimilarity": 0.1415041761935216,
+        "reviewedSimilarity": 0.1415041761935216,
+        "overrides": 0
+      }
+    }
+  ],
+  "requests": [
+    {
+      "url": "https://xianghui.github.io/daily-app2/20261108-11/",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://xianghui.github.io/daily-app2/20261108-11/assets/index-0U8zSGgr.js",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://xianghui.github.io/daily-app2/20261108-11/assets/index-CuS-f290.css",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://xianghui.github.io/daily-app2/20261108-11/favicon.svg",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://xianghui.github.io/daily-app2/20261108-11/assets/ai.worker-XJmiNSL1.js",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:https://xianghui.github.io/abf477c8-19d8-4c5c-a2ec-fe10ba46b370",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://xianghui.github.io/daily-app2/20261108-11/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://xianghui.github.io/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json?%2FXenova%2Fall-MiniLM-L6-v2%2Fresolve%2Fmain%2Fconfig.json=&etag=%2272147e4ff4426ebedbfa2146c4a0999def51a313%22",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json?%2FXenova%2Fall-MiniLM-L6-v2%2Fresolve%2Fmain%2Ftokenizer_config.json=&etag=%2237fca74771bc76a8e01178ce3a6055a0995f8093%22",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194?X-Xet-Cas-Uid=public&user_id=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27model_quantized.onnx%3B+filename%3D%22model_quantized.onnx%22%3B&xip=q0RSU3c762g&Expires=1794107637&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNjQ1MTkyYjc1ZmI0MGI5ZjUwYjcxOTE0L2M5NmY1ZjFlMmFlZTY0M2JkODE5MWJiNTIwYTNlMTc1ZGI3YjA1ODIxNTc5YTAyYTcwYWNkZjMxZTY1NWQxOTRcXD9YLVhldC1DYXMtVWlkPXB1YmxpYyZ1c2VyX2lkPXB1YmxpYyZyZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPWlubGluZSUzQitmaWxlbmFtZSUyQSUzRFVURi04JTI3JTI3bW9kZWxfcXVhbnRpemVkLm9ubnglM0IrZmlsZW5hbWUlM0QlMjJtb2RlbF9xdWFudGl6ZWQub25ueCUyMiUzQiZ4aXA9cTBSU1UzYzc2MmciLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc5NDEwNzYzN319fV19&Signature=MEUCIQCmeKqxEMLfVqiqzsijJc4KydtvB-dzOumQzWQ-V2wc3AIgctTIOZjC199YkOhBYbGjMBrevch7iXbbAYOLSYJerC4_&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json?%2FXenova%2Fall-MiniLM-L6-v2%2Fresolve%2Fmain%2Ftokenizer.json=&etag=%22c17ed520ed8438736732a54957a69306b8822215%22",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194?response-content-disposition=inline%3B+filename*%3DUTF-8%27%27model_quantized.onnx%3B+filename%3D%22model_quantized.onnx%22%3B&user_id=public&xip=q0RSU3c762g&X-Xet-Cas-Uid=public&Expires=1794107638&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNjQ1MTkyYjc1ZmI0MGI5ZjUwYjcxOTE0L2M5NmY1ZjFlMmFlZTY0M2JkODE5MWJiNTIwYTNlMTc1ZGI3YjA1ODIxNTc5YTAyYTcwYWNkZjMxZTY1NWQxOTRcXD9yZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPWlubGluZSUzQitmaWxlbmFtZSUyQSUzRFVURi04JTI3JTI3bW9kZWxfcXVhbnRpemVkLm9ubnglM0IrZmlsZW5hbWUlM0QlMjJtb2RlbF9xdWFudGl6ZWQub25ueCUyMiUzQiZ1c2VyX2lkPXB1YmxpYyZ4aXA9cTBSU1UzYzc2MmcmWC1YZXQtQ2FzLVVpZD1wdWJsaWMiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc5NDEwNzYzOH19fV19&Signature=MEQCIElPsrFgF2tx1L784jfGLGBNhkJUW2lbDPvub6u4g2WNAiA83-7Cl5q9HsOvofn4Jo-u5oTDv80Ajzq6HkzFH5M-vA__&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json?%2FXenova%2Fall-MiniLM-L6-v2%2Fresolve%2Fmain%2Ftokenizer.json=&etag=%22c17ed520ed8438736732a54957a69306b8822215%22",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json?%2FXenova%2Fall-MiniLM-L6-v2%2Fresolve%2Fmain%2Ftokenizer_config.json=&etag=%2237fca74771bc76a8e01178ce3a6055a0995f8093%22",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:https://xianghui.github.io/d15cac67-3a8f-491d-ad95-6587a643a705",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:https://xianghui.github.io/5f8212d9-8626-4f0f-9fe1-a7a2149c8e98",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:https://xianghui.github.io/7e589cf8-df51-43c8-8697-36d175766f18",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:https://xianghui.github.io/1c868f17-0433-4838-bfd6-eb66ef420a3d",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:https://xianghui.github.io/5459f023-42bd-4416-b071-89f7bbdf1af2",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:https://xianghui.github.io/8366459b-f954-4655-a396-574bd4afb0fd",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:https://xianghui.github.io/ceee9539-9b0a-4ba7-b575-de4561c6f8ab",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:https://xianghui.github.io/5df39b57-fba1-483d-94ca-95cd0282a985",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:https://xianghui.github.io/f4194fc0-9632-47aa-b0cf-26624acc3fc0",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:https://xianghui.github.io/1f81618d-433a-4898-b3c4-32b80861eebe",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:https://xianghui.github.io/b92dd3ed-69c3-4e06-8f6a-767c69453683",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:https://xianghui.github.io/ca5d121e-3b1a-41c6-b9d8-7475aa8a23ff",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:https://xianghui.github.io/69ad0b22-299d-40a0-9d10-62df839c4e96",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:https://xianghui.github.io/e6085564-b809-4b94-852a-c7a003037278",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:https://xianghui.github.io/6c2541ba-a498-441b-89b5-2c516992002b",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:https://xianghui.github.io/2219f5aa-1742-4e14-a7b3-32c8cd99d617",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:https://xianghui.github.io/54719d0d-388f-48a1-a525-1a4b65fd7899",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:https://xianghui.github.io/da07a06b-5eab-46dd-96b3-b4e9b78d1004",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:https://xianghui.github.io/e81c8577-5b4f-47c7-9ed5-72b905946386",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:https://xianghui.github.io/77885b98-df6b-45a9-9e22-e34e972624c0",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:https://xianghui.github.io/09df283c-37ed-4aab-a6f5-6bea26c38b3e",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:https://xianghui.github.io/87d58338-9f78-4a8c-b0dd-3e87720c2d62",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:https://xianghui.github.io/115af214-6d52-49e9-8d32-53aba1cbb56e",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:https://xianghui.github.io/12589861-17cb-4a63-8e16-eaccb6cce2b5",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://xianghui.github.io/daily-app2/20261108-11/assets/ai.worker-XJmiNSL1.js",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://xianghui.github.io/daily-app2/20261108-11/assets/ai.worker-XJmiNSL1.js",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:https://xianghui.github.io/cae5f376-e58c-473c-a0cf-c66ef52c55ec",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://xianghui.github.io/daily-app2/20261108-11/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://xianghui.github.io/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:https://xianghui.github.io/6e392637-b0da-4b6c-a44c-27ad8fa57b93",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:https://xianghui.github.io/8088f61c-6d84-4d9a-8f8c-2699733d4afd",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://xianghui.github.io/daily-app2/20261108-11/assets/ai.worker-XJmiNSL1.js",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:https://xianghui.github.io/a42bfce7-ef54-478f-8419-7672cf069fee",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://xianghui.github.io/daily-app2/20261108-11/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "https://xianghui.github.io/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:https://xianghui.github.io/f66bdcb0-dd5c-4346-9cb0-2510d58c3cc4",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:https://xianghui.github.io/6965b8fa-c98b-409d-a25e-7cca19f94133",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:https://xianghui.github.io/3eab72e9-37d3-4a6f-bc38-190e5cd23b31",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:https://xianghui.github.io/5ac3a641-9085-4e37-8142-80f8a4d9456c",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "blob:https://xianghui.github.io/edea7672-dc53-4f97-827c-332af07902ae",
+      "method": "GET",
+      "body": null
+    }
+  ],
+  "errors": []
+}

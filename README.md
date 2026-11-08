@@ -86,3 +86,7 @@ Local MiniLM query-to-concept inference helps search editors repair missed queri
 ## Sentinel Sheet — 20261108-10
 
 Local MiniLM links risk statements to user-supplied monitoring indicators. Review source descriptions, approve/hold risks, edit triggers/cadence/owners, inspect coverage gaps/shared signals and export a complete JSON/CSV/Markdown register. Six simple known-answer links matched; two negation/causal challenges failed suitability, so mandatory human review is essential and no safety assurance is claimed. Reuses immutable shared WASM from `20261107-2`; preserve that asset. See [workflow](20261108-10/README.md) and [observed checks](20261108-10/VALIDATION.md).
+
+## Triplet Foundry — 20261108-11
+
+Local MiniLM hard-negative mining for contrastive training data with mandatory pair review, train-only and distinct-source triplet constraints, capped negative reuse and approved three-column JSONL plus complete audits. Two tiny known-answer fixtures selected 16/16 intended sibling negative labels versus 8/16 input-order baseline; this is not a training-gain claim and a deliberately mislabeled positive still required human rejection. Reuses the immutable shared WASM from `20261107-2`; preserve that asset. See [workflow](20261108-11/README.md) and [observed validation](20261108-11/VALIDATION.md).

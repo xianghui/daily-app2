@@ -1,0 +1,216 @@
+{
+  "format": "script-stitch-v1",
+  "originalInput": {
+    "name": "Software onboarding",
+    "threshold": 0.38,
+    "script": [
+      {
+        "id": "login",
+        "text": "Sign in with your work email and set up two factor authentication."
+      },
+      {
+        "id": "import",
+        "text": "Upload your customer spreadsheet using the CSV import screen."
+      },
+      {
+        "id": "invite",
+        "text": "Invite your coworkers to the workspace and assign their permissions."
+      },
+      {
+        "id": "backup",
+        "text": "Export a backup of your records each week."
+      }
+    ],
+    "transcript": [
+      {
+        "id": "t1",
+        "text": "Use your company email to log in and enable two step verification."
+      },
+      {
+        "id": "t2",
+        "text": "Bring customer records from a CSV spreadsheet into the import tool."
+      },
+      {
+        "id": "t3",
+        "text": "Our office coffee machine broke yesterday."
+      },
+      {
+        "id": "t4",
+        "text": "Every week download a backup copy of your data."
+      }
+    ]
+  },
+  "cues": [
+    {
+      "id": "login",
+      "text": "Sign in with your work email and set up two factor authentication.",
+      "segments": [
+        "t1"
+      ],
+      "status": "linked"
+    },
+    {
+      "id": "import",
+      "text": "Upload your customer spreadsheet using the CSV import screen.",
+      "segments": [],
+      "status": "unconfirmed"
+    },
+    {
+      "id": "invite",
+      "text": "Invite your coworkers to the workspace and assign their permissions.",
+      "segments": [],
+      "status": "unconfirmed"
+    },
+    {
+      "id": "backup",
+      "text": "Export a backup of your records each week.",
+      "segments": [
+        "t4"
+      ],
+      "status": "linked"
+    }
+  ],
+  "segments": [
+    {
+      "id": "t1",
+      "text": "Use your company email to log in and enable two step verification.",
+      "suggested": "login",
+      "cue": "login",
+      "decision": "approve",
+      "note": "=1+1\nReviewed, \"quoted\"",
+      "scores": [
+        0.6587495346035505,
+        0.26600742182155424,
+        0.23539201985459574,
+        0.1984592339573648
+      ],
+      "ranks": [
+        {
+          "id": "login",
+          "similarity": 0.6587495346035505
+        },
+        {
+          "id": "import",
+          "similarity": 0.26600742182155424
+        },
+        {
+          "id": "invite",
+          "similarity": 0.23539201985459574
+        },
+        {
+          "id": "backup",
+          "similarity": 0.1984592339573648
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "text": "Bring customer records from a CSV spreadsheet into the import tool.",
+      "suggested": "import",
+      "cue": "import",
+      "decision": "hold",
+      "note": "",
+      "scores": [
+        0.08144888805740252,
+        0.8437288937201579,
+        0.09666327890376081,
+        0.38358684582665864
+      ],
+      "ranks": [
+        {
+          "id": "import",
+          "similarity": 0.8437288937201579
+        },
+        {
+          "id": "backup",
+          "similarity": 0.38358684582665864
+        },
+        {
+          "id": "invite",
+          "similarity": 0.09666327890376081
+        },
+        {
+          "id": "login",
+          "similarity": 0.08144888805740252
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "text": "Our office coffee machine broke yesterday.",
+      "suggested": "",
+      "cue": "",
+      "decision": "approve",
+      "note": "",
+      "scores": [
+        0.11872333589796731,
+        0.1526541214588591,
+        0.16974454286930857,
+        0.15283698329670373
+      ],
+      "ranks": [
+        {
+          "id": "invite",
+          "similarity": 0.16974454286930857
+        },
+        {
+          "id": "backup",
+          "similarity": 0.15283698329670373
+        },
+        {
+          "id": "import",
+          "similarity": 0.1526541214588591
+        },
+        {
+          "id": "login",
+          "similarity": 0.11872333589796731
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "text": "Every week download a backup copy of your data.",
+      "suggested": "backup",
+      "cue": "backup",
+      "decision": "approve",
+      "note": "",
+      "scores": [
+        0.1794678950938997,
+        0.28799761943604585,
+        0.11967793404762578,
+        0.7465761993191339
+      ],
+      "ranks": [
+        {
+          "id": "backup",
+          "similarity": 0.7465761993191339
+        },
+        {
+          "id": "import",
+          "similarity": 0.28799761943604585
+        },
+        {
+          "id": "login",
+          "similarity": 0.1794678950938997
+        },
+        {
+          "id": "invite",
+          "similarity": 0.11967793404762578
+        }
+      ]
+    }
+  ],
+  "metrics": {
+    "total": 4,
+    "scriptCues": 4,
+    "approved": 3,
+    "held": 1,
+    "linked": 2,
+    "unconfirmed": 2,
+    "offScript": 1,
+    "proposed": 3,
+    "positionBaseline": 3,
+    "corrected": 0,
+    "threshold": 0.38
+  }
+}

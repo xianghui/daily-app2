@@ -128,3 +128,7 @@ Local MiniLM responsibility inference turns ordered SOP steps into reviewed cros
 ## Barrier Budget — 20261108-20
 
 Real local MiniLM links reported accessibility barriers to supplied remedies; mandatory human review feeds a shared-fix hours-budget optimizer. Complete JSON/CSV/Markdown audits retain originals, held and deferred reports. Both simple synthetic batches matched 8/8 links; a reviewed cost/impact scenario improved computed planning points from 8 to 10 at five hours, not measured accessibility gains. A negation challenge still returned an unsuitable nearest remedy. Reuses the immutable WASM from `20261107-2`; preserve that asset. See [workflow](20261108-20/README.md) and [observed checks](20261108-20/VALIDATION.md).
+
+## Script Stitch — 20261108-21
+
+Local MiniLM semantic inference and order-preserving gap-tolerant alignment help speakers audit rehearsal transcripts against planned cues. Review every spoken segment, block crossing/duplicate approved links and export both complete source sequences as JSON/CSV/Markdown. Two tiny fixtures matched six links, two digressions and two unconfirmed cues; a negated photography instruction still matched the opposing cue, so this is mandatory human review, not verified script delivery. Reuses immutable WASM from `20261107-2`; preserve that asset. See [workflow](20261108-21/README.md) and [observed checks](20261108-21/VALIDATION.md).

@@ -1,0 +1,606 @@
+{
+  "checks": [
+    "real inference Service desk",
+    "real inference Community library",
+    "exclude edit undo reapproval current exports clipboard",
+    "offline fresh worker actual inference",
+    "48 record batching conservation and input audit roundtrip",
+    "empty invalid oversize duplicate schema split guards",
+    "cancel input invalidation stale retry",
+    "no calibration blocks and test labels cannot select threshold",
+    "unsupported import clears result",
+    "phone 320 and 390 edit export focus no overflow",
+    "worker download failure retry",
+    "late failed worker fetch cannot overwrite newer run",
+    "malformed vectors error no fake result",
+    "unsupported runtime worker crash timeout",
+    "formula newline escaping network privacy"
+  ],
+  "fixtures": [
+    {
+      "name": "Service desk",
+      "expected": [
+        "access",
+        "billing",
+        "delivery",
+        "access",
+        "billing",
+        "delivery"
+      ],
+      "observed": [
+        {
+          "id": "C1",
+          "predicted": "access",
+          "gold": "access",
+          "score": 0.7034000066210087,
+          "action": "route"
+        },
+        {
+          "id": "C2",
+          "predicted": "billing",
+          "gold": "billing",
+          "score": 0.7006291011845136,
+          "action": "route"
+        },
+        {
+          "id": "C3",
+          "predicted": "delivery",
+          "gold": "delivery",
+          "score": 0.6636918577156017,
+          "action": "route"
+        },
+        {
+          "id": "T1",
+          "predicted": "access",
+          "gold": "access",
+          "score": 0.7401189369409723,
+          "action": "route"
+        },
+        {
+          "id": "T2",
+          "predicted": "billing",
+          "gold": "billing",
+          "score": 0.6101541536512982,
+          "action": "abstain"
+        },
+        {
+          "id": "T3",
+          "predicted": "delivery",
+          "gold": "delivery",
+          "score": 0.49502106412311514,
+          "action": "abstain"
+        },
+        {
+          "id": "T4",
+          "predicted": "billing",
+          "gold": "",
+          "score": 0.14779738251078642,
+          "action": "abstain"
+        }
+      ],
+      "metrics": {
+        "threshold": 0.6636918577156017,
+        "calibration": {
+          "included": 3,
+          "routed": 3,
+          "correct": 3,
+          "errors": 0,
+          "abstained": 0,
+          "precision": 1,
+          "coverage": 1
+        },
+        "test": {
+          "included": 4,
+          "routed": 1,
+          "correct": 1,
+          "errors": 0,
+          "abstained": 3,
+          "precision": 1,
+          "coverage": 0.25
+        },
+        "baseline": {
+          "included": 4,
+          "routed": 4,
+          "correct": 3,
+          "errors": 1,
+          "abstained": 0,
+          "precision": 0.75,
+          "coverage": 1
+        },
+        "excluded": 0
+      }
+    },
+    {
+      "name": "Community library",
+      "expected": [
+        "renew",
+        "events",
+        "digital",
+        "renew",
+        "events",
+        "digital"
+      ],
+      "observed": [
+        {
+          "id": "C1",
+          "predicted": "renew",
+          "gold": "renew",
+          "score": 0.5114692798331855,
+          "action": "route"
+        },
+        {
+          "id": "C2",
+          "predicted": "events",
+          "gold": "events",
+          "score": 0.642495228328293,
+          "action": "route"
+        },
+        {
+          "id": "C3",
+          "predicted": "digital",
+          "gold": "digital",
+          "score": 0.6022603794189023,
+          "action": "route"
+        },
+        {
+          "id": "T1",
+          "predicted": "renew",
+          "gold": "renew",
+          "score": 0.7990966733843946,
+          "action": "route"
+        },
+        {
+          "id": "T2",
+          "predicted": "events",
+          "gold": "events",
+          "score": 0.42679721859659137,
+          "action": "abstain"
+        },
+        {
+          "id": "T3",
+          "predicted": "digital",
+          "gold": "digital",
+          "score": 0.6069319117196935,
+          "action": "route"
+        },
+        {
+          "id": "T4",
+          "predicted": "renew",
+          "gold": "",
+          "score": 0.08138666476469529,
+          "action": "abstain"
+        }
+      ],
+      "metrics": {
+        "threshold": 0.5114692798331855,
+        "calibration": {
+          "included": 3,
+          "routed": 3,
+          "correct": 3,
+          "errors": 0,
+          "abstained": 0,
+          "precision": 1,
+          "coverage": 1
+        },
+        "test": {
+          "included": 4,
+          "routed": 2,
+          "correct": 2,
+          "errors": 0,
+          "abstained": 2,
+          "precision": 1,
+          "coverage": 0.5
+        },
+        "baseline": {
+          "included": 4,
+          "routed": 4,
+          "correct": 3,
+          "errors": 1,
+          "abstained": 0,
+          "precision": 0.75,
+          "coverage": 1
+        },
+        "excluded": 0
+      }
+    }
+  ],
+  "requests": [
+    {
+      "url": "https://xianghui.github.io/daily-app2/20261108-12/",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "https://xianghui.github.io/daily-app2/20261108-12/assets/index-C4o7CvXB.js",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "https://xianghui.github.io/daily-app2/20261108-12/assets/index-DrkbO7kA.css",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "https://xianghui.github.io/daily-app2/20261108-12/assets/ai.worker-CRfE9PDr.js",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "https://xianghui.github.io/daily-app2/20261108-12/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "https://xianghui.github.io/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": [
+        "etag"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": [
+        "etag"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": [
+        "response-content-disposition",
+        "X-Xet-Cas-Uid",
+        "user_id",
+        "xip",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": [
+        "etag"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": [
+        "etag"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": [
+        "etag"
+      ]
+    },
+    {
+      "url": "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": [
+        "xip",
+        "response-content-disposition",
+        "user_id",
+        "X-Xet-Cas-Uid",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ]
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "https://xianghui.github.io/daily-app2/20261108-12/assets/ai.worker-CRfE9PDr.js",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "https://xianghui.github.io/daily-app2/20261108-12/assets/ai.worker-CRfE9PDr.js",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "https://xianghui.github.io/daily-app2/20261108-12/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "https://xianghui.github.io/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "https://xianghui.github.io/daily-app2/20261108-12/assets/ai.worker-CRfE9PDr.js",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "https://xianghui.github.io/daily-app2/20261108-12/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "https://xianghui.github.io/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    }
+  ],
+  "errors": []
+}

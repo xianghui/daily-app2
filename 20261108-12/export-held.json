@@ -1,0 +1,300 @@
+{
+  "schema": "route-caliper/v1",
+  "input": {
+    "targetPrecision": 1,
+    "routes": [
+      {
+        "id": "renew",
+        "text": "Extend the borrowing loan period for a library book"
+      },
+      {
+        "id": "events",
+        "text": "Reserve a seat at a library author reading or workshop"
+      },
+      {
+        "id": "digital",
+        "text": "Troubleshoot electronic book download and audiobook app access"
+      }
+    ],
+    "records": [
+      {
+        "id": "C1",
+        "text": "Can I keep this borrowed book for another week?",
+        "expected": "renew",
+        "split": "calibration"
+      },
+      {
+        "id": "C2",
+        "text": "Book a seat at the author talk",
+        "expected": "events",
+        "split": "calibration"
+      },
+      {
+        "id": "C3",
+        "text": "My ebook will not download in the app",
+        "expected": "digital",
+        "split": "calibration"
+      },
+      {
+        "id": "T1",
+        "text": "Renew my library book loan",
+        "expected": "renew",
+        "split": "test"
+      },
+      {
+        "id": "T2",
+        "text": "Sign me up for the writing workshop",
+        "expected": "events",
+        "split": "test"
+      },
+      {
+        "id": "T3",
+        "text": "The audiobook app cannot play my downloaded title",
+        "expected": "digital",
+        "split": "test"
+      },
+      {
+        "id": "T4",
+        "text": "Repair the broken elevator",
+        "expected": "",
+        "split": "test"
+      }
+    ]
+  },
+  "metrics": {
+    "threshold": 0.6022603794189023,
+    "calibration": {
+      "included": 2,
+      "routed": 2,
+      "correct": 2,
+      "errors": 0,
+      "abstained": 0,
+      "precision": 1,
+      "coverage": 1
+    },
+    "test": {
+      "included": 4,
+      "routed": 2,
+      "correct": 2,
+      "errors": 0,
+      "abstained": 2,
+      "precision": 1,
+      "coverage": 0.5
+    },
+    "baseline": {
+      "included": 4,
+      "routed": 4,
+      "correct": 3,
+      "errors": 1,
+      "abstained": 0,
+      "precision": 0.75,
+      "coverage": 1
+    },
+    "excluded": 1
+  },
+  "records": [
+    {
+      "id": "C1",
+      "text": "Can I keep this borrowed book for another week?",
+      "expected": "renew",
+      "split": "calibration",
+      "gold": "renew",
+      "ranked": [
+        {
+          "id": "renew",
+          "text": "Extend the borrowing loan period for a library book",
+          "score": 0.5114692798331855
+        },
+        {
+          "id": "events",
+          "text": "Reserve a seat at a library author reading or workshop",
+          "score": 0.2845388704871346
+        },
+        {
+          "id": "digital",
+          "text": "Troubleshoot electronic book download and audiobook app access",
+          "score": 0.25883800223033315
+        }
+      ],
+      "predicted": "renew",
+      "score": 0.5114692798331855,
+      "decision": "exclude",
+      "note": "Reviewed, \"quoted\"\nsecond line",
+      "action": "excluded"
+    },
+    {
+      "id": "C2",
+      "text": "Book a seat at the author talk",
+      "expected": "events",
+      "split": "calibration",
+      "gold": "events",
+      "ranked": [
+        {
+          "id": "events",
+          "text": "Reserve a seat at a library author reading or workshop",
+          "score": 0.642495228328293
+        },
+        {
+          "id": "renew",
+          "text": "Extend the borrowing loan period for a library book",
+          "score": 0.219767963385679
+        },
+        {
+          "id": "digital",
+          "text": "Troubleshoot electronic book download and audiobook app access",
+          "score": 0.1934591540684979
+        }
+      ],
+      "predicted": "events",
+      "score": 0.642495228328293,
+      "decision": "include",
+      "note": "",
+      "action": "route"
+    },
+    {
+      "id": "C3",
+      "text": "My ebook will not download in the app",
+      "expected": "digital",
+      "split": "calibration",
+      "gold": "digital",
+      "ranked": [
+        {
+          "id": "digital",
+          "text": "Troubleshoot electronic book download and audiobook app access",
+          "score": 0.6022603794189023
+        },
+        {
+          "id": "renew",
+          "text": "Extend the borrowing loan period for a library book",
+          "score": 0.19140112900171988
+        },
+        {
+          "id": "events",
+          "text": "Reserve a seat at a library author reading or workshop",
+          "score": 0.11673007806007876
+        }
+      ],
+      "predicted": "digital",
+      "score": 0.6022603794189023,
+      "decision": "include",
+      "note": "",
+      "action": "route"
+    },
+    {
+      "id": "T1",
+      "text": "Renew my library book loan",
+      "expected": "renew",
+      "split": "test",
+      "gold": "renew",
+      "ranked": [
+        {
+          "id": "renew",
+          "text": "Extend the borrowing loan period for a library book",
+          "score": 0.7990966733843946
+        },
+        {
+          "id": "events",
+          "text": "Reserve a seat at a library author reading or workshop",
+          "score": 0.36877459618051667
+        },
+        {
+          "id": "digital",
+          "text": "Troubleshoot electronic book download and audiobook app access",
+          "score": 0.32001825282699914
+        }
+      ],
+      "predicted": "renew",
+      "score": 0.7990966733843946,
+      "decision": "include",
+      "note": "",
+      "action": "route"
+    },
+    {
+      "id": "T2",
+      "text": "Sign me up for the writing workshop",
+      "expected": "events",
+      "split": "test",
+      "gold": "events",
+      "ranked": [
+        {
+          "id": "events",
+          "text": "Reserve a seat at a library author reading or workshop",
+          "score": 0.42679721859659137
+        },
+        {
+          "id": "renew",
+          "text": "Extend the borrowing loan period for a library book",
+          "score": 0.14505829099480788
+        },
+        {
+          "id": "digital",
+          "text": "Troubleshoot electronic book download and audiobook app access",
+          "score": 0.05033849819207245
+        }
+      ],
+      "predicted": "events",
+      "score": 0.42679721859659137,
+      "decision": "include",
+      "note": "",
+      "action": "abstain"
+    },
+    {
+      "id": "T3",
+      "text": "The audiobook app cannot play my downloaded title",
+      "expected": "digital",
+      "split": "test",
+      "gold": "digital",
+      "ranked": [
+        {
+          "id": "digital",
+          "text": "Troubleshoot electronic book download and audiobook app access",
+          "score": 0.6069319117196935
+        },
+        {
+          "id": "renew",
+          "text": "Extend the borrowing loan period for a library book",
+          "score": 0.16216744267801547
+        },
+        {
+          "id": "events",
+          "text": "Reserve a seat at a library author reading or workshop",
+          "score": 0.14591531937597624
+        }
+      ],
+      "predicted": "digital",
+      "score": 0.6069319117196935,
+      "decision": "include",
+      "note": "",
+      "action": "route"
+    },
+    {
+      "id": "T4",
+      "text": "Repair the broken elevator",
+      "expected": "",
+      "split": "test",
+      "gold": "",
+      "ranked": [
+        {
+          "id": "renew",
+          "text": "Extend the borrowing loan period for a library book",
+          "score": 0.08138666476469529
+        },
+        {
+          "id": "digital",
+          "text": "Troubleshoot electronic book download and audiobook app access",
+          "score": 0.042517268327265476
+        },
+        {
+          "id": "events",
+          "text": "Reserve a seat at a library author reading or workshop",
+          "score": 0.026268481983471578
+        }
+      ],
+      "predicted": "renew",
+      "score": 0.08138666476469529,
+      "decision": "include",
+      "note": "",
+      "action": "abstain"
+    }
+  ]
+}

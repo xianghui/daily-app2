@@ -1,0 +1,300 @@
+{
+  "schema": "route-caliper/v1",
+  "input": {
+    "targetPrecision": 1,
+    "routes": [
+      {
+        "id": "access",
+        "text": "Reset a forgotten password and unlock a user login account"
+      },
+      {
+        "id": "billing",
+        "text": "Correct an invoice charge and process payment refunds"
+      },
+      {
+        "id": "delivery",
+        "text": "Track a parcel shipment and find a missing delivery"
+      }
+    ],
+    "records": [
+      {
+        "id": "C1",
+        "text": "I forgot my password and cannot sign in",
+        "expected": "access",
+        "split": "calibration"
+      },
+      {
+        "id": "C2",
+        "text": "Please refund the duplicate invoice payment",
+        "expected": "billing",
+        "split": "calibration"
+      },
+      {
+        "id": "C3",
+        "text": "Where is my parcel shipment?",
+        "expected": "delivery",
+        "split": "calibration"
+      },
+      {
+        "id": "T1",
+        "text": "Unlock my locked login account",
+        "expected": "access",
+        "split": "test"
+      },
+      {
+        "id": "T2",
+        "text": "I was charged twice on my invoice",
+        "expected": "billing",
+        "split": "test"
+      },
+      {
+        "id": "T3",
+        "text": "The package has not arrived at my address",
+        "expected": "delivery",
+        "split": "test"
+      },
+      {
+        "id": "T4",
+        "text": "Office plants need watering",
+        "expected": "",
+        "split": "test"
+      }
+    ]
+  },
+  "metrics": {
+    "threshold": 0.6636918577156017,
+    "calibration": {
+      "included": 3,
+      "routed": 3,
+      "correct": 3,
+      "errors": 0,
+      "abstained": 0,
+      "precision": 1,
+      "coverage": 1
+    },
+    "test": {
+      "included": 4,
+      "routed": 1,
+      "correct": 1,
+      "errors": 0,
+      "abstained": 3,
+      "precision": 1,
+      "coverage": 0.25
+    },
+    "baseline": {
+      "included": 4,
+      "routed": 4,
+      "correct": 3,
+      "errors": 1,
+      "abstained": 0,
+      "precision": 0.75,
+      "coverage": 1
+    },
+    "excluded": 0
+  },
+  "records": [
+    {
+      "id": "C1",
+      "text": "I forgot my password and cannot sign in",
+      "expected": "access",
+      "split": "calibration",
+      "gold": "access",
+      "ranked": [
+        {
+          "id": "access",
+          "text": "Reset a forgotten password and unlock a user login account",
+          "score": 0.7034000066210087
+        },
+        {
+          "id": "billing",
+          "text": "Correct an invoice charge and process payment refunds",
+          "score": 0.08724443037542692
+        },
+        {
+          "id": "delivery",
+          "text": "Track a parcel shipment and find a missing delivery",
+          "score": 0.023475386338399892
+        }
+      ],
+      "predicted": "access",
+      "score": 0.7034000066210087,
+      "decision": "include",
+      "note": "Phone edit",
+      "action": "route"
+    },
+    {
+      "id": "C2",
+      "text": "Please refund the duplicate invoice payment",
+      "expected": "billing",
+      "split": "calibration",
+      "gold": "billing",
+      "ranked": [
+        {
+          "id": "billing",
+          "text": "Correct an invoice charge and process payment refunds",
+          "score": 0.7006291011845136
+        },
+        {
+          "id": "delivery",
+          "text": "Track a parcel shipment and find a missing delivery",
+          "score": 0.19222776705700306
+        },
+        {
+          "id": "access",
+          "text": "Reset a forgotten password and unlock a user login account",
+          "score": 0.1560758251152533
+        }
+      ],
+      "predicted": "billing",
+      "score": 0.7006291011845136,
+      "decision": "include",
+      "note": "",
+      "action": "route"
+    },
+    {
+      "id": "C3",
+      "text": "Where is my parcel shipment?",
+      "expected": "delivery",
+      "split": "calibration",
+      "gold": "delivery",
+      "ranked": [
+        {
+          "id": "delivery",
+          "text": "Track a parcel shipment and find a missing delivery",
+          "score": 0.6636918577156017
+        },
+        {
+          "id": "billing",
+          "text": "Correct an invoice charge and process payment refunds",
+          "score": 0.07941550046702467
+        },
+        {
+          "id": "access",
+          "text": "Reset a forgotten password and unlock a user login account",
+          "score": -0.04387723670471757
+        }
+      ],
+      "predicted": "delivery",
+      "score": 0.6636918577156017,
+      "decision": "include",
+      "note": "",
+      "action": "route"
+    },
+    {
+      "id": "T1",
+      "text": "Unlock my locked login account",
+      "expected": "access",
+      "split": "test",
+      "gold": "access",
+      "ranked": [
+        {
+          "id": "access",
+          "text": "Reset a forgotten password and unlock a user login account",
+          "score": 0.7401189369409723
+        },
+        {
+          "id": "billing",
+          "text": "Correct an invoice charge and process payment refunds",
+          "score": -0.03826413842386565
+        },
+        {
+          "id": "delivery",
+          "text": "Track a parcel shipment and find a missing delivery",
+          "score": -0.07286915715586732
+        }
+      ],
+      "predicted": "access",
+      "score": 0.7401189369409723,
+      "decision": "include",
+      "note": "",
+      "action": "route"
+    },
+    {
+      "id": "T2",
+      "text": "I was charged twice on my invoice",
+      "expected": "billing",
+      "split": "test",
+      "gold": "billing",
+      "ranked": [
+        {
+          "id": "billing",
+          "text": "Correct an invoice charge and process payment refunds",
+          "score": 0.6101541536512982
+        },
+        {
+          "id": "delivery",
+          "text": "Track a parcel shipment and find a missing delivery",
+          "score": 0.16549557395361225
+        },
+        {
+          "id": "access",
+          "text": "Reset a forgotten password and unlock a user login account",
+          "score": 0.08234827648320878
+        }
+      ],
+      "predicted": "billing",
+      "score": 0.6101541536512982,
+      "decision": "include",
+      "note": "",
+      "action": "abstain"
+    },
+    {
+      "id": "T3",
+      "text": "The package has not arrived at my address",
+      "expected": "delivery",
+      "split": "test",
+      "gold": "delivery",
+      "ranked": [
+        {
+          "id": "delivery",
+          "text": "Track a parcel shipment and find a missing delivery",
+          "score": 0.49502106412311514
+        },
+        {
+          "id": "billing",
+          "text": "Correct an invoice charge and process payment refunds",
+          "score": 0.16954505445961837
+        },
+        {
+          "id": "access",
+          "text": "Reset a forgotten password and unlock a user login account",
+          "score": 0.03377734555245918
+        }
+      ],
+      "predicted": "delivery",
+      "score": 0.49502106412311514,
+      "decision": "include",
+      "note": "",
+      "action": "abstain"
+    },
+    {
+      "id": "T4",
+      "text": "Office plants need watering",
+      "expected": "",
+      "split": "test",
+      "gold": "",
+      "ranked": [
+        {
+          "id": "billing",
+          "text": "Correct an invoice charge and process payment refunds",
+          "score": 0.14779738251078642
+        },
+        {
+          "id": "delivery",
+          "text": "Track a parcel shipment and find a missing delivery",
+          "score": 0.03598778653078562
+        },
+        {
+          "id": "access",
+          "text": "Reset a forgotten password and unlock a user login account",
+          "score": -0.01958234379853004
+        }
+      ],
+      "predicted": "billing",
+      "score": 0.14779738251078642,
+      "decision": "include",
+      "note": "",
+      "action": "abstain"
+    }
+  ]
+}

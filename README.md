@@ -90,3 +90,8 @@ Local MiniLM links risk statements to user-supplied monitoring indicators. Revie
 ## Triplet Foundry — 20261108-11
 
 Local MiniLM hard-negative mining for contrastive training data with mandatory pair review, train-only and distinct-source triplet constraints, capped negative reuse and approved three-column JSONL plus complete audits. Two tiny known-answer fixtures selected 16/16 intended sibling negative labels versus 8/16 input-order baseline; this is not a training-gain claim and a deliberately mislabeled positive still required human rejection. Reuses the immutable shared WASM from `20261107-2`; preserve that asset. See [workflow](20261108-11/README.md) and [observed validation](20261108-11/VALIDATION.md).
+
+
+## Route Caliper — 20261108-12
+
+Local MiniLM request-routing evaluation with calibration-only abstention thresholds and independent holdout precision/coverage reporting. Review/correct gold labels, exclude ambiguous samples, preserve all originals and export JSON/CSV/Markdown. Both simple fixtures matched 12/12 in-domain labels, but thresholding abstained on three valid cases and a negation challenge was misclassified before abstaining. This is a small-sample evaluation aid, not production accuracy assurance. Reuses the immutable shared WASM from `20261107-2`; preserve it. See [workflow](20261108-12/README.md) and [observed validation](20261108-12/VALIDATION.md).

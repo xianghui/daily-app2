@@ -148,3 +148,8 @@ Local MiniLM retrieves requirement links and classifies scenario intent for an e
 ## Rater Bridge — 20261109-2
 
 Reconcile independently named qualitative codebooks with real local MiniLM definition embeddings and exact one-to-one assignment, then inspect paired judgments after human-approved normalization. All six expected links across two small synthetic fixtures matched; normalized agreement is not correctness or inter-rater reliability. Every pair survives reviewed JSON/CSV/Markdown exports. See [workflow/privacy](20261109-2/README.md) and [observed validation](20261109-2/VALIDATION.md). Reuses the immutable shared WASM asset from `20261107-2`.
+
+
+## Invoice Moor — 20261109-3
+
+Local MiniLM links reworded invoice lines to received purchase orders; human review feeds many-to-one quantity reconciliation and integer-cent unit-price checks. All eight simple fixture links matched and both split-line overages were caught; negated/unrelated text still receives unsuitable nearest proposals. This is an exception-planning desk, not payment authorization. Complete JSON/CSV/Markdown preserves all receipts, lines and cents. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261109-3/README.md) and [observed validation](20261109-3/VALIDATION.md).

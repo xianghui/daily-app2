@@ -1,0 +1,364 @@
+{
+  "schema": "invoice-moor/v1",
+  "originalInput": {
+    "name": "Cafe supplies",
+    "currency": "EUR",
+    "orders": [
+      {
+        "id": "O-coffee",
+        "text": "Roasted coffee beans for espresso brewing",
+        "unit": "kg",
+        "received": 12,
+        "unitCents": 1800
+      },
+      {
+        "id": "O-oat",
+        "text": "Oat milk plant based dairy alternative",
+        "unit": "litre",
+        "received": 20,
+        "unitCents": 220
+      },
+      {
+        "id": "O-cup",
+        "text": "Disposable paper takeaway coffee cups",
+        "unit": "each",
+        "received": 100,
+        "unitCents": 15
+      }
+    ],
+    "invoices": [
+      {
+        "id": "C1",
+        "text": "Espresso roasted whole coffee beans",
+        "unit": "kg",
+        "quantity": 10,
+        "unitCents": 1800
+      },
+      {
+        "id": "C2",
+        "text": "Barista oat beverage dairy free milk",
+        "unit": "litre",
+        "quantity": 20,
+        "unitCents": 220
+      },
+      {
+        "id": "C3",
+        "text": "Paper cups for hot drinks to go",
+        "unit": "each",
+        "quantity": 80,
+        "unitCents": 15
+      },
+      {
+        "id": "C4",
+        "text": "Roasted espresso coffee beans",
+        "unit": "kg",
+        "quantity": 3,
+        "unitCents": 1800
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "C1",
+      "text": "Espresso roasted whole coffee beans",
+      "unit": "kg",
+      "quantity": 10,
+      "unitCents": 1800,
+      "ranks": [
+        {
+          "id": "O-coffee",
+          "compatible": true,
+          "similarity": 0.9137486193846519
+        },
+        {
+          "id": "O-cup",
+          "compatible": false,
+          "similarity": 0.3268431634229461
+        },
+        {
+          "id": "O-oat",
+          "compatible": false,
+          "similarity": 0.1575432953189998
+        }
+      ],
+      "proposed": "O-coffee",
+      "target": "O-coffee",
+      "decision": "hold",
+      "note": "=1+1\nReviewed, \"receipt\""
+    },
+    {
+      "id": "C2",
+      "text": "Barista oat beverage dairy free milk",
+      "unit": "litre",
+      "quantity": 20,
+      "unitCents": 220,
+      "ranks": [
+        {
+          "id": "O-oat",
+          "compatible": true,
+          "similarity": 0.6935718683485496
+        },
+        {
+          "id": "O-cup",
+          "compatible": false,
+          "similarity": 0.2616142027952027
+        },
+        {
+          "id": "O-coffee",
+          "compatible": false,
+          "similarity": 0.22452500411131965
+        }
+      ],
+      "proposed": "O-oat",
+      "target": "O-oat",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "C3",
+      "text": "Paper cups for hot drinks to go",
+      "unit": "each",
+      "quantity": 80,
+      "unitCents": 15,
+      "ranks": [
+        {
+          "id": "O-cup",
+          "compatible": true,
+          "similarity": 0.723380706258012
+        },
+        {
+          "id": "O-coffee",
+          "compatible": false,
+          "similarity": 0.2689922915008275
+        },
+        {
+          "id": "O-oat",
+          "compatible": false,
+          "similarity": 0.08944414757824509
+        }
+      ],
+      "proposed": "O-cup",
+      "target": "O-cup",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "C4",
+      "text": "Roasted espresso coffee beans",
+      "unit": "kg",
+      "quantity": 3,
+      "unitCents": 1800,
+      "ranks": [
+        {
+          "id": "O-coffee",
+          "compatible": true,
+          "similarity": 0.9513419738343567
+        },
+        {
+          "id": "O-cup",
+          "compatible": false,
+          "similarity": 0.3539635660807009
+        },
+        {
+          "id": "O-oat",
+          "compatible": false,
+          "similarity": 0.15182309826717116
+        }
+      ],
+      "proposed": "O-coffee",
+      "target": "O-coffee",
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "orders": [
+    {
+      "id": "O-coffee",
+      "text": "Roasted coffee beans for espresso brewing",
+      "unit": "kg",
+      "received": 12,
+      "unitCents": 1800,
+      "billedQuantity": 3,
+      "overQuantity": 0,
+      "remaining": 9,
+      "invoiceIds": [
+        "C4"
+      ],
+      "billedCents": 5400
+    },
+    {
+      "id": "O-oat",
+      "text": "Oat milk plant based dairy alternative",
+      "unit": "litre",
+      "received": 20,
+      "unitCents": 220,
+      "billedQuantity": 20,
+      "overQuantity": 0,
+      "remaining": 0,
+      "invoiceIds": [
+        "C2"
+      ],
+      "billedCents": 4400
+    },
+    {
+      "id": "O-cup",
+      "text": "Disposable paper takeaway coffee cups",
+      "unit": "each",
+      "received": 100,
+      "unitCents": 15,
+      "billedQuantity": 80,
+      "overQuantity": 0,
+      "remaining": 20,
+      "invoiceIds": [
+        "C3"
+      ],
+      "billedCents": 1200
+    }
+  ],
+  "lines": [
+    {
+      "id": "C1",
+      "text": "Espresso roasted whole coffee beans",
+      "unit": "kg",
+      "quantity": 10,
+      "unitCents": 1800,
+      "ranks": [
+        {
+          "id": "O-coffee",
+          "compatible": true,
+          "similarity": 0.9137486193846519
+        },
+        {
+          "id": "O-cup",
+          "compatible": false,
+          "similarity": 0.3268431634229461
+        },
+        {
+          "id": "O-oat",
+          "compatible": false,
+          "similarity": 0.1575432953189998
+        }
+      ],
+      "proposed": "O-coffee",
+      "target": "O-coffee",
+      "decision": "hold",
+      "note": "=1+1\nReviewed, \"receipt\"",
+      "mapped": "",
+      "lineCents": 18000,
+      "varianceCents": null,
+      "flags": [
+        "Held for review"
+      ],
+      "status": "exception"
+    },
+    {
+      "id": "C2",
+      "text": "Barista oat beverage dairy free milk",
+      "unit": "litre",
+      "quantity": 20,
+      "unitCents": 220,
+      "ranks": [
+        {
+          "id": "O-oat",
+          "compatible": true,
+          "similarity": 0.6935718683485496
+        },
+        {
+          "id": "O-cup",
+          "compatible": false,
+          "similarity": 0.2616142027952027
+        },
+        {
+          "id": "O-coffee",
+          "compatible": false,
+          "similarity": 0.22452500411131965
+        }
+      ],
+      "proposed": "O-oat",
+      "target": "O-oat",
+      "decision": "approve",
+      "note": "",
+      "mapped": "O-oat",
+      "lineCents": 4400,
+      "varianceCents": 0,
+      "flags": [],
+      "status": "linked-checks-pass"
+    },
+    {
+      "id": "C3",
+      "text": "Paper cups for hot drinks to go",
+      "unit": "each",
+      "quantity": 80,
+      "unitCents": 15,
+      "ranks": [
+        {
+          "id": "O-cup",
+          "compatible": true,
+          "similarity": 0.723380706258012
+        },
+        {
+          "id": "O-coffee",
+          "compatible": false,
+          "similarity": 0.2689922915008275
+        },
+        {
+          "id": "O-oat",
+          "compatible": false,
+          "similarity": 0.08944414757824509
+        }
+      ],
+      "proposed": "O-cup",
+      "target": "O-cup",
+      "decision": "approve",
+      "note": "",
+      "mapped": "O-cup",
+      "lineCents": 1200,
+      "varianceCents": 0,
+      "flags": [],
+      "status": "linked-checks-pass"
+    },
+    {
+      "id": "C4",
+      "text": "Roasted espresso coffee beans",
+      "unit": "kg",
+      "quantity": 3,
+      "unitCents": 1800,
+      "ranks": [
+        {
+          "id": "O-coffee",
+          "compatible": true,
+          "similarity": 0.9513419738343567
+        },
+        {
+          "id": "O-cup",
+          "compatible": false,
+          "similarity": 0.3539635660807009
+        },
+        {
+          "id": "O-oat",
+          "compatible": false,
+          "similarity": 0.15182309826717116
+        }
+      ],
+      "proposed": "O-coffee",
+      "target": "O-coffee",
+      "decision": "approve",
+      "note": "",
+      "mapped": "O-coffee",
+      "lineCents": 5400,
+      "varianceCents": 0,
+      "flags": [],
+      "status": "linked-checks-pass"
+    }
+  ],
+  "metrics": {
+    "total": 4,
+    "exactBaseline": 0,
+    "linked": 3,
+    "exceptions": 1,
+    "invoiceCents": 29000,
+    "linkedCents": 11000,
+    "unresolvedCents": 18000
+  },
+  "limitations": "Planning aid, not payment authorization or fraud/tax/accounting verification. Received quantities are user-supplied; no source document authenticity checks. Review every semantic match. Totals exclude tax, discounts and freight unless entered as separate compatible lines."
+}

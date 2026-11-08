@@ -1,0 +1,33 @@
+# Invoice Moor
+
+A local, no-key invoice-to-received-order reconciliation desk for small-team procurement reviewers. Distinct from catalog SKU cleanup: multiple billed lines consume the same finite receipt balance and create aggregate overbilling exceptions; integer-cent unit-price variances remain separate. It never authorizes or sends payments.
+
+## Workflow
+1. Paste/import JSON (or a previously exported audit) with a single `currency` (USD/EUR/GBP/SGD), `orders` and `invoices`. The two synthetic example buttons demonstrate office and cafe procurement. Orders: `{id,text,unit,received,unitCents}`. Invoices: `{id,text,unit,quantity,unitCents}`. IDs unique within each array. Units are exact case-sensitive identifiers: normalize manually; no conversions.
+2. Edit received quantities to the actual remaining receipts available for this batch and unit prices to agreed PO values. One complete billing window per batch; no prior-invoice database is maintained.
+3. Explicitly load AI. Inspect semantic rankings and source order descriptions/prices. Approve every verified link, approve unmatched for a missing order, or hold uncertain lines. Targets reset approval; undo restores the previous review layer. All originals remain intact.
+4. Apply. Deterministic aggregation totals all approved invoice quantities per receipt; over-quantity flags attach to every consuming line, not an arbitrarily blamed last row. Every nonzero unit-price difference is flagged. Held/unmatched lines remain in the register, with unresolved money shown. Edits invalidate the applied snapshot.
+5. Download current JSON (all originals, reviews, evidence, every receipt and invoice), CSV (every invoice with exact integer cents, reviewed links, exceptions and notes), or Markdown (all receipt balances and every invoice checklist). Copy matches Markdown download. Formula-like CSV text gets an apostrophe; numeric values remain numeric. Audit reimport restores original inputs for new inference, never stale approvals.
+
+## Real AI and deterministic processing
+- Model: [Xenova/all-MiniLM-L6-v2](https://huggingface.co/Xenova/all-MiniLM-L6-v2), Apache-2.0. Quantized ONNX `q8` feature extraction; normalized mean-pooled 384-dimensional embeddings. [Upstream model](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2).
+- Runtime: @huggingface/transformers 4.3.2, onnxruntime-web 1.31.0-dev.20260914-8d85527a0 (lockfile-pinned), WASM SIMD CPU, one thread. No WebGPU and no remote text API.
+- AI materially enables matching reworded descriptions where exact-string lookup fails. Deterministic vector validation, cosine ranking and exact-unit compatibility produce proposals; reviewed links drive receipt balances, price differences, exception counts and exports. Cosine is not confidence. Every invoice receives a nearest compatible candidate even if irrelevant, so review is mandatory; no score threshold claims correctness.
+- Baseline: count of invoice descriptions with an exact case-insensitive trimmed description and unit match. Comparison is computed coverage, not measured accuracy or time savings. Different descriptions may refer to different goods despite high similarity.
+
+## Downloads, devices, privacy, offline scope
+First run requires internet and approximately 23 MB model files plus 27 MB shared WASM and app/runtime code. Static model files come from huggingface.co and its CDN (cdn.hf.co / signed Xet download hosts); local worker/runtime from this site. No external request occurs until explicit loading except ordinary same-origin app code. No user content is in model-download URLs/bodies. Inputs live only in page/worker memory; exports are explicit local downloads. No credentials, analytics, provider integration, content upload or automatic input persistence.
+
+WebAssembly in current Chrome/Edge/Firefox/Safari is required; tested inference on desktop Chrome only. Phone-width layout was tested in desktop Chrome emulation, not physical low-memory phones. Model loading shows progress; inference reports four-text batches. Cancellation terminates the worker; 180-second timeout and error messages permit retry. No fake model or deterministic fallback on failure.
+
+Runtime factory, WASM, worker and model files cache with browser Cache API. Offline **fresh-worker inference in an already-open page after a successful online run** was actually tested, with all network blocked. Offline page reload/navigation is NOT promised. Cache eviction/private mode/quota can require download again. Content is not cached by this app; Hugging Face static-file cache metadata is not user content. Model revision is host main; upstream changes may affect future results.
+
+The production build reuses byte-identical immutable WASM at `/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm`. Preserve this asset. Asset hashes and byte identity are recorded in `asset-audit.json`. Factory and worker are bundled locally.
+
+## Limits and limitations
+1–12 orders, 1–40 invoices (52 embedded descriptions maximum), 300 characters per description, 256-token model context, four-text batches, workflow payload ≤100 KB, pasted/imported JSON ≤1 MB. Simple IDs ≤30 characters and units ≤20 characters. Quantities are integers 0–10000 (invoice ≥1); unit prices integer cents 0–10000000. English intended. One currency per batch, no conversion. Large totals stay within JavaScript safe-integer bounds under these limits.
+
+No credit notes, fractional quantities, tax calculation, discounts, prior-period invoices, accounting-system synchronization, payment actions, fraud detection or authenticity verification. Include fees only as separately received and approved compatible lines. User-supplied receipts are not independently verified. Similarity fails on negation and unrelated text. A linked row passing quantity/price checks is NOT proof it should be paid. Remaining uninvoiced receipt quantities may be legitimate future billing.
+
+## Build and validation
+`npm install`; `npm run predeploy` (Vite production build). Required per-app scripts: `predeploy: npm run build`, `deploy: gh-pages -d dist`; do not invoke the individual deploy because it replaces the collection. Publish only through the root workflow. `python3 serve-test.py` serves production paths at port 6293. `node browser-test.cjs`, `node network-test.cjs`, `node core-test.mjs`, `python3 artifact-test.py`, `python3 asset-audit.py` reproduce observed local tests (Playwright uses the workspace's existing installation and desktop Chrome). Browser fixtures are synthetic. See `VALIDATION.md` for observed outcomes and public verification. Licensing notices in `THIRD_PARTY_NOTICES.md` and `licenses/`.

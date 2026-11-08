@@ -1,0 +1,296 @@
+{
+  "schema": "invoice-moor/v1",
+  "originalInput": {
+    "name": "Office delivery",
+    "currency": "USD",
+    "orders": [
+      {
+        "id": "O-paper",
+        "text": "White A4 printer paper reams, 500 sheets per ream",
+        "unit": "ream",
+        "received": 10,
+        "unitCents": 650
+      },
+      {
+        "id": "O-chair",
+        "text": "Ergonomic office desk chair with adjustable backrest",
+        "unit": "each",
+        "received": 4,
+        "unitCents": 12000
+      },
+      {
+        "id": "O-cable",
+        "text": "USB C charging cable two metres",
+        "unit": "each",
+        "received": 8,
+        "unitCents": 900
+      }
+    ],
+    "invoices": [
+      {
+        "id": "NEG",
+        "text": "Do not bill printer paper; it was not delivered",
+        "unit": "ream",
+        "quantity": 1,
+        "unitCents": 650
+      },
+      {
+        "id": "OOD",
+        "text": "Seaside weather forecast with rain and wind tomorrow",
+        "unit": "each",
+        "quantity": 1,
+        "unitCents": 100
+      },
+      {
+        "id": "UNIT",
+        "text": "White A4 paper",
+        "unit": "pallet",
+        "quantity": 1,
+        "unitCents": 650
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "NEG",
+      "text": "Do not bill printer paper; it was not delivered",
+      "unit": "ream",
+      "quantity": 1,
+      "unitCents": 650,
+      "ranks": [
+        {
+          "id": "O-paper",
+          "compatible": true,
+          "similarity": 0.4090176363524814
+        },
+        {
+          "id": "O-cable",
+          "compatible": false,
+          "similarity": 0.17966731169334596
+        },
+        {
+          "id": "O-chair",
+          "compatible": false,
+          "similarity": -0.006256369939385801
+        }
+      ],
+      "proposed": "O-paper",
+      "target": "O-paper",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "OOD",
+      "text": "Seaside weather forecast with rain and wind tomorrow",
+      "unit": "each",
+      "quantity": 1,
+      "unitCents": 100,
+      "ranks": [
+        {
+          "id": "O-cable",
+          "compatible": true,
+          "similarity": 0.05810797314364763
+        },
+        {
+          "id": "O-paper",
+          "compatible": false,
+          "similarity": 0.05026322745152175
+        },
+        {
+          "id": "O-chair",
+          "compatible": true,
+          "similarity": -0.004073205688040732
+        }
+      ],
+      "proposed": "O-cable",
+      "target": "O-cable",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "UNIT",
+      "text": "White A4 paper",
+      "unit": "pallet",
+      "quantity": 1,
+      "unitCents": 650,
+      "ranks": [
+        {
+          "id": "O-paper",
+          "compatible": false,
+          "similarity": 0.6395229346650356
+        },
+        {
+          "id": "O-cable",
+          "compatible": false,
+          "similarity": 0.09585572728639898
+        },
+        {
+          "id": "O-chair",
+          "compatible": false,
+          "similarity": 0.03561045843410292
+        }
+      ],
+      "proposed": "",
+      "target": "",
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "orders": [
+    {
+      "id": "O-paper",
+      "text": "White A4 printer paper reams, 500 sheets per ream",
+      "unit": "ream",
+      "received": 10,
+      "unitCents": 650,
+      "billedQuantity": 1,
+      "overQuantity": 0,
+      "remaining": 9,
+      "invoiceIds": [
+        "NEG"
+      ],
+      "billedCents": 650
+    },
+    {
+      "id": "O-chair",
+      "text": "Ergonomic office desk chair with adjustable backrest",
+      "unit": "each",
+      "received": 4,
+      "unitCents": 12000,
+      "billedQuantity": 0,
+      "overQuantity": 0,
+      "remaining": 4,
+      "invoiceIds": [],
+      "billedCents": 0
+    },
+    {
+      "id": "O-cable",
+      "text": "USB C charging cable two metres",
+      "unit": "each",
+      "received": 8,
+      "unitCents": 900,
+      "billedQuantity": 1,
+      "overQuantity": 0,
+      "remaining": 7,
+      "invoiceIds": [
+        "OOD"
+      ],
+      "billedCents": 100
+    }
+  ],
+  "lines": [
+    {
+      "id": "NEG",
+      "text": "Do not bill printer paper; it was not delivered",
+      "unit": "ream",
+      "quantity": 1,
+      "unitCents": 650,
+      "ranks": [
+        {
+          "id": "O-paper",
+          "compatible": true,
+          "similarity": 0.4090176363524814
+        },
+        {
+          "id": "O-cable",
+          "compatible": false,
+          "similarity": 0.17966731169334596
+        },
+        {
+          "id": "O-chair",
+          "compatible": false,
+          "similarity": -0.006256369939385801
+        }
+      ],
+      "proposed": "O-paper",
+      "target": "O-paper",
+      "decision": "approve",
+      "note": "",
+      "mapped": "O-paper",
+      "lineCents": 650,
+      "varianceCents": 0,
+      "flags": [],
+      "status": "linked-checks-pass"
+    },
+    {
+      "id": "OOD",
+      "text": "Seaside weather forecast with rain and wind tomorrow",
+      "unit": "each",
+      "quantity": 1,
+      "unitCents": 100,
+      "ranks": [
+        {
+          "id": "O-cable",
+          "compatible": true,
+          "similarity": 0.05810797314364763
+        },
+        {
+          "id": "O-paper",
+          "compatible": false,
+          "similarity": 0.05026322745152175
+        },
+        {
+          "id": "O-chair",
+          "compatible": true,
+          "similarity": -0.004073205688040732
+        }
+      ],
+      "proposed": "O-cable",
+      "target": "O-cable",
+      "decision": "approve",
+      "note": "",
+      "mapped": "O-cable",
+      "lineCents": 100,
+      "varianceCents": -800,
+      "flags": [
+        "Unit price differs by -800 cents"
+      ],
+      "status": "exception"
+    },
+    {
+      "id": "UNIT",
+      "text": "White A4 paper",
+      "unit": "pallet",
+      "quantity": 1,
+      "unitCents": 650,
+      "ranks": [
+        {
+          "id": "O-paper",
+          "compatible": false,
+          "similarity": 0.6395229346650356
+        },
+        {
+          "id": "O-cable",
+          "compatible": false,
+          "similarity": 0.09585572728639898
+        },
+        {
+          "id": "O-chair",
+          "compatible": false,
+          "similarity": 0.03561045843410292
+        }
+      ],
+      "proposed": "",
+      "target": "",
+      "decision": "approve",
+      "note": "",
+      "mapped": "",
+      "lineCents": 650,
+      "varianceCents": null,
+      "flags": [
+        "No verified order"
+      ],
+      "status": "exception"
+    }
+  ],
+  "metrics": {
+    "total": 3,
+    "exactBaseline": 0,
+    "linked": 2,
+    "exceptions": 2,
+    "invoiceCents": 1400,
+    "linkedCents": 750,
+    "unresolvedCents": 650
+  },
+  "limitations": "Planning aid, not payment authorization or fraud/tax/accounting verification. Received quantities are user-supplied; no source document authenticity checks. Review every semantic match. Totals exclude tax, discounts and freight unless entered as separate compatible lines."
+}

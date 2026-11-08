@@ -1,0 +1,369 @@
+{
+  "schema": "invoice-moor/v1",
+  "originalInput": {
+    "name": "Office delivery",
+    "currency": "USD",
+    "orders": [
+      {
+        "id": "O-paper",
+        "text": "White A4 printer paper reams, 500 sheets per ream",
+        "unit": "ream",
+        "received": 10,
+        "unitCents": 650
+      },
+      {
+        "id": "O-chair",
+        "text": "Ergonomic office desk chair with adjustable backrest",
+        "unit": "each",
+        "received": 4,
+        "unitCents": 12000
+      },
+      {
+        "id": "O-cable",
+        "text": "USB C charging cable two metres",
+        "unit": "each",
+        "received": 8,
+        "unitCents": 900
+      }
+    ],
+    "invoices": [
+      {
+        "id": "I1",
+        "text": "A4 copy paper 500-sheet packs for printers",
+        "unit": "ream",
+        "quantity": 6,
+        "unitCents": 650
+      },
+      {
+        "id": "I2",
+        "text": "White printer paper A4 reams",
+        "unit": "ream",
+        "quantity": 5,
+        "unitCents": 650
+      },
+      {
+        "id": "I3",
+        "text": "Adjustable ergonomic desk seating",
+        "unit": "each",
+        "quantity": 4,
+        "unitCents": 12500
+      },
+      {
+        "id": "I4",
+        "text": "2m USB-C charging leads",
+        "unit": "each",
+        "quantity": 8,
+        "unitCents": 900
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "I1",
+      "text": "A4 copy paper 500-sheet packs for printers",
+      "unit": "ream",
+      "quantity": 6,
+      "unitCents": 650,
+      "ranks": [
+        {
+          "id": "O-paper",
+          "compatible": true,
+          "similarity": 0.7151949518445904
+        },
+        {
+          "id": "O-cable",
+          "compatible": false,
+          "similarity": 0.14891547474376565
+        },
+        {
+          "id": "O-chair",
+          "compatible": false,
+          "similarity": 0.07937240100226803
+        }
+      ],
+      "proposed": "O-paper",
+      "target": "O-paper",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "I2",
+      "text": "White printer paper A4 reams",
+      "unit": "ream",
+      "quantity": 5,
+      "unitCents": 650,
+      "ranks": [
+        {
+          "id": "O-paper",
+          "compatible": true,
+          "similarity": 0.8659058106468944
+        },
+        {
+          "id": "O-cable",
+          "compatible": false,
+          "similarity": 0.08071527575623158
+        },
+        {
+          "id": "O-chair",
+          "compatible": false,
+          "similarity": 0.035340386379639085
+        }
+      ],
+      "proposed": "O-paper",
+      "target": "O-paper",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "I3",
+      "text": "Adjustable ergonomic desk seating",
+      "unit": "each",
+      "quantity": 4,
+      "unitCents": 12500,
+      "ranks": [
+        {
+          "id": "O-chair",
+          "compatible": true,
+          "similarity": 0.812502613155728
+        },
+        {
+          "id": "O-paper",
+          "compatible": false,
+          "similarity": 0.015110318655361
+        },
+        {
+          "id": "O-cable",
+          "compatible": true,
+          "similarity": 0.014878563273760494
+        }
+      ],
+      "proposed": "O-chair",
+      "target": "O-chair",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "I4",
+      "text": "2m USB-C charging leads",
+      "unit": "each",
+      "quantity": 8,
+      "unitCents": 900,
+      "ranks": [
+        {
+          "id": "O-cable",
+          "compatible": true,
+          "similarity": 0.7450759392627377
+        },
+        {
+          "id": "O-paper",
+          "compatible": false,
+          "similarity": 0.12592410263730058
+        },
+        {
+          "id": "O-chair",
+          "compatible": true,
+          "similarity": 0.030080115213660538
+        }
+      ],
+      "proposed": "O-cable",
+      "target": "O-cable",
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "orders": [
+    {
+      "id": "O-paper",
+      "text": "White A4 printer paper reams, 500 sheets per ream",
+      "unit": "ream",
+      "received": 10,
+      "unitCents": 650,
+      "billedQuantity": 11,
+      "overQuantity": 1,
+      "remaining": 0,
+      "invoiceIds": [
+        "I1",
+        "I2"
+      ],
+      "billedCents": 7150
+    },
+    {
+      "id": "O-chair",
+      "text": "Ergonomic office desk chair with adjustable backrest",
+      "unit": "each",
+      "received": 4,
+      "unitCents": 12000,
+      "billedQuantity": 4,
+      "overQuantity": 0,
+      "remaining": 0,
+      "invoiceIds": [
+        "I3"
+      ],
+      "billedCents": 50000
+    },
+    {
+      "id": "O-cable",
+      "text": "USB C charging cable two metres",
+      "unit": "each",
+      "received": 8,
+      "unitCents": 900,
+      "billedQuantity": 8,
+      "overQuantity": 0,
+      "remaining": 0,
+      "invoiceIds": [
+        "I4"
+      ],
+      "billedCents": 7200
+    }
+  ],
+  "lines": [
+    {
+      "id": "I1",
+      "text": "A4 copy paper 500-sheet packs for printers",
+      "unit": "ream",
+      "quantity": 6,
+      "unitCents": 650,
+      "ranks": [
+        {
+          "id": "O-paper",
+          "compatible": true,
+          "similarity": 0.7151949518445904
+        },
+        {
+          "id": "O-cable",
+          "compatible": false,
+          "similarity": 0.14891547474376565
+        },
+        {
+          "id": "O-chair",
+          "compatible": false,
+          "similarity": 0.07937240100226803
+        }
+      ],
+      "proposed": "O-paper",
+      "target": "O-paper",
+      "decision": "approve",
+      "note": "",
+      "mapped": "O-paper",
+      "lineCents": 3900,
+      "varianceCents": 0,
+      "flags": [
+        "Combined billed quantity exceeds received by 1 ream"
+      ],
+      "status": "exception"
+    },
+    {
+      "id": "I2",
+      "text": "White printer paper A4 reams",
+      "unit": "ream",
+      "quantity": 5,
+      "unitCents": 650,
+      "ranks": [
+        {
+          "id": "O-paper",
+          "compatible": true,
+          "similarity": 0.8659058106468944
+        },
+        {
+          "id": "O-cable",
+          "compatible": false,
+          "similarity": 0.08071527575623158
+        },
+        {
+          "id": "O-chair",
+          "compatible": false,
+          "similarity": 0.035340386379639085
+        }
+      ],
+      "proposed": "O-paper",
+      "target": "O-paper",
+      "decision": "approve",
+      "note": "",
+      "mapped": "O-paper",
+      "lineCents": 3250,
+      "varianceCents": 0,
+      "flags": [
+        "Combined billed quantity exceeds received by 1 ream"
+      ],
+      "status": "exception"
+    },
+    {
+      "id": "I3",
+      "text": "Adjustable ergonomic desk seating",
+      "unit": "each",
+      "quantity": 4,
+      "unitCents": 12500,
+      "ranks": [
+        {
+          "id": "O-chair",
+          "compatible": true,
+          "similarity": 0.812502613155728
+        },
+        {
+          "id": "O-paper",
+          "compatible": false,
+          "similarity": 0.015110318655361
+        },
+        {
+          "id": "O-cable",
+          "compatible": true,
+          "similarity": 0.014878563273760494
+        }
+      ],
+      "proposed": "O-chair",
+      "target": "O-chair",
+      "decision": "approve",
+      "note": "",
+      "mapped": "O-chair",
+      "lineCents": 50000,
+      "varianceCents": 2000,
+      "flags": [
+        "Unit price differs by 500 cents"
+      ],
+      "status": "exception"
+    },
+    {
+      "id": "I4",
+      "text": "2m USB-C charging leads",
+      "unit": "each",
+      "quantity": 8,
+      "unitCents": 900,
+      "ranks": [
+        {
+          "id": "O-cable",
+          "compatible": true,
+          "similarity": 0.7450759392627377
+        },
+        {
+          "id": "O-paper",
+          "compatible": false,
+          "similarity": 0.12592410263730058
+        },
+        {
+          "id": "O-chair",
+          "compatible": true,
+          "similarity": 0.030080115213660538
+        }
+      ],
+      "proposed": "O-cable",
+      "target": "O-cable",
+      "decision": "approve",
+      "note": "",
+      "mapped": "O-cable",
+      "lineCents": 7200,
+      "varianceCents": 0,
+      "flags": [],
+      "status": "linked-checks-pass"
+    }
+  ],
+  "metrics": {
+    "total": 4,
+    "exactBaseline": 0,
+    "linked": 4,
+    "exceptions": 3,
+    "invoiceCents": 64350,
+    "linkedCents": 64350,
+    "unresolvedCents": 0
+  },
+  "limitations": "Planning aid, not payment authorization or fraud/tax/accounting verification. Received quantities are user-supplied; no source document authenticity checks. Review every semantic match. Totals exclude tax, discounts and freight unless entered as separate compatible lines."
+}

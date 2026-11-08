@@ -136,3 +136,7 @@ Local MiniLM semantic inference and order-preserving gap-tolerant alignment help
 ## Citation Loom — 20261108-22
 
 Local MiniLM retrieves supplied bibliography candidates from rough citation notes. Review sources, hold uncertain links and export first-appearance-numbered Markdown with complete JSON/CSV audits. Eight simple known-answer links matched; a negated claim still retrieved a topically related paper, so this is retrieval, not fact verification. Reuses the immutable WASM from 20261107-2; preserve that asset. See [workflow](20261108-22/README.md) and [observed validation](20261108-22/VALIDATION.md).
+
+## Dependency Lens — 20261108-23
+
+Local MiniLM matches required task inputs to other tasks’ deliverables, with mandatory human review, cycle rejection, transitive blocked-task propagation and earliest-start planning. Complete JSON/CSV/Markdown audits retain every task and input. Both tiny known-answer fixtures matched six links; a negated prerequisite still retrieved an unsuitable producer. Timing is a dependency-only lower bound with unlimited resources, not a staffed schedule or measured gain. Reuses the immutable WASM from `20261107-2`; preserve that asset. See [workflow](20261108-23/README.md) and [observed checks](20261108-23/VALIDATION.md).

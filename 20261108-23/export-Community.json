@@ -1,0 +1,225 @@
+{
+  "schema": "dependency-lens/v1",
+  "originalInput": {
+    "name": "Community event",
+    "threshold": 0.35,
+    "tasks": [
+      {
+        "id": "print",
+        "title": "Print the invitations",
+        "output": "Printed paper invitations",
+        "hours": 2,
+        "needs": [
+          "Approved invitation artwork"
+        ]
+      },
+      {
+        "id": "art",
+        "title": "Design the invitation",
+        "output": "Final approved invitation design and artwork",
+        "hours": 3,
+        "needs": [
+          "Confirmed venue reservation"
+        ]
+      },
+      {
+        "id": "venue",
+        "title": "Book the hall",
+        "output": "Venue booking confirmation and hall reservation",
+        "hours": 1,
+        "needs": []
+      },
+      {
+        "id": "send",
+        "title": "Distribute invitations",
+        "output": "Delivered invitations to guests",
+        "hours": 2,
+        "needs": [
+          "Invitations printed on paper"
+        ]
+      },
+      {
+        "id": "food",
+        "title": "Prepare refreshments",
+        "output": "Prepared sandwiches and drinks",
+        "hours": 2,
+        "needs": []
+      }
+    ]
+  },
+  "tasks": [
+    {
+      "id": "print",
+      "title": "Print the invitations",
+      "output": "Printed paper invitations",
+      "hours": 2,
+      "needs": [
+        "Approved invitation artwork"
+      ],
+      "predecessors": [
+        "art"
+      ],
+      "blocked": false,
+      "start": 4,
+      "finish": 6
+    },
+    {
+      "id": "art",
+      "title": "Design the invitation",
+      "output": "Final approved invitation design and artwork",
+      "hours": 3,
+      "needs": [
+        "Confirmed venue reservation"
+      ],
+      "predecessors": [
+        "venue"
+      ],
+      "blocked": false,
+      "start": 1,
+      "finish": 4
+    },
+    {
+      "id": "venue",
+      "title": "Book the hall",
+      "output": "Venue booking confirmation and hall reservation",
+      "hours": 1,
+      "needs": [],
+      "predecessors": [],
+      "blocked": false,
+      "start": 0,
+      "finish": 1
+    },
+    {
+      "id": "send",
+      "title": "Distribute invitations",
+      "output": "Delivered invitations to guests",
+      "hours": 2,
+      "needs": [
+        "Invitations printed on paper"
+      ],
+      "predecessors": [
+        "print"
+      ],
+      "blocked": false,
+      "start": 6,
+      "finish": 8
+    },
+    {
+      "id": "food",
+      "title": "Prepare refreshments",
+      "output": "Prepared sandwiches and drinks",
+      "hours": 2,
+      "needs": [],
+      "predecessors": [],
+      "blocked": false,
+      "start": 0,
+      "finish": 2
+    }
+  ],
+  "requirements": [
+    {
+      "id": "print-0",
+      "task": "print",
+      "text": "Approved invitation artwork",
+      "index": 0,
+      "ranks": [
+        {
+          "id": "art",
+          "similarity": 0.9000942048853359
+        },
+        {
+          "id": "send",
+          "similarity": 0.5642321360909381
+        },
+        {
+          "id": "venue",
+          "similarity": 0.3345858515969141
+        },
+        {
+          "id": "food",
+          "similarity": 0.01527736579993354
+        }
+      ],
+      "suggested": "art",
+      "provider": "art",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "art-0",
+      "task": "art",
+      "text": "Confirmed venue reservation",
+      "index": 0,
+      "ranks": [
+        {
+          "id": "venue",
+          "similarity": 0.7810609106584143
+        },
+        {
+          "id": "send",
+          "similarity": 0.2919889956052371
+        },
+        {
+          "id": "food",
+          "similarity": 0.16980395310184038
+        },
+        {
+          "id": "print",
+          "similarity": 0.14978226511683443
+        }
+      ],
+      "suggested": "venue",
+      "provider": "venue",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "send-0",
+      "task": "send",
+      "text": "Invitations printed on paper",
+      "index": 0,
+      "ranks": [
+        {
+          "id": "print",
+          "similarity": 0.964555875283646
+        },
+        {
+          "id": "art",
+          "similarity": 0.5866795350246891
+        },
+        {
+          "id": "venue",
+          "similarity": 0.21891244477946653
+        },
+        {
+          "id": "food",
+          "similarity": 0.0923154305324465
+        }
+      ],
+      "suggested": "print",
+      "provider": "print",
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "order": [
+    "venue",
+    "art",
+    "print",
+    "send",
+    "food"
+  ],
+  "metrics": {
+    "tasks": 5,
+    "requirements": 3,
+    "approvedLinks": 3,
+    "external": 0,
+    "held": 0,
+    "blocked": 0,
+    "exactBaseline": 0,
+    "proposed": 3,
+    "sequentialHours": 10,
+    "parallelLowerBound": 8,
+    "threshold": 0.35
+  }
+}

@@ -1,0 +1,225 @@
+{
+  "schema": "dependency-lens/v1",
+  "originalInput": {
+    "name": "Data release",
+    "threshold": 0.35,
+    "tasks": [
+      {
+        "id": "train",
+        "title": "Train prediction model",
+        "output": "Trained machine learning model weights",
+        "hours": 4,
+        "needs": [
+          "Cleaned training dataset"
+        ]
+      },
+      {
+        "id": "report",
+        "title": "Publish evaluation summary",
+        "output": "Published model quality report",
+        "hours": 1,
+        "needs": [
+          "Model evaluation metrics"
+        ]
+      },
+      {
+        "id": "clean",
+        "title": "Clean source data",
+        "output": "Validated cleaned dataset for training",
+        "hours": 2,
+        "needs": []
+      },
+      {
+        "id": "eval",
+        "title": "Evaluate model",
+        "output": "Model evaluation metrics and test scores",
+        "hours": 2,
+        "needs": [
+          "Trained prediction model"
+        ]
+      },
+      {
+        "id": "backup",
+        "title": "Archive source files",
+        "output": "Compressed backup archive of original files",
+        "hours": 1,
+        "needs": []
+      }
+    ]
+  },
+  "tasks": [
+    {
+      "id": "train",
+      "title": "Train prediction model",
+      "output": "Trained machine learning model weights",
+      "hours": 4,
+      "needs": [
+        "Cleaned training dataset"
+      ],
+      "predecessors": [
+        "clean"
+      ],
+      "blocked": false,
+      "start": 2,
+      "finish": 6
+    },
+    {
+      "id": "report",
+      "title": "Publish evaluation summary",
+      "output": "Published model quality report",
+      "hours": 1,
+      "needs": [
+        "Model evaluation metrics"
+      ],
+      "predecessors": [
+        "eval"
+      ],
+      "blocked": false,
+      "start": 8,
+      "finish": 9
+    },
+    {
+      "id": "clean",
+      "title": "Clean source data",
+      "output": "Validated cleaned dataset for training",
+      "hours": 2,
+      "needs": [],
+      "predecessors": [],
+      "blocked": false,
+      "start": 0,
+      "finish": 2
+    },
+    {
+      "id": "eval",
+      "title": "Evaluate model",
+      "output": "Model evaluation metrics and test scores",
+      "hours": 2,
+      "needs": [
+        "Trained prediction model"
+      ],
+      "predecessors": [
+        "train"
+      ],
+      "blocked": false,
+      "start": 6,
+      "finish": 8
+    },
+    {
+      "id": "backup",
+      "title": "Archive source files",
+      "output": "Compressed backup archive of original files",
+      "hours": 1,
+      "needs": [],
+      "predecessors": [],
+      "blocked": false,
+      "start": 0,
+      "finish": 1
+    }
+  ],
+  "requirements": [
+    {
+      "id": "train-0",
+      "task": "train",
+      "text": "Cleaned training dataset",
+      "index": 0,
+      "ranks": [
+        {
+          "id": "clean",
+          "similarity": 0.8565107546715992
+        },
+        {
+          "id": "report",
+          "similarity": 0.19109357612884115
+        },
+        {
+          "id": "eval",
+          "similarity": 0.1717067166206009
+        },
+        {
+          "id": "backup",
+          "similarity": 0.1500306191281643
+        }
+      ],
+      "suggested": "clean",
+      "provider": "clean",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "report-0",
+      "task": "report",
+      "text": "Model evaluation metrics",
+      "index": 0,
+      "ranks": [
+        {
+          "id": "eval",
+          "similarity": 0.8797392876913971
+        },
+        {
+          "id": "train",
+          "similarity": 0.3941528741328219
+        },
+        {
+          "id": "clean",
+          "similarity": 0.252795022977626
+        },
+        {
+          "id": "backup",
+          "similarity": -0.003921699534044075
+        }
+      ],
+      "suggested": "eval",
+      "provider": "eval",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "eval-0",
+      "task": "eval",
+      "text": "Trained prediction model",
+      "index": 0,
+      "ranks": [
+        {
+          "id": "train",
+          "similarity": 0.6208860852187739
+        },
+        {
+          "id": "clean",
+          "similarity": 0.28847179317266447
+        },
+        {
+          "id": "report",
+          "similarity": 0.22170178661829243
+        },
+        {
+          "id": "backup",
+          "similarity": 0.04293500355593447
+        }
+      ],
+      "suggested": "train",
+      "provider": "train",
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "order": [
+    "clean",
+    "train",
+    "eval",
+    "report",
+    "backup"
+  ],
+  "metrics": {
+    "tasks": 5,
+    "requirements": 3,
+    "approvedLinks": 3,
+    "external": 0,
+    "held": 0,
+    "blocked": 0,
+    "exactBaseline": 0,
+    "proposed": 3,
+    "sequentialHours": 10,
+    "parallelLowerBound": 9,
+    "threshold": 0.35
+  }
+}

@@ -1,0 +1,10 @@
+kind,id,task,title,source,hours,needs,status,start,finish,provider,suggested,note
+task,train,train,Train prediction model,Trained machine learning model weights,4,"[""Cleaned training dataset""]",blocked,,,,,
+task,report,report,Publish evaluation summary,Published model quality report,1,"[""Model evaluation metrics""]",blocked,,,eval,,
+task,clean,clean,Clean source data,Validated cleaned dataset for training,2,[],scheduled,0,2,,,
+task,eval,eval,Evaluate model,Model evaluation metrics and test scores,2,"[""Trained prediction model""]",blocked,,,train,,
+task,backup,backup,Archive source files,Compressed backup archive of original files,1,[],scheduled,0,1,,,
+requirement,train-0,train,,Cleaned training dataset,,,hold,,,clean,clean,"'=1+1
+Reviewed, ""quoted"""
+requirement,report-0,report,,Model evaluation metrics,,,approve,,,eval,eval,
+requirement,eval-0,eval,,Trained prediction model,,,approve,,,train,train,

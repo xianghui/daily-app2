@@ -16,3 +16,7 @@ Production React/Vite bundle, real Chrome + WASM CPU. No successful AI checks us
 - Desktop and 320/390px responsive layouts, visible focus, labels and exports passed without horizontal overflow; screenshots retained. Chrome desktop only; actual phones, assistive technology, other browsers and cache eviction not tested.
 
 See `browser-validation.json`, `network-validation.json`, `boundary-validation.json`, `artifact-validation.json`, `asset-audit.json`; public validation is recorded separately after deployment.
+
+## Public verification
+
+GitHub Pages built deployment `ccf42a8ed114812a57438dc0b57950df806ce376`. All seven app build files, shared 26,861,777-byte WASM binary and gallery matched local SHA-256/content checks over public HTTPS. The full 14-check browser suite passed again at https://xianghui.github.io/daily-app2/20261108-20/ with real default inference, the two known-answer fixtures, offline fresh-worker inference, maximum batch, review/export/copy and fault recovery checks. Public gallery rendered the new app once and preserved all 535 older entries/categories (536 total apps). No browser page errors. Publicly downloaded reviewed JSON/CSV/Markdown reparsed successfully. See `public-assets-validation.json`, `public-browser-validation.json`, `public-gallery-validation.json`, `deployment-validation.json`, `publication-status.json`. Real phone hardware and non-Chrome engines remain untested.

@@ -1,0 +1,158 @@
+{
+  "schema": "fault-lantern-audit/v1",
+  "originalInput": {
+    "name": "Print desk",
+    "budget": 5,
+    "faults": [
+      {
+        "id": "F1",
+        "text": "Printer paper jam: sheets stuck in feed rollers."
+      },
+      {
+        "id": "F2",
+        "text": "Printer offline due to wireless network connection loss."
+      },
+      {
+        "id": "F3",
+        "text": "Ink cartridge depleted causing faint blank printed pages."
+      }
+    ],
+    "observations": [
+      {
+        "id": "O1",
+        "text": "Sheets get trapped inside the feeder."
+      },
+      {
+        "id": "O2",
+        "text": "Laptop cannot reach the wireless printer."
+      },
+      {
+        "id": "O3",
+        "text": "Printed text is extremely pale and ink is running out."
+      }
+    ],
+    "tests": [
+      {
+        "id": "T3",
+        "text": "Inspect paper path only.",
+        "minutes": 3,
+        "covers": [
+          "F1"
+        ]
+      },
+      {
+        "id": "T1",
+        "text": "Inspect paper feed and print a cartridge status page.",
+        "minutes": 4,
+        "covers": [
+          "F1",
+          "F3"
+        ]
+      },
+      {
+        "id": "T2",
+        "text": "Check wireless connection status.",
+        "minutes": 1,
+        "covers": [
+          "F2"
+        ]
+      }
+    ]
+  },
+  "observations": [
+    {
+      "id": "O1",
+      "text": "Sheets get trapped inside the feeder.",
+      "proposed": "F1",
+      "fault": "F1",
+      "candidates": [
+        {
+          "id": "F1",
+          "score": 0.549806511664777
+        },
+        {
+          "id": "F3",
+          "score": 0.21966335781991336
+        },
+        {
+          "id": "F2",
+          "score": 0.11951840073556153
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "O2",
+      "text": "Laptop cannot reach the wireless printer.",
+      "proposed": "F2",
+      "fault": "F2",
+      "candidates": [
+        {
+          "id": "F2",
+          "score": 0.6432469321999834
+        },
+        {
+          "id": "F1",
+          "score": 0.360639342699583
+        },
+        {
+          "id": "F3",
+          "score": 0.2967974576839036
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "O3",
+      "text": "Printed text is extremely pale and ink is running out.",
+      "proposed": "F3",
+      "fault": "F3",
+      "candidates": [
+        {
+          "id": "F3",
+          "score": 0.7245610646894465
+        },
+        {
+          "id": "F2",
+          "score": 0.4178593354232895
+        },
+        {
+          "id": "F1",
+          "score": 0.36534733808285713
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "metrics": {
+    "tests": [
+      {
+        "id": "T1",
+        "text": "Inspect paper feed and print a cartridge status page.",
+        "minutes": 4,
+        "covers": [
+          "F1",
+          "F3"
+        ]
+      },
+      {
+        "id": "T2",
+        "text": "Check wireless connection status.",
+        "minutes": 1,
+        "covers": [
+          "F2"
+        ]
+      }
+    ],
+    "minutes": 5,
+    "covered": 3,
+    "baselineCovered": 2,
+    "baselineMinutes": 4,
+    "approved": 3,
+    "held": 0,
+    "uncovered": []
+  }
+}

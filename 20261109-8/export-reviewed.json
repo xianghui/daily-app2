@@ -1,0 +1,150 @@
+{
+  "schema": "fault-lantern-audit/v1",
+  "originalInput": {
+    "name": "Web desk",
+    "budget": 5,
+    "faults": [
+      {
+        "id": "F1",
+        "text": "Login failure caused by expired password credentials."
+      },
+      {
+        "id": "F2",
+        "text": "Website content stale due to browser cache."
+      },
+      {
+        "id": "F3",
+        "text": "File upload rejected because attachment exceeds size limit."
+      }
+    ],
+    "observations": [
+      {
+        "id": "O1",
+        "text": "Cannot sign in because the password has expired."
+      },
+      {
+        "id": "O2",
+        "text": "Old version of the page remains in cached browser data."
+      },
+      {
+        "id": "O3",
+        "text": "Attachment is too large and uploading fails."
+      }
+    ],
+    "tests": [
+      {
+        "id": "T3",
+        "text": "Check credential expiry alone.",
+        "minutes": 3,
+        "covers": [
+          "F1"
+        ]
+      },
+      {
+        "id": "T1",
+        "text": "Check credential expiry and inspect cache headers.",
+        "minutes": 4,
+        "covers": [
+          "F1",
+          "F2"
+        ]
+      },
+      {
+        "id": "T2",
+        "text": "Compare attachment bytes with documented upload maximum.",
+        "minutes": 1,
+        "covers": [
+          "F3"
+        ]
+      }
+    ]
+  },
+  "observations": [
+    {
+      "id": "O1",
+      "text": "Cannot sign in because the password has expired.",
+      "proposed": "F1",
+      "fault": "F1",
+      "candidates": [
+        {
+          "id": "F1",
+          "score": 0.8117468071146675
+        },
+        {
+          "id": "F2",
+          "score": 0.23111917444500485
+        },
+        {
+          "id": "F3",
+          "score": 0.0936305665147044
+        }
+      ],
+      "decision": "approve",
+      "note": "=1+1\nReviewed, \"scoped\" 🪷"
+    },
+    {
+      "id": "O2",
+      "text": "Old version of the page remains in cached browser data.",
+      "proposed": "F2",
+      "fault": "F2",
+      "candidates": [
+        {
+          "id": "F2",
+          "score": 0.6851716983175082
+        },
+        {
+          "id": "F1",
+          "score": 0.18837100936023493
+        },
+        {
+          "id": "F3",
+          "score": 0.00803774846722098
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "O3",
+      "text": "Attachment is too large and uploading fails.",
+      "proposed": "F3",
+      "fault": "F3",
+      "candidates": [
+        {
+          "id": "F3",
+          "score": 0.8137825659957173
+        },
+        {
+          "id": "F1",
+          "score": 0.11851817556662636
+        },
+        {
+          "id": "F2",
+          "score": 0.09199318311014149
+        }
+      ],
+      "decision": "hold",
+      "note": ""
+    }
+  ],
+  "metrics": {
+    "tests": [
+      {
+        "id": "T1",
+        "text": "Check credential expiry and inspect cache headers.",
+        "minutes": 4,
+        "covers": [
+          "F1",
+          "F2"
+        ]
+      }
+    ],
+    "minutes": 4,
+    "covered": 2,
+    "baselineCovered": 1,
+    "baselineMinutes": 4,
+    "approved": 2,
+    "held": 1,
+    "uncovered": []
+  }
+}

@@ -169,3 +169,8 @@ Local MiniLM duty-to-permission matching plus exhaustive minimum-extra-access ro
 ## Packet Seam — 20261109-7
 
 Local MiniLM semantic insertion costs and exact capacity-slot assignment help editors update ordered reading packets. Review every incoming placement, protect gaps, hold unsuitable content and export complete JSON/CSV/Markdown manifests with original order preserved. Six simple expected gaps matched across two tiny fixtures; topical similarity does not check truth or stance. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261109-7/README.md) and [observed validation](20261109-7/VALIDATION.md).
+
+
+## Fault Lantern — 20261109-8
+
+Local MiniLM symptom-to-signature retrieval plus exact budgeted diagnostic-check coverage, mandatory review/holds and complete JSON/CSV/Markdown audits. Six simple expected matches passed; a negated jam observation still matched jam, so no automatic diagnosis is claimed. Both catalogs cover three approved observations in five assumed minutes vs two in four for input-order baseline. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow](20261109-8/README.md) and [validation](20261109-8/VALIDATION.md).

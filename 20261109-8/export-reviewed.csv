@@ -1,0 +1,11 @@
+kind,id,text,decision,fault,note,minutes,covers,selected
+observation,O1,Cannot sign in because the password has expired.,approve,F1,"'=1+1
+Reviewed, ""scoped"" 🪷",,,
+observation,O2,Old version of the page remains in cached browser data.,approve,F2,,,,
+observation,O3,Attachment is too large and uploading fails.,hold,F3,,,,
+signature,F1,Login failure caused by expired password credentials.,,,,,,
+signature,F2,Website content stale due to browser cache.,,,,,,
+signature,F3,File upload rejected because attachment exceeds size limit.,,,,,,
+test,T3,Check credential expiry alone.,,,,3,F1,false
+test,T1,Check credential expiry and inspect cache headers.,,,,4,F1;F2,true
+test,T2,Compare attachment bytes with documented upload maximum.,,,,1,F3,false

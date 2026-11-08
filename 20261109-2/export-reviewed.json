@@ -1,0 +1,175 @@
+{
+  "schema": "rater-bridge/v1",
+  "originalInput": {
+    "name": "Museum observations",
+    "left": [
+      {
+        "id": "navigation",
+        "text": "Wayfinding in the museum: finding galleries, directions, signs and maps."
+      },
+      {
+        "id": "comfort",
+        "text": "Physical visitor comfort: seats, rest areas, temperature and quiet spaces."
+      },
+      {
+        "id": "learning",
+        "text": "Understanding exhibits: educational labels, explanations and learning about artifacts."
+      }
+    ],
+    "right": [
+      {
+        "id": "interpretation",
+        "text": "Exhibit explanations and educational labels that help visitors understand artifacts."
+      },
+      {
+        "id": "orientation",
+        "text": "Finding the way between museum galleries using maps and direction signs."
+      },
+      {
+        "id": "rest",
+        "text": "Places to sit and rest, comfortable temperature and quiet visitor areas."
+      }
+    ],
+    "pairs": [
+      {
+        "id": "M1",
+        "text": "We could not find the sculpture gallery.",
+        "left": "navigation",
+        "right": "orientation"
+      },
+      {
+        "id": "M2",
+        "text": "The display explanation taught us how the artifact was made.",
+        "left": "learning",
+        "right": "interpretation"
+      },
+      {
+        "id": "M3",
+        "text": "We needed a bench to sit down.",
+        "left": "comfort",
+        "right": "rest"
+      },
+      {
+        "id": "M4",
+        "text": "The map label was too complicated to understand.",
+        "left": "navigation",
+        "right": "interpretation"
+      }
+    ]
+  },
+  "crosswalk": [
+    {
+      "id": "interpretation",
+      "text": "Exhibit explanations and educational labels that help visitors understand artifacts.",
+      "ranks": [
+        {
+          "id": "learning",
+          "similarity": 0.8974476568710883
+        },
+        {
+          "id": "navigation",
+          "similarity": 0.4678000136572354
+        },
+        {
+          "id": "comfort",
+          "similarity": 0.23360283994948544
+        }
+      ],
+      "proposed": "learning",
+      "target": "learning",
+      "decision": "hold",
+      "note": "=1+1\nReviewed, \"scope\""
+    },
+    {
+      "id": "orientation",
+      "text": "Finding the way between museum galleries using maps and direction signs.",
+      "ranks": [
+        {
+          "id": "navigation",
+          "similarity": 0.8460177538622655
+        },
+        {
+          "id": "learning",
+          "similarity": 0.3989467350063944
+        },
+        {
+          "id": "comfort",
+          "similarity": 0.21635740606282358
+        }
+      ],
+      "proposed": "navigation",
+      "target": "navigation",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "rest",
+      "text": "Places to sit and rest, comfortable temperature and quiet visitor areas.",
+      "ranks": [
+        {
+          "id": "comfort",
+          "similarity": 0.8250294320914036
+        },
+        {
+          "id": "navigation",
+          "similarity": 0.34587586556930916
+        },
+        {
+          "id": "learning",
+          "similarity": 0.15541003544998225
+        }
+      ],
+      "proposed": "comfort",
+      "target": "comfort",
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "pairs": [
+    {
+      "id": "M1",
+      "text": "We could not find the sculpture gallery.",
+      "left": "navigation",
+      "right": "orientation",
+      "mapped": "navigation",
+      "status": "agree",
+      "reviewNote": ""
+    },
+    {
+      "id": "M2",
+      "text": "The display explanation taught us how the artifact was made.",
+      "left": "learning",
+      "right": "interpretation",
+      "mapped": "",
+      "status": "unresolved",
+      "reviewNote": "=1+1\nReviewed, \"scope\""
+    },
+    {
+      "id": "M3",
+      "text": "We needed a bench to sit down.",
+      "left": "comfort",
+      "right": "rest",
+      "mapped": "comfort",
+      "status": "agree",
+      "reviewNote": ""
+    },
+    {
+      "id": "M4",
+      "text": "The map label was too complicated to understand.",
+      "left": "navigation",
+      "right": "interpretation",
+      "mapped": "",
+      "status": "unresolved",
+      "reviewNote": "=1+1\nReviewed, \"scope\""
+    }
+  ],
+  "metrics": {
+    "total": 4,
+    "exactBaseline": 0,
+    "agree": 2,
+    "disagree": 0,
+    "unresolved": 2,
+    "approvedCodes": 2
+  },
+  "limitations": "Normalization agreement is not annotation correctness or inter-rater reliability. Held/unmatched codes remain unresolved; inspect every disagreement."
+}

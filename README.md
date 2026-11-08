@@ -144,3 +144,7 @@ Local MiniLM matches required task inputs to other tasks’ deliverables, with m
 ## Coverage Loom — 20261109-1
 
 Local MiniLM retrieves requirement links and classifies scenario intent for an explicit requirement × scenario coverage matrix, with mandatory human review, held/orphan tracking and complete JSON/CSV/Markdown gap checklists. Six intended feature top candidates matched across two tiny synthetic releases, but scenario labels matched only 4/6; the library batch produced four extra links and a negation challenge failed. Linked coverage is not test adequacy or execution evidence. Reuses immutable shared WASM from `20261107-2`; preserve that asset. See [workflow](20261109-1/README.md) and [observed validation](20261109-1/VALIDATION.md).
+
+## Rater Bridge — 20261109-2
+
+Reconcile independently named qualitative codebooks with real local MiniLM definition embeddings and exact one-to-one assignment, then inspect paired judgments after human-approved normalization. All six expected links across two small synthetic fixtures matched; normalized agreement is not correctness or inter-rater reliability. Every pair survives reviewed JSON/CSV/Markdown exports. See [workflow/privacy](20261109-2/README.md) and [observed validation](20261109-2/VALIDATION.md). Reuses the immutable shared WASM asset from `20261107-2`.

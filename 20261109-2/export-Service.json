@@ -1,0 +1,175 @@
+{
+  "schema": "rater-bridge/v1",
+  "originalInput": {
+    "name": "Service interviews",
+    "left": [
+      {
+        "id": "access",
+        "text": "Login and account access: forgotten passwords, sign-in failures, locked accounts."
+      },
+      {
+        "id": "billing",
+        "text": "Billing and charges: invoices, payments, unexpected fees and refunds."
+      },
+      {
+        "id": "speed",
+        "text": "Performance and response speed: slow loading, delays and waiting times."
+      }
+    ],
+    "right": [
+      {
+        "id": "money",
+        "text": "Customer payments, invoices, charges, refunds and billing problems."
+      },
+      {
+        "id": "latency",
+        "text": "Slow page loading and long response times; performance delays."
+      },
+      {
+        "id": "signin",
+        "text": "Unable to log in, locked out of account or forgotten login password."
+      }
+    ],
+    "pairs": [
+      {
+        "id": "P1",
+        "text": "I forgot my password and cannot enter my account.",
+        "left": "access",
+        "right": "signin"
+      },
+      {
+        "id": "P2",
+        "text": "The invoice includes a fee I did not expect.",
+        "left": "billing",
+        "right": "money"
+      },
+      {
+        "id": "P3",
+        "text": "Every page takes several seconds to load.",
+        "left": "speed",
+        "right": "latency"
+      },
+      {
+        "id": "P4",
+        "text": "Waiting for a refund takes too long.",
+        "left": "billing",
+        "right": "latency"
+      }
+    ]
+  },
+  "crosswalk": [
+    {
+      "id": "money",
+      "text": "Customer payments, invoices, charges, refunds and billing problems.",
+      "ranks": [
+        {
+          "id": "billing",
+          "similarity": 0.8647588698286556
+        },
+        {
+          "id": "access",
+          "similarity": 0.2953965847031021
+        },
+        {
+          "id": "speed",
+          "similarity": 0.20718053268702943
+        }
+      ],
+      "proposed": "billing",
+      "target": "billing",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "latency",
+      "text": "Slow page loading and long response times; performance delays.",
+      "ranks": [
+        {
+          "id": "speed",
+          "similarity": 0.7776530162556249
+        },
+        {
+          "id": "billing",
+          "similarity": 0.13920097564564687
+        },
+        {
+          "id": "access",
+          "similarity": 0.08712503877269026
+        }
+      ],
+      "proposed": "speed",
+      "target": "speed",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "signin",
+      "text": "Unable to log in, locked out of account or forgotten login password.",
+      "ranks": [
+        {
+          "id": "access",
+          "similarity": 0.7078382397204475
+        },
+        {
+          "id": "billing",
+          "similarity": 0.11547775790581327
+        },
+        {
+          "id": "speed",
+          "similarity": -0.012666140727915423
+        }
+      ],
+      "proposed": "access",
+      "target": "access",
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "pairs": [
+    {
+      "id": "P1",
+      "text": "I forgot my password and cannot enter my account.",
+      "left": "access",
+      "right": "signin",
+      "mapped": "access",
+      "status": "agree",
+      "reviewNote": ""
+    },
+    {
+      "id": "P2",
+      "text": "The invoice includes a fee I did not expect.",
+      "left": "billing",
+      "right": "money",
+      "mapped": "billing",
+      "status": "agree",
+      "reviewNote": ""
+    },
+    {
+      "id": "P3",
+      "text": "Every page takes several seconds to load.",
+      "left": "speed",
+      "right": "latency",
+      "mapped": "speed",
+      "status": "agree",
+      "reviewNote": ""
+    },
+    {
+      "id": "P4",
+      "text": "Waiting for a refund takes too long.",
+      "left": "billing",
+      "right": "latency",
+      "mapped": "speed",
+      "status": "disagree",
+      "reviewNote": ""
+    }
+  ],
+  "metrics": {
+    "total": 4,
+    "exactBaseline": 0,
+    "agree": 3,
+    "disagree": 1,
+    "unresolved": 0,
+    "approvedCodes": 3
+  },
+  "limitations": "Normalization agreement is not annotation correctness or inter-rater reliability. Held/unmatched codes remain unresolved; inspect every disagreement."
+}

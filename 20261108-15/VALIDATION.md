@@ -33,3 +33,5 @@ Artifacts: `browser-validation.json`, `extra-validation.json`, `boundary-validat
 ## Publication checks
 
 Publication is only complete after the root combined deployment has a matching `built` Pages commit, public asset hash checks and public real-model workflow execution. Public evidence is recorded separately in `deployment-validation.json`, `public-assets-validation.json`, `public-browser-validation.json`, `public-gallery-validation.json` and `publication-status.json`.
+
+Public verification passed: Pages commit `e3330f75dd5ef1c02f2328b396d5604ed55667d8` reached `built`. All seven app assets plus the shared WASM hash match the production build, and the public root gallery is byte-identical to source. The public URL passed all 13 real-browser workflow/defensive checks, including both real-model subject fixtures and offline fresh-worker inference, with zero uncaught page errors. Public gallery renders 531 entries with earlier categories intact. Source publication excludes pre-existing unrelated `20261105-7/` work.

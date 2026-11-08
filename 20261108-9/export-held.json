@@ -1,0 +1,222 @@
+{
+  "version": 1,
+  "model": "Xenova/all-MiniLM-L6-v2 q8",
+  "input": {
+    "minSimilarity": 0.3,
+    "concepts": [
+      {
+        "id": "hours",
+        "label": "Opening hours",
+        "description": "Library opening and closing times, evenings and weekends."
+      },
+      {
+        "id": "loans",
+        "label": "Renew book",
+        "description": "Extend a borrowed book loan before the due date."
+      },
+      {
+        "id": "study",
+        "label": "Quiet study",
+        "description": "Silent library work spaces for reading and concentration."
+      }
+    ],
+    "queries": [
+      {
+        "id": "L1",
+        "text": "when does the library close on Sunday"
+      },
+      {
+        "id": "L2",
+        "text": "keep my borrowed books for longer"
+      },
+      {
+        "id": "L3",
+        "text": "a silent place to concentrate"
+      },
+      {
+        "id": "L4",
+        "text": "Renew book"
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "L1",
+      "text": "when does the library close on Sunday",
+      "top": "hours",
+      "suggested": "hours",
+      "target": "hours",
+      "baseline": null,
+      "proposed": true,
+      "evidence": [
+        {
+          "id": "hours",
+          "label": "Opening hours",
+          "description": "Library opening and closing times, evenings and weekends.",
+          "score": 0.624930240725786
+        },
+        {
+          "id": "study",
+          "label": "Quiet study",
+          "description": "Silent library work spaces for reading and concentration.",
+          "score": 0.32085659140879697
+        },
+        {
+          "id": "loans",
+          "label": "Renew book",
+          "description": "Extend a borrowed book loan before the due date.",
+          "score": 0.19945962035368547
+        }
+      ],
+      "decision": "hold",
+      "note": "Reviewed, \"quoted\"\nsecond line"
+    },
+    {
+      "id": "L2",
+      "text": "keep my borrowed books for longer",
+      "top": "loans",
+      "suggested": "loans",
+      "target": "loans",
+      "baseline": null,
+      "proposed": true,
+      "evidence": [
+        {
+          "id": "loans",
+          "label": "Renew book",
+          "description": "Extend a borrowed book loan before the due date.",
+          "score": 0.6322443336813031
+        },
+        {
+          "id": "study",
+          "label": "Quiet study",
+          "description": "Silent library work spaces for reading and concentration.",
+          "score": 0.25730861602564625
+        },
+        {
+          "id": "hours",
+          "label": "Opening hours",
+          "description": "Library opening and closing times, evenings and weekends.",
+          "score": 0.2534410310556671
+        }
+      ],
+      "decision": "accept",
+      "note": ""
+    },
+    {
+      "id": "L3",
+      "text": "a silent place to concentrate",
+      "top": "study",
+      "suggested": "study",
+      "target": "study",
+      "baseline": null,
+      "proposed": true,
+      "evidence": [
+        {
+          "id": "study",
+          "label": "Quiet study",
+          "description": "Silent library work spaces for reading and concentration.",
+          "score": 0.6713259187718088
+        },
+        {
+          "id": "hours",
+          "label": "Opening hours",
+          "description": "Library opening and closing times, evenings and weekends.",
+          "score": 0.2192066967830768
+        },
+        {
+          "id": "loans",
+          "label": "Renew book",
+          "description": "Extend a borrowed book loan before the due date.",
+          "score": -0.018760135331064777
+        }
+      ],
+      "decision": "accept",
+      "note": ""
+    },
+    {
+      "id": "L4",
+      "text": "Renew book",
+      "top": "loans",
+      "suggested": "loans",
+      "target": "loans",
+      "baseline": "loans",
+      "proposed": false,
+      "evidence": [
+        {
+          "id": "loans",
+          "label": "Renew book",
+          "description": "Extend a borrowed book loan before the due date.",
+          "score": 0.6850776802875356
+        },
+        {
+          "id": "study",
+          "label": "Quiet study",
+          "description": "Silent library work spaces for reading and concentration.",
+          "score": 0.1755817073472638
+        },
+        {
+          "id": "hours",
+          "label": "Opening hours",
+          "description": "Library opening and closing times, evenings and weekends.",
+          "score": 0.17145808044778854
+        }
+      ],
+      "decision": "accept",
+      "note": ""
+    }
+  ],
+  "synonyms": [
+    {
+      "objectID": "search-rescue-L2",
+      "type": "oneWaySynonym",
+      "input": "keep my borrowed books for longer",
+      "synonyms": [
+        "Renew book"
+      ]
+    },
+    {
+      "objectID": "search-rescue-L3",
+      "type": "oneWaySynonym",
+      "input": "a silent place to concentrate",
+      "synonyms": [
+        "Quiet study"
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "id": "L1",
+      "query": "when does the library close on Sunday",
+      "before": null,
+      "after": null
+    },
+    {
+      "id": "L2",
+      "query": "keep my borrowed books for longer",
+      "before": null,
+      "after": "loans"
+    },
+    {
+      "id": "L3",
+      "query": "a silent place to concentrate",
+      "before": null,
+      "after": "study"
+    },
+    {
+      "id": "L4",
+      "query": "Renew book",
+      "before": "loans",
+      "after": "loans"
+    }
+  ],
+  "metrics": {
+    "total": 4,
+    "baselineHits": 1,
+    "reviewedHits": 3,
+    "recovered": 2,
+    "held": 1,
+    "rules": 2,
+    "overrides": 0,
+    "belowThreshold": 0
+  }
+}

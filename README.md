@@ -78,3 +78,7 @@ Local MiniLM document-type inference assists application/vendor manifest complet
 ## Inquiry Grid — 20261108-8
 
 Local MiniLM quote-to-question inference plus min-cost flow creates participant-balanced interview evidence boards under both question and participant caps. Review every proposal, hold irrelevant excerpts and export a complete JSON/CSV audit plus source-linked Markdown. Two simple fixtures matched 9/9 topics versus 3/9 first-question baseline; a negation challenge failed, so this is a human source-curation tool, not automated interpretation. Reuses immutable shared WASM from `20261107-2`; preserve that asset. See [workflow](20261108-8/README.md) and [observed validation](20261108-8/VALIDATION.md).
+
+## Search Rescue — 20261108-9
+
+Local MiniLM query-to-concept inference helps search editors repair missed queries with reviewed one-way synonyms. Collision guards preserve canonical identities; all originals and holds survive JSON/CSV, while approved new rules export as directional synonym JSON. Two simple fixtures matched 8/8 targets and recovered three exact-dictionary misses each. An instruction-like semantic false positive confirms that threshold adoption is not relevance validation. Reuses immutable shared WASM from `20261107-2`; preserve its asset. See [workflow](20261108-9/README.md) and [observed validation](20261108-9/VALIDATION.md).

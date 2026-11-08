@@ -1,0 +1,271 @@
+{
+  "version": 1,
+  "model": "Xenova/all-MiniLM-L6-v2 q8",
+  "input": {
+    "minSimilarity": 0.3,
+    "concepts": [
+      {
+        "id": "access",
+        "label": "Reset password",
+        "description": "Recover account access when you forget your login password."
+      },
+      {
+        "id": "billing",
+        "label": "Download invoice",
+        "description": "Get a receipt or billing invoice for subscription payments."
+      },
+      {
+        "id": "exports",
+        "label": "Export spreadsheet",
+        "description": "Save reports as Excel spreadsheet files for offline analysis."
+      }
+    ],
+    "queries": [
+      {
+        "id": "Q1",
+        "text": "forgot my login secret"
+      },
+      {
+        "id": "Q2",
+        "text": "receipt for monthly subscription"
+      },
+      {
+        "id": "Q3",
+        "text": "save report to Excel"
+      },
+      {
+        "id": "Q4",
+        "text": "Reset password"
+      },
+      {
+        "id": "Q5",
+        "text": "forgot my login secret"
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "Q1",
+      "text": "forgot my login secret",
+      "top": "access",
+      "suggested": "access",
+      "target": "access",
+      "baseline": null,
+      "proposed": true,
+      "evidence": [
+        {
+          "id": "access",
+          "label": "Reset password",
+          "description": "Recover account access when you forget your login password.",
+          "score": 0.6751978179040825
+        },
+        {
+          "id": "billing",
+          "label": "Download invoice",
+          "description": "Get a receipt or billing invoice for subscription payments.",
+          "score": 0.057074835358161796
+        },
+        {
+          "id": "exports",
+          "label": "Export spreadsheet",
+          "description": "Save reports as Excel spreadsheet files for offline analysis.",
+          "score": -0.05261135932657922
+        }
+      ],
+      "decision": "accept",
+      "note": ""
+    },
+    {
+      "id": "Q2",
+      "text": "receipt for monthly subscription",
+      "top": "billing",
+      "suggested": "billing",
+      "target": "billing",
+      "baseline": null,
+      "proposed": true,
+      "evidence": [
+        {
+          "id": "billing",
+          "label": "Download invoice",
+          "description": "Get a receipt or billing invoice for subscription payments.",
+          "score": 0.7541539178341958
+        },
+        {
+          "id": "access",
+          "label": "Reset password",
+          "description": "Recover account access when you forget your login password.",
+          "score": 0.13995541896311392
+        },
+        {
+          "id": "exports",
+          "label": "Export spreadsheet",
+          "description": "Save reports as Excel spreadsheet files for offline analysis.",
+          "score": 0.11313875586754084
+        }
+      ],
+      "decision": "accept",
+      "note": ""
+    },
+    {
+      "id": "Q3",
+      "text": "save report to Excel",
+      "top": "exports",
+      "suggested": "exports",
+      "target": "exports",
+      "baseline": null,
+      "proposed": true,
+      "evidence": [
+        {
+          "id": "exports",
+          "label": "Export spreadsheet",
+          "description": "Save reports as Excel spreadsheet files for offline analysis.",
+          "score": 0.6200643633411455
+        },
+        {
+          "id": "billing",
+          "label": "Download invoice",
+          "description": "Get a receipt or billing invoice for subscription payments.",
+          "score": 0.10949762153045887
+        },
+        {
+          "id": "access",
+          "label": "Reset password",
+          "description": "Recover account access when you forget your login password.",
+          "score": 0.0338649167724674
+        }
+      ],
+      "decision": "accept",
+      "note": ""
+    },
+    {
+      "id": "Q4",
+      "text": "Reset password",
+      "top": "access",
+      "suggested": "access",
+      "target": "billing",
+      "baseline": "access",
+      "proposed": false,
+      "evidence": [
+        {
+          "id": "access",
+          "label": "Reset password",
+          "description": "Recover account access when you forget your login password.",
+          "score": 0.7661128317161751
+        },
+        {
+          "id": "billing",
+          "label": "Download invoice",
+          "description": "Get a receipt or billing invoice for subscription payments.",
+          "score": 0.09673382022600342
+        },
+        {
+          "id": "exports",
+          "label": "Export spreadsheet",
+          "description": "Save reports as Excel spreadsheet files for offline analysis.",
+          "score": -0.059188063972045575
+        }
+      ],
+      "decision": "hold",
+      "note": ""
+    },
+    {
+      "id": "Q5",
+      "text": "forgot my login secret",
+      "top": "access",
+      "suggested": "access",
+      "target": "billing",
+      "baseline": null,
+      "proposed": true,
+      "evidence": [
+        {
+          "id": "access",
+          "label": "Reset password",
+          "description": "Recover account access when you forget your login password.",
+          "score": 0.6850011871055637
+        },
+        {
+          "id": "billing",
+          "label": "Download invoice",
+          "description": "Get a receipt or billing invoice for subscription payments.",
+          "score": 0.056329979579638416
+        },
+        {
+          "id": "exports",
+          "label": "Export spreadsheet",
+          "description": "Save reports as Excel spreadsheet files for offline analysis.",
+          "score": -0.05214839219853369
+        }
+      ],
+      "decision": "hold",
+      "note": ""
+    }
+  ],
+  "synonyms": [
+    {
+      "objectID": "search-rescue-Q1",
+      "type": "oneWaySynonym",
+      "input": "forgot my login secret",
+      "synonyms": [
+        "Reset password"
+      ]
+    },
+    {
+      "objectID": "search-rescue-Q2",
+      "type": "oneWaySynonym",
+      "input": "receipt for monthly subscription",
+      "synonyms": [
+        "Download invoice"
+      ]
+    },
+    {
+      "objectID": "search-rescue-Q3",
+      "type": "oneWaySynonym",
+      "input": "save report to excel",
+      "synonyms": [
+        "Export spreadsheet"
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "id": "Q1",
+      "query": "forgot my login secret",
+      "before": null,
+      "after": "access"
+    },
+    {
+      "id": "Q2",
+      "query": "receipt for monthly subscription",
+      "before": null,
+      "after": "billing"
+    },
+    {
+      "id": "Q3",
+      "query": "save report to Excel",
+      "before": null,
+      "after": "exports"
+    },
+    {
+      "id": "Q4",
+      "query": "Reset password",
+      "before": "access",
+      "after": "access"
+    },
+    {
+      "id": "Q5",
+      "query": "forgot my login secret",
+      "before": null,
+      "after": "access"
+    }
+  ],
+  "metrics": {
+    "total": 5,
+    "baselineHits": 1,
+    "reviewedHits": 5,
+    "recovered": 4,
+    "held": 2,
+    "rules": 3,
+    "overrides": 2,
+    "belowThreshold": 0
+  }
+}

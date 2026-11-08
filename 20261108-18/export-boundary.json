@@ -1,0 +1,132 @@
+{
+  "version": 1,
+  "input": {
+    "name": "Service pulse",
+    "topics": [
+      {
+        "id": "access",
+        "description": "Account login password reset and sign in problems"
+      },
+      {
+        "id": "delivery",
+        "description": "Parcel shipment tracking and late delivery"
+      }
+    ],
+    "records": [
+      {
+        "id": "q",
+        "period": "before",
+        "text": "=HYPERLINK(\"x\")\nMy parcel, \"missing\", never arrived."
+      },
+      {
+        "id": "n",
+        "period": "after",
+        "text": "I do not have a password problem. My package arrived late."
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "q",
+      "period": "before",
+      "text": "=HYPERLINK(\"x\")\nMy parcel, \"missing\", never arrived.",
+      "suggested": "delivery",
+      "topic": "delivery",
+      "ranks": [
+        {
+          "id": "delivery",
+          "similarity": 0.4109465267178077
+        },
+        {
+          "id": "access",
+          "similarity": 0.05598327599282191
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "n",
+      "period": "after",
+      "text": "I do not have a password problem. My package arrived late.",
+      "suggested": "access",
+      "topic": "access",
+      "ranks": [
+        {
+          "id": "access",
+          "similarity": 0.49980617011550155
+        },
+        {
+          "id": "delivery",
+          "similarity": 0.23087645157318173
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "metrics": {
+    "total": 2,
+    "approved": 2,
+    "held": 0,
+    "changedAssignments": 0,
+    "baseline": "Assign every approved record to the first topic (no semantic inference)",
+    "denominator": "Approved records in each period; holds excluded; null when none",
+    "beforeOriginal": 1,
+    "afterOriginal": 1
+  },
+  "trends": [
+    {
+      "topic": "access",
+      "before": 0,
+      "after": 1,
+      "beforeShare": 0,
+      "afterShare": 1,
+      "percentagePointChange": 100
+    },
+    {
+      "topic": "delivery",
+      "before": 1,
+      "after": 0,
+      "beforeShare": 1,
+      "afterShare": 0,
+      "percentagePointChange": -100
+    }
+  ],
+  "aiProposedTrends": [
+    {
+      "topic": "access",
+      "before": 0,
+      "after": 1,
+      "beforeShare": 0,
+      "afterShare": 1,
+      "percentagePointChange": 100
+    },
+    {
+      "topic": "delivery",
+      "before": 1,
+      "after": 0,
+      "beforeShare": 1,
+      "afterShare": 0,
+      "percentagePointChange": -100
+    }
+  ],
+  "baselineTrends": [
+    {
+      "topic": "access",
+      "before": 1,
+      "after": 1,
+      "beforeShare": 1,
+      "afterShare": 1,
+      "percentagePointChange": 0
+    },
+    {
+      "topic": "delivery",
+      "before": 0,
+      "after": 0,
+      "beforeShare": 0,
+      "afterShare": 0,
+      "percentagePointChange": 0
+    }
+  ]
+}

@@ -1,0 +1,228 @@
+{
+  "version": 1,
+  "input": {
+    "name": "Service pulse",
+    "topics": [
+      {
+        "id": "access",
+        "description": "Account login password reset and sign in problems"
+      },
+      {
+        "id": "delivery",
+        "description": "Parcel shipment tracking and late delivery"
+      }
+    ],
+    "records": [
+      {
+        "id": "a1",
+        "period": "before",
+        "text": "I forgot my password and cannot log in."
+      },
+      {
+        "id": "a2",
+        "period": "before",
+        "text": "The password reset email never arrived."
+      },
+      {
+        "id": "a3",
+        "period": "before",
+        "text": "My package is late and tracking has stopped."
+      },
+      {
+        "id": "b1",
+        "period": "after",
+        "text": "The shipment has not arrived at my house."
+      },
+      {
+        "id": "b2",
+        "period": "after",
+        "text": "Where is my parcel? Delivery is overdue."
+      },
+      {
+        "id": "b3",
+        "period": "after",
+        "text": "I cannot sign into my account."
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "a1",
+      "period": "before",
+      "text": "I forgot my password and cannot log in.",
+      "suggested": "access",
+      "topic": "access",
+      "ranks": [
+        {
+          "id": "access",
+          "similarity": 0.7043120962588754
+        },
+        {
+          "id": "delivery",
+          "similarity": 0.03577600791252704
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "a2",
+      "period": "before",
+      "text": "The password reset email never arrived.",
+      "suggested": "access",
+      "topic": "access",
+      "ranks": [
+        {
+          "id": "access",
+          "similarity": 0.5223991676802267
+        },
+        {
+          "id": "delivery",
+          "similarity": 0.05729720835395924
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "a3",
+      "period": "before",
+      "text": "My package is late and tracking has stopped.",
+      "suggested": "delivery",
+      "topic": "delivery",
+      "ranks": [
+        {
+          "id": "delivery",
+          "similarity": 0.5937759926580752
+        },
+        {
+          "id": "access",
+          "similarity": 0.14860919074829468
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "b1",
+      "period": "after",
+      "text": "The shipment has not arrived at my house.",
+      "suggested": "delivery",
+      "topic": "delivery",
+      "ranks": [
+        {
+          "id": "delivery",
+          "similarity": 0.40756650768530045
+        },
+        {
+          "id": "access",
+          "similarity": -0.02658852176792106
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "b2",
+      "period": "after",
+      "text": "Where is my parcel? Delivery is overdue.",
+      "suggested": "delivery",
+      "topic": "delivery",
+      "ranks": [
+        {
+          "id": "delivery",
+          "similarity": 0.626060166168319
+        },
+        {
+          "id": "access",
+          "similarity": -0.027355548018176207
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "b3",
+      "period": "after",
+      "text": "I cannot sign into my account.",
+      "suggested": "access",
+      "topic": "access",
+      "ranks": [
+        {
+          "id": "access",
+          "similarity": 0.610399943920991
+        },
+        {
+          "id": "delivery",
+          "similarity": -0.050073928804167916
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "metrics": {
+    "total": 6,
+    "approved": 6,
+    "held": 0,
+    "changedAssignments": 0,
+    "baseline": "Assign every approved record to the first topic (no semantic inference)",
+    "denominator": "Approved records in each period; holds excluded; null when none",
+    "beforeOriginal": 3,
+    "afterOriginal": 3
+  },
+  "trends": [
+    {
+      "topic": "access",
+      "before": 2,
+      "after": 1,
+      "beforeShare": 0.6666666666666666,
+      "afterShare": 0.3333333333333333,
+      "percentagePointChange": -33.33333333333333
+    },
+    {
+      "topic": "delivery",
+      "before": 1,
+      "after": 2,
+      "beforeShare": 0.3333333333333333,
+      "afterShare": 0.6666666666666666,
+      "percentagePointChange": 33.33333333333333
+    }
+  ],
+  "aiProposedTrends": [
+    {
+      "topic": "access",
+      "before": 2,
+      "after": 1,
+      "beforeShare": 0.6666666666666666,
+      "afterShare": 0.3333333333333333,
+      "percentagePointChange": -33.33333333333333
+    },
+    {
+      "topic": "delivery",
+      "before": 1,
+      "after": 2,
+      "beforeShare": 0.3333333333333333,
+      "afterShare": 0.6666666666666666,
+      "percentagePointChange": 33.33333333333333
+    }
+  ],
+  "baselineTrends": [
+    {
+      "topic": "access",
+      "before": 3,
+      "after": 3,
+      "beforeShare": 1,
+      "afterShare": 1,
+      "percentagePointChange": 0
+    },
+    {
+      "topic": "delivery",
+      "before": 0,
+      "after": 0,
+      "beforeShare": 0,
+      "afterShare": 0,
+      "percentagePointChange": 0
+    }
+  ]
+}

@@ -116,3 +116,7 @@ Local MiniLM purpose matching helps privacy coordinators minimize proposed data-
 ## Locale Relay — 20261108-17
 
 Real local MiniLM retrieval helps English → French localization editors reuse bilingual translation memories beyond exact-source lookup. Human-reviewed targets, deterministic placeholder parity and valid XLIFF 2.0 releases plus complete JSON/CSV audits. Six fixture matches passed; a negation challenge selected opposing meaning, so every draft requires human review. Reuses the immutable shared WASM from `20261107-2`; preserve that asset. See [workflow](20261108-17/README.md) and [observed validation](20261108-17/VALIDATION.md).
+
+## Cohort Current — 20261108-18
+
+Compare two feedback periods using local MiniLM topic inference, mandatory assignment review and explicit approved-record denominators. Export complete JSON/CSV/Markdown trend audits. Ten known-answer synthetic topics matched across two batches; unrelated text still receives a nearest topic and must be held. Reuses immutable WASM from `20261107-2`; preserve that asset. See [workflow](20261108-18/README.md) and [observed validation](20261108-18/VALIDATION.md).

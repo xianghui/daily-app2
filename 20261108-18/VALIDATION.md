@@ -1,0 +1,20 @@
+# Observed validation — 2026-11-08
+
+- React/Vite production `npm run predeploy`: passed. Real local default MiniLM WASM inference, no mock success path.
+- Service pulse: 6/6 expected topics. Access share 2/3 → 1/3 (-33.333 pp); delivery 1/3 → 2/3 (+33.333 pp). First-topic baseline changes 0 pp.
+- Workplace pulse: 4/4 expected topics. Noise 1/2 → 2/2 (+50 pp), food -50 pp. First-topic baseline 0 pp. Tiny synthetic fixtures are not generalized accuracy estimates.
+- 13 production-browser checks passed: two distinct real fixtures; review/edit/hold/undo, snapshot invalidation; CSV/MD downloads and clipboard; fully offline fresh-worker inference; 40 records + 8 topics with four-text batching and no loss; all-held null denominators; JSON reimport; invalid/empty/oversized/duplicate/period inputs; cancel/retry/input invalidation and unsupported file; 320/390 phone layouts, focus; worker network failure/retry; stale fetch rejection; malformed vector schema, unsupported runtime construction, worker crash and timeout fault injections; late cancelled results; unrelated/instruction text inert.
+- Separate clean-context model-host network abort produced “Failed to fetch”, zero fabricated results; unblocked retry performed real inference.
+- Unrelated “Bananas orbit distant galaxies” still received a topic proposal, demonstrating forced-nearest limitations. Test held it; after-period denominator became null. Imported credential-request instructions remained literal source text; no requests were triggered by them.
+- Network capture: only GET file requests, no request bodies; no user content in URLs. Model hosts contacted only after explicit load. Runtime worker and WASM local/same-origin. Built asset credential-pattern scan passed; source has no provider integration. This scan alone is not proof of absence of every possible secret.
+- Independent Python csv/json parsing confirmed all 4 reviewed rows including a hold, quoted/multiline formula-like note escaping, Markdown source audit, and lossless original-input JSON roundtrip. Node checked known-answer share arithmetic, deterministic baseline, malformed schema, original conservation and review-topic validation.
+- Mobile screenshots visually inspected; document width <= viewport at 320 and 390px. Desktop screenshot captured. No browser page errors. Initial focus assertion needed keyboard focus activation (Tab/Shift+Tab), then passed; no app defect involved.
+- Gallery inline scripts compiled with `new Function`, new entry exactly once and prior entries byte-preserved. Gallery rendered without page errors at desktop/phone sizes. Combined and public deployment checks recorded separately after publication.
+
+Not tested: physical phones, Safari/Firefox/Edge, offline page reload, population accuracy/significance, large production datasets, assistive technology screen readers. No accuracy percentages, elapsed-time improvements or causal conclusions claimed.
+
+Additional boundary checks: blocked runtime-module download failed visibly with no rows, then real-inference retry passed. Oversized imported file rejected. Source newlines, quotes and formula-leading text survived JSON and independently parsed protected CSV. A negation probe ("I do not have a password problem. My package arrived late.") was incorrectly proposed as access, not delivery; mandatory review is essential.
+
+## Publication verified
+
+Root predeploy assembled all 534 app entrypoints with no failed/skipped builds. Root deploy published gh-pages `88b4a24aae4fbf98729a7d1f8f6d523f18f2f073`; matching Pages build reached built and workflow succeeded. Every public new-app asset and shared WASM SHA-256 matched local production files; public gallery matched source with all 533 older entries preserved. The full 13-check real-browser suite passed again at the public app URL, including both real inference fixtures, offline fresh-worker inference, 40-row batching and defensive paths. Public downloads were independently parsed again. See public-*-validation.json, deployment-validation.json and publication-status.json.

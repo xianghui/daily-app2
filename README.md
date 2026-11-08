@@ -165,3 +165,7 @@ Real local MiniLM reference/misconception comparisons help learners review recal
 ## Privilege Quilt — 20261109-6
 
 Local MiniLM duty-to-permission matching plus exhaustive minimum-extra-access role bundling. Mandatory review/holds, forbidden-permission and cap checks; complete JSON/CSV/Markdown access plans without account changes. Six simple fixture links matched; a negated deletion need failed semantically and was blocked by the deterministic forbidden gate. Reuses shared WASM from `20261107-2`; preserve that asset. See [workflow](20261109-6/README.md) and [observed validation](20261109-6/VALIDATION.md).
+
+## Packet Seam — 20261109-7
+
+Local MiniLM semantic insertion costs and exact capacity-slot assignment help editors update ordered reading packets. Review every incoming placement, protect gaps, hold unsuitable content and export complete JSON/CSV/Markdown manifests with original order preserved. Six simple expected gaps matched across two tiny fixtures; topical similarity does not check truth or stance. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261109-7/README.md) and [observed validation](20261109-7/VALIDATION.md).

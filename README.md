@@ -249,3 +249,8 @@ Real local MiniLM bio-to-experience retrieval assists low-stakes pilot-panel pla
 ## Breakwater Budget — 20261110-1
 
 Real local MiniLM cost-behavior inference assists a mandatory human-reviewed single-product monthly budget. Integer-cent break-even, target-profit volume, capacity profit and target price floors follow; holds block projections and complete JSON/CSV/Markdown retains every cost. Seven of eight tiny fixture labels matched; a per-attendee cost required correction, and negation/mixed-cost challenges failed. No accounting-verification claim. Fresh-worker offline inference tested only inside an already-open page. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261110-1/README.md) and [observed validation](20261110-1/VALIDATION.md).
+
+
+## Cadence Loom — 20261110-2
+
+Real local MiniLM reconciles free-text maintenance cadence notes to reviewed recurrence types, then exact date expansion produces finite month-end/weekend-aware reminder calendars. Eight tiny fixture notes matched; event-triggered and twice-weekly notes still need holds. Complete JSON/CSV/Markdown preserves every task; ICS contains approved dated reminders only. Fresh-worker offline inference tested in an already-open page, not reload. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261110-2/README.md) and [observed checks](20261110-2/VALIDATION.md).

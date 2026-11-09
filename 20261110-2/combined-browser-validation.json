@@ -1,0 +1,252 @@
+{
+  "checks": [
+    "real inference Workshop care",
+    "real inference Archive routines",
+    "review edit reset undo hold exclude exports clipboard",
+    "offline fresh worker real inference",
+    "24 task chunking and audit import roundtrip",
+    "invalid reviewed date blocks and change clears state",
+    "unsupported cadence challenge real behavior",
+    "empty invalid bounds unsupported import",
+    "cancel stale input real retry",
+    "phone focus touch exports overflow",
+    "malformed output unsupported worker runtime timeout stale callbacks recovery"
+  ],
+  "fixtures": [
+    {
+      "name": "Workshop care",
+      "expected": [
+        "daily",
+        "weekly",
+        "monthly",
+        "quarterly"
+      ],
+      "actual": [
+        "daily",
+        "weekly",
+        "monthly",
+        "quarterly"
+      ],
+      "matches": 4,
+      "summary": {
+        "records": 4,
+        "approved": 4,
+        "held": 0,
+        "excluded": 0,
+        "events": 70,
+        "days": 59,
+        "shifted": 0
+      },
+      "metrics": {
+        "keywordClassified": 0,
+        "aiProposals": 4,
+        "aiReviewAgreement": 4
+      }
+    },
+    {
+      "name": "Archive routines",
+      "expected": [
+        "annual",
+        "quarterly",
+        "monthly",
+        "weekly"
+      ],
+      "actual": [
+        "annual",
+        "quarterly",
+        "monthly",
+        "weekly"
+      ],
+      "matches": 4,
+      "summary": {
+        "records": 4,
+        "approved": 4,
+        "held": 0,
+        "excluded": 0,
+        "events": 69,
+        "days": 59,
+        "shifted": 60
+      },
+      "metrics": {
+        "keywordClassified": 2,
+        "aiProposals": 4,
+        "aiReviewAgreement": 4
+      }
+    }
+  ],
+  "challenge": {
+    "actual": [
+      "annual",
+      "weekly",
+      "weekly"
+    ],
+    "expected": [
+      "annual",
+      "hold",
+      "hold"
+    ],
+    "note": "Forced nearest anchor cannot abstain; human review must hold event-triggered or unsupported cadence."
+  },
+  "network": {
+    "total": 46,
+    "foreign": [
+      {
+        "url": "http://127.0.0.1:6414/daily-app2/20261110-2/",
+        "queryKeys": [],
+        "method": "GET",
+        "hasBody": false
+      },
+      {
+        "url": "http://127.0.0.1:6414/daily-app2/20261110-2/assets/index-BZJwowBv.js",
+        "queryKeys": [],
+        "method": "GET",
+        "hasBody": false
+      },
+      {
+        "url": "http://127.0.0.1:6414/daily-app2/20261110-2/assets/index-DNrl0RJc.css",
+        "queryKeys": [],
+        "method": "GET",
+        "hasBody": false
+      },
+      {
+        "url": "http://127.0.0.1:6414/daily-app2/20261110-2/assets/ai.worker-C1yT4bMe.js",
+        "queryKeys": [],
+        "method": "GET",
+        "hasBody": false
+      },
+      {
+        "url": "http://127.0.0.1:6414/daily-app2/20261110-2/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+        "queryKeys": [],
+        "method": "GET",
+        "hasBody": false
+      },
+      {
+        "url": "http://127.0.0.1:6414/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+        "queryKeys": [],
+        "method": "GET",
+        "hasBody": false
+      },
+      {
+        "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "queryKeys": [],
+        "method": "GET",
+        "hasBody": false
+      },
+      {
+        "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+        "queryKeys": [
+          "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+          "etag"
+        ],
+        "method": "GET",
+        "hasBody": false
+      },
+      {
+        "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "queryKeys": [],
+        "method": "GET",
+        "hasBody": false
+      },
+      {
+        "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+        "queryKeys": [
+          "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+          "etag"
+        ],
+        "method": "GET",
+        "hasBody": false
+      },
+      {
+        "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+        "queryKeys": [],
+        "method": "GET",
+        "hasBody": false
+      },
+      {
+        "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "queryKeys": [],
+        "method": "GET",
+        "hasBody": false
+      },
+      {
+        "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+        "queryKeys": [
+          "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+          "etag"
+        ],
+        "method": "GET",
+        "hasBody": false
+      },
+      {
+        "url": "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+        "queryKeys": [
+          "user_id",
+          "X-Xet-Cas-Uid",
+          "response-content-disposition",
+          "xip",
+          "Expires",
+          "Policy",
+          "Signature",
+          "Key-Pair-Id",
+          "Hash-Algorithm"
+        ],
+        "method": "GET",
+        "hasBody": false
+      },
+      {
+        "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "queryKeys": [],
+        "method": "GET",
+        "hasBody": false
+      },
+      {
+        "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "queryKeys": [],
+        "method": "GET",
+        "hasBody": false
+      },
+      {
+        "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+        "queryKeys": [],
+        "method": "GET",
+        "hasBody": false
+      },
+      {
+        "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+        "queryKeys": [
+          "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+          "etag"
+        ],
+        "method": "GET",
+        "hasBody": false
+      },
+      {
+        "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+        "queryKeys": [
+          "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+          "etag"
+        ],
+        "method": "GET",
+        "hasBody": false
+      },
+      {
+        "url": "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+        "queryKeys": [
+          "user_id",
+          "X-Xet-Cas-Uid",
+          "response-content-disposition",
+          "xip",
+          "Expires",
+          "Policy",
+          "Signature",
+          "Key-Pair-Id",
+          "Hash-Algorithm"
+        ],
+        "method": "GET",
+        "hasBody": false
+      }
+    ],
+    "contentUploadObserved": false
+  },
+  "pageErrors": []
+}

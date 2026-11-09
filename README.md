@@ -219,3 +219,8 @@ Real local MiniLM memo inference plus exact one-to-one internal-transfer pairing
 ## Pantry Current — 20261109-19
 
 Real local MiniLM ingredient retrieval plus human-reviewed earliest-expiry lot reservation for cafe/bakery prep. Complete JSON/CSV/Markdown preserves every request, lot and gram, including holds and shortages. Two tiny synthetic batches matched all eight intended ingredient links; FEFO reserved 1,800 vs 1,400 g and 2,200 vs 1,900 g under identical reviewed mappings. A negated ingredient prohibition still mislinked, so no safety, allergen or substitution judgment is claimed. Fresh-worker offline inference tested only inside an already-open page. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow/privacy](20261109-19/README.md) and [observed validation](20261109-19/VALIDATION.md).
+
+
+## Setup Harbor — 20261109-20
+
+Real local MiniLM setup-family retrieval plus exhaustive single-machine sequencing balances transition minutes against weighted tardiness. Mandatory review/holds and complete JSON/CSV/Markdown preserve every job. Both tiny synthetic queues matched all eight intended families; computed objectives were 32 vs 171 and 30 vs 159 input-order, not measured savings. Negation still mislinked. Fresh-worker offline inference tested only inside an already-open page. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261109-20/README.md) and [observed validation](20261109-20/VALIDATION.md).

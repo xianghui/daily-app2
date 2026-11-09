@@ -284,3 +284,8 @@ Real local MiniLM matches paginated excerpts to controlled subject headings for 
 ### Combined-site size guard
 
 The combined site reached 1,270,905,714 bytes, exceeding GitHub Pages’ documented 1 GB published-site limit. Root `deploy.sh` now runs `scripts/dedupe-runtime.py`: it verifies byte-identical ONNX WASM copies, reuses the immutable `20261107-2` asset for 14 earlier apps, cache-busts changed workers and entry shells, retains compatibility JS URLs and leaves every source/dist build untouched. The generated `deploy/runtime-deduplication.json` records exact sizes and paths; the build fails above a conservative 1,000,000,000-byte budget. Real inference was verified on every affected legacy worker locally and publicly; the optimized Pages deployment succeeded. Old open sessions may need a reload after cache migration. Do not remove the shared asset or bypass the root size guard.
+
+
+## Milestone Meter — 20261110-8
+
+Real local MiniLM links rough progress reports to budgeted work packages; mandatory human link/date/completion verification feeds latest-report earned value, exact-cent PV/EV and explicit missing-progress/conflict guards. All reports survive JSON/CSV/Markdown. Eight tiny fixture links matched, but negated/unrelated reports still mislink: AI does not certify completion or financial inputs. 1,200 generated cases independently verified rounding, latest-state selection and guards. Offline fresh-worker inference tested only in an already-open cached page. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261110-8/README.md) and [observed checks](20261110-8/VALIDATION.md).

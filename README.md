@@ -229,3 +229,8 @@ Real local MiniLM setup-family retrieval plus exhaustive single-machine sequenci
 ## Borrow Bridge — 20261109-21
 
 Real local MiniLM equipment matching plus minimum-unit fixed-interval checkout allocation with turnaround buffers and explicit capacity shortages. Mandatory review/holds and complete JSON/CSV/Markdown preserve every request. Two tiny synthetic batches matched all eight intended equipment links; required units were four vs five/six dedicated-per-loan baselines, with one extra unit needed in each. A negated request still mislinked, so similarity is not compatibility. Fresh-worker offline inference tested only inside an already-open page. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261109-21/README.md) and [observed checks](20261109-21/VALIDATION.md).
+
+
+## Assembly Ledger — 20261109-22
+
+Real local MiniLM retrieves reworded BOM components for mandatory human review; deterministic cycle detection and nested demand expansion produce consolidated raw-stock buy lists and components-first build orders. Complete JSON/CSV/Markdown preserves originals, held lines and unresolved branches; partial plans are explicit lower bounds. Both synthetic batches matched 8/8 intended links, but negation still mislinked; this is not compatibility or manufacturing validation. 600 random DAGs matched independent recursive quantities. Fresh-worker offline inference tested only inside an already-open page. Reuses immutable shared WASM from `20261107-2`; preserve that asset. See [workflow/privacy](20261109-22/README.md) and [observed validation](20261109-22/VALIDATION.md).

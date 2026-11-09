@@ -75,3 +75,6 @@ done <<< "$APP_NAMES"
 
 echo
 echo "📊 Built: $APPS_BUILT | Failed: $APPS_FAILED | Skipped: $APPS_SKIPPED"
+
+# Keep the combined published site below the GitHub Pages size limit.
+python3 "$REPO_DIR/scripts/dedupe-runtime.py"

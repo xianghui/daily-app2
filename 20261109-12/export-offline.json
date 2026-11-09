@@ -1,0 +1,207 @@
+{
+  "schema": "round-circuit/v1",
+  "originalInput": {
+    "name": "Workshop round",
+    "depot": "office",
+    "locations": [
+      {
+        "id": "office",
+        "description": "Administration office computers paperwork and reception"
+      },
+      {
+        "id": "paint",
+        "description": "Spray painting booth coatings ventilation and paint storage"
+      },
+      {
+        "id": "weld",
+        "description": "Welding station metal joining equipment and protective masks"
+      },
+      {
+        "id": "wood",
+        "description": "Woodworking room timber cutting saws and carpentry benches"
+      }
+    ],
+    "edges": [
+      [
+        "office",
+        "paint",
+        12
+      ],
+      [
+        "paint",
+        "weld",
+        8
+      ],
+      [
+        "weld",
+        "wood",
+        6
+      ],
+      [
+        "wood",
+        "office",
+        20
+      ],
+      [
+        "paint",
+        "wood",
+        11
+      ]
+    ],
+    "records": [
+      {
+        "id": "W1",
+        "text": "Inspect the timber cutting saw guards."
+      },
+      {
+        "id": "W2",
+        "text": "Check coating booth extraction ventilation."
+      },
+      {
+        "id": "W3",
+        "text": "Examine the metal joining equipment and welding masks."
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "W1",
+      "text": "Inspect the timber cutting saw guards.",
+      "ranking": [
+        {
+          "location": "wood",
+          "score": 0.6074037015819427
+        },
+        {
+          "location": "weld",
+          "score": 0.23002183131179402
+        },
+        {
+          "location": "paint",
+          "score": 0.08918146923560313
+        },
+        {
+          "location": "office",
+          "score": 0.07275480305884204
+        }
+      ],
+      "proposed": "wood",
+      "location": "wood",
+      "decision": "approve",
+      "note": "",
+      "stop": 1
+    },
+    {
+      "id": "W2",
+      "text": "Check coating booth extraction ventilation.",
+      "ranking": [
+        {
+          "location": "paint",
+          "score": 0.6102401870234782
+        },
+        {
+          "location": "weld",
+          "score": 0.3048661471370853
+        },
+        {
+          "location": "wood",
+          "score": 0.20290558822727084
+        },
+        {
+          "location": "office",
+          "score": 0.1246452617923886
+        }
+      ],
+      "proposed": "paint",
+      "location": "paint",
+      "decision": "approve",
+      "note": "",
+      "stop": 3
+    },
+    {
+      "id": "W3",
+      "text": "Examine the metal joining equipment and welding masks.",
+      "ranking": [
+        {
+          "location": "weld",
+          "score": 0.8129301642530182
+        },
+        {
+          "location": "wood",
+          "score": 0.25216802116973736
+        },
+        {
+          "location": "paint",
+          "score": 0.1924699558707776
+        },
+        {
+          "location": "office",
+          "score": 0.10334689907742074
+        }
+      ],
+      "proposed": "weld",
+      "location": "weld",
+      "decision": "approve",
+      "note": "",
+      "stop": 2
+    }
+  ],
+  "route": [
+    "office",
+    "wood",
+    "weld",
+    "paint",
+    "office"
+  ],
+  "walk": [
+    "office",
+    "wood",
+    "weld",
+    "paint",
+    "office"
+  ],
+  "stops": [
+    {
+      "location": "office",
+      "order": 0,
+      "checks": []
+    },
+    {
+      "location": "wood",
+      "order": 1,
+      "checks": [
+        "W1"
+      ]
+    },
+    {
+      "location": "weld",
+      "order": 2,
+      "checks": [
+        "W3"
+      ]
+    },
+    {
+      "location": "paint",
+      "order": 3,
+      "checks": [
+        "W2"
+      ]
+    }
+  ],
+  "metrics": {
+    "total": 3,
+    "approved": 3,
+    "held": 0,
+    "baselineMetres": 59,
+    "optimizedMetres": 46,
+    "savedMetres": 13,
+    "baselineRoute": [
+      "office",
+      "wood",
+      "paint",
+      "weld",
+      "office"
+    ],
+    "changed": 0
+  }
+}

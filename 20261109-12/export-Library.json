@@ -1,0 +1,239 @@
+{
+  "schema": "round-circuit/v1",
+  "originalInput": {
+    "name": "Library round",
+    "depot": "desk",
+    "locations": [
+      {
+        "id": "desk",
+        "description": "Reception information desk and visitor enquiries"
+      },
+      {
+        "id": "books",
+        "description": "Book stacks and lending shelves"
+      },
+      {
+        "id": "cafe",
+        "description": "Coffee shop drinks food and kitchen"
+      },
+      {
+        "id": "study",
+        "description": "Quiet study rooms desks and reading lamps"
+      }
+    ],
+    "edges": [
+      [
+        "desk",
+        "books",
+        15
+      ],
+      [
+        "books",
+        "study",
+        10
+      ],
+      [
+        "study",
+        "cafe",
+        20
+      ],
+      [
+        "cafe",
+        "desk",
+        10
+      ],
+      [
+        "books",
+        "cafe",
+        25
+      ]
+    ],
+    "records": [
+      {
+        "id": "C1",
+        "text": "Check the espresso machine and kitchen refrigerator."
+      },
+      {
+        "id": "C2",
+        "text": "Inspect reading lamps in the silent study area."
+      },
+      {
+        "id": "C3",
+        "text": "Check the book lending shelves for damage."
+      },
+      {
+        "id": "C4",
+        "text": "Test the coffee shop kitchen extractor fan."
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "C1",
+      "text": "Check the espresso machine and kitchen refrigerator.",
+      "ranking": [
+        {
+          "location": "cafe",
+          "score": 0.44083690964984934
+        },
+        {
+          "location": "study",
+          "score": 0.18343877775071646
+        },
+        {
+          "location": "books",
+          "score": 0.08064725082512268
+        },
+        {
+          "location": "desk",
+          "score": 0.022435992717100495
+        }
+      ],
+      "proposed": "cafe",
+      "location": "cafe",
+      "decision": "approve",
+      "note": "",
+      "stop": 1
+    },
+    {
+      "id": "C2",
+      "text": "Inspect reading lamps in the silent study area.",
+      "ranking": [
+        {
+          "location": "study",
+          "score": 0.7938988783975728
+        },
+        {
+          "location": "desk",
+          "score": 0.3581737454886261
+        },
+        {
+          "location": "cafe",
+          "score": 0.11662103799819183
+        },
+        {
+          "location": "books",
+          "score": 0.10396202605059793
+        }
+      ],
+      "proposed": "study",
+      "location": "study",
+      "decision": "approve",
+      "note": "",
+      "stop": 2
+    },
+    {
+      "id": "C3",
+      "text": "Check the book lending shelves for damage.",
+      "ranking": [
+        {
+          "location": "books",
+          "score": 0.5846329982441689
+        },
+        {
+          "location": "cafe",
+          "score": 0.190934541087047
+        },
+        {
+          "location": "study",
+          "score": 0.1818328432510533
+        },
+        {
+          "location": "desk",
+          "score": 0.08935542437396904
+        }
+      ],
+      "proposed": "books",
+      "location": "books",
+      "decision": "approve",
+      "note": "",
+      "stop": 3
+    },
+    {
+      "id": "C4",
+      "text": "Test the coffee shop kitchen extractor fan.",
+      "ranking": [
+        {
+          "location": "cafe",
+          "score": 0.41336908045663096
+        },
+        {
+          "location": "study",
+          "score": 0.25366802903479546
+        },
+        {
+          "location": "desk",
+          "score": 0.07950991282837136
+        },
+        {
+          "location": "books",
+          "score": 0.05243206014226559
+        }
+      ],
+      "proposed": "cafe",
+      "location": "cafe",
+      "decision": "approve",
+      "note": "",
+      "stop": 1
+    }
+  ],
+  "route": [
+    "desk",
+    "cafe",
+    "study",
+    "books",
+    "desk"
+  ],
+  "walk": [
+    "desk",
+    "cafe",
+    "study",
+    "books",
+    "desk"
+  ],
+  "stops": [
+    {
+      "location": "desk",
+      "order": 0,
+      "checks": []
+    },
+    {
+      "location": "cafe",
+      "order": 1,
+      "checks": [
+        "C1",
+        "C4"
+      ]
+    },
+    {
+      "location": "study",
+      "order": 2,
+      "checks": [
+        "C2"
+      ]
+    },
+    {
+      "location": "books",
+      "order": 3,
+      "checks": [
+        "C3"
+      ]
+    }
+  ],
+  "metrics": {
+    "total": 4,
+    "approved": 4,
+    "held": 0,
+    "baselineMetres": 55,
+    "optimizedMetres": 55,
+    "savedMetres": 0,
+    "baselineRoute": [
+      "desk",
+      "cafe",
+      "study",
+      "books",
+      "desk"
+    ],
+    "changed": 0
+  }
+}

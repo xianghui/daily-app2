@@ -1,0 +1,114 @@
+{
+  "schema": "round-circuit/v1",
+  "originalInput": {
+    "name": "Library round",
+    "depot": "desk",
+    "locations": [
+      {
+        "id": "desk",
+        "description": "Reception information desk and visitor enquiries"
+      },
+      {
+        "id": "books",
+        "description": "Book stacks and lending shelves"
+      },
+      {
+        "id": "cafe",
+        "description": "Coffee shop drinks food and kitchen"
+      },
+      {
+        "id": "study",
+        "description": "Quiet study rooms desks and reading lamps"
+      }
+    ],
+    "edges": [
+      [
+        "desk",
+        "books",
+        15
+      ],
+      [
+        "books",
+        "study",
+        10
+      ],
+      [
+        "study",
+        "cafe",
+        20
+      ],
+      [
+        "cafe",
+        "desk",
+        10
+      ],
+      [
+        "books",
+        "cafe",
+        25
+      ]
+    ],
+    "records": [
+      {
+        "id": "C1",
+        "text": "Do not visit the cafe or coffee kitchen. There is no espresso machine inspection required."
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "C1",
+      "text": "Do not visit the cafe or coffee kitchen. There is no espresso machine inspection required.",
+      "ranking": [
+        {
+          "location": "cafe",
+          "score": 0.47111451290985323
+        },
+        {
+          "location": "study",
+          "score": 0.16444750471882974
+        },
+        {
+          "location": "desk",
+          "score": 0.1486375399272586
+        },
+        {
+          "location": "books",
+          "score": -0.07341163378118595
+        }
+      ],
+      "proposed": "cafe",
+      "location": "cafe",
+      "decision": "hold",
+      "note": "",
+      "stop": null
+    }
+  ],
+  "route": [
+    "desk",
+    "desk"
+  ],
+  "walk": [
+    "desk"
+  ],
+  "stops": [
+    {
+      "location": "desk",
+      "order": 0,
+      "checks": []
+    }
+  ],
+  "metrics": {
+    "total": 1,
+    "approved": 0,
+    "held": 1,
+    "baselineMetres": 0,
+    "optimizedMetres": 0,
+    "savedMetres": 0,
+    "baselineRoute": [
+      "desk",
+      "desk"
+    ],
+    "changed": 0
+  }
+}

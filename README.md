@@ -186,3 +186,7 @@ Local real MiniLM metric-description matching plus dimension-checked affine unit
 ## Clock Harbor — 20261109-11
 
 Real local MiniLM request-to-policy matching plus deterministic UTC working-hour response clocks, explicit holidays and pause intervals. Human review/holds and complete JSON/CSV/Markdown audits retain every request. Six simple policy links and six deadlines matched across two tiny synthetic fixtures; a negated login request still mislinked, so semantic similarity is not contractual applicability. Offline fresh-worker inference is tested only inside an already-open cached page. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261109-11/README.md) and [observed validation](20261109-11/VALIDATION.md).
+
+## Round Circuit — 20261109-12
+
+Local MiniLM inspection-to-checkpoint retrieval plus exact closed walking-round optimization on supplied corridor graphs. Review/holds and complete JSON/CSV/Markdown preserve all checks. Seven simple checkpoint links matched across two synthetic facilities fixtures; a negated cafe instruction still mislinked, so mandatory human review remains essential. Offline fresh-worker inference is tested only inside an already-open cached page. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow](20261109-12/README.md) and [observed checks](20261109-12/VALIDATION.md).

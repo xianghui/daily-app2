@@ -1,0 +1,263 @@
+{
+  "version": 1,
+  "originalInput": {
+    "name": "Treasury transfers",
+    "title": "Synthetic treasury statement overlap",
+    "currency": "USD",
+    "dayWindow": 3,
+    "minSimilarity": 0.3,
+    "transactions": [
+      {
+        "id": "D1",
+        "account": "Checking",
+        "date": "2026-11-01",
+        "cents": -50000,
+        "text": "Move funds into the rainy day emergency savings reserve."
+      },
+      {
+        "id": "D2",
+        "account": "Checking",
+        "date": "2026-11-01",
+        "cents": -50000,
+        "text": "Transfer money to our investment brokerage portfolio."
+      },
+      {
+        "id": "D3",
+        "account": "Checking",
+        "date": "2026-11-02",
+        "cents": -12000,
+        "text": "Pay monthly workspace rent to the landlord."
+      },
+      {
+        "id": "C1",
+        "account": "Brokerage",
+        "date": "2026-11-02",
+        "cents": 50000,
+        "text": "Investment portfolio funding received from our checking account."
+      },
+      {
+        "id": "C2",
+        "account": "Savings",
+        "date": "2026-11-02",
+        "cents": 50000,
+        "text": "Emergency savings reserve top up from checking."
+      },
+      {
+        "id": "C3",
+        "account": "Checking",
+        "date": "2026-11-02",
+        "cents": 90000,
+        "text": "Customer paid consulting invoice."
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "D1",
+      "account": "Checking",
+      "date": "2026-11-01",
+      "cents": -50000,
+      "text": "Move funds into the rainy day emergency savings reserve.",
+      "pairedWith": "C2",
+      "classification": "reviewed internal transfer",
+      "review": {
+        "id": "D1",
+        "account": "Checking",
+        "date": "2026-11-01",
+        "cents": -50000,
+        "text": "Move funds into the rainy day emergency savings reserve.",
+        "ranking": [
+          {
+            "id": "C2",
+            "index": 1,
+            "score": 0.6906766917125966
+          },
+          {
+            "id": "C1",
+            "index": 0,
+            "score": 0.4305085777804004
+          }
+        ],
+        "proposed": "C2",
+        "selected": "C2",
+        "baseline": "C1",
+        "note": "",
+        "decision": "approve"
+      }
+    },
+    {
+      "id": "D2",
+      "account": "Checking",
+      "date": "2026-11-01",
+      "cents": -50000,
+      "text": "Transfer money to our investment brokerage portfolio.",
+      "pairedWith": "C1",
+      "classification": "reviewed internal transfer",
+      "review": {
+        "id": "D2",
+        "account": "Checking",
+        "date": "2026-11-01",
+        "cents": -50000,
+        "text": "Transfer money to our investment brokerage portfolio.",
+        "ranking": [
+          {
+            "id": "C1",
+            "index": 0,
+            "score": 0.5795220945885284
+          },
+          {
+            "id": "C2",
+            "index": 1,
+            "score": 0.2652594968247681
+          }
+        ],
+        "proposed": "C1",
+        "selected": "C1",
+        "baseline": "C2",
+        "note": "",
+        "decision": "approve"
+      }
+    },
+    {
+      "id": "D3",
+      "account": "Checking",
+      "date": "2026-11-02",
+      "cents": -12000,
+      "text": "Pay monthly workspace rent to the landlord.",
+      "pairedWith": "",
+      "classification": "unpaired — investigate",
+      "review": {
+        "id": "D3",
+        "account": "Checking",
+        "date": "2026-11-02",
+        "cents": -12000,
+        "text": "Pay monthly workspace rent to the landlord.",
+        "ranking": [],
+        "proposed": "",
+        "selected": "",
+        "baseline": "",
+        "note": "",
+        "decision": "hold"
+      }
+    },
+    {
+      "id": "C1",
+      "account": "Brokerage",
+      "date": "2026-11-02",
+      "cents": 50000,
+      "text": "Investment portfolio funding received from our checking account.",
+      "pairedWith": "D2",
+      "classification": "reviewed internal transfer",
+      "review": null
+    },
+    {
+      "id": "C2",
+      "account": "Savings",
+      "date": "2026-11-02",
+      "cents": 50000,
+      "text": "Emergency savings reserve top up from checking.",
+      "pairedWith": "D1",
+      "classification": "reviewed internal transfer",
+      "review": null
+    },
+    {
+      "id": "C3",
+      "account": "Checking",
+      "date": "2026-11-02",
+      "cents": 90000,
+      "text": "Customer paid consulting invoice.",
+      "pairedWith": "",
+      "classification": "unpaired — investigate",
+      "review": null
+    }
+  ],
+  "reviews": [
+    {
+      "id": "D1",
+      "account": "Checking",
+      "date": "2026-11-01",
+      "cents": -50000,
+      "text": "Move funds into the rainy day emergency savings reserve.",
+      "ranking": [
+        {
+          "id": "C2",
+          "index": 1,
+          "score": 0.6906766917125966
+        },
+        {
+          "id": "C1",
+          "index": 0,
+          "score": 0.4305085777804004
+        }
+      ],
+      "proposed": "C2",
+      "selected": "C2",
+      "baseline": "C1",
+      "note": "",
+      "decision": "approve"
+    },
+    {
+      "id": "D2",
+      "account": "Checking",
+      "date": "2026-11-01",
+      "cents": -50000,
+      "text": "Transfer money to our investment brokerage portfolio.",
+      "ranking": [
+        {
+          "id": "C1",
+          "index": 0,
+          "score": 0.5795220945885284
+        },
+        {
+          "id": "C2",
+          "index": 1,
+          "score": 0.2652594968247681
+        }
+      ],
+      "proposed": "C1",
+      "selected": "C1",
+      "baseline": "C2",
+      "note": "",
+      "decision": "approve"
+    },
+    {
+      "id": "D3",
+      "account": "Checking",
+      "date": "2026-11-02",
+      "cents": -12000,
+      "text": "Pay monthly workspace rent to the landlord.",
+      "ranking": [],
+      "proposed": "",
+      "selected": "",
+      "baseline": "",
+      "note": "",
+      "decision": "hold"
+    }
+  ],
+  "pairs": [
+    {
+      "debit": "D1",
+      "credit": "C2",
+      "cents": 50000,
+      "note": ""
+    },
+    {
+      "debit": "D2",
+      "credit": "C1",
+      "cents": 50000,
+      "note": ""
+    }
+  ],
+  "metrics": {
+    "transactions": 6,
+    "pairs": 2,
+    "unpaired": 2,
+    "netCents": 78000,
+    "remainingNetCents": 78000,
+    "grossBeforeCents": 302000,
+    "grossUnpairedCents": 102000,
+    "approved": 2,
+    "aiReviewAgreement": 2,
+    "baselineReviewAgreement": 0
+  }
+}

@@ -207,3 +207,8 @@ Local MiniLM reconciles reworded ranked choices with canonical poll options; man
 ## Witness Window — 20261109-16
 
 Local real MiniLM event retrieval helps incident coordinators reconcile time-bounded recollections. Mandatory review/holds feed interval intersections, explicit contradictions and strict non-overlap before-links, with complete JSON/CSV/Markdown source audits. Both tiny fixtures matched all eight intended identities and exposed the seeded five-minute conflict; negation still mislinked, so semantic similarity is not identity or truth verification. Offline fresh-worker inference tested only inside an already-open page. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow/privacy](20261109-16/README.md) and [observed validation](20261109-16/VALIDATION.md).
+
+
+## Transfer Twin — 20261109-18
+
+Real local MiniLM memo inference plus exact one-to-one internal-transfer pairing under opposite-cent/account/date constraints. Mandatory review, preserved unmatched rows and complete JSON/CSV/Markdown audits. Two tiny synthetic fixtures matched all six intended debit outcomes (four transfer pairs and two unpaired); a negated memo still mislinked, so this is never identity verification or transaction posting. Fresh-worker offline inference tested only inside an already-open page. Reuses immutable WASM from `20261107-2`; preserve that asset. See [workflow/privacy](20261109-18/README.md) and [observed validation](20261109-18/VALIDATION.md).

@@ -1,0 +1,250 @@
+{
+  "version": 1,
+  "originalInput": {
+    "name": "Treasury transfers",
+    "title": "Synthetic treasury statement overlap",
+    "currency": "USD",
+    "dayWindow": 3,
+    "minSimilarity": 0.3,
+    "transactions": [
+      {
+        "id": "D1",
+        "account": "Checking",
+        "date": "2026-11-01",
+        "cents": -50000,
+        "text": "NOT an emergency savings reserve top up. This is a customer refund, not an internal transfer."
+      },
+      {
+        "id": "D2",
+        "account": "Checking",
+        "date": "2026-11-01",
+        "cents": -50000,
+        "text": "Transfer money to our investment brokerage portfolio."
+      },
+      {
+        "id": "D3",
+        "account": "Checking",
+        "date": "2026-11-02",
+        "cents": -12000,
+        "text": "Pay monthly workspace rent to the landlord."
+      },
+      {
+        "id": "C1",
+        "account": "Brokerage",
+        "date": "2026-11-02",
+        "cents": 50000,
+        "text": "Investment portfolio funding received from our checking account."
+      },
+      {
+        "id": "C2",
+        "account": "Savings",
+        "date": "2026-11-02",
+        "cents": 50000,
+        "text": "Emergency savings reserve top up from checking."
+      },
+      {
+        "id": "C3",
+        "account": "Checking",
+        "date": "2026-11-02",
+        "cents": 90000,
+        "text": "Customer paid consulting invoice."
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "D1",
+      "account": "Checking",
+      "date": "2026-11-01",
+      "cents": -50000,
+      "text": "NOT an emergency savings reserve top up. This is a customer refund, not an internal transfer.",
+      "pairedWith": "",
+      "classification": "unpaired — investigate",
+      "review": {
+        "id": "D1",
+        "account": "Checking",
+        "date": "2026-11-01",
+        "cents": -50000,
+        "text": "NOT an emergency savings reserve top up. This is a customer refund, not an internal transfer.",
+        "ranking": [
+          {
+            "id": "C2",
+            "index": 1,
+            "score": 0.7160181034721393
+          },
+          {
+            "id": "C1",
+            "index": 0,
+            "score": 0.4610362370426707
+          }
+        ],
+        "proposed": "C2",
+        "selected": "C2",
+        "baseline": "C1",
+        "note": "",
+        "decision": "hold"
+      }
+    },
+    {
+      "id": "D2",
+      "account": "Checking",
+      "date": "2026-11-01",
+      "cents": -50000,
+      "text": "Transfer money to our investment brokerage portfolio.",
+      "pairedWith": "",
+      "classification": "unpaired — investigate",
+      "review": {
+        "id": "D2",
+        "account": "Checking",
+        "date": "2026-11-01",
+        "cents": -50000,
+        "text": "Transfer money to our investment brokerage portfolio.",
+        "ranking": [
+          {
+            "id": "C1",
+            "index": 0,
+            "score": 0.5872155133849971
+          },
+          {
+            "id": "C2",
+            "index": 1,
+            "score": 0.2636560525728283
+          }
+        ],
+        "proposed": "C1",
+        "selected": "C1",
+        "baseline": "C2",
+        "note": "",
+        "decision": "hold"
+      }
+    },
+    {
+      "id": "D3",
+      "account": "Checking",
+      "date": "2026-11-02",
+      "cents": -12000,
+      "text": "Pay monthly workspace rent to the landlord.",
+      "pairedWith": "",
+      "classification": "unpaired — investigate",
+      "review": {
+        "id": "D3",
+        "account": "Checking",
+        "date": "2026-11-02",
+        "cents": -12000,
+        "text": "Pay monthly workspace rent to the landlord.",
+        "ranking": [],
+        "proposed": "",
+        "selected": "",
+        "baseline": "",
+        "note": "",
+        "decision": "hold"
+      }
+    },
+    {
+      "id": "C1",
+      "account": "Brokerage",
+      "date": "2026-11-02",
+      "cents": 50000,
+      "text": "Investment portfolio funding received from our checking account.",
+      "pairedWith": "",
+      "classification": "unpaired — investigate",
+      "review": null
+    },
+    {
+      "id": "C2",
+      "account": "Savings",
+      "date": "2026-11-02",
+      "cents": 50000,
+      "text": "Emergency savings reserve top up from checking.",
+      "pairedWith": "",
+      "classification": "unpaired — investigate",
+      "review": null
+    },
+    {
+      "id": "C3",
+      "account": "Checking",
+      "date": "2026-11-02",
+      "cents": 90000,
+      "text": "Customer paid consulting invoice.",
+      "pairedWith": "",
+      "classification": "unpaired — investigate",
+      "review": null
+    }
+  ],
+  "reviews": [
+    {
+      "id": "D1",
+      "account": "Checking",
+      "date": "2026-11-01",
+      "cents": -50000,
+      "text": "NOT an emergency savings reserve top up. This is a customer refund, not an internal transfer.",
+      "ranking": [
+        {
+          "id": "C2",
+          "index": 1,
+          "score": 0.7160181034721393
+        },
+        {
+          "id": "C1",
+          "index": 0,
+          "score": 0.4610362370426707
+        }
+      ],
+      "proposed": "C2",
+      "selected": "C2",
+      "baseline": "C1",
+      "note": "",
+      "decision": "hold"
+    },
+    {
+      "id": "D2",
+      "account": "Checking",
+      "date": "2026-11-01",
+      "cents": -50000,
+      "text": "Transfer money to our investment brokerage portfolio.",
+      "ranking": [
+        {
+          "id": "C1",
+          "index": 0,
+          "score": 0.5872155133849971
+        },
+        {
+          "id": "C2",
+          "index": 1,
+          "score": 0.2636560525728283
+        }
+      ],
+      "proposed": "C1",
+      "selected": "C1",
+      "baseline": "C2",
+      "note": "",
+      "decision": "hold"
+    },
+    {
+      "id": "D3",
+      "account": "Checking",
+      "date": "2026-11-02",
+      "cents": -12000,
+      "text": "Pay monthly workspace rent to the landlord.",
+      "ranking": [],
+      "proposed": "",
+      "selected": "",
+      "baseline": "",
+      "note": "",
+      "decision": "hold"
+    }
+  ],
+  "pairs": [],
+  "metrics": {
+    "transactions": 6,
+    "pairs": 0,
+    "unpaired": 6,
+    "netCents": 78000,
+    "remainingNetCents": 78000,
+    "grossBeforeCents": 302000,
+    "grossUnpairedCents": 302000,
+    "approved": 0,
+    "aiReviewAgreement": 0,
+    "baselineReviewAgreement": 0
+  }
+}

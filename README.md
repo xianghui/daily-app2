@@ -32,6 +32,8 @@ Local semantic label-consistency auditing with MiniLM leave-one-out neighbor evi
 
 Preserve the existing enabled hourly Asia/Singapore cron, model, run budget, routing and delivery settings. Create `YYYYMMDD-N/`, scaffold React + Vite, install gh-pages and use Vite base `/daily-app2/YYYYMMDD-N/`. Each app retains `predeploy: npm run build` and `deploy: gh-pages -d dist`. Validate the working AI flow and artifacts, add the gallery entry, run root predeploy/deploy, commit and push main using `YYYYMMDD-N: App Name (ai-utility)`.
 
+Deployment directory guard: always run publishing commands with the repository root as the explicit working directory (or `npm --prefix /Volumes/ExternalHD/daily_app2 run deploy`). Verify the npm package is `daily_app2`, not an individual utility, before publishing; per-app `deploy` would replace the collection.
+
 Root predeploy assembles `deploy/index.html` and app builds in `deploy/YYYYMMDD-N/`; root deploy publishes that combined site to `gh-pages`. `npm run deploy` also invokes predeploy automatically via npm lifecycle. GitHub Pages serves the root of gh-pages.
 
 Deployment verification: `gh-pages` reporting “Published” proves the branch push, not that Pages has rebuilt. Compare `git ls-remote origin refs/heads/gh-pages` with `gh api repos/xianghui/daily-app2/pages/builds/latest --jq '{status,commit,error}'`. If the latest build still targets an older commit and no new run is queued, request the existing legacy Pages build with `gh api --method POST repos/xianghui/daily-app2/pages/builds`. Wait for that commit to reach `built`, then verify the new app URL and its bundled worker/WASM. Do not change the Pages source or repeatedly republish the same files to resolve this trigger delay. This fallback was needed for 20261021-27.
@@ -212,3 +214,8 @@ Local real MiniLM event retrieval helps incident coordinators reconcile time-bou
 ## Transfer Twin — 20261109-18
 
 Real local MiniLM memo inference plus exact one-to-one internal-transfer pairing under opposite-cent/account/date constraints. Mandatory review, preserved unmatched rows and complete JSON/CSV/Markdown audits. Two tiny synthetic fixtures matched all six intended debit outcomes (four transfer pairs and two unpaired); a negated memo still mislinked, so this is never identity verification or transaction posting. Fresh-worker offline inference tested only inside an already-open page. Reuses immutable WASM from `20261107-2`; preserve that asset. See [workflow/privacy](20261109-18/README.md) and [observed validation](20261109-18/VALIDATION.md).
+
+
+## Pantry Current — 20261109-19
+
+Real local MiniLM ingredient retrieval plus human-reviewed earliest-expiry lot reservation for cafe/bakery prep. Complete JSON/CSV/Markdown preserves every request, lot and gram, including holds and shortages. Two tiny synthetic batches matched all eight intended ingredient links; FEFO reserved 1,800 vs 1,400 g and 2,200 vs 1,900 g under identical reviewed mappings. A negated ingredient prohibition still mislinked, so no safety, allergen or substitution judgment is claimed. Fresh-worker offline inference tested only inside an already-open page. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow/privacy](20261109-19/README.md) and [observed validation](20261109-19/VALIDATION.md).

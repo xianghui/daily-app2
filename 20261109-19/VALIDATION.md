@@ -1,0 +1,38 @@
+# Observed validation — Pantry Current / 20261109-19
+
+Test environment: 2026-11-09, headless installed desktop Google Chrome via Playwright, real production Vite bundle mounted at `/daily-app2/20261109-19/`. All successful AI checks ran real q8 MiniLM ONNX inference on WASM CPU. No generated fixtures, mock vectors or fallback classifications were used for those checks. Mock workers were used only for explicitly defensive failures.
+
+## Known-answer fixtures
+
+| Synthetic batch | Expected → actual ingredient proposals | AI top links | Exact-description baseline | FEFO reserved | Input-order reserved |
+|---|---|---|---|---|---|
+| Cafe prep | chickpea, chickpea, tomato, oat → same | 4/4 | 0/4 | 1,800 g | 1,400 g |
+| Bakery prep | almond, almond, cocoa, rice → same | 4/4 | 0/4 | 2,200 g | 1,900 g |
+
+Both fixtures have four requests/four lots. The two differently worded requests for the same ingredient share stock; the early-cutoff lot is intentionally listed after the later one. Earliest-expiry allocation reserves the early lot first and preserves later stock for later service. Inputs and reviewed output saved in `export-Cafe.json` and `export-Bakery.json`. These are tiny simple fixtures, not broad accuracy estimates or measured waste/time improvements. Comparisons are computed from supplied quantities and the same approved ingredient identities.
+
+**Observed limitation:** “Do NOT use chickpeas or garbanzo beans. Need an unrelated substitute without chickpeas.” still proposed `chickpea`. It was explicitly held during the test. The nearest-item model does not detect equivalence, prohibitions, allergens or safe substitutions. Mandatory review and independent safety checks are required; no automated use of food occurs.
+
+## Local production checks passed
+
+- `npm run predeploy`: production app build passes. Shared WASM byte-identical to installed runtime and immutable older app asset; asset SHA-256 audit saved in `asset-audit.json`. New app adds under 1 MB deployed without duplicating the 26.9 MB binary.
+- `node core-test.mjs`: two fixtures plus 70 varied quantities/lot orders/holds; request and lot gram conservation, nonnegative remaining quantities, correct catalog item, inclusive cutoff, FEFO comparison, review gate and malformed-vector rejection.
+- `node browser-test.cjs`: actual inference on both distinct fixtures, approval gate, review edit resetting decision, undo restoring review, hold preventing allocation, complete reviewed snapshot, clipboard equality and JSON/CSV/Markdown downloads.
+- Fresh-worker offline run after successful online caching: all network disabled and real inference succeeds. Worker source, factory, WASM and model are reusable. **Offline reload/navigation/app-shell startup not tested or promised.**
+- Maximum batch: 12 catalog items + 24 requests (36 embedding texts, 9 batches of 4), 24 lots; every request/lot retained, holds preserve all grams. Export audit reimport restores originals and resets human decisions. A discovered audit-size validation bug was fixed: imports up to 1 MB are allowed before validating the extracted original payload at 50 KB; rerun passed.
+- Empty/invalid/null JSON, missing fields, duplicate IDs, too many items/lots/requests, oversized descriptions/payload, unknown lot item, fractional/zero/oversized grams, impossible dates and dates before `asOf` rejected. Unsupported CSV and over-1-MB imports rejected.
+- Cancel and input changes invalidate workers; a delivered stale callback after cancellation and after a newer successful run cannot overwrite newer results. Malformed vectors, unavailable module workers, reported WASM unavailability and accelerated timeout leave no fake output; actual inference recovers afterward. Unsupported runtime/timeout defensive cases are injected; physical unsupported-device behavior is not hardware-tested.
+- `node network-test.cjs`: new browser context with model-host requests aborted shows an error, no review rows; unblocking and retry performs real inference. `node cancel-download-test.cjs`: real ONNX weight request intercepted, cancellation leaves no result, actual retry succeeds.
+- Request recording from page startup through inference: no model download before explicit load, only GET requests with no bodies; allowed destinations are same-origin, local blob workers and documented Hugging Face file hosts. Synthetic content absent from request URL checks. No content-upload path or remote inference integration exists. Saved report strips redirect query values. Credential-pattern scan finds no matching secrets; scan is not a universal proof for arbitrary credentials.
+- Independent Python standard-library parsing of downloaded JSON/CSV/Markdown checks every request/lot, original descriptions and grams, allocations, inclusive cutoffs, source preservation, conservation, reviewed multiline Unicode/formula-like note and spreadsheet formula prefixing. CSV allocations reopen as JSON; clipboard equals the actual reviewed Markdown.
+- Desktop and narrow 390/320 CSS-pixel screenshots inspected; no horizontal overflow, labeled focused input, buttons at least 44px high; review/apply/download actions work at narrow widths. These are desktop-browser viewport tests, not physical phone tests. Firefox/Safari, screen-reader operation and constrained-memory devices unverified.
+- Gallery: every inline script compiled with Node `new Function`, script presence asserted, exactly one new `ai-utility` entry, all 557 prior entries preserved in order, categories remain separate. Browser rendered new app, AI Utilities, STL and prior Transfer Twin without script errors. Existing AI-focused tagline/category order retained.
+
+## Publication checks
+
+- Root `npm run predeploy` and root `npm run deploy` passed: **558 apps copied, 0 failures, 0 skipped**. Root `deploy/` includes root index plus this app and every prior listed build. The prior collection `/Volumes/ExternalHD/daily_app` was only read for duplicate checking and never modified.
+- Deployment correction: one command was mistakenly launched from the app directory and pushed an app-only tree at `cf9a190e6c44fd541d344614b759a9a8434feb64`. It was immediately superseded using the root combined workflow. Its Pages run `42598736329` ended **cancelled**, not a successful publication. Root README now records an explicit-directory/package guard against this mistake.
+- Correct combined `gh-pages` head: **bbe4a2e864c4a8fdb028341dbd5f260c3c9c47a0**. Matching Pages run **42598783203** completed build/report/deploy successfully; Pages API reported `built` with that same SHA. No duplicate rebuild trigger was required. Root tree has all 558 app folders plus gallery and `.nojekyll`.
+- `node public-test.cjs` passed at **https://xianghui.github.io/daily-app2/20261109-19/**: live gallery equals local root bytes, new app and older categories render, public app HTML/JS/CSS/worker/factory hashes match local production files, shared WASM hash matches the immutable binary.
+- Entire browser workflow suite reran successfully with `TEST_URL` set to that **public URL**, including both real model fixtures, all review/export actions, offline fresh-worker inference, maximum batch/reimport, cancellation/retry/stale checks, injected failures and narrow layouts. `public-browser-validation.json` and `public-browser-test.log` record the actual public observations; independent artifact parsing passed again afterward.
+- Pre-existing uncommitted `20261109-17/` and `20261105-7/` work was preserved, not swept into this run’s commit. The pre-existing Receipt Current gallery/README additions were retained in the working tree and published gallery; staging adds only this run’s changes over source HEAD. No digest/announcement was sent.

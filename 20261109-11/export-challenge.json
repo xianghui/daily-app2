@@ -1,0 +1,90 @@
+{
+  "schema": "clock-harbor/v1",
+  "originalInput": {
+    "name": "Studio service desk",
+    "asOf": "2026-11-09T10:00Z",
+    "calendar": {
+      "weekdays": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "openHour": 9,
+      "closeHour": 17,
+      "holidays": [
+        "2026-11-10"
+      ]
+    },
+    "policies": [
+      {
+        "id": "access",
+        "description": "Account login failure, password reset and authentication access problems",
+        "minutes": 120
+      },
+      {
+        "id": "billing",
+        "description": "Invoice charges, payments, billing disputes and refunds",
+        "minutes": 240
+      },
+      {
+        "id": "hardware",
+        "description": "Broken physical equipment, damaged monitors and hardware repairs",
+        "minutes": 480
+      }
+    ],
+    "records": [
+      {
+        "id": "S1",
+        "text": "This is not a login failure and I do not need a password reset. There is no authentication problem.",
+        "created": "2026-11-06T16:00Z",
+        "pauses": []
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "S1",
+      "text": "This is not a login failure and I do not need a password reset. There is no authentication problem.",
+      "created": "2026-11-06T16:00Z",
+      "pauses": [],
+      "ranking": [
+        {
+          "policy": "access",
+          "score": 0.6333259853089815
+        },
+        {
+          "policy": "billing",
+          "score": -0.0005765523964251992
+        },
+        {
+          "policy": "hardware",
+          "score": -0.008099099864484312
+        }
+      ],
+      "proposed": "access",
+      "policy": "access",
+      "decision": "hold",
+      "note": "",
+      "baseline": "",
+      "due": null,
+      "naiveCalendarDue": null,
+      "budgetMinutes": null,
+      "excludedWallMinutes": null,
+      "status": "held"
+    }
+  ],
+  "counts": {
+    "total": 1,
+    "approved": 0,
+    "held": 1,
+    "due": 0
+  },
+  "comparison": {
+    "exactNameMatches": 0,
+    "aiProposed": 1,
+    "changed": 0,
+    "calendarAdjusted": 0
+  }
+}

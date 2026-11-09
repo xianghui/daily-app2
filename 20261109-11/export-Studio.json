@@ -1,0 +1,172 @@
+{
+  "schema": "clock-harbor/v1",
+  "originalInput": {
+    "name": "Studio service desk",
+    "asOf": "2026-11-09T10:00Z",
+    "calendar": {
+      "weekdays": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "openHour": 9,
+      "closeHour": 17,
+      "holidays": [
+        "2026-11-10"
+      ]
+    },
+    "policies": [
+      {
+        "id": "access",
+        "description": "Account login failure, password reset and authentication access problems",
+        "minutes": 120
+      },
+      {
+        "id": "billing",
+        "description": "Invoice charges, payments, billing disputes and refunds",
+        "minutes": 240
+      },
+      {
+        "id": "hardware",
+        "description": "Broken physical equipment, damaged monitors and hardware repairs",
+        "minutes": 480
+      }
+    ],
+    "records": [
+      {
+        "id": "S1",
+        "text": "Cannot sign into my account after forgetting my password",
+        "created": "2026-11-06T16:00Z",
+        "pauses": []
+      },
+      {
+        "id": "S2",
+        "text": "Charged twice on the invoice and need the duplicate payment returned",
+        "created": "2026-11-09T09:00Z",
+        "pauses": [
+          {
+            "start": "2026-11-09T09:30Z",
+            "end": "2026-11-09T10:00Z"
+          }
+        ]
+      },
+      {
+        "id": "S3",
+        "text": "The computer display is cracked and needs replacement",
+        "created": "2026-11-09T16:00Z",
+        "pauses": []
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "S1",
+      "text": "Cannot sign into my account after forgetting my password",
+      "created": "2026-11-06T16:00Z",
+      "pauses": [],
+      "ranking": [
+        {
+          "policy": "access",
+          "score": 0.7069751396635171
+        },
+        {
+          "policy": "billing",
+          "score": 0.06540562525361773
+        },
+        {
+          "policy": "hardware",
+          "score": 0.03815146714800026
+        }
+      ],
+      "proposed": "access",
+      "policy": "access",
+      "decision": "approve",
+      "note": "",
+      "baseline": "",
+      "due": "2026-11-09T10:00Z",
+      "naiveCalendarDue": "2026-11-06T18:00Z",
+      "budgetMinutes": 120,
+      "excludedWallMinutes": 3840,
+      "status": "due / overdue"
+    },
+    {
+      "id": "S2",
+      "text": "Charged twice on the invoice and need the duplicate payment returned",
+      "created": "2026-11-09T09:00Z",
+      "pauses": [
+        {
+          "start": "2026-11-09T09:30Z",
+          "end": "2026-11-09T10:00Z"
+        }
+      ],
+      "ranking": [
+        {
+          "policy": "billing",
+          "score": 0.5918863713725672
+        },
+        {
+          "policy": "access",
+          "score": 0.14913697021293099
+        },
+        {
+          "policy": "hardware",
+          "score": 0.10954272586964836
+        }
+      ],
+      "proposed": "billing",
+      "policy": "billing",
+      "decision": "approve",
+      "note": "",
+      "baseline": "",
+      "due": "2026-11-09T13:30Z",
+      "naiveCalendarDue": "2026-11-09T13:00Z",
+      "budgetMinutes": 240,
+      "excludedWallMinutes": 30,
+      "status": "within deadline"
+    },
+    {
+      "id": "S3",
+      "text": "The computer display is cracked and needs replacement",
+      "created": "2026-11-09T16:00Z",
+      "pauses": [],
+      "ranking": [
+        {
+          "policy": "hardware",
+          "score": 0.5626948783646343
+        },
+        {
+          "policy": "access",
+          "score": 0.15330637088996313
+        },
+        {
+          "policy": "billing",
+          "score": 0.06117185512461383
+        }
+      ],
+      "proposed": "hardware",
+      "policy": "hardware",
+      "decision": "approve",
+      "note": "",
+      "baseline": "",
+      "due": "2026-11-11T16:00Z",
+      "naiveCalendarDue": "2026-11-10T00:00Z",
+      "budgetMinutes": 480,
+      "excludedWallMinutes": 2400,
+      "status": "scheduled"
+    }
+  ],
+  "counts": {
+    "total": 3,
+    "approved": 3,
+    "held": 0,
+    "due": 1
+  },
+  "comparison": {
+    "exactNameMatches": 0,
+    "aiProposed": 3,
+    "changed": 0,
+    "calendarAdjusted": 3
+  }
+}

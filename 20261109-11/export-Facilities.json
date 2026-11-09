@@ -1,0 +1,172 @@
+{
+  "schema": "clock-harbor/v1",
+  "originalInput": {
+    "name": "Facilities request desk",
+    "asOf": "2026-11-11T12:00Z",
+    "calendar": {
+      "weekdays": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "openHour": 8,
+      "closeHour": 16,
+      "holidays": [
+        "2026-11-09"
+      ]
+    },
+    "policies": [
+      {
+        "id": "water",
+        "description": "Leaking plumbing, dripping taps, burst water pipes and blocked drains",
+        "minutes": 60
+      },
+      {
+        "id": "climate",
+        "description": "Heating and air conditioning, room temperature and ventilation problems",
+        "minutes": 180
+      },
+      {
+        "id": "keys",
+        "description": "Door keys, locks and building entry access badges",
+        "minutes": 120
+      }
+    ],
+    "records": [
+      {
+        "id": "F1",
+        "text": "Water is dripping steadily from the sink faucet",
+        "created": "2026-11-06T15:30Z",
+        "pauses": []
+      },
+      {
+        "id": "F2",
+        "text": "The meeting room is too cold because the air conditioner will not stop",
+        "created": "2026-11-11T10:00Z",
+        "pauses": []
+      },
+      {
+        "id": "F3",
+        "text": "My entry card no longer opens the front door",
+        "created": "2026-11-11T11:00Z",
+        "pauses": [
+          {
+            "start": "2026-11-11T11:15Z",
+            "end": "2026-11-11T11:45Z"
+          }
+        ]
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "F1",
+      "text": "Water is dripping steadily from the sink faucet",
+      "created": "2026-11-06T15:30Z",
+      "pauses": [],
+      "ranking": [
+        {
+          "policy": "water",
+          "score": 0.4918109684837748
+        },
+        {
+          "policy": "climate",
+          "score": -0.12661462447120236
+        },
+        {
+          "policy": "keys",
+          "score": -0.14669638382079495
+        }
+      ],
+      "proposed": "water",
+      "policy": "water",
+      "decision": "approve",
+      "note": "",
+      "baseline": "",
+      "due": "2026-11-10T08:30Z",
+      "naiveCalendarDue": "2026-11-06T16:30Z",
+      "budgetMinutes": 60,
+      "excludedWallMinutes": 5280,
+      "status": "due / overdue"
+    },
+    {
+      "id": "F2",
+      "text": "The meeting room is too cold because the air conditioner will not stop",
+      "created": "2026-11-11T10:00Z",
+      "pauses": [],
+      "ranking": [
+        {
+          "policy": "climate",
+          "score": 0.48012432900966073
+        },
+        {
+          "policy": "keys",
+          "score": 0.09491222300620418
+        },
+        {
+          "policy": "water",
+          "score": 0.03034422871164432
+        }
+      ],
+      "proposed": "climate",
+      "policy": "climate",
+      "decision": "approve",
+      "note": "",
+      "baseline": "",
+      "due": "2026-11-11T13:00Z",
+      "naiveCalendarDue": "2026-11-11T13:00Z",
+      "budgetMinutes": 180,
+      "excludedWallMinutes": 0,
+      "status": "within deadline"
+    },
+    {
+      "id": "F3",
+      "text": "My entry card no longer opens the front door",
+      "created": "2026-11-11T11:00Z",
+      "pauses": [
+        {
+          "start": "2026-11-11T11:15Z",
+          "end": "2026-11-11T11:45Z"
+        }
+      ],
+      "ranking": [
+        {
+          "policy": "keys",
+          "score": 0.4028606431189921
+        },
+        {
+          "policy": "climate",
+          "score": 0.03261996992926745
+        },
+        {
+          "policy": "water",
+          "score": 0.018560358319026082
+        }
+      ],
+      "proposed": "keys",
+      "policy": "keys",
+      "decision": "approve",
+      "note": "",
+      "baseline": "",
+      "due": "2026-11-11T13:30Z",
+      "naiveCalendarDue": "2026-11-11T13:00Z",
+      "budgetMinutes": 120,
+      "excludedWallMinutes": 30,
+      "status": "within deadline"
+    }
+  ],
+  "counts": {
+    "total": 3,
+    "approved": 3,
+    "held": 0,
+    "due": 1
+  },
+  "comparison": {
+    "exactNameMatches": 0,
+    "aiProposed": 3,
+    "changed": 0,
+    "calendarAdjusted": 2
+  }
+}

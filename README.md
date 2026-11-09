@@ -178,3 +178,7 @@ Local MiniLM symptom-to-signature retrieval plus exact budgeted diagnostic-check
 ## Screening Harbor — 20261109-9
 
 Local MiniLM opposing-anchor evidence supports multi-criterion title/abstract screening with mandatory human decisions, primary exclusion reasons and complete JSON/CSV/Markdown exports. Two simple synthetic fixtures matched 8/8 intended proposals and reasons; negation and missing-design challenges failed, so no automated eligibility or accuracy claim is made. Offline fresh-worker inference is tested only within an already-open cached page. Reuses immutable shared WASM from `20261107-2`; preserve that asset. See [workflow and limits](20261109-9/README.md) and [observed validation](20261109-9/VALIDATION.md).
+
+## Measure Moor — 20261109-10
+
+Local real MiniLM metric-description matching plus dimension-checked affine unit conversion helps operations analysts normalize measurement batches. Every row needs human approval or hold; original values survive complete JSON/CSV/Markdown audits. Two tiny synthetic batches matched 8/8 expected metric links, six conversions and two incompatible-unit blocks; a negated temperature description still mislinked, so similarity is not equivalence. Offline fresh-worker inference is tested only within an already-open cached page. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow/privacy](20261109-10/README.md) and [observed checks](20261109-10/VALIDATION.md).

@@ -239,3 +239,8 @@ Real local MiniLM retrieves reworded BOM components for mandatory human review; 
 ## Question Compass — 20261109-23
 
 Real local MiniLM question-to-anchor inference assists interview-guide framing review. Human-written revisions, mandatory approval/holds, integer-minute budget checks and complete JSON/CSV/Markdown preserve every original prompt. Seven of eight tiny fixture labels matched; a multi-part question was misclassified and an assumed-premise challenge was missed, so this is not bias certification. Fresh-worker offline inference tested only inside an already-open page. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow/privacy](20261109-23/README.md) and [observed validation](20261109-23/VALIDATION.md).
+
+
+## Panel Ledger — 20261109-24
+
+Real local MiniLM bio-to-experience retrieval assists low-stakes pilot-panel planning. Mandatory human review/holds feed exact quota-constrained priority maximization with complete JSON/CSV/Markdown panel, reserve and held audits. Both tiny synthetic fixtures matched all 16 intended group links; negated/unrelated bios still receive unsuitable closest-group proposals. 500 generated cases matched an independent exhaustive solver. Fresh-worker offline inference is tested only inside an already-open page. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261109-24/README.md) and [observed validation](20261109-24/VALIDATION.md).

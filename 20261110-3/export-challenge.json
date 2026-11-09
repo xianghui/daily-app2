@@ -1,0 +1,501 @@
+{
+  "app": "Quote Canopy",
+  "schemaVersion": 1,
+  "originalInput": {
+    "name": "Community print room",
+    "goal": "Buy complete quantities, compare supplier opening fees, and avoid splitting any requirement across suppliers.",
+    "currency": "USD",
+    "requirements": [
+      {
+        "id": "R1",
+        "description": "White A4 office printer paper, pack of 500 sheets",
+        "unit": "ream",
+        "quantity": 10
+      },
+      {
+        "id": "R2",
+        "description": "Black toner cartridge for laser printer",
+        "unit": "cartridge",
+        "quantity": 2
+      },
+      {
+        "id": "R3",
+        "description": "Cardboard document storage archive box",
+        "unit": "box",
+        "quantity": 4
+      }
+    ],
+    "vendors": [
+      {
+        "id": "V1",
+        "name": "Paper Grove",
+        "feeCents": 3000
+      },
+      {
+        "id": "V2",
+        "name": "Office Birch",
+        "feeCents": 300
+      }
+    ],
+    "quotes": [
+      {
+        "id": "Q1",
+        "vendor": "V1",
+        "description": "NOT white A4 copier paper. Do not use this for printing.",
+        "unit": "ream",
+        "unitCents": 400,
+        "maxQuantity": 20
+      },
+      {
+        "id": "Q2",
+        "vendor": "V2",
+        "description": "Live music performance with a violin",
+        "unit": "ream",
+        "unitCents": 450,
+        "maxQuantity": 30
+      },
+      {
+        "id": "Q3",
+        "vendor": "V1",
+        "description": "Laser printing black toner replacement",
+        "unit": "cartridge",
+        "unitCents": 2000,
+        "maxQuantity": 5
+      },
+      {
+        "id": "Q4",
+        "vendor": "V2",
+        "description": "Black laser printer toner refill cartridge",
+        "unit": "cartridge",
+        "unitCents": 2100,
+        "maxQuantity": 5
+      },
+      {
+        "id": "Q5",
+        "vendor": "V1",
+        "description": "Cardboard archive file storage carton",
+        "unit": "box",
+        "unitCents": 500,
+        "maxQuantity": 8
+      },
+      {
+        "id": "Q6",
+        "vendor": "V2",
+        "description": "Document archive storage box cardboard",
+        "unit": "box",
+        "unitCents": 550,
+        "maxQuantity": 8
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "Q1",
+      "vendor": "V1",
+      "description": "NOT white A4 copier paper. Do not use this for printing.",
+      "unit": "ream",
+      "unitCents": 400,
+      "maxQuantity": 20,
+      "requirement": "R1",
+      "proposed": "R1",
+      "note": "",
+      "decision": "hold",
+      "ranking": [
+        {
+          "id": "R1",
+          "description": "White A4 office printer paper, pack of 500 sheets",
+          "unit": "ream",
+          "quantity": 10,
+          "score": 0.6874260693858117
+        },
+        {
+          "id": "R2",
+          "description": "Black toner cartridge for laser printer",
+          "unit": "cartridge",
+          "quantity": 2,
+          "score": 0.3907390547986934
+        },
+        {
+          "id": "R3",
+          "description": "Cardboard document storage archive box",
+          "unit": "box",
+          "quantity": 4,
+          "score": 0.2625242118313478
+        }
+      ],
+      "eligible": false
+    },
+    {
+      "id": "Q2",
+      "vendor": "V2",
+      "description": "Live music performance with a violin",
+      "unit": "ream",
+      "unitCents": 450,
+      "maxQuantity": 30,
+      "requirement": "R3",
+      "proposed": "R3",
+      "note": "",
+      "decision": "exclude",
+      "ranking": [
+        {
+          "id": "R3",
+          "description": "Cardboard document storage archive box",
+          "unit": "box",
+          "quantity": 4,
+          "score": -0.03336635966209345
+        },
+        {
+          "id": "R2",
+          "description": "Black toner cartridge for laser printer",
+          "unit": "cartridge",
+          "quantity": 2,
+          "score": -0.06495362097067978
+        },
+        {
+          "id": "R1",
+          "description": "White A4 office printer paper, pack of 500 sheets",
+          "unit": "ream",
+          "quantity": 10,
+          "score": -0.08793260776334284
+        }
+      ],
+      "eligible": false
+    },
+    {
+      "id": "Q3",
+      "vendor": "V1",
+      "description": "Laser printing black toner replacement",
+      "unit": "cartridge",
+      "unitCents": 2000,
+      "maxQuantity": 5,
+      "requirement": "R2",
+      "proposed": "R2",
+      "note": "",
+      "decision": "approve",
+      "ranking": [
+        {
+          "id": "R2",
+          "description": "Black toner cartridge for laser printer",
+          "unit": "cartridge",
+          "quantity": 2,
+          "score": 0.8867012848087135
+        },
+        {
+          "id": "R1",
+          "description": "White A4 office printer paper, pack of 500 sheets",
+          "unit": "ream",
+          "quantity": 10,
+          "score": 0.3187534108852727
+        },
+        {
+          "id": "R3",
+          "description": "Cardboard document storage archive box",
+          "unit": "box",
+          "quantity": 4,
+          "score": 0.06925934939902813
+        }
+      ],
+      "eligible": true
+    },
+    {
+      "id": "Q4",
+      "vendor": "V2",
+      "description": "Black laser printer toner refill cartridge",
+      "unit": "cartridge",
+      "unitCents": 2100,
+      "maxQuantity": 5,
+      "requirement": "R2",
+      "proposed": "R2",
+      "note": "",
+      "decision": "approve",
+      "ranking": [
+        {
+          "id": "R2",
+          "description": "Black toner cartridge for laser printer",
+          "unit": "cartridge",
+          "quantity": 2,
+          "score": 0.9010835623491285
+        },
+        {
+          "id": "R1",
+          "description": "White A4 office printer paper, pack of 500 sheets",
+          "unit": "ream",
+          "quantity": 10,
+          "score": 0.30091170377935916
+        },
+        {
+          "id": "R3",
+          "description": "Cardboard document storage archive box",
+          "unit": "box",
+          "quantity": 4,
+          "score": 0.13720263282214107
+        }
+      ],
+      "eligible": true
+    },
+    {
+      "id": "Q5",
+      "vendor": "V1",
+      "description": "Cardboard archive file storage carton",
+      "unit": "box",
+      "unitCents": 500,
+      "maxQuantity": 8,
+      "requirement": "R3",
+      "proposed": "R3",
+      "note": "",
+      "decision": "approve",
+      "ranking": [
+        {
+          "id": "R3",
+          "description": "Cardboard document storage archive box",
+          "unit": "box",
+          "quantity": 4,
+          "score": 0.822647318687622
+        },
+        {
+          "id": "R1",
+          "description": "White A4 office printer paper, pack of 500 sheets",
+          "unit": "ream",
+          "quantity": 10,
+          "score": 0.2873187195110529
+        },
+        {
+          "id": "R2",
+          "description": "Black toner cartridge for laser printer",
+          "unit": "cartridge",
+          "quantity": 2,
+          "score": 0.12782955765419074
+        }
+      ],
+      "eligible": true
+    },
+    {
+      "id": "Q6",
+      "vendor": "V2",
+      "description": "Document archive storage box cardboard",
+      "unit": "box",
+      "unitCents": 550,
+      "maxQuantity": 8,
+      "requirement": "R3",
+      "proposed": "R3",
+      "note": "",
+      "decision": "approve",
+      "ranking": [
+        {
+          "id": "R3",
+          "description": "Cardboard document storage archive box",
+          "unit": "box",
+          "quantity": 4,
+          "score": 0.9838110365683402
+        },
+        {
+          "id": "R1",
+          "description": "White A4 office printer paper, pack of 500 sheets",
+          "unit": "ream",
+          "quantity": 10,
+          "score": 0.3928497057428668
+        },
+        {
+          "id": "R2",
+          "description": "Black toner cartridge for laser printer",
+          "unit": "cartridge",
+          "quantity": 2,
+          "score": 0.1368088780522338
+        }
+      ],
+      "eligible": true
+    }
+  ],
+  "optimal": {
+    "choices": [
+      {
+        "id": "Q4",
+        "vendor": "V2",
+        "description": "Black laser printer toner refill cartridge",
+        "unit": "cartridge",
+        "unitCents": 2100,
+        "maxQuantity": 5,
+        "requirement": "R2",
+        "proposed": "R2",
+        "note": "",
+        "decision": "approve",
+        "ranking": [
+          {
+            "id": "R2",
+            "description": "Black toner cartridge for laser printer",
+            "unit": "cartridge",
+            "quantity": 2,
+            "score": 0.9010835623491285
+          },
+          {
+            "id": "R1",
+            "description": "White A4 office printer paper, pack of 500 sheets",
+            "unit": "ream",
+            "quantity": 10,
+            "score": 0.30091170377935916
+          },
+          {
+            "id": "R3",
+            "description": "Cardboard document storage archive box",
+            "unit": "box",
+            "quantity": 4,
+            "score": 0.13720263282214107
+          }
+        ],
+        "eligible": true,
+        "quantity": 2,
+        "lineCents": 4200
+      },
+      {
+        "id": "Q6",
+        "vendor": "V2",
+        "description": "Document archive storage box cardboard",
+        "unit": "box",
+        "unitCents": 550,
+        "maxQuantity": 8,
+        "requirement": "R3",
+        "proposed": "R3",
+        "note": "",
+        "decision": "approve",
+        "ranking": [
+          {
+            "id": "R3",
+            "description": "Cardboard document storage archive box",
+            "unit": "box",
+            "quantity": 4,
+            "score": 0.9838110365683402
+          },
+          {
+            "id": "R1",
+            "description": "White A4 office printer paper, pack of 500 sheets",
+            "unit": "ream",
+            "quantity": 10,
+            "score": 0.3928497057428668
+          },
+          {
+            "id": "R2",
+            "description": "Black toner cartridge for laser printer",
+            "unit": "cartridge",
+            "quantity": 2,
+            "score": 0.1368088780522338
+          }
+        ],
+        "eligible": true,
+        "quantity": 4,
+        "lineCents": 2200
+      }
+    ],
+    "subtotalCents": 6400,
+    "feeCents": 300,
+    "totalCents": 6700,
+    "vendors": [
+      "V2"
+    ],
+    "missing": [
+      "R1"
+    ]
+  },
+  "baseline": {
+    "choices": [
+      {
+        "id": "Q3",
+        "vendor": "V1",
+        "description": "Laser printing black toner replacement",
+        "unit": "cartridge",
+        "unitCents": 2000,
+        "maxQuantity": 5,
+        "requirement": "R2",
+        "proposed": "R2",
+        "note": "",
+        "decision": "approve",
+        "ranking": [
+          {
+            "id": "R2",
+            "description": "Black toner cartridge for laser printer",
+            "unit": "cartridge",
+            "quantity": 2,
+            "score": 0.8867012848087135
+          },
+          {
+            "id": "R1",
+            "description": "White A4 office printer paper, pack of 500 sheets",
+            "unit": "ream",
+            "quantity": 10,
+            "score": 0.3187534108852727
+          },
+          {
+            "id": "R3",
+            "description": "Cardboard document storage archive box",
+            "unit": "box",
+            "quantity": 4,
+            "score": 0.06925934939902813
+          }
+        ],
+        "eligible": true,
+        "quantity": 2,
+        "lineCents": 4000
+      },
+      {
+        "id": "Q5",
+        "vendor": "V1",
+        "description": "Cardboard archive file storage carton",
+        "unit": "box",
+        "unitCents": 500,
+        "maxQuantity": 8,
+        "requirement": "R3",
+        "proposed": "R3",
+        "note": "",
+        "decision": "approve",
+        "ranking": [
+          {
+            "id": "R3",
+            "description": "Cardboard document storage archive box",
+            "unit": "box",
+            "quantity": 4,
+            "score": 0.822647318687622
+          },
+          {
+            "id": "R1",
+            "description": "White A4 office printer paper, pack of 500 sheets",
+            "unit": "ream",
+            "quantity": 10,
+            "score": 0.2873187195110529
+          },
+          {
+            "id": "R2",
+            "description": "Black toner cartridge for laser printer",
+            "unit": "cartridge",
+            "quantity": 2,
+            "score": 0.12782955765419074
+          }
+        ],
+        "eligible": true,
+        "quantity": 4,
+        "lineCents": 2000
+      }
+    ],
+    "subtotalCents": 6000,
+    "feeCents": 3000,
+    "totalCents": 9000,
+    "vendors": [
+      "V1"
+    ],
+    "missing": [
+      "R1"
+    ]
+  },
+  "summary": {
+    "quotes": 6,
+    "approved": 4,
+    "held": 1,
+    "excluded": 1,
+    "covered": 2,
+    "missing": 1
+  },
+  "metrics": {
+    "exactDescriptionMatches": 0,
+    "aiProposals": 6,
+    "aiReviewAgreement": 4,
+    "feeInclusiveDifferenceCents": 2300
+  }
+}

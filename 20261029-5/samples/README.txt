@@ -1,0 +1,1 @@
+Synthetic demonstration fixtures adapted from the Daily Object Lab test suite: raster mark, JPEG waves, simple ring SVG, ASCII wedge and binary gem. No personal or third-party source meshes. Try all from the Import panel. Image workflows produce 2D-to-relief geometry; STL fixtures fit the explicitly supported closed convex flat-bottom grip contract.

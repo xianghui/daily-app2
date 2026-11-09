@@ -1,0 +1,1 @@
+Stereo & Scene samples are synthetic original fixtures, dedicated to CC0. mark.png, waves.jpg, ring.svg, wedge-ascii.stl and gem-binary.stl are locally authored import demonstrations reused from earlier Daily Object Lab studios. stereo-pair.svg is a new 104 × 44 mm two-scene print card, 60 mm lens spacing. No private uploads or third-party reference meshes included.

@@ -1,0 +1,1 @@
+Hum & Flutter examples are synthetic original CC0 fixtures. mark.png, waves.jpg, ring.svg, wedge-ascii.stl and gem-binary.stl demonstrate local imports. Shared Daily Object Lab fixtures; no private uploads or raw third-party reference mesh included.

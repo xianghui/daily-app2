@@ -1,0 +1,1 @@
+Lift & Reeving examples are synthetic original fixtures, dedicated to CC0. mark.png, waves.jpg, ring.svg, wedge-ascii.stl and gem-binary.stl demonstrate local imports. Reused Daily Object Lab fixtures; no private uploads or third-party reference mesh included.

@@ -190,3 +190,7 @@ Real local MiniLM request-to-policy matching plus deterministic UTC working-hour
 ## Round Circuit — 20261109-12
 
 Local MiniLM inspection-to-checkpoint retrieval plus exact closed walking-round optimization on supplied corridor graphs. Review/holds and complete JSON/CSV/Markdown preserve all checks. Seven simple checkpoint links matched across two synthetic facilities fixtures; a negated cafe instruction still mislinked, so mandatory human review remains essential. Offline fresh-worker inference is tested only inside an already-open cached page. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow](20261109-12/README.md) and [observed checks](20261109-12/VALIDATION.md).
+
+## Cut Ledger — 20261109-13
+
+Real local MiniLM material matching plus exact minimum-board one-dimensional cutting allocation with conservative kerf accounting. Mandatory human review/holds and complete JSON/CSV/Markdown preserve every piece. Two tiny synthetic batches matched 12/12 material links; each used three stock lengths vs four next-fit baseline. A negated pine prohibition still mislinked, so similarity is not material compatibility. Fresh-worker offline inference is tested only inside an already-open cached page. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow](20261109-13/README.md) and [observed checks](20261109-13/VALIDATION.md).

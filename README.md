@@ -270,3 +270,8 @@ Real local MiniLM abstract-to-expertise inference assists mandatory human-review
 ## Recall Ledger — 20261110-5
 
 Real local MiniLM matches rough recall-session notes to supplied flashcards; mandatory human card verification and recall ratings drive transparent SM-2-style review dates. All notes, holds and untouched cards survive JSON, with reviewed CSV/Markdown outputs. Six tiny fixture links matched versus zero exact-title hits; negated/unrelated text still mislinks, so AI never grades recall. Fresh-worker offline inference is tested only inside an already-open cached page. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261110-5/README.md) and [observed checks](20261110-5/VALIDATION.md).
+
+
+## Unpublished draft — Driver Ledger (20261110-6)
+
+Real local MiniLM matched 10/10 tiny synthetic activity-to-cost-pool links; reviewed integer-cent allocation, 2,000 generated conservation/rounding cases, current JSON/CSV/Markdown artifacts, offline fresh-worker inference and defensive browser checks passed. Three GitHub Pages workflows built successfully but failed during deployment: two synchronization timeouts and one immediate cancellation. The new public URL remained HTTP 404, preventing public AI/runtime verification. This tested draft is excluded from APPS and the restored combined deployment; do not count it as completed. Reducing the model cannot repair Pages synchronization: the new app adds only ~0.9 MB and already reuses immutable collection WASM. Preserve old apps and resolve hosting before promotion. See [draft workflow](20261110-6/README.md), [observed validation](20261110-6/VALIDATION.md), [hosting attempts](20261110-6/hosting-attempts.json) and [publication status](20261110-6/publication-status.json).

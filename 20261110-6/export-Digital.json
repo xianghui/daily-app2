@@ -1,0 +1,216 @@
+{
+  "version": 1,
+  "originalInput": {
+    "name": "Digital studio",
+    "pools": [
+      {
+        "id": "D1",
+        "title": "Render farm",
+        "description": "Computing animation frames and rendering three dimensional visual effects on servers.",
+        "cents": 24001,
+        "unit": "render hours"
+      },
+      {
+        "id": "D2",
+        "title": "Voice recording",
+        "description": "Recording narration and spoken dialogue using microphones in an audio studio.",
+        "cents": 9001,
+        "unit": "studio hours"
+      },
+      {
+        "id": "D3",
+        "title": "Travel",
+        "description": "Traveling to client locations using trains and taxis.",
+        "cents": 2001,
+        "unit": "trips"
+      }
+    ],
+    "activities": [
+      {
+        "id": "B1",
+        "product": "Film",
+        "text": "Computed animation frames and visual effects on the server cluster.",
+        "units": 3
+      },
+      {
+        "id": "B2",
+        "product": "Trailer",
+        "text": "Rendered three dimensional scenes on the server farm.",
+        "units": 1
+      },
+      {
+        "id": "B3",
+        "product": "Film",
+        "text": "Recorded spoken narration using the studio microphone.",
+        "units": 1
+      },
+      {
+        "id": "B4",
+        "product": "Trailer",
+        "text": "Captured voice dialogue in the audio booth.",
+        "units": 2
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "B1",
+      "pool": "D1",
+      "proposed": "D1",
+      "candidates": [
+        {
+          "pool": "D1",
+          "cosine": 0.788313264926052
+        },
+        {
+          "pool": "D3",
+          "cosine": 0.16813758393866002
+        },
+        {
+          "pool": "D2",
+          "cosine": 0.1591833005414663
+        }
+      ],
+      "units": 3,
+      "decision": "approve",
+      "note": "",
+      "source": "Computed animation frames and visual effects on the server cluster.",
+      "product": "Film",
+      "cents": 18001
+    },
+    {
+      "id": "B2",
+      "pool": "D1",
+      "proposed": "D1",
+      "candidates": [
+        {
+          "pool": "D1",
+          "cosine": 0.7924063304116733
+        },
+        {
+          "pool": "D2",
+          "cosine": 0.15967426287446532
+        },
+        {
+          "pool": "D3",
+          "cosine": 0.09492589341083013
+        }
+      ],
+      "units": 1,
+      "decision": "approve",
+      "note": "",
+      "source": "Rendered three dimensional scenes on the server farm.",
+      "product": "Trailer",
+      "cents": 6000
+    },
+    {
+      "id": "B3",
+      "pool": "D2",
+      "proposed": "D2",
+      "candidates": [
+        {
+          "pool": "D2",
+          "cosine": 0.8235561500974639
+        },
+        {
+          "pool": "D1",
+          "cosine": 0.09698336517994799
+        },
+        {
+          "pool": "D3",
+          "cosine": 0.03492162910011962
+        }
+      ],
+      "units": 1,
+      "decision": "approve",
+      "note": "",
+      "source": "Recorded spoken narration using the studio microphone.",
+      "product": "Film",
+      "cents": 3000
+    },
+    {
+      "id": "B4",
+      "pool": "D2",
+      "proposed": "D2",
+      "candidates": [
+        {
+          "pool": "D2",
+          "cosine": 0.7170989122037038
+        },
+        {
+          "pool": "D1",
+          "cosine": 0.1294149132279598
+        },
+        {
+          "pool": "D3",
+          "cosine": 0.045957907719245135
+        }
+      ],
+      "units": 2,
+      "decision": "approve",
+      "note": "",
+      "source": "Captured voice dialogue in the audio booth.",
+      "product": "Trailer",
+      "cents": 6001
+    }
+  ],
+  "pools": [
+    {
+      "id": "D1",
+      "title": "Render farm",
+      "description": "Computing animation frames and rendering three dimensional visual effects on servers.",
+      "cents": 24001,
+      "unit": "render hours",
+      "driverUnits": 4,
+      "allocated": 24001,
+      "unallocated": 0
+    },
+    {
+      "id": "D2",
+      "title": "Voice recording",
+      "description": "Recording narration and spoken dialogue using microphones in an audio studio.",
+      "cents": 9001,
+      "unit": "studio hours",
+      "driverUnits": 3,
+      "allocated": 9001,
+      "unallocated": 0
+    },
+    {
+      "id": "D3",
+      "title": "Travel",
+      "description": "Traveling to client locations using trains and taxis.",
+      "cents": 2001,
+      "unit": "trips",
+      "driverUnits": 0,
+      "allocated": 0,
+      "unallocated": 2001
+    }
+  ],
+  "products": [
+    {
+      "product": "Film",
+      "cents": 21001
+    },
+    {
+      "product": "Trailer",
+      "cents": 12001
+    }
+  ],
+  "baseline": [
+    null,
+    null,
+    null,
+    null
+  ],
+  "metrics": {
+    "activities": 4,
+    "approved": 4,
+    "held": 0,
+    "totalCents": 35003,
+    "allocatedCents": 33002,
+    "unallocatedCents": 2001,
+    "exactTitleMatches": 0,
+    "confirmedAI": 4
+  },
+  "method": "Human-verified pool links and driver units; per-pool proportional integer-cent allocation with largest remainder, input-order ties. No activity means unallocated. Held activities receive no allocation. Relative allocations are provisional if activities are incomplete."
+}

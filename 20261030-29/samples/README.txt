@@ -1,1 +1,0 @@
-Original synthetic studio fixtures. PNG/JPEG/SVG make real protected closure engravings; ASCII/binary STL create an exact Boolean mesh engraving in the same closure. No personal files or raw reference meshes included. Freely reusable.

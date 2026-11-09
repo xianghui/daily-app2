@@ -1,1 +1,0 @@
-Cone & Cut samples are shared Daily Object Lab synthetic original CC0 fixtures: mark.png, waves.jpg, ring.svg, wedge-ascii.stl and gem-binary.stl. No personal uploads or third-party raw reference meshes.

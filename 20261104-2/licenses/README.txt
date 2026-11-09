@@ -1,1 +1,0 @@
-Runtime and font license notices bundled with Geneva & Index. React/ReactDOM MIT; Three MIT; Manifold Apache-2.0; fflate MIT; Fredoka/Rubik SIL OFL. The source reference is separately attributed in the app README and assembly guide. Local code uses synthetic fixtures, not bundled reference STL.

@@ -1,1 +1,0 @@
-Original synthetic studio fixtures. PNG/JPEG/SVG make real protected deck engravings; ASCII/binary STL make an exact Boolean mesh cavity in the same protected deck badge. No personal files or raw third-party reference meshes included. Freely reusable.

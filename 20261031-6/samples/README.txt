@@ -1,1 +1,0 @@
-Original synthetic studio fixtures (CC0). PNG/JPEG/SVG make real protected signature lug engravings; ASCII/binary STL creates an exact Boolean mesh engraving in the same signature lug. No personal files or raw reference meshes included.

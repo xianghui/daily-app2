@@ -1,0 +1,160 @@
+{
+  "schema": "screening-harbor/v1",
+  "originalInput": {
+    "name": "Urban birds review",
+    "question": "Which empirical field studies concern urban birds?",
+    "criteria": [
+      {
+        "id": "C1",
+        "label": "Species and setting",
+        "include": "Bird populations nesting in urban city parks and gardens.",
+        "exclude": "Marine fish populations swimming in ocean coral reefs."
+      },
+      {
+        "id": "C2",
+        "label": "Evidence type",
+        "include": "Empirical field study collecting measurements and observations of wild animals outdoors.",
+        "exclude": "Theoretical mathematical simulation using computer models without field observations or collected measurements."
+      }
+    ],
+    "papers": [
+      {
+        "id": "P1",
+        "title": "Park nesting census",
+        "text": "An empirical field study collected outdoor observations and measurements of wild bird populations nesting in urban city parks."
+      },
+      {
+        "id": "P2",
+        "title": "Reef fish census",
+        "text": "An empirical field study collected outdoor observations and measurements of wild marine fish populations swimming in ocean coral reefs."
+      },
+      {
+        "id": "P3",
+        "title": "Simulated city nests",
+        "text": "A theoretical mathematical simulation used computer models of bird populations nesting in urban city gardens without field observations or collected measurements."
+      },
+      {
+        "id": "P4",
+        "title": "Garden bird watch",
+        "text": "An empirical field study collected outdoor measurements and observations of wild birds nesting in urban city gardens."
+      }
+    ]
+  },
+  "papers": [
+    {
+      "id": "P1",
+      "title": "Park nesting census",
+      "text": "An empirical field study collected outdoor observations and measurements of wild bird populations nesting in urban city parks.",
+      "proposed": "include",
+      "proposedReason": "",
+      "baseline": "uncertain",
+      "evidence": [
+        {
+          "criterion": "C1",
+          "include": 0.8590879837497235,
+          "exclude": 0.20978001895044984,
+          "side": "include"
+        },
+        {
+          "criterion": "C2",
+          "include": 0.6322370985873456,
+          "exclude": 0.11233639559446812,
+          "side": "include"
+        }
+      ],
+      "decision": "include",
+      "reason": "C1",
+      "note": "=1+1\nReviewed, \"scoped\" 🪷"
+    },
+    {
+      "id": "P2",
+      "title": "Reef fish census",
+      "text": "An empirical field study collected outdoor observations and measurements of wild marine fish populations swimming in ocean coral reefs.",
+      "proposed": "exclude",
+      "proposedReason": "C1",
+      "baseline": "exclude",
+      "evidence": [
+        {
+          "criterion": "C1",
+          "include": 0.289736572222703,
+          "exclude": 0.7650926481877739,
+          "side": "exclude"
+        },
+        {
+          "criterion": "C2",
+          "include": 0.5925081809460506,
+          "exclude": 0.164884080349109,
+          "side": "include"
+        }
+      ],
+      "decision": "exclude",
+      "reason": "C1",
+      "note": ""
+    },
+    {
+      "id": "P3",
+      "title": "Simulated city nests",
+      "text": "A theoretical mathematical simulation used computer models of bird populations nesting in urban city gardens without field observations or collected measurements.",
+      "proposed": "exclude",
+      "proposedReason": "C2",
+      "baseline": "uncertain",
+      "evidence": [
+        {
+          "criterion": "C1",
+          "include": 0.7638203660057237,
+          "exclude": 0.16572216864896067,
+          "side": "include"
+        },
+        {
+          "criterion": "C2",
+          "include": 0.4086168484782069,
+          "exclude": 0.5033358797936375,
+          "side": "exclude"
+        }
+      ],
+      "decision": "exclude",
+      "reason": "C2",
+      "note": ""
+    },
+    {
+      "id": "P4",
+      "title": "Garden bird watch",
+      "text": "An empirical field study collected outdoor measurements and observations of wild birds nesting in urban city gardens.",
+      "proposed": "include",
+      "proposedReason": "",
+      "baseline": "uncertain",
+      "evidence": [
+        {
+          "criterion": "C1",
+          "include": 0.8114031326540119,
+          "exclude": 0.11863934627802203,
+          "side": "include"
+        },
+        {
+          "criterion": "C2",
+          "include": 0.6372368533323247,
+          "exclude": 0.13480106890390342,
+          "side": "include"
+        }
+      ],
+      "decision": "uncertain",
+      "reason": "C1",
+      "note": ""
+    }
+  ],
+  "counts": {
+    "total": 4,
+    "include": 1,
+    "exclude": 2,
+    "uncertain": 1
+  },
+  "exclusionReasons": {
+    "C1": 1,
+    "C2": 1
+  },
+  "comparison": {
+    "exactPhraseResolved": 1,
+    "aiProposed": 4,
+    "reviewerChanged": 1
+  }
+}

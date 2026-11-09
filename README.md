@@ -174,3 +174,7 @@ Local MiniLM semantic insertion costs and exact capacity-slot assignment help ed
 ## Fault Lantern — 20261109-8
 
 Local MiniLM symptom-to-signature retrieval plus exact budgeted diagnostic-check coverage, mandatory review/holds and complete JSON/CSV/Markdown audits. Six simple expected matches passed; a negated jam observation still matched jam, so no automatic diagnosis is claimed. Both catalogs cover three approved observations in five assumed minutes vs two in four for input-order baseline. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow](20261109-8/README.md) and [validation](20261109-8/VALIDATION.md).
+
+## Screening Harbor — 20261109-9
+
+Local MiniLM opposing-anchor evidence supports multi-criterion title/abstract screening with mandatory human decisions, primary exclusion reasons and complete JSON/CSV/Markdown exports. Two simple synthetic fixtures matched 8/8 intended proposals and reasons; negation and missing-design challenges failed, so no automated eligibility or accuracy claim is made. Offline fresh-worker inference is tested only within an already-open cached page. Reuses immutable shared WASM from `20261107-2`; preserve that asset. See [workflow and limits](20261109-9/README.md) and [observed validation](20261109-9/VALIDATION.md).

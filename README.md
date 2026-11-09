@@ -224,3 +224,8 @@ Real local MiniLM ingredient retrieval plus human-reviewed earliest-expiry lot r
 ## Setup Harbor — 20261109-20
 
 Real local MiniLM setup-family retrieval plus exhaustive single-machine sequencing balances transition minutes against weighted tardiness. Mandatory review/holds and complete JSON/CSV/Markdown preserve every job. Both tiny synthetic queues matched all eight intended families; computed objectives were 32 vs 171 and 30 vs 159 input-order, not measured savings. Negation still mislinked. Fresh-worker offline inference tested only inside an already-open page. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261109-20/README.md) and [observed validation](20261109-20/VALIDATION.md).
+
+
+## Borrow Bridge — 20261109-21
+
+Real local MiniLM equipment matching plus minimum-unit fixed-interval checkout allocation with turnaround buffers and explicit capacity shortages. Mandatory review/holds and complete JSON/CSV/Markdown preserve every request. Two tiny synthetic batches matched all eight intended equipment links; required units were four vs five/six dedicated-per-loan baselines, with one extra unit needed in each. A negated request still mislinked, so similarity is not compatibility. Fresh-worker offline inference tested only inside an already-open page. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261109-21/README.md) and [observed checks](20261109-21/VALIDATION.md).

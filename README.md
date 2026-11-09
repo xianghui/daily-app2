@@ -234,3 +234,8 @@ Real local MiniLM equipment matching plus minimum-unit fixed-interval checkout a
 ## Assembly Ledger — 20261109-22
 
 Real local MiniLM retrieves reworded BOM components for mandatory human review; deterministic cycle detection and nested demand expansion produce consolidated raw-stock buy lists and components-first build orders. Complete JSON/CSV/Markdown preserves originals, held lines and unresolved branches; partial plans are explicit lower bounds. Both synthetic batches matched 8/8 intended links, but negation still mislinked; this is not compatibility or manufacturing validation. 600 random DAGs matched independent recursive quantities. Fresh-worker offline inference tested only inside an already-open page. Reuses immutable shared WASM from `20261107-2`; preserve that asset. See [workflow/privacy](20261109-22/README.md) and [observed validation](20261109-22/VALIDATION.md).
+
+
+## Question Compass — 20261109-23
+
+Real local MiniLM question-to-anchor inference assists interview-guide framing review. Human-written revisions, mandatory approval/holds, integer-minute budget checks and complete JSON/CSV/Markdown preserve every original prompt. Seven of eight tiny fixture labels matched; a multi-part question was misclassified and an assumed-premise challenge was missed, so this is not bias certification. Fresh-worker offline inference tested only inside an already-open page. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow/privacy](20261109-23/README.md) and [observed validation](20261109-23/VALIDATION.md).

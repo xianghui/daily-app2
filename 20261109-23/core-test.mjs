@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';import {examples,parse,suggest,plan,texts,csv} from './src/core.js';
+const source=JSON.stringify(examples[0]),d=parse(source);let checks=0;function reject(f,re){assert.throws(f,re);checks++}
+for(const v of ['', '{}','null','[]'])reject(()=>parse(v));
+for(const patch of [{budget:0},{budget:241},{budget:5.2},{questions:[]},{questions:Array(25).fill(d.questions[0])},{questions:[d.questions[0],d.questions[0]]},{questions:[{id:'X',text:'x'.repeat(401),minutes:1}]},{questions:[{id:'X',text:'valid',minutes:31}]},{questions:[{id:'X',text:'valid',minutes:-1}]}])reject(()=>parse(JSON.stringify({...d,...patch})));
+reject(()=>parse(' '.repeat(1000001)));reject(()=>parse(JSON.stringify({...d,extra:'x'.repeat(51000)})));
+for(const v of [[],[[NaN]],Array(texts(d).length).fill(Array(384).fill(0)),Array(texts(d).length).fill(Array(384).fill(1))])reject(()=>suggest(d,v),/Malformed/);
+const a=Array.from({length:texts(d).length},()=>Array.from({length:384},(_,i)=>i===0?1:0));const rows=suggest(d,a);reject(()=>plan(d,rows),/Review every/);rows.forEach(r=>r.decision='approve');assert.equal(plan(d,rows).metrics.reviewedMinutes,15);checks++;
+rows[0].lens='closed';reject(()=>plan(d,rows),/revise/);rows[0].note='Keep as factual filter';assert.equal(plan(d,rows).records.length,4);checks++;rows[0].minutes=30;reject(()=>plan(d,rows),/budget/);rows[0].minutes=0;reject(()=>plan(d,rows),/integers/);rows[0].minutes=5;rows[0].note='=1+1\nsecond line';assert(csv(plan(d,rows)).includes("'=1+1"));checks++;
+for(let n=1;n<=24;n++){const input=parse(JSON.stringify({...d,budget:240,questions:Array.from({length:n},(_,i)=>({id:'Q'+i,text:'Describe the last experience '+i,minutes:1+(i%3)}))}));const vectors=Array.from({length:texts(input).length},()=>a[0]);const r=suggest(input,vectors);r.forEach((x,i)=>x.decision=i%2?'hold':'approve');const p=plan(input,r);assert.equal(p.records.length,n);assert.equal(p.guide.length,Math.ceil(n/2));checks++}
+console.log('PASS',checks,'input/schema/budget/conservation checks');

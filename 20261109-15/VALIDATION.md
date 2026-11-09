@@ -15,3 +15,9 @@ Production bundle served at its real deployment base, using desktop Chrome/Playw
 - 390px/320px viewport overflow, input focus, ≥44px primary touch control and working phone-width exports passed. Screenshots inspected. No physical-phone, screen-reader or cross-engine inference claim.
 
 `browser-validation.json`, `network-validation.json`, `cancel-download-validation.json` and `transfer-validation.json` retain observed outcomes. Public-host verification is recorded separately after combined deployment.
+
+## Public publication verified
+
+Combined root predeploy assembled **554 apps**, zero failed/skipped, preserving all 553 older entries. Root `npm run deploy` published Pages commit `c48854a5839789a386a70c5a24fcbc06fa1f2c0c`; GitHub Pages build/run 42571131583 completed and Pages API reported `built` for that exact commit.
+
+`node public-test.cjs` verified the rendered gallery and prior categories, plus SHA-256 equality for the gallery, new app HTML, bundled JS/CSS/worker, runtime factory and immutable shared WASM. The complete real-model browser suite was rerun at https://xianghui.github.io/daily-app2/20261109-15/ and passed all 10 checks, including both known-answer polls, 42-text batching, fresh-worker offline inference, review/artifacts and defensive paths. Separate public browser transfer/exhaustion test and independent artifact parsing passed. See public-validation.json, public-browser-validation.json, public-transfer-validation.json and public-browser-test.log. Offline navigation, real phones and other engines remain unverified.

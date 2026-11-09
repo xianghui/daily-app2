@@ -244,3 +244,8 @@ Real local MiniLM question-to-anchor inference assists interview-guide framing r
 ## Panel Ledger — 20261109-24
 
 Real local MiniLM bio-to-experience retrieval assists low-stakes pilot-panel planning. Mandatory human review/holds feed exact quota-constrained priority maximization with complete JSON/CSV/Markdown panel, reserve and held audits. Both tiny synthetic fixtures matched all 16 intended group links; negated/unrelated bios still receive unsuitable closest-group proposals. 500 generated cases matched an independent exhaustive solver. Fresh-worker offline inference is tested only inside an already-open page. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261109-24/README.md) and [observed validation](20261109-24/VALIDATION.md).
+
+
+## Breakwater Budget — 20261110-1
+
+Real local MiniLM cost-behavior inference assists a mandatory human-reviewed single-product monthly budget. Integer-cent break-even, target-profit volume, capacity profit and target price floors follow; holds block projections and complete JSON/CSV/Markdown retains every cost. Seven of eight tiny fixture labels matched; a per-attendee cost required correction, and negation/mixed-cost challenges failed. No accounting-verification claim. Fresh-worker offline inference tested only inside an already-open page. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261110-1/README.md) and [observed validation](20261110-1/VALIDATION.md).

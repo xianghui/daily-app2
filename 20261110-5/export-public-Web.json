@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "originalInput": {
+    "name": "Web session",
+    "date": "2026-11-11",
+    "cards": [
+      {
+        "id": "H1",
+        "title": "HTTP caching",
+        "prompt": "Browsers reuse stored responses with cache control headers and validation instead of downloading again.",
+        "interval": 8,
+        "repetitions": 3,
+        "ease": 2.2
+      },
+      {
+        "id": "H2",
+        "title": "Database transactions",
+        "prompt": "Atomic database operations commit all changes together or roll back on failure.",
+        "interval": 3,
+        "repetitions": 2,
+        "ease": 2.5
+      },
+      {
+        "id": "H3",
+        "title": "Keyboard accessibility",
+        "prompt": "Focusable controls support Tab navigation, visible focus and keyboard activation.",
+        "interval": 1,
+        "repetitions": 1,
+        "ease": 2.5
+      }
+    ],
+    "notes": [
+      {
+        "id": "L1",
+        "text": "Could explain reusing a stored web response instead of fetching it on every visit."
+      },
+      {
+        "id": "L2",
+        "text": "Mixed up committing all database updates versus undoing the entire operation on failure."
+      },
+      {
+        "id": "L3",
+        "text": "Demonstrated tabbing through controls and seeing which element has focus."
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "L1",
+      "card": "H1",
+      "proposed": "H1",
+      "candidates": [
+        {
+          "card": "H1",
+          "cosine": 0.6429086135604628
+        },
+        {
+          "card": "H2",
+          "cosine": 0.23973515835902218
+        },
+        {
+          "card": "H3",
+          "cosine": 0.01862832499751911
+        }
+      ],
+      "grade": 5,
+      "decision": "approve",
+      "note": "",
+      "source": "Could explain reusing a stored web response instead of fetching it on every visit."
+    },
+    {
+      "id": "L2",
+      "card": "H2",
+      "proposed": "H2",
+      "candidates": [
+        {
+          "card": "H2",
+          "cosine": 0.690634396859549
+        },
+        {
+          "card": "H1",
+          "cosine": 0.21375589649431265
+        },
+        {
+          "card": "H3",
+          "cosine": 0.008427058116005555
+        }
+      ],
+      "grade": 5,
+      "decision": "approve",
+      "note": "",
+      "source": "Mixed up committing all database updates versus undoing the entire operation on failure."
+    },
+    {
+      "id": "L3",
+      "card": "H3",
+      "proposed": "H3",
+      "candidates": [
+        {
+          "card": "H3",
+          "cosine": 0.6914165544110291
+        },
+        {
+          "card": "H2",
+          "cosine": 0.04350762800690589
+        },
+        {
+          "card": "H1",
+          "cosine": -0.001775531512413664
+        }
+      ],
+      "grade": 5,
+      "decision": "approve",
+      "note": "",
+      "source": "Demonstrated tabbing through controls and seeing which element has focus."
+    }
+  ],
+  "deck": [
+    {
+      "id": "H1",
+      "title": "HTTP caching",
+      "prompt": "Browsers reuse stored responses with cache control headers and validation instead of downloading again.",
+      "interval": 18,
+      "repetitions": 4,
+      "ease": 2.3,
+      "updated": true,
+      "due": "2026-11-29",
+      "reviewNoteId": "L1"
+    },
+    {
+      "id": "H2",
+      "title": "Database transactions",
+      "prompt": "Atomic database operations commit all changes together or roll back on failure.",
+      "interval": 8,
+      "repetitions": 3,
+      "ease": 2.6,
+      "updated": true,
+      "due": "2026-11-19",
+      "reviewNoteId": "L2"
+    },
+    {
+      "id": "H3",
+      "title": "Keyboard accessibility",
+      "prompt": "Focusable controls support Tab navigation, visible focus and keyboard activation.",
+      "interval": 6,
+      "repetitions": 2,
+      "ease": 2.6,
+      "updated": true,
+      "due": "2026-11-17",
+      "reviewNoteId": "L3"
+    }
+  ],
+  "metrics": {
+    "notes": 3,
+    "approved": 3,
+    "held": 0,
+    "untouched": 0,
+    "exactTitleMatches": 0,
+    "aiProposals": 3,
+    "confirmedAI": 3
+  },
+  "baseline": [
+    null,
+    null,
+    null
+  ],
+  "method": "SM-2-style: failure resets repetitions and 1 day; success uses 1, 6, then prior interval × prior ease; ease bounded 1.3–3; intervals capped 3650. Not a learning-outcome guarantee."
+}

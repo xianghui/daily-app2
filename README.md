@@ -265,3 +265,8 @@ Real local MiniLM inference matched 12/12 tiny synthetic quote links; fee-inclus
 ## Referee Weave — 20261110-4
 
 Real local MiniLM abstract-to-expertise inference assists mandatory human-reviewed workshop reader allocation. Exact min-cost flow respects declared conflicts, distinct readers and capacities; complete JSON/CSV/Markdown preserves every paper–reader pair and holds. Eight tiny fixture topic families matched; methods allocation filled 8/8 vs 7/8 input-order slots and community allocation scored 2548 vs 1572 with four slots each. These are computed planning objectives, not reviewer-quality claims. Negated/unrelated text still needs manual exclusion. 500 generated cases matched an independent exhaustive solver. Offline fresh-worker inference is tested only inside an already-open cached page. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261110-4/README.md) and [observed validation](20261110-4/VALIDATION.md). Publication status is recorded in the app validation files.
+
+
+## Recall Ledger — 20261110-5
+
+Real local MiniLM matches rough recall-session notes to supplied flashcards; mandatory human card verification and recall ratings drive transparent SM-2-style review dates. All notes, holds and untouched cards survive JSON, with reviewed CSV/Markdown outputs. Six tiny fixture links matched versus zero exact-title hits; negated/unrelated text still mislinks, so AI never grades recall. Fresh-worker offline inference is tested only inside an already-open cached page. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261110-5/README.md) and [observed checks](20261110-5/VALIDATION.md).

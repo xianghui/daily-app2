@@ -203,3 +203,7 @@ Real local MiniLM meeting-note intent classification assists a human-approved de
 ## Ballot Bridge — 20261109-15
 
 Local MiniLM reconciles reworded ranked choices with canonical poll options; mandatory whole-ballot review feeds tie-explicit instant-runoff counting with exhausted-ballot conservation and complete JSON/CSV/Markdown audits. All 16 simple fixture links matched; negated/unrelated choices still receive unsuitable proposals. For informal team preferences only, not binding elections. Fresh-worker offline inference tested only inside an already-open page. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow/privacy](20261109-15/README.md) and [observed validation](20261109-15/VALIDATION.md).
+
+## Witness Window — 20261109-16
+
+Local real MiniLM event retrieval helps incident coordinators reconcile time-bounded recollections. Mandatory review/holds feed interval intersections, explicit contradictions and strict non-overlap before-links, with complete JSON/CSV/Markdown source audits. Both tiny fixtures matched all eight intended identities and exposed the seeded five-minute conflict; negation still mislinked, so semantic similarity is not identity or truth verification. Offline fresh-worker inference tested only inside an already-open page. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow/privacy](20261109-16/README.md) and [observed validation](20261109-16/VALIDATION.md).

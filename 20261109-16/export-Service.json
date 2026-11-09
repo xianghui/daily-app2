@@ -1,0 +1,204 @@
+{
+  "version": 1,
+  "originalInput": {
+    "name": "Service incident",
+    "title": "Synthetic service outage",
+    "events": [
+      {
+        "id": "A",
+        "text": "Database connection pool exhausted; application cannot connect to database."
+      },
+      {
+        "id": "B",
+        "text": "Engineering restarted the application service to recover availability."
+      },
+      {
+        "id": "C",
+        "text": "Customer support published a public status update about the outage."
+      }
+    ],
+    "reports": [
+      {
+        "id": "R1",
+        "text": "The database ran out of available connections.",
+        "start": "2026-11-08T09:00Z",
+        "end": "2026-11-08T09:10Z"
+      },
+      {
+        "id": "R2",
+        "text": "No database connections were left in the pool.",
+        "start": "2026-11-08T09:05Z",
+        "end": "2026-11-08T09:15Z"
+      },
+      {
+        "id": "R3",
+        "text": "Engineers rebooted the application server.",
+        "start": "2026-11-08T09:20Z",
+        "end": "2026-11-08T09:30Z"
+      },
+      {
+        "id": "R4",
+        "text": "Support posted an outage announcement on the status page.",
+        "start": "2026-11-08T09:25Z",
+        "end": "2026-11-08T09:35Z"
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "R1",
+      "text": "The database ran out of available connections.",
+      "start": "2026-11-08T09:00Z",
+      "end": "2026-11-08T09:10Z",
+      "selected": "A",
+      "proposed": "A",
+      "ranking": [
+        {
+          "id": "A",
+          "score": 0.7239312916952237
+        },
+        {
+          "id": "B",
+          "score": 0.48021299670923223
+        },
+        {
+          "id": "C",
+          "score": 0.39817370645114586
+        }
+      ],
+      "baseline": "",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "R2",
+      "text": "No database connections were left in the pool.",
+      "start": "2026-11-08T09:05Z",
+      "end": "2026-11-08T09:15Z",
+      "selected": "A",
+      "proposed": "A",
+      "ranking": [
+        {
+          "id": "A",
+          "score": 0.7012552731011431
+        },
+        {
+          "id": "B",
+          "score": 0.48077674128168846
+        },
+        {
+          "id": "C",
+          "score": 0.26512438821149703
+        }
+      ],
+      "baseline": "",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "R3",
+      "text": "Engineers rebooted the application server.",
+      "start": "2026-11-08T09:20Z",
+      "end": "2026-11-08T09:30Z",
+      "selected": "B",
+      "proposed": "B",
+      "ranking": [
+        {
+          "id": "B",
+          "score": 0.7272076747151905
+        },
+        {
+          "id": "A",
+          "score": 0.38406644711423343
+        },
+        {
+          "id": "C",
+          "score": 0.3135572473576371
+        }
+      ],
+      "baseline": "",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "R4",
+      "text": "Support posted an outage announcement on the status page.",
+      "start": "2026-11-08T09:25Z",
+      "end": "2026-11-08T09:35Z",
+      "selected": "C",
+      "proposed": "C",
+      "ranking": [
+        {
+          "id": "C",
+          "score": 0.8519270619709829
+        },
+        {
+          "id": "B",
+          "score": 0.46318236986846506
+        },
+        {
+          "id": "A",
+          "score": 0.2137186930958454
+        }
+      ],
+      "baseline": "",
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "events": [
+    {
+      "id": "A",
+      "text": "Database connection pool exhausted; application cannot connect to database.",
+      "reports": [
+        "R1",
+        "R2"
+      ],
+      "status": "compatible",
+      "start": "2026-11-08T09:05:00.000Z",
+      "end": "2026-11-08T09:10:00.000Z",
+      "gapMinutes": 0
+    },
+    {
+      "id": "B",
+      "text": "Engineering restarted the application service to recover availability.",
+      "reports": [
+        "R3"
+      ],
+      "status": "compatible",
+      "start": "2026-11-08T09:20:00.000Z",
+      "end": "2026-11-08T09:30:00.000Z",
+      "gapMinutes": 0
+    },
+    {
+      "id": "C",
+      "text": "Customer support published a public status update about the outage.",
+      "reports": [
+        "R4"
+      ],
+      "status": "compatible",
+      "start": "2026-11-08T09:25:00.000Z",
+      "end": "2026-11-08T09:35:00.000Z",
+      "gapMinutes": 0
+    }
+  ],
+  "definiteBefore": [
+    [
+      "A",
+      "B"
+    ],
+    [
+      "A",
+      "C"
+    ]
+  ],
+  "metrics": {
+    "total": 4,
+    "approved": 4,
+    "held": 0,
+    "conflicts": 0,
+    "unconfirmed": 0,
+    "aiReviewAgreement": 4,
+    "exactReviewAgreement": 0
+  }
+}

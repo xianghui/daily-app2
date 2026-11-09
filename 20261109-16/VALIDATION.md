@@ -1,0 +1,19 @@
+# Observed validation — 2026-11-09
+
+- React/Vite production predeploy passed. Actual Chrome production-bundle browser suite passed; no successful inference was mocked.
+- Two distinct synthetic fixtures: service incident and workshop incident. Real MiniLM proposals A/A/B/C matched all 8 intended event identities (4 each). This tiny designed set is not an accuracy estimate.
+- Service event A intersects to 09:05–09:10 UTC. Strict relations A→B and A→C; B/C overlap so neither ordered. Workshop event A has incompatible bounds separated by five minutes. Conflict remains explicit and excluded from before-links. Holding one account removes that constraint while retaining the source report.
+- Negation challenge ('no database connection exhaustion') still proposed database-exhaustion event A. Semantic similarity does not validate truth, stance or occurrence identity. Mandatory human review remains essential.
+- All 32 maximum input texts (8 events/24 reports) processed through eight real four-text batches; all reports/events survived. JSON audit reimport reset decisions and preserved originals.
+- Review gate, event override, approval reset, undo, hold, current exports, clipboard equality and complete JSON/CSV/Markdown independent parsing passed. Quoted multiline UTF-8 formula-like rationale retained in JSON and spreadsheet-escaped in CSV.
+- Empty/invalid JSON, oversized data/text/count/import, duplicate IDs, impossible/inverted date bounds and unsupported CSV import rejected. No fabricated AI output.
+- Cancellation during an actual model weight request, retry with real inference, input-change cancellation and stale-callback rejection passed. Malformed vectors, constructor failure, unavailable WebAssembly and 180-second timeout were fault-injected only for defensive tests; recovery returned to the real model. Weight-host network abort yielded actionable error; unblocked retry passed.
+- After online caching, all networking disabled and fresh worker created: real inference passed in an already-open page. Offline app-shell navigation/reload is NOT claimed.
+- Request capture starts at initial navigation: no model download before explicit load, all requests bodyless GETs to app origin or documented model hosts; no source content in request URLs. Bundled text scanned for credential patterns; none found. No remote provider integration exists.
+- 1280-pixel desktop and 390/320-pixel phone emulation passed no-overflow, keyboard focus, 44px load controls and usable review/export tests; screenshots visually inspected. Physical phones and other browser engines untested.
+- Core interval/conservation/review checks passed. Metrics are computed approved/held/conflict/unconfirmed counts and AI versus exact-description agreement with the user's review, never claimed independent accuracy or measured time saved.
+- Gallery inline scripts compile; new entry unique and area correct; all 554 prior entries preserved. Root/public deployment and live runtime verification are recorded in publication-status.json and public validation artifacts once completed.
+
+## Public verification
+
+Combined root predeploy assembled all 555 app folders with zero failures/skips. Root deploy published commit `5a2aed33f41261036c6ff28909c07b7c16d82fcf`; Pages build is built and workflow 42577213769 completed successfully. Public gallery rendered with AI Utilities and earlier STL categories; root, app, bundled worker, runtime factory and shared WASM hashes matched local production assets. The complete ten-check browser suite passed again at the public URL, including both real-inference fixtures, all-network-blocked fresh-worker inference, maximum batch, review/undo/export, defensive faults and narrow layouts. Independent artifact parsing passed again after public downloads. See public-validation.json and public-browser-validation.json.

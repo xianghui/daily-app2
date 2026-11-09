@@ -198,3 +198,8 @@ Real local MiniLM material matching plus exact minimum-board one-dimensional cut
 ## Decision Docket — 20261109-14
 
 Real local MiniLM meeting-note intent classification assists a human-approved decision register with attached reasons/actions, explicit unassigned owners/dates and complete JSON/CSV/Markdown handoffs. Nine of ten simple fixture labels matched; one release follow-up was misclassified as a decision and corrected during review. A separate shorthand challenge matched 2/3, so model intent is not proof of agreement. Offline fresh-worker inference is tested only within an already-open cached page. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261109-14/README.md) and [observed checks](20261109-14/VALIDATION.md).
+
+
+## Ballot Bridge — 20261109-15
+
+Local MiniLM reconciles reworded ranked choices with canonical poll options; mandatory whole-ballot review feeds tie-explicit instant-runoff counting with exhausted-ballot conservation and complete JSON/CSV/Markdown audits. All 16 simple fixture links matched; negated/unrelated choices still receive unsuitable proposals. For informal team preferences only, not binding elections. Fresh-worker offline inference tested only inside an already-open page. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow/privacy](20261109-15/README.md) and [observed validation](20261109-15/VALIDATION.md).

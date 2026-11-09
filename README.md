@@ -194,3 +194,7 @@ Local MiniLM inspection-to-checkpoint retrieval plus exact closed walking-round 
 ## Cut Ledger — 20261109-13
 
 Real local MiniLM material matching plus exact minimum-board one-dimensional cutting allocation with conservative kerf accounting. Mandatory human review/holds and complete JSON/CSV/Markdown preserve every piece. Two tiny synthetic batches matched 12/12 material links; each used three stock lengths vs four next-fit baseline. A negated pine prohibition still mislinked, so similarity is not material compatibility. Fresh-worker offline inference is tested only inside an already-open cached page. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow](20261109-13/README.md) and [observed checks](20261109-13/VALIDATION.md).
+
+## Decision Docket — 20261109-14
+
+Real local MiniLM meeting-note intent classification assists a human-approved decision register with attached reasons/actions, explicit unassigned owners/dates and complete JSON/CSV/Markdown handoffs. Nine of ten simple fixture labels matched; one release follow-up was misclassified as a decision and corrected during review. A separate shorthand challenge matched 2/3, so model intent is not proof of agreement. Offline fresh-worker inference is tested only within an already-open cached page. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261109-14/README.md) and [observed checks](20261109-14/VALIDATION.md).

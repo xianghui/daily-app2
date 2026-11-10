@@ -1,0 +1,126 @@
+{
+  "version": 1,
+  "originalInput": {
+    "name": "Outdoor festival",
+    "currency": "USD",
+    "target": 90,
+    "templates": [
+      {
+        "id": "tent",
+        "title": "Weather shelter",
+        "description": "Emergency waterproof tents and canopies to shelter an outdoor event from heavy rain.",
+        "cost": 600
+      },
+      {
+        "id": "bus",
+        "title": "Replacement transport",
+        "description": "Hire a replacement shuttle bus when the event passenger vehicle breaks down.",
+        "cost": 400
+      }
+    ],
+    "risks": [
+      {
+        "id": "R1",
+        "text": "Downpour soaks the outdoor venue; rent rainproof canopies.",
+        "probability": 30
+      },
+      {
+        "id": "R2",
+        "text": "Shuttle engine fails and visitors need a substitute coach.",
+        "probability": 20
+      }
+    ]
+  },
+  "target": 90,
+  "records": [
+    {
+      "id": "R1",
+      "template": "tent",
+      "proposed": "tent",
+      "cost": 600,
+      "probability": 30,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "template": "tent",
+          "similarity": 0.6551281209423424
+        },
+        {
+          "template": "bus",
+          "similarity": 0.19672626924591208
+        }
+      ],
+      "original": {
+        "id": "R1",
+        "text": "Downpour soaks the outdoor venue; rent rainproof canopies.",
+        "probability": 30
+      }
+    },
+    {
+      "id": "R2",
+      "template": "bus",
+      "proposed": "bus",
+      "cost": 400,
+      "probability": 20,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "template": "bus",
+          "similarity": 0.5837901426368636
+        },
+        {
+          "template": "tent",
+          "similarity": 0.063339991152285
+        }
+      ],
+      "original": {
+        "id": "R2",
+        "text": "Shuttle engine fails and visitors need a substitute coach.",
+        "probability": 20
+      }
+    }
+  ],
+  "ready": true,
+  "blockers": [],
+  "scenario": {
+    "expected": 260,
+    "baseline": 260,
+    "baselineCoverage": 0.5599999999999999,
+    "reserve": 600,
+    "reserveCoverage": 0.94,
+    "worst": 1000,
+    "outcomes": [
+      {
+        "loss": 0,
+        "mass": 0.5599999999999999,
+        "cumulative": 0.5599999999999999
+      },
+      {
+        "loss": 400,
+        "mass": 0.13999999999999999,
+        "cumulative": 0.7
+      },
+      {
+        "loss": 600,
+        "mass": 0.24,
+        "cumulative": 0.94
+      },
+      {
+        "loss": 1000,
+        "mass": 0.06,
+        "cumulative": 1
+      }
+    ],
+    "mass": 1,
+    "target": 90
+  },
+  "metrics": {
+    "records": 2,
+    "approved": 2,
+    "held": 0,
+    "literalTitleMatches": 0
+  },
+  "method": "MiniLM reconciles meanings; humans supply and verify probability/cost. Independent one-off Bernoulli convolution computes hypothetical loss coverage, not a forecast or guarantee."
+}

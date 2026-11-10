@@ -1,0 +1,193 @@
+{
+  "version": 1,
+  "originalInput": {
+    "name": "Community screening",
+    "currency": "USD",
+    "target": 95,
+    "templates": [
+      {
+        "id": "projector",
+        "title": "Display rental",
+        "description": "Rent a spare video projector if the movie screening projection equipment fails.",
+        "cost": 250
+      },
+      {
+        "id": "food",
+        "title": "Catering replacement",
+        "description": "Buy replacement meals when the catering supplier cancels food delivery.",
+        "cost": 150
+      },
+      {
+        "id": "power",
+        "title": "Backup electricity",
+        "description": "Hire a portable electric generator when mains power fails at the event.",
+        "cost": 350
+      }
+    ],
+    "risks": [
+      {
+        "id": "S1",
+        "text": "Film projection hardware stops working; hire another projector.",
+        "probability": 10
+      },
+      {
+        "id": "S2",
+        "text": "Meal supplier cancels at short notice; buy substitute dinners.",
+        "probability": 40
+      },
+      {
+        "id": "S3",
+        "text": "Electricity outage requires hiring a mobile generator.",
+        "probability": 15
+      }
+    ]
+  },
+  "target": 95,
+  "records": [
+    {
+      "id": "S1",
+      "template": "projector",
+      "proposed": "projector",
+      "cost": 250,
+      "probability": 10,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "template": "projector",
+          "similarity": 0.7396022431901466
+        },
+        {
+          "template": "power",
+          "similarity": 0.25459849136940216
+        },
+        {
+          "template": "food",
+          "similarity": 0.1456291777966825
+        }
+      ],
+      "original": {
+        "id": "S1",
+        "text": "Film projection hardware stops working; hire another projector.",
+        "probability": 10
+      }
+    },
+    {
+      "id": "S2",
+      "template": "food",
+      "proposed": "food",
+      "cost": 150,
+      "probability": 40,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "template": "food",
+          "similarity": 0.7989698641499587
+        },
+        {
+          "template": "power",
+          "similarity": 0.16123768468860702
+        },
+        {
+          "template": "projector",
+          "similarity": 0.15489800294058736
+        }
+      ],
+      "original": {
+        "id": "S2",
+        "text": "Meal supplier cancels at short notice; buy substitute dinners.",
+        "probability": 40
+      }
+    },
+    {
+      "id": "S3",
+      "template": "power",
+      "proposed": "power",
+      "cost": 350,
+      "probability": 15,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "template": "power",
+          "similarity": 0.5990093796604191
+        },
+        {
+          "template": "projector",
+          "similarity": 0.1459655482174929
+        },
+        {
+          "template": "food",
+          "similarity": 0.14414601228148965
+        }
+      ],
+      "original": {
+        "id": "S3",
+        "text": "Electricity outage requires hiring a mobile generator.",
+        "probability": 15
+      }
+    }
+  ],
+  "ready": true,
+  "blockers": [],
+  "scenario": {
+    "expected": 137.5,
+    "baseline": 138,
+    "baselineCoverage": 0.459,
+    "reserve": 500,
+    "reserveCoverage": 0.9850000000000002,
+    "worst": 750,
+    "outcomes": [
+      {
+        "loss": 0,
+        "mass": 0.459,
+        "cumulative": 0.459
+      },
+      {
+        "loss": 150,
+        "mass": 0.30600000000000005,
+        "cumulative": 0.7650000000000001
+      },
+      {
+        "loss": 250,
+        "mass": 0.051,
+        "cumulative": 0.8160000000000002
+      },
+      {
+        "loss": 350,
+        "mass": 0.081,
+        "cumulative": 0.8970000000000001
+      },
+      {
+        "loss": 400,
+        "mass": 0.034,
+        "cumulative": 0.9310000000000002
+      },
+      {
+        "loss": 500,
+        "mass": 0.054000000000000006,
+        "cumulative": 0.9850000000000002
+      },
+      {
+        "loss": 600,
+        "mass": 0.009,
+        "cumulative": 0.9940000000000002
+      },
+      {
+        "loss": 750,
+        "mass": 0.006000000000000001,
+        "cumulative": 1.0000000000000002
+      }
+    ],
+    "mass": 1.0000000000000002,
+    "target": 95
+  },
+  "metrics": {
+    "records": 3,
+    "approved": 3,
+    "held": 0,
+    "literalTitleMatches": 0
+  },
+  "method": "MiniLM reconciles meanings; humans supply and verify probability/cost. Independent one-off Bernoulli convolution computes hypothetical loss coverage, not a forecast or guarantee."
+}

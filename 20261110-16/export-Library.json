@@ -1,0 +1,233 @@
+{
+  "schema": "sample-balance/v1",
+  "originalInput": {
+    "name": "Library workshops",
+    "branches": [
+      {
+        "id": "R",
+        "title": "Waterside hub",
+        "description": "Riverbank public library beside the ferry terminal; readers use the waterfront entrance.",
+        "population": 90
+      },
+      {
+        "id": "G",
+        "title": "Garden learning room",
+        "description": "Botanical park library next to the greenhouse and flower beds.",
+        "population": 30
+      }
+    ],
+    "responses": [
+      {
+        "id": "R1",
+        "text": "Attended the reading session by the river and ferry landing.",
+        "rating": 5
+      },
+      {
+        "id": "G1",
+        "text": "Joined the book group beside the glasshouse and plants.",
+        "rating": 2
+      },
+      {
+        "id": "R2",
+        "text": "The library workshop at the waterfront boat terminal.",
+        "rating": 4
+      },
+      {
+        "id": "G2",
+        "text": "The library discussion next to the botanical gardens.",
+        "rating": 3
+      },
+      {
+        "id": "G3",
+        "text": "The session among the flower beds near the greenhouse.",
+        "rating": 1
+      },
+      {
+        "id": "G4",
+        "text": "Reading in the park room by the tropical plants.",
+        "rating": 2
+      }
+    ]
+  },
+  "frameConfirmed": false,
+  "ready": false,
+  "blockers": [
+    "Confirm the target frame, unique responses and common scale."
+  ],
+  "records": [
+    {
+      "id": "R1",
+      "selected": "R",
+      "proposed": "R",
+      "rating": 5,
+      "decision": "approve",
+      "rationale": "",
+      "candidates": [
+        {
+          "branch": "R",
+          "cosine": 0.5689995594297468
+        },
+        {
+          "branch": "G",
+          "cosine": 0.17989284293015803
+        }
+      ],
+      "text": "Attended the reading session by the river and ferry landing.",
+      "originalRating": 5,
+      "appliedWeight": null
+    },
+    {
+      "id": "G1",
+      "selected": "G",
+      "proposed": "G",
+      "rating": 2,
+      "decision": "approve",
+      "rationale": "",
+      "candidates": [
+        {
+          "branch": "G",
+          "cosine": 0.5308825428498732
+        },
+        {
+          "branch": "R",
+          "cosine": 0.2930120015672512
+        }
+      ],
+      "text": "Joined the book group beside the glasshouse and plants.",
+      "originalRating": 2,
+      "appliedWeight": null
+    },
+    {
+      "id": "R2",
+      "selected": "R",
+      "proposed": "R",
+      "rating": 4,
+      "decision": "approve",
+      "rationale": "",
+      "candidates": [
+        {
+          "branch": "R",
+          "cosine": 0.6454118844660156
+        },
+        {
+          "branch": "G",
+          "cosine": 0.3757097159947942
+        }
+      ],
+      "text": "The library workshop at the waterfront boat terminal.",
+      "originalRating": 4,
+      "appliedWeight": null
+    },
+    {
+      "id": "G2",
+      "selected": "G",
+      "proposed": "G",
+      "rating": 3,
+      "decision": "approve",
+      "rationale": "",
+      "candidates": [
+        {
+          "branch": "G",
+          "cosine": 0.7129506437338451
+        },
+        {
+          "branch": "R",
+          "cosine": 0.3440787483204774
+        }
+      ],
+      "text": "The library discussion next to the botanical gardens.",
+      "originalRating": 3,
+      "appliedWeight": null
+    },
+    {
+      "id": "G3",
+      "selected": "G",
+      "proposed": "G",
+      "rating": 1,
+      "decision": "approve",
+      "rationale": "",
+      "candidates": [
+        {
+          "branch": "G",
+          "cosine": 0.5850777101119063
+        },
+        {
+          "branch": "R",
+          "cosine": 0.13592113873292397
+        }
+      ],
+      "text": "The session among the flower beds near the greenhouse.",
+      "originalRating": 1,
+      "appliedWeight": null
+    },
+    {
+      "id": "G4",
+      "selected": "G",
+      "proposed": "G",
+      "rating": 2,
+      "decision": "approve",
+      "rationale": "",
+      "candidates": [
+        {
+          "branch": "G",
+          "cosine": 0.5615151219144698
+        },
+        {
+          "branch": "R",
+          "cosine": 0.20748123106705205
+        }
+      ],
+      "text": "Reading in the park room by the tropical plants.",
+      "originalRating": 2,
+      "appliedWeight": null
+    }
+  ],
+  "strata": [
+    {
+      "id": "R",
+      "title": "Waterside hub",
+      "description": "Riverbank public library beside the ferry terminal; readers use the waterfront entrance.",
+      "population": 90,
+      "count": 2,
+      "sum": 9,
+      "mean": 4.5,
+      "frameShare": 0.75,
+      "responseShare": 0.3333333333333333,
+      "expansionWeight": 45,
+      "sourceIds": [
+        "R1",
+        "R2"
+      ]
+    },
+    {
+      "id": "G",
+      "title": "Garden learning room",
+      "description": "Botanical park library next to the greenhouse and flower beds.",
+      "population": 30,
+      "count": 4,
+      "sum": 8,
+      "mean": 2,
+      "frameShare": 0.25,
+      "responseShare": 0.6666666666666666,
+      "expansionWeight": 7.5,
+      "sourceIds": [
+        "G1",
+        "G2",
+        "G3",
+        "G4"
+      ]
+    }
+  ],
+  "metrics": {
+    "population": 120,
+    "approved": 6,
+    "held": 0,
+    "rawMean": 2.8333333333333335,
+    "weightedMean": null,
+    "effectiveSampleSize": null,
+    "weightTotal": null,
+    "confirmedAI": 6,
+    "exactTitleResponses": 0
+  },
+  "warning": "Descriptive poststratification only. Weighting fixes known branch mix, not nonresponse or within-branch bias. No representativeness, causal, precision or future-outcome guarantee. Effective sample size describes weight imbalance only, not an actual independent sample count."
+}

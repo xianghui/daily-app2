@@ -1,0 +1,231 @@
+{
+  "schema": "sample-balance/v1",
+  "originalInput": {
+    "name": "Repair cafés",
+    "branches": [
+      {
+        "id": "B",
+        "title": "Cycle bench",
+        "description": "Bicycle workshop for punctures, wheels, chains, brakes and pedal repairs.",
+        "population": 20
+      },
+      {
+        "id": "S",
+        "title": "Stitch corner",
+        "description": "Textile sewing workshop for mending garments, stitching torn fabric and replacing buttons.",
+        "population": 80
+      }
+    ],
+    "responses": [
+      {
+        "id": "B1",
+        "text": "Fixed a flat tyre and adjusted the bike brakes.",
+        "rating": 5
+      },
+      {
+        "id": "S1",
+        "text": "Patched the torn jacket and sewed its loose buttons.",
+        "rating": 2
+      },
+      {
+        "id": "B2",
+        "text": "Repaired a bent wheel and lubricated the pedal chain.",
+        "rating": 4
+      },
+      {
+        "id": "S2",
+        "text": "Mended a ripped shirt seam with a sewing machine.",
+        "rating": 3
+      },
+      {
+        "id": "B3",
+        "text": "Replaced the inner tube and tuned the bicycle gears.",
+        "rating": 5
+      },
+      {
+        "id": "B4",
+        "text": "Got my cycle rolling again after a puncture.",
+        "rating": 4
+      }
+    ]
+  },
+  "frameConfirmed": true,
+  "ready": true,
+  "blockers": [],
+  "records": [
+    {
+      "id": "B1",
+      "selected": "B",
+      "proposed": "B",
+      "rating": 3,
+      "decision": "approve",
+      "rationale": "=1+1\nReviewed, \"verified\" 🪷",
+      "candidates": [
+        {
+          "branch": "B",
+          "cosine": 0.25451367724569707
+        },
+        {
+          "branch": "S",
+          "cosine": 0.09229842500697646
+        }
+      ],
+      "text": "Fixed a flat tyre and adjusted the bike brakes.",
+      "originalRating": 5,
+      "appliedWeight": 5
+    },
+    {
+      "id": "S1",
+      "selected": "S",
+      "proposed": "S",
+      "rating": 2,
+      "decision": "approve",
+      "rationale": "",
+      "candidates": [
+        {
+          "branch": "S",
+          "cosine": 0.31810776394167706
+        },
+        {
+          "branch": "B",
+          "cosine": 0.03823142927400835
+        }
+      ],
+      "text": "Patched the torn jacket and sewed its loose buttons.",
+      "originalRating": 2,
+      "appliedWeight": 40
+    },
+    {
+      "id": "B2",
+      "selected": "B",
+      "proposed": "B",
+      "rating": 4,
+      "decision": "approve",
+      "rationale": "",
+      "candidates": [
+        {
+          "branch": "B",
+          "cosine": 0.35460089855700433
+        },
+        {
+          "branch": "S",
+          "cosine": 0.14286296660671505
+        }
+      ],
+      "text": "Repaired a bent wheel and lubricated the pedal chain.",
+      "originalRating": 4,
+      "appliedWeight": 5
+    },
+    {
+      "id": "S2",
+      "selected": "S",
+      "proposed": "S",
+      "rating": 3,
+      "decision": "approve",
+      "rationale": "",
+      "candidates": [
+        {
+          "branch": "S",
+          "cosine": 0.5523901505028312
+        },
+        {
+          "branch": "B",
+          "cosine": 0.13109024524586269
+        }
+      ],
+      "text": "Mended a ripped shirt seam with a sewing machine.",
+      "originalRating": 3,
+      "appliedWeight": 40
+    },
+    {
+      "id": "B3",
+      "selected": "B",
+      "proposed": "B",
+      "rating": 5,
+      "decision": "approve",
+      "rationale": "",
+      "candidates": [
+        {
+          "branch": "B",
+          "cosine": 0.28738348621234067
+        },
+        {
+          "branch": "S",
+          "cosine": 0.15498095948854132
+        }
+      ],
+      "text": "Replaced the inner tube and tuned the bicycle gears.",
+      "originalRating": 5,
+      "appliedWeight": 5
+    },
+    {
+      "id": "B4",
+      "selected": "B",
+      "proposed": "B",
+      "rating": 4,
+      "decision": "approve",
+      "rationale": "",
+      "candidates": [
+        {
+          "branch": "B",
+          "cosine": 0.29208528298672687
+        },
+        {
+          "branch": "S",
+          "cosine": 0.09617376470758028
+        }
+      ],
+      "text": "Got my cycle rolling again after a puncture.",
+      "originalRating": 4,
+      "appliedWeight": 5
+    }
+  ],
+  "strata": [
+    {
+      "id": "B",
+      "title": "Cycle bench",
+      "description": "Bicycle workshop for punctures, wheels, chains, brakes and pedal repairs.",
+      "population": 20,
+      "count": 4,
+      "sum": 16,
+      "mean": 4,
+      "frameShare": 0.2,
+      "responseShare": 0.6666666666666666,
+      "expansionWeight": 5,
+      "sourceIds": [
+        "B1",
+        "B2",
+        "B3",
+        "B4"
+      ]
+    },
+    {
+      "id": "S",
+      "title": "Stitch corner",
+      "description": "Textile sewing workshop for mending garments, stitching torn fabric and replacing buttons.",
+      "population": 80,
+      "count": 2,
+      "sum": 5,
+      "mean": 2.5,
+      "frameShare": 0.8,
+      "responseShare": 0.3333333333333333,
+      "expansionWeight": 40,
+      "sourceIds": [
+        "S1",
+        "S2"
+      ]
+    }
+  ],
+  "metrics": {
+    "population": 100,
+    "approved": 6,
+    "held": 0,
+    "rawMean": 3.5,
+    "weightedMean": 2.8,
+    "effectiveSampleSize": 3.0303030303030303,
+    "weightTotal": 100,
+    "confirmedAI": 6,
+    "exactTitleResponses": 0
+  },
+  "warning": "Descriptive poststratification only. Weighting fixes known branch mix, not nonresponse or within-branch bias. No representativeness, causal, precision or future-outcome guarantee. Effective sample size describes weight imbalance only, not an actual independent sample count."
+}

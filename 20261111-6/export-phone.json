@@ -1,0 +1,135 @@
+{
+  "version": 1,
+  "originalInput": {
+    "name": "Color workshop",
+    "stocks": [
+      {
+        "id": "blue",
+        "title": "Azure concentrate",
+        "description": "Blue food coloring solution for coloring water blue in a classroom demonstration.",
+        "concentration": 10,
+        "available": 100
+      },
+      {
+        "id": "red",
+        "title": "Crimson concentrate",
+        "description": "Red food coloring solution for coloring water red in a classroom demonstration.",
+        "concentration": 20,
+        "available": 80
+      }
+    ],
+    "requests": [
+      {
+        "id": "B1",
+        "text": "Blue food dye for the ocean-colored water demonstration.",
+        "concentration": 1,
+        "volume": 200
+      },
+      {
+        "id": "R1",
+        "text": "Red food dye to tint the ruby-colored water.",
+        "concentration": 2,
+        "volume": 300
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "B1",
+      "stock": "blue",
+      "proposed": "blue",
+      "concentration": 1,
+      "volume": 200,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "stock": "blue",
+          "similarity": 0.8206524702212419
+        },
+        {
+          "stock": "red",
+          "similarity": 0.654165764971021
+        }
+      ],
+      "original": {
+        "id": "B1",
+        "text": "Blue food dye for the ocean-colored water demonstration.",
+        "concentration": 1,
+        "volume": 200
+      }
+    },
+    {
+      "id": "R1",
+      "stock": "red",
+      "proposed": "red",
+      "concentration": 2,
+      "volume": 300,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "stock": "red",
+          "similarity": 0.7593373742052542
+        },
+        {
+          "stock": "blue",
+          "similarity": 0.5979822929163737
+        }
+      ],
+      "original": {
+        "id": "R1",
+        "text": "Red food dye to tint the ruby-colored water.",
+        "concentration": 2,
+        "volume": 300
+      }
+    }
+  ],
+  "ready": true,
+  "blockers": [],
+  "preparations": [
+    {
+      "id": "B1",
+      "stock": "blue",
+      "stockConcentration": 10,
+      "concentration": 1,
+      "finalVolume": 200,
+      "stockVolume": 20,
+      "diluent": 180
+    },
+    {
+      "id": "R1",
+      "stock": "red",
+      "stockConcentration": 20,
+      "concentration": 2,
+      "finalVolume": 300,
+      "stockVolume": 30,
+      "diluent": 270
+    }
+  ],
+  "inventory": [
+    {
+      "id": "blue",
+      "available": 100,
+      "used": 20,
+      "remaining": 80
+    },
+    {
+      "id": "red",
+      "available": 80,
+      "used": 30,
+      "remaining": 50
+    }
+  ],
+  "totals": {
+    "final": 500,
+    "stock": 50,
+    "diluent": 450
+  },
+  "metrics": {
+    "approved": 2,
+    "held": 0,
+    "literalMatches": 0
+  },
+  "method": "Local MiniLM ranks identities. Human verification precedes deterministic C1 V1 = C2 V2 with g/L and mL, additive volumes and stock conservation. No safety/compatibility inference."
+}

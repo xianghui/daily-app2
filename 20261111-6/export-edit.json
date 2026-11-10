@@ -1,0 +1,200 @@
+{
+  "version": 1,
+  "originalInput": {
+    "name": "Sweetness lab",
+    "stocks": [
+      {
+        "id": "sugar",
+        "title": "Sucrose standard",
+        "description": "White table sugar sucrose dissolved in water for a sweet taste and sugar concentration classroom demonstration.",
+        "concentration": 100,
+        "available": 200
+      },
+      {
+        "id": "salt",
+        "title": "Sodium chloride standard",
+        "description": "Table salt sodium chloride dissolved in water for a salty water classroom demonstration.",
+        "concentration": 50,
+        "available": 150
+      },
+      {
+        "id": "blue",
+        "title": "Azure concentrate",
+        "description": "Blue food coloring solution for coloring water blue in a classroom demonstration.",
+        "concentration": 10,
+        "available": 50
+      }
+    ],
+    "requests": [
+      {
+        "id": "S1",
+        "text": "Diluted table sugar water for the sweetness demonstration.",
+        "concentration": 10,
+        "volume": 500
+      },
+      {
+        "id": "N1",
+        "text": "Salty water made from dissolved table salt.",
+        "concentration": 5,
+        "volume": 200
+      },
+      {
+        "id": "C1",
+        "text": "Blue food dye water to visualize liquid mixing.",
+        "concentration": 1,
+        "volume": 100
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "S1",
+      "stock": "sugar",
+      "proposed": "sugar",
+      "concentration": 10,
+      "volume": 400,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "stock": "sugar",
+          "similarity": 0.8027828494140599
+        },
+        {
+          "stock": "blue",
+          "similarity": 0.45344051419676734
+        },
+        {
+          "stock": "salt",
+          "similarity": 0.42691859174172286
+        }
+      ],
+      "original": {
+        "id": "S1",
+        "text": "Diluted table sugar water for the sweetness demonstration.",
+        "concentration": 10,
+        "volume": 500
+      }
+    },
+    {
+      "id": "N1",
+      "stock": "salt",
+      "proposed": "salt",
+      "concentration": 5,
+      "volume": 200,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "stock": "salt",
+          "similarity": 0.7962601993700273
+        },
+        {
+          "stock": "sugar",
+          "similarity": 0.4325880087319043
+        },
+        {
+          "stock": "blue",
+          "similarity": 0.3001781133579917
+        }
+      ],
+      "original": {
+        "id": "N1",
+        "text": "Salty water made from dissolved table salt.",
+        "concentration": 5,
+        "volume": 200
+      }
+    },
+    {
+      "id": "C1",
+      "stock": "blue",
+      "proposed": "blue",
+      "concentration": 1,
+      "volume": 100,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "stock": "blue",
+          "similarity": 0.7473864155165937
+        },
+        {
+          "stock": "sugar",
+          "similarity": 0.46209802211980044
+        },
+        {
+          "stock": "salt",
+          "similarity": 0.33770482723354117
+        }
+      ],
+      "original": {
+        "id": "C1",
+        "text": "Blue food dye water to visualize liquid mixing.",
+        "concentration": 1,
+        "volume": 100
+      }
+    }
+  ],
+  "ready": true,
+  "blockers": [],
+  "preparations": [
+    {
+      "id": "S1",
+      "stock": "sugar",
+      "stockConcentration": 100,
+      "concentration": 10,
+      "finalVolume": 400,
+      "stockVolume": 40,
+      "diluent": 360
+    },
+    {
+      "id": "N1",
+      "stock": "salt",
+      "stockConcentration": 50,
+      "concentration": 5,
+      "finalVolume": 200,
+      "stockVolume": 20,
+      "diluent": 180
+    },
+    {
+      "id": "C1",
+      "stock": "blue",
+      "stockConcentration": 10,
+      "concentration": 1,
+      "finalVolume": 100,
+      "stockVolume": 10,
+      "diluent": 90
+    }
+  ],
+  "inventory": [
+    {
+      "id": "sugar",
+      "available": 200,
+      "used": 40,
+      "remaining": 160
+    },
+    {
+      "id": "salt",
+      "available": 150,
+      "used": 20,
+      "remaining": 130
+    },
+    {
+      "id": "blue",
+      "available": 50,
+      "used": 10,
+      "remaining": 40
+    }
+  ],
+  "totals": {
+    "final": 700,
+    "stock": 70,
+    "diluent": 630
+  },
+  "metrics": {
+    "approved": 3,
+    "held": 0,
+    "literalMatches": 0
+  },
+  "method": "Local MiniLM ranks identities. Human verification precedes deterministic C1 V1 = C2 V2 with g/L and mL, additive volumes and stock conservation. No safety/compatibility inference."
+}

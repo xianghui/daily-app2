@@ -405,3 +405,8 @@ Revenue Weave public release, byte-matched assets, both real-AI fixtures, full p
 ## Reserve Mosaic — 20261111-5
 
 Local MiniLM reconciles rough event incident notes to supplied cost templates, followed by mandatory human verification of costs and likelihoods. Independent one-off Bernoulli convolution compares rounded expected loss against a chosen hypothetical loss-coverage reserve; no prediction, calibration or independence claim is made. Five tiny known-answer links matched; unrelated text still receives a nearest-template suggestion and requires a hold. Real offline fresh-worker inference is tested only inside an already-open warmed page. Reuses immutable WASM from `20261107-2`; preserve that asset. See [workflow/privacy](20261111-5/README.md) and [observed validation](20261111-5/VALIDATION.md).
+
+
+## Dilution Desk — 20261111-6
+
+Real local MiniLM stock retrieval helps classroom demonstrators reconcile informal solution requests. Mandatory identity/quantity review feeds deterministic C1V1=C2V2, additive-volume checks and aggregate stock-shortage guards. Complete JSON/CSV/Markdown preserves every original and hold. Five tiny known-answer requests matched; negation failed, so this is not identity/safety certification. Fresh-worker offline inference tested in an already-open warmed page only. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow/privacy](20261111-6/README.md) and [observed checks](20261111-6/VALIDATION.md).

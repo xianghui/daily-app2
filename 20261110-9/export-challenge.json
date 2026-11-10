@@ -1,0 +1,174 @@
+{
+  "version": 1,
+  "originalInput": {
+    "name": "Cycle workshop",
+    "currency": "USD",
+    "services": [
+      {
+        "id": "B",
+        "title": "Brake service",
+        "description": "Adjust bicycle brake cables and pads for safe stopping.",
+        "priceCents": 3500
+      },
+      {
+        "id": "G",
+        "title": "Gear tuning",
+        "description": "Adjust bicycle derailleurs and shifting gears on the cassette.",
+        "priceCents": 3000
+      },
+      {
+        "id": "T",
+        "title": "Tire repair",
+        "description": "Replace punctured inner tubes and repair flat tires.",
+        "priceCents": 2500
+      }
+    ],
+    "offers": [
+      {
+        "id": "BG",
+        "title": "Controls bundle",
+        "services": [
+          "B",
+          "G"
+        ],
+        "priceCents": 5000
+      },
+      {
+        "id": "ALL",
+        "title": "Complete tune",
+        "services": [
+          "B",
+          "G",
+          "T"
+        ],
+        "priceCents": 6800
+      }
+    ],
+    "notes": [
+      {
+        "id": "N1",
+        "asset": "Bike A",
+        "text": "Do not adjust brake pads or stopping cables. No brake service is authorized."
+      },
+      {
+        "id": "N2",
+        "asset": "Bike A",
+        "text": "The jazz concert begins after sunset in the railway station."
+      },
+      {
+        "id": "N3",
+        "asset": "Bike A",
+        "text": "The rear wheel is flat with a punctured inner tube."
+      },
+      {
+        "id": "N4",
+        "asset": "Bike B",
+        "text": "Please adjust the stopping cable and worn pads."
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "N1",
+      "asset": "Bike A",
+      "selected": "B",
+      "proposed": "B",
+      "candidates": [
+        {
+          "service": "B",
+          "cosine": 0.7787591520854396
+        },
+        {
+          "service": "G",
+          "cosine": 0.21802962183221686
+        },
+        {
+          "service": "T",
+          "cosine": 0.05335650444053723
+        }
+      ],
+      "decision": "hold",
+      "note": "",
+      "source": "Do not adjust brake pads or stopping cables. No brake service is authorized."
+    },
+    {
+      "id": "N2",
+      "asset": "Bike A",
+      "selected": "B",
+      "proposed": "B",
+      "candidates": [
+        {
+          "service": "B",
+          "cosine": 0.08066867168368894
+        },
+        {
+          "service": "T",
+          "cosine": 0.07749824544776823
+        },
+        {
+          "service": "G",
+          "cosine": 0.06892277473645905
+        }
+      ],
+      "decision": "hold",
+      "note": "",
+      "source": "The jazz concert begins after sunset in the railway station."
+    },
+    {
+      "id": "N3",
+      "asset": "Bike A",
+      "selected": "T",
+      "proposed": "T",
+      "candidates": [
+        {
+          "service": "T",
+          "cosine": 0.5983317557987707
+        },
+        {
+          "service": "G",
+          "cosine": 0.16252358824168633
+        },
+        {
+          "service": "B",
+          "cosine": 0.1296049716736849
+        }
+      ],
+      "decision": "hold",
+      "note": "",
+      "source": "The rear wheel is flat with a punctured inner tube."
+    },
+    {
+      "id": "N4",
+      "asset": "Bike B",
+      "selected": "B",
+      "proposed": "B",
+      "candidates": [
+        {
+          "service": "B",
+          "cosine": 0.5940106970379164
+        },
+        {
+          "service": "G",
+          "cosine": 0.32354751251162417
+        },
+        {
+          "service": "T",
+          "cosine": 0.1380537112803946
+        }
+      ],
+      "decision": "hold",
+      "note": "",
+      "source": "Please adjust the stopping cable and worn pads."
+    }
+  ],
+  "assets": [],
+  "metrics": {
+    "baselineCents": 0,
+    "costCents": 0,
+    "savingCents": 0,
+    "held": 4,
+    "duplicateNotes": 0,
+    "confirmedAI": 0,
+    "exactTitleNotes": 1
+  }
+}

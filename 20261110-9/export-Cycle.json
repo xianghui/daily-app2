@@ -1,0 +1,227 @@
+{
+  "version": 1,
+  "originalInput": {
+    "name": "Cycle workshop",
+    "currency": "USD",
+    "services": [
+      {
+        "id": "B",
+        "title": "Brake service",
+        "description": "Adjust bicycle brake cables and pads for safe stopping.",
+        "priceCents": 3500
+      },
+      {
+        "id": "G",
+        "title": "Gear tuning",
+        "description": "Adjust bicycle derailleurs and shifting gears on the cassette.",
+        "priceCents": 3000
+      },
+      {
+        "id": "T",
+        "title": "Tire repair",
+        "description": "Replace punctured inner tubes and repair flat tires.",
+        "priceCents": 2500
+      }
+    ],
+    "offers": [
+      {
+        "id": "BG",
+        "title": "Controls bundle",
+        "services": [
+          "B",
+          "G"
+        ],
+        "priceCents": 5000
+      },
+      {
+        "id": "ALL",
+        "title": "Complete tune",
+        "services": [
+          "B",
+          "G",
+          "T"
+        ],
+        "priceCents": 6800
+      }
+    ],
+    "notes": [
+      {
+        "id": "N1",
+        "asset": "Bike A",
+        "text": "The stopping pads rub and the lever cable needs adjustment."
+      },
+      {
+        "id": "N2",
+        "asset": "Bike A",
+        "text": "The derailleur skips sprockets when shifting."
+      },
+      {
+        "id": "N3",
+        "asset": "Bike A",
+        "text": "The rear wheel is flat with a punctured inner tube."
+      },
+      {
+        "id": "N4",
+        "asset": "Bike B",
+        "text": "Please adjust the stopping cable and worn pads."
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "N1",
+      "asset": "Bike A",
+      "selected": "B",
+      "proposed": "B",
+      "candidates": [
+        {
+          "service": "B",
+          "cosine": 0.6025859460431338
+        },
+        {
+          "service": "G",
+          "cosine": 0.30650070022651316
+        },
+        {
+          "service": "T",
+          "cosine": 0.016572905704543187
+        }
+      ],
+      "decision": "approve",
+      "note": "",
+      "source": "The stopping pads rub and the lever cable needs adjustment."
+    },
+    {
+      "id": "N2",
+      "asset": "Bike A",
+      "selected": "G",
+      "proposed": "G",
+      "candidates": [
+        {
+          "service": "G",
+          "cosine": 0.5089111559250552
+        },
+        {
+          "service": "B",
+          "cosine": 0.11235373797516772
+        },
+        {
+          "service": "T",
+          "cosine": 0.017063706394787954
+        }
+      ],
+      "decision": "approve",
+      "note": "",
+      "source": "The derailleur skips sprockets when shifting."
+    },
+    {
+      "id": "N3",
+      "asset": "Bike A",
+      "selected": "T",
+      "proposed": "T",
+      "candidates": [
+        {
+          "service": "T",
+          "cosine": 0.5907245468192807
+        },
+        {
+          "service": "G",
+          "cosine": 0.16779038034771163
+        },
+        {
+          "service": "B",
+          "cosine": 0.13176128420364808
+        }
+      ],
+      "decision": "approve",
+      "note": "",
+      "source": "The rear wheel is flat with a punctured inner tube."
+    },
+    {
+      "id": "N4",
+      "asset": "Bike B",
+      "selected": "B",
+      "proposed": "B",
+      "candidates": [
+        {
+          "service": "B",
+          "cosine": 0.60542190857902
+        },
+        {
+          "service": "G",
+          "cosine": 0.3254944364767551
+        },
+        {
+          "service": "T",
+          "cosine": 0.13328182849586878
+        }
+      ],
+      "decision": "approve",
+      "note": "",
+      "source": "Please adjust the stopping cable and worn pads."
+    }
+  ],
+  "assets": [
+    {
+      "asset": "Bike A",
+      "noteIds": [
+        "N1",
+        "N2",
+        "N3"
+      ],
+      "wanted": [
+        "B",
+        "G",
+        "T"
+      ],
+      "costCents": 6800,
+      "items": [
+        {
+          "id": "offer:ALL",
+          "title": "Complete tune",
+          "services": [
+            "B",
+            "G",
+            "T"
+          ],
+          "priceCents": 6800,
+          "mask": 7
+        }
+      ],
+      "baselineCents": 9000,
+      "duplicateNotes": 0
+    },
+    {
+      "asset": "Bike B",
+      "noteIds": [
+        "N4"
+      ],
+      "wanted": [
+        "B"
+      ],
+      "costCents": 3500,
+      "items": [
+        {
+          "id": "single:B",
+          "title": "Brake service",
+          "services": [
+            "B"
+          ],
+          "priceCents": 3500,
+          "mask": 1
+        }
+      ],
+      "baselineCents": 3500,
+      "duplicateNotes": 0
+    }
+  ],
+  "metrics": {
+    "baselineCents": 12500,
+    "costCents": 10300,
+    "savingCents": 2200,
+    "held": 0,
+    "duplicateNotes": 0,
+    "confirmedAI": 4,
+    "exactTitleNotes": 0
+  }
+}

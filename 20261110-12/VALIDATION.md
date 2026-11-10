@@ -15,3 +15,9 @@
 - Desktop 1280px and 390/320px phone emulation: no horizontal overflow, labeled controls, focus and ≥44px main buttons. Current exports worked on narrow layout. Screenshots retained; physical mobile devices and non-Chrome browsers untested.
 
 Reports: `browser-validation.json`, `core-validation.json`, `network-validation.json`, `cancel-download-validation.json`, `extra-browser-validation.json`, `artifact-validation.json`, `asset-validation.json`. README documents the small-baseline limitations and no-content-upload data flow. Publication and public runtime checks are recorded separately after deployment.
+
+## Published combined collection
+
+Root predeploy assembled all 571 apps with no failed/skipped builds. Final deduplicated site size: 908,613,887 bytes, below the 1,000,000,000-byte guard. The latest Pages build for `1bfd7f0bd18f6f948f1392091489461be17ada9c` reached `built`; workflow 42747922455 succeeded. An earlier successful release was superseded by the final export-escaping / expanded-baseline revision, not retried as a failure.
+
+Public HTML, all seven emitted files (including worker and module factory), shared WASM and root gallery matched local bytes/hashes. Both real AI fixtures and the complete ten-check production-browser suite passed at the public URL, as did the 25-reading baseline / zero-range / stale-file checks. The rendered 571-entry gallery kept AI Utilities first, older categories/search intact and the correct new app link. All inline scripts compiled; the new entry occurs exactly once; all 570 pre-existing entries were preserved. Reports: `public-asset-validation.json`, `public-browser-validation.json`, `public-extra-browser-validation.json`, `gallery-public-ui-validation.json`, `combined-validation.json`, `hosting-attempts.json`.

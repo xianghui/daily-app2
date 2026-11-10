@@ -18,7 +18,7 @@
 
 ## Collection / public release
 
-- Root predeploy and root deploy passed; the combined assembly retained every referenced app, root gallery and required shared WASM. Gallery inline script compiled with `new Function`; the new entry appears exactly once. All 575 prior entries stayed byte-preserved, with 576 entries after addition. AI Utilities/new app render first; existing STL/game categories and SaaS label mapping remain intact.
+- Root predeploy and root deploy passed; the combined assembly retained every referenced app, root gallery and required shared WASM. Gallery inline script compiled with `new Function`; the new entry appears exactly once. All 576 prior entries and their order were preserved, with 577 entries after addition. The final audit evaluates the complete APPS array, including multiline legacy entries. AI Utilities/new app render first; existing STL/game categories and SaaS label mapping remain intact.
 - Full production-browser suite passed again against the assembled bundle, sequentially before root publishing.
 - GitHub Pages workflow **42822161159** succeeded on the first deployment attempt for gh-pages commit `e832ff70b83b300fe04e550915d18193c02e6093`; Pages API reported the same commit as `built`.
 - Public app HTML, all app assets (including actual worker/module factory) and shared WASM matched local production hashes. Public gallery matched working source byte-for-byte.

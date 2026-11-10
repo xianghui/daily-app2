@@ -1,0 +1,191 @@
+{
+  "version": 1,
+  "originalInput": {
+    "name": "Dispatch desk",
+    "threshold": 120,
+    "modes": [
+      {
+        "id": "M",
+        "title": "Misdelivery",
+        "description": "Packages sent to the wrong recipient or street address because the delivery label is incorrect."
+      },
+      {
+        "id": "L",
+        "title": "Late dispatch",
+        "description": "Orders miss courier collection deadlines and are shipped later than promised."
+      },
+      {
+        "id": "D",
+        "title": "Duplicate shipment",
+        "description": "The same customer order is packed and sent twice because processing is repeated."
+      }
+    ],
+    "notes": [
+      {
+        "id": "N1",
+        "text": "No parcel was sent to the wrong street. Labels were checked and all deliveries were correct.",
+        "severity": 6,
+        "occurrence": 4,
+        "detection": 7
+      },
+      {
+        "id": "N2",
+        "text": "The jazz concert begins after sunset in the railway station.",
+        "severity": 5,
+        "occurrence": 6,
+        "detection": 4
+      },
+      {
+        "id": "N3",
+        "text": "Two boxes with the same purchase were mailed to one buyer.",
+        "severity": 4,
+        "occurrence": 3,
+        "detection": 8
+      },
+      {
+        "id": "N4",
+        "text": "A customer received another person’s parcel due to a recipient label mix-up.",
+        "severity": 6,
+        "occurrence": 2,
+        "detection": 6
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "N1",
+      "selected": "M",
+      "proposed": "M",
+      "candidates": [
+        {
+          "mode": "M",
+          "cosine": 0.6489207457906366
+        },
+        {
+          "mode": "L",
+          "cosine": 0.4496059603253012
+        },
+        {
+          "mode": "D",
+          "cosine": 0.3829319150481109
+        }
+      ],
+      "severity": 6,
+      "occurrence": 4,
+      "detection": 7,
+      "residualOccurrence": 4,
+      "residualDetection": 7,
+      "decision": "hold",
+      "action": "",
+      "owner": "",
+      "source": "No parcel was sent to the wrong street. Labels were checked and all deliveries were correct.",
+      "modeTitle": "Misdelivery",
+      "rpn": 168,
+      "projectedRpn": 168
+    },
+    {
+      "id": "N2",
+      "selected": "M",
+      "proposed": "M",
+      "candidates": [
+        {
+          "mode": "M",
+          "cosine": 0.07161694848596026
+        },
+        {
+          "mode": "D",
+          "cosine": 0.05335435006874872
+        },
+        {
+          "mode": "L",
+          "cosine": 0.04656903185093772
+        }
+      ],
+      "severity": 5,
+      "occurrence": 6,
+      "detection": 4,
+      "residualOccurrence": 6,
+      "residualDetection": 4,
+      "decision": "hold",
+      "action": "",
+      "owner": "",
+      "source": "The jazz concert begins after sunset in the railway station.",
+      "modeTitle": "Misdelivery",
+      "rpn": 120,
+      "projectedRpn": 120
+    },
+    {
+      "id": "N3",
+      "selected": "D",
+      "proposed": "D",
+      "candidates": [
+        {
+          "mode": "D",
+          "cosine": 0.525812231309918
+        },
+        {
+          "mode": "M",
+          "cosine": 0.39452936223763624
+        },
+        {
+          "mode": "L",
+          "cosine": 0.3037244012335237
+        }
+      ],
+      "severity": 4,
+      "occurrence": 3,
+      "detection": 8,
+      "residualOccurrence": 3,
+      "residualDetection": 8,
+      "decision": "hold",
+      "action": "",
+      "owner": "",
+      "source": "Two boxes with the same purchase were mailed to one buyer.",
+      "modeTitle": "Duplicate shipment",
+      "rpn": 96,
+      "projectedRpn": 96
+    },
+    {
+      "id": "N4",
+      "selected": "M",
+      "proposed": "M",
+      "candidates": [
+        {
+          "mode": "M",
+          "cosine": 0.6115995944239623
+        },
+        {
+          "mode": "D",
+          "cosine": 0.5381891172275485
+        },
+        {
+          "mode": "L",
+          "cosine": 0.3407662497496432
+        }
+      ],
+      "severity": 6,
+      "occurrence": 2,
+      "detection": 6,
+      "residualOccurrence": 2,
+      "residualDetection": 6,
+      "decision": "hold",
+      "action": "",
+      "owner": "",
+      "source": "A customer received another person’s parcel due to a recipient label mix-up.",
+      "modeTitle": "Misdelivery",
+      "rpn": 72,
+      "projectedRpn": 72
+    }
+  ],
+  "rankedIds": [],
+  "metrics": {
+    "approved": 0,
+    "held": 4,
+    "attention": 0,
+    "projectedAttention": 0,
+    "confirmedAI": 0,
+    "exactTitleNotes": 0,
+    "changedPositions": 0
+  },
+  "warning": "RPN multiplies subjective ordinal ratings; it is not probability, expected loss or safety certification. Projected ratings are unverified action assumptions. Separate observations are not deduplicated or summed."
+}

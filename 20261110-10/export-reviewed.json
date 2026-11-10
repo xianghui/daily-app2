@@ -1,0 +1,195 @@
+{
+  "version": 1,
+  "originalInput": {
+    "name": "Editorial desk",
+    "threshold": 150,
+    "modes": [
+      {
+        "id": "B",
+        "title": "Broken links",
+        "description": "Published web articles contain dead hyperlinks or references that lead to unavailable pages."
+      },
+      {
+        "id": "T",
+        "title": "Typography errors",
+        "description": "Published text contains misspelled words, duplicated punctuation and typographic mistakes."
+      },
+      {
+        "id": "V",
+        "title": "Stale version",
+        "description": "An outdated draft is published instead of the approved current revision."
+      }
+    ],
+    "notes": [
+      {
+        "id": "E1",
+        "text": "Readers clicked the source reference and landed on a page-not-found error.",
+        "severity": 5,
+        "occurrence": 6,
+        "detection": 6
+      },
+      {
+        "id": "E2",
+        "text": "The newsletter went out with misspellings and doubled commas in its headline.",
+        "severity": 3,
+        "occurrence": 7,
+        "detection": 5
+      },
+      {
+        "id": "E3",
+        "text": "The editor uploaded last week’s draft rather than the newly approved revision.",
+        "severity": 7,
+        "occurrence": 4,
+        "detection": 8
+      },
+      {
+        "id": "E4",
+        "text": "Several citations in the story point to websites that no longer exist.",
+        "severity": 5,
+        "occurrence": 3,
+        "detection": 5
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "E1",
+      "selected": "B",
+      "proposed": "B",
+      "candidates": [
+        {
+          "mode": "B",
+          "cosine": 0.5871350465332618
+        },
+        {
+          "mode": "T",
+          "cosine": 0.37582721322806323
+        },
+        {
+          "mode": "V",
+          "cosine": 0.3532691821664511
+        }
+      ],
+      "severity": 5,
+      "occurrence": 6,
+      "detection": 6,
+      "residualOccurrence": 2,
+      "residualDetection": 6,
+      "decision": "approve",
+      "action": "=1+1\nReviewed, \"verified\" 🪷",
+      "owner": "Test owner",
+      "source": "Readers clicked the source reference and landed on a page-not-found error.",
+      "modeTitle": "Broken links",
+      "rpn": 180,
+      "projectedRpn": 60
+    },
+    {
+      "id": "E2",
+      "selected": "T",
+      "proposed": "T",
+      "candidates": [
+        {
+          "mode": "T",
+          "cosine": 0.5615497963174264
+        },
+        {
+          "mode": "B",
+          "cosine": 0.2745937765040682
+        },
+        {
+          "mode": "V",
+          "cosine": 0.25315531700551264
+        }
+      ],
+      "severity": 3,
+      "occurrence": 7,
+      "detection": 5,
+      "residualOccurrence": 7,
+      "residualDetection": 5,
+      "decision": "approve",
+      "action": "",
+      "owner": "",
+      "source": "The newsletter went out with misspellings and doubled commas in its headline.",
+      "modeTitle": "Typography errors",
+      "rpn": 105,
+      "projectedRpn": 105
+    },
+    {
+      "id": "E3",
+      "selected": "V",
+      "proposed": "V",
+      "candidates": [
+        {
+          "mode": "V",
+          "cosine": 0.7120884700994888
+        },
+        {
+          "mode": "T",
+          "cosine": 0.3042353549443269
+        },
+        {
+          "mode": "B",
+          "cosine": 0.16281963587798534
+        }
+      ],
+      "severity": 7,
+      "occurrence": 4,
+      "detection": 8,
+      "residualOccurrence": 4,
+      "residualDetection": 8,
+      "decision": "approve",
+      "action": "",
+      "owner": "",
+      "source": "The editor uploaded last week’s draft rather than the newly approved revision.",
+      "modeTitle": "Stale version",
+      "rpn": 224,
+      "projectedRpn": 224
+    },
+    {
+      "id": "E4",
+      "selected": "B",
+      "proposed": "B",
+      "candidates": [
+        {
+          "mode": "B",
+          "cosine": 0.5971584776382308
+        },
+        {
+          "mode": "T",
+          "cosine": 0.3220869024111278
+        },
+        {
+          "mode": "V",
+          "cosine": 0.2593179266415874
+        }
+      ],
+      "severity": 5,
+      "occurrence": 3,
+      "detection": 5,
+      "residualOccurrence": 3,
+      "residualDetection": 5,
+      "decision": "hold",
+      "action": "",
+      "owner": "",
+      "source": "Several citations in the story point to websites that no longer exist.",
+      "modeTitle": "Broken links",
+      "rpn": 75,
+      "projectedRpn": 75
+    }
+  ],
+  "rankedIds": [
+    "E3",
+    "E1",
+    "E2"
+  ],
+  "metrics": {
+    "approved": 3,
+    "held": 1,
+    "attention": 2,
+    "projectedAttention": 1,
+    "confirmedAI": 3,
+    "exactTitleNotes": 0,
+    "changedPositions": 3
+  },
+  "warning": "RPN multiplies subjective ordinal ratings; it is not probability, expected loss or safety certification. Projected ratings are unverified action assumptions. Separate observations are not deduplicated or summed."
+}

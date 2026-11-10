@@ -1,0 +1,298 @@
+{
+  "version": 1,
+  "originalInput": {
+    "name": "Print launch",
+    "deadline": 1,
+    "currency": "USD",
+    "tasks": [
+      {
+        "id": "design",
+        "title": "Artwork",
+        "description": "Create graphic artwork and page layout for printed brochures.",
+        "days": 5,
+        "after": []
+      },
+      {
+        "id": "paper",
+        "title": "Paper stock",
+        "description": "Acquire paper sheets and printing supplies from supplier.",
+        "days": 6,
+        "after": []
+      },
+      {
+        "id": "print",
+        "title": "Press run",
+        "description": "Print brochures on the printing press.",
+        "days": 3,
+        "after": [
+          "design",
+          "paper"
+        ]
+      },
+      {
+        "id": "pack",
+        "title": "Dispatch",
+        "description": "Pack and ship finished brochures to customers.",
+        "days": 2,
+        "after": [
+          "print"
+        ]
+      }
+    ],
+    "offers": [
+      {
+        "id": "D1",
+        "text": "Extra graphic designer finishes brochure layout sooner.",
+        "daysSaved": 2,
+        "costCents": 20000
+      },
+      {
+        "id": "P1",
+        "text": "Express delivery of paper sheets for the printing shop.",
+        "daysSaved": 3,
+        "costCents": 30000
+      },
+      {
+        "id": "R1",
+        "text": "Overtime on the brochure printing press.",
+        "daysSaved": 1,
+        "costCents": 5000
+      },
+      {
+        "id": "S1",
+        "text": "Expedited packing and shipping of the finished brochures.",
+        "daysSaved": 1,
+        "costCents": 8000
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "D1",
+      "task": "design",
+      "proposed": "design",
+      "daysSaved": 2,
+      "costCents": 20000,
+      "candidates": [
+        {
+          "task": "design",
+          "similarity": 0.6374565871313426
+        },
+        {
+          "task": "print",
+          "similarity": 0.5423942125461823
+        },
+        {
+          "task": "pack",
+          "similarity": 0.5220470587705358
+        },
+        {
+          "task": "paper",
+          "similarity": 0.2236408401462831
+        }
+      ],
+      "decision": "approve",
+      "note": "",
+      "original": {
+        "id": "D1",
+        "text": "Extra graphic designer finishes brochure layout sooner.",
+        "daysSaved": 2,
+        "costCents": 20000
+      }
+    },
+    {
+      "id": "P1",
+      "task": "paper",
+      "proposed": "paper",
+      "daysSaved": 3,
+      "costCents": 30000,
+      "candidates": [
+        {
+          "task": "paper",
+          "similarity": 0.7982804306084875
+        },
+        {
+          "task": "design",
+          "similarity": 0.536046425959731
+        },
+        {
+          "task": "print",
+          "similarity": 0.5299421770999933
+        },
+        {
+          "task": "pack",
+          "similarity": 0.510296916051702
+        }
+      ],
+      "decision": "approve",
+      "note": "",
+      "original": {
+        "id": "P1",
+        "text": "Express delivery of paper sheets for the printing shop.",
+        "daysSaved": 3,
+        "costCents": 30000
+      }
+    },
+    {
+      "id": "R1",
+      "task": "print",
+      "proposed": "print",
+      "daysSaved": 1,
+      "costCents": 5000,
+      "candidates": [
+        {
+          "task": "print",
+          "similarity": 0.6515285842668695
+        },
+        {
+          "task": "design",
+          "similarity": 0.4546480578946305
+        },
+        {
+          "task": "paper",
+          "similarity": 0.41775498324411175
+        },
+        {
+          "task": "pack",
+          "similarity": 0.387894492053253
+        }
+      ],
+      "decision": "approve",
+      "note": "",
+      "original": {
+        "id": "R1",
+        "text": "Overtime on the brochure printing press.",
+        "daysSaved": 1,
+        "costCents": 5000
+      }
+    },
+    {
+      "id": "S1",
+      "task": "pack",
+      "proposed": "pack",
+      "daysSaved": 1,
+      "costCents": 8000,
+      "candidates": [
+        {
+          "task": "pack",
+          "similarity": 0.7997828569180374
+        },
+        {
+          "task": "design",
+          "similarity": 0.5159588551489389
+        },
+        {
+          "task": "print",
+          "similarity": 0.5148704398610999
+        },
+        {
+          "task": "paper",
+          "similarity": 0.48113640731629914
+        }
+      ],
+      "decision": "approve",
+      "note": "",
+      "original": {
+        "id": "S1",
+        "text": "Expedited packing and shipping of the finished brochures.",
+        "daysSaved": 1,
+        "costCents": 8000
+      }
+    }
+  ],
+  "ready": false,
+  "blockers": [
+    "No reviewed combination meets the deadline. Change deadline/input or review more offers."
+  ],
+  "baseline": {
+    "days": 11,
+    "costCents": 0,
+    "selected": [],
+    "tasks": [
+      {
+        "id": "design",
+        "title": "Artwork",
+        "start": 0,
+        "finish": 5,
+        "duration": 5,
+        "offer": null
+      },
+      {
+        "id": "paper",
+        "title": "Paper stock",
+        "start": 0,
+        "finish": 6,
+        "duration": 6,
+        "offer": null
+      },
+      {
+        "id": "print",
+        "title": "Press run",
+        "start": 6,
+        "finish": 9,
+        "duration": 3,
+        "offer": null
+      },
+      {
+        "id": "pack",
+        "title": "Dispatch",
+        "start": 9,
+        "finish": 11,
+        "duration": 2,
+        "offer": null
+      }
+    ]
+  },
+  "expedited": null,
+  "fastest": {
+    "days": 6,
+    "costCents": 63000,
+    "selected": [
+      "D1",
+      "P1",
+      "R1",
+      "S1"
+    ],
+    "tasks": [
+      {
+        "id": "design",
+        "title": "Artwork",
+        "start": 0,
+        "finish": 3,
+        "duration": 3,
+        "offer": "D1"
+      },
+      {
+        "id": "paper",
+        "title": "Paper stock",
+        "start": 0,
+        "finish": 3,
+        "duration": 3,
+        "offer": "P1"
+      },
+      {
+        "id": "print",
+        "title": "Press run",
+        "start": 3,
+        "finish": 5,
+        "duration": 2,
+        "offer": "R1"
+      },
+      {
+        "id": "pack",
+        "title": "Dispatch",
+        "start": 5,
+        "finish": 6,
+        "duration": 1,
+        "offer": "S1"
+      }
+    ]
+  },
+  "metrics": {
+    "records": 4,
+    "held": 0,
+    "literalTitleMatches": 0,
+    "combinations": 16
+  },
+  "method": "Real local MiniLM task inference, mandatory review, exact enumeration of zero or one independent offer per task. Unlimited parallel resources, finish-to-start dependencies, integer elapsed days from day zero; costs and durations are estimates. Baseline is no expediting. No vendor contact."
+}

@@ -1,0 +1,338 @@
+{
+  "version": 1,
+  "originalInput": {
+    "name": "Workshop opening",
+    "deadline": 7,
+    "currency": "USD",
+    "tasks": [
+      {
+        "id": "paint",
+        "title": "Walls",
+        "description": "Paint interior walls and let wall paint dry.",
+        "days": 5,
+        "after": []
+      },
+      {
+        "id": "electric",
+        "title": "Wiring",
+        "description": "Install electrical wiring and power outlets.",
+        "days": 4,
+        "after": []
+      },
+      {
+        "id": "equipment",
+        "title": "Benches",
+        "description": "Assemble workbenches and install workshop equipment.",
+        "days": 4,
+        "after": [
+          "paint",
+          "electric"
+        ]
+      },
+      {
+        "id": "inspect",
+        "title": "Safety signoff",
+        "description": "Perform final safety inspection of the workshop.",
+        "days": 2,
+        "after": [
+          "equipment"
+        ]
+      }
+    ],
+    "offers": [
+      {
+        "id": "W1",
+        "text": "Second decorating crew accelerates painting the interior walls.",
+        "daysSaved": 2,
+        "costCents": 24000
+      },
+      {
+        "id": "E1",
+        "text": "Extra electrician speeds up installing power outlets and cables.",
+        "daysSaved": 1,
+        "costCents": 10000
+      },
+      {
+        "id": "B1",
+        "text": "Additional installers assemble the workbenches faster.",
+        "daysSaved": 2,
+        "costCents": 18000
+      },
+      {
+        "id": "I1",
+        "text": "Priority appointment for the final workshop safety inspection.",
+        "daysSaved": 1,
+        "costCents": 12000
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "W1",
+      "task": "paint",
+      "proposed": "paint",
+      "daysSaved": 2,
+      "costCents": 24000,
+      "candidates": [
+        {
+          "task": "paint",
+          "similarity": 0.3931696946442756
+        },
+        {
+          "task": "inspect",
+          "similarity": 0.2524329511887343
+        },
+        {
+          "task": "equipment",
+          "similarity": 0.2101191205184986
+        },
+        {
+          "task": "electric",
+          "similarity": 0.18114122513729702
+        }
+      ],
+      "decision": "approve",
+      "note": "",
+      "original": {
+        "id": "W1",
+        "text": "Second decorating crew accelerates painting the interior walls.",
+        "daysSaved": 2,
+        "costCents": 24000
+      }
+    },
+    {
+      "id": "E1",
+      "task": "electric",
+      "proposed": "electric",
+      "daysSaved": 1,
+      "costCents": 10000,
+      "candidates": [
+        {
+          "task": "electric",
+          "similarity": 0.5628510347925133
+        },
+        {
+          "task": "equipment",
+          "similarity": 0.23415563954986246
+        },
+        {
+          "task": "inspect",
+          "similarity": 0.10233144795219755
+        },
+        {
+          "task": "paint",
+          "similarity": 0.012757124997771506
+        }
+      ],
+      "decision": "approve",
+      "note": "",
+      "original": {
+        "id": "E1",
+        "text": "Extra electrician speeds up installing power outlets and cables.",
+        "daysSaved": 1,
+        "costCents": 10000
+      }
+    },
+    {
+      "id": "B1",
+      "task": "equipment",
+      "proposed": "equipment",
+      "daysSaved": 2,
+      "costCents": 18000,
+      "candidates": [
+        {
+          "task": "equipment",
+          "similarity": 0.6608866411293595
+        },
+        {
+          "task": "inspect",
+          "similarity": 0.26244069696529554
+        },
+        {
+          "task": "electric",
+          "similarity": 0.24832860849348642
+        },
+        {
+          "task": "paint",
+          "similarity": 0.07695704127473403
+        }
+      ],
+      "decision": "approve",
+      "note": "",
+      "original": {
+        "id": "B1",
+        "text": "Additional installers assemble the workbenches faster.",
+        "daysSaved": 2,
+        "costCents": 18000
+      }
+    },
+    {
+      "id": "I1",
+      "task": "inspect",
+      "proposed": "inspect",
+      "daysSaved": 1,
+      "costCents": 0,
+      "candidates": [
+        {
+          "task": "inspect",
+          "similarity": 0.7906356269398321
+        },
+        {
+          "task": "equipment",
+          "similarity": 0.4692866913833685
+        },
+        {
+          "task": "electric",
+          "similarity": 0.11565792423958722
+        },
+        {
+          "task": "paint",
+          "similarity": 0.0723117112580895
+        }
+      ],
+      "decision": "approve",
+      "note": "",
+      "original": {
+        "id": "I1",
+        "text": "Priority appointment for the final workshop safety inspection.",
+        "daysSaved": 1,
+        "costCents": 12000
+      }
+    }
+  ],
+  "ready": true,
+  "blockers": [],
+  "baseline": {
+    "days": 11,
+    "costCents": 0,
+    "selected": [],
+    "tasks": [
+      {
+        "id": "paint",
+        "title": "Walls",
+        "start": 0,
+        "finish": 5,
+        "duration": 5,
+        "offer": null
+      },
+      {
+        "id": "electric",
+        "title": "Wiring",
+        "start": 0,
+        "finish": 4,
+        "duration": 4,
+        "offer": null
+      },
+      {
+        "id": "equipment",
+        "title": "Benches",
+        "start": 5,
+        "finish": 9,
+        "duration": 4,
+        "offer": null
+      },
+      {
+        "id": "inspect",
+        "title": "Safety signoff",
+        "start": 9,
+        "finish": 11,
+        "duration": 2,
+        "offer": null
+      }
+    ]
+  },
+  "expedited": {
+    "days": 7,
+    "costCents": 42000,
+    "selected": [
+      "W1",
+      "B1",
+      "I1"
+    ],
+    "tasks": [
+      {
+        "id": "paint",
+        "title": "Walls",
+        "start": 0,
+        "finish": 3,
+        "duration": 3,
+        "offer": "W1"
+      },
+      {
+        "id": "electric",
+        "title": "Wiring",
+        "start": 0,
+        "finish": 4,
+        "duration": 4,
+        "offer": null
+      },
+      {
+        "id": "equipment",
+        "title": "Benches",
+        "start": 4,
+        "finish": 6,
+        "duration": 2,
+        "offer": "B1"
+      },
+      {
+        "id": "inspect",
+        "title": "Safety signoff",
+        "start": 6,
+        "finish": 7,
+        "duration": 1,
+        "offer": "I1"
+      }
+    ]
+  },
+  "fastest": {
+    "days": 6,
+    "costCents": 52000,
+    "selected": [
+      "W1",
+      "E1",
+      "B1",
+      "I1"
+    ],
+    "tasks": [
+      {
+        "id": "paint",
+        "title": "Walls",
+        "start": 0,
+        "finish": 3,
+        "duration": 3,
+        "offer": "W1"
+      },
+      {
+        "id": "electric",
+        "title": "Wiring",
+        "start": 0,
+        "finish": 3,
+        "duration": 3,
+        "offer": "E1"
+      },
+      {
+        "id": "equipment",
+        "title": "Benches",
+        "start": 3,
+        "finish": 5,
+        "duration": 2,
+        "offer": "B1"
+      },
+      {
+        "id": "inspect",
+        "title": "Safety signoff",
+        "start": 5,
+        "finish": 6,
+        "duration": 1,
+        "offer": "I1"
+      }
+    ]
+  },
+  "metrics": {
+    "records": 4,
+    "held": 0,
+    "literalTitleMatches": 2,
+    "combinations": 16
+  },
+  "method": "Real local MiniLM task inference, mandatory review, exact enumeration of zero or one independent offer per task. Unlimited parallel resources, finish-to-start dependencies, integer elapsed days from day zero; costs and durations are estimates. Baseline is no expediting. No vendor contact."
+}

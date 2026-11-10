@@ -1,0 +1,207 @@
+{
+  "version": 1,
+  "originalInput": {
+    "name": "Claims desk",
+    "availableSeconds": 24000,
+    "demand": 100,
+    "stages": [
+      {
+        "id": "I",
+        "title": "Intake registration",
+        "description": "Open incoming customer requests, enter contact information and create a case number.",
+        "servers": 1
+      },
+      {
+        "id": "V",
+        "title": "Evidence verification",
+        "description": "Check supporting receipts and documents, compare details and confirm completeness.",
+        "servers": 1
+      },
+      {
+        "id": "R",
+        "title": "Resolution notice",
+        "description": "Compose the final outcome message and send the customer a written decision.",
+        "servers": 1
+      }
+    ],
+    "notes": [
+      {
+        "id": "C1",
+        "text": "No supporting receipts were checked. No paperwork was verified.",
+        "seconds": 120
+      },
+      {
+        "id": "C2",
+        "text": "The jazz concert begins after sunset in the railway station.",
+        "seconds": 300
+      },
+      {
+        "id": "C3",
+        "text": "Wrote the outcome letter and emailed it to the claimant.",
+        "seconds": 180
+      },
+      {
+        "id": "C4",
+        "text": "Checked all attachments and confirmed the evidence was complete.",
+        "seconds": 360
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "C1",
+      "selected": "V",
+      "proposed": "V",
+      "candidates": [
+        {
+          "stage": "V",
+          "cosine": 0.6106922451920332
+        },
+        {
+          "stage": "R",
+          "cosine": 0.2258270165222227
+        },
+        {
+          "stage": "I",
+          "cosine": 0.1616946328733246
+        }
+      ],
+      "seconds": 120,
+      "decision": "hold",
+      "rationale": "",
+      "source": "No supporting receipts were checked. No paperwork was verified.",
+      "originalSeconds": 120,
+      "stageTitle": "Evidence verification"
+    },
+    {
+      "id": "C2",
+      "selected": "I",
+      "proposed": "I",
+      "candidates": [
+        {
+          "stage": "I",
+          "cosine": 0.06534923515756323
+        },
+        {
+          "stage": "R",
+          "cosine": 0.040147209698605385
+        },
+        {
+          "stage": "V",
+          "cosine": -0.04709948745430475
+        }
+      ],
+      "seconds": 300,
+      "decision": "hold",
+      "rationale": "",
+      "source": "The jazz concert begins after sunset in the railway station.",
+      "originalSeconds": 300,
+      "stageTitle": "Intake registration"
+    },
+    {
+      "id": "C3",
+      "selected": "R",
+      "proposed": "R",
+      "candidates": [
+        {
+          "stage": "R",
+          "cosine": 0.5064700987751434
+        },
+        {
+          "stage": "V",
+          "cosine": 0.4114817438618246
+        },
+        {
+          "stage": "I",
+          "cosine": 0.3126295758755597
+        }
+      ],
+      "seconds": 180,
+      "decision": "hold",
+      "rationale": "",
+      "source": "Wrote the outcome letter and emailed it to the claimant.",
+      "originalSeconds": 180,
+      "stageTitle": "Resolution notice"
+    },
+    {
+      "id": "C4",
+      "selected": "V",
+      "proposed": "V",
+      "candidates": [
+        {
+          "stage": "V",
+          "cosine": 0.5352467232666623
+        },
+        {
+          "stage": "R",
+          "cosine": 0.1407802200053862
+        },
+        {
+          "stage": "I",
+          "cosine": 0.11423953906715187
+        }
+      ],
+      "seconds": 360,
+      "decision": "hold",
+      "rationale": "",
+      "source": "Checked all attachments and confirmed the evidence was complete.",
+      "originalSeconds": 360,
+      "stageTitle": "Evidence verification"
+    }
+  ],
+  "stages": [
+    {
+      "id": "I",
+      "title": "Intake registration",
+      "description": "Open incoming customer requests, enter contact information and create a case number.",
+      "servers": 1,
+      "count": 0,
+      "totalSeconds": 0,
+      "meanSeconds": null,
+      "capacity": null,
+      "requiredServers": null,
+      "extraServers": null,
+      "observationIds": []
+    },
+    {
+      "id": "V",
+      "title": "Evidence verification",
+      "description": "Check supporting receipts and documents, compare details and confirm completeness.",
+      "servers": 1,
+      "count": 0,
+      "totalSeconds": 0,
+      "meanSeconds": null,
+      "capacity": null,
+      "requiredServers": null,
+      "extraServers": null,
+      "observationIds": []
+    },
+    {
+      "id": "R",
+      "title": "Resolution notice",
+      "description": "Compose the final outcome message and send the customer a written decision.",
+      "servers": 1,
+      "count": 0,
+      "totalSeconds": 0,
+      "meanSeconds": null,
+      "capacity": null,
+      "requiredServers": null,
+      "extraServers": null,
+      "observationIds": []
+    }
+  ],
+  "metrics": {
+    "approved": 0,
+    "held": 4,
+    "approvedSeconds": 0,
+    "heldSeconds": 960,
+    "complete": false,
+    "taktSeconds": 240,
+    "bottleneckCapacity": null,
+    "proposedCapacity": null,
+    "addedServers": null,
+    "confirmedAI": 0,
+    "exactTitleNotes": 0
+  },
+  "warning": "Planning arithmetic, not a measured throughput forecast. Each unit must visit every stage once; observations must time one full unit and one stage. Parallel servers are assumed identical, continuously available and independent. No variability, queueing, setup, rework, breaks, shared workers or material constraints are modeled. Staffing is a necessary mean-load bound, not a service-level guarantee. Missing approved stages block whole-process capacity."
+}

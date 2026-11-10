@@ -1,0 +1,212 @@
+{
+  "version": 1,
+  "originalInput": {
+    "name": "Studio desk",
+    "availableSeconds": 18000,
+    "demand": 80,
+    "stages": [
+      {
+        "id": "B",
+        "title": "Creative briefing",
+        "description": "Meet the client to gather design requirements, objectives and brand preferences.",
+        "servers": 1
+      },
+      {
+        "id": "E",
+        "title": "Image retouching",
+        "description": "Edit photos, remove image blemishes and adjust photographic color and lighting.",
+        "servers": 1
+      },
+      {
+        "id": "P",
+        "title": "Print preparation",
+        "description": "Export artwork with bleed and crop marks, check print dimensions and prepare printer files.",
+        "servers": 1
+      }
+    ],
+    "notes": [
+      {
+        "id": "S1",
+        "text": "Discussed the customer goals and collected their visual brand preferences.",
+        "seconds": 200
+      },
+      {
+        "id": "S2",
+        "text": "Removed spots from a photograph and corrected its exposure.",
+        "seconds": 400
+      },
+      {
+        "id": "S3",
+        "text": "Added crop marks and bleed to the press-ready exported document.",
+        "seconds": 120
+      },
+      {
+        "id": "S4",
+        "text": "Adjusted lighting and color balance in the product photos.",
+        "seconds": 500
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "S1",
+      "selected": "B",
+      "proposed": "B",
+      "candidates": [
+        {
+          "stage": "B",
+          "cosine": 0.6245672402590366
+        },
+        {
+          "stage": "E",
+          "cosine": 0.152235175157343
+        },
+        {
+          "stage": "P",
+          "cosine": 0.06817377880313347
+        }
+      ],
+      "seconds": 250,
+      "decision": "approve",
+      "rationale": "=1+1\nReviewed, \"verified\" 🪷",
+      "source": "Discussed the customer goals and collected their visual brand preferences.",
+      "originalSeconds": 200,
+      "stageTitle": "Creative briefing"
+    },
+    {
+      "id": "S2",
+      "selected": "E",
+      "proposed": "E",
+      "candidates": [
+        {
+          "stage": "E",
+          "cosine": 0.5344982521149826
+        },
+        {
+          "stage": "P",
+          "cosine": 0.22096802451739678
+        },
+        {
+          "stage": "B",
+          "cosine": -0.014525413076997895
+        }
+      ],
+      "seconds": 400,
+      "decision": "approve",
+      "rationale": "",
+      "source": "Removed spots from a photograph and corrected its exposure.",
+      "originalSeconds": 400,
+      "stageTitle": "Image retouching"
+    },
+    {
+      "id": "S3",
+      "selected": "P",
+      "proposed": "P",
+      "candidates": [
+        {
+          "stage": "P",
+          "cosine": 0.7001075367083338
+        },
+        {
+          "stage": "E",
+          "cosine": 0.21977643967521152
+        },
+        {
+          "stage": "B",
+          "cosine": 0.18136474025102167
+        }
+      ],
+      "seconds": 120,
+      "decision": "hold",
+      "rationale": "",
+      "source": "Added crop marks and bleed to the press-ready exported document.",
+      "originalSeconds": 120,
+      "stageTitle": "Print preparation"
+    },
+    {
+      "id": "S4",
+      "selected": "E",
+      "proposed": "E",
+      "candidates": [
+        {
+          "stage": "E",
+          "cosine": 0.5615231542622491
+        },
+        {
+          "stage": "B",
+          "cosine": 0.3226760739819039
+        },
+        {
+          "stage": "P",
+          "cosine": 0.13333140711091052
+        }
+      ],
+      "seconds": 500,
+      "decision": "approve",
+      "rationale": "",
+      "source": "Adjusted lighting and color balance in the product photos.",
+      "originalSeconds": 500,
+      "stageTitle": "Image retouching"
+    }
+  ],
+  "stages": [
+    {
+      "id": "B",
+      "title": "Creative briefing",
+      "description": "Meet the client to gather design requirements, objectives and brand preferences.",
+      "servers": 1,
+      "count": 1,
+      "totalSeconds": 250,
+      "meanSeconds": 250,
+      "capacity": 72,
+      "requiredServers": 2,
+      "extraServers": 1,
+      "observationIds": [
+        "S1"
+      ]
+    },
+    {
+      "id": "E",
+      "title": "Image retouching",
+      "description": "Edit photos, remove image blemishes and adjust photographic color and lighting.",
+      "servers": 1,
+      "count": 2,
+      "totalSeconds": 900,
+      "meanSeconds": 450,
+      "capacity": 40,
+      "requiredServers": 2,
+      "extraServers": 1,
+      "observationIds": [
+        "S2",
+        "S4"
+      ]
+    },
+    {
+      "id": "P",
+      "title": "Print preparation",
+      "description": "Export artwork with bleed and crop marks, check print dimensions and prepare printer files.",
+      "servers": 1,
+      "count": 0,
+      "totalSeconds": 0,
+      "meanSeconds": null,
+      "capacity": null,
+      "requiredServers": null,
+      "extraServers": null,
+      "observationIds": []
+    }
+  ],
+  "metrics": {
+    "approved": 3,
+    "held": 1,
+    "approvedSeconds": 1150,
+    "heldSeconds": 120,
+    "complete": false,
+    "taktSeconds": 225,
+    "bottleneckCapacity": null,
+    "proposedCapacity": null,
+    "addedServers": null,
+    "confirmedAI": 3,
+    "exactTitleNotes": 0
+  },
+  "warning": "Planning arithmetic, not a measured throughput forecast. Each unit must visit every stage once; observations must time one full unit and one stage. Parallel servers are assumed identical, continuously available and independent. No variability, queueing, setup, rework, breaks, shared workers or material constraints are modeled. Staffing is a necessary mean-load bound, not a service-level guarantee. Missing approved stages block whole-process capacity."
+}

@@ -1,0 +1,213 @@
+{
+  "version": 1,
+  "originalInput": {
+    "name": "Claims desk",
+    "availableSeconds": 24000,
+    "demand": 100,
+    "stages": [
+      {
+        "id": "I",
+        "title": "Intake registration",
+        "description": "Open incoming customer requests, enter contact information and create a case number.",
+        "servers": 1
+      },
+      {
+        "id": "V",
+        "title": "Evidence verification",
+        "description": "Check supporting receipts and documents, compare details and confirm completeness.",
+        "servers": 1
+      },
+      {
+        "id": "R",
+        "title": "Resolution notice",
+        "description": "Compose the final outcome message and send the customer a written decision.",
+        "servers": 1
+      }
+    ],
+    "notes": [
+      {
+        "id": "C1",
+        "text": "Entered the caller details and opened a new numbered case.",
+        "seconds": 120
+      },
+      {
+        "id": "C2",
+        "text": "Compared the submitted receipts with the supporting paperwork.",
+        "seconds": 300
+      },
+      {
+        "id": "C3",
+        "text": "Wrote the outcome letter and emailed it to the claimant.",
+        "seconds": 180
+      },
+      {
+        "id": "C4",
+        "text": "Checked all attachments and confirmed the evidence was complete.",
+        "seconds": 360
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "C1",
+      "selected": "V",
+      "proposed": "I",
+      "candidates": [
+        {
+          "stage": "I",
+          "cosine": 0.475442940891255
+        },
+        {
+          "stage": "R",
+          "cosine": 0.3147779950391484
+        },
+        {
+          "stage": "V",
+          "cosine": 0.16361562518618203
+        }
+      ],
+      "seconds": 120,
+      "decision": "approve",
+      "rationale": "",
+      "source": "Entered the caller details and opened a new numbered case.",
+      "originalSeconds": 120,
+      "stageTitle": "Evidence verification"
+    },
+    {
+      "id": "C2",
+      "selected": "V",
+      "proposed": "V",
+      "candidates": [
+        {
+          "stage": "V",
+          "cosine": 0.6973273029007265
+        },
+        {
+          "stage": "R",
+          "cosine": 0.3859452311068152
+        },
+        {
+          "stage": "I",
+          "cosine": 0.2371696226842131
+        }
+      ],
+      "seconds": 300,
+      "decision": "approve",
+      "rationale": "",
+      "source": "Compared the submitted receipts with the supporting paperwork.",
+      "originalSeconds": 300,
+      "stageTitle": "Evidence verification"
+    },
+    {
+      "id": "C3",
+      "selected": "R",
+      "proposed": "R",
+      "candidates": [
+        {
+          "stage": "R",
+          "cosine": 0.5175814417086142
+        },
+        {
+          "stage": "V",
+          "cosine": 0.40378780523639024
+        },
+        {
+          "stage": "I",
+          "cosine": 0.3091639931592657
+        }
+      ],
+      "seconds": 180,
+      "decision": "approve",
+      "rationale": "",
+      "source": "Wrote the outcome letter and emailed it to the claimant.",
+      "originalSeconds": 180,
+      "stageTitle": "Resolution notice"
+    },
+    {
+      "id": "C4",
+      "selected": "V",
+      "proposed": "V",
+      "candidates": [
+        {
+          "stage": "V",
+          "cosine": 0.5473639120017463
+        },
+        {
+          "stage": "R",
+          "cosine": 0.14300696950687045
+        },
+        {
+          "stage": "I",
+          "cosine": 0.11398663679186229
+        }
+      ],
+      "seconds": 360,
+      "decision": "approve",
+      "rationale": "",
+      "source": "Checked all attachments and confirmed the evidence was complete.",
+      "originalSeconds": 360,
+      "stageTitle": "Evidence verification"
+    }
+  ],
+  "stages": [
+    {
+      "id": "I",
+      "title": "Intake registration",
+      "description": "Open incoming customer requests, enter contact information and create a case number.",
+      "servers": 1,
+      "count": 0,
+      "totalSeconds": 0,
+      "meanSeconds": null,
+      "capacity": null,
+      "requiredServers": null,
+      "extraServers": null,
+      "observationIds": []
+    },
+    {
+      "id": "V",
+      "title": "Evidence verification",
+      "description": "Check supporting receipts and documents, compare details and confirm completeness.",
+      "servers": 1,
+      "count": 3,
+      "totalSeconds": 780,
+      "meanSeconds": 260,
+      "capacity": 92,
+      "requiredServers": 2,
+      "extraServers": 1,
+      "observationIds": [
+        "C1",
+        "C2",
+        "C4"
+      ]
+    },
+    {
+      "id": "R",
+      "title": "Resolution notice",
+      "description": "Compose the final outcome message and send the customer a written decision.",
+      "servers": 1,
+      "count": 1,
+      "totalSeconds": 180,
+      "meanSeconds": 180,
+      "capacity": 133,
+      "requiredServers": 1,
+      "extraServers": 0,
+      "observationIds": [
+        "C3"
+      ]
+    }
+  ],
+  "metrics": {
+    "approved": 4,
+    "held": 0,
+    "approvedSeconds": 960,
+    "heldSeconds": 0,
+    "complete": false,
+    "taktSeconds": 240,
+    "bottleneckCapacity": null,
+    "proposedCapacity": null,
+    "addedServers": null,
+    "confirmedAI": 3,
+    "exactTitleNotes": 0
+  },
+  "warning": "Planning arithmetic, not a measured throughput forecast. Each unit must visit every stage once; observations must time one full unit and one stage. Parallel servers are assumed identical, continuously available and independent. No variability, queueing, setup, rework, breaks, shared workers or material constraints are modeled. Staffing is a necessary mean-load bound, not a service-level guarantee. Missing approved stages block whole-process capacity."
+}

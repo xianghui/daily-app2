@@ -1,0 +1,234 @@
+{
+  "version": 1,
+  "originalInput": {
+    "name": "Packaging rejects",
+    "basis": "units",
+    "target": 80,
+    "categories": [
+      {
+        "id": "S",
+        "title": "Closure integrity",
+        "description": "Shipping box is open because adhesive tape or the glued seam has detached."
+      },
+      {
+        "id": "C",
+        "title": "Compression damage",
+        "description": "Carton panels or corners are crushed, dented or collapsed from physical pressure."
+      },
+      {
+        "id": "L",
+        "title": "Identification legibility",
+        "description": "Printed shipping barcode, address or product label is unreadable or missing."
+      }
+    ],
+    "notes": [
+      {
+        "id": "P1",
+        "text": "Sticky strip peeled away and the flaps sprang open.",
+        "units": 24,
+        "minutesPerUnit": 2
+      },
+      {
+        "id": "P2",
+        "text": "The scanner cannot read the smeared black bars on the sticker.",
+        "units": 8,
+        "minutesPerUnit": 5
+      },
+      {
+        "id": "P3",
+        "text": "Bottom glue joint came apart during packing.",
+        "units": 16,
+        "minutesPerUnit": 2
+      },
+      {
+        "id": "P4",
+        "text": "Box corners flattened under the weight of the stack.",
+        "units": 12,
+        "minutesPerUnit": 1
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "P1",
+      "selected": "S",
+      "proposed": "S",
+      "candidates": [
+        {
+          "category": "S",
+          "cosine": 0.42509229690471606
+        },
+        {
+          "category": "C",
+          "cosine": 0.29769052559590553
+        },
+        {
+          "category": "L",
+          "cosine": 0.14854441167058546
+        }
+      ],
+      "units": 24,
+      "minutesPerUnit": 2,
+      "decision": "approve",
+      "owner": "",
+      "action": "",
+      "rationale": "",
+      "source": "Sticky strip peeled away and the flaps sprang open.",
+      "originalUnits": 24,
+      "originalMinutesPerUnit": 2,
+      "categoryTitle": "Closure integrity",
+      "estimatedMinutes": 48
+    },
+    {
+      "id": "P2",
+      "selected": "L",
+      "proposed": "L",
+      "candidates": [
+        {
+          "category": "L",
+          "cosine": 0.45889761663067363
+        },
+        {
+          "category": "S",
+          "cosine": 0.18050650043551825
+        },
+        {
+          "category": "C",
+          "cosine": 0.08441465385102125
+        }
+      ],
+      "units": 8,
+      "minutesPerUnit": 5,
+      "decision": "approve",
+      "owner": "",
+      "action": "",
+      "rationale": "",
+      "source": "The scanner cannot read the smeared black bars on the sticker.",
+      "originalUnits": 8,
+      "originalMinutesPerUnit": 5,
+      "categoryTitle": "Identification legibility",
+      "estimatedMinutes": 40
+    },
+    {
+      "id": "P3",
+      "selected": "S",
+      "proposed": "S",
+      "candidates": [
+        {
+          "category": "S",
+          "cosine": 0.47470246543694394
+        },
+        {
+          "category": "C",
+          "cosine": 0.3513972775037487
+        },
+        {
+          "category": "L",
+          "cosine": 0.2592241493569474
+        }
+      ],
+      "units": 16,
+      "minutesPerUnit": 2,
+      "decision": "approve",
+      "owner": "",
+      "action": "",
+      "rationale": "",
+      "source": "Bottom glue joint came apart during packing.",
+      "originalUnits": 16,
+      "originalMinutesPerUnit": 2,
+      "categoryTitle": "Closure integrity",
+      "estimatedMinutes": 32
+    },
+    {
+      "id": "P4",
+      "selected": "C",
+      "proposed": "S",
+      "candidates": [
+        {
+          "category": "S",
+          "cosine": 0.40847198801069906
+        },
+        {
+          "category": "C",
+          "cosine": 0.32479005976330444
+        },
+        {
+          "category": "L",
+          "cosine": 0.20346585191615646
+        }
+      ],
+      "units": 12,
+      "minutesPerUnit": 1,
+      "decision": "approve",
+      "owner": "",
+      "action": "",
+      "rationale": "",
+      "source": "Box corners flattened under the weight of the stack.",
+      "originalUnits": 12,
+      "originalMinutesPerUnit": 1,
+      "categoryTitle": "Compression damage",
+      "estimatedMinutes": 12
+    }
+  ],
+  "categories": [
+    {
+      "id": "S",
+      "title": "Closure integrity",
+      "description": "Shipping box is open because adhesive tape or the glued seam has detached.",
+      "reportIds": [
+        "P1",
+        "P3"
+      ],
+      "units": 40,
+      "estimatedMinutes": 80,
+      "value": 40,
+      "rank": 1,
+      "share": 0.6666666666666666,
+      "cumulativeShare": 0.6666666666666666,
+      "focus": true
+    },
+    {
+      "id": "C",
+      "title": "Compression damage",
+      "description": "Carton panels or corners are crushed, dented or collapsed from physical pressure.",
+      "reportIds": [
+        "P4"
+      ],
+      "units": 12,
+      "estimatedMinutes": 12,
+      "value": 12,
+      "rank": 2,
+      "share": 0.2,
+      "cumulativeShare": 0.8666666666666667,
+      "focus": true
+    },
+    {
+      "id": "L",
+      "title": "Identification legibility",
+      "description": "Printed shipping barcode, address or product label is unreadable or missing.",
+      "reportIds": [
+        "P2"
+      ],
+      "units": 8,
+      "estimatedMinutes": 40,
+      "value": 8,
+      "rank": 3,
+      "share": 0.13333333333333333,
+      "cumulativeShare": 1,
+      "focus": false
+    }
+  ],
+  "metrics": {
+    "approved": 4,
+    "held": 0,
+    "approvedUnits": 60,
+    "heldUnits": 0,
+    "estimatedMinutes": 132,
+    "focusCategories": 2,
+    "focusShare": 0.8666666666666667,
+    "total": 60,
+    "confirmedAI": 3,
+    "exactTitleNotes": 0
+  },
+  "warning": "Observed defect counts, not defect rates or root causes. Each report must cover a disjoint group of units with one primary defect; duplicate IDs alone cannot detect duplicated physical units. Held reports are excluded from the Pareto denominator but preserved. Rework minutes are user-supplied planning estimates, not measured savings. Focus is the smallest descending prefix reaching the target (ties ordered by category ID), not proof of the 80/20 rule. Confirm source counts and investigate before acting."
+}

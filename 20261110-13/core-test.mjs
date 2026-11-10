@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';import fs from 'node:fs';import{examples,parse,plan,suggest,texts}from './src/core.js';
+const make=(d,links)=>d.notes.map((n,i)=>({id:n.id,selected:links[i],proposed:links[i],candidates:[],units:n.units,minutesPerUnit:n.minutesPerUnit,decision:'approve',owner:'',action:'',rationale:''}));
+const a=plan(examples[0],make(examples[0],['S','L','S','C']));assert.equal(a.metrics.approvedUnits,60);assert.equal(a.metrics.estimatedMinutes,132);assert.deepEqual(a.categories.map(c=>c.id),['S','C','L']);assert.deepEqual(a.categories.filter(c=>c.focus).map(c=>c.id),['S','C']);assert.equal(a.metrics.focusShare,52/60);
+const b=plan(examples[1],make(examples[1],['Z','D','T','Z']));assert.equal(b.metrics.estimatedMinutes,128);assert.deepEqual(b.categories.filter(c=>c.focus).map(c=>c.id),['Z','T']);assert.equal(b.metrics.focusShare,108/128);
+for(const d of examples)assert.deepEqual(parse(JSON.stringify(d)),d);
+assert.throws(()=>suggest(examples[0],[[NaN]]),/Malformed/);assert.throws(()=>suggest(examples[0],texts(examples[0]).map(()=>Array(384).fill(0))),/Malformed/);
+const rs=make(examples[0],['S','L','S','C']);for(const r of rs)r.decision='hold';const held=plan(examples[0],rs);assert.equal(held.metrics.total,0);assert.equal(held.metrics.focusShare,null);assert(held.categories.every(c=>!c.focus&&c.share===null));
+for(const r of rs){r.decision='approve';r.minutesPerUnit=0}const d={...examples[0],basis:'rework'};assert.equal(plan(d,rs).metrics.focusShare,null);rs[0].decision='pending';assert.throws(()=>plan(d,rs),/Review every/);
+const tie={...examples[0],target:50,notes:examples[0].notes.slice(0,2)};const tr=make(tie,['S','L']);tr.forEach(r=>r.units=1);assert.deepEqual(plan(tie,tr).categories.filter(c=>c.focus).map(c=>c.id),['L']);
+fs.writeFileSync('core-validation.json',JSON.stringify({checks:12,packaging:a.metrics,garments:b.metrics,allHeld:held.metrics},null,2));console.log('Core constraints passed');

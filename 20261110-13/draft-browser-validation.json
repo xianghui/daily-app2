@@ -1,0 +1,448 @@
+{
+  "checks": [
+    "real inference Packaging rejects",
+    "real inference Garment rejects",
+    "review edit undo hold and current artifacts",
+    "offline fresh worker real inference",
+    "maximum 64 reports 8 categories chunking and reimport",
+    "negation unrelated challenge holds",
+    "empty invalid oversized unsupported imports",
+    "cancel stale input retry",
+    "desktop phone labels focus touch exports no overflow",
+    "malformed output unsupported worker runtime timeout stale callbacks recovery"
+  ],
+  "fixtures": [
+    {
+      "name": "Packaging rejects",
+      "expected": [
+        "S",
+        "L",
+        "S",
+        "C"
+      ],
+      "actual": [
+        "S",
+        "L",
+        "S",
+        "S"
+      ],
+      "matches": 3,
+      "metrics": {
+        "approved": 4,
+        "held": 0,
+        "approvedUnits": 60,
+        "heldUnits": 0,
+        "estimatedMinutes": 132,
+        "focusCategories": 1,
+        "focusShare": 0.8666666666666667,
+        "total": 60,
+        "confirmedAI": 4,
+        "exactTitleNotes": 0
+      }
+    },
+    {
+      "name": "Garment rejects",
+      "expected": [
+        "Z",
+        "D",
+        "T",
+        "Z"
+      ],
+      "actual": [
+        "Z",
+        "D",
+        "T",
+        "Z"
+      ],
+      "matches": 4,
+      "metrics": {
+        "approved": 4,
+        "held": 0,
+        "approvedUnits": 22,
+        "heldUnits": 0,
+        "estimatedMinutes": 128,
+        "focusCategories": 2,
+        "focusShare": 0.84375,
+        "total": 128,
+        "confirmedAI": 4,
+        "exactTitleNotes": 0
+      }
+    }
+  ],
+  "challenge": [
+    {
+      "id": "P1",
+      "selected": "S",
+      "proposed": "S",
+      "candidates": [
+        {
+          "category": "S",
+          "cosine": 0.6519322041651976
+        },
+        {
+          "category": "C",
+          "cosine": 0.2166242672367663
+        },
+        {
+          "category": "L",
+          "cosine": 0.14253468104291572
+        }
+      ],
+      "units": 24,
+      "minutesPerUnit": 2,
+      "decision": "hold",
+      "owner": "",
+      "action": "",
+      "rationale": "",
+      "source": "The tape is perfectly intact. No seam has opened. There is no closure defect.",
+      "originalUnits": 24,
+      "originalMinutesPerUnit": 2,
+      "categoryTitle": "Closure integrity",
+      "estimatedMinutes": 48
+    },
+    {
+      "id": "P2",
+      "selected": "S",
+      "proposed": "S",
+      "candidates": [
+        {
+          "category": "S",
+          "cosine": 0.06830764096458236
+        },
+        {
+          "category": "L",
+          "cosine": 0.014337737582070062
+        },
+        {
+          "category": "C",
+          "cosine": -0.053796870780194
+        }
+      ],
+      "units": 8,
+      "minutesPerUnit": 5,
+      "decision": "hold",
+      "owner": "",
+      "action": "",
+      "rationale": "",
+      "source": "The jazz concert begins after sunset in the railway station.",
+      "originalUnits": 8,
+      "originalMinutesPerUnit": 5,
+      "categoryTitle": "Closure integrity",
+      "estimatedMinutes": 40
+    }
+  ],
+  "requests": [
+    {
+      "url": "http://127.0.0.1:6343/daily-app2/20261110-13/",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "http://127.0.0.1:6343/daily-app2/20261110-13/assets/index-BxhTY3ci.js",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "http://127.0.0.1:6343/daily-app2/20261110-13/assets/index-B5zhfIHO.css",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "http://127.0.0.1:6343/daily-app2/20261110-13/assets/ai.worker-QZNe8E6W.js",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "http://127.0.0.1:6343/daily-app2/20261110-13/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "http://127.0.0.1:6343/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": [
+        "response-content-disposition",
+        "xip",
+        "X-Xet-Cas-Uid",
+        "user_id",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ]
+    },
+    {
+      "url": "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": [
+        "response-content-disposition",
+        "X-Xet-Cas-Uid",
+        "xip",
+        "user_id",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ]
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    },
+    {
+      "url": "blob:[local-worker]",
+      "method": "GET",
+      "body": null,
+      "queryParameterNames": []
+    }
+  ],
+  "errors": []
+}

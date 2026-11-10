@@ -1,0 +1,22 @@
+# Yield Ledger — observed validation
+
+## Local production build (2026-11-11)
+
+- `npm run predeploy`: passed. Runtime bundled as a worker with own-base factory and collection-shared WASM paths.
+- `node core-test.mjs`: 2,100 independently enumerated subset-oracle cases for descending, tie-closed Pareto prefixes. Count totals, zero metrics, minimal qualifying prefix size and same-size baseline checked; JSON schema, holds, malformed vectors and original import roundtrip checked. An initial oracle incorrectly allowed skipping larger tied groups; corrected the test to require the specified descending prefix (no production algorithm change).
+- `node browser-test.cjs`: actual Chrome production-bundle inference, no mocks. Furniture 5/6 known-answer families; print 6/6. Raw and corrected exports retained. Literal full-family-title baseline matched 0/6 in both examples; this is a narrow lexical check, not a general benchmark.
+- Furniture miss: “Tabletop arrived with gouges through the lacquer” → packaging rather than finish. The test explicitly corrects and reapproves it. Reviewed loss ranking covers 130,000/140,000 cents with two families versus alphabetical baseline 40,000/140,000. Print count ranking covers 65/70 units versus same-size alphabetical 55/70. These are descriptive coverage comparisons, not measured savings.
+- Real maximum 6-family/24-batch inference completed (30 texts, batches of four), preserving every batch/count/cent. The repeated lacquer note also repeated the model miss; do not treat this as a perfect classification challenge.
+- Reviewer edits (family, numeric amounts, multiline quoted formula-like note), approval reset, export invalidation, undo, hold-blocked ranking, metric changes, cutoff ties, 100% and zero totals, invalid/empty/oversized/numeric inputs, unsupported import, cancellation/retry and changed-input stale guards passed.
+- Fully offline inference: after an online run, Playwright disabled all network and a fresh worker ran real inference in the **already-open** page. Reload/navigation remains untested and is not promised.
+- Actual downloaded JSON/CSV/Markdown parsed using independent Python JSON/CSV readers. All source rows and edited values survived, numeric totals reconciled, formula-like multiline notes were escaped without corrupting numbers. Clipboard exactly matched downloaded Markdown. Original JSON import roundtrip renewed approvals.
+- Desktop/phone browser viewports 1440/390/320: no horizontal overflow; form labels/focus and output download passed. Actual physical phones and other browsers untested.
+- No model-host downloads before explicit loading. Observed requests were GET with no bodies to local runtime/model file hosts only; no source text in URLs. Imported adversarial instruction produced no credential request, upload or authority change. Unrelated text still received an untrustworthy nearest family and was held.
+- `node defensive-test.cjs`: real model-download network abort/recovery; worker download failure; module-worker unavailable; malformed vectors; shortened injected timeout; worker error. No fake results or enabled exports on failure.
+- `node late-result-test.cjs` and `node stale-import-test.cjs`: deliberately late terminated-worker result cannot replace a newer run; delayed file read/download discarded; actual worker with WebAssembly disabled errors actionably. Mock vectors occur only in this defensive stale-response check.
+
+## Publication
+
+Combined root predeploy assembled all 585 apps, with zero failed/skipped. Every assembled app asset matched source dist; shared WASM SHA-256 verified. All inline gallery scripts compiled, the new entry appears once, all 584 prior entries/order and legacy categories were preserved, and AI Utilities/newest app appear first. Root deployment reported Published.
+
+First GitHub Pages workflow `42920783198` succeeded for gh-pages commit `cdf1a3f386ec7d0359c851ce592923a2a467e0ff`; its build, deployment and report jobs succeeded. Public HTTP 200, every app asset and worker/module/WASM hash, and byte-identical 585-entry gallery were verified. Both real-AI fixtures and all ten production browser workflow checks passed again at the public URL, including reviewed exports and fresh-worker offline inference. The independent downloaded-artifact parser passed again on the public-run outputs. Desktop and narrow public gallery layouts also passed. No separate digest was sent.

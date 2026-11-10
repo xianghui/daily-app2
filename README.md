@@ -415,3 +415,10 @@ Real local MiniLM stock retrieval helps classroom demonstrators reconcile inform
 ## Audit Orchard — 20261111-7
 
 Real local MiniLM stratum inference assists operations auditors before complete-frame human review and deterministic minimum-constrained proportional quotas with seeded selection without replacement. Both tiny fixtures matched all 12 links; sample coverage was 3/3 strata versus first-N baselines 1/3 and 2/3. A wider six-stratum challenge confused hotel records with catering, so review is mandatory and coverage is not statistical assurance. Complete JSON/CSV/Markdown preserves every record. Fresh-worker offline inference tested only in an already-open page. Reuses immutable WASM from `20261107-2`; preserve that asset. See [workflow/privacy](20261111-7/README.md) and [observed validation](20261111-7/VALIDATION.md).
+
+
+## Yield Ledger — 20261111-8
+
+Real local MiniLM defect-family inference helps rework coordinators reconcile rough batch notes before mandatory count/loss review and tie-aware Pareto investigation priorities. Furniture matched 5/6 tiny known-answer links; print matched 6/6. One arrival-related lacquer defect was misclassified as packaging and explicitly corrected in review. Reviewed coverage is descriptive, not cause or predicted savings. 2,100 independent descending/tie-closed prefix oracle cases, real maximum batching, downloaded JSON/CSV/Markdown, offline fresh-worker and defensive production-browser checks passed. Offline scope is an already-open warmed page, not reload. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261111-8/README.md), [observed validation](20261111-8/VALIDATION.md) and [publication status](20261111-8/publication-status.json).
+
+Yield Ledger public release, byte-matched assets, both real-AI fixtures, the complete public workflow suite and the preserved 585-entry gallery were verified on the first Pages deployment.

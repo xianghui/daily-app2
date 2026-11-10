@@ -1,0 +1,166 @@
+{
+  "version": 1,
+  "app": "Share Ledger",
+  "originalInput": {
+    "name": "Balanced",
+    "currency": "USD",
+    "people": [
+      {
+        "id": "A",
+        "name": "Alex"
+      },
+      {
+        "id": "B",
+        "name": "Blair"
+      }
+    ],
+    "policies": [
+      {
+        "id": "one",
+        "title": "Shared dinner",
+        "description": "Dinner food groceries",
+        "weights": {
+          "A": 1,
+          "B": 1
+        }
+      },
+      {
+        "id": "two",
+        "title": "Shared room",
+        "description": "Cabin lodging accommodation",
+        "weights": {
+          "A": 1,
+          "B": 1
+        }
+      }
+    ],
+    "expenses": [
+      {
+        "id": "X",
+        "text": "Dinner groceries",
+        "payer": "A",
+        "cents": 2
+      },
+      {
+        "id": "Y",
+        "text": "Dinner groceries",
+        "payer": "B",
+        "cents": 2
+      }
+    ]
+  },
+  "assumptionsConfirmed": true,
+  "ready": true,
+  "blockers": [],
+  "records": [
+    {
+      "id": "X",
+      "policy": "one",
+      "proposed": "one",
+      "payer": "A",
+      "cents": 2,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "policy": "one",
+          "similarity": 0.7857855533682935
+        },
+        {
+          "policy": "two",
+          "similarity": 0.090156076826673
+        }
+      ],
+      "original": {
+        "id": "X",
+        "text": "Dinner groceries",
+        "payer": "A",
+        "cents": 2
+      },
+      "shares": [
+        {
+          "person": "A",
+          "cents": 1
+        },
+        {
+          "person": "B",
+          "cents": 1
+        }
+      ]
+    },
+    {
+      "id": "Y",
+      "policy": "one",
+      "proposed": "one",
+      "payer": "B",
+      "cents": 2,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "policy": "one",
+          "similarity": 0.7857855533682935
+        },
+        {
+          "policy": "two",
+          "similarity": 0.090156076826673
+        }
+      ],
+      "original": {
+        "id": "Y",
+        "text": "Dinner groceries",
+        "payer": "B",
+        "cents": 2
+      },
+      "shares": [
+        {
+          "person": "A",
+          "cents": 1
+        },
+        {
+          "person": "B",
+          "cents": 1
+        }
+      ]
+    }
+  ],
+  "balances": [
+    {
+      "person": "A",
+      "paid": 2,
+      "owed": 2,
+      "net": 0
+    },
+    {
+      "person": "B",
+      "paid": 2,
+      "owed": 2,
+      "net": 0
+    }
+  ],
+  "payments": [],
+  "baseline": [
+    {
+      "expense": "X",
+      "from": "B",
+      "to": "A",
+      "cents": 1
+    },
+    {
+      "expense": "Y",
+      "from": "A",
+      "to": "B",
+      "cents": 1
+    }
+  ],
+  "metrics": {
+    "records": 2,
+    "approved": 2,
+    "held": 0,
+    "totalReviewedCents": 4,
+    "literalTitleMatches": 0,
+    "baselineTransfers": 2,
+    "netTransfers": 0
+  },
+  "method": "Real MiniLM cosine policy suggestions; human review; deterministic weighted largest-remainder cents (ties by member ID); largest-balance greedy netting. Not a guaranteed minimum-transfer solution."
+}

@@ -1,0 +1,250 @@
+{
+  "version": 1,
+  "app": "Share Ledger",
+  "originalInput": {
+    "name": "Studio project",
+    "currency": "EUR",
+    "people": [
+      {
+        "id": "A",
+        "name": "Arden"
+      },
+      {
+        "id": "B",
+        "name": "Bryn"
+      },
+      {
+        "id": "C",
+        "name": "Cleo"
+      },
+      {
+        "id": "D",
+        "name": "Dara"
+      }
+    ],
+    "policies": [
+      {
+        "id": "tech",
+        "title": "Equipment team",
+        "description": "Technical computer hardware, software licenses, workstation parts and production equipment.",
+        "weights": {
+          "A": 2,
+          "B": 1,
+          "C": 1
+        }
+      },
+      {
+        "id": "event",
+        "title": "Exhibition group",
+        "description": "Public art show hospitality, gallery reception catering, opening invitations and exhibition launch supplies.",
+        "weights": {
+          "B": 1,
+          "C": 1,
+          "D": 1
+        }
+      }
+    ],
+    "expenses": [
+      {
+        "id": "P1",
+        "text": "Replacement graphics card for the editing workstation",
+        "payer": "D",
+        "cents": 15501
+      },
+      {
+        "id": "P2",
+        "text": "Drinks and canapes for the gallery opening",
+        "payer": "B",
+        "cents": 4501
+      },
+      {
+        "id": "P3",
+        "text": "Annual video editing application subscription",
+        "payer": "A",
+        "cents": 9903
+      },
+      {
+        "id": "P4",
+        "text": "Printed launch party invitation cards",
+        "payer": "C",
+        "cents": 1801
+      }
+    ]
+  },
+  "assumptionsConfirmed": false,
+  "ready": false,
+  "blockers": [
+    "Confirm currency, participant scope, split weights and payer evidence."
+  ],
+  "records": [
+    {
+      "id": "P1",
+      "policy": "tech",
+      "proposed": "tech",
+      "payer": "D",
+      "cents": 15501,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "policy": "tech",
+          "similarity": 0.13673034412626695
+        },
+        {
+          "policy": "event",
+          "similarity": 0.07486231628836011
+        }
+      ],
+      "original": {
+        "id": "P1",
+        "text": "Replacement graphics card for the editing workstation",
+        "payer": "D",
+        "cents": 15501
+      },
+      "shares": [
+        {
+          "person": "A",
+          "cents": 7751
+        },
+        {
+          "person": "B",
+          "cents": 3875
+        },
+        {
+          "person": "C",
+          "cents": 3875
+        }
+      ]
+    },
+    {
+      "id": "P2",
+      "policy": "event",
+      "proposed": "event",
+      "payer": "B",
+      "cents": 4501,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "policy": "event",
+          "similarity": 0.48955649667418627
+        },
+        {
+          "policy": "tech",
+          "similarity": 0.007580821530802752
+        }
+      ],
+      "original": {
+        "id": "P2",
+        "text": "Drinks and canapes for the gallery opening",
+        "payer": "B",
+        "cents": 4501
+      },
+      "shares": [
+        {
+          "person": "B",
+          "cents": 1501
+        },
+        {
+          "person": "C",
+          "cents": 1500
+        },
+        {
+          "person": "D",
+          "cents": 1500
+        }
+      ]
+    },
+    {
+      "id": "P3",
+      "policy": "event",
+      "proposed": "event",
+      "payer": "A",
+      "cents": 9903,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "policy": "event",
+          "similarity": 0.19965862782794697
+        },
+        {
+          "policy": "tech",
+          "similarity": 0.13772873129598506
+        }
+      ],
+      "original": {
+        "id": "P3",
+        "text": "Annual video editing application subscription",
+        "payer": "A",
+        "cents": 9903
+      },
+      "shares": [
+        {
+          "person": "B",
+          "cents": 3301
+        },
+        {
+          "person": "C",
+          "cents": 3301
+        },
+        {
+          "person": "D",
+          "cents": 3301
+        }
+      ]
+    },
+    {
+      "id": "P4",
+      "policy": "event",
+      "proposed": "event",
+      "payer": "C",
+      "cents": 1801,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "policy": "event",
+          "similarity": 0.4534022814714591
+        },
+        {
+          "policy": "tech",
+          "similarity": 0.04104264358037353
+        }
+      ],
+      "original": {
+        "id": "P4",
+        "text": "Printed launch party invitation cards",
+        "payer": "C",
+        "cents": 1801
+      },
+      "shares": [
+        {
+          "person": "B",
+          "cents": 601
+        },
+        {
+          "person": "C",
+          "cents": 600
+        },
+        {
+          "person": "D",
+          "cents": 600
+        }
+      ]
+    }
+  ],
+  "balances": [],
+  "payments": [],
+  "baseline": [],
+  "metrics": {
+    "records": 4,
+    "approved": 4,
+    "held": 0,
+    "totalReviewedCents": 31706,
+    "literalTitleMatches": 0,
+    "baselineTransfers": null,
+    "netTransfers": null
+  },
+  "method": "Real MiniLM cosine policy suggestions; human review; deterministic weighted largest-remainder cents (ties by member ID); largest-balance greedy netting. Not a guaranteed minimum-transfer solution."
+}

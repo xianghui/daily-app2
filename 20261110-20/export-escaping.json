@@ -1,0 +1,292 @@
+{
+  "version": 1,
+  "app": "Share Ledger",
+  "originalInput": {
+    "name": "CSV special chars",
+    "currency": "USD",
+    "people": [
+      {
+        "id": "A",
+        "name": "Avery"
+      },
+      {
+        "id": "B",
+        "name": "Blair"
+      },
+      {
+        "id": "C",
+        "name": "Casey"
+      }
+    ],
+    "policies": [
+      {
+        "id": "home",
+        "title": "Shared accommodation",
+        "description": "Apartment rent, lodging, household utility bills and overnight room costs shared by all housemates.",
+        "weights": {
+          "A": 1,
+          "B": 1,
+          "C": 1
+        }
+      },
+      {
+        "id": "food",
+        "title": "Dining pair",
+        "description": "Meals, restaurants, groceries, breakfast food and refreshments for Avery and Blair only.",
+        "weights": {
+          "A": 1,
+          "B": 1
+        }
+      }
+    ],
+    "expenses": [
+      {
+        "id": "E1",
+        "text": "=1+1\nDinner, \"quoted\" 🪷",
+        "payer": "A",
+        "cents": 20001
+      },
+      {
+        "id": "E2",
+        "text": "Dinner at the Italian restaurant",
+        "payer": "B",
+        "cents": 5101
+      },
+      {
+        "id": "E3",
+        "text": "Power and water bill for the cottage",
+        "payer": "C",
+        "cents": 8002
+      },
+      {
+        "id": "E4",
+        "text": "Fresh vegetables and bread from the market",
+        "payer": "A",
+        "cents": 2703
+      }
+    ]
+  },
+  "assumptionsConfirmed": true,
+  "ready": true,
+  "blockers": [],
+  "records": [
+    {
+      "id": "E1",
+      "policy": "food",
+      "proposed": "food",
+      "payer": "A",
+      "cents": 20001,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "policy": "food",
+          "similarity": 0.316432729012379
+        },
+        {
+          "policy": "home",
+          "similarity": 0.216989254506319
+        }
+      ],
+      "original": {
+        "id": "E1",
+        "text": "=1+1\nDinner, \"quoted\" 🪷",
+        "payer": "A",
+        "cents": 20001
+      },
+      "shares": [
+        {
+          "person": "A",
+          "cents": 10001
+        },
+        {
+          "person": "B",
+          "cents": 10000
+        }
+      ]
+    },
+    {
+      "id": "E2",
+      "policy": "food",
+      "proposed": "food",
+      "payer": "B",
+      "cents": 5101,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "policy": "food",
+          "similarity": 0.41667459553431546
+        },
+        {
+          "policy": "home",
+          "similarity": 0.15982621364033456
+        }
+      ],
+      "original": {
+        "id": "E2",
+        "text": "Dinner at the Italian restaurant",
+        "payer": "B",
+        "cents": 5101
+      },
+      "shares": [
+        {
+          "person": "A",
+          "cents": 2551
+        },
+        {
+          "person": "B",
+          "cents": 2550
+        }
+      ]
+    },
+    {
+      "id": "E3",
+      "policy": "home",
+      "proposed": "home",
+      "payer": "C",
+      "cents": 8002,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "policy": "home",
+          "similarity": 0.404750190947453
+        },
+        {
+          "policy": "food",
+          "similarity": 0.27061510139093176
+        }
+      ],
+      "original": {
+        "id": "E3",
+        "text": "Power and water bill for the cottage",
+        "payer": "C",
+        "cents": 8002
+      },
+      "shares": [
+        {
+          "person": "A",
+          "cents": 2668
+        },
+        {
+          "person": "B",
+          "cents": 2667
+        },
+        {
+          "person": "C",
+          "cents": 2667
+        }
+      ]
+    },
+    {
+      "id": "E4",
+      "policy": "food",
+      "proposed": "food",
+      "payer": "A",
+      "cents": 2703,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "policy": "food",
+          "similarity": 0.38794014777727914
+        },
+        {
+          "policy": "home",
+          "similarity": 0.1374128623771653
+        }
+      ],
+      "original": {
+        "id": "E4",
+        "text": "Fresh vegetables and bread from the market",
+        "payer": "A",
+        "cents": 2703
+      },
+      "shares": [
+        {
+          "person": "A",
+          "cents": 1352
+        },
+        {
+          "person": "B",
+          "cents": 1351
+        }
+      ]
+    }
+  ],
+  "balances": [
+    {
+      "person": "A",
+      "paid": 22704,
+      "owed": 16572,
+      "net": 6132
+    },
+    {
+      "person": "B",
+      "paid": 5101,
+      "owed": 16568,
+      "net": -11467
+    },
+    {
+      "person": "C",
+      "paid": 8002,
+      "owed": 2667,
+      "net": 5335
+    }
+  ],
+  "payments": [
+    {
+      "from": "B",
+      "to": "A",
+      "cents": 6132
+    },
+    {
+      "from": "B",
+      "to": "C",
+      "cents": 5335
+    }
+  ],
+  "baseline": [
+    {
+      "expense": "E1",
+      "from": "B",
+      "to": "A",
+      "cents": 10000
+    },
+    {
+      "expense": "E2",
+      "from": "A",
+      "to": "B",
+      "cents": 2551
+    },
+    {
+      "expense": "E3",
+      "from": "A",
+      "to": "C",
+      "cents": 2668
+    },
+    {
+      "expense": "E3",
+      "from": "B",
+      "to": "C",
+      "cents": 2667
+    },
+    {
+      "expense": "E4",
+      "from": "B",
+      "to": "A",
+      "cents": 1351
+    }
+  ],
+  "metrics": {
+    "records": 4,
+    "approved": 4,
+    "held": 0,
+    "totalReviewedCents": 35807,
+    "literalTitleMatches": 0,
+    "baselineTransfers": 5,
+    "netTransfers": 2
+  },
+  "method": "Real MiniLM cosine policy suggestions; human review; deterministic weighted largest-remainder cents (ties by member ID); largest-balance greedy netting. Not a guaranteed minimum-transfer solution."
+}

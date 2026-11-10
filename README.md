@@ -356,3 +356,10 @@ Real local MiniLM policy inference matched 7/8 tiny shared-expense links; one so
 ## Sequence Dock — 20261110-21
 
 Real local MiniLM setup-family inference helps small workshops review freely reorderable jobs before exact directed-changeover sequencing. Mandatory approval/holds preserve every job; supplied transition estimates feed an original-order comparison and complete JSON/CSV/Markdown queues. Both tiny fixtures matched 10/10 links; unrelated descriptions still mislink and need holds. 600 independent exhaustive-permutation cases verified the optimizer, and maximum six-family/12-job bounds passed. Production and public browser suites, real artifacts, offline fresh-worker inference, public worker/runtime/WASM hashes and gallery preservation passed. Offline scope is an already-open cached page, not reload. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow/privacy](20261110-21/README.md), [observed validation](20261110-21/VALIDATION.md) and [public release](20261110-21/publication-status.json).
+
+
+## Rotation Ledger — 20261110-22
+
+Real local MiniLM duty inference reconciles informal past-shift notes for mandatory human review. Eligibility and recent-duty cooldowns gate exact next-round assignments minimizing maximum cumulative workload, with complete JSON/CSV/Markdown history audits. Both tiny fixtures matched 8/8 links; negated/unrelated notes still mislink and require holds. 900 independent permutation-oracle cases, maximum eight-person planning, real 40-text batching, reviewed artifacts, offline fresh-worker and defensive production-browser checks passed. Window completeness and estimates are user verified; no interpersonal fairness guarantee or volunteer contact. Offline scope is an already-open cached page, not reload. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261110-22/README.md), [observed validation](20261110-22/VALIDATION.md) and [publication status](20261110-22/publication-status.json).
+
+Public Pages release, byte-matched worker/runtime/WASM, both real-AI fixtures, complete public browser suite and the 576-entry gallery were verified for Rotation Ledger.

@@ -1,0 +1,239 @@
+{
+  "app": "Rotation Ledger",
+  "version": 1,
+  "originalInput": {
+    "name": "Reading room",
+    "cooldown": 1,
+    "people": [
+      {
+        "id": "Em",
+        "name": "Em"
+      },
+      {
+        "id": "Fox",
+        "name": "Fox"
+      },
+      {
+        "id": "Gus",
+        "name": "Gus"
+      },
+      {
+        "id": "Hal",
+        "name": "Hal"
+      }
+    ],
+    "duties": [
+      {
+        "id": "shelf",
+        "title": "Book shelving",
+        "description": "Return library books to their shelves, arrange volumes by call number and put novels back on racks.",
+        "minutes": 45,
+        "eligible": [
+          "Em",
+          "Fox",
+          "Gus",
+          "Hal"
+        ]
+      },
+      {
+        "id": "desk",
+        "title": "Loan counter",
+        "description": "Check books out to borrowers, scan library cards and handle renewals at the lending desk.",
+        "minutes": 30,
+        "eligible": [
+          "Em",
+          "Fox",
+          "Gus",
+          "Hal"
+        ]
+      },
+      {
+        "id": "read",
+        "title": "Story session",
+        "description": "Read stories aloud to children and lead a picture-book storytelling circle.",
+        "minutes": 50,
+        "eligible": [
+          "Em",
+          "Fox",
+          "Gus",
+          "Hal"
+        ]
+      }
+    ],
+    "history": [
+      {
+        "id": "L1",
+        "text": "Put returned novels back in call-number order on the racks",
+        "person": "Em",
+        "round": 2,
+        "minutes": 45
+      },
+      {
+        "id": "L2",
+        "text": "Scanned borrower cards and renewed their borrowed books",
+        "person": "Fox",
+        "round": 2,
+        "minutes": 30
+      },
+      {
+        "id": "L3",
+        "text": "Read picture books aloud to the children in the circle",
+        "person": "Gus",
+        "round": 2,
+        "minutes": 50
+      },
+      {
+        "id": "L4",
+        "text": "Arranged returned volumes on the correct racks",
+        "person": "Hal",
+        "round": 2,
+        "minutes": 45
+      }
+    ]
+  },
+  "assumptionsConfirmed": false,
+  "ready": false,
+  "blockers": [
+    "Confirm a complete, comparable history window, duty estimates, eligibility and one-duty-per-person assumptions."
+  ],
+  "records": [
+    {
+      "id": "L1",
+      "duty": "shelf",
+      "proposed": "shelf",
+      "person": "Fox",
+      "round": 1,
+      "minutes": 65,
+      "decision": "approve",
+      "note": "=1+1, \"verified\"\nline two",
+      "candidates": [
+        {
+          "duty": "shelf",
+          "similarity": 0.7058880173007024
+        },
+        {
+          "duty": "desk",
+          "similarity": 0.2721127727123356
+        },
+        {
+          "duty": "read",
+          "similarity": 0.1758044073268948
+        }
+      ],
+      "original": {
+        "id": "L1",
+        "text": "Put returned novels back in call-number order on the racks",
+        "person": "Em",
+        "round": 2,
+        "minutes": 45
+      }
+    },
+    {
+      "id": "L2",
+      "duty": "desk",
+      "proposed": "desk",
+      "person": "Fox",
+      "round": 2,
+      "minutes": 30,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "duty": "desk",
+          "similarity": 0.613504340472401
+        },
+        {
+          "duty": "shelf",
+          "similarity": 0.50094151055328
+        },
+        {
+          "duty": "read",
+          "similarity": 0.21416829969509527
+        }
+      ],
+      "original": {
+        "id": "L2",
+        "text": "Scanned borrower cards and renewed their borrowed books",
+        "person": "Fox",
+        "round": 2,
+        "minutes": 30
+      }
+    },
+    {
+      "id": "L3",
+      "duty": "read",
+      "proposed": "read",
+      "person": "Gus",
+      "round": 2,
+      "minutes": 50,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "duty": "read",
+          "similarity": 0.6687628619095846
+        },
+        {
+          "duty": "shelf",
+          "similarity": 0.3412500214840654
+        },
+        {
+          "duty": "desk",
+          "similarity": 0.1664291181721797
+        }
+      ],
+      "original": {
+        "id": "L3",
+        "text": "Read picture books aloud to the children in the circle",
+        "person": "Gus",
+        "round": 2,
+        "minutes": 50
+      }
+    },
+    {
+      "id": "L4",
+      "duty": "shelf",
+      "proposed": "shelf",
+      "person": "Hal",
+      "round": 2,
+      "minutes": 45,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "duty": "shelf",
+          "similarity": 0.41229189675187167
+        },
+        {
+          "duty": "read",
+          "similarity": 0.07574403597359804
+        },
+        {
+          "duty": "desk",
+          "similarity": 0.049074219083039106
+        }
+      ],
+      "original": {
+        "id": "L4",
+        "text": "Arranged returned volumes on the correct racks",
+        "person": "Hal",
+        "round": 2,
+        "minutes": 45
+      }
+    }
+  ],
+  "assignments": [],
+  "workload": [],
+  "nextRound": null,
+  "allowed": [],
+  "metrics": {
+    "records": 4,
+    "held": 0,
+    "literalTitleMatches": 0,
+    "baselineMaxMinutes": null,
+    "optimizedMaxMinutes": null,
+    "baselineAssignments": [],
+    "searchNodes": 0
+  },
+  "method": "Real local MiniLM duty suggestions. Human review. Exhaustive distinct-person assignment under eligibility and recent-duty cooldown. Minimize maximum cumulative minutes, then sum of squared cumulative minutes; ties keep input order. Baseline is first feasible input-order assignment under identical constraints. Next minutes are estimates, not observed time; no interpersonal fairness guarantee."
+}

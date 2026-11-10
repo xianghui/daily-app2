@@ -1,0 +1,2 @@
+const{chromium}=require('/Users/hsianghui/.openclaw/workspace/node_modules/playwright');
+(async()=>{const b=await chromium.launch({channel:'chrome',headless:true});for(const[name,width,height]of[['desktop',1440,1000],['phone',390,844]]){const c=await b.newContext({viewport:{width,height}}),p=await c.newPage();await p.goto('http://127.0.0.1:6407/daily-app2/20261111-7/');await p.waitForTimeout(400);await p.screenshot({path:'overview-'+name+'.png'});await c.close()}await b.close()})()

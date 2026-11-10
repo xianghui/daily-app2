@@ -410,3 +410,8 @@ Local MiniLM reconciles rough event incident notes to supplied cost templates, f
 ## Dilution Desk — 20261111-6
 
 Real local MiniLM stock retrieval helps classroom demonstrators reconcile informal solution requests. Mandatory identity/quantity review feeds deterministic C1V1=C2V2, additive-volume checks and aggregate stock-shortage guards. Complete JSON/CSV/Markdown preserves every original and hold. Five tiny known-answer requests matched; negation failed, so this is not identity/safety certification. Fresh-worker offline inference tested in an already-open warmed page only. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow/privacy](20261111-6/README.md) and [observed checks](20261111-6/VALIDATION.md).
+
+
+## Audit Orchard — 20261111-7
+
+Real local MiniLM stratum inference assists operations auditors before complete-frame human review and deterministic minimum-constrained proportional quotas with seeded selection without replacement. Both tiny fixtures matched all 12 links; sample coverage was 3/3 strata versus first-N baselines 1/3 and 2/3. A wider six-stratum challenge confused hotel records with catering, so review is mandatory and coverage is not statistical assurance. Complete JSON/CSV/Markdown preserves every record. Fresh-worker offline inference tested only in an already-open page. Reuses immutable WASM from `20261107-2`; preserve that asset. See [workflow/privacy](20261111-7/README.md) and [observed validation](20261111-7/VALIDATION.md).

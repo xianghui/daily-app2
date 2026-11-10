@@ -1,0 +1,245 @@
+{
+  "app": "Sequence Dock",
+  "version": 1,
+  "originalInput": {
+    "name": "Maker studio",
+    "start": "wood",
+    "families": [
+      {
+        "id": "wood",
+        "title": "Wood machining",
+        "description": "Sawing timber, routing plywood, carving wooden boards and sanding oak furniture."
+      },
+      {
+        "id": "metal",
+        "title": "Metal fabrication",
+        "description": "Welding steel brackets, drilling aluminum plates and cutting iron tubing."
+      },
+      {
+        "id": "clay",
+        "title": "Ceramic pottery",
+        "description": "Glazing earthenware, shaping clay bowls and firing porcelain mugs in the kiln."
+      }
+    ],
+    "costs": [
+      [
+        0,
+        18,
+        7
+      ],
+      [
+        11,
+        0,
+        22
+      ],
+      [
+        13,
+        9,
+        0
+      ]
+    ],
+    "jobs": [
+      {
+        "id": "M1",
+        "text": "Weld steel legs for the display table"
+      },
+      {
+        "id": "M2",
+        "text": "Glaze the earthenware serving bowls"
+      },
+      {
+        "id": "M3",
+        "text": "Route the plywood shelf panels"
+      },
+      {
+        "id": "M4",
+        "text": "Drill holes in aluminum mounting plates"
+      },
+      {
+        "id": "M5",
+        "text": "Fire porcelain cups in the kiln"
+      }
+    ]
+  },
+  "assumptionsConfirmed": true,
+  "ready": true,
+  "blockers": [],
+  "records": [
+    {
+      "id": "M1",
+      "family": "wood",
+      "proposed": "metal",
+      "decision": "approve",
+      "note": "=1+1, \"verified\" line two",
+      "candidates": [
+        {
+          "family": "metal",
+          "similarity": 0.5924649907767849
+        },
+        {
+          "family": "wood",
+          "similarity": 0.30869439848968433
+        },
+        {
+          "family": "clay",
+          "similarity": 0.17506164955545073
+        }
+      ],
+      "original": {
+        "id": "M1",
+        "text": "Weld steel legs for the display table"
+      }
+    },
+    {
+      "id": "M2",
+      "family": "clay",
+      "proposed": "clay",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "family": "clay",
+          "similarity": 0.5940682669287485
+        },
+        {
+          "family": "metal",
+          "similarity": 0.10711528708167242
+        },
+        {
+          "family": "wood",
+          "similarity": 0.07166210252743956
+        }
+      ],
+      "original": {
+        "id": "M2",
+        "text": "Glaze the earthenware serving bowls"
+      }
+    },
+    {
+      "id": "M3",
+      "family": "wood",
+      "proposed": "wood",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "family": "wood",
+          "similarity": 0.385383686334046
+        },
+        {
+          "family": "metal",
+          "similarity": 0.2928541683210945
+        },
+        {
+          "family": "clay",
+          "similarity": 0.0716646039683572
+        }
+      ],
+      "original": {
+        "id": "M3",
+        "text": "Route the plywood shelf panels"
+      }
+    },
+    {
+      "id": "M4",
+      "family": "metal",
+      "proposed": "metal",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "family": "metal",
+          "similarity": 0.4944475083891651
+        },
+        {
+          "family": "wood",
+          "similarity": 0.17046315964983985
+        },
+        {
+          "family": "clay",
+          "similarity": 0.10774107265560343
+        }
+      ],
+      "original": {
+        "id": "M4",
+        "text": "Drill holes in aluminum mounting plates"
+      }
+    },
+    {
+      "id": "M5",
+      "family": "clay",
+      "proposed": "clay",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "family": "clay",
+          "similarity": 0.720586372086894
+        },
+        {
+          "family": "metal",
+          "similarity": 0.27963061579459314
+        },
+        {
+          "family": "wood",
+          "similarity": 0.1566330482897365
+        }
+      ],
+      "original": {
+        "id": "M5",
+        "text": "Fire porcelain cups in the kiln"
+      }
+    }
+  ],
+  "schedule": [
+    {
+      "id": "M1",
+      "position": 1,
+      "family": "wood",
+      "from": "wood",
+      "changeoverMinutes": 0,
+      "cumulativeSetupMinutes": 0
+    },
+    {
+      "id": "M3",
+      "position": 2,
+      "family": "wood",
+      "from": "wood",
+      "changeoverMinutes": 0,
+      "cumulativeSetupMinutes": 0
+    },
+    {
+      "id": "M2",
+      "position": 3,
+      "family": "clay",
+      "from": "wood",
+      "changeoverMinutes": 7,
+      "cumulativeSetupMinutes": 7
+    },
+    {
+      "id": "M5",
+      "position": 4,
+      "family": "clay",
+      "from": "clay",
+      "changeoverMinutes": 0,
+      "cumulativeSetupMinutes": 7
+    },
+    {
+      "id": "M4",
+      "position": 5,
+      "family": "metal",
+      "from": "clay",
+      "changeoverMinutes": 9,
+      "cumulativeSetupMinutes": 16
+    }
+  ],
+  "metrics": {
+    "records": 5,
+    "held": 0,
+    "literalTitleMatches": 0,
+    "baselineMinutes": 60,
+    "optimizedMinutes": 16,
+    "savedSetupMinutes": 44
+  },
+  "method": "Real MiniLM family suggestions; mandatory review; exact subset dynamic programming minimizes supplied directed changeover estimates. No processing times, deadlines, dependencies or return-to-start."
+}

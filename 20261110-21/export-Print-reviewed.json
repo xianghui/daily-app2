@@ -1,0 +1,245 @@
+{
+  "app": "Sequence Dock",
+  "version": 1,
+  "originalInput": {
+    "name": "Print workshop",
+    "start": "paper",
+    "families": [
+      {
+        "id": "paper",
+        "title": "Paper printing",
+        "description": "Paper flyers, brochures, business cards and printed leaflets using the paper press."
+      },
+      {
+        "id": "fabric",
+        "title": "Textile printing",
+        "description": "Fabric shirts, cotton bags and clothing printed with textile inks."
+      },
+      {
+        "id": "vinyl",
+        "title": "Vinyl cutting",
+        "description": "Adhesive decals, window stickers and vehicle lettering cut from vinyl."
+      }
+    ],
+    "costs": [
+      [
+        0,
+        12,
+        8
+      ],
+      [
+        20,
+        0,
+        15
+      ],
+      [
+        6,
+        10,
+        0
+      ]
+    ],
+    "jobs": [
+      {
+        "id": "J1",
+        "text": "Cotton tote bags with the festival logo"
+      },
+      {
+        "id": "J2",
+        "text": "Adhesive lettering for the delivery van"
+      },
+      {
+        "id": "J3",
+        "text": "Folded restaurant menus on card stock"
+      },
+      {
+        "id": "J4",
+        "text": "Staff tee shirts with printed emblems"
+      },
+      {
+        "id": "J5",
+        "text": "Window sticker for opening hours"
+      }
+    ]
+  },
+  "assumptionsConfirmed": true,
+  "ready": true,
+  "blockers": [],
+  "records": [
+    {
+      "id": "J1",
+      "family": "fabric",
+      "proposed": "fabric",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "family": "fabric",
+          "similarity": 0.42682510743816715
+        },
+        {
+          "family": "paper",
+          "similarity": 0.2599284359896098
+        },
+        {
+          "family": "vinyl",
+          "similarity": 0.20368672127658233
+        }
+      ],
+      "original": {
+        "id": "J1",
+        "text": "Cotton tote bags with the festival logo"
+      }
+    },
+    {
+      "id": "J2",
+      "family": "vinyl",
+      "proposed": "vinyl",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "family": "vinyl",
+          "similarity": 0.5259928952057176
+        },
+        {
+          "family": "paper",
+          "similarity": 0.4269148476774285
+        },
+        {
+          "family": "fabric",
+          "similarity": 0.3451559798078447
+        }
+      ],
+      "original": {
+        "id": "J2",
+        "text": "Adhesive lettering for the delivery van"
+      }
+    },
+    {
+      "id": "J3",
+      "family": "paper",
+      "proposed": "paper",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "family": "paper",
+          "similarity": 0.2361881046974353
+        },
+        {
+          "family": "fabric",
+          "similarity": 0.13537369185713602
+        },
+        {
+          "family": "vinyl",
+          "similarity": 0.11435335176165472
+        }
+      ],
+      "original": {
+        "id": "J3",
+        "text": "Folded restaurant menus on card stock"
+      }
+    },
+    {
+      "id": "J4",
+      "family": "fabric",
+      "proposed": "fabric",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "family": "fabric",
+          "similarity": 0.5168959738332263
+        },
+        {
+          "family": "paper",
+          "similarity": 0.34894002460309986
+        },
+        {
+          "family": "vinyl",
+          "similarity": 0.2909194247636824
+        }
+      ],
+      "original": {
+        "id": "J4",
+        "text": "Staff tee shirts with printed emblems"
+      }
+    },
+    {
+      "id": "J5",
+      "family": "vinyl",
+      "proposed": "vinyl",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "family": "vinyl",
+          "similarity": 0.2808655128239065
+        },
+        {
+          "family": "paper",
+          "similarity": 0.24006449016127493
+        },
+        {
+          "family": "fabric",
+          "similarity": 0.08720002175872922
+        }
+      ],
+      "original": {
+        "id": "J5",
+        "text": "Window sticker for opening hours"
+      }
+    }
+  ],
+  "schedule": [
+    {
+      "id": "J3",
+      "position": 1,
+      "family": "paper",
+      "from": "paper",
+      "changeoverMinutes": 0,
+      "cumulativeSetupMinutes": 0
+    },
+    {
+      "id": "J2",
+      "position": 2,
+      "family": "vinyl",
+      "from": "paper",
+      "changeoverMinutes": 8,
+      "cumulativeSetupMinutes": 8
+    },
+    {
+      "id": "J5",
+      "position": 3,
+      "family": "vinyl",
+      "from": "vinyl",
+      "changeoverMinutes": 0,
+      "cumulativeSetupMinutes": 8
+    },
+    {
+      "id": "J1",
+      "position": 4,
+      "family": "fabric",
+      "from": "vinyl",
+      "changeoverMinutes": 10,
+      "cumulativeSetupMinutes": 18
+    },
+    {
+      "id": "J4",
+      "position": 5,
+      "family": "fabric",
+      "from": "fabric",
+      "changeoverMinutes": 0,
+      "cumulativeSetupMinutes": 18
+    }
+  ],
+  "metrics": {
+    "records": 5,
+    "held": 0,
+    "literalTitleMatches": 0,
+    "baselineMinutes": 60,
+    "optimizedMinutes": 18,
+    "savedSetupMinutes": 42
+  },
+  "method": "Real MiniLM family suggestions; mandatory review; exact subset dynamic programming minimizes supplied directed changeover estimates. No processing times, deadlines, dependencies or return-to-start."
+}

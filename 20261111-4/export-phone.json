@@ -1,0 +1,214 @@
+{
+  "version": 1,
+  "originalInput": {
+    "name": "Workshop sales",
+    "currency": "USD",
+    "items": [
+      {
+        "id": "paper",
+        "title": "Writing sheets",
+        "description": "Plain white office printer paper and photocopy sheets."
+      },
+      {
+        "id": "soap",
+        "title": "Hand cleanser",
+        "description": "Liquid hand soap for washing hands in bathrooms."
+      }
+    ],
+    "observations": [
+      {
+        "id": "R00",
+        "text": "White photocopy paper for printers",
+        "period": "before",
+        "quantity": 100,
+        "price": 200
+      },
+      {
+        "id": "R01",
+        "text": "Office printer paper sheets",
+        "period": "after",
+        "quantity": 120,
+        "price": 250
+      },
+      {
+        "id": "R10",
+        "text": "Liquid soap for handwashing",
+        "period": "before",
+        "quantity": 80,
+        "price": 500
+      },
+      {
+        "id": "R11",
+        "text": "Bathroom hand washing soap",
+        "period": "after",
+        "quantity": 60,
+        "price": 450
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "R00",
+      "item": "paper",
+      "proposed": "paper",
+      "period": "before",
+      "quantity": 100,
+      "price": 200,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "item": "paper",
+          "similarity": 0.7990370288356284
+        },
+        {
+          "item": "soap",
+          "similarity": 0.0948425383830688
+        }
+      ],
+      "original": {
+        "id": "R00",
+        "text": "White photocopy paper for printers",
+        "period": "before",
+        "quantity": 100,
+        "price": 200
+      }
+    },
+    {
+      "id": "R01",
+      "item": "paper",
+      "proposed": "paper",
+      "period": "after",
+      "quantity": 120,
+      "price": 250,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "item": "paper",
+          "similarity": 0.7677387730878431
+        },
+        {
+          "item": "soap",
+          "similarity": 0.058036440085782334
+        }
+      ],
+      "original": {
+        "id": "R01",
+        "text": "Office printer paper sheets",
+        "period": "after",
+        "quantity": 120,
+        "price": 250
+      }
+    },
+    {
+      "id": "R10",
+      "item": "soap",
+      "proposed": "soap",
+      "period": "before",
+      "quantity": 80,
+      "price": 500,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "item": "soap",
+          "similarity": 0.8586082604067911
+        },
+        {
+          "item": "paper",
+          "similarity": 0.15876606824443676
+        }
+      ],
+      "original": {
+        "id": "R10",
+        "text": "Liquid soap for handwashing",
+        "period": "before",
+        "quantity": 80,
+        "price": 500
+      }
+    },
+    {
+      "id": "R11",
+      "item": "soap",
+      "proposed": "soap",
+      "period": "after",
+      "quantity": 60,
+      "price": 450,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "item": "soap",
+          "similarity": 0.8734315104466395
+        },
+        {
+          "item": "paper",
+          "similarity": 0.1519995377002417
+        }
+      ],
+      "original": {
+        "id": "R11",
+        "text": "Bathroom hand washing soap",
+        "period": "after",
+        "quantity": 60,
+        "price": 450
+      }
+    }
+  ],
+  "ready": true,
+  "blockers": [],
+  "summaries": [
+    {
+      "id": "paper",
+      "title": "Writing sheets",
+      "description": "Plain white office printer paper and photocopy sheets.",
+      "q0": 100,
+      "p0": 200,
+      "q1": 120,
+      "p1": 250,
+      "before": 20000,
+      "after": 30000,
+      "delta": 10000,
+      "volume2": 9000,
+      "price2": 11000,
+      "baselineVolume": 4000,
+      "baselinePrice": 5000,
+      "baselineResidual": 1000
+    },
+    {
+      "id": "soap",
+      "title": "Hand cleanser",
+      "description": "Liquid hand soap for washing hands in bathrooms.",
+      "q0": 80,
+      "p0": 500,
+      "q1": 60,
+      "p1": 450,
+      "before": 40000,
+      "after": 27000,
+      "delta": -13000,
+      "volume2": -19000,
+      "price2": -7000,
+      "baselineVolume": -10000,
+      "baselinePrice": -4000,
+      "baselineResidual": 1000
+    }
+  ],
+  "totals": {
+    "before": 60000,
+    "after": 57000,
+    "delta": -3000,
+    "volume2": -10000,
+    "price2": 4000,
+    "baselineVolume": -6000,
+    "baselinePrice": 1000,
+    "baselineResidual": 2000
+  },
+  "metrics": {
+    "records": 4,
+    "approved": 4,
+    "held": 0,
+    "literalTitleMatches": 0
+  },
+  "method": "Local MiniLM product inference; mandatory review. Symmetric price/quantity attribution splits the interaction equally; descriptive, not causal. Monetary values are cents; volume2/price2 are twice-cents."
+}

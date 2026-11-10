@@ -1,0 +1,214 @@
+{
+  "version": 1,
+  "originalInput": {
+    "name": "Community shop",
+    "currency": "USD",
+    "items": [
+      {
+        "id": "books",
+        "title": "Reading stock",
+        "description": "Fiction novels and storybooks for reading."
+      },
+      {
+        "id": "balls",
+        "title": "Court equipment",
+        "description": "Basketballs for basketball sports practice and athletic training."
+      }
+    ],
+    "observations": [
+      {
+        "id": "R00",
+        "text": "Fiction novels for readers",
+        "period": "before",
+        "quantity": 20,
+        "price": 1500
+      },
+      {
+        "id": "R01",
+        "text": "Storybooks and novels for reading",
+        "period": "after",
+        "quantity": 30,
+        "price": 1200
+      },
+      {
+        "id": "R10",
+        "text": "Basketballs for athletic training",
+        "period": "before",
+        "quantity": 10,
+        "price": 3000
+      },
+      {
+        "id": "R11",
+        "text": "Sports basketballs for court practice",
+        "period": "after",
+        "quantity": 15,
+        "price": 3500
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "R00",
+      "item": "books",
+      "proposed": "books",
+      "period": "before",
+      "quantity": 20,
+      "price": 1500,
+      "decision": "approve",
+      "note": "=1+1, \"review\"\nnext line",
+      "candidates": [
+        {
+          "item": "books",
+          "similarity": 0.8883005676279627
+        },
+        {
+          "item": "balls",
+          "similarity": 0.07423705685565715
+        }
+      ],
+      "original": {
+        "id": "R00",
+        "text": "Fiction novels for readers",
+        "period": "before",
+        "quantity": 20,
+        "price": 1500
+      }
+    },
+    {
+      "id": "R01",
+      "item": "books",
+      "proposed": "books",
+      "period": "after",
+      "quantity": 30,
+      "price": 1200,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "item": "books",
+          "similarity": 0.9128009665385868
+        },
+        {
+          "item": "balls",
+          "similarity": 0.13465075106701896
+        }
+      ],
+      "original": {
+        "id": "R01",
+        "text": "Storybooks and novels for reading",
+        "period": "after",
+        "quantity": 30,
+        "price": 1200
+      }
+    },
+    {
+      "id": "R10",
+      "item": "balls",
+      "proposed": "balls",
+      "period": "before",
+      "quantity": 10,
+      "price": 3000,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "item": "balls",
+          "similarity": 0.9069424507392655
+        },
+        {
+          "item": "books",
+          "similarity": 0.13578108535178215
+        }
+      ],
+      "original": {
+        "id": "R10",
+        "text": "Basketballs for athletic training",
+        "period": "before",
+        "quantity": 10,
+        "price": 3000
+      }
+    },
+    {
+      "id": "R11",
+      "item": "balls",
+      "proposed": "balls",
+      "period": "after",
+      "quantity": 15,
+      "price": 3500,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "item": "balls",
+          "similarity": 0.8528559697880808
+        },
+        {
+          "item": "books",
+          "similarity": 0.13287409590317503
+        }
+      ],
+      "original": {
+        "id": "R11",
+        "text": "Sports basketballs for court practice",
+        "period": "after",
+        "quantity": 15,
+        "price": 3500
+      }
+    }
+  ],
+  "ready": true,
+  "blockers": [],
+  "summaries": [
+    {
+      "id": "books",
+      "title": "Reading stock",
+      "description": "Fiction novels and storybooks for reading.",
+      "q0": 20,
+      "p0": 1500,
+      "q1": 30,
+      "p1": 1200,
+      "before": 30000,
+      "after": 36000,
+      "delta": 6000,
+      "volume2": 27000,
+      "price2": -15000,
+      "baselineVolume": 15000,
+      "baselinePrice": -6000,
+      "baselineResidual": -3000
+    },
+    {
+      "id": "balls",
+      "title": "Court equipment",
+      "description": "Basketballs for basketball sports practice and athletic training.",
+      "q0": 10,
+      "p0": 3000,
+      "q1": 15,
+      "p1": 3500,
+      "before": 30000,
+      "after": 52500,
+      "delta": 22500,
+      "volume2": 32500,
+      "price2": 12500,
+      "baselineVolume": 15000,
+      "baselinePrice": 5000,
+      "baselineResidual": 2500
+    }
+  ],
+  "totals": {
+    "before": 60000,
+    "after": 88500,
+    "delta": 28500,
+    "volume2": 59500,
+    "price2": -2500,
+    "baselineVolume": 30000,
+    "baselinePrice": -1000,
+    "baselineResidual": -500
+  },
+  "metrics": {
+    "records": 4,
+    "approved": 4,
+    "held": 0,
+    "literalTitleMatches": 0
+  },
+  "method": "Local MiniLM product inference; mandatory review. Symmetric price/quantity attribution splits the interaction equally; descriptive, not causal. Monetary values are cents; volume2/price2 are twice-cents."
+}

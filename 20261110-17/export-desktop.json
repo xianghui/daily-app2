@@ -1,0 +1,194 @@
+{
+  "schema": "trial-harbor-v1",
+  "originalInput": {
+    "name": "Workshop invitation",
+    "minimumLift": 0.015,
+    "arms": [
+      {
+        "id": "C",
+        "title": "Plain invitation",
+        "description": "The existing event invitation lists only the date, location and workshop agenda in plain text without attendee reviews.",
+        "role": "control"
+      },
+      {
+        "id": "T",
+        "title": "Social proof invitation",
+        "description": "The new event invitation includes testimonials, positive quotes and recommendations from previous workshop attendees.",
+        "role": "treatment"
+      }
+    ],
+    "batches": [
+      {
+        "id": "E1",
+        "text": "The first email group saw enthusiastic quotes from people who attended last year.",
+        "visitors": 400,
+        "conversions": 32
+      },
+      {
+        "id": "E2",
+        "text": "The other email group only received the venue, schedule and date, without participant recommendations.",
+        "visitors": 400,
+        "conversions": 36
+      },
+      {
+        "id": "E3",
+        "text": "Later recipients read praise and recommendations written by past participants.",
+        "visitors": 500,
+        "conversions": 43
+      },
+      {
+        "id": "E4",
+        "text": "Later recipients got just a factual agenda, time and place with no reviews.",
+        "visitors": 500,
+        "conversions": 44
+      }
+    ]
+  },
+  "assumptionsConfirmed": true,
+  "records": [
+    {
+      "id": "E1",
+      "proposed": "T",
+      "selected": "T",
+      "visitors": 400,
+      "conversions": 33,
+      "decision": "approve",
+      "rationale": "=1+1\nReviewed, \"verified\" 🪷",
+      "candidates": [
+        {
+          "arm": "T",
+          "cosine": 0.3859222408953491
+        },
+        {
+          "arm": "C",
+          "cosine": 0.2909197488719921
+        }
+      ],
+      "source": "The first email group saw enthusiastic quotes from people who attended last year.",
+      "originalVisitors": 400,
+      "originalConversions": 32
+    },
+    {
+      "id": "E2",
+      "proposed": "C",
+      "selected": "C",
+      "visitors": 400,
+      "conversions": 36,
+      "decision": "approve",
+      "rationale": "",
+      "candidates": [
+        {
+          "arm": "C",
+          "cosine": 0.49052348004826385
+        },
+        {
+          "arm": "T",
+          "cosine": 0.25871438067932045
+        }
+      ],
+      "source": "The other email group only received the venue, schedule and date, without participant recommendations.",
+      "originalVisitors": 400,
+      "originalConversions": 36
+    },
+    {
+      "id": "E3",
+      "proposed": "T",
+      "selected": "T",
+      "visitors": 500,
+      "conversions": 43,
+      "decision": "approve",
+      "rationale": "",
+      "candidates": [
+        {
+          "arm": "T",
+          "cosine": 0.4342557807644582
+        },
+        {
+          "arm": "C",
+          "cosine": 0.32288303632912746
+        }
+      ],
+      "source": "Later recipients read praise and recommendations written by past participants.",
+      "originalVisitors": 500,
+      "originalConversions": 43
+    },
+    {
+      "id": "E4",
+      "proposed": "C",
+      "selected": "C",
+      "visitors": 500,
+      "conversions": 44,
+      "decision": "approve",
+      "rationale": "",
+      "candidates": [
+        {
+          "arm": "C",
+          "cosine": 0.46198484267509976
+        },
+        {
+          "arm": "T",
+          "cosine": 0.239493247721218
+        }
+      ],
+      "source": "Later recipients got just a factual agenda, time and place with no reviews.",
+      "originalVisitors": 500,
+      "originalConversions": 44
+    }
+  ],
+  "groups": [
+    {
+      "id": "C",
+      "title": "Plain invitation",
+      "description": "The existing event invitation lists only the date, location and workshop agenda in plain text without attendee reviews.",
+      "role": "control",
+      "visitors": 900,
+      "conversions": 80,
+      "sourceIds": [
+        "E2",
+        "E4"
+      ]
+    },
+    {
+      "id": "T",
+      "title": "Social proof invitation",
+      "description": "The new event invitation includes testimonials, positive quotes and recommendations from previous workshop attendees.",
+      "role": "treatment",
+      "visitors": 900,
+      "conversions": 76,
+      "sourceIds": [
+        "E1",
+        "E3"
+      ]
+    }
+  ],
+  "ready": true,
+  "blockers": [],
+  "analysis": {
+    "controlRate": 0.08888888888888889,
+    "treatmentRate": 0.08444444444444445,
+    "difference": -0.004444444444444445,
+    "interval": [
+      -0.030634800475718975,
+      0.021715862136057133
+    ],
+    "controlInterval": [
+      0.07200119328811633,
+      0.10927114957881706
+    ],
+    "treatmentInterval": [
+      0.06799761501708286,
+      0.10442361804300655
+    ],
+    "observedLeader": "control",
+    "assessment": "Inconclusive at target"
+  },
+  "metrics": {
+    "approved": 4,
+    "held": 0,
+    "visitors": 1800,
+    "conversions": 156,
+    "retainedAILinks": 4,
+    "literalTitleMatches": 0
+  },
+  "warning": "Approximate fixed-horizon independent-binomial intervals, not a causal guarantee or automatic launch decision. No peeking correction, clustering, covariate adjustment or multiple-testing control. Very small counts need specialist review."
+}

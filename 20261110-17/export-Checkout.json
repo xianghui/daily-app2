@@ -1,0 +1,178 @@
+{
+  "schema": "trial-harbor-v1",
+  "originalInput": {
+    "name": "Checkout test",
+    "minimumLift": 0.02,
+    "arms": [
+      {
+        "id": "C",
+        "title": "Legacy checkout",
+        "description": "The existing purchase form requires shoppers to register an account and create a password before paying.",
+        "role": "control"
+      },
+      {
+        "id": "T",
+        "title": "Guest checkout",
+        "description": "The new purchase flow lets shoppers pay without creating an account or registering a password.",
+        "role": "treatment"
+      }
+    ],
+    "batches": [
+      {
+        "id": "MON-A",
+        "text": "Monday shoppers had to sign up and set a password to complete their purchase.",
+        "visitors": 1000,
+        "conversions": 90
+      },
+      {
+        "id": "MON-B",
+        "text": "Monday shoppers could buy without signing up for an account.",
+        "visitors": 1000,
+        "conversions": 150
+      },
+      {
+        "id": "TUE-A",
+        "text": "Tuesday buyers were required to register with a password before payment.",
+        "visitors": 1000,
+        "conversions": 100
+      },
+      {
+        "id": "TUE-B",
+        "text": "Tuesday buyers paid directly without account registration.",
+        "visitors": 1000,
+        "conversions": 160
+      }
+    ]
+  },
+  "assumptionsConfirmed": false,
+  "records": [
+    {
+      "id": "MON-A",
+      "proposed": "C",
+      "selected": "C",
+      "visitors": 1000,
+      "conversions": 90,
+      "decision": "approve",
+      "rationale": "",
+      "candidates": [
+        {
+          "arm": "C",
+          "cosine": 0.546476249567614
+        },
+        {
+          "arm": "T",
+          "cosine": 0.5195893597901818
+        }
+      ],
+      "source": "Monday shoppers had to sign up and set a password to complete their purchase.",
+      "originalVisitors": 1000,
+      "originalConversions": 90
+    },
+    {
+      "id": "MON-B",
+      "proposed": "T",
+      "selected": "T",
+      "visitors": 1000,
+      "conversions": 150,
+      "decision": "approve",
+      "rationale": "",
+      "candidates": [
+        {
+          "arm": "T",
+          "cosine": 0.5092568384764391
+        },
+        {
+          "arm": "C",
+          "cosine": 0.482763938776601
+        }
+      ],
+      "source": "Monday shoppers could buy without signing up for an account.",
+      "originalVisitors": 1000,
+      "originalConversions": 150
+    },
+    {
+      "id": "TUE-A",
+      "proposed": "C",
+      "selected": "C",
+      "visitors": 1000,
+      "conversions": 100,
+      "decision": "approve",
+      "rationale": "",
+      "candidates": [
+        {
+          "arm": "C",
+          "cosine": 0.6536888258002367
+        },
+        {
+          "arm": "T",
+          "cosine": 0.5606294260779296
+        }
+      ],
+      "source": "Tuesday buyers were required to register with a password before payment.",
+      "originalVisitors": 1000,
+      "originalConversions": 100
+    },
+    {
+      "id": "TUE-B",
+      "proposed": "T",
+      "selected": "T",
+      "visitors": 1000,
+      "conversions": 160,
+      "decision": "approve",
+      "rationale": "",
+      "candidates": [
+        {
+          "arm": "T",
+          "cosine": 0.4973646690166931
+        },
+        {
+          "arm": "C",
+          "cosine": 0.4320218753866171
+        }
+      ],
+      "source": "Tuesday buyers paid directly without account registration.",
+      "originalVisitors": 1000,
+      "originalConversions": 160
+    }
+  ],
+  "groups": [
+    {
+      "id": "C",
+      "title": "Legacy checkout",
+      "description": "The existing purchase form requires shoppers to register an account and create a password before paying.",
+      "role": "control",
+      "visitors": 2000,
+      "conversions": 190,
+      "sourceIds": [
+        "MON-A",
+        "TUE-A"
+      ]
+    },
+    {
+      "id": "T",
+      "title": "Guest checkout",
+      "description": "The new purchase flow lets shoppers pay without creating an account or registering a password.",
+      "role": "treatment",
+      "visitors": 2000,
+      "conversions": 310,
+      "sourceIds": [
+        "MON-B",
+        "TUE-B"
+      ]
+    }
+  ],
+  "ready": false,
+  "blockers": [
+    "Confirm independent randomized visitors, a fixed predeclared horizon and complete disjoint batches."
+  ],
+  "analysis": null,
+  "metrics": {
+    "approved": 4,
+    "held": 0,
+    "visitors": 4000,
+    "conversions": 500,
+    "retainedAILinks": 4,
+    "literalTitleMatches": 0
+  },
+  "warning": "Approximate fixed-horizon independent-binomial intervals, not a causal guarantee or automatic launch decision. No peeking correction, clustering, covariate adjustment or multiple-testing control. Very small counts need specialist review."
+}

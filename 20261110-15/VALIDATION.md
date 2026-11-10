@@ -1,0 +1,22 @@
+# Demand Loom — observed validation (2026-11-10)
+
+## Local production bundle
+
+- React + Vite `npm run predeploy` passed. Runtime/worker emitted under the correct Pages base; same-origin shared WASM hash matches installed binary. No credential-pattern matches in built JS/HTML/MJS; source contains no provider integration.
+- Real Chrome browser, no mocked successful inference: Studio supplies and Community café each matched **12/12** intended links (24 records across four unique repeated phrasings). Literal-title baseline: **0/24**. This measures these tiny synthetic identity fixtures only, not general accuracy or savings. Sources and all 270 original units survive. Studio oscillating demand chose MA3 (MAE 6.667 vs naive 10), rising demand naive (MAE 2 vs MA3 4); café constant demand tied at zero and chose naive. Actual artifacts contain the full computed errors.
+- Negated envelope text and unrelated concert text still receive nearest item proposals; human holds are required, and every hold blocks forecasts. AI is not a relevance/negation detector.
+- `core-test.mjs`: 1,800 independently calculated generated cases check weekly aggregation, record/unit conservation, matched forecast horizons, both MAEs, exact tie rule, rounding, inventory deductions, holds/coverage guards, invalid stocks/dates and malformed vectors. This verifies arithmetic, not forecasting efficacy.
+- `browser-test.cjs`: current reviewed JSON/CSV/Markdown, quantity edit, invalid quantity, undo, holds, coverage invalidation, pending-review guard, clipboard exact match, max 64 notes/8 items/12 weeks (72 embeddings, four per batch), audit reimport, empty/invalid/oversize and unsupported files, cancellation/retry/input changes, late callbacks, malformed output, unavailable worker/WASM and accelerated timeout all passed. Successful checks always used real model; defensive faults alone were injected.
+- Fresh worker with networking entirely disabled inside an already-open cached page performed real inference. Offline reload/navigation is **not** claimed.
+- Separate fresh-context model-host abort/recovery, actual weight-request cancellation/retry, delayed file-read/worker-fetch stale identity checks passed.
+- Request capture from page startup through full suite: only GET downloads, no request bodies, only same-origin and documented model-host/CDN destinations; no input text in download URLs. No model host contacted before explicit load.
+- Actual browser downloads were reopened using Python JSON/CSV parsers; 12 reviewed records, original/edited quantities, current item/week/forecast/replenishment and quoted multiline Unicode formula-like rationale survived. CSV neutralizes formula-leading text. Markdown includes current worksheet and full audit; clipboard matches downloaded Markdown. Maximum 64-row audit roundtrip preserved original input, approvals intentionally reset.
+- Desktop and 390px/320px narrow layouts: labels, focusability, ≥44px main action, input/results/exports and no document horizontal overflow passed. Physical phones/other browser engines untested. Screenshots saved.
+
+## Collection and publication
+
+Root `npm run predeploy` and `npm run deploy` passed, assembling 572 apps with every 571 prior working-gallery entry preserved. Combined deployment is 909,502,579 bytes, below the 1,000,000,000-byte guard. All app dist files and root gallery match assembled output byte-for-byte. The full real-inference browser suite also passed against the assembled collection; gallery scripts compile and rendered old categories/search/new link passed.
+
+GitHub Pages commit `fe8e9b26cce84a9c3ef66dc12363f25651ddf98c`, workflow 42766464228, completed successfully on the first attempt; Pages API reports `built` for that same commit. Public HTML, entry JS, CSS, module worker, runtime factory and shared WASM matched local production bytes/hashes. Both real model fixtures and all 10 browser checks passed again on **https://xianghui.github.io/daily-app2/20261110-15/**, including public-path fresh-worker offline inference, review/export and failure recovery. The public gallery renders 572 cards with AI Utilities first, old categories/search and the new app link intact.
+
+App source is committed with only its new root entry/documentation; unrelated pre-existing working-tree edits and folders are preserved and left unstaged. See publication-status.json, hosting-attempts.json, public-asset-validation.json, public-browser-validation.json and gallery-public-ui-validation.json.

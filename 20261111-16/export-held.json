@@ -1,0 +1,155 @@
+{
+  "schema": "fiber-balance/v1",
+  "originalInput": {
+    "name": "Paper mill",
+    "targetKg": 8,
+    "minRecycled": 50,
+    "grades": [
+      {
+        "id": "recovered",
+        "title": "Recovered paper pulp",
+        "description": "Recycled paper pulp made from recovered used newspapers and old corrugated cardboard.",
+        "recycled": 100
+      },
+      {
+        "id": "virgin",
+        "title": "Virgin wood pulp",
+        "description": "Fresh virgin cellulose wood pulp from trees, no recycled paper.",
+        "recycled": 0
+      }
+    ],
+    "records": [
+      {
+        "id": "P1",
+        "text": "New cellulose fibers freshly processed from forest timber",
+        "kg": 10,
+        "centsPerKg": 200
+      },
+      {
+        "id": "P2",
+        "text": "Reprocessed pulp recovered from old newspapers and used cardboard",
+        "kg": 6,
+        "centsPerKg": 350
+      },
+      {
+        "id": "P3",
+        "text": "Recycled paper fibers recovered from discarded packaging boxes",
+        "kg": 4,
+        "centsPerKg": 400
+      }
+    ]
+  },
+  "settings": {
+    "targetKg": 8,
+    "minRecycled": 50
+  },
+  "records": [
+    {
+      "id": "P1",
+      "text": "New cellulose fibers freshly processed from forest timber",
+      "kg": 9,
+      "centsPerKg": 210,
+      "grade": "virgin",
+      "proposed": "virgin",
+      "recycled": 0,
+      "candidates": [
+        {
+          "grade": "virgin",
+          "similarity": 0.6810704023237238
+        },
+        {
+          "grade": "recovered",
+          "similarity": 0.38185286183883893
+        }
+      ],
+      "decision": "approve",
+      "note": "=1+1, \"review\"\nsecond line"
+    },
+    {
+      "id": "P2",
+      "text": "Reprocessed pulp recovered from old newspapers and used cardboard",
+      "kg": 6,
+      "centsPerKg": 350,
+      "grade": "recovered",
+      "proposed": "recovered",
+      "recycled": 100,
+      "candidates": [
+        {
+          "grade": "recovered",
+          "similarity": 0.8626250644455322
+        },
+        {
+          "grade": "virgin",
+          "similarity": 0.5929901200636378
+        }
+      ],
+      "decision": "hold",
+      "note": ""
+    },
+    {
+      "id": "P3",
+      "text": "Recycled paper fibers recovered from discarded packaging boxes",
+      "kg": 4,
+      "centsPerKg": 400,
+      "grade": "recovered",
+      "proposed": "recovered",
+      "recycled": 100,
+      "candidates": [
+        {
+          "grade": "recovered",
+          "similarity": 0.7609581295105683
+        },
+        {
+          "grade": "virgin",
+          "similarity": 0.52940787899041
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "optimized": {
+    "kg": 8,
+    "recycledKg": 4,
+    "recycledPercent": 50,
+    "costCents": 2440,
+    "meetsTarget": true,
+    "allocations": [
+      {
+        "id": "P1",
+        "kg": 4,
+        "costCents": 840
+      },
+      {
+        "id": "P3",
+        "kg": 4,
+        "costCents": 1600
+      }
+    ]
+  },
+  "baseline": {
+    "kg": 8,
+    "recycledKg": 0,
+    "recycledPercent": 0,
+    "costCents": 1680,
+    "meetsTarget": false,
+    "allocations": [
+      {
+        "id": "P1",
+        "kg": 8,
+        "costCents": 1680
+      },
+      {
+        "id": "P3",
+        "kg": 0,
+        "costCents": 0
+      }
+    ]
+  },
+  "metrics": {
+    "approved": 2,
+    "held": 1,
+    "aiReviewAgreement": 2,
+    "firstGradeAgreement": 1
+  }
+}

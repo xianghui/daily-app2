@@ -1,0 +1,165 @@
+{
+  "schema": "fiber-balance/v1",
+  "originalInput": {
+    "name": "Cotton mill",
+    "targetKg": 10,
+    "minRecycled": 60,
+    "grades": [
+      {
+        "id": "recovered",
+        "title": "Recovered cotton",
+        "description": "Post consumer recycled cotton fibers recovered from discarded cotton garments and textile waste.",
+        "recycled": 100
+      },
+      {
+        "id": "virgin",
+        "title": "Virgin cotton",
+        "description": "New virgin cotton fiber harvested from cotton plants, without recycled fibers.",
+        "recycled": 0
+      }
+    ],
+    "records": [
+      {
+        "id": "C1",
+        "text": "Reclaimed cotton from used clothing, mechanically recovered textile fibers",
+        "kg": 8,
+        "centsPerKg": 400
+      },
+      {
+        "id": "C2",
+        "text": "Freshly harvested raw cotton from the farm, new natural cotton fibers",
+        "kg": 10,
+        "centsPerKg": 100
+      },
+      {
+        "id": "C3",
+        "text": "Recycled cotton fibers from discarded shirts and old clothes",
+        "kg": 4,
+        "centsPerKg": 500
+      }
+    ]
+  },
+  "settings": {
+    "targetKg": 10,
+    "minRecycled": 60
+  },
+  "records": [
+    {
+      "id": "C1",
+      "text": "Reclaimed cotton from used clothing, mechanically recovered textile fibers",
+      "kg": 8,
+      "centsPerKg": 400,
+      "grade": "recovered",
+      "proposed": "recovered",
+      "recycled": 100,
+      "candidates": [
+        {
+          "grade": "recovered",
+          "similarity": 0.8426337430944392
+        },
+        {
+          "grade": "virgin",
+          "similarity": 0.6684331918614637
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "C2",
+      "text": "Freshly harvested raw cotton from the farm, new natural cotton fibers",
+      "kg": 10,
+      "centsPerKg": 100,
+      "grade": "virgin",
+      "proposed": "virgin",
+      "recycled": 0,
+      "candidates": [
+        {
+          "grade": "virgin",
+          "similarity": 0.7968075800364727
+        },
+        {
+          "grade": "recovered",
+          "similarity": 0.6034666817898218
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "C3",
+      "text": "Recycled cotton fibers from discarded shirts and old clothes",
+      "kg": 4,
+      "centsPerKg": 500,
+      "grade": "recovered",
+      "proposed": "recovered",
+      "recycled": 100,
+      "candidates": [
+        {
+          "grade": "recovered",
+          "similarity": 0.8540166838986996
+        },
+        {
+          "grade": "virgin",
+          "similarity": 0.6878822919095273
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "optimized": {
+    "kg": 10,
+    "recycledKg": 6,
+    "recycledPercent": 60,
+    "costCents": 2800,
+    "meetsTarget": true,
+    "allocations": [
+      {
+        "id": "C1",
+        "kg": 6,
+        "costCents": 2400
+      },
+      {
+        "id": "C2",
+        "kg": 4,
+        "costCents": 400
+      },
+      {
+        "id": "C3",
+        "kg": 0,
+        "costCents": 0
+      }
+    ]
+  },
+  "baseline": {
+    "kg": 10,
+    "recycledKg": 0,
+    "recycledPercent": 0,
+    "costCents": 1000,
+    "meetsTarget": false,
+    "allocations": [
+      {
+        "id": "C1",
+        "kg": 0,
+        "costCents": 0
+      },
+      {
+        "id": "C2",
+        "kg": 10,
+        "costCents": 1000
+      },
+      {
+        "id": "C3",
+        "kg": 0,
+        "costCents": 0
+      }
+    ]
+  },
+  "metrics": {
+    "approved": 3,
+    "held": 0,
+    "aiReviewAgreement": 3,
+    "firstGradeAgreement": 2
+  }
+}

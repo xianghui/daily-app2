@@ -551,3 +551,9 @@ Real local MiniLM reconciles informal invoice recipients before mandatory custom
 ## Delegate Loom — 20261112-6
 
 Real local MiniLM reconciles informal club chapter reports before mandatory identity/count review and exact largest-remainder delegate apportionment. Both tiny fixtures matched 7/7 links; 19,950 integer allocation cases conserved seats and respected quota bounds. Negation/unrelated text still needs holds. Complete JSON/CSV/Markdown preserves every report and exposes held membership; offline fresh-worker inference works only in an already-open warmed page. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261112-6/README.md) and [observed validation](20261112-6/VALIDATION.md).
+
+## Margin Weft — 20261112-7
+
+Real local MiniLM reconciles crossed survey cohort descriptions before mandatory identity/count/rating review and deterministic two-margin iterative proportional fitting. Unlike single-axis weighting, both margins are balanced; structural-zero convergence failures and extreme weights block released estimates. Five of eight paraphrased cohort labels matched automatically; three required review corrections. 1,800 independent odds-ratio oracle cases, complete reviewed JSON/CSV/Markdown artifacts and fresh-worker offline inference passed. Offline scope is an already-open warmed page only. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261112-7/README.md) and [observed validation](20261112-7/VALIDATION.md).
+
+Margin Weft public release, byte-matched runtime assets, both real-AI/reviewed fixtures, full public workflow suite and preserved 608-entry gallery passed on the first Pages deployment.

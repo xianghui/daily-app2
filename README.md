@@ -465,3 +465,10 @@ Cost Tapestry public release, byte-matched runtime assets, both real-AI fixtures
 ## Fiber Balance — 20261111-16
 
 Real local MiniLM grade retrieval supports mandatory human review of recycled-fiber stock. Exact bounded whole-kg optimization meets mass/recycled-content constraints at minimum supplied cost, compared with a cheapest-first baseline. Six simple fixture links matched; optimizer matched 250 independent exhaustive cases. Complete JSON/CSV/Markdown preserves originals and held lots. Offline fresh-worker inference tested only in an already-open page. Material compatibility, recycled properties and certification are not inferred. Reuses immutable WASM from `20261107-2`; preserve that asset. See [workflow/privacy](20261111-16/README.md) and [observed validation](20261111-16/VALIDATION.md).
+
+
+## Carton Compass — 20261111-17
+
+Real local MiniLM reconciles packing-slip item descriptions with supplied product catalogs. Mandatory quantity/dimension/weight review feeds homogeneous-grid carton fit and dimensional-weight charge comparison; complete JSON/CSV/Markdown preserves held/no-fit orders. Both tiny fixtures matched 6/6 links; negation mislinked and requires review. 1800 independent grid/BigInt billing cases, maximum batches, downloaded artifacts, offline fresh-worker inference and defensive browser checks passed. Not unrestricted 3D packing, live postage or packaging certification. Offline scope is an already-open warmed page only. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261111-17/README.md) and [observed checks](20261111-17/VALIDATION.md).
+
+Carton Compass public release, byte-matched runtime assets, both real-AI fixtures, the full public workflow suite and the preserved 594-entry gallery passed on the first Pages deployment.

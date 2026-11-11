@@ -1,0 +1,244 @@
+{
+  "schema": "carton-compass/v1",
+  "originalInput": {
+    "name": "Bookshop dispatch",
+    "divisor": 5000,
+    "products": [
+      {
+        "id": "book",
+        "title": "Hardback book",
+        "description": "Hardcover printed book with many pages for reading novels",
+        "dims": [
+          21,
+          14,
+          4
+        ],
+        "grams": 650,
+        "rotate": true
+      },
+      {
+        "id": "puzzle",
+        "title": "Jigsaw puzzle",
+        "description": "Boxed jigsaw puzzle with interlocking pieces forming a picture",
+        "dims": [
+          28,
+          20,
+          6
+        ],
+        "grams": 800,
+        "rotate": true
+      },
+      {
+        "id": "poster",
+        "title": "Rolled poster tube",
+        "description": "Printed art poster rolled into a long protective cylindrical tube",
+        "dims": [
+          8,
+          8,
+          28
+        ],
+        "grams": 250,
+        "rotate": false
+      }
+    ],
+    "cartons": [
+      {
+        "id": "compact",
+        "inside": [
+          22,
+          16,
+          12
+        ],
+        "outside": [
+          24,
+          18,
+          14
+        ],
+        "maxGrams": 5000,
+        "boxCents": 60,
+        "baseCents": 250,
+        "perKgCents": 120
+      },
+      {
+        "id": "mailer",
+        "inside": [
+          32,
+          24,
+          10
+        ],
+        "outside": [
+          34,
+          26,
+          12
+        ],
+        "maxGrams": 8000,
+        "boxCents": 80,
+        "baseCents": 100,
+        "perKgCents": 60
+      },
+      {
+        "id": "tall",
+        "inside": [
+          30,
+          25,
+          30
+        ],
+        "outside": [
+          32,
+          27,
+          32
+        ],
+        "maxGrams": 12000,
+        "boxCents": 100,
+        "baseCents": 250,
+        "perKgCents": 90
+      }
+    ],
+    "records": [
+      {
+        "id": "B1",
+        "text": "Bound hardcover novels with printed pages",
+        "quantity": 2
+      },
+      {
+        "id": "B2",
+        "text": "Box of interlocking picture puzzle pieces",
+        "quantity": 1
+      },
+      {
+        "id": "B3",
+        "text": "Art print rolled inside a long mailing tube",
+        "quantity": 2
+      }
+    ]
+  },
+  "settings": {
+    "divisor": 5000
+  },
+  "records": [
+    {
+      "id": "B1",
+      "text": "Bound hardcover novels with printed pages",
+      "quantity": 3,
+      "product": "book",
+      "proposed": "book",
+      "dims": [
+        21,
+        14,
+        4
+      ],
+      "grams": 700,
+      "rotate": true,
+      "candidates": [
+        {
+          "product": "book",
+          "similarity": 0.8540396600536987
+        },
+        {
+          "product": "poster",
+          "similarity": 0.35103711692599276
+        },
+        {
+          "product": "puzzle",
+          "similarity": 0.0896885039394512
+        }
+      ],
+      "decision": "hold",
+      "note": "=1+1, \"review\"\nsecond line"
+    },
+    {
+      "id": "B2",
+      "text": "Box of interlocking picture puzzle pieces",
+      "quantity": 1,
+      "product": "puzzle",
+      "proposed": "puzzle",
+      "dims": [
+        28,
+        20,
+        6
+      ],
+      "grams": 800,
+      "rotate": true,
+      "candidates": [
+        {
+          "product": "puzzle",
+          "similarity": 0.8464533151157947
+        },
+        {
+          "product": "poster",
+          "similarity": 0.21565075534423242
+        },
+        {
+          "product": "book",
+          "similarity": 0.11965972457990333
+        }
+      ],
+      "decision": "hold",
+      "note": ""
+    },
+    {
+      "id": "B3",
+      "text": "Art print rolled inside a long mailing tube",
+      "quantity": 2,
+      "product": "poster",
+      "proposed": "poster",
+      "dims": [
+        8,
+        8,
+        28
+      ],
+      "grams": 250,
+      "rotate": false,
+      "candidates": [
+        {
+          "product": "poster",
+          "similarity": 0.8309685789002769
+        },
+        {
+          "product": "book",
+          "similarity": 0.28648792390197164
+        },
+        {
+          "product": "puzzle",
+          "similarity": 0.22246355150056918
+        }
+      ],
+      "decision": "hold",
+      "note": ""
+    }
+  ],
+  "shipments": [
+    {
+      "id": "B1",
+      "state": "held",
+      "choices": [],
+      "selected": null,
+      "baseline": null
+    },
+    {
+      "id": "B2",
+      "state": "held",
+      "choices": [],
+      "selected": null,
+      "baseline": null
+    },
+    {
+      "id": "B3",
+      "state": "held",
+      "choices": [],
+      "selected": null,
+      "baseline": null
+    }
+  ],
+  "metrics": {
+    "approved": 0,
+    "held": 3,
+    "planned": 0,
+    "noFit": 0,
+    "units": 0,
+    "optimizedCents": 0,
+    "baselineCents": 0,
+    "aiReviewAgreement": 0,
+    "firstProductAgreement": 0
+  }
+}

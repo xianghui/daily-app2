@@ -1,0 +1,270 @@
+{
+  "schema": "cost-tapestry/v1",
+  "originalInput": {
+    "name": "Print studio",
+    "policies": [
+      {
+        "id": "design",
+        "title": "Graphic design",
+        "description": "Graphic design, page layouts, artwork preparation and typography.",
+        "cents": 90001
+      },
+      {
+        "id": "delivery",
+        "title": "Parcel delivery",
+        "description": "Courier transport, parcel shipping and delivery to customer addresses.",
+        "cents": 30001
+      }
+    ],
+    "products": [
+      {
+        "id": "posters",
+        "title": "Posters",
+        "units": 200
+      },
+      {
+        "id": "books",
+        "title": "Booklets",
+        "units": 50
+      }
+    ],
+    "records": [
+      {
+        "id": "P1",
+        "text": "Graphic artwork preparation and poster layout design",
+        "product": "posters",
+        "driver": 7
+      },
+      {
+        "id": "P2",
+        "text": "Booklet page layout and typography design",
+        "product": "books",
+        "driver": 3
+      },
+      {
+        "id": "P3",
+        "text": "Courier shipping parcels of posters to customers",
+        "product": "posters",
+        "driver": 2
+      },
+      {
+        "id": "P4",
+        "text": "Transporting book parcels to customer addresses",
+        "product": "books",
+        "driver": 8
+      }
+    ]
+  },
+  "settings": {
+    "pools": [
+      {
+        "id": "design",
+        "cents": 90001
+      },
+      {
+        "id": "delivery",
+        "cents": 30001
+      }
+    ],
+    "products": [
+      {
+        "id": "posters",
+        "units": 200
+      },
+      {
+        "id": "books",
+        "units": 50
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "P1",
+      "text": "Graphic artwork preparation and poster layout design",
+      "product": "books",
+      "driver": 11,
+      "policy": "design",
+      "proposed": "design",
+      "decision": "hold",
+      "note": "=1+1, \"review\"\nnext line",
+      "candidates": [
+        {
+          "policy": "design",
+          "similarity": 0.6003913493184501
+        },
+        {
+          "policy": "delivery",
+          "similarity": 0.10334729227236246
+        }
+      ],
+      "original": {
+        "id": "P1",
+        "text": "Graphic artwork preparation and poster layout design",
+        "product": "posters",
+        "driver": 7
+      },
+      "allocatedCents": null
+    },
+    {
+      "id": "P2",
+      "text": "Booklet page layout and typography design",
+      "product": "books",
+      "driver": 3,
+      "policy": "design",
+      "proposed": "design",
+      "decision": "hold",
+      "note": "",
+      "candidates": [
+        {
+          "policy": "design",
+          "similarity": 0.39272154700345263
+        },
+        {
+          "policy": "delivery",
+          "similarity": 0.11054478668801704
+        }
+      ],
+      "original": {
+        "id": "P2",
+        "text": "Booklet page layout and typography design",
+        "product": "books",
+        "driver": 3
+      },
+      "allocatedCents": null
+    },
+    {
+      "id": "P3",
+      "text": "Courier shipping parcels of posters to customers",
+      "product": "posters",
+      "driver": 2,
+      "policy": "delivery",
+      "proposed": "delivery",
+      "decision": "hold",
+      "note": "",
+      "candidates": [
+        {
+          "policy": "delivery",
+          "similarity": 0.5996381511457448
+        },
+        {
+          "policy": "design",
+          "similarity": 0.1287009805127362
+        }
+      ],
+      "original": {
+        "id": "P3",
+        "text": "Courier shipping parcels of posters to customers",
+        "product": "posters",
+        "driver": 2
+      },
+      "allocatedCents": null
+    },
+    {
+      "id": "P4",
+      "text": "Transporting book parcels to customer addresses",
+      "product": "books",
+      "driver": 8,
+      "policy": "delivery",
+      "proposed": "delivery",
+      "decision": "hold",
+      "note": "",
+      "candidates": [
+        {
+          "policy": "delivery",
+          "similarity": 0.5808641325431324
+        },
+        {
+          "policy": "design",
+          "similarity": 0.039846223990253796
+        }
+      ],
+      "original": {
+        "id": "P4",
+        "text": "Transporting book parcels to customer addresses",
+        "product": "books",
+        "driver": 8
+      },
+      "allocatedCents": null
+    }
+  ],
+  "pools": [
+    {
+      "id": "design",
+      "cents": 90001,
+      "title": "Graphic design",
+      "eligible": false,
+      "driverTotal": 0,
+      "records": [
+        "P1",
+        "P2"
+      ],
+      "allocations": [
+        {
+          "product": "posters",
+          "driver": 0,
+          "cents": 0
+        },
+        {
+          "product": "books",
+          "driver": 0,
+          "cents": 0
+        }
+      ]
+    },
+    {
+      "id": "delivery",
+      "cents": 30001,
+      "title": "Parcel delivery",
+      "eligible": false,
+      "driverTotal": 0,
+      "records": [
+        "P3",
+        "P4"
+      ],
+      "allocations": [
+        {
+          "product": "posters",
+          "driver": 0,
+          "cents": 0
+        },
+        {
+          "product": "books",
+          "driver": 0,
+          "cents": 0
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "posters",
+      "units": 200,
+      "title": "Posters",
+      "overheadCents": 0,
+      "baselineCents": 0,
+      "differenceCents": 0,
+      "perUnitCents": 0,
+      "baselinePerUnitCents": 0
+    },
+    {
+      "id": "books",
+      "units": 50,
+      "title": "Booklets",
+      "overheadCents": 0,
+      "baselineCents": 0,
+      "differenceCents": 0,
+      "perUnitCents": 0,
+      "baselinePerUnitCents": 0
+    }
+  ],
+  "metrics": {
+    "approved": 0,
+    "held": 4,
+    "allocatedCents": 0,
+    "blockedCents": 120002,
+    "totalCents": 120002,
+    "aiReviewAgreement": 0,
+    "firstProfileAgreement": 0,
+    "maxDifferenceCents": 0
+  }
+}

@@ -1,0 +1,270 @@
+{
+  "schema": "cost-tapestry/v1",
+  "originalInput": {
+    "name": "Furniture workshop",
+    "policies": [
+      {
+        "id": "setup",
+        "title": "Machine setup",
+        "description": "Machine changeovers, tooling adjustments and production setup operations.",
+        "cents": 120001
+      },
+      {
+        "id": "inspection",
+        "title": "Quality inspection",
+        "description": "Quality control inspection, testing finished products and checking defects.",
+        "cents": 60001
+      }
+    ],
+    "products": [
+      {
+        "id": "chairs",
+        "title": "Chairs",
+        "units": 100
+      },
+      {
+        "id": "tables",
+        "title": "Tables",
+        "units": 20
+      }
+    ],
+    "records": [
+      {
+        "id": "F1",
+        "text": "Machine tooling changeover for chair production",
+        "product": "chairs",
+        "driver": 2
+      },
+      {
+        "id": "F2",
+        "text": "Production machine setup and tool adjustments for tables",
+        "product": "tables",
+        "driver": 8
+      },
+      {
+        "id": "F3",
+        "text": "Quality control inspection of finished chairs",
+        "product": "chairs",
+        "driver": 6
+      },
+      {
+        "id": "F4",
+        "text": "Testing table quality and checking defects",
+        "product": "tables",
+        "driver": 4
+      }
+    ]
+  },
+  "settings": {
+    "pools": [
+      {
+        "id": "setup",
+        "cents": 120001
+      },
+      {
+        "id": "inspection",
+        "cents": 60001
+      }
+    ],
+    "products": [
+      {
+        "id": "chairs",
+        "units": 100
+      },
+      {
+        "id": "tables",
+        "units": 20
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "F1",
+      "text": "Machine tooling changeover for chair production",
+      "product": "chairs",
+      "driver": 2,
+      "policy": "setup",
+      "proposed": "setup",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "policy": "setup",
+          "similarity": 0.5539469890287835
+        },
+        {
+          "policy": "inspection",
+          "similarity": 0.16617590625844042
+        }
+      ],
+      "original": {
+        "id": "F1",
+        "text": "Machine tooling changeover for chair production",
+        "product": "chairs",
+        "driver": 2
+      },
+      "allocatedCents": 24000
+    },
+    {
+      "id": "F2",
+      "text": "Production machine setup and tool adjustments for tables",
+      "product": "tables",
+      "driver": 8,
+      "policy": "setup",
+      "proposed": "setup",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "policy": "setup",
+          "similarity": 0.6430480755492806
+        },
+        {
+          "policy": "inspection",
+          "similarity": 0.17916236951622233
+        }
+      ],
+      "original": {
+        "id": "F2",
+        "text": "Production machine setup and tool adjustments for tables",
+        "product": "tables",
+        "driver": 8
+      },
+      "allocatedCents": 96001
+    },
+    {
+      "id": "F3",
+      "text": "Quality control inspection of finished chairs",
+      "product": "chairs",
+      "driver": 6,
+      "policy": "inspection",
+      "proposed": "inspection",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "policy": "inspection",
+          "similarity": 0.5954487638665107
+        },
+        {
+          "policy": "setup",
+          "similarity": 0.10215528271245057
+        }
+      ],
+      "original": {
+        "id": "F3",
+        "text": "Quality control inspection of finished chairs",
+        "product": "chairs",
+        "driver": 6
+      },
+      "allocatedCents": 36001
+    },
+    {
+      "id": "F4",
+      "text": "Testing table quality and checking defects",
+      "product": "tables",
+      "driver": 4,
+      "policy": "inspection",
+      "proposed": "inspection",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "policy": "inspection",
+          "similarity": 0.5409382948145723
+        },
+        {
+          "policy": "setup",
+          "similarity": 0.0908908229218103
+        }
+      ],
+      "original": {
+        "id": "F4",
+        "text": "Testing table quality and checking defects",
+        "product": "tables",
+        "driver": 4
+      },
+      "allocatedCents": 24000
+    }
+  ],
+  "pools": [
+    {
+      "id": "setup",
+      "cents": 120001,
+      "title": "Machine setup",
+      "eligible": true,
+      "driverTotal": 10,
+      "records": [
+        "F1",
+        "F2"
+      ],
+      "allocations": [
+        {
+          "product": "chairs",
+          "driver": 2,
+          "cents": 24000
+        },
+        {
+          "product": "tables",
+          "driver": 8,
+          "cents": 96001
+        }
+      ]
+    },
+    {
+      "id": "inspection",
+      "cents": 60001,
+      "title": "Quality inspection",
+      "eligible": true,
+      "driverTotal": 10,
+      "records": [
+        "F3",
+        "F4"
+      ],
+      "allocations": [
+        {
+          "product": "chairs",
+          "driver": 6,
+          "cents": 36001
+        },
+        {
+          "product": "tables",
+          "driver": 4,
+          "cents": 24000
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "chairs",
+      "units": 100,
+      "title": "Chairs",
+      "overheadCents": 60001,
+      "baselineCents": 150002,
+      "differenceCents": -90001,
+      "perUnitCents": 600.01,
+      "baselinePerUnitCents": 1500.02
+    },
+    {
+      "id": "tables",
+      "units": 20,
+      "title": "Tables",
+      "overheadCents": 120001,
+      "baselineCents": 30000,
+      "differenceCents": 90001,
+      "perUnitCents": 6000.05,
+      "baselinePerUnitCents": 1500
+    }
+  ],
+  "metrics": {
+    "approved": 4,
+    "held": 0,
+    "allocatedCents": 180002,
+    "blockedCents": 0,
+    "totalCents": 180002,
+    "aiReviewAgreement": 4,
+    "firstProfileAgreement": 2,
+    "maxDifferenceCents": 90001
+  }
+}

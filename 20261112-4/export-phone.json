@@ -1,0 +1,284 @@
+{
+  "schema": "buffer-estuary/v1",
+  "originalInput": {
+    "name": "Repair store",
+    "targetPercent": 80,
+    "catalog": [
+      {
+        "id": "bearing",
+        "title": "Precision ball bearing",
+        "description": "Precision steel ball bearing for rotating shaft machinery",
+        "leadDays": 2,
+        "dailyDemand": [
+          1,
+          2,
+          1,
+          8,
+          1,
+          2,
+          1,
+          8
+        ]
+      },
+      {
+        "id": "glove",
+        "title": "Disposable nitrile gloves",
+        "description": "Disposable nitrile protective hand gloves for workshop use",
+        "leadDays": 2,
+        "dailyDemand": [
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10
+        ]
+      },
+      {
+        "id": "tape",
+        "title": "Carton sealing tape",
+        "description": "Adhesive packing tape roll for sealing cardboard shipping cartons",
+        "leadDays": 3,
+        "dailyDemand": [
+          0,
+          0,
+          6,
+          0,
+          0,
+          6,
+          0,
+          0
+        ]
+      }
+    ],
+    "records": [
+      {
+        "id": "R1",
+        "text": "Steel ball bearings for the rotating drive shaft",
+        "onHand": 4,
+        "onOrder": 1,
+        "backorders": 1
+      },
+      {
+        "id": "R2",
+        "text": "Nitrile disposable hand protection gloves",
+        "onHand": 30,
+        "onOrder": 0,
+        "backorders": 0
+      },
+      {
+        "id": "R3",
+        "text": "Adhesive tape rolls to close cardboard shipping boxes",
+        "onHand": 3,
+        "onOrder": 0,
+        "backorders": 0
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "R1",
+      "text": "Steel ball bearings for the rotating drive shaft",
+      "onHand": 4,
+      "onOrder": 1,
+      "backorders": 1,
+      "item": "bearing",
+      "proposed": "bearing",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "bearing",
+          "similarity": 0.8466167136718784
+        },
+        {
+          "item": "tape",
+          "similarity": 0.13223155024029953
+        },
+        {
+          "item": "glove",
+          "similarity": 0.025448817471437946
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "R2",
+      "text": "Nitrile disposable hand protection gloves",
+      "onHand": 30,
+      "onOrder": 0,
+      "backorders": 0,
+      "item": "glove",
+      "proposed": "glove",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "glove",
+          "similarity": 0.9114801328666056
+        },
+        {
+          "item": "tape",
+          "similarity": 0.1336067408175981
+        },
+        {
+          "item": "bearing",
+          "similarity": 0.04009088067992293
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "R3",
+      "text": "Adhesive tape rolls to close cardboard shipping boxes",
+      "onHand": 3,
+      "onOrder": 0,
+      "backorders": 0,
+      "item": "tape",
+      "proposed": "tape",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "tape",
+          "similarity": 0.8362681166397361
+        },
+        {
+          "item": "glove",
+          "similarity": 0.17127906084641908
+        },
+        {
+          "item": "bearing",
+          "similarity": 0.13143792122867987
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "products": [
+    {
+      "id": "bearing",
+      "title": "Precision ball bearing",
+      "description": "Precision steel ball bearing for rotating shaft machinery",
+      "leadDays": 2,
+      "dailyDemand": [
+        1,
+        2,
+        1,
+        8,
+        1,
+        2,
+        1,
+        8
+      ],
+      "lines": [
+        "R1"
+      ],
+      "blocked": false,
+      "position": 4,
+      "windows": [
+        3,
+        3,
+        9,
+        9,
+        3,
+        3,
+        9
+      ],
+      "rank": 6,
+      "reorderPoint": 9,
+      "baseline": 6,
+      "bufferAboveMean": 3,
+      "covered": 7,
+      "baselineCovered": 4,
+      "topUp": 5,
+      "baselineTopUp": 2
+    },
+    {
+      "id": "glove",
+      "title": "Disposable nitrile gloves",
+      "description": "Disposable nitrile protective hand gloves for workshop use",
+      "leadDays": 2,
+      "dailyDemand": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "lines": [
+        "R2"
+      ],
+      "blocked": false,
+      "position": 30,
+      "windows": [
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "rank": 6,
+      "reorderPoint": 20,
+      "baseline": 20,
+      "bufferAboveMean": 0,
+      "covered": 7,
+      "baselineCovered": 7,
+      "topUp": 0,
+      "baselineTopUp": 0
+    },
+    {
+      "id": "tape",
+      "title": "Carton sealing tape",
+      "description": "Adhesive packing tape roll for sealing cardboard shipping cartons",
+      "leadDays": 3,
+      "dailyDemand": [
+        0,
+        0,
+        6,
+        0,
+        0,
+        6,
+        0,
+        0
+      ],
+      "lines": [
+        "R3"
+      ],
+      "blocked": false,
+      "position": 3,
+      "windows": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "rank": 5,
+      "reorderPoint": 6,
+      "baseline": 6,
+      "bufferAboveMean": 0,
+      "covered": 6,
+      "baselineCovered": 6,
+      "topUp": 3,
+      "baselineTopUp": 3
+    }
+  ],
+  "metrics": {
+    "total": 3,
+    "approved": 3,
+    "held": 0,
+    "ready": 3,
+    "topUp": 8,
+    "baselineTopUp": 5,
+    "exactResolved": 0
+  }
+}

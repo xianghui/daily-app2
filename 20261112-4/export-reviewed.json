@@ -1,0 +1,285 @@
+{
+  "schema": "buffer-estuary/v1",
+  "originalInput": {
+    "name": "Studio supplies",
+    "targetPercent": 90,
+    "catalog": [
+      {
+        "id": "ink",
+        "title": "Printer ink cartridge",
+        "description": "Ink cartridges for office inkjet printer, printing ink replacement",
+        "leadDays": 2,
+        "dailyDemand": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          4,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "paper",
+        "title": "Copy paper ream",
+        "description": "White office photocopier printing paper sheets in reams",
+        "leadDays": 3,
+        "dailyDemand": [
+          2,
+          2,
+          8,
+          2,
+          2,
+          8,
+          2,
+          2
+        ]
+      },
+      {
+        "id": "cable",
+        "title": "USB charging cable",
+        "description": "USB cable for charging phones and connecting devices",
+        "leadDays": 1,
+        "dailyDemand": [
+          0,
+          0,
+          0,
+          5,
+          0,
+          0,
+          0,
+          5
+        ]
+      }
+    ],
+    "records": [
+      {
+        "id": "S1",
+        "text": "Replacement inkjet printing cartridges",
+        "onHand": 1,
+        "onOrder": 0,
+        "backorders": 0
+      },
+      {
+        "id": "S2",
+        "text": "White photocopy paper sheet reams",
+        "onHand": 10,
+        "onOrder": 3,
+        "backorders": 1
+      },
+      {
+        "id": "S3",
+        "text": "USB phone charging cords",
+        "onHand": 0,
+        "onOrder": 0,
+        "backorders": 0
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "S1",
+      "text": "Replacement inkjet printing cartridges",
+      "onHand": 3,
+      "onOrder": 2,
+      "backorders": 0,
+      "item": "ink",
+      "proposed": "ink",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "ink",
+          "similarity": 0.9248948774533499
+        },
+        {
+          "item": "paper",
+          "similarity": 0.3377394311339092
+        },
+        {
+          "item": "cable",
+          "similarity": 0.19744213733939653
+        }
+      ],
+      "decision": "approve",
+      "note": "=1+1, \"review\"\nsecond line | <check>"
+    },
+    {
+      "id": "S2",
+      "text": "White photocopy paper sheet reams",
+      "onHand": 10,
+      "onOrder": 3,
+      "backorders": 1,
+      "item": "paper",
+      "proposed": "paper",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "paper",
+          "similarity": 0.8983359347993226
+        },
+        {
+          "item": "ink",
+          "similarity": 0.26236239243774917
+        },
+        {
+          "item": "cable",
+          "similarity": 0.01581243766366615
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "S3",
+      "text": "USB phone charging cords",
+      "onHand": 0,
+      "onOrder": 0,
+      "backorders": 0,
+      "item": "cable",
+      "proposed": "cable",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "cable",
+          "similarity": 0.8451553495225852
+        },
+        {
+          "item": "ink",
+          "similarity": 0.15364199512431667
+        },
+        {
+          "item": "paper",
+          "similarity": 0.03543045060082568
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "products": [
+    {
+      "id": "ink",
+      "title": "Printer ink cartridge",
+      "description": "Ink cartridges for office inkjet printer, printing ink replacement",
+      "leadDays": 2,
+      "dailyDemand": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        4,
+        0,
+        0
+      ],
+      "lines": [
+        "S1"
+      ],
+      "blocked": false,
+      "position": 5,
+      "windows": [
+        0,
+        1,
+        1,
+        0,
+        4,
+        4,
+        0
+      ],
+      "rank": 7,
+      "reorderPoint": 4,
+      "baseline": 2,
+      "bufferAboveMean": 2,
+      "covered": 7,
+      "baselineCovered": 5,
+      "topUp": 0,
+      "baselineTopUp": 0
+    },
+    {
+      "id": "paper",
+      "title": "Copy paper ream",
+      "description": "White office photocopier printing paper sheets in reams",
+      "leadDays": 3,
+      "dailyDemand": [
+        2,
+        2,
+        8,
+        2,
+        2,
+        8,
+        2,
+        2
+      ],
+      "lines": [
+        "S2"
+      ],
+      "blocked": false,
+      "position": 12,
+      "windows": [
+        12,
+        12,
+        12,
+        12,
+        12,
+        12
+      ],
+      "rank": 6,
+      "reorderPoint": 12,
+      "baseline": 12,
+      "bufferAboveMean": 0,
+      "covered": 6,
+      "baselineCovered": 6,
+      "topUp": 0,
+      "baselineTopUp": 0
+    },
+    {
+      "id": "cable",
+      "title": "USB charging cable",
+      "description": "USB cable for charging phones and connecting devices",
+      "leadDays": 1,
+      "dailyDemand": [
+        0,
+        0,
+        0,
+        5,
+        0,
+        0,
+        0,
+        5
+      ],
+      "lines": [
+        "S3"
+      ],
+      "blocked": false,
+      "position": 0,
+      "windows": [
+        0,
+        0,
+        0,
+        5,
+        0,
+        0,
+        0,
+        5
+      ],
+      "rank": 8,
+      "reorderPoint": 5,
+      "baseline": 2,
+      "bufferAboveMean": 3,
+      "covered": 8,
+      "baselineCovered": 6,
+      "topUp": 5,
+      "baselineTopUp": 2
+    }
+  ],
+  "metrics": {
+    "total": 3,
+    "approved": 3,
+    "held": 0,
+    "ready": 3,
+    "topUp": 5,
+    "baselineTopUp": 2,
+    "exactResolved": 0
+  }
+}

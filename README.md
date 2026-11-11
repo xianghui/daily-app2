@@ -534,3 +534,10 @@ Real local MiniLM reconciles informal issue notes to supplied failure modes befo
 Real local MiniLM product inference reconciles annual consumption notes before mandatory quantity/cost review and tie-aware ABC counting worksheets. Eight tiny intended identities matched, while negation/unrelated text mislinked and requires holds. Exact-cent totals/classes matched 2,400 independent BigInt oracle cases; complete JSON/audit and product CSV/Markdown preserves originals and held lines. Fresh-worker offline inference tested only inside an already-open warmed page. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261112-3/README.md) and [observed validation](20261112-3/VALIDATION.md).
 
 Value Canopy public release, byte-matched runtime assets, both real-AI fixtures, full public workflow suite and preserved 604-entry working-tree gallery passed on the first Pages deployment.
+
+
+## Buffer Estuary — 20261112-4
+
+Real local MiniLM reconciles rough stock notes before mandatory identity/quantity review and empirical lead-time demand buffers. Six tiny intended identities matched; exact-title matching resolved none. Computed historical-window coverage is compared with a mean-demand baseline, not a future service guarantee. Negation/unrelated text mislinked and needs holds; held/absent stock blocks its assigned product. 2,400 independent BigInt oracle cases, complete reviewed JSON/CSV/Markdown artifacts and fresh-worker offline inference passed. Offline scope is an already-open warmed page only. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261112-4/README.md) and [observed validation](20261112-4/VALIDATION.md).
+
+Buffer Estuary public release, byte-matched runtime assets, both real-AI fixtures, full public workflow suite and preserved 605-entry working-tree gallery passed on the first Pages deployment.

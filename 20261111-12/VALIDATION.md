@@ -1,0 +1,19 @@
+# Observed validation — 2026-11-11
+
+- Production Vite build passed. Real browser: installed desktop Chrome, headless Playwright, actual WASM CPU model. No mocked output used for successful AI checks.
+- Office fixture: computer/computer/furniture/furniture, **4/4** intended links; studio fixture: camera/camera/lighting/lighting, **4/4**. Always-first-policy matches 2/4 per fixture. Tiny synthetic fixtures do not establish universal accuracy.
+- Reporting at 2026-12: office accumulated **12,800** cents vs first-policy **16,000**; studio **18,000** vs **24,000**. Approved cost **48,000** each; cost = accumulated + book. Differences are computed policy sensitivities, not savings.
+- Negated challenge `Not a laptop computer. It is an office desk chair.` incorrectly selected computer. Unrelated instruction-like input also selected computer. Both were held and excluded; no content upload or authority change. Every policy requires review.
+- **2,400** generated schedule cases across all 1–120 useful lives matched an independent BigInt cumulative oracle, with cent conservation, nonnegative charges, residual floors and monotone accumulated values. Known full-month boundary, future service, zero basis and year rollover cases passed.
+- Actual production browser exercised 6 policies, 24 assets and four-text chunking; invalid/empty/oversized JSON; invalid costs, residual and life limits; review edit/undo/hold; policy/reporting-date export invalidation; actual JSON/CSV/Schedule CSV/Markdown downloads and clipboard equality; JSON original-only reimport.
+- Independent Python CSV parser verified every register row and monthly charge, edited cost 12,001 and residual 17, quoted commas/newlines, leading spreadsheet-formula escaping, final residual and full schedule cent totals. Holds remain in JSON/all-asset audit and have no monthly charges.
+- Fully offline actual inference passed with a fresh worker in the already-open page after successful loading. Offline reload/navigation is not claimed.
+- Defensive fault injection (not AI evidence): model-host failure + real retry; worker-download failure; unsupported module workers; actual worker with WebAssembly unavailable; malformed vectors; worker error; accelerated 180s timeout. All blocked output/export. Delayed file read, delayed worker-source download and late terminated-worker delivery could not overwrite newer data. Real inference retry passed.
+- Request audit: no model host request before explicit loading; all observed network requests GET/no body; no synthetic content in request URLs. Built text scanned for common credential/private-key patterns: no hits. Source has no remote inference integration, key field or telemetry. A pattern scan alone is not proof against every possible secret format.
+- Desktop 1440 and narrow 390/320 widths: no horizontal overflow; labels attached to all fields, focus and working actions checked. Buttons use ≥44px height. Screenshots retained. Physical phones, other browsers and screen readers are untested.
+
+Combined-site/public verification is recorded in assembly/public/browser/gallery JSON reports after deployment. A branch push alone is not treated as completion.
+
+## Publication result
+
+Root predeploy assembled 589 existing/new apps with zero failures/skips. Combined root deployment published Pages commit `26560fe082fad3a651961539450aa6f3273308c2`, confirmed `built`. Public app, worker, module factory, shared WASM and other app assets matched production SHA-256 hashes. The complete real-AI browser suite also passed at the public URL, including both fixtures, full batch, offline fresh worker and reviewed downloads. Public gallery rendered Asset Calendar first under AI Utilities, preserved legacy categories and had no overflow at 1440/320 widths. All 588 prior working-gallery entries remained unchanged and ordered. See public validation JSON reports.

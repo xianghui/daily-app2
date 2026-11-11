@@ -436,3 +436,8 @@ Real local MiniLM reconciles informal visit notes to service stations; mandatory
 ## Transit Footprint — 20261111-11
 
 Real local MiniLM mode retrieval helps reconcile informal travel diaries with supplied transport factors. Mandatory review/holds feed explicit mile conversion and vehicle-versus-passenger occupancy arithmetic, complete audits and a clearly hypothetical same-distance scenario. Eight tiny synthetic links matched against four for a first-factor baseline; unrelated text still receives a mode, requiring human exclusion. Example factors are teaching values, not official carbon factors or reporting certification. Fresh-worker offline inference is tested only in an already-open cached page. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow/privacy](20261111-11/README.md) and [observed checks](20261111-11/VALIDATION.md).
+
+
+## Asset Calendar — 20261111-12
+
+Real local MiniLM links asset notes to user-supplied useful-life policies, followed by mandatory review/holds and exact-cent full-month straight-line schedules. Two simple fixtures matched 8/8 links, but negation misclassified; similarity is not accounting equivalence. All 2,400 generated arithmetic cases matched a BigInt oracle. Complete JSON, all-asset CSV, monthly Schedule CSV and Markdown preserve the audit. Offline fresh-worker inference tested only inside an already-open page. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261111-12/README.md), [validation](20261111-12/VALIDATION.md) and public verification reports.

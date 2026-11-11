@@ -477,3 +477,5 @@ Carton Compass public release, byte-matched runtime assets, both real-AI fixture
 ## Batch Breakwater — 20261111-18
 
 Real local MiniLM product inference supports reviewed demand aggregation and exact additive whole-batch cost planning under explicit extra-unit limits. Holds block all plans; infeasible demand stays visible. Six tiny known-answer links matched, and 1,680 independent exhaustive cost/extra/count oracle cases passed. Complete JSON/CSV/Markdown preserves every request. Offline fresh-worker inference tested only within an already-open warmed page. Reuses immutable WASM from `20261107-2`; preserve that asset. See [workflow/privacy](20261111-18/README.md) and [observed validation](20261111-18/VALIDATION.md).
+
+Batch Breakwater public release, byte-matched runtime assets, both real-AI fixtures, full public workflow suite and preserved 595-entry gallery passed on the first Pages deployment.

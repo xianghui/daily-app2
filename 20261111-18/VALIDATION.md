@@ -24,3 +24,5 @@ Initial local server mount omitted `/dist` for the shared old WASM, resulting in
 
 ## Gallery, assembly and publication
 `gallery-test.cjs` compiles every inline script with `new Function`, requires scripts/APPS, verifies exactly one correct new entry and preserves every earlier entry/order. Gallery UI checks require AI Utilities first, Batch Breakwater first, all legacy categories and no overflow. Combined assembly and public deployment reports are recorded separately; publication is only complete when public bytes and actual public real-AI workflows pass.
+
+Public release verified: Pages run 42992516566 succeeded for `f5370df729d7572d9802e1f7d1aeb7d9e8bb1541`. Every public app/runtime/worker/shared-WASM byte hash matched production. Both public real-AI fixtures, the full workflow/export/batch/defensive-input/offline/phone suite and public gallery checks passed. Gallery has 595 entries, with every prior entry/category preserved. Source is committed/pushed separately after recording this result. Additional zero-cost tie and maximum 1,200-unit demand boundary checks also passed.

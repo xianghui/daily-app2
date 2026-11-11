@@ -1,0 +1,204 @@
+{
+  "schema": "lot-lantern/v1",
+  "originalInput": {
+    "name": "Office supplies",
+    "catalog": [
+      {
+        "id": "paper",
+        "title": "Printer paper",
+        "description": "A4 white copy paper sheets for printing documents",
+        "pack": 500,
+        "minimum": 500,
+        "capacity": 10000,
+        "orderCost": 24,
+        "holdingCost": 0.012
+      },
+      {
+        "id": "coffee",
+        "title": "Coffee beans",
+        "description": "Roasted coffee beans for the office espresso machine",
+        "pack": 1,
+        "minimum": 2,
+        "capacity": 40,
+        "orderCost": 18,
+        "holdingCost": 3
+      },
+      {
+        "id": "soap",
+        "title": "Hand soap",
+        "description": "Liquid hand soap refill bottles for washroom dispensers",
+        "pack": 6,
+        "minimum": 6,
+        "capacity": 120,
+        "orderCost": 15,
+        "holdingCost": 1.5
+      }
+    ],
+    "records": [
+      {
+        "id": "O1",
+        "text": "Copier sheets used for reports and printed meeting handouts",
+        "annualUnits": 24000
+      },
+      {
+        "id": "O2",
+        "text": "Espresso roast consumed in the staff kitchen",
+        "annualUnits": 180
+      },
+      {
+        "id": "O3",
+        "text": "Bathroom handwashing liquid replacement bottles",
+        "annualUnits": 144
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "O1",
+      "text": "Copier sheets used for reports and printed meeting handouts",
+      "annualUnits": 24000,
+      "item": "paper",
+      "proposed": "paper",
+      "candidates": [
+        {
+          "item": "paper",
+          "similarity": 0.5661172577547624
+        },
+        {
+          "item": "soap",
+          "similarity": 0.2244972431336365
+        },
+        {
+          "item": "coffee",
+          "similarity": 0.10383586377555387
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "O2",
+      "text": "Espresso roast consumed in the staff kitchen",
+      "annualUnits": 180,
+      "item": "coffee",
+      "proposed": "coffee",
+      "candidates": [
+        {
+          "item": "coffee",
+          "similarity": 0.6732480995065857
+        },
+        {
+          "item": "soap",
+          "similarity": 0.10460625010566749
+        },
+        {
+          "item": "paper",
+          "similarity": 0.08191437521951117
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "O3",
+      "text": "Bathroom handwashing liquid replacement bottles",
+      "annualUnits": 144,
+      "item": "soap",
+      "proposed": "soap",
+      "candidates": [
+        {
+          "item": "soap",
+          "similarity": 0.7016944359894366
+        },
+        {
+          "item": "paper",
+          "similarity": 0.06972653404750041
+        },
+        {
+          "item": "coffee",
+          "similarity": 0.05458252218763303
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "blocked": false,
+  "complete": true,
+  "plans": [
+    {
+      "item": "paper",
+      "annualUnits": 24000,
+      "state": "planned",
+      "selected": {
+        "quantity": 10000,
+        "ordersPerYear": 2.4,
+        "averageCycleUnits": 5000,
+        "orderingCost": 57.599999999999994,
+        "holdingCost": 60,
+        "total": 117.6
+      },
+      "baseline": {
+        "quantity": 2000,
+        "ordersPerYear": 12,
+        "averageCycleUnits": 1000,
+        "orderingCost": 288,
+        "holdingCost": 12,
+        "total": 300
+      },
+      "continuousEOQ": 9797.958971132712
+    },
+    {
+      "item": "coffee",
+      "annualUnits": 180,
+      "state": "planned",
+      "selected": {
+        "quantity": 40,
+        "ordersPerYear": 4.5,
+        "averageCycleUnits": 20,
+        "orderingCost": 81,
+        "holdingCost": 60,
+        "total": 141
+      },
+      "baseline": {
+        "quantity": 15,
+        "ordersPerYear": 12,
+        "averageCycleUnits": 7.5,
+        "orderingCost": 216,
+        "holdingCost": 22.5,
+        "total": 238.5
+      },
+      "continuousEOQ": 46.475800154489
+    },
+    {
+      "item": "soap",
+      "annualUnits": 144,
+      "state": "planned",
+      "selected": {
+        "quantity": 54,
+        "ordersPerYear": 2.6666666666666665,
+        "averageCycleUnits": 27,
+        "orderingCost": 40,
+        "holdingCost": 40.5,
+        "total": 80.5
+      },
+      "baseline": {
+        "quantity": 12,
+        "ordersPerYear": 12,
+        "averageCycleUnits": 6,
+        "orderingCost": 180,
+        "holdingCost": 9,
+        "total": 189
+      },
+      "continuousEOQ": 53.665631459994955
+    }
+  ],
+  "metrics": {
+    "annualUnits": 24324,
+    "approved": 3,
+    "aiAgreement": 3,
+    "firstItemAgreement": 1,
+    "selectedCost": 339.1,
+    "baselineCost": 727.5
+  }
+}

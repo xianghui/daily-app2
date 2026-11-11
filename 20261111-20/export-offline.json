@@ -1,0 +1,204 @@
+{
+  "schema": "lot-lantern/v1",
+  "originalInput": {
+    "name": "Art workshop",
+    "catalog": [
+      {
+        "id": "paint",
+        "title": "Acrylic paint",
+        "description": "Artist acrylic paint tubes for canvas painting",
+        "pack": 12,
+        "minimum": 12,
+        "capacity": 240,
+        "orderCost": 20,
+        "holdingCost": 2
+      },
+      {
+        "id": "clay",
+        "title": "Pottery clay",
+        "description": "Ceramic pottery clay bags for wheel throwing and kiln firing",
+        "pack": 5,
+        "minimum": 10,
+        "capacity": 200,
+        "orderCost": 35,
+        "holdingCost": 4
+      },
+      {
+        "id": "yarn",
+        "title": "Knitting yarn",
+        "description": "Wool yarn balls for knitting scarves and crochet projects",
+        "pack": 10,
+        "minimum": 10,
+        "capacity": 150,
+        "orderCost": 18,
+        "holdingCost": 1.2
+      }
+    ],
+    "records": [
+      {
+        "id": "A1",
+        "text": "Tubes of colour used by painters on canvas",
+        "annualUnits": 480
+      },
+      {
+        "id": "A2",
+        "text": "Bags of earthen material for throwing pots on a wheel",
+        "annualUnits": 300
+      },
+      {
+        "id": "A3",
+        "text": "Balls of wool used to crochet winter scarves",
+        "annualUnits": 360
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "A1",
+      "text": "Tubes of colour used by painters on canvas",
+      "annualUnits": 480,
+      "item": "paint",
+      "proposed": "paint",
+      "candidates": [
+        {
+          "item": "paint",
+          "similarity": 0.7611752108329419
+        },
+        {
+          "item": "clay",
+          "similarity": 0.2398978127887789
+        },
+        {
+          "item": "yarn",
+          "similarity": 0.20736047589508674
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "A2",
+      "text": "Bags of earthen material for throwing pots on a wheel",
+      "annualUnits": 300,
+      "item": "clay",
+      "proposed": "clay",
+      "candidates": [
+        {
+          "item": "clay",
+          "similarity": 0.6644208743251376
+        },
+        {
+          "item": "yarn",
+          "similarity": 0.1814906080469432
+        },
+        {
+          "item": "paint",
+          "similarity": 0.17703209790190239
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "A3",
+      "text": "Balls of wool used to crochet winter scarves",
+      "annualUnits": 360,
+      "item": "yarn",
+      "proposed": "yarn",
+      "candidates": [
+        {
+          "item": "yarn",
+          "similarity": 0.853152947253704
+        },
+        {
+          "item": "clay",
+          "similarity": 0.24411390406088204
+        },
+        {
+          "item": "paint",
+          "similarity": 0.2394117396147477
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "blocked": false,
+  "complete": true,
+  "plans": [
+    {
+      "item": "paint",
+      "annualUnits": 480,
+      "state": "planned",
+      "selected": {
+        "quantity": 96,
+        "ordersPerYear": 5,
+        "averageCycleUnits": 48,
+        "orderingCost": 100,
+        "holdingCost": 96,
+        "total": 196
+      },
+      "baseline": {
+        "quantity": 48,
+        "ordersPerYear": 10,
+        "averageCycleUnits": 24,
+        "orderingCost": 200,
+        "holdingCost": 48,
+        "total": 248
+      },
+      "continuousEOQ": 97.97958971132712
+    },
+    {
+      "item": "clay",
+      "annualUnits": 300,
+      "state": "planned",
+      "selected": {
+        "quantity": 70,
+        "ordersPerYear": 4.285714285714286,
+        "averageCycleUnits": 35,
+        "orderingCost": 150,
+        "holdingCost": 140,
+        "total": 290
+      },
+      "baseline": {
+        "quantity": 25,
+        "ordersPerYear": 12,
+        "averageCycleUnits": 12.5,
+        "orderingCost": 420,
+        "holdingCost": 50,
+        "total": 470
+      },
+      "continuousEOQ": 72.4568837309472
+    },
+    {
+      "item": "yarn",
+      "annualUnits": 360,
+      "state": "planned",
+      "selected": {
+        "quantity": 100,
+        "ordersPerYear": 3.6,
+        "averageCycleUnits": 50,
+        "orderingCost": 64.8,
+        "holdingCost": 60,
+        "total": 124.8
+      },
+      "baseline": {
+        "quantity": 30,
+        "ordersPerYear": 12,
+        "averageCycleUnits": 15,
+        "orderingCost": 216,
+        "holdingCost": 18,
+        "total": 234
+      },
+      "continuousEOQ": 103.92304845413264
+    }
+  ],
+  "metrics": {
+    "annualUnits": 1140,
+    "approved": 3,
+    "aiAgreement": 3,
+    "firstItemAgreement": 1,
+    "selectedCost": 610.8,
+    "baselineCost": 952
+  }
+}

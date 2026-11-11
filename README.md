@@ -484,3 +484,8 @@ Batch Breakwater public release, byte-matched runtime assets, both real-AI fixtu
 ## Queue Cushion — 20261111-19
 
 Real local MiniLM reconciles rough contact streams with service queues, followed by mandatory human review and deterministic minimum-agent Erlang-C planning. Compare occupancy-only teams with explicit wait-target staffing; complete JSON/CSV/Markdown preserves all streams. Six tiny known-answer links matched; a negated description mislinked, so review/hold remains essential. Estimates assume stationary M/M/c queues, not observed service guarantees or rosters. Fresh-worker offline inference tested only inside an already-open page. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow/privacy](20261111-19/README.md) and [observed validation](20261111-19/VALIDATION.md).
+
+
+## Lot Lantern — 20261111-20
+
+Local MiniLM catalog inference reconciles annual consumption notes before deterministic pack-constrained economic order-lot optimization. All records require approval or hold; exports preserve originals and reviews. Six simple known-answer matches succeeded, while an unrelated note was forced to a catalog item, so mandatory review remains essential. Reuses immutable WASM from `20261107-2`; preserve that asset. See [workflow](20261111-20/README.md) and [observed validation](20261111-20/VALIDATION.md).

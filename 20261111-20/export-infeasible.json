@@ -1,0 +1,176 @@
+{
+  "schema": "lot-lantern/v1",
+  "originalInput": {
+    "name": "Office supplies",
+    "catalog": [
+      {
+        "id": "paper",
+        "title": "Printer paper",
+        "description": "A4 white copy paper sheets for printing documents",
+        "pack": 500,
+        "minimum": 500,
+        "capacity": 499,
+        "orderCost": 24,
+        "holdingCost": 0.012
+      },
+      {
+        "id": "coffee",
+        "title": "Coffee beans",
+        "description": "Roasted coffee beans for the office espresso machine",
+        "pack": 1,
+        "minimum": 2,
+        "capacity": 40,
+        "orderCost": 18,
+        "holdingCost": 3
+      },
+      {
+        "id": "soap",
+        "title": "Hand soap",
+        "description": "Liquid hand soap refill bottles for washroom dispensers",
+        "pack": 6,
+        "minimum": 6,
+        "capacity": 120,
+        "orderCost": 15,
+        "holdingCost": 1.5
+      }
+    ],
+    "records": [
+      {
+        "id": "O1",
+        "text": "Copier sheets used for reports and printed meeting handouts",
+        "annualUnits": 24000
+      },
+      {
+        "id": "O2",
+        "text": "Espresso roast consumed in the staff kitchen",
+        "annualUnits": 0
+      },
+      {
+        "id": "O3",
+        "text": "Bathroom handwashing liquid replacement bottles",
+        "annualUnits": 144
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "O1",
+      "text": "Copier sheets used for reports and printed meeting handouts",
+      "annualUnits": 24000,
+      "item": "paper",
+      "proposed": "paper",
+      "candidates": [
+        {
+          "item": "paper",
+          "similarity": 0.5661172577547624
+        },
+        {
+          "item": "soap",
+          "similarity": 0.2244972431336365
+        },
+        {
+          "item": "coffee",
+          "similarity": 0.10383586377555387
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "O2",
+      "text": "Espresso roast consumed in the staff kitchen",
+      "annualUnits": 0,
+      "item": "coffee",
+      "proposed": "coffee",
+      "candidates": [
+        {
+          "item": "coffee",
+          "similarity": 0.6732480995065857
+        },
+        {
+          "item": "soap",
+          "similarity": 0.10460625010566749
+        },
+        {
+          "item": "paper",
+          "similarity": 0.08191437521951117
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "O3",
+      "text": "Bathroom handwashing liquid replacement bottles",
+      "annualUnits": 144,
+      "item": "soap",
+      "proposed": "soap",
+      "candidates": [
+        {
+          "item": "soap",
+          "similarity": 0.7016944359894366
+        },
+        {
+          "item": "paper",
+          "similarity": 0.06972653404750041
+        },
+        {
+          "item": "coffee",
+          "similarity": 0.05458252218763303
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "blocked": false,
+  "complete": false,
+  "plans": [
+    {
+      "item": "paper",
+      "annualUnits": 24000,
+      "state": "infeasible",
+      "selected": null,
+      "baseline": null,
+      "continuousEOQ": 9797.958971132712
+    },
+    {
+      "item": "coffee",
+      "annualUnits": 0,
+      "state": "no-demand",
+      "selected": null,
+      "baseline": null,
+      "continuousEOQ": 0
+    },
+    {
+      "item": "soap",
+      "annualUnits": 144,
+      "state": "planned",
+      "selected": {
+        "quantity": 54,
+        "ordersPerYear": 2.6666666666666665,
+        "averageCycleUnits": 27,
+        "orderingCost": 40,
+        "holdingCost": 40.5,
+        "total": 80.5
+      },
+      "baseline": {
+        "quantity": 12,
+        "ordersPerYear": 12,
+        "averageCycleUnits": 6,
+        "orderingCost": 180,
+        "holdingCost": 9,
+        "total": 189
+      },
+      "continuousEOQ": 53.665631459994955
+    }
+  ],
+  "metrics": {
+    "annualUnits": 24144,
+    "approved": 3,
+    "aiAgreement": 3,
+    "firstItemAgreement": 1,
+    "selectedCost": null,
+    "baselineCost": null
+  }
+}

@@ -1,0 +1,682 @@
+{
+  "schema": "queue-cushion/v1",
+  "originalInput": {
+    "name": "Software helpdesk",
+    "settings": {
+      "targetSeconds": 30,
+      "serviceTarget": 0.8,
+      "maxOccupancy": 0.85,
+      "maxAgents": 40
+    },
+    "queues": [
+      {
+        "id": "access",
+        "title": "Account access",
+        "description": "Reset forgotten passwords, unlock user accounts, recover sign in credentials",
+        "handleMinutes": 6
+      },
+      {
+        "id": "billing",
+        "title": "Billing support",
+        "description": "Invoice payment questions, duplicate charges, refunds and subscription billing",
+        "handleMinutes": 8
+      },
+      {
+        "id": "technical",
+        "title": "Technical support",
+        "description": "Diagnose broken software, application crashes, bugs and error messages",
+        "handleMinutes": 12
+      },
+      {
+        "id": "q3",
+        "title": "Other 3",
+        "description": "Restaurant food orders and menu questions",
+        "handleMinutes": 5
+      },
+      {
+        "id": "q4",
+        "title": "Other 4",
+        "description": "Parcel shipping delivery tracking",
+        "handleMinutes": 5
+      },
+      {
+        "id": "q5",
+        "title": "Other 5",
+        "description": "Car repair and servicing appointments",
+        "handleMinutes": 5
+      }
+    ],
+    "records": [
+      {
+        "id": "S1",
+        "text": "People locked out after forgetting their login password",
+        "arrivalRate": 28
+      },
+      {
+        "id": "S2",
+        "text": "Customers charged twice requesting money back",
+        "arrivalRate": 12
+      },
+      {
+        "id": "S3",
+        "text": "App freezes and crashes with error messages",
+        "arrivalRate": 18
+      },
+      {
+        "id": "R3",
+        "text": "People locked out after forgetting their login password",
+        "arrivalRate": 28
+      },
+      {
+        "id": "R4",
+        "text": "Customers charged twice requesting money back",
+        "arrivalRate": 12
+      },
+      {
+        "id": "R5",
+        "text": "App freezes and crashes with error messages",
+        "arrivalRate": 18
+      },
+      {
+        "id": "R6",
+        "text": "People locked out after forgetting their login password",
+        "arrivalRate": 28
+      },
+      {
+        "id": "R7",
+        "text": "Customers charged twice requesting money back",
+        "arrivalRate": 12
+      },
+      {
+        "id": "R8",
+        "text": "App freezes and crashes with error messages",
+        "arrivalRate": 18
+      },
+      {
+        "id": "R9",
+        "text": "People locked out after forgetting their login password",
+        "arrivalRate": 28
+      },
+      {
+        "id": "R10",
+        "text": "Customers charged twice requesting money back",
+        "arrivalRate": 12
+      },
+      {
+        "id": "R11",
+        "text": "App freezes and crashes with error messages",
+        "arrivalRate": 18
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "S1",
+      "text": "People locked out after forgetting their login password",
+      "arrivalRate": 28,
+      "queue": "access",
+      "proposed": "access",
+      "candidates": [
+        {
+          "queue": "access",
+          "similarity": 0.7540149261996303
+        },
+        {
+          "queue": "technical",
+          "similarity": 0.1329725525271799
+        },
+        {
+          "queue": "q3",
+          "similarity": 0.05371262285722931
+        },
+        {
+          "queue": "billing",
+          "similarity": 0.05301937924427608
+        },
+        {
+          "queue": "q5",
+          "similarity": 0.01831512032664512
+        },
+        {
+          "queue": "q4",
+          "similarity": -0.009112014111207854
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "S2",
+      "text": "Customers charged twice requesting money back",
+      "arrivalRate": 12,
+      "queue": "billing",
+      "proposed": "billing",
+      "candidates": [
+        {
+          "queue": "billing",
+          "similarity": 0.5530698923190185
+        },
+        {
+          "queue": "q3",
+          "similarity": 0.17755402071490115
+        },
+        {
+          "queue": "q5",
+          "similarity": 0.17616064907914947
+        },
+        {
+          "queue": "q4",
+          "similarity": 0.1608362163636734
+        },
+        {
+          "queue": "access",
+          "similarity": 0.14912467590761364
+        },
+        {
+          "queue": "technical",
+          "similarity": 0.09445725668371152
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "S3",
+      "text": "App freezes and crashes with error messages",
+      "arrivalRate": 18,
+      "queue": "technical",
+      "proposed": "technical",
+      "candidates": [
+        {
+          "queue": "technical",
+          "similarity": 0.6245931877158639
+        },
+        {
+          "queue": "access",
+          "similarity": 0.033463697470280995
+        },
+        {
+          "queue": "q5",
+          "similarity": 0.032718724748281997
+        },
+        {
+          "queue": "q3",
+          "similarity": 0.011476112728261382
+        },
+        {
+          "queue": "billing",
+          "similarity": -0.01968730770905282
+        },
+        {
+          "queue": "q4",
+          "similarity": -0.0464957346611608
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "R3",
+      "text": "People locked out after forgetting their login password",
+      "arrivalRate": 28,
+      "queue": "access",
+      "proposed": "access",
+      "candidates": [
+        {
+          "queue": "access",
+          "similarity": 0.7475708091629127
+        },
+        {
+          "queue": "technical",
+          "similarity": 0.11406760237937222
+        },
+        {
+          "queue": "q3",
+          "similarity": 0.04675155446236114
+        },
+        {
+          "queue": "billing",
+          "similarity": 0.04086472514794992
+        },
+        {
+          "queue": "q5",
+          "similarity": 0.008680145039293593
+        },
+        {
+          "queue": "q4",
+          "similarity": -0.014361901167010454
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "R4",
+      "text": "Customers charged twice requesting money back",
+      "arrivalRate": 12,
+      "queue": "billing",
+      "proposed": "billing",
+      "candidates": [
+        {
+          "queue": "billing",
+          "similarity": 0.5424969137244109
+        },
+        {
+          "queue": "q3",
+          "similarity": 0.16727527266602937
+        },
+        {
+          "queue": "q5",
+          "similarity": 0.16194761926740295
+        },
+        {
+          "queue": "q4",
+          "similarity": 0.15406742279883884
+        },
+        {
+          "queue": "access",
+          "similarity": 0.1413078291045396
+        },
+        {
+          "queue": "technical",
+          "similarity": 0.09323563818350594
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "R5",
+      "text": "App freezes and crashes with error messages",
+      "arrivalRate": 18,
+      "queue": "technical",
+      "proposed": "technical",
+      "candidates": [
+        {
+          "queue": "technical",
+          "similarity": 0.6245931877158639
+        },
+        {
+          "queue": "access",
+          "similarity": 0.033463697470280995
+        },
+        {
+          "queue": "q5",
+          "similarity": 0.032718724748281997
+        },
+        {
+          "queue": "q3",
+          "similarity": 0.011476112728261382
+        },
+        {
+          "queue": "billing",
+          "similarity": -0.01968730770905282
+        },
+        {
+          "queue": "q4",
+          "similarity": -0.0464957346611608
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "R6",
+      "text": "People locked out after forgetting their login password",
+      "arrivalRate": 28,
+      "queue": "access",
+      "proposed": "access",
+      "candidates": [
+        {
+          "queue": "access",
+          "similarity": 0.7475708091629127
+        },
+        {
+          "queue": "technical",
+          "similarity": 0.11406760237937222
+        },
+        {
+          "queue": "q3",
+          "similarity": 0.04675155446236114
+        },
+        {
+          "queue": "billing",
+          "similarity": 0.04086472514794992
+        },
+        {
+          "queue": "q5",
+          "similarity": 0.008680145039293593
+        },
+        {
+          "queue": "q4",
+          "similarity": -0.014361901167010454
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "R7",
+      "text": "Customers charged twice requesting money back",
+      "arrivalRate": 12,
+      "queue": "billing",
+      "proposed": "billing",
+      "candidates": [
+        {
+          "queue": "billing",
+          "similarity": 0.5424969137244109
+        },
+        {
+          "queue": "q3",
+          "similarity": 0.16727527266602937
+        },
+        {
+          "queue": "q5",
+          "similarity": 0.16194761926740295
+        },
+        {
+          "queue": "q4",
+          "similarity": 0.15406742279883884
+        },
+        {
+          "queue": "access",
+          "similarity": 0.1413078291045396
+        },
+        {
+          "queue": "technical",
+          "similarity": 0.09323563818350594
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "R8",
+      "text": "App freezes and crashes with error messages",
+      "arrivalRate": 18,
+      "queue": "technical",
+      "proposed": "technical",
+      "candidates": [
+        {
+          "queue": "technical",
+          "similarity": 0.6245931877158639
+        },
+        {
+          "queue": "access",
+          "similarity": 0.033463697470280995
+        },
+        {
+          "queue": "q5",
+          "similarity": 0.032718724748281997
+        },
+        {
+          "queue": "q3",
+          "similarity": 0.011476112728261382
+        },
+        {
+          "queue": "billing",
+          "similarity": -0.01968730770905282
+        },
+        {
+          "queue": "q4",
+          "similarity": -0.0464957346611608
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "R9",
+      "text": "People locked out after forgetting their login password",
+      "arrivalRate": 28,
+      "queue": "access",
+      "proposed": "access",
+      "candidates": [
+        {
+          "queue": "access",
+          "similarity": 0.7475708091629127
+        },
+        {
+          "queue": "technical",
+          "similarity": 0.11406760237937222
+        },
+        {
+          "queue": "q3",
+          "similarity": 0.04675155446236114
+        },
+        {
+          "queue": "billing",
+          "similarity": 0.04086472514794992
+        },
+        {
+          "queue": "q5",
+          "similarity": 0.008680145039293593
+        },
+        {
+          "queue": "q4",
+          "similarity": -0.014361901167010454
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "R10",
+      "text": "Customers charged twice requesting money back",
+      "arrivalRate": 12,
+      "queue": "billing",
+      "proposed": "billing",
+      "candidates": [
+        {
+          "queue": "billing",
+          "similarity": 0.5342197401939868
+        },
+        {
+          "queue": "q3",
+          "similarity": 0.16616146706668336
+        },
+        {
+          "queue": "q5",
+          "similarity": 0.1545184166499738
+        },
+        {
+          "queue": "access",
+          "similarity": 0.14940768157268997
+        },
+        {
+          "queue": "q4",
+          "similarity": 0.1470461747220144
+        },
+        {
+          "queue": "technical",
+          "similarity": 0.0891631123213133
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "R11",
+      "text": "App freezes and crashes with error messages",
+      "arrivalRate": 18,
+      "queue": "technical",
+      "proposed": "technical",
+      "candidates": [
+        {
+          "queue": "technical",
+          "similarity": 0.6305961189195943
+        },
+        {
+          "queue": "access",
+          "similarity": 0.0394061464050919
+        },
+        {
+          "queue": "q5",
+          "similarity": 0.03346983466453253
+        },
+        {
+          "queue": "q3",
+          "similarity": 0.016103267362514606
+        },
+        {
+          "queue": "billing",
+          "similarity": -0.023070253561457296
+        },
+        {
+          "queue": "q4",
+          "similarity": -0.04217050385433963
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "settings": {
+    "targetSeconds": 30,
+    "serviceTarget": 0.8,
+    "maxOccupancy": 0.85,
+    "maxAgents": 40
+  },
+  "blocked": false,
+  "plans": [
+    {
+      "queue": "access",
+      "arrivalRate": 112,
+      "handleMinutes": 6,
+      "state": "planned",
+      "selected": {
+        "agents": 15,
+        "load": 11.2,
+        "occupancy": 0.7466666666666666,
+        "probabilityWait": 0.21213711664876517,
+        "serviceLevel": 0.8454425030609432,
+        "meanWaitSeconds": 20.097200524619858
+      },
+      "baseline": {
+        "agents": 14,
+        "load": 11.2,
+        "occupancy": 0.7999999999999999,
+        "probabilityWait": 0.33453035670657794,
+        "serviceLevel": 0.7350889009011391,
+        "meanWaitSeconds": 43.01104586227429
+      }
+    },
+    {
+      "queue": "billing",
+      "arrivalRate": 48,
+      "handleMinutes": 8,
+      "state": "planned",
+      "selected": {
+        "agents": 10,
+        "load": 6.4,
+        "occupancy": 0.64,
+        "probabilityWait": 0.14203174877580932,
+        "serviceLevel": 0.886585345023759,
+        "meanWaitSeconds": 18.937566503441246
+      },
+      "baseline": {
+        "agents": 8,
+        "load": 6.4,
+        "occupancy": 0.8,
+        "probabilityWait": 0.45764492544201624,
+        "serviceLevel": 0.5859057472857867,
+        "meanWaitSeconds": 137.2934776326049
+      }
+    },
+    {
+      "queue": "technical",
+      "arrivalRate": 72,
+      "handleMinutes": 12,
+      "state": "planned",
+      "selected": {
+        "agents": 19,
+        "load": 14.4,
+        "occupancy": 0.7578947368421053,
+        "probabilityWait": 0.18355870533659818,
+        "serviceLevel": 0.8484572338769976,
+        "meanWaitSeconds": 28.730927791815372
+      },
+      "baseline": {
+        "agents": 17,
+        "load": 14.4,
+        "occupancy": 0.8470588235294118,
+        "probabilityWait": 0.4118087899665417,
+        "serviceLevel": 0.6304722621176349,
+        "meanWaitSeconds": 114.03935722150388
+      }
+    },
+    {
+      "queue": "q3",
+      "arrivalRate": 0,
+      "handleMinutes": 5,
+      "state": "no-demand",
+      "selected": {
+        "agents": 0,
+        "load": 0,
+        "occupancy": 0,
+        "probabilityWait": 0,
+        "serviceLevel": 1,
+        "meanWaitSeconds": 0
+      },
+      "baseline": {
+        "agents": 0,
+        "load": 0,
+        "occupancy": 0,
+        "probabilityWait": 0,
+        "serviceLevel": 1,
+        "meanWaitSeconds": 0
+      }
+    },
+    {
+      "queue": "q4",
+      "arrivalRate": 0,
+      "handleMinutes": 5,
+      "state": "no-demand",
+      "selected": {
+        "agents": 0,
+        "load": 0,
+        "occupancy": 0,
+        "probabilityWait": 0,
+        "serviceLevel": 1,
+        "meanWaitSeconds": 0
+      },
+      "baseline": {
+        "agents": 0,
+        "load": 0,
+        "occupancy": 0,
+        "probabilityWait": 0,
+        "serviceLevel": 1,
+        "meanWaitSeconds": 0
+      }
+    },
+    {
+      "queue": "q5",
+      "arrivalRate": 0,
+      "handleMinutes": 5,
+      "state": "no-demand",
+      "selected": {
+        "agents": 0,
+        "load": 0,
+        "occupancy": 0,
+        "probabilityWait": 0,
+        "serviceLevel": 1,
+        "meanWaitSeconds": 0
+      },
+      "baseline": {
+        "agents": 0,
+        "load": 0,
+        "occupancy": 0,
+        "probabilityWait": 0,
+        "serviceLevel": 1,
+        "meanWaitSeconds": 0
+      }
+    }
+  ],
+  "metrics": {
+    "agents": 44,
+    "baselineAgents": 39,
+    "unplanned": 0,
+    "agreement": 12,
+    "firstAgreement": 4
+  }
+}

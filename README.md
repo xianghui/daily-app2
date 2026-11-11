@@ -479,3 +479,8 @@ Carton Compass public release, byte-matched runtime assets, both real-AI fixture
 Real local MiniLM product inference supports reviewed demand aggregation and exact additive whole-batch cost planning under explicit extra-unit limits. Holds block all plans; infeasible demand stays visible. Six tiny known-answer links matched, and 1,680 independent exhaustive cost/extra/count oracle cases passed. Complete JSON/CSV/Markdown preserves every request. Offline fresh-worker inference tested only within an already-open warmed page. Reuses immutable WASM from `20261107-2`; preserve that asset. See [workflow/privacy](20261111-18/README.md) and [observed validation](20261111-18/VALIDATION.md).
 
 Batch Breakwater public release, byte-matched runtime assets, both real-AI fixtures, full public workflow suite and preserved 595-entry gallery passed on the first Pages deployment.
+
+
+## Queue Cushion — 20261111-19
+
+Real local MiniLM reconciles rough contact streams with service queues, followed by mandatory human review and deterministic minimum-agent Erlang-C planning. Compare occupancy-only teams with explicit wait-target staffing; complete JSON/CSV/Markdown preserves all streams. Six tiny known-answer links matched; a negated description mislinked, so review/hold remains essential. Estimates assume stationary M/M/c queues, not observed service guarantees or rosters. Fresh-worker offline inference tested only inside an already-open page. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow/privacy](20261111-19/README.md) and [observed validation](20261111-19/VALIDATION.md).

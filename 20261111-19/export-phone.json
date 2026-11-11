@@ -1,0 +1,202 @@
+{
+  "schema": "queue-cushion/v1",
+  "originalInput": {
+    "name": "Software helpdesk",
+    "settings": {
+      "targetSeconds": 30,
+      "serviceTarget": 0.8,
+      "maxOccupancy": 0.85,
+      "maxAgents": 40
+    },
+    "queues": [
+      {
+        "id": "access",
+        "title": "Account access",
+        "description": "Reset forgotten passwords, unlock user accounts, recover sign in credentials",
+        "handleMinutes": 6
+      },
+      {
+        "id": "billing",
+        "title": "Billing support",
+        "description": "Invoice payment questions, duplicate charges, refunds and subscription billing",
+        "handleMinutes": 8
+      },
+      {
+        "id": "technical",
+        "title": "Technical support",
+        "description": "Diagnose broken software, application crashes, bugs and error messages",
+        "handleMinutes": 12
+      }
+    ],
+    "records": [
+      {
+        "id": "S1",
+        "text": "People locked out after forgetting their login password",
+        "arrivalRate": 28
+      },
+      {
+        "id": "S2",
+        "text": "Customers charged twice requesting money back",
+        "arrivalRate": 12
+      },
+      {
+        "id": "S3",
+        "text": "App freezes and crashes with error messages",
+        "arrivalRate": 18
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "S1",
+      "text": "People locked out after forgetting their login password",
+      "arrivalRate": 28,
+      "queue": "access",
+      "proposed": "access",
+      "candidates": [
+        {
+          "queue": "access",
+          "similarity": 0.7250582670087136
+        },
+        {
+          "queue": "technical",
+          "similarity": 0.1391376567148775
+        },
+        {
+          "queue": "billing",
+          "similarity": 0.05119105008112504
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "S2",
+      "text": "Customers charged twice requesting money back",
+      "arrivalRate": 12,
+      "queue": "billing",
+      "proposed": "billing",
+      "candidates": [
+        {
+          "queue": "billing",
+          "similarity": 0.5315321361294838
+        },
+        {
+          "queue": "access",
+          "similarity": 0.1437809148393413
+        },
+        {
+          "queue": "technical",
+          "similarity": 0.10442678339795078
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "S3",
+      "text": "App freezes and crashes with error messages",
+      "arrivalRate": 18,
+      "queue": "technical",
+      "proposed": "technical",
+      "candidates": [
+        {
+          "queue": "technical",
+          "similarity": 0.6436566047102528
+        },
+        {
+          "queue": "access",
+          "similarity": 0.04526717060600901
+        },
+        {
+          "queue": "billing",
+          "similarity": -0.031468489771338884
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "settings": {
+    "targetSeconds": 30,
+    "serviceTarget": 0.8,
+    "maxOccupancy": 0.85,
+    "maxAgents": 40
+  },
+  "blocked": false,
+  "plans": [
+    {
+      "queue": "access",
+      "arrivalRate": 28,
+      "handleMinutes": 6,
+      "state": "planned",
+      "selected": {
+        "agents": 5,
+        "load": 2.8,
+        "occupancy": 0.5599999999999999,
+        "probabilityWait": 0.18951611766529944,
+        "serviceLevel": 0.8422296111050422,
+        "meanWaitSeconds": 31.011728345230814
+      },
+      "baseline": {
+        "agents": 4,
+        "load": 2.8,
+        "occupancy": 0.7,
+        "probabilityWait": 0.4286543182325373,
+        "serviceLevel": 0.6121375334605064,
+        "meanWaitSeconds": 128.59629546976117
+      }
+    },
+    {
+      "queue": "billing",
+      "arrivalRate": 12,
+      "handleMinutes": 8,
+      "state": "planned",
+      "selected": {
+        "agents": 4,
+        "load": 1.6,
+        "occupancy": 0.4,
+        "probabilityWait": 0.09069973427812225,
+        "serviceLevel": 0.921934015247187,
+        "meanWaitSeconds": 18.13994685562445
+      },
+      "baseline": {
+        "agents": 2,
+        "load": 1.6,
+        "occupancy": 0.8,
+        "probabilityWait": 0.7111111111111111,
+        "serviceLevel": 0.30644628477985225,
+        "meanWaitSeconds": 853.3333333333336
+      }
+    },
+    {
+      "queue": "technical",
+      "arrivalRate": 18,
+      "handleMinutes": 12,
+      "state": "planned",
+      "selected": {
+        "agents": 6,
+        "load": 3.6,
+        "occupancy": 0.6,
+        "probabilityWait": 0.19656627358294293,
+        "serviceLevel": 0.8221394805382599,
+        "meanWaitSeconds": 58.969882074882875
+      },
+      "baseline": {
+        "agents": 5,
+        "load": 3.6,
+        "occupancy": 0.72,
+        "probabilityWait": 0.4103938075008471,
+        "serviceLevel": 0.6128609729758931,
+        "meanWaitSeconds": 211.0596724290071
+      }
+    }
+  ],
+  "metrics": {
+    "agents": 15,
+    "baselineAgents": 11,
+    "unplanned": 0,
+    "agreement": 3,
+    "firstAgreement": 1
+  }
+}

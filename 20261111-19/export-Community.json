@@ -1,0 +1,202 @@
+{
+  "schema": "queue-cushion/v1",
+  "originalInput": {
+    "name": "Community services",
+    "settings": {
+      "targetSeconds": 60,
+      "serviceTarget": 0.9,
+      "maxOccupancy": 0.8,
+      "maxAgents": 30
+    },
+    "queues": [
+      {
+        "id": "library",
+        "title": "Library desk",
+        "description": "Borrowing books, library membership cards, renewals and overdue book returns",
+        "handleMinutes": 4
+      },
+      {
+        "id": "fitness",
+        "title": "Fitness desk",
+        "description": "Gym exercise classes, swimming pool sessions, sports training membership",
+        "handleMinutes": 7
+      },
+      {
+        "id": "housing",
+        "title": "Housing desk",
+        "description": "Rental housing applications, tenancy agreements and apartment maintenance",
+        "handleMinutes": 10
+      }
+    ],
+    "records": [
+      {
+        "id": "C1",
+        "text": "Readers asking to extend their borrowed novels",
+        "arrivalRate": 24
+      },
+      {
+        "id": "C2",
+        "text": "Visitors booking swimming lessons and workout classes",
+        "arrivalRate": 15
+      },
+      {
+        "id": "C3",
+        "text": "Tenants need repairs in their rented apartments",
+        "arrivalRate": 10
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "C1",
+      "text": "Readers asking to extend their borrowed novels",
+      "arrivalRate": 24,
+      "queue": "library",
+      "proposed": "library",
+      "candidates": [
+        {
+          "queue": "library",
+          "similarity": 0.49344647358748067
+        },
+        {
+          "queue": "housing",
+          "similarity": 0.09948543124232932
+        },
+        {
+          "queue": "fitness",
+          "similarity": 0.06419860647811186
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "C2",
+      "text": "Visitors booking swimming lessons and workout classes",
+      "arrivalRate": 15,
+      "queue": "fitness",
+      "proposed": "fitness",
+      "candidates": [
+        {
+          "queue": "fitness",
+          "similarity": 0.6946973169076591
+        },
+        {
+          "queue": "library",
+          "similarity": 0.20496203936043855
+        },
+        {
+          "queue": "housing",
+          "similarity": 0.11249786753172485
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "C3",
+      "text": "Tenants need repairs in their rented apartments",
+      "arrivalRate": 10,
+      "queue": "housing",
+      "proposed": "housing",
+      "candidates": [
+        {
+          "queue": "housing",
+          "similarity": 0.5958431874461624
+        },
+        {
+          "queue": "library",
+          "similarity": 0.12838030783435814
+        },
+        {
+          "queue": "fitness",
+          "similarity": 0.05002016686528392
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "settings": {
+    "targetSeconds": 60,
+    "serviceTarget": 0.9,
+    "maxOccupancy": 0.8,
+    "maxAgents": 30
+  },
+  "blocked": false,
+  "plans": [
+    {
+      "queue": "library",
+      "arrivalRate": 24,
+      "handleMinutes": 4,
+      "state": "planned",
+      "selected": {
+        "agents": 4,
+        "load": 1.6,
+        "occupancy": 0.4,
+        "probabilityWait": 0.09069973427812225,
+        "serviceLevel": 0.9502229304375303,
+        "meanWaitSeconds": 9.069973427812226
+      },
+      "baseline": {
+        "agents": 2,
+        "load": 1.6,
+        "occupancy": 0.8,
+        "probabilityWait": 0.7111111111111111,
+        "serviceLevel": 0.3565600582855398,
+        "meanWaitSeconds": 426.6666666666668
+      }
+    },
+    {
+      "queue": "fitness",
+      "arrivalRate": 15,
+      "handleMinutes": 7,
+      "state": "planned",
+      "selected": {
+        "agents": 4,
+        "load": 1.75,
+        "occupancy": 0.4375,
+        "probabilityWait": 0.11836915795701047,
+        "serviceLevel": 0.9141690531929088,
+        "meanWaitSeconds": 22.095576151975287
+      },
+      "baseline": {
+        "agents": 3,
+        "load": 1.75,
+        "occupancy": 0.5833333333333334,
+        "probabilityWait": 0.33365758754863817,
+        "serviceLevel": 0.7209073371580805,
+        "meanWaitSeconds": 112.10894941634243
+      }
+    },
+    {
+      "queue": "housing",
+      "arrivalRate": 10,
+      "handleMinutes": 10,
+      "state": "planned",
+      "selected": {
+        "agents": 4,
+        "load": 1.6666666666666667,
+        "occupancy": 0.4166666666666667,
+        "probabilityWait": 0.10247581570749306,
+        "serviceLevel": 0.9188504707393853,
+        "meanWaitSeconds": 26.35092403906965
+      },
+      "baseline": {
+        "agents": 3,
+        "load": 1.6666666666666667,
+        "occupancy": 0.5555555555555556,
+        "probabilityWait": 0.29976019184652275,
+        "serviceLevel": 0.737657877984728,
+        "meanWaitSeconds": 134.89208633093523
+      }
+    }
+  ],
+  "metrics": {
+    "agents": 12,
+    "baselineAgents": 8,
+    "unplanned": 0,
+    "agreement": 3,
+    "firstAgreement": 1
+  }
+}

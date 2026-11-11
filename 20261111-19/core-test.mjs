@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {examples,parse,plan,erlang,staffing,suggest} from './src/core.js';
+const report={checks:[]};
+// Independent direct factorial expression for moderate loads.
+function direct(rate,h,n,t){let a=rate*h/60,term=1,sum=1;for(let i=1;i<n;i++){term*=a/i;sum+=term}term*=a/n;const c=term/(1-a/n)/(sum+term/(1-a/n));return 1-c*Math.exp(-(n-a)*t/(60*h))}
+for(let rate=1;rate<=60;rate+=3)for(let n=Math.floor(rate*.1)+1;n<=20;n++){const a=erlang(rate,6,n,30);assert(Math.abs(a.serviceLevel-direct(rate,6,n,30))<1e-12)}report.checks.push('Independent Erlang-C direct formula agrees across moderate grid');
+const known=erlang(10,6,2,0);assert(Math.abs(known.probabilityWait-1/3)<1e-12);assert(Math.abs(known.meanWaitSeconds-120)<1e-10);assert.equal(erlang(10,6,1,30),null);report.checks.push('Known M/M/2 load 1: P(wait)=1/3 and mean wait=120s; unstable rejected');
+for(const d of examples){assert.deepEqual(parse(JSON.stringify(d)),d);const rows=d.records.map((r,i)=>({...r,queue:d.queues[i].id,proposed:d.queues[i].id,decision:'approve',note:''}));const a=plan(d,rows,d.settings);for(const p of a.plans){assert(p.selected);assert(p.selected.occupancy<=d.settings.maxOccupancy+1e-12);assert(p.selected.serviceLevel>=d.settings.serviceTarget-1e-12);if(p.selected.agents>1){const prev=erlang(p.arrivalRate,p.handleMinutes,p.selected.agents-1,d.settings.targetSeconds);assert(!prev||prev.occupancy>d.settings.maxOccupancy||prev.serviceLevel<d.settings.serviceTarget)}}assert.equal(a.records.length,d.records.length);rows[1].decision='hold';assert(plan(d,rows,d.settings).plans.every(p=>p.selected===null))}report.checks.push('Fixture target constraints, minimum agent proof, row conservation, global hold block');
+assert.equal(staffing(0,6,examples[0].settings).selected.agents,0);assert.equal(staffing(200,60,{...examples[0].settings,maxAgents:100}).selected,null);assert.throws(()=>suggest(examples[0],[[NaN]]));for(const s of['','null','{}','x'.repeat(18001)])assert.throws(()=>parse(s));report.checks.push('Zero demand, cap infeasibility, malformed vectors and input validation');
+report.passed=true;fs.writeFileSync('core-validation.json',JSON.stringify(report,null,2));console.log(report);

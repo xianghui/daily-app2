@@ -1,0 +1,227 @@
+{
+  "schema": "batch-breakwater/v1",
+  "originalInput": {
+    "name": "Bakery orders",
+    "excess": 4,
+    "products": [
+      {
+        "id": "bread",
+        "title": "Sourdough loaf",
+        "description": "Artisan sourdough bread loaf, crusty fermented wheat bread",
+        "batches": [
+          {
+            "id": "small",
+            "yield": 8,
+            "costCents": 1000
+          },
+          {
+            "id": "large",
+            "yield": 12,
+            "costCents": 1300
+          }
+        ]
+      },
+      {
+        "id": "cookie",
+        "title": "Chocolate cookie",
+        "description": "Sweet chocolate chip cookie biscuit baked with chocolate pieces",
+        "batches": [
+          {
+            "id": "small",
+            "yield": 8,
+            "costCents": 1000
+          },
+          {
+            "id": "large",
+            "yield": 12,
+            "costCents": 1300
+          }
+        ]
+      },
+      {
+        "id": "tart",
+        "title": "Fruit tart",
+        "description": "Small fruit tart pastry with custard cream and berries",
+        "batches": [
+          {
+            "id": "small",
+            "yield": 8,
+            "costCents": 1000
+          },
+          {
+            "id": "large",
+            "yield": 12,
+            "costCents": 1300
+          }
+        ]
+      }
+    ],
+    "records": [
+      {
+        "id": "B1",
+        "text": "Crusty fermented sourdough loaves for sandwiches",
+        "quantity": 20
+      },
+      {
+        "id": "B2",
+        "text": "Chocolate chip biscuits for the snack table",
+        "quantity": 10
+      },
+      {
+        "id": "B3",
+        "text": "Berry custard pastry tarts for dessert",
+        "quantity": 8
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "B1",
+      "text": "Crusty fermented sourdough loaves for sandwiches",
+      "quantity": 20,
+      "product": "bread",
+      "proposed": "bread",
+      "candidates": [
+        {
+          "product": "bread",
+          "similarity": 0.7605982232736761
+        },
+        {
+          "product": "cookie",
+          "similarity": 0.371456460455802
+        },
+        {
+          "product": "tart",
+          "similarity": 0.26134162076708733
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "B2",
+      "text": "Chocolate chip biscuits for the snack table",
+      "quantity": 10,
+      "product": "cookie",
+      "proposed": "cookie",
+      "candidates": [
+        {
+          "product": "cookie",
+          "similarity": 0.8226824177985248
+        },
+        {
+          "product": "tart",
+          "similarity": 0.34155387581079677
+        },
+        {
+          "product": "bread",
+          "similarity": 0.2971577579170985
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "B3",
+      "text": "Berry custard pastry tarts for dessert",
+      "quantity": 8,
+      "product": "tart",
+      "proposed": "tart",
+      "candidates": [
+        {
+          "product": "tart",
+          "similarity": 0.8782716369211456
+        },
+        {
+          "product": "cookie",
+          "similarity": 0.31928754325341385
+        },
+        {
+          "product": "bread",
+          "similarity": 0.2792598043809398
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "settings": {
+    "excess": 4
+  },
+  "blocked": false,
+  "plans": [
+    {
+      "product": "bread",
+      "demand": 20,
+      "state": "planned",
+      "selected": {
+        "costCents": 2300,
+        "count": 2,
+        "counts": [
+          1,
+          1
+        ],
+        "units": 20,
+        "extra": 0
+      },
+      "baseline": {
+        "units": 24,
+        "extra": 4,
+        "costCents": 3000,
+        "counts": [
+          3,
+          0
+        ],
+        "count": 3
+      }
+    },
+    {
+      "product": "cookie",
+      "demand": 10,
+      "state": "planned",
+      "selected": {
+        "costCents": 1300,
+        "count": 1,
+        "counts": [
+          0,
+          1
+        ],
+        "units": 12,
+        "extra": 2
+      },
+      "baseline": null
+    },
+    {
+      "product": "tart",
+      "demand": 8,
+      "state": "planned",
+      "selected": {
+        "costCents": 1000,
+        "count": 1,
+        "counts": [
+          1,
+          0
+        ],
+        "units": 8,
+        "extra": 0
+      },
+      "baseline": {
+        "units": 8,
+        "extra": 0,
+        "costCents": 1000,
+        "counts": [
+          1,
+          0
+        ],
+        "count": 1
+      }
+    }
+  ],
+  "metrics": {
+    "costCents": 4600,
+    "extra": 2,
+    "unplanned": 0,
+    "agreement": 3,
+    "firstAgreement": 1
+  }
+}

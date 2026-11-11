@@ -472,3 +472,8 @@ Real local MiniLM grade retrieval supports mandatory human review of recycled-fi
 Real local MiniLM reconciles packing-slip item descriptions with supplied product catalogs. Mandatory quantity/dimension/weight review feeds homogeneous-grid carton fit and dimensional-weight charge comparison; complete JSON/CSV/Markdown preserves held/no-fit orders. Both tiny fixtures matched 6/6 links; negation mislinked and requires review. 1800 independent grid/BigInt billing cases, maximum batches, downloaded artifacts, offline fresh-worker inference and defensive browser checks passed. Not unrestricted 3D packing, live postage or packaging certification. Offline scope is an already-open warmed page only. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261111-17/README.md) and [observed checks](20261111-17/VALIDATION.md).
 
 Carton Compass public release, byte-matched runtime assets, both real-AI fixtures, the full public workflow suite and the preserved 594-entry gallery passed on the first Pages deployment.
+
+
+## Batch Breakwater — 20261111-18
+
+Real local MiniLM product inference supports reviewed demand aggregation and exact additive whole-batch cost planning under explicit extra-unit limits. Holds block all plans; infeasible demand stays visible. Six tiny known-answer links matched, and 1,680 independent exhaustive cost/extra/count oracle cases passed. Complete JSON/CSV/Markdown preserves every request. Offline fresh-worker inference tested only within an already-open warmed page. Reuses immutable WASM from `20261107-2`; preserve that asset. See [workflow/privacy](20261111-18/README.md) and [observed validation](20261111-18/VALIDATION.md).

@@ -1,0 +1,226 @@
+{
+  "app": "Transit Footprint",
+  "version": 1,
+  "originalInput": {
+    "name": "Office commutes",
+    "factors": [
+      {
+        "id": "rail",
+        "title": "Urban rail",
+        "description": "Passenger travel by metro subway underground train or electric railway.",
+        "basis": "passenger-km",
+        "value": 0.04,
+        "source": "Synthetic teaching factor; NOT an official inventory factor."
+      },
+      {
+        "id": "car",
+        "title": "Petrol car",
+        "description": "Driving or riding in a gasoline petrol automobile, private motor car or taxi.",
+        "basis": "vehicle-km",
+        "value": 0.2,
+        "source": "Synthetic teaching factor; NOT an official inventory factor."
+      }
+    ],
+    "records": [
+      {
+        "id": "C1",
+        "text": "Took the underground from home to the office.",
+        "distance": 12,
+        "unit": "km",
+        "occupants": 1
+      },
+      {
+        "id": "C2",
+        "text": "Used the subway to get to work.",
+        "distance": 8,
+        "unit": "mi",
+        "occupants": 1
+      },
+      {
+        "id": "C3",
+        "text": "Drove my gasoline automobile to the office with a colleague.",
+        "distance": 20,
+        "unit": "km",
+        "occupants": 2
+      },
+      {
+        "id": "C4",
+        "text": "Drove a petrol car across town alone.",
+        "distance": 6,
+        "unit": "mi",
+        "occupants": 1
+      }
+    ]
+  },
+  "settings": {
+    "scenario": "rail",
+    "values": {
+      "rail": 0.04,
+      "car": 0.2
+    }
+  },
+  "factors": [
+    {
+      "id": "rail",
+      "title": "Urban rail",
+      "description": "Passenger travel by metro subway underground train or electric railway.",
+      "basis": "passenger-km",
+      "value": 0.04,
+      "source": "Synthetic teaching factor; NOT an official inventory factor."
+    },
+    {
+      "id": "car",
+      "title": "Petrol car",
+      "description": "Driving or riding in a gasoline petrol automobile, private motor car or taxi.",
+      "basis": "vehicle-km",
+      "value": 0.2,
+      "source": "Synthetic teaching factor; NOT an official inventory factor."
+    }
+  ],
+  "records": [
+    {
+      "id": "C1",
+      "factor": "rail",
+      "proposed": "rail",
+      "distance": 12,
+      "unit": "km",
+      "occupants": 1,
+      "note": "",
+      "decision": "approve",
+      "candidates": [
+        {
+          "factor": "rail",
+          "similarity": 0.3937069229022896
+        },
+        {
+          "factor": "car",
+          "similarity": 0.16060433101622953
+        }
+      ],
+      "original": {
+        "id": "C1",
+        "text": "Took the underground from home to the office.",
+        "distance": 12,
+        "unit": "km",
+        "occupants": 1
+      },
+      "km": 12,
+      "kgCO2e": 0.48
+    },
+    {
+      "id": "C2",
+      "factor": "rail",
+      "proposed": "rail",
+      "distance": 8,
+      "unit": "mi",
+      "occupants": 1,
+      "note": "",
+      "decision": "approve",
+      "candidates": [
+        {
+          "factor": "rail",
+          "similarity": 0.5488553415928464
+        },
+        {
+          "factor": "car",
+          "similarity": 0.2076524263072125
+        }
+      ],
+      "original": {
+        "id": "C2",
+        "text": "Used the subway to get to work.",
+        "distance": 8,
+        "unit": "mi",
+        "occupants": 1
+      },
+      "km": 12.874752,
+      "kgCO2e": 0.51499008
+    },
+    {
+      "id": "C3",
+      "factor": "car",
+      "proposed": "car",
+      "distance": 20,
+      "unit": "km",
+      "occupants": 2,
+      "note": "",
+      "decision": "approve",
+      "candidates": [
+        {
+          "factor": "car",
+          "similarity": 0.4911390669212586
+        },
+        {
+          "factor": "rail",
+          "similarity": 0.1413074234098577
+        }
+      ],
+      "original": {
+        "id": "C3",
+        "text": "Drove my gasoline automobile to the office with a colleague.",
+        "distance": 20,
+        "unit": "km",
+        "occupants": 2
+      },
+      "km": 20,
+      "kgCO2e": 2
+    },
+    {
+      "id": "C4",
+      "factor": "car",
+      "proposed": "car",
+      "distance": 6,
+      "unit": "mi",
+      "occupants": 1,
+      "note": "",
+      "decision": "approve",
+      "candidates": [
+        {
+          "factor": "car",
+          "similarity": 0.4929989034214229
+        },
+        {
+          "factor": "rail",
+          "similarity": 0.22559047140149385
+        }
+      ],
+      "original": {
+        "id": "C4",
+        "text": "Drove a petrol car across town alone.",
+        "distance": 6,
+        "unit": "mi",
+        "occupants": 1
+      },
+      "km": 9.656064,
+      "kgCO2e": 1.9312128000000002
+    }
+  ],
+  "ready": true,
+  "blockers": [],
+  "metrics": {
+    "records": 4,
+    "approved": 4,
+    "approvedKm": 54.530816,
+    "approvedKgCO2e": 4.92620288,
+    "totalKgCO2e": 4.92620288,
+    "scenarioKgCO2e": 2.18123264,
+    "differenceKgCO2e": 2.74497024,
+    "literalTitleMatches": 1,
+    "aiReviewAgreement": 4,
+    "firstFactorAgreement": 2
+  },
+  "groups": [
+    {
+      "id": "rail",
+      "title": "Urban rail",
+      "approvedTrips": 2,
+      "kgCO2e": 0.99499008
+    },
+    {
+      "id": "car",
+      "title": "Petrol car",
+      "approvedTrips": 2,
+      "kgCO2e": 3.9312128
+    }
+  ]
+}

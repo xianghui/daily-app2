@@ -1,0 +1,226 @@
+{
+  "app": "Transit Footprint",
+  "version": 1,
+  "originalInput": {
+    "name": "Community event",
+    "factors": [
+      {
+        "id": "bus",
+        "title": "Local bus",
+        "description": "Passenger riding public transit by bus coach shuttle or city bus.",
+        "basis": "passenger-km",
+        "value": 0.08,
+        "source": "Synthetic teaching factor; NOT an official inventory factor."
+      },
+      {
+        "id": "cycle",
+        "title": "Bicycle",
+        "description": "Pedaling a push bike, cycling or riding a non-motorized bicycle.",
+        "basis": "passenger-km",
+        "value": 0,
+        "source": "Synthetic operational-only factor; excludes food, manufacturing and infrastructure."
+      }
+    ],
+    "records": [
+      {
+        "id": "E1",
+        "text": "Caught the city shuttle to the community hall.",
+        "distance": 15,
+        "unit": "km",
+        "occupants": 1
+      },
+      {
+        "id": "E2",
+        "text": "Travelled on a public coach to the venue.",
+        "distance": 9,
+        "unit": "mi",
+        "occupants": 1
+      },
+      {
+        "id": "E3",
+        "text": "Pedaled my push bike along the canal.",
+        "distance": 7,
+        "unit": "km",
+        "occupants": 1
+      },
+      {
+        "id": "E4",
+        "text": "Cycled from home on my bicycle.",
+        "distance": 4,
+        "unit": "mi",
+        "occupants": 1
+      }
+    ]
+  },
+  "settings": {
+    "scenario": "bus",
+    "values": {
+      "bus": 0.08,
+      "cycle": 0
+    }
+  },
+  "factors": [
+    {
+      "id": "bus",
+      "title": "Local bus",
+      "description": "Passenger riding public transit by bus coach shuttle or city bus.",
+      "basis": "passenger-km",
+      "value": 0.08,
+      "source": "Synthetic teaching factor; NOT an official inventory factor."
+    },
+    {
+      "id": "cycle",
+      "title": "Bicycle",
+      "description": "Pedaling a push bike, cycling or riding a non-motorized bicycle.",
+      "basis": "passenger-km",
+      "value": 0,
+      "source": "Synthetic operational-only factor; excludes food, manufacturing and infrastructure."
+    }
+  ],
+  "records": [
+    {
+      "id": "E1",
+      "factor": "bus",
+      "proposed": "bus",
+      "distance": 15,
+      "unit": "km",
+      "occupants": 1,
+      "note": "",
+      "decision": "approve",
+      "candidates": [
+        {
+          "factor": "bus",
+          "similarity": 0.430816966575931
+        },
+        {
+          "factor": "cycle",
+          "similarity": 0.09758892456410649
+        }
+      ],
+      "original": {
+        "id": "E1",
+        "text": "Caught the city shuttle to the community hall.",
+        "distance": 15,
+        "unit": "km",
+        "occupants": 1
+      },
+      "km": 15,
+      "kgCO2e": 1.2
+    },
+    {
+      "id": "E2",
+      "factor": "bus",
+      "proposed": "bus",
+      "distance": 9,
+      "unit": "mi",
+      "occupants": 1,
+      "note": "",
+      "decision": "approve",
+      "candidates": [
+        {
+          "factor": "bus",
+          "similarity": 0.4527076711268284
+        },
+        {
+          "factor": "cycle",
+          "similarity": 0.11590322798976252
+        }
+      ],
+      "original": {
+        "id": "E2",
+        "text": "Travelled on a public coach to the venue.",
+        "distance": 9,
+        "unit": "mi",
+        "occupants": 1
+      },
+      "km": 14.484096000000001,
+      "kgCO2e": 1.1587276800000001
+    },
+    {
+      "id": "E3",
+      "factor": "cycle",
+      "proposed": "cycle",
+      "distance": 7,
+      "unit": "km",
+      "occupants": 1,
+      "note": "",
+      "decision": "approve",
+      "candidates": [
+        {
+          "factor": "cycle",
+          "similarity": 0.54006403116252
+        },
+        {
+          "factor": "bus",
+          "similarity": 0.26318268966539315
+        }
+      ],
+      "original": {
+        "id": "E3",
+        "text": "Pedaled my push bike along the canal.",
+        "distance": 7,
+        "unit": "km",
+        "occupants": 1
+      },
+      "km": 7,
+      "kgCO2e": 0
+    },
+    {
+      "id": "E4",
+      "factor": "cycle",
+      "proposed": "cycle",
+      "distance": 4,
+      "unit": "mi",
+      "occupants": 1,
+      "note": "",
+      "decision": "approve",
+      "candidates": [
+        {
+          "factor": "cycle",
+          "similarity": 0.5166484663335486
+        },
+        {
+          "factor": "bus",
+          "similarity": 0.17904836547399
+        }
+      ],
+      "original": {
+        "id": "E4",
+        "text": "Cycled from home on my bicycle.",
+        "distance": 4,
+        "unit": "mi",
+        "occupants": 1
+      },
+      "km": 6.437376,
+      "kgCO2e": 0
+    }
+  ],
+  "ready": true,
+  "blockers": [],
+  "metrics": {
+    "records": 4,
+    "approved": 4,
+    "approvedKm": 42.921472,
+    "approvedKgCO2e": 2.3587276800000003,
+    "totalKgCO2e": 2.3587276800000003,
+    "scenarioKgCO2e": 3.4337177600000004,
+    "differenceKgCO2e": -1.07499008,
+    "literalTitleMatches": 1,
+    "aiReviewAgreement": 4,
+    "firstFactorAgreement": 2
+  },
+  "groups": [
+    {
+      "id": "bus",
+      "title": "Local bus",
+      "approvedTrips": 2,
+      "kgCO2e": 2.3587276800000003
+    },
+    {
+      "id": "cycle",
+      "title": "Bicycle",
+      "approvedTrips": 2,
+      "kgCO2e": 0
+    }
+  ]
+}

@@ -431,3 +431,8 @@ Local MiniLM instrument identity inference supports reviewed linear calibration 
 ## Flow Balance — 20261111-10
 
 Real local MiniLM reconciles informal visit notes to service stations; mandatory review feeds exact occupancy sweeps and budgeted waiting-seat allocation. Both synthetic workflows matched 16/16 intended identities. Community excess occupancy was 40 person-minutes with two optimized extras versus 45 for the same-budget first-station baseline; repair fixture tied its baseline at 20. Historical replay only, not queue-time or staffing predictions. Complete JSON/CSV/Markdown, fresh-worker offline inference in an already-open page and defensive checks are documented in [workflow/privacy](20261111-10/README.md) and [observed validation](20261111-10/VALIDATION.md). Reuses immutable shared WASM from `20261107-2`; preserve that asset.
+
+
+## Transit Footprint — 20261111-11
+
+Real local MiniLM mode retrieval helps reconcile informal travel diaries with supplied transport factors. Mandatory review/holds feed explicit mile conversion and vehicle-versus-passenger occupancy arithmetic, complete audits and a clearly hypothetical same-distance scenario. Eight tiny synthetic links matched against four for a first-factor baseline; unrelated text still receives a mode, requiring human exclusion. Example factors are teaching values, not official carbon factors or reporting certification. Fresh-worker offline inference is tested only in an already-open cached page. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow/privacy](20261111-11/README.md) and [observed checks](20261111-11/VALIDATION.md).

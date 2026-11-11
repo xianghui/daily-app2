@@ -1,0 +1,3 @@
+# Workspace preservation
+
+At job start, root README.md and index.html already contained uncommitted Receipt Current (20261109-17) changes; folders 20261105-7 and 20261109-17 were also untracked. They were not modified or included in this job's source commit. Existing gallery entries were preserved in the combined deployment. Only Transit Footprint's root entry/tagline and README addition are staged via a baseline-relative patch; new app files are staged by scoped path. `gallery-baseline.html` and `root-readme-baseline.md` capture the original working state used for preservation checks. This avoids sweeping unrelated work into the builder commit.

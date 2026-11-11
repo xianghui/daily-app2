@@ -1,0 +1,256 @@
+{
+  "schema": "aging-harbor/v1",
+  "originalInput": {
+    "name": "Workshop accounts",
+    "asOf": "2026-11-12",
+    "currency": "USD",
+    "catalog": [
+      {
+        "id": "bike",
+        "title": "Cedar Cycle Repair",
+        "description": "Bicycle repair workshop servicing bikes, cycle maintenance and wheel repairs"
+      },
+      {
+        "id": "bake",
+        "title": "Willow Artisan Bakery",
+        "description": "Artisan bakery making sourdough bread, pastries and baked cakes"
+      },
+      {
+        "id": "garden",
+        "title": "Moss Garden Care",
+        "description": "Gardening business maintaining gardens, planting flowers and mowing lawns"
+      }
+    ],
+    "records": [
+      {
+        "id": "W1",
+        "text": "Cycle workshop for bicycle wheel repairs",
+        "issued": "2026-08-01",
+        "due": "2026-08-31",
+        "amountCents": 45000,
+        "paidCents": 5000
+      },
+      {
+        "id": "W2",
+        "text": "Sourdough bread and pastry bakery",
+        "issued": "2026-10-01",
+        "due": "2026-10-31",
+        "amountCents": 25000,
+        "paidCents": 0
+      },
+      {
+        "id": "W3",
+        "text": "Garden maintenance and lawn mowing team",
+        "issued": "2026-11-01",
+        "due": "2026-12-01",
+        "amountCents": 18000,
+        "paidCents": 3000
+      },
+      {
+        "id": "W4",
+        "text": "Bicycle service repair shop",
+        "issued": "2026-10-01",
+        "due": "2026-10-15",
+        "amountCents": 12000,
+        "paidCents": 12000
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "W1",
+      "text": "Cycle workshop for bicycle wheel repairs",
+      "issued": "2026-08-01",
+      "due": "2026-08-31",
+      "amountCents": 45000,
+      "paidCents": 5000,
+      "item": "bike",
+      "proposed": "bike",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "bike",
+          "similarity": 0.7083304186036891
+        },
+        {
+          "item": "garden",
+          "similarity": 0.2504520216188142
+        },
+        {
+          "item": "bake",
+          "similarity": 0.23300787236775383
+        }
+      ],
+      "decision": "approve",
+      "note": "",
+      "daysLate": 73,
+      "balanceCents": 40000,
+      "bucket": "61–90",
+      "bucketIndex": 3
+    },
+    {
+      "id": "W2",
+      "text": "Sourdough bread and pastry bakery",
+      "issued": "2026-10-01",
+      "due": "2026-10-31",
+      "amountCents": 25000,
+      "paidCents": 0,
+      "item": "bake",
+      "proposed": "bake",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "bake",
+          "similarity": 0.717303248242326
+        },
+        {
+          "item": "garden",
+          "similarity": 0.12617918794546956
+        },
+        {
+          "item": "bike",
+          "similarity": 0.09201438545990946
+        }
+      ],
+      "decision": "approve",
+      "note": "",
+      "daysLate": 12,
+      "balanceCents": 25000,
+      "bucket": "1–30",
+      "bucketIndex": 1
+    },
+    {
+      "id": "W3",
+      "text": "Garden maintenance and lawn mowing team",
+      "issued": "2026-11-01",
+      "due": "2026-12-01",
+      "amountCents": 18000,
+      "paidCents": 3000,
+      "item": "garden",
+      "proposed": "garden",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "garden",
+          "similarity": 0.5827618948411595
+        },
+        {
+          "item": "bike",
+          "similarity": 0.4052026391012789
+        },
+        {
+          "item": "bake",
+          "similarity": 0.11841172223603656
+        }
+      ],
+      "decision": "approve",
+      "note": "",
+      "daysLate": 0,
+      "balanceCents": 15000,
+      "bucket": "Current",
+      "bucketIndex": 0
+    },
+    {
+      "id": "W4",
+      "text": "Bicycle service repair shop",
+      "issued": "2026-10-01",
+      "due": "2026-10-15",
+      "amountCents": 12000,
+      "paidCents": 12000,
+      "item": "bike",
+      "proposed": "bike",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "bike",
+          "similarity": 0.644349044133198
+        },
+        {
+          "item": "garden",
+          "similarity": 0.2866479895797151
+        },
+        {
+          "item": "bake",
+          "similarity": 0.23351147572273168
+        }
+      ],
+      "decision": "approve",
+      "note": "",
+      "daysLate": 28,
+      "balanceCents": 0,
+      "bucket": "1–30",
+      "bucketIndex": 1
+    }
+  ],
+  "customers": [
+    {
+      "id": "bike",
+      "title": "Cedar Cycle Repair",
+      "description": "Bicycle repair workshop servicing bikes, cycle maintenance and wheel repairs",
+      "invoiceIds": [
+        "W1",
+        "W4"
+      ],
+      "heldIds": [],
+      "buckets": [
+        0,
+        0,
+        0,
+        40000,
+        0
+      ],
+      "balanceCents": 40000,
+      "overdueCents": 40000,
+      "oldestDays": 73
+    },
+    {
+      "id": "bake",
+      "title": "Willow Artisan Bakery",
+      "description": "Artisan bakery making sourdough bread, pastries and baked cakes",
+      "invoiceIds": [
+        "W2"
+      ],
+      "heldIds": [],
+      "buckets": [
+        0,
+        25000,
+        0,
+        0,
+        0
+      ],
+      "balanceCents": 25000,
+      "overdueCents": 25000,
+      "oldestDays": 12
+    },
+    {
+      "id": "garden",
+      "title": "Moss Garden Care",
+      "description": "Gardening business maintaining gardens, planting flowers and mowing lawns",
+      "invoiceIds": [
+        "W3"
+      ],
+      "heldIds": [],
+      "buckets": [
+        15000,
+        0,
+        0,
+        0,
+        0
+      ],
+      "balanceCents": 15000,
+      "overdueCents": 0,
+      "oldestDays": 0
+    }
+  ],
+  "metrics": {
+    "total": 4,
+    "approved": 4,
+    "held": 0,
+    "balanceCents": 80000,
+    "overdueCents": 65000,
+    "heldBalanceCents": 0,
+    "allBalanceCents": 80000,
+    "exactResolved": 0,
+    "aiSuggested": 4
+  }
+}

@@ -1,0 +1,216 @@
+{
+  "schema": "aging-harbor/v1",
+  "originalInput": {
+    "name": "Creative accounts",
+    "asOf": "2026-11-12",
+    "currency": "EUR",
+    "catalog": [
+      {
+        "id": "photo",
+        "title": "Amber Portrait Studio",
+        "description": "Professional photography studio taking portraits, wedding photographs and camera shoots"
+      },
+      {
+        "id": "web",
+        "title": "Tide Website Design",
+        "description": "Web design agency building ecommerce websites, online shops and internet storefronts"
+      },
+      {
+        "id": "music",
+        "title": "Birch Music School",
+        "description": "Music school teaching piano, guitar and instrumental music lessons"
+      }
+    ],
+    "records": [
+      {
+        "id": "C1",
+        "text": "Wedding photography and portrait camera studio",
+        "issued": "2026-07-01",
+        "due": "2026-07-31",
+        "amountCents": 90000,
+        "paidCents": 10000
+      },
+      {
+        "id": "C2",
+        "text": "Ecommerce website builders for online stores",
+        "issued": "2026-09-01",
+        "due": "2026-09-30",
+        "amountCents": 60000,
+        "paidCents": 20000
+      },
+      {
+        "id": "C3",
+        "text": "Piano and guitar lesson teachers",
+        "issued": "2026-11-01",
+        "due": "2026-11-12",
+        "amountCents": 20000,
+        "paidCents": 0
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "C1",
+      "text": "Wedding photography and portrait camera studio",
+      "issued": "2026-07-01",
+      "due": "2026-08-31",
+      "amountCents": 90000,
+      "paidCents": 15000,
+      "item": "photo",
+      "proposed": "photo",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "photo",
+          "similarity": 0.7393224635841535
+        },
+        {
+          "item": "music",
+          "similarity": 0.1104089772059975
+        },
+        {
+          "item": "web",
+          "similarity": 0.0616605501869425
+        }
+      ],
+      "decision": "hold",
+      "note": "=1+1, \"review\"\nsecond line | <check>",
+      "daysLate": 73,
+      "balanceCents": 75000,
+      "bucket": "61–90",
+      "bucketIndex": 3
+    },
+    {
+      "id": "C2",
+      "text": "Ecommerce website builders for online stores",
+      "issued": "2026-09-01",
+      "due": "2026-09-30",
+      "amountCents": 60000,
+      "paidCents": 20000,
+      "item": "web",
+      "proposed": "web",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "web",
+          "similarity": 0.6372379887702301
+        },
+        {
+          "item": "photo",
+          "similarity": 0.09268482215310857
+        },
+        {
+          "item": "music",
+          "similarity": -0.021629527915623392
+        }
+      ],
+      "decision": "hold",
+      "note": "",
+      "daysLate": 43,
+      "balanceCents": 40000,
+      "bucket": "31–60",
+      "bucketIndex": 2
+    },
+    {
+      "id": "C3",
+      "text": "Piano and guitar lesson teachers",
+      "issued": "2026-11-01",
+      "due": "2026-11-12",
+      "amountCents": 20000,
+      "paidCents": 0,
+      "item": "music",
+      "proposed": "music",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "music",
+          "similarity": 0.6339670886489406
+        },
+        {
+          "item": "photo",
+          "similarity": 0.13911890840763758
+        },
+        {
+          "item": "web",
+          "similarity": 0.027326361273498467
+        }
+      ],
+      "decision": "hold",
+      "note": "",
+      "daysLate": 0,
+      "balanceCents": 20000,
+      "bucket": "Current",
+      "bucketIndex": 0
+    }
+  ],
+  "customers": [
+    {
+      "id": "music",
+      "title": "Birch Music School",
+      "description": "Music school teaching piano, guitar and instrumental music lessons",
+      "invoiceIds": [],
+      "heldIds": [
+        "C3"
+      ],
+      "buckets": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "balanceCents": 0,
+      "overdueCents": 0,
+      "oldestDays": 0
+    },
+    {
+      "id": "photo",
+      "title": "Amber Portrait Studio",
+      "description": "Professional photography studio taking portraits, wedding photographs and camera shoots",
+      "invoiceIds": [],
+      "heldIds": [
+        "C1"
+      ],
+      "buckets": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "balanceCents": 0,
+      "overdueCents": 0,
+      "oldestDays": 0
+    },
+    {
+      "id": "web",
+      "title": "Tide Website Design",
+      "description": "Web design agency building ecommerce websites, online shops and internet storefronts",
+      "invoiceIds": [],
+      "heldIds": [
+        "C2"
+      ],
+      "buckets": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "balanceCents": 0,
+      "overdueCents": 0,
+      "oldestDays": 0
+    }
+  ],
+  "metrics": {
+    "total": 3,
+    "approved": 0,
+    "held": 3,
+    "balanceCents": 0,
+    "overdueCents": 0,
+    "heldBalanceCents": 135000,
+    "allBalanceCents": 135000,
+    "exactResolved": 0,
+    "aiSuggested": 3
+  }
+}

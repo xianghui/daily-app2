@@ -541,3 +541,8 @@ Value Canopy public release, byte-matched runtime assets, both real-AI fixtures,
 Real local MiniLM reconciles rough stock notes before mandatory identity/quantity review and empirical lead-time demand buffers. Six tiny intended identities matched; exact-title matching resolved none. Computed historical-window coverage is compared with a mean-demand baseline, not a future service guarantee. Negation/unrelated text mislinked and needs holds; held/absent stock blocks its assigned product. 2,400 independent BigInt oracle cases, complete reviewed JSON/CSV/Markdown artifacts and fresh-worker offline inference passed. Offline scope is an already-open warmed page only. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261112-4/README.md) and [observed validation](20261112-4/VALIDATION.md).
 
 Buffer Estuary public release, byte-matched runtime assets, both real-AI fixtures, full public workflow suite and preserved 605-entry working-tree gallery passed on the first Pages deployment.
+
+
+## Aging Harbor — 20261112-5
+
+Real local MiniLM reconciles informal invoice recipients before mandatory customer/date/payment review and deterministic exact-cent receivables aging. Both tiny fixtures matched 7/7 customer links; negation and unrelated text mislinked, so legal identity still requires human verification. Held balances stay separate, every invoice survives JSON/CSV/Markdown, and fresh-worker offline inference works only in an already-open warmed page. Reuses immutable WASM from `20261107-2`; preserve that asset. See [workflow/privacy](20261112-5/README.md) and [observed validation](20261112-5/VALIDATION.md).

@@ -1,0 +1,204 @@
+{
+  "schema": "supplier-prism/v1",
+  "originalInput": {
+    "name": "Event venue",
+    "capPercent": 55,
+    "catalog": [
+      {
+        "id": "v0",
+        "title": "Catering group",
+        "description": "Food catering meals buffet and beverages for events"
+      },
+      {
+        "id": "v1",
+        "title": "Lighting group",
+        "description": "Stage lighting lamps spotlights and illumination rental"
+      },
+      {
+        "id": "v2",
+        "title": "Cleaning group",
+        "description": "Janitorial cleaning sanitation and waste removal"
+      }
+    ],
+    "records": [
+      {
+        "id": "L0",
+        "text": "Buffet meal service for evening guests",
+        "cents": 25000
+      },
+      {
+        "id": "L1",
+        "text": "Lunch catering and refreshments for delegates",
+        "cents": 35000
+      },
+      {
+        "id": "L2",
+        "text": "Stage spotlights and illumination hire",
+        "cents": 25000
+      },
+      {
+        "id": "L3",
+        "text": "Janitorial sanitation after the event",
+        "cents": 15000
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "L0",
+      "text": "Buffet meal service for evening guests",
+      "cents": 25000,
+      "item": "v0",
+      "proposed": "v0",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "v0",
+          "similarity": 0.7253090337551911
+        },
+        {
+          "item": "v1",
+          "similarity": 0.16629274702320526
+        },
+        {
+          "item": "v2",
+          "similarity": 0.16254579532242194
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "L1",
+      "text": "Lunch catering and refreshments for delegates",
+      "cents": 35000,
+      "item": "v0",
+      "proposed": "v0",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "v0",
+          "similarity": 0.6522813135946914
+        },
+        {
+          "item": "v1",
+          "similarity": 0.14806451039734583
+        },
+        {
+          "item": "v2",
+          "similarity": 0.14637469850840684
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "L2",
+      "text": "Stage spotlights and illumination hire",
+      "cents": 25000,
+      "item": "v1",
+      "proposed": "v1",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "v1",
+          "similarity": 0.7901484043238074
+        },
+        {
+          "item": "v2",
+          "similarity": 0.19121442667682204
+        },
+        {
+          "item": "v0",
+          "similarity": 0.12564856365728944
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "L3",
+      "text": "Janitorial sanitation after the event",
+      "cents": 15000,
+      "item": "v2",
+      "proposed": "v2",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "v2",
+          "similarity": 0.7061531459844042
+        },
+        {
+          "item": "v0",
+          "similarity": 0.15547460140741415
+        },
+        {
+          "item": "v1",
+          "similarity": 0.15428169807629216
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "groups": [
+    {
+      "id": "v0",
+      "title": "Catering group",
+      "description": "Food catering meals buffet and beverages for events",
+      "cents": 60000,
+      "lineIds": [
+        "L0",
+        "L1"
+      ],
+      "share": 0.6,
+      "overCap": true
+    },
+    {
+      "id": "v1",
+      "title": "Lighting group",
+      "description": "Stage lighting lamps spotlights and illumination rental",
+      "cents": 25000,
+      "lineIds": [
+        "L2"
+      ],
+      "share": 0.25,
+      "overCap": false
+    },
+    {
+      "id": "v2",
+      "title": "Cleaning group",
+      "description": "Janitorial cleaning sanitation and waste removal",
+      "cents": 15000,
+      "lineIds": [
+        "L3"
+      ],
+      "share": 0.15,
+      "overCap": false
+    }
+  ],
+  "fit": {
+    "totalCents": 100000,
+    "hhi": 0.445,
+    "effective": 2.247191011235955,
+    "largestShare": 0.6,
+    "squareSum": "4450000000"
+  },
+  "baseline": {
+    "totalCents": 100000,
+    "hhi": 0.27,
+    "effective": 3.7037037037037033,
+    "largestShare": 0.35,
+    "squareSum": "2700000000"
+  },
+  "metrics": {
+    "total": 4,
+    "approved": 4,
+    "held": 0,
+    "heldCents": 0,
+    "allCents": 100000,
+    "exactResolved": 0,
+    "rawNames": 4,
+    "activeSuppliers": 3
+  }
+}

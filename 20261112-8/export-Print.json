@@ -1,0 +1,204 @@
+{
+  "schema": "supplier-prism/v1",
+  "originalInput": {
+    "name": "Print studio",
+    "capPercent": 50,
+    "catalog": [
+      {
+        "id": "v0",
+        "title": "Paper supplier",
+        "description": "Wholesale paper cardstock and printing sheets"
+      },
+      {
+        "id": "v1",
+        "title": "Ink supplier",
+        "description": "Printing ink toner and pigments"
+      },
+      {
+        "id": "v2",
+        "title": "Courier supplier",
+        "description": "Parcel shipping delivery and courier services"
+      }
+    ],
+    "records": [
+      {
+        "id": "L0",
+        "text": "Bulk cardstock sheets for the print shop",
+        "cents": 40000
+      },
+      {
+        "id": "L1",
+        "text": "Wholesale paper sheets delivered in reams",
+        "cents": 30000
+      },
+      {
+        "id": "L2",
+        "text": "Printer toner cartridges and colored ink",
+        "cents": 20000
+      },
+      {
+        "id": "L3",
+        "text": "Parcel shipping and delivery service",
+        "cents": 10000
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "L0",
+      "text": "Bulk cardstock sheets for the print shop",
+      "cents": 40000,
+      "item": "v0",
+      "proposed": "v0",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "v0",
+          "similarity": 0.7429920249730269
+        },
+        {
+          "item": "v1",
+          "similarity": 0.38776757544574625
+        },
+        {
+          "item": "v2",
+          "similarity": 0.2734943324644258
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "L1",
+      "text": "Wholesale paper sheets delivered in reams",
+      "cents": 30000,
+      "item": "v0",
+      "proposed": "v0",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "v0",
+          "similarity": 0.6854859749328566
+        },
+        {
+          "item": "v2",
+          "similarity": 0.40711065617832715
+        },
+        {
+          "item": "v1",
+          "similarity": 0.3348258591590344
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "L2",
+      "text": "Printer toner cartridges and colored ink",
+      "cents": 20000,
+      "item": "v1",
+      "proposed": "v1",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "v1",
+          "similarity": 0.7564916576020875
+        },
+        {
+          "item": "v0",
+          "similarity": 0.25964133280353907
+        },
+        {
+          "item": "v2",
+          "similarity": 0.14171717550170532
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "L3",
+      "text": "Parcel shipping and delivery service",
+      "cents": 10000,
+      "item": "v2",
+      "proposed": "v2",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "v2",
+          "similarity": 0.7261931780171403
+        },
+        {
+          "item": "v0",
+          "similarity": 0.33768758564602575
+        },
+        {
+          "item": "v1",
+          "similarity": 0.20851452608748938
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "groups": [
+    {
+      "id": "v0",
+      "title": "Paper supplier",
+      "description": "Wholesale paper cardstock and printing sheets",
+      "cents": 70000,
+      "lineIds": [
+        "L0",
+        "L1"
+      ],
+      "share": 0.7,
+      "overCap": true
+    },
+    {
+      "id": "v1",
+      "title": "Ink supplier",
+      "description": "Printing ink toner and pigments",
+      "cents": 20000,
+      "lineIds": [
+        "L2"
+      ],
+      "share": 0.2,
+      "overCap": false
+    },
+    {
+      "id": "v2",
+      "title": "Courier supplier",
+      "description": "Parcel shipping delivery and courier services",
+      "cents": 10000,
+      "lineIds": [
+        "L3"
+      ],
+      "share": 0.1,
+      "overCap": false
+    }
+  ],
+  "fit": {
+    "totalCents": 100000,
+    "hhi": 0.54,
+    "effective": 1.8518518518518516,
+    "largestShare": 0.7,
+    "squareSum": "5400000000"
+  },
+  "baseline": {
+    "totalCents": 100000,
+    "hhi": 0.3,
+    "effective": 3.3333333333333335,
+    "largestShare": 0.4,
+    "squareSum": "3000000000"
+  },
+  "metrics": {
+    "total": 4,
+    "approved": 4,
+    "held": 0,
+    "heldCents": 0,
+    "allCents": 100000,
+    "exactResolved": 0,
+    "rawNames": 4,
+    "activeSuppliers": 3
+  }
+}

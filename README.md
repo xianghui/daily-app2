@@ -496,3 +496,10 @@ Local MiniLM catalog inference reconciles annual consumption notes before determ
 Real local MiniLM codebook inference reconciles two independent coders’ free-text annotations before mandatory review, complete-pair contingency counts and nominal Cohen kappa. Both tiny fixtures matched 16/16 intended codes and exposed their seeded disagreements; negation and unrelated text mislinked, so human approval/holds are essential. Complete JSON/CSV/Markdown preserves every annotation, missing partner and adjudication unit. 1,701 independent matrix/kappa oracle cases and fresh-worker offline inference in an already-open page passed. Reuses immutable shared WASM from `20261107-2`; preserve that asset. See [workflow/privacy](20261111-21/README.md) and [observed validation](20261111-21/VALIDATION.md).
 
 Concordance Bench public release, byte-matched runtime assets, both real-AI fixtures, full public workflow suite and preserved 598-entry gallery passed on the first Pages deployment.
+
+
+## Uptime Mosaic — 20261111-22
+
+Real local MiniLM reconciles rough equipment stoppage notes before mandatory identity/time review and deterministic overlap-safe downtime unions. Both tiny fixtures matched 12/12 intended links; naive sums double-counted 20 and 30 asset-minutes respectively. Negation/unrelated text mislinked, so holds and complete-log verification are essential. 2,400 independent minute-grid cases, complete JSON/CSV/Markdown artifacts and fresh-worker offline inference passed. Offline scope is an already-open warmed page only; logged availability is not proof of operation or a reliability forecast. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261111-22/README.md) and [observed validation](20261111-22/VALIDATION.md).
+
+Uptime Mosaic public release, byte-matched runtime assets, both real-AI fixtures, the full public workflow suite and preserved 599-entry gallery passed on the first Pages deployment.

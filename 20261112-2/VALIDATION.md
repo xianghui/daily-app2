@@ -21,3 +21,10 @@
 Combined-site and public checks are recorded below after deployment. Local passing checks alone do not prove a public release.
 
 Combined root predeploy passed: **603 built, 0 failed, 0 skipped**. Every gallery app index exists in `deploy/`; the new app files and gallery byte-match source builds. All original 602 gallery entries and order were preserved; one new AI Utilities entry appears first. Every inline script compiled with `new Function`. Combined served production bundle repeated the real-AI workflow suite and passed desktop/narrow gallery rendering with legacy categories intact. Deploy-only runtime deduplication assembled 936,675,030 bytes while leaving source builds unchanged.
+
+
+## Verified public release
+
+Root `npm run deploy` published combined `deploy/`. GitHub Pages run **43065031444** completed successfully for gh-pages commit `99f54986e107ed9ff3083e9eabbe0bab706f0eec`; Pages API reported `built` for that exact commit. Public app, bundled worker, WASM factory, shared binary and all other assets matched local SHA-256 hashes. Public gallery byte-matched source, with 603 entries and legacy categories preserved.
+
+The entire eleven-check production-browser workflow suite passed again at https://xianghui.github.io/daily-app2/20261112-2/ — both real-AI fixtures, 24-record batches, fresh-worker offline inference, review/undo/holds, clipboard/downloads, invalid inputs, cancellation/retry, baseline metrics and 1440/390/320 layouts. Downloaded public artifacts passed independent Python parsing again. No default content upload was observed. See `public-validation.json`, `public-browser-validation.json`, `public-gallery-validation.json` and `publication-status.json`.

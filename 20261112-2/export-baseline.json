@@ -1,0 +1,170 @@
+{
+  "schema": "severity-ledger/v1",
+  "originalInput": {
+    "name": "Packing workshop",
+    "slots": 2,
+    "severityGate": 8,
+    "catalog": [
+      {
+        "id": "guard",
+        "title": "Protective machine guard missing",
+        "description": "Missing protective safety guard, exposed moving machine parts, unshielded rotating equipment",
+        "severity": 9
+      },
+      {
+        "id": "label",
+        "title": "Shipping label printing defect",
+        "description": "Shipping address label printer streaks, faded ink, unreadable printed address labels",
+        "severity": 3
+      },
+      {
+        "id": "seal",
+        "title": "Carton tape seal opening",
+        "description": "Cardboard shipping carton sealing tape peeling off, open box seam, failed packaging tape adhesion",
+        "severity": 5
+      }
+    ],
+    "records": [
+      {
+        "id": "P1",
+        "text": "  PROTECTIVE MACHINE GUARD MISSING  ",
+        "occurrence": 1,
+        "detection": 2
+      },
+      {
+        "id": "P2",
+        "text": "Address stickers come out with faded ink and printer streaks.",
+        "occurrence": 8,
+        "detection": 7
+      },
+      {
+        "id": "P3",
+        "text": "The adhesive tape peels away and the cardboard box opens at the seam.",
+        "occurrence": 6,
+        "detection": 5
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "P1",
+      "text": "  PROTECTIVE MACHINE GUARD MISSING  ",
+      "occurrence": 1,
+      "detection": 2,
+      "item": "guard",
+      "proposed": "guard",
+      "severity": 9,
+      "exact": "guard",
+      "candidates": [
+        {
+          "item": "guard",
+          "similarity": 0.7361427119583376
+        },
+        {
+          "item": "seal",
+          "similarity": 0.18266403990792413
+        },
+        {
+          "item": "label",
+          "similarity": 0.10426400629412542
+        }
+      ],
+      "decision": "approve",
+      "owner": "",
+      "action": "",
+      "note": "",
+      "rpn": 18,
+      "escalated": true,
+      "selected": true,
+      "baselineSelected": false
+    },
+    {
+      "id": "P2",
+      "text": "Address stickers come out with faded ink and printer streaks.",
+      "occurrence": 8,
+      "detection": 7,
+      "item": "label",
+      "proposed": "label",
+      "severity": 3,
+      "exact": null,
+      "candidates": [
+        {
+          "item": "label",
+          "similarity": 0.7245314224890734
+        },
+        {
+          "item": "seal",
+          "similarity": 0.31889402927622157
+        },
+        {
+          "item": "guard",
+          "similarity": 0.12769146904005002
+        }
+      ],
+      "decision": "approve",
+      "owner": "",
+      "action": "",
+      "note": "",
+      "rpn": 168,
+      "escalated": false,
+      "selected": true,
+      "baselineSelected": true
+    },
+    {
+      "id": "P3",
+      "text": "The adhesive tape peels away and the cardboard box opens at the seam.",
+      "occurrence": 6,
+      "detection": 5,
+      "item": "seal",
+      "proposed": "seal",
+      "severity": 5,
+      "exact": null,
+      "candidates": [
+        {
+          "item": "seal",
+          "similarity": 0.6892503669095758
+        },
+        {
+          "item": "label",
+          "similarity": 0.3027000732854406
+        },
+        {
+          "item": "guard",
+          "similarity": 0.1312740134088504
+        }
+      ],
+      "decision": "approve",
+      "owner": "",
+      "action": "",
+      "note": "",
+      "rpn": 150,
+      "escalated": false,
+      "selected": false,
+      "baselineSelected": true
+    }
+  ],
+  "ranking": [
+    "P1",
+    "P2",
+    "P3"
+  ],
+  "selected": [
+    "P1",
+    "P2"
+  ],
+  "baseline": [
+    "P2",
+    "P3"
+  ],
+  "metrics": {
+    "total": 3,
+    "approved": 3,
+    "held": 0,
+    "high": 1,
+    "selectedHigh": 1,
+    "baselineHigh": 0,
+    "unselectedHigh": 0,
+    "exactResolved": 1,
+    "aiReviewAgreement": 3
+  }
+}

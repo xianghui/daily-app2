@@ -1,0 +1,170 @@
+{
+  "schema": "severity-ledger/v1",
+  "originalInput": {
+    "name": "Office continuity",
+    "slots": 2,
+    "severityGate": 8,
+    "catalog": [
+      {
+        "id": "backup",
+        "title": "Unrecoverable backup failure",
+        "description": "Backup restore fails, cannot recover archived business data, backup recovery unavailable",
+        "severity": 9
+      },
+      {
+        "id": "wifi",
+        "title": "Wireless network disconnects",
+        "description": "Office wireless internet connection drops, Wi-Fi disconnects, unreliable wireless network",
+        "severity": 4
+      },
+      {
+        "id": "paper",
+        "title": "Paper jam in copier",
+        "description": "Photocopier paper jam, printer sheet stuck in rollers, paper feed blockage",
+        "severity": 2
+      }
+    ],
+    "records": [
+      {
+        "id": "O1",
+        "text": "Archived files could not be recovered when we tried restoring the backup.",
+        "occurrence": 1,
+        "detection": 2
+      },
+      {
+        "id": "O2",
+        "text": "Wireless internet in the office keeps dropping the connection.",
+        "occurrence": 7,
+        "detection": 6
+      },
+      {
+        "id": "O3",
+        "text": "Sheets of paper get stuck in the photocopier feed rollers.",
+        "occurrence": 9,
+        "detection": 8
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "O1",
+      "text": "Archived files could not be recovered when we tried restoring the backup.",
+      "occurrence": 1,
+      "detection": 2,
+      "item": "backup",
+      "proposed": "backup",
+      "severity": 9,
+      "exact": null,
+      "candidates": [
+        {
+          "item": "backup",
+          "similarity": 0.7180416309175498
+        },
+        {
+          "item": "paper",
+          "similarity": 0.1734752479185564
+        },
+        {
+          "item": "wifi",
+          "similarity": 0.042535338790352706
+        }
+      ],
+      "decision": "approve",
+      "owner": "",
+      "action": "",
+      "note": "",
+      "rpn": 18,
+      "escalated": true,
+      "selected": true,
+      "baselineSelected": false
+    },
+    {
+      "id": "O2",
+      "text": "Wireless internet in the office keeps dropping the connection.",
+      "occurrence": 7,
+      "detection": 6,
+      "item": "wifi",
+      "proposed": "wifi",
+      "severity": 4,
+      "exact": null,
+      "candidates": [
+        {
+          "item": "wifi",
+          "similarity": 0.8291618029122209
+        },
+        {
+          "item": "paper",
+          "similarity": 0.14612501599263455
+        },
+        {
+          "item": "backup",
+          "similarity": 0.06737824588648561
+        }
+      ],
+      "decision": "approve",
+      "owner": "",
+      "action": "",
+      "note": "",
+      "rpn": 168,
+      "escalated": false,
+      "selected": true,
+      "baselineSelected": true
+    },
+    {
+      "id": "O3",
+      "text": "Sheets of paper get stuck in the photocopier feed rollers.",
+      "occurrence": 9,
+      "detection": 8,
+      "item": "paper",
+      "proposed": "paper",
+      "severity": 2,
+      "exact": null,
+      "candidates": [
+        {
+          "item": "paper",
+          "similarity": 0.8913649142692475
+        },
+        {
+          "item": "wifi",
+          "similarity": 0.1541836034704112
+        },
+        {
+          "item": "backup",
+          "similarity": 0.12124774507475689
+        }
+      ],
+      "decision": "approve",
+      "owner": "",
+      "action": "",
+      "note": "",
+      "rpn": 144,
+      "escalated": false,
+      "selected": false,
+      "baselineSelected": true
+    }
+  ],
+  "ranking": [
+    "O1",
+    "O2",
+    "O3"
+  ],
+  "selected": [
+    "O1",
+    "O2"
+  ],
+  "baseline": [
+    "O2",
+    "O3"
+  ],
+  "metrics": {
+    "total": 3,
+    "approved": 3,
+    "held": 0,
+    "high": 1,
+    "selectedHigh": 1,
+    "baselineHigh": 0,
+    "unselectedHigh": 0,
+    "exactResolved": 0,
+    "aiReviewAgreement": 3
+  }
+}

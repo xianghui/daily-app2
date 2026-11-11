@@ -522,3 +522,8 @@ Sieve Folio public release, byte-matched runtime assets, both real-AI fixtures, 
 ## Basket Signal — 20261112-1
 
 Real local MiniLM receipt reconciliation supports mandatory product/basket review and deterministic basket-association worksheets. All 22 tiny known-answer item links matched; transparent support/lift exposes repeated pairings beyond a popularity-only baseline. Negation/unrelated text mislinked, requiring holds; a held line excludes its whole basket. 1,800 independent arithmetic cases, complete JSON/audit and pair CSV/Markdown artifacts and fresh-worker offline inference passed. Offline scope is an already-open cached page only; associations are not sales or causal predictions. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow/privacy](20261112-1/README.md) and [observed checks](20261112-1/VALIDATION.md).
+
+
+## Severity Ledger — 20261112-2
+
+Real local MiniLM reconciles informal issue notes to supplied failure modes before mandatory rating/action review. A custom severity-first capacity rule exposes gate-reaching issues hidden by plain RPN ranking; complete JSON/CSV/Markdown preserves held and deferred notes. Six simple fixture identities matched, but negation/unrelated text mislinked. This is a workshop aid, not an industry action-priority standard or safety certification. Fresh-worker offline inference tested within an already-open warmed page only. Reuses immutable WASM from `20261107-2`; preserve that asset. See [workflow/privacy](20261112-2/README.md) and [observed validation](20261112-2/VALIDATION.md).

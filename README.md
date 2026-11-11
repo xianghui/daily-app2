@@ -489,3 +489,10 @@ Real local MiniLM reconciles rough contact streams with service queues, followed
 ## Lot Lantern — 20261111-20
 
 Local MiniLM catalog inference reconciles annual consumption notes before deterministic pack-constrained economic order-lot optimization. All records require approval or hold; exports preserve originals and reviews. Six simple known-answer matches succeeded, while an unrelated note was forced to a catalog item, so mandatory review remains essential. Reuses immutable WASM from `20261107-2`; preserve that asset. See [workflow](20261111-20/README.md) and [observed validation](20261111-20/VALIDATION.md).
+
+
+## Concordance Bench — 20261111-21
+
+Real local MiniLM codebook inference reconciles two independent coders’ free-text annotations before mandatory review, complete-pair contingency counts and nominal Cohen kappa. Both tiny fixtures matched 16/16 intended codes and exposed their seeded disagreements; negation and unrelated text mislinked, so human approval/holds are essential. Complete JSON/CSV/Markdown preserves every annotation, missing partner and adjudication unit. 1,701 independent matrix/kappa oracle cases and fresh-worker offline inference in an already-open page passed. Reuses immutable shared WASM from `20261107-2`; preserve that asset. See [workflow/privacy](20261111-21/README.md) and [observed validation](20261111-21/VALIDATION.md).
+
+Concordance Bench public release, byte-matched runtime assets, both real-AI fixtures, full public workflow suite and preserved 598-entry gallery passed on the first Pages deployment.

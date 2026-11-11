@@ -527,3 +527,10 @@ Real local MiniLM receipt reconciliation supports mandatory product/basket revie
 ## Severity Ledger — 20261112-2
 
 Real local MiniLM reconciles informal issue notes to supplied failure modes before mandatory rating/action review. A custom severity-first capacity rule exposes gate-reaching issues hidden by plain RPN ranking; complete JSON/CSV/Markdown preserves held and deferred notes. Six simple fixture identities matched, but negation/unrelated text mislinked. This is a workshop aid, not an industry action-priority standard or safety certification. Fresh-worker offline inference tested within an already-open warmed page only. Reuses immutable WASM from `20261107-2`; preserve that asset. See [workflow/privacy](20261112-2/README.md) and [observed validation](20261112-2/VALIDATION.md).
+
+
+## Value Canopy — 20261112-3
+
+Real local MiniLM product inference reconciles annual consumption notes before mandatory quantity/cost review and tie-aware ABC counting worksheets. Eight tiny intended identities matched, while negation/unrelated text mislinked and requires holds. Exact-cent totals/classes matched 2,400 independent BigInt oracle cases; complete JSON/audit and product CSV/Markdown preserves originals and held lines. Fresh-worker offline inference tested only inside an already-open warmed page. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261112-3/README.md) and [observed validation](20261112-3/VALIDATION.md).
+
+Value Canopy public release, byte-matched runtime assets, both real-AI fixtures, full public workflow suite and preserved 604-entry working-tree gallery passed on the first Pages deployment.

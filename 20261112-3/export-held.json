@@ -1,0 +1,205 @@
+{
+  "schema": "value-canopy/v1",
+  "originalInput": {
+    "name": "Studio supplies",
+    "aPercent": 70,
+    "bPercent": 90,
+    "catalog": [
+      {
+        "id": "ink",
+        "title": "Printer ink cartridge",
+        "description": "Ink cartridges for office inkjet printer, printing ink replacement"
+      },
+      {
+        "id": "paper",
+        "title": "Copy paper ream",
+        "description": "White office photocopier printing paper sheets in reams"
+      },
+      {
+        "id": "cable",
+        "title": "USB charging cable",
+        "description": "USB cable for charging phones and connecting devices"
+      }
+    ],
+    "records": [
+      {
+        "id": "S1",
+        "text": "Replacement inkjet printing cartridges",
+        "annualUnits": 20,
+        "unitCents": 2500
+      },
+      {
+        "id": "S2",
+        "text": "White photocopy paper sheet reams",
+        "annualUnits": 1000,
+        "unitCents": 500
+      },
+      {
+        "id": "S3",
+        "text": "USB phone charging cords",
+        "annualUnits": 50,
+        "unitCents": 1000
+      },
+      {
+        "id": "S4",
+        "text": "Reams of white sheets for office copying",
+        "annualUnits": 200,
+        "unitCents": 500
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "S1",
+      "text": "Replacement inkjet printing cartridges",
+      "annualUnits": 30,
+      "unitCents": 2600,
+      "item": "ink",
+      "proposed": "ink",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "ink",
+          "similarity": 0.9248948774533499
+        },
+        {
+          "item": "paper",
+          "similarity": 0.3377394311339092
+        },
+        {
+          "item": "cable",
+          "similarity": 0.19744213733939653
+        }
+      ],
+      "decision": "hold",
+      "note": "=1+1, \"review\"\nsecond line | <check>",
+      "annualCents": 78000
+    },
+    {
+      "id": "S2",
+      "text": "White photocopy paper sheet reams",
+      "annualUnits": 1000,
+      "unitCents": 500,
+      "item": "paper",
+      "proposed": "paper",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "paper",
+          "similarity": 0.8995422578691641
+        },
+        {
+          "item": "ink",
+          "similarity": 0.27367986961430013
+        },
+        {
+          "item": "cable",
+          "similarity": 0.02116402021134351
+        }
+      ],
+      "decision": "approve",
+      "note": "",
+      "annualCents": 500000
+    },
+    {
+      "id": "S3",
+      "text": "USB phone charging cords",
+      "annualUnits": 50,
+      "unitCents": 1000,
+      "item": "cable",
+      "proposed": "cable",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "cable",
+          "similarity": 0.8371604865423143
+        },
+        {
+          "item": "ink",
+          "similarity": 0.13680297884400244
+        },
+        {
+          "item": "paper",
+          "similarity": 0.03037432646031836
+        }
+      ],
+      "decision": "approve",
+      "note": "",
+      "annualCents": 50000
+    },
+    {
+      "id": "S4",
+      "text": "Reams of white sheets for office copying",
+      "annualUnits": 200,
+      "unitCents": 500,
+      "item": "paper",
+      "proposed": "paper",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "paper",
+          "similarity": 0.6965873363307046
+        },
+        {
+          "item": "ink",
+          "similarity": 0.2907295015950708
+        },
+        {
+          "item": "cable",
+          "similarity": 0.02547433482337395
+        }
+      ],
+      "decision": "approve",
+      "note": "",
+      "annualCents": 100000
+    }
+  ],
+  "products": [
+    {
+      "id": "paper",
+      "title": "Copy paper ream",
+      "description": "White office photocopier printing paper sheets in reams",
+      "lines": [
+        "S2",
+        "S4"
+      ],
+      "annualUnits": 1200,
+      "annualCents": 600000,
+      "peakUnitCents": 500,
+      "class": "A",
+      "countsPerYear": 12,
+      "cumulativeCents": 600000,
+      "cumulativePercent": 92.3076923076923
+    },
+    {
+      "id": "cable",
+      "title": "USB charging cable",
+      "description": "USB cable for charging phones and connecting devices",
+      "lines": [
+        "S3"
+      ],
+      "annualUnits": 50,
+      "annualCents": 50000,
+      "peakUnitCents": 1000,
+      "class": "C",
+      "countsPerYear": 1,
+      "cumulativeCents": 650000,
+      "cumulativePercent": 100
+    }
+  ],
+  "baseline": [
+    "cable"
+  ],
+  "metrics": {
+    "total": 4,
+    "approved": 3,
+    "held": 1,
+    "totalAnnualCents": 650000,
+    "aProducts": 1,
+    "aAnnualCents": 600000,
+    "baselineAnnualCents": 50000,
+    "countEvents": 13,
+    "monthlyBaselineEvents": 24,
+    "exactResolved": 0
+  }
+}

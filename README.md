@@ -503,3 +503,10 @@ Concordance Bench public release, byte-matched runtime assets, both real-AI fixt
 Real local MiniLM reconciles rough equipment stoppage notes before mandatory identity/time review and deterministic overlap-safe downtime unions. Both tiny fixtures matched 12/12 intended links; naive sums double-counted 20 and 30 asset-minutes respectively. Negation/unrelated text mislinked, so holds and complete-log verification are essential. 2,400 independent minute-grid cases, complete JSON/CSV/Markdown artifacts and fresh-worker offline inference passed. Offline scope is an already-open warmed page only; logged availability is not proof of operation or a reliability forecast. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261111-22/README.md) and [observed validation](20261111-22/VALIDATION.md).
 
 Uptime Mosaic public release, byte-matched runtime assets, both real-AI fixtures, the full public workflow suite and preserved 599-entry gallery passed on the first Pages deployment.
+
+
+## Mix Observatory — 20261111-23
+
+Real local MiniLM family inference reconciles inspection notes before mandatory count/period review and symmetric Kitagawa failure-rate decomposition. Two synthetic fixtures matched 12/12 labels and exposed opposing aggregate-versus-family reversals; negation/unrelated text mislinked and needs holds. 2,400 counterfactual-oracle cases, reviewed JSON/CSV/Markdown artifacts and fresh-worker offline inference passed. Offline scope is an already-open warmed page only. Descriptive rate/mix contributions are not causal or significance claims. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261111-23/README.md) and [observed validation](20261111-23/VALIDATION.md).
+
+Mix Observatory public release, byte-matched runtime assets, both real-AI fixtures, full public workflow suite and preserved 600-entry working-tree gallery passed on the first Pages deployment.

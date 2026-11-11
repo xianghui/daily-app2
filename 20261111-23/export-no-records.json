@@ -1,0 +1,219 @@
+{
+  "schema": "mix-observatory/v1",
+  "originalInput": {
+    "name": "Parcel damage audit",
+    "catalog": [
+      {
+        "id": "glass",
+        "title": "Glassware parcels",
+        "description": "Fragile glass cups, glass bottles, drinking glasses and glassware parcel deliveries"
+      },
+      {
+        "id": "textile",
+        "title": "Textile parcels",
+        "description": "Fabric clothing, cotton shirts, cloth garments and textile parcel deliveries"
+      }
+    ],
+    "periods": [
+      "Before",
+      "After"
+    ],
+    "records": [
+      {
+        "id": "D1",
+        "text": "Fragile drinking glasses shipped in boxes.",
+        "period": "Before",
+        "inspected": 700,
+        "failed": 140
+      },
+      {
+        "id": "D2",
+        "text": "Glass bottles packed for delivery.",
+        "period": "Before",
+        "inspected": 100,
+        "failed": 20
+      },
+      {
+        "id": "D3",
+        "text": "Cotton shirts and fabric clothing shipped.",
+        "period": "Before",
+        "inspected": 200,
+        "failed": 10
+      },
+      {
+        "id": "D4",
+        "text": "Glass cups and bottles delivered.",
+        "period": "After",
+        "inspected": 200,
+        "failed": 50
+      },
+      {
+        "id": "D5",
+        "text": "Cotton shirts delivered in mailers.",
+        "period": "After",
+        "inspected": 500,
+        "failed": 50
+      },
+      {
+        "id": "D6",
+        "text": "Fabric garments shipped to customers.",
+        "period": "After",
+        "inspected": 300,
+        "failed": 30
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "D1",
+      "text": "Fragile drinking glasses shipped in boxes.",
+      "period": "Before",
+      "inspected": 700,
+      "failed": 130,
+      "item": "glass",
+      "proposed": "glass",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "glass",
+          "similarity": 0.8541750177012623
+        },
+        {
+          "item": "textile",
+          "similarity": 0.343191976093841
+        }
+      ],
+      "decision": "hold",
+      "note": "=1+1, \"review\"\nsecond line"
+    },
+    {
+      "id": "D2",
+      "text": "Glass bottles packed for delivery.",
+      "period": "Before",
+      "inspected": 100,
+      "failed": 20,
+      "item": "glass",
+      "proposed": "glass",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "glass",
+          "similarity": 0.7184704374653975
+        },
+        {
+          "item": "textile",
+          "similarity": 0.36638777677027734
+        }
+      ],
+      "decision": "hold",
+      "note": ""
+    },
+    {
+      "id": "D3",
+      "text": "Cotton shirts and fabric clothing shipped.",
+      "period": "Before",
+      "inspected": 200,
+      "failed": 10,
+      "item": "textile",
+      "proposed": "textile",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "textile",
+          "similarity": 0.8450150830861397
+        },
+        {
+          "item": "glass",
+          "similarity": 0.40005478597016975
+        }
+      ],
+      "decision": "hold",
+      "note": ""
+    },
+    {
+      "id": "D4",
+      "text": "Glass cups and bottles delivered.",
+      "period": "After",
+      "inspected": 200,
+      "failed": 50,
+      "item": "glass",
+      "proposed": "glass",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "glass",
+          "similarity": 0.7583300076047002
+        },
+        {
+          "item": "textile",
+          "similarity": 0.32562867580453
+        }
+      ],
+      "decision": "hold",
+      "note": ""
+    },
+    {
+      "id": "D5",
+      "text": "Cotton shirts delivered in mailers.",
+      "period": "After",
+      "inspected": 500,
+      "failed": 50,
+      "item": "textile",
+      "proposed": "textile",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "textile",
+          "similarity": 0.7519728771279072
+        },
+        {
+          "item": "glass",
+          "similarity": 0.36205133653474153
+        }
+      ],
+      "decision": "hold",
+      "note": ""
+    },
+    {
+      "id": "D6",
+      "text": "Fabric garments shipped to customers.",
+      "period": "After",
+      "inspected": 300,
+      "failed": 30,
+      "item": "textile",
+      "proposed": "textile",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "textile",
+          "similarity": 0.7974361355815789
+        },
+        {
+          "item": "glass",
+          "similarity": 0.3875739992491143
+        }
+      ],
+      "decision": "hold",
+      "note": ""
+    }
+  ],
+  "comparison": null,
+  "blockers": {
+    "held": 6,
+    "missing": [
+      "Glassware parcels / Before",
+      "Glassware parcels / After",
+      "Textile parcels / Before",
+      "Textile parcels / After"
+    ]
+  },
+  "metrics": {
+    "records": 6,
+    "approved": 0,
+    "held": 6,
+    "inspected": 0,
+    "failed": 0,
+    "exactResolved": 0,
+    "aiReviewAgreement": 0
+  }
+}

@@ -1,0 +1,291 @@
+{
+  "schema": "mix-observatory/v1",
+  "originalInput": {
+    "name": "Repair inspections",
+    "catalog": [
+      {
+        "id": "routine",
+        "title": "Routine bicycle servicing",
+        "description": "Routine bicycle service: tyre inflation, chain lubrication and simple brake adjustment"
+      },
+      {
+        "id": "overhaul",
+        "title": "Bicycle gearbox overhaul",
+        "description": "Complex bicycle gearbox rebuild, transmission overhaul and internal gear replacement"
+      }
+    ],
+    "periods": [
+      "Before",
+      "After"
+    ],
+    "records": [
+      {
+        "id": "R1",
+        "text": "Tyres inflated and chains oiled on the quick service bench.",
+        "period": "Before",
+        "inspected": 600,
+        "failed": 48
+      },
+      {
+        "id": "R2",
+        "text": "Basic brake adjustment and bicycle lubrication.",
+        "period": "Before",
+        "inspected": 400,
+        "failed": 32
+      },
+      {
+        "id": "R3",
+        "text": "Internal gear transmissions rebuilt.",
+        "period": "Before",
+        "inspected": 300,
+        "failed": 180
+      },
+      {
+        "id": "R4",
+        "text": "Quick tyre and chain bicycle services.",
+        "period": "After",
+        "inspected": 100,
+        "failed": 4
+      },
+      {
+        "id": "R5",
+        "text": "Complex gearbox rebuilds and gear replacement.",
+        "period": "After",
+        "inspected": 500,
+        "failed": 250
+      },
+      {
+        "id": "R6",
+        "text": "Internal bicycle transmission overhauls.",
+        "period": "After",
+        "inspected": 400,
+        "failed": 200
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "R1",
+      "text": "Tyres inflated and chains oiled on the quick service bench.",
+      "period": "Before",
+      "inspected": 600,
+      "failed": 48,
+      "item": "routine",
+      "proposed": "routine",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "routine",
+          "similarity": 0.48203019075513437
+        },
+        {
+          "item": "overhaul",
+          "similarity": 0.12230071968077266
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "R2",
+      "text": "Basic brake adjustment and bicycle lubrication.",
+      "period": "Before",
+      "inspected": 400,
+      "failed": 32,
+      "item": "routine",
+      "proposed": "routine",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "routine",
+          "similarity": 0.6781935953007793
+        },
+        {
+          "item": "overhaul",
+          "similarity": 0.2539584514141254
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "R3",
+      "text": "Internal gear transmissions rebuilt.",
+      "period": "Before",
+      "inspected": 300,
+      "failed": 180,
+      "item": "overhaul",
+      "proposed": "overhaul",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "overhaul",
+          "similarity": 0.7790541751081702
+        },
+        {
+          "item": "routine",
+          "similarity": 0.27195182435500553
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "R4",
+      "text": "Quick tyre and chain bicycle services.",
+      "period": "After",
+      "inspected": 100,
+      "failed": 4,
+      "item": "routine",
+      "proposed": "routine",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "routine",
+          "similarity": 0.6764793821454097
+        },
+        {
+          "item": "overhaul",
+          "similarity": 0.29395843990549886
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "R5",
+      "text": "Complex gearbox rebuilds and gear replacement.",
+      "period": "After",
+      "inspected": 500,
+      "failed": 250,
+      "item": "overhaul",
+      "proposed": "overhaul",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "overhaul",
+          "similarity": 0.8666409174655272
+        },
+        {
+          "item": "routine",
+          "similarity": 0.2856774653148867
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "R6",
+      "text": "Internal bicycle transmission overhauls.",
+      "period": "After",
+      "inspected": 400,
+      "failed": 200,
+      "item": "overhaul",
+      "proposed": "overhaul",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "overhaul",
+          "similarity": 0.7984879202372412
+        },
+        {
+          "item": "routine",
+          "similarity": 0.4369615066614903
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "comparison": {
+    "totals": [
+      1300,
+      1000
+    ],
+    "rates": [
+      0.2,
+      0.454
+    ],
+    "delta": 0.254,
+    "within": -0.07392307692307691,
+    "mix": 0.327923076923077,
+    "residual": -5.551115123125783e-17,
+    "families": [
+      {
+        "counts": [
+          {
+            "inspected": 1000,
+            "failed": 80,
+            "ids": [
+              "R1",
+              "R2"
+            ]
+          },
+          {
+            "inspected": 100,
+            "failed": 4,
+            "ids": [
+              "R4"
+            ]
+          }
+        ],
+        "rates": [
+          0.08,
+          0.04
+        ],
+        "weights": [
+          0.7692307692307693,
+          0.1
+        ],
+        "within": -0.017384615384615384,
+        "mix": -0.04015384615384616,
+        "id": "routine",
+        "title": "Routine bicycle servicing"
+      },
+      {
+        "counts": [
+          {
+            "inspected": 300,
+            "failed": 180,
+            "ids": [
+              "R3"
+            ]
+          },
+          {
+            "inspected": 900,
+            "failed": 450,
+            "ids": [
+              "R5",
+              "R6"
+            ]
+          }
+        ],
+        "rates": [
+          0.6,
+          0.5
+        ],
+        "weights": [
+          0.23076923076923078,
+          0.9
+        ],
+        "within": -0.056538461538461524,
+        "mix": 0.36807692307692313,
+        "id": "overhaul",
+        "title": "Bicycle gearbox overhaul"
+      }
+    ]
+  },
+  "blockers": {
+    "held": 0,
+    "missing": []
+  },
+  "metrics": {
+    "records": 6,
+    "approved": 6,
+    "held": 0,
+    "inspected": 2300,
+    "failed": 714,
+    "exactResolved": 0,
+    "aiReviewAgreement": 6
+  }
+}

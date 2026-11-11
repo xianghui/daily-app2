@@ -1,0 +1,28 @@
+# Observed validation — 2026-11-11
+
+## Production-bundle local browser
+
+- `npm run predeploy` passes. Real desktop Chrome opened the built Vite bundle with production base, bundled worker/factory and shared same-origin WASM; no Vite development inference shortcut.
+- **Climate probes:** 12/12 expected identities (`room` six, `freezer` six). Room fit slope 1/intercept 1; freezer slope 1.1/intercept 4. Raw held-out MAE 1 C / 2 C; corrected MAE within floating point of 0. New readings 22→23 C and −22→−20.2 C.
+- **Workshop balances:** 12/12 expected identities (`jewelry` six, `parcel` six). Slope 1 for both; offsets 0.2 g and 5 g. Raw held-out MAE 0.2 g / 5 g; corrected MAE within floating point of 0. New readings 6→6.2 g and 350→355 g.
+- Each fixture has two distinct same-unit instruments, so unit matching alone cannot solve identity. Source descriptions are paraphrased without full instrument titles. Full-title literal baseline coverage 0/12 for both. This is lexical coverage, not an accuracy denominator. These clean synthetic linear examples are deliberately easy; no general accuracy claim.
+- All four instruments / 24 records processed with real four-text chunks; all 24 originals retained, four use readings released, export→import originals→real inference→renewed review preserved models exactly.
+- Adversarial unrelated text still received a nearest instrument (false relevance); it was held, no release. A negated room-vs-freezer note matched freezer in this run. This is not robust out-of-domain detection or general negation competence.
+- Browser network audit began at page startup. No model-host requests before explicit load. All captured requests were GET without bodies, with no synthetic content in request URLs. Only same-origin static/model-download/CDN/blob requests observed. Built text asset secret-pattern scan separately recorded; no external inference integration is implemented.
+- After a successful online run, terminated worker, fully disabled browser network and performed another real inference using a fresh worker. Passed. Claim is restricted to already-open page inference, not offline reload/navigation.
+
+## Defensive and artifact checks
+
+- Empty, malformed, null, oversized and wrong-schema inputs; unsupported formats; duplicate IDs, bad roles/reference fields and nonnumeric/bounded values are rejected.
+- Missing WebAssembly, worker construction/error, unavailable worker download, model network failure, malformed vectors and accelerated timeout show actionable errors and no fake result. Real model-network retry succeeded.
+- Cancel/retry and input change during loading retain no stale recommendations. Fault-injected late response from a deliberately nonterminating worker cannot overwrite newer results. Delayed file read and worker-download cancellation also tested. Fault injection is not counted as AI validation.
+- Edit/review/hold, undo, blank numeric rejection, role transitions, tolerance changes and export snapshot invalidation exercised. Held readings block their instrument, original records remain exported. Out-of-range use readings cannot be corrected. A deliberately bad check reference leaves fit coefficients unchanged and blocks release.
+- Pure core checks cover minimum distinct fit/check readings, near-flat fit variance, negative slope, out-of-range checks, unit mismatch and vector schema. Corrected outputs conserve all input rows and derive only from reviewed in-range data.
+- Actual browser-downloaded JSON/CSV/Markdown independently parsed with Python. All rows, original/reviewed values, instrument edits and quoted multiline notes survive. Formula-like string cells are escaped; signed numeric measurements remain numeric. Clipboard text equals downloaded Markdown. JSON reimport renews approvals.
+- Desktop 1440 px and narrow 390 / 320 px checked for no horizontal overflow; forms have associated labels, focus and ≥44 px control heights. Screenshot inspected. This is viewport emulation, not physical-phone performance or a comprehensive accessibility audit.
+
+## Publication
+
+Combined-site predeploy assembled 586 apps, zero failed/skipped, 921,905,483 deployed bytes after existing runtime deduplication. All own files matched the assembled bundle byte-for-byte; shared WASM SHA-256 matched. Every inline gallery script compiled with Node new Function; all 585 prior gallery entries and order preserved, new entry exactly once under AI Utilities. The assembled bundle passed the full real-model workflow suite and gallery desktop/320 px checks. Root deploy reported Published. GitHub Pages run **42929060229** completed successfully for gh-pages commit `1b76b1b66a7a6b792899eaf8d48ba68900ee1c2e`; latest Pages build reported `built` for that same commit.
+
+Public https://xianghui.github.io/daily-app2/20261111-9/ returned HTTP 200. Every own app/runtime/worker asset and shared WASM matched local SHA-256, and public gallery was byte-identical to the current full source gallery. The **entire public browser suite** passed: both known-answer real-model fixtures, maximum-size batching, held-out guard checks, review/undo/holds, actual exports/reimport/clipboard, fresh-worker fully offline inference in the already-open public page, cancellation/stale protection, bad inputs and desktop/narrow layouts. Public gallery retained all older entries/categories and placed Calibration Bench first under AI Utilities. See `public-validation.json`, `public-browser-validation.json`, `public-gallery-validation.json`. Other browsers, physical phones, offline navigation/reload and real instrument field validation remain untested.

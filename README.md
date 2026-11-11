@@ -422,3 +422,7 @@ Real local MiniLM stratum inference assists operations auditors before complete-
 Real local MiniLM defect-family inference helps rework coordinators reconcile rough batch notes before mandatory count/loss review and tie-aware Pareto investigation priorities. Furniture matched 5/6 tiny known-answer links; print matched 6/6. One arrival-related lacquer defect was misclassified as packaging and explicitly corrected in review. Reviewed coverage is descriptive, not cause or predicted savings. 2,100 independent descending/tie-closed prefix oracle cases, real maximum batching, downloaded JSON/CSV/Markdown, offline fresh-worker and defensive production-browser checks passed. Offline scope is an already-open warmed page, not reload. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261111-8/README.md), [observed validation](20261111-8/VALIDATION.md) and [publication status](20261111-8/publication-status.json).
 
 Yield Ledger public release, byte-matched assets, both real-AI fixtures, the complete public workflow suite and the preserved 585-entry gallery were verified on the first Pages deployment.
+
+## Calibration Bench — 20261111-9
+
+Local MiniLM instrument identity inference supports reviewed linear calibration worksheets. Separate fit/check rows, unit/tolerance/range guards and complete JSON/CSV/Markdown audits; never equipment control. Reuses the immutable shared WASM from `20261107-2`. See [workflow](20261111-9/README.md) and [observed validation](20261111-9/VALIDATION.md).

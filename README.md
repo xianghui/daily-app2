@@ -441,3 +441,8 @@ Real local MiniLM mode retrieval helps reconcile informal travel diaries with su
 ## Asset Calendar — 20261111-12
 
 Real local MiniLM links asset notes to user-supplied useful-life policies, followed by mandatory review/holds and exact-cent full-month straight-line schedules. Two simple fixtures matched 8/8 links, but negation misclassified; similarity is not accounting equivalence. All 2,400 generated arithmetic cases matched a BigInt oracle. Complete JSON, all-asset CSV, monthly Schedule CSV and Markdown preserve the audit. Offline fresh-worker inference tested only inside an already-open page. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261111-12/README.md), [validation](20261111-12/VALIDATION.md) and public verification reports.
+
+
+## Watt Folio — 20261111-13
+
+Real local MiniLM reconciles appliance notes to supplied power profiles. Mandatory review/holds feed exact integer watt-minute energy scenarios, tariff estimates and reduction-target checks; complete JSON/CSV/Markdown retains every original. Eight simple fixture links matched, but a negated lamp description misclassified as computer, so this is not measured power or safety advice. Fresh-worker offline inference is tested only inside an already-open cached page. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow/privacy](20261111-13/README.md) and [observed validation](20261111-13/VALIDATION.md).

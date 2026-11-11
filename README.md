@@ -426,3 +426,8 @@ Yield Ledger public release, byte-matched assets, both real-AI fixtures, the com
 ## Calibration Bench — 20261111-9
 
 Local MiniLM instrument identity inference supports reviewed linear calibration worksheets. Separate fit/check rows, unit/tolerance/range guards and complete JSON/CSV/Markdown audits; never equipment control. Reuses the immutable shared WASM from `20261107-2`. See [workflow](20261111-9/README.md) and [observed validation](20261111-9/VALIDATION.md).
+
+
+## Flow Balance — 20261111-10
+
+Real local MiniLM reconciles informal visit notes to service stations; mandatory review feeds exact occupancy sweeps and budgeted waiting-seat allocation. Both synthetic workflows matched 16/16 intended identities. Community excess occupancy was 40 person-minutes with two optimized extras versus 45 for the same-budget first-station baseline; repair fixture tied its baseline at 20. Historical replay only, not queue-time or staffing predictions. Complete JSON/CSV/Markdown, fresh-worker offline inference in an already-open page and defensive checks are documented in [workflow/privacy](20261111-10/README.md) and [observed validation](20261111-10/VALIDATION.md). Reuses immutable shared WASM from `20261107-2`; preserve that asset.

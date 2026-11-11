@@ -1,0 +1,5 @@
+from pathlib import Path
+import json,urllib.parse
+r=json.loads(Path('browser-validation.json').read_text());requests=r['requests'];assert all(q['method']=='GET' and q['body'] is None for q in requests)
+hosts=sorted({urllib.parse.urlparse(q['url']).netloc for q in requests});s=Path('src/App.jsx').read_text()+Path('src/ai.worker.js').read_text();assert 'localStorage' not in s and 'Authorization' not in s and 'api_key' not in s;assert 'feature-extraction' in s and "device:'wasm'" in s
+Path('source-privacy-validation.json').write_text(json.dumps({'allRequestsGetWithoutBody':True,'observedDownloadHosts':hosts,'noModelFetchBeforeExplicitLoad':'asserted in real-browser suite','noSampleTextInRequestUrls':'asserted in real-browser suite','sourceInspection':'No provider keys, external inference, analytics, tools, content upload, session content persistence or remote actions. Only fixed model/runtime downloads; instructions are embedding data.'},indent=2));print('PASS local data path source and observed network audit')

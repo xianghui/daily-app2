@@ -510,3 +510,10 @@ Uptime Mosaic public release, byte-matched runtime assets, both real-AI fixtures
 Real local MiniLM family inference reconciles inspection notes before mandatory count/period review and symmetric Kitagawa failure-rate decomposition. Two synthetic fixtures matched 12/12 labels and exposed opposing aggregate-versus-family reversals; negation/unrelated text mislinked and needs holds. 2,400 counterfactual-oracle cases, reviewed JSON/CSV/Markdown artifacts and fresh-worker offline inference passed. Offline scope is an already-open warmed page only. Descriptive rate/mix contributions are not causal or significance claims. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261111-23/README.md) and [observed validation](20261111-23/VALIDATION.md).
 
 Mix Observatory public release, byte-matched runtime assets, both real-AI fixtures, full public workflow suite and preserved 600-entry working-tree gallery passed on the first Pages deployment.
+
+
+## Sieve Folio — 20261111-24
+
+Real local MiniLM material inference reconciles sieve-analysis sample notes before mandatory specification/mass review and exact cumulative-passing checks. Eight tiny fixture links matched; each workflow exposed one envelope failure missed by mass-only recovery. A negated description mislinked, so approval/holds remain essential. 2,400 independent arithmetic cases, complete JSON/CSV/Markdown artifacts and fresh-worker offline inference passed. Offline scope is an already-open warmed page only; synthetic envelopes are not standards or certification. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261111-24/README.md) and [observed validation](20261111-24/VALIDATION.md).
+
+Sieve Folio public release, byte-matched runtime assets, both real-AI fixtures, full public workflow suite and preserved 601-entry working-tree gallery passed on the first Pages deployment.

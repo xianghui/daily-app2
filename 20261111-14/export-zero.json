@@ -1,0 +1,213 @@
+{
+  "schema": "horizon-folio/v1",
+  "originalInput": {
+    "name": "Library equipment",
+    "budget": 150000,
+    "rate": 1000,
+    "policies": [
+      {
+        "id": "printer",
+        "title": "Printing machine",
+        "description": "New document printer for printing pages and photocopying reduces outsourced print costs.",
+        "outlay": 90000
+      },
+      {
+        "id": "lighting",
+        "title": "LED lighting",
+        "description": "LED light bulbs illuminate rooms with lower electric lighting power consumption.",
+        "outlay": 60000
+      }
+    ],
+    "records": [
+      {
+        "id": "L1",
+        "text": "Document printing and photocopying savings",
+        "year": 1,
+        "cents": 60000
+      },
+      {
+        "id": "L2",
+        "text": "Outsourced printed page costs avoided with new printer",
+        "year": 2,
+        "cents": 60000
+      },
+      {
+        "id": "L3",
+        "text": "LED light bulb electricity savings",
+        "year": 1,
+        "cents": 40000
+      },
+      {
+        "id": "L4",
+        "text": "Room illumination electricity reduction with LED lamps",
+        "year": 2,
+        "cents": 40000
+      }
+    ]
+  },
+  "settings": {
+    "budget": 0,
+    "rate": 1000,
+    "projects": [
+      {
+        "id": "printer",
+        "outlay": 90000
+      },
+      {
+        "id": "lighting",
+        "outlay": 60000
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "L1",
+      "text": "Document printing and photocopying savings",
+      "year": 1,
+      "cents": -5100,
+      "policy": "printer",
+      "proposed": "printer",
+      "decision": "approve",
+      "note": "=1+1, \"review\"\nnext line",
+      "candidates": [
+        {
+          "policy": "printer",
+          "similarity": 0.7158635911583549
+        },
+        {
+          "policy": "lighting",
+          "similarity": 0.10882478822503543
+        }
+      ],
+      "original": {
+        "id": "L1",
+        "text": "Document printing and photocopying savings",
+        "year": 1,
+        "cents": 60000
+      },
+      "presentValueCents": -4636.363636363636
+    },
+    {
+      "id": "L2",
+      "text": "Outsourced printed page costs avoided with new printer",
+      "year": 2,
+      "cents": 60000,
+      "policy": "printer",
+      "proposed": "printer",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "policy": "printer",
+          "similarity": 0.8076452298702119
+        },
+        {
+          "policy": "lighting",
+          "similarity": 0.017694159116178262
+        }
+      ],
+      "original": {
+        "id": "L2",
+        "text": "Outsourced printed page costs avoided with new printer",
+        "year": 2,
+        "cents": 60000
+      },
+      "presentValueCents": 49586.77685950413
+    },
+    {
+      "id": "L3",
+      "text": "LED light bulb electricity savings",
+      "year": 1,
+      "cents": 40000,
+      "policy": "lighting",
+      "proposed": "lighting",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "policy": "lighting",
+          "similarity": 0.6490258916932442
+        },
+        {
+          "policy": "printer",
+          "similarity": 0.11914429960583894
+        }
+      ],
+      "original": {
+        "id": "L3",
+        "text": "LED light bulb electricity savings",
+        "year": 1,
+        "cents": 40000
+      },
+      "presentValueCents": 36363.63636363636
+    },
+    {
+      "id": "L4",
+      "text": "Room illumination electricity reduction with LED lamps",
+      "year": 2,
+      "cents": 40000,
+      "policy": "lighting",
+      "proposed": "lighting",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "policy": "lighting",
+          "similarity": 0.7278296853342671
+        },
+        {
+          "policy": "printer",
+          "similarity": 0.12682580905471633
+        }
+      ],
+      "original": {
+        "id": "L4",
+        "text": "Room illumination electricity reduction with LED lamps",
+        "year": 2,
+        "cents": 40000
+      },
+      "presentValueCents": 33057.85123966941
+    }
+  ],
+  "projects": [
+    {
+      "id": "printer",
+      "outlay": 90000,
+      "title": "Printing machine",
+      "eligible": true,
+      "flows": [
+        "L1",
+        "L2"
+      ],
+      "nominalNetCents": -35100,
+      "presentValueCents": 44950.413223140495,
+      "npvCents": -45049.586776859505
+    },
+    {
+      "id": "lighting",
+      "outlay": 60000,
+      "title": "LED lighting",
+      "eligible": true,
+      "flows": [
+        "L3",
+        "L4"
+      ],
+      "nominalNetCents": 20000,
+      "presentValueCents": 69421.48760330578,
+      "npvCents": 9421.48760330578
+    }
+  ],
+  "selection": [],
+  "baseline": [],
+  "metrics": {
+    "approved": 4,
+    "held": 0,
+    "eligible": 2,
+    "outlayCents": 0,
+    "unspentCents": 0,
+    "npvCents": 0,
+    "baselineNpvCents": 0,
+    "aiReviewAgreement": 4,
+    "firstProfileAgreement": 2
+  }
+}

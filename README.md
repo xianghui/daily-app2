@@ -446,3 +446,10 @@ Real local MiniLM links asset notes to user-supplied useful-life policies, follo
 ## Watt Folio — 20261111-13
 
 Real local MiniLM reconciles appliance notes to supplied power profiles. Mandatory review/holds feed exact integer watt-minute energy scenarios, tariff estimates and reduction-target checks; complete JSON/CSV/Markdown retains every original. Eight simple fixture links matched, but a negated lamp description misclassified as computer, so this is not measured power or safety advice. Fresh-worker offline inference is tested only inside an already-open cached page. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow/privacy](20261111-13/README.md) and [observed validation](20261111-13/VALIDATION.md).
+
+
+## Horizon Folio — 20261111-14
+
+Real local MiniLM reconciles rough cash-flow notes to independent capital projects. Mandatory amount/year review, held-project blocking and exhaustive discounted subset selection compare portfolios within an initial budget. Eight tiny fixture links matched; negation/unrelated text mislinked and needs holds. 1,800 arithmetic/oracle cases, production-browser workflows, artifacts and already-open-page offline fresh-worker inference passed. No AI forecasts or financial execution. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261111-14/README.md), [observed validation](20261111-14/VALIDATION.md) and publication status.
+
+Horizon Folio public release, byte-matched runtime assets, full public real-AI/browser suite and preserved 591-entry gallery passed on the first deployment.

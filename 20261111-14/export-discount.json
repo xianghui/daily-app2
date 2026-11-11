@@ -1,0 +1,149 @@
+{
+  "schema": "horizon-folio/v1",
+  "originalInput": {
+    "name": "Workshop upgrades",
+    "budget": 10000,
+    "rate": 1000,
+    "policies": [
+      {
+        "id": "solar",
+        "title": "Solar panels",
+        "description": "Rooftop photovoltaic solar panels generate electricity and reduce grid electricity bills.",
+        "outlay": 10000
+      },
+      {
+        "id": "insulation",
+        "title": "Roof insulation",
+        "description": "Roof insulation thermal building fabric reduces winter heating energy loss.",
+        "outlay": 10000
+      }
+    ],
+    "records": [
+      {
+        "id": "W1",
+        "text": "Rooftop photovoltaic electricity generation savings",
+        "year": 10,
+        "cents": 30000
+      },
+      {
+        "id": "W3",
+        "text": "Roof thermal insulation winter heating savings",
+        "year": 1,
+        "cents": 20000
+      }
+    ]
+  },
+  "settings": {
+    "budget": 10000,
+    "rate": 1000,
+    "projects": [
+      {
+        "id": "solar",
+        "outlay": 10000
+      },
+      {
+        "id": "insulation",
+        "outlay": 10000
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "W1",
+      "text": "Rooftop photovoltaic electricity generation savings",
+      "year": 10,
+      "cents": 30000,
+      "policy": "solar",
+      "proposed": "solar",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "policy": "solar",
+          "similarity": 0.7190747628038895
+        },
+        {
+          "policy": "insulation",
+          "similarity": 0.37334829482435594
+        }
+      ],
+      "original": {
+        "id": "W1",
+        "text": "Rooftop photovoltaic electricity generation savings",
+        "year": 10,
+        "cents": 30000
+      },
+      "presentValueCents": 11566.298682885943
+    },
+    {
+      "id": "W3",
+      "text": "Roof thermal insulation winter heating savings",
+      "year": 1,
+      "cents": 20000,
+      "policy": "insulation",
+      "proposed": "insulation",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "policy": "insulation",
+          "similarity": 0.7911648425849922
+        },
+        {
+          "policy": "solar",
+          "similarity": 0.3202376000660563
+        }
+      ],
+      "original": {
+        "id": "W3",
+        "text": "Roof thermal insulation winter heating savings",
+        "year": 1,
+        "cents": 20000
+      },
+      "presentValueCents": 18181.81818181818
+    }
+  ],
+  "projects": [
+    {
+      "id": "solar",
+      "outlay": 10000,
+      "title": "Solar panels",
+      "eligible": true,
+      "flows": [
+        "W1"
+      ],
+      "nominalNetCents": 20000,
+      "presentValueCents": 11566.298682885943,
+      "npvCents": 1566.298682885943
+    },
+    {
+      "id": "insulation",
+      "outlay": 10000,
+      "title": "Roof insulation",
+      "eligible": true,
+      "flows": [
+        "W3"
+      ],
+      "nominalNetCents": 10000,
+      "presentValueCents": 18181.81818181818,
+      "npvCents": 8181.81818181818
+    }
+  ],
+  "selection": [
+    "insulation"
+  ],
+  "baseline": [
+    "solar"
+  ],
+  "metrics": {
+    "approved": 2,
+    "held": 0,
+    "eligible": 2,
+    "outlayCents": 10000,
+    "unspentCents": 0,
+    "npvCents": 8181.81818181818,
+    "baselineNpvCents": 1566.298682885943,
+    "aiReviewAgreement": 2,
+    "firstProfileAgreement": 1
+  }
+}

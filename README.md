@@ -517,3 +517,8 @@ Mix Observatory public release, byte-matched runtime assets, both real-AI fixtur
 Real local MiniLM material inference reconciles sieve-analysis sample notes before mandatory specification/mass review and exact cumulative-passing checks. Eight tiny fixture links matched; each workflow exposed one envelope failure missed by mass-only recovery. A negated description mislinked, so approval/holds remain essential. 2,400 independent arithmetic cases, complete JSON/CSV/Markdown artifacts and fresh-worker offline inference passed. Offline scope is an already-open warmed page only; synthetic envelopes are not standards or certification. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261111-24/README.md) and [observed validation](20261111-24/VALIDATION.md).
 
 Sieve Folio public release, byte-matched runtime assets, both real-AI fixtures, full public workflow suite and preserved 601-entry working-tree gallery passed on the first Pages deployment.
+
+
+## Basket Signal — 20261112-1
+
+Real local MiniLM receipt reconciliation supports mandatory product/basket review and deterministic basket-association worksheets. All 22 tiny known-answer item links matched; transparent support/lift exposes repeated pairings beyond a popularity-only baseline. Negation/unrelated text mislinked, requiring holds; a held line excludes its whole basket. 1,800 independent arithmetic cases, complete JSON/audit and pair CSV/Markdown artifacts and fresh-worker offline inference passed. Offline scope is an already-open cached page only; associations are not sales or causal predictions. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow/privacy](20261112-1/README.md) and [observed checks](20261112-1/VALIDATION.md).

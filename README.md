@@ -661,3 +661,8 @@ Flow Window public release, byte-matched app/worker/runtime assets, both real-AI
 Real local MiniLM matches informal inspection notes before mandatory product/count review and deterministic pooled defect proportions with Wilson 95% intervals. Eight tiny intended links matched; unrelated text still needs holds. Unequal-lot baselines, 3,000 independent score-equation cases, complete reviewed JSON/CSV/Markdown artifacts and warmed-page fresh-worker offline inference passed. Sampling assumptions remain external; not lot certification. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261113-2/README.md) and [observed checks](20261113-2/VALIDATION.md).
 
 Sample Signal public release, byte-matched runtime assets, both real-AI fixtures, full public workflow suite and preserved 627-entry working-tree gallery passed on the first Pages deployment.
+
+
+## Column Harbor — 20261113-3
+
+Real local MiniLM suggests CSV column-to-schema mappings before explicit review/omission and editable cell validation. Target CSV blocks holds, duplicate targets, missing required fields and invalid cells; a lossless JSON audit preserves every original row/column. Eight intended fixture links matched, but irrelevant columns still require human omission. 700 multiline CSV conservation cases, independent artifact parsing, 100-row batches, fresh-worker offline inference and defensive checks passed locally. Offline scope is an already-open warmed page only. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261113-3/README.md) and [observed checks](20261113-3/VALIDATION.md).

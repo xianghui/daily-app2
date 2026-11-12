@@ -1,0 +1,189 @@
+{
+  "version": 1,
+  "originalInput": {
+    "schema": [
+      {
+        "id": "name",
+        "label": "Full name",
+        "description": "Attendee personal name",
+        "type": "text",
+        "required": true
+      },
+      {
+        "id": "email",
+        "label": "Email address",
+        "description": "Electronic mail contact address",
+        "type": "email",
+        "required": true
+      },
+      {
+        "id": "seats",
+        "label": "Seat count",
+        "description": "Number of tickets or places reserved",
+        "type": "integer",
+        "required": true
+      },
+      {
+        "id": "date",
+        "label": "Event date",
+        "description": "Calendar day of attendance in YYYY-MM-DD format",
+        "type": "date",
+        "required": true
+      }
+    ],
+    "csv": "Guest identity,Mailbox,Places booked,Attendance day,Internal memo\r\n\"Mira, Chen\",mira@example.test,2,2026-12-04,\"vegetarian, please\"\r\nJon Silva,jon@example.test,1,2026-12-04,\"line one\nline two\""
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "header": "Guest identity",
+      "target": "name",
+      "proposed": "name",
+      "candidates": [
+        {
+          "id": "name",
+          "similarity": 0.36379498327491566
+        },
+        {
+          "id": "seats",
+          "similarity": 0.13616613852503512
+        },
+        {
+          "id": "email",
+          "similarity": 0.10406313160377663
+        },
+        {
+          "id": "date",
+          "similarity": 0.08261098372996144
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 1,
+      "header": "Mailbox",
+      "target": "email",
+      "proposed": "email",
+      "candidates": [
+        {
+          "id": "email",
+          "similarity": 0.39833738550877335
+        },
+        {
+          "id": "name",
+          "similarity": 0.16131716084774467
+        },
+        {
+          "id": "date",
+          "similarity": 0.054225282496869726
+        },
+        {
+          "id": "seats",
+          "similarity": 0.00992569951234671
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "header": "Places booked",
+      "target": "seats",
+      "proposed": "seats",
+      "candidates": [
+        {
+          "id": "seats",
+          "similarity": 0.5861775132291951
+        },
+        {
+          "id": "name",
+          "similarity": 0.2591316962173052
+        },
+        {
+          "id": "date",
+          "similarity": 0.20801205150357466
+        },
+        {
+          "id": "email",
+          "similarity": 0.13117477057973628
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 3,
+      "header": "Attendance day",
+      "target": "date",
+      "proposed": "date",
+      "candidates": [
+        {
+          "id": "date",
+          "similarity": 0.6456028462177104
+        },
+        {
+          "id": "seats",
+          "similarity": 0.4163703935188059
+        },
+        {
+          "id": "name",
+          "similarity": 0.37061635163149154
+        },
+        {
+          "id": "email",
+          "similarity": 0.07326407508957616
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 4,
+      "header": "Internal memo",
+      "target": "",
+      "proposed": "email",
+      "candidates": [
+        {
+          "id": "email",
+          "similarity": 0.09875701031387926
+        },
+        {
+          "id": "name",
+          "similarity": 0.08447101468376836
+        },
+        {
+          "id": "date",
+          "similarity": -0.013897437605964048
+        },
+        {
+          "id": "seats",
+          "similarity": -0.017466880676214814
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "repairs": {},
+  "issues": [],
+  "cellIssues": [],
+  "output": [
+    {
+      "name": "Mira, Chen",
+      "email": "mira@example.test",
+      "seats": "2",
+      "date": "2026-12-04"
+    },
+    {
+      "name": "Jon Silva",
+      "email": "jon@example.test",
+      "seats": "1",
+      "date": "2026-12-04"
+    }
+  ],
+  "released": true,
+  "originalRows": 2,
+  "exactHeaderBaseline": 0,
+  "reviewedMappedColumns": 4
+}

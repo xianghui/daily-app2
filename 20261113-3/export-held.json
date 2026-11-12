@@ -1,0 +1,207 @@
+{
+  "version": 1,
+  "originalInput": {
+    "schema": [
+      {
+        "id": "asset",
+        "label": "Equipment name",
+        "description": "Name or description of the equipment item",
+        "type": "text",
+        "required": true
+      },
+      {
+        "id": "serial",
+        "label": "Serial identifier",
+        "description": "Manufacturer serial number identifier",
+        "type": "text",
+        "required": true
+      },
+      {
+        "id": "cost",
+        "label": "Purchase amount",
+        "description": "Acquisition cost or price in a single supplied currency",
+        "type": "decimal",
+        "required": true
+      },
+      {
+        "id": "date",
+        "label": "Acquired date",
+        "description": "Calendar date equipment was purchased in YYYY-MM-DD format",
+        "type": "date",
+        "required": true
+      }
+    ],
+    "csv": "Device description,Factory serial,Acquisition price,Purchased on,Storage note\r\nOptical microscope,SN-001,1250.50,2026-10-03,Cabinet A\r\nDigital balance,SN-002,89.90,2026-10-04,\"dry room\""
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "header": "Device description",
+      "target": "asset",
+      "proposed": "asset",
+      "candidates": [
+        {
+          "id": "asset",
+          "similarity": 0.49500772058676096
+        },
+        {
+          "id": "serial",
+          "similarity": 0.17066669684195013
+        },
+        {
+          "id": "date",
+          "similarity": 0.15048388712952812
+        },
+        {
+          "id": "cost",
+          "similarity": 0.09712440858933279
+        }
+      ],
+      "decision": "hold",
+      "note": "=SUM(1,2)\n\"quoted\", note"
+    },
+    {
+      "index": 1,
+      "header": "Factory serial",
+      "target": "serial",
+      "proposed": "serial",
+      "candidates": [
+        {
+          "id": "serial",
+          "similarity": 0.6037650261606378
+        },
+        {
+          "id": "date",
+          "similarity": 0.3153067169100039
+        },
+        {
+          "id": "asset",
+          "similarity": 0.28615618234803936
+        },
+        {
+          "id": "cost",
+          "similarity": 0.11401571017621634
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "header": "Acquisition price",
+      "target": "cost",
+      "proposed": "cost",
+      "candidates": [
+        {
+          "id": "cost",
+          "similarity": 0.6462999855530028
+        },
+        {
+          "id": "date",
+          "similarity": 0.3688598652761447
+        },
+        {
+          "id": "serial",
+          "similarity": 0.2785418481881844
+        },
+        {
+          "id": "asset",
+          "similarity": 0.1896523566585761
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 3,
+      "header": "Purchased on",
+      "target": "date",
+      "proposed": "date",
+      "candidates": [
+        {
+          "id": "date",
+          "similarity": 0.561944707299703
+        },
+        {
+          "id": "serial",
+          "similarity": 0.33496389677464733
+        },
+        {
+          "id": "cost",
+          "similarity": 0.13977759219935038
+        },
+        {
+          "id": "asset",
+          "similarity": 0.09238549915878522
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 4,
+      "header": "Storage note",
+      "target": "",
+      "proposed": "asset",
+      "candidates": [
+        {
+          "id": "asset",
+          "similarity": 0.22868674945241677
+        },
+        {
+          "id": "date",
+          "similarity": 0.15093633867143336
+        },
+        {
+          "id": "cost",
+          "similarity": 0.06986142787660413
+        },
+        {
+          "id": "serial",
+          "similarity": 0.06235606514260257
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "repairs": {
+    "0:cost": "199.95"
+  },
+  "issues": [
+    "Held source column: Device description",
+    "Missing required target asset"
+  ],
+  "cellIssues": [
+    {
+      "row": 0,
+      "field": "asset",
+      "value": "",
+      "message": "Required value is empty"
+    },
+    {
+      "row": 1,
+      "field": "asset",
+      "value": "",
+      "message": "Required value is empty"
+    }
+  ],
+  "output": [
+    {
+      "asset": "",
+      "serial": "SN-001",
+      "cost": "199.95",
+      "date": "2026-10-03"
+    },
+    {
+      "asset": "",
+      "serial": "SN-002",
+      "cost": "89.90",
+      "date": "2026-10-04"
+    }
+  ],
+  "released": false,
+  "originalRows": 2,
+  "exactHeaderBaseline": 0,
+  "reviewedMappedColumns": 3
+}

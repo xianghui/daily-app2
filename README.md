@@ -596,3 +596,8 @@ Real local MiniLM reconciles rough annual-demand notes before mandatory product/
 ## Rain Reserve — 20261112-14
 
 Local MiniLM inference reconciles catchment notes with supplied runoff profiles before reviewed monthly water-balance and discrete tank-sizing estimates. Eight simple surface matches passed across two batches; a negated metal-roof challenge incorrectly chose green, so mandatory human verification remains essential. One hundred independent sizing/conservation cases passed. This is not engineering, weather or water-quality certification. Reuses the immutable WASM from `20261107-2`; preserve its asset. See [workflow](20261112-14/README.md) and [observed validation](20261112-14/VALIDATION.md).
+
+
+## Learning Loom — 20261112-15
+
+Local MiniLM matches rough repeat-work notes to task profiles before mandatory review and Crawford unit-time labor estimates. Eight simple intended links matched; negation and unrelated notes still mislinked, so holds and human verification are essential. One thousand arithmetic oracle cases, reviewed JSON/CSV/Markdown and warmed-page fresh-worker offline inference passed. Reuses immutable WASM from `20261107-2`; preserve its asset. See [workflow/privacy](20261112-15/README.md) and [observed validation](20261112-15/VALIDATION.md).

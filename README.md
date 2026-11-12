@@ -564,3 +564,10 @@ Margin Weft public release, byte-matched runtime assets, both real-AI/reviewed f
 Real local MiniLM reconciles rough supplier spend descriptions before mandatory ownership/amount review and exact-cent concentration analysis. Eight tiny fixture links matched; consolidation exposed HHI 0.300→0.540 and 0.270→0.445 versus split names. Unrelated text mislinked and needs holds. 2,300 independent concentration cases, complete reviewed JSON/CSV/Markdown and fresh-worker offline inference passed. Offline scope is an already-open warmed page only; not legal-identity verification or outage prediction. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261112-8/README.md) and [observed checks](20261112-8/VALIDATION.md).
 
 Supplier Prism public release, byte-matched runtime assets, both real-AI fixtures, full public workflow suite and preserved 609-entry gallery passed on the first Pages deployment.
+
+
+## Tally Quay — 20261112-9
+
+Real local MiniLM reconciles stocktake notes before mandatory product/bin/count review and deterministic gross-versus-net variance worksheets. Eight tiny fixture links matched; both net-zero stocktakes exposed gross variances of 2,000 and 500 cents. Duplicate bins, holds and missing counts block affected product totals; all source records survive JSON/CSV/Markdown. 2,400 independent BigInt oracle cases and fresh-worker offline inference passed. Offline scope is an already-open warmed page only. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261112-9/README.md) and [observed checks](20261112-9/VALIDATION.md).
+
+Tally Quay public release, byte-matched runtime assets, both real-AI fixtures, full public workflow suite and preserved 610-entry gallery passed on the first Pages deployment.

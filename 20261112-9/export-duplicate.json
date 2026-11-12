@@ -1,0 +1,228 @@
+{
+  "schema": "tally-quay/v1",
+  "originalInput": {
+    "name": "Print studio",
+    "toleranceUnits": 2,
+    "catalog": [
+      {
+        "id": "v0",
+        "title": "Paper stock",
+        "description": "Wholesale paper cardstock and printing sheets",
+        "expected": 60,
+        "unitCents": 100
+      },
+      {
+        "id": "v1",
+        "title": "Printer ink",
+        "description": "Printing ink toner cartridges and pigments",
+        "expected": 20,
+        "unitCents": 200
+      },
+      {
+        "id": "v2",
+        "title": "Shipping cartons",
+        "description": "Cardboard shipping boxes and corrugated cartons",
+        "expected": 40,
+        "unitCents": 50
+      }
+    ],
+    "records": [
+      {
+        "id": "L0",
+        "text": "Bulk cardstock sheets for the print shop",
+        "bin": "A",
+        "qty": 30
+      },
+      {
+        "id": "L1",
+        "text": "Wholesale paper sheets in reams",
+        "bin": "B",
+        "qty": 20
+      },
+      {
+        "id": "L2",
+        "text": "Printer toner cartridges and colored ink",
+        "bin": "A",
+        "qty": 25
+      },
+      {
+        "id": "L3",
+        "text": "Corrugated cardboard boxes for parcel shipping",
+        "bin": "A",
+        "qty": 40
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "L0",
+      "text": "Bulk cardstock sheets for the print shop",
+      "bin": "A",
+      "qty": 30,
+      "item": "v0",
+      "proposed": "v0",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "v0",
+          "similarity": 0.7653051447512399
+        },
+        {
+          "item": "v2",
+          "similarity": 0.4152986806791653
+        },
+        {
+          "item": "v1",
+          "similarity": 0.32623563231922403
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "L1",
+      "text": "Wholesale paper sheets in reams",
+      "bin": " a ",
+      "qty": 20,
+      "item": "v0",
+      "proposed": "v0",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "v0",
+          "similarity": 0.6830960816591348
+        },
+        {
+          "item": "v2",
+          "similarity": 0.33163359849913626
+        },
+        {
+          "item": "v1",
+          "similarity": 0.20748642733325284
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "L2",
+      "text": "Printer toner cartridges and colored ink",
+      "bin": "A",
+      "qty": 25,
+      "item": "v1",
+      "proposed": "v1",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "v1",
+          "similarity": 0.8482558541926397
+        },
+        {
+          "item": "v0",
+          "similarity": 0.2526919410113231
+        },
+        {
+          "item": "v2",
+          "similarity": 0.11724969991568457
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "L3",
+      "text": "Corrugated cardboard boxes for parcel shipping",
+      "bin": "A",
+      "qty": 40,
+      "item": "v2",
+      "proposed": "v2",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "v2",
+          "similarity": 0.8428470773560706
+        },
+        {
+          "item": "v0",
+          "similarity": 0.4226120256811245
+        },
+        {
+          "item": "v1",
+          "similarity": 0.05015026565568399
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "groups": [
+    {
+      "id": "v0",
+      "title": "Paper stock",
+      "description": "Wholesale paper cardstock and printing sheets",
+      "expected": 60,
+      "unitCents": 100,
+      "counted": 50,
+      "lineIds": [
+        "L0",
+        "L1"
+      ],
+      "held": false,
+      "duplicate": true,
+      "ready": false,
+      "delta": null,
+      "varianceCents": null,
+      "recount": true,
+      "status": "Duplicate bin — resolve"
+    },
+    {
+      "id": "v1",
+      "title": "Printer ink",
+      "description": "Printing ink toner cartridges and pigments",
+      "expected": 20,
+      "unitCents": 200,
+      "counted": 25,
+      "lineIds": [
+        "L2"
+      ],
+      "held": false,
+      "duplicate": false,
+      "ready": true,
+      "delta": 5,
+      "varianceCents": 1000,
+      "recount": true,
+      "status": "Recount above tolerance"
+    },
+    {
+      "id": "v2",
+      "title": "Shipping cartons",
+      "description": "Cardboard shipping boxes and corrugated cartons",
+      "expected": 40,
+      "unitCents": 50,
+      "counted": 40,
+      "lineIds": [
+        "L3"
+      ],
+      "held": false,
+      "duplicate": false,
+      "ready": true,
+      "delta": 0,
+      "varianceCents": 0,
+      "recount": false,
+      "status": "Within tolerance"
+    }
+  ],
+  "metrics": {
+    "total": 4,
+    "approved": 4,
+    "held": 0,
+    "exactResolved": 0,
+    "ready": 2,
+    "blocked": 1,
+    "recount": 2,
+    "netCents": 1000,
+    "grossCents": 1000,
+    "shortageCents": 0,
+    "excessCents": 1000
+  }
+}

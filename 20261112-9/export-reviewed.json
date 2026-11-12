@@ -1,0 +1,228 @@
+{
+  "schema": "tally-quay/v1",
+  "originalInput": {
+    "name": "Workshop store",
+    "toleranceUnits": 2,
+    "catalog": [
+      {
+        "id": "v0",
+        "title": "Wood screws",
+        "description": "Woodworking screws threaded metal fasteners",
+        "expected": 80,
+        "unitCents": 50
+      },
+      {
+        "id": "v1",
+        "title": "Paint tins",
+        "description": "Cans of paint pigment coating and primer",
+        "expected": 10,
+        "unitCents": 50
+      },
+      {
+        "id": "v2",
+        "title": "Safety gloves",
+        "description": "Protective work gloves for hands",
+        "expected": 25,
+        "unitCents": 100
+      }
+    ],
+    "records": [
+      {
+        "id": "L0",
+        "text": "Threaded fasteners for timber assembly",
+        "bin": "A",
+        "qty": 40
+      },
+      {
+        "id": "L1",
+        "text": "Metal screws for wooden furniture",
+        "bin": "B",
+        "qty": 35
+      },
+      {
+        "id": "L2",
+        "text": "Tins of colored coating and wall primer",
+        "bin": "A",
+        "qty": 15
+      },
+      {
+        "id": "L3",
+        "text": "Protective gloves for workshop hands",
+        "bin": "A",
+        "qty": 25
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "L0",
+      "text": "Threaded fasteners for timber assembly",
+      "bin": "A",
+      "qty": 73,
+      "item": "v0",
+      "proposed": "v0",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "v0",
+          "similarity": 0.6910823361948689
+        },
+        {
+          "item": "v2",
+          "similarity": 0.12231220000744017
+        },
+        {
+          "item": "v1",
+          "similarity": 0.03990048040597329
+        }
+      ],
+      "decision": "approve",
+      "note": "=1+1, \"review\"\nsecond line | <check>"
+    },
+    {
+      "id": "L1",
+      "text": "Metal screws for wooden furniture",
+      "bin": "B",
+      "qty": 35,
+      "item": "v0",
+      "proposed": "v0",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "v0",
+          "similarity": 0.723960183628414
+        },
+        {
+          "item": "v2",
+          "similarity": 0.15503837001786727
+        },
+        {
+          "item": "v1",
+          "similarity": 0.13315293574018794
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "L2",
+      "text": "Tins of colored coating and wall primer",
+      "bin": "A",
+      "qty": 15,
+      "item": "v1",
+      "proposed": "v1",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "v1",
+          "similarity": 0.7123132673861061
+        },
+        {
+          "item": "v0",
+          "similarity": 0.09989042656780206
+        },
+        {
+          "item": "v2",
+          "similarity": 0.0778409793043308
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "L3",
+      "text": "Protective gloves for workshop hands",
+      "bin": "A",
+      "qty": 25,
+      "item": "v2",
+      "proposed": "v2",
+      "exact": null,
+      "candidates": [
+        {
+          "item": "v2",
+          "similarity": 0.785326814439025
+        },
+        {
+          "item": "v1",
+          "similarity": 0.23574730715995723
+        },
+        {
+          "item": "v0",
+          "similarity": 0.209286747747287
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "groups": [
+    {
+      "id": "v0",
+      "title": "Wood screws",
+      "description": "Woodworking screws threaded metal fasteners",
+      "expected": 80,
+      "unitCents": 50,
+      "counted": 108,
+      "lineIds": [
+        "L0",
+        "L1"
+      ],
+      "held": false,
+      "duplicate": false,
+      "ready": true,
+      "delta": 28,
+      "varianceCents": 1400,
+      "recount": true,
+      "status": "Recount above tolerance"
+    },
+    {
+      "id": "v1",
+      "title": "Paint tins",
+      "description": "Cans of paint pigment coating and primer",
+      "expected": 10,
+      "unitCents": 50,
+      "counted": 15,
+      "lineIds": [
+        "L2"
+      ],
+      "held": false,
+      "duplicate": false,
+      "ready": true,
+      "delta": 5,
+      "varianceCents": 250,
+      "recount": true,
+      "status": "Recount above tolerance"
+    },
+    {
+      "id": "v2",
+      "title": "Safety gloves",
+      "description": "Protective work gloves for hands",
+      "expected": 25,
+      "unitCents": 100,
+      "counted": 25,
+      "lineIds": [
+        "L3"
+      ],
+      "held": false,
+      "duplicate": false,
+      "ready": true,
+      "delta": 0,
+      "varianceCents": 0,
+      "recount": false,
+      "status": "Within tolerance"
+    }
+  ],
+  "metrics": {
+    "total": 4,
+    "approved": 4,
+    "held": 0,
+    "exactResolved": 0,
+    "ready": 3,
+    "blocked": 0,
+    "recount": 2,
+    "netCents": 1650,
+    "grossCents": 1650,
+    "shortageCents": 0,
+    "excessCents": 1650
+  }
+}

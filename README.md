@@ -571,3 +571,8 @@ Supplier Prism public release, byte-matched runtime assets, both real-AI fixture
 Real local MiniLM reconciles stocktake notes before mandatory product/bin/count review and deterministic gross-versus-net variance worksheets. Eight tiny fixture links matched; both net-zero stocktakes exposed gross variances of 2,000 and 500 cents. Duplicate bins, holds and missing counts block affected product totals; all source records survive JSON/CSV/Markdown. 2,400 independent BigInt oracle cases and fresh-worker offline inference passed. Offline scope is an already-open warmed page only. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261112-9/README.md) and [observed checks](20261112-9/VALIDATION.md).
 
 Tally Quay public release, byte-matched runtime assets, both real-AI fixtures, full public workflow suite and preserved 610-entry gallery passed on the first Pages deployment.
+
+
+## Trace Orchard — 20261112-10
+
+Real local MiniLM reconciles informal source-batch transfer notes before mandatory endpoint/quantity review and deterministic downstream investigation paths. Eight tiny fixture links matched; both traces exposed two indirect batches missed by one-hop review. Unrelated text mislinked, so primary-record checks remain essential. Holds/cycles block release; 2,400 independent graph-oracle cases, complete reviewed JSON/CSV/Markdown and fresh-worker offline inference passed. Offline scope is an already-open warmed page only. No safety certification, mass balance or recall actions. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow/privacy](20261112-10/README.md) and [observed checks](20261112-10/VALIDATION.md).

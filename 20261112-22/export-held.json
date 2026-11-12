@@ -1,0 +1,264 @@
+{
+  "version": 1,
+  "originalInput": {
+    "name": "Workshop year",
+    "days": 360,
+    "sales": 72000000,
+    "cogs": 36000000,
+    "targets": {
+      "dso": 30,
+      "dio": 40,
+      "dpo": 25
+    },
+    "catalog": [
+      {
+        "id": "ar",
+        "title": "Trade receivables",
+        "description": "Customers owe money for goods sold on credit. Unpaid customer invoices and amounts due from buyers."
+      },
+      {
+        "id": "inventory",
+        "title": "Inventory",
+        "description": "Goods held for sale, raw materials, warehouse stock, finished products and merchandise on hand."
+      },
+      {
+        "id": "ap",
+        "title": "Trade payables",
+        "description": "Money owed to suppliers for purchases on credit. Unpaid vendor invoices and outstanding supplier bills."
+      }
+    ],
+    "records": [
+      {
+        "id": "s1",
+        "text": "Unpaid customer invoices for furniture delivered on credit",
+        "period": "opening",
+        "amount": 6000000
+      },
+      {
+        "id": "v1",
+        "text": "Money still owed to timber suppliers for credit purchases",
+        "period": "opening",
+        "amount": 1000000
+      },
+      {
+        "id": "g1",
+        "text": "Raw timber and finished chairs held in warehouse stock",
+        "period": "opening",
+        "amount": 3000000
+      },
+      {
+        "id": "s2",
+        "text": "Amounts due from customers who bought tables on account",
+        "period": "closing",
+        "amount": 10000000
+      },
+      {
+        "id": "v2",
+        "text": "Outstanding vendor bills owed to our wood suppliers",
+        "period": "closing",
+        "amount": 3000000
+      },
+      {
+        "id": "g2",
+        "text": "Wood materials and unsold furniture merchandise on hand",
+        "period": "closing",
+        "amount": 5000000
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "s1",
+      "text": "Unpaid customer invoices for furniture delivered on credit",
+      "period": "opening",
+      "amount": 6200000,
+      "item": "ar",
+      "proposed": "ar",
+      "candidates": [
+        {
+          "id": "ar",
+          "similarity": 0.5527802909771032
+        },
+        {
+          "id": "ap",
+          "similarity": 0.5098564577634823
+        },
+        {
+          "id": "inventory",
+          "similarity": 0.22644208233117927
+        }
+      ],
+      "decision": "hold",
+      "note": "=SUM(1,2)\n\"quoted\", note"
+    },
+    {
+      "id": "v1",
+      "text": "Money still owed to timber suppliers for credit purchases",
+      "period": "opening",
+      "amount": 1000000,
+      "item": "ap",
+      "proposed": "ap",
+      "candidates": [
+        {
+          "id": "ap",
+          "similarity": 0.5496049843266861
+        },
+        {
+          "id": "ar",
+          "similarity": 0.4851108570211219
+        },
+        {
+          "id": "inventory",
+          "similarity": 0.25111193043598834
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "g1",
+      "text": "Raw timber and finished chairs held in warehouse stock",
+      "period": "opening",
+      "amount": 3000000,
+      "item": "inventory",
+      "proposed": "inventory",
+      "candidates": [
+        {
+          "id": "inventory",
+          "similarity": 0.42781674043404305
+        },
+        {
+          "id": "ar",
+          "similarity": 0.18979378661173862
+        },
+        {
+          "id": "ap",
+          "similarity": 0.1792167445315289
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "s2",
+      "text": "Amounts due from customers who bought tables on account",
+      "period": "closing",
+      "amount": 10000000,
+      "item": "ar",
+      "proposed": "ar",
+      "candidates": [
+        {
+          "id": "ar",
+          "similarity": 0.4893296498814922
+        },
+        {
+          "id": "ap",
+          "similarity": 0.3606416666282396
+        },
+        {
+          "id": "inventory",
+          "similarity": 0.1186942545200217
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "v2",
+      "text": "Outstanding vendor bills owed to our wood suppliers",
+      "period": "closing",
+      "amount": 3000000,
+      "item": "ap",
+      "proposed": "ap",
+      "candidates": [
+        {
+          "id": "ap",
+          "similarity": 0.5860271028754315
+        },
+        {
+          "id": "ar",
+          "similarity": 0.4848763090225979
+        },
+        {
+          "id": "inventory",
+          "similarity": 0.318165722298528
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "g2",
+      "text": "Wood materials and unsold furniture merchandise on hand",
+      "period": "closing",
+      "amount": 5000000,
+      "item": "inventory",
+      "proposed": "inventory",
+      "candidates": [
+        {
+          "id": "inventory",
+          "similarity": 0.4658200566179873
+        },
+        {
+          "id": "ar",
+          "similarity": 0.23753279636447808
+        },
+        {
+          "id": "ap",
+          "similarity": 0.2331699002954196
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "coverage": [
+    {
+      "id": "ar",
+      "period": "opening",
+      "count": 0
+    },
+    {
+      "id": "ar",
+      "period": "closing",
+      "count": 1
+    },
+    {
+      "id": "inventory",
+      "period": "opening",
+      "count": 1
+    },
+    {
+      "id": "inventory",
+      "period": "closing",
+      "count": 1
+    },
+    {
+      "id": "ap",
+      "period": "opening",
+      "count": 1
+    },
+    {
+      "id": "ap",
+      "period": "closing",
+      "count": 1
+    }
+  ],
+  "balances": {
+    "ar": {
+      "opening": 0,
+      "closing": 10000000
+    },
+    "inventory": {
+      "opening": 3000000,
+      "closing": 5000000
+    },
+    "ap": {
+      "opening": 1000000,
+      "closing": 3000000
+    }
+  },
+  "released": false,
+  "summary": null,
+  "exactTitleBaseline": 0
+}

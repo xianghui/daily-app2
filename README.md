@@ -591,3 +591,8 @@ Real local MiniLM routes rough service requests before mandatory queue/duration 
 ## Tier Harbor — 20261112-13
 
 Real local MiniLM reconciles rough annual-demand notes before mandatory product/count review and exact all-units price-break purchasing worksheets. Eight tiny intended product links matched; unrelated text still mislinked and needs holds. 2,400 independent rational cost-oracle cases, complete reviewed JSON/CSV/Markdown artifacts and fresh-worker offline inference passed. Offline scope is an already-open warmed page only; costs are model estimates, not quotes or purchases. Reuses immutable WASM from `20261107-2`; preserve that asset. See [workflow/privacy](20261112-13/README.md) and [observed checks](20261112-13/VALIDATION.md).
+
+
+## Rain Reserve — 20261112-14
+
+Local MiniLM inference reconciles catchment notes with supplied runoff profiles before reviewed monthly water-balance and discrete tank-sizing estimates. Eight simple surface matches passed across two batches; a negated metal-roof challenge incorrectly chose green, so mandatory human verification remains essential. One hundred independent sizing/conservation cases passed. This is not engineering, weather or water-quality certification. Reuses the immutable WASM from `20261107-2`; preserve its asset. See [workflow](20261112-14/README.md) and [observed validation](20261112-14/VALIDATION.md).

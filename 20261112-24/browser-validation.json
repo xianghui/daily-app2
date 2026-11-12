@@ -1,0 +1,199 @@
+{
+  "checks": [
+    "real CPU inference Campus meters",
+    "real CPU inference Building meters",
+    "review edit undo hold downloads clipboard and original roundtrip",
+    "offline fresh-worker actual inference warmed page",
+    "empty invalid oversized numeric duplicate rollover guards",
+    "cancel retry input invalidation max batch and envelope reimport",
+    "desktop phone labels focus no overflow",
+    "instruction-like data not authority and holdable"
+  ],
+  "fixtures": [
+    {
+      "name": "Campus meters",
+      "expected": [
+        "water",
+        "power",
+        "water",
+        "power",
+        "water",
+        "power"
+      ],
+      "actual": [
+        "water",
+        "power",
+        "water",
+        "power",
+        "water",
+        "power"
+      ],
+      "meters": [
+        {
+          "id": "water",
+          "title": "Garden irrigation water meter",
+          "description": "Water consumption register for landscape sprinklers and lawn irrigation.",
+          "unit": "m³",
+          "modulus": 1000,
+          "multiplier": 1,
+          "maxRate": 5,
+          "n": 3,
+          "intervals": [
+            {
+              "from": "w0",
+              "to": "w1",
+              "hours": 24,
+              "usage": 35,
+              "rate": 1.4583333333333333,
+              "aboveTarget": false,
+              "rollover": true
+            },
+            {
+              "from": "w1",
+              "to": "w2",
+              "hours": 24,
+              "usage": 36,
+              "rate": 1.5,
+              "aboveTarget": false,
+              "rollover": false
+            }
+          ],
+          "usage": 71,
+          "naive": -929
+        },
+        {
+          "id": "power",
+          "title": "Workshop electricity meter",
+          "description": "Electrical energy register for workshop machinery and power tools.",
+          "unit": "kWh",
+          "modulus": 10000,
+          "multiplier": 1,
+          "maxRate": 20,
+          "n": 3,
+          "intervals": [
+            {
+              "from": "e0",
+              "to": "e1",
+              "hours": 24,
+              "usage": 240,
+              "rate": 10,
+              "aboveTarget": false,
+              "rollover": false
+            },
+            {
+              "from": "e1",
+              "to": "e2",
+              "hours": 24,
+              "usage": 360,
+              "rate": 15,
+              "aboveTarget": false,
+              "rollover": false
+            }
+          ],
+          "usage": 600,
+          "naive": 600
+        }
+      ]
+    },
+    {
+      "name": "Building meters",
+      "expected": [
+        "lift",
+        "heat",
+        "lift",
+        "heat",
+        "lift",
+        "heat"
+      ],
+      "actual": [
+        "lift",
+        "heat",
+        "lift",
+        "heat",
+        "lift",
+        "heat"
+      ],
+      "meters": [
+        {
+          "id": "heat",
+          "title": "Radiator heating energy meter",
+          "description": "Thermal energy counter for hot water radiators and space heating.",
+          "unit": "MWh",
+          "modulus": 10000,
+          "multiplier": 0.1,
+          "maxRate": 2,
+          "n": 3,
+          "intervals": [
+            {
+              "from": "h0",
+              "to": "h1",
+              "hours": 12,
+              "usage": 6,
+              "rate": 0.5,
+              "aboveTarget": false,
+              "rollover": false
+            },
+            {
+              "from": "h1",
+              "to": "h2",
+              "hours": 12,
+              "usage": 6,
+              "rate": 0.5,
+              "aboveTarget": false,
+              "rollover": false
+            }
+          ],
+          "usage": 12,
+          "naive": 12
+        },
+        {
+          "id": "lift",
+          "title": "Elevator electricity meter",
+          "description": "Electrical energy counter for passenger elevators and lift motors.",
+          "unit": "kWh",
+          "modulus": 1000,
+          "multiplier": 1,
+          "maxRate": 10,
+          "n": 3,
+          "intervals": [
+            {
+              "from": "l0",
+              "to": "l1",
+              "hours": 12,
+              "usage": 40,
+              "rate": 3.3333333333333335,
+              "aboveTarget": false,
+              "rollover": true
+            },
+            {
+              "from": "l1",
+              "to": "l2",
+              "hours": 12,
+              "usage": 48,
+              "rate": 4,
+              "aboveTarget": false,
+              "rollover": false
+            }
+          ],
+          "usage": 88,
+          "naive": -912
+        }
+      ]
+    }
+  ],
+  "challenge": {
+    "proposed": "water",
+    "held": true
+  },
+  "privacy": {
+    "allGETNoBody": true,
+    "noContentInURLs": true,
+    "noModelBeforeLoad": true,
+    "hosts": [
+      "127.0.0.1:6524",
+      "",
+      "huggingface.co",
+      "us.aws.cdn.hf.co"
+    ]
+  }
+}

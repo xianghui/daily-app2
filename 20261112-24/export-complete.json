@@ -1,0 +1,267 @@
+{
+  "version": 1,
+  "originalInput": {
+    "name": "Campus meters",
+    "catalog": [
+      {
+        "id": "water",
+        "title": "Garden irrigation water meter",
+        "description": "Water consumption register for landscape sprinklers and lawn irrigation.",
+        "unit": "m³",
+        "modulus": 1000,
+        "multiplier": 1,
+        "maxRate": 5
+      },
+      {
+        "id": "power",
+        "title": "Workshop electricity meter",
+        "description": "Electrical energy register for workshop machinery and power tools.",
+        "unit": "kWh",
+        "modulus": 10000,
+        "multiplier": 1,
+        "maxRate": 20
+      }
+    ],
+    "records": [
+      {
+        "id": "w0",
+        "text": "Lawn sprinkler water counter",
+        "hour": 0,
+        "value": 980,
+        "mode": "normal"
+      },
+      {
+        "id": "e0",
+        "text": "Power tools electrical energy register",
+        "hour": 0,
+        "value": 1200,
+        "mode": "normal"
+      },
+      {
+        "id": "w1",
+        "text": "Garden irrigation flow totalizer",
+        "hour": 24,
+        "value": 15,
+        "mode": "rollover"
+      },
+      {
+        "id": "e1",
+        "text": "Workshop machinery electricity counter",
+        "hour": 24,
+        "value": 1440,
+        "mode": "normal"
+      },
+      {
+        "id": "w2",
+        "text": "Landscape sprinkler water consumption",
+        "hour": 48,
+        "value": 51,
+        "mode": "normal"
+      },
+      {
+        "id": "e2",
+        "text": "Electrical energy for workshop tools",
+        "hour": 48,
+        "value": 1800,
+        "mode": "normal"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "w0",
+      "text": "Lawn sprinkler water counter",
+      "hour": 0,
+      "value": 980,
+      "mode": "normal",
+      "item": "water",
+      "proposed": "water",
+      "candidates": [
+        {
+          "id": "water",
+          "similarity": 0.6314408090103577
+        },
+        {
+          "id": "power",
+          "similarity": 0.25357623406813945
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "e0",
+      "text": "Power tools electrical energy register",
+      "hour": 0,
+      "value": 1200,
+      "mode": "normal",
+      "item": "power",
+      "proposed": "power",
+      "candidates": [
+        {
+          "id": "power",
+          "similarity": 0.7786265995928048
+        },
+        {
+          "id": "water",
+          "similarity": 0.1916356587730999
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "w1",
+      "text": "Garden irrigation flow totalizer",
+      "hour": 24,
+      "value": 15,
+      "mode": "rollover",
+      "item": "water",
+      "proposed": "water",
+      "candidates": [
+        {
+          "id": "water",
+          "similarity": 0.528030255299338
+        },
+        {
+          "id": "power",
+          "similarity": 0.138362149198578
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "e1",
+      "text": "Workshop machinery electricity counter",
+      "hour": 24,
+      "value": 1440,
+      "mode": "normal",
+      "item": "power",
+      "proposed": "power",
+      "candidates": [
+        {
+          "id": "power",
+          "similarity": 0.8109074664931765
+        },
+        {
+          "id": "water",
+          "similarity": 0.22259653081258063
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "w2",
+      "text": "Landscape sprinkler water consumption",
+      "hour": 48,
+      "value": 51,
+      "mode": "normal",
+      "item": "water",
+      "proposed": "water",
+      "candidates": [
+        {
+          "id": "water",
+          "similarity": 0.7022096114425592
+        },
+        {
+          "id": "power",
+          "similarity": 0.09644551840081873
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "e2",
+      "text": "Electrical energy for workshop tools",
+      "hour": 48,
+      "value": 1800,
+      "mode": "normal",
+      "item": "power",
+      "proposed": "power",
+      "candidates": [
+        {
+          "id": "power",
+          "similarity": 0.8003669912447487
+        },
+        {
+          "id": "water",
+          "similarity": 0.15020407547028802
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "issues": [],
+  "released": true,
+  "meters": [
+    {
+      "id": "water",
+      "title": "Garden irrigation water meter",
+      "description": "Water consumption register for landscape sprinklers and lawn irrigation.",
+      "unit": "m³",
+      "modulus": 1000,
+      "multiplier": 1,
+      "maxRate": 5,
+      "n": 3,
+      "intervals": [
+        {
+          "from": "w0",
+          "to": "w1",
+          "hours": 24,
+          "usage": 35,
+          "rate": 1.4583333333333333,
+          "aboveTarget": false,
+          "rollover": true
+        },
+        {
+          "from": "w1",
+          "to": "w2",
+          "hours": 24,
+          "usage": 36,
+          "rate": 1.5,
+          "aboveTarget": false,
+          "rollover": false
+        }
+      ],
+      "usage": 71,
+      "naive": -929
+    },
+    {
+      "id": "power",
+      "title": "Workshop electricity meter",
+      "description": "Electrical energy register for workshop machinery and power tools.",
+      "unit": "kWh",
+      "modulus": 10000,
+      "multiplier": 1,
+      "maxRate": 20,
+      "n": 3,
+      "intervals": [
+        {
+          "from": "e0",
+          "to": "e1",
+          "hours": 24,
+          "usage": 240,
+          "rate": 10,
+          "aboveTarget": false,
+          "rollover": false
+        },
+        {
+          "from": "e1",
+          "to": "e2",
+          "hours": 24,
+          "usage": 360,
+          "rate": 15,
+          "aboveTarget": false,
+          "rollover": false
+        }
+      ],
+      "usage": 600,
+      "naive": 600
+    }
+  ],
+  "exactTitleBaseline": 0
+}

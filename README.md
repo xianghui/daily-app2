@@ -642,3 +642,8 @@ Real local MiniLM reconciles operating-balance notes before mandatory role/perio
 ## Shift Prism — 20261112-23
 
 Real local MiniLM reconciles informal shift equipment notes before mandatory timing/count review and deterministic OEE loss-minute worksheets. Eight tiny intended links matched; unrelated text still mislinked and needs holds. Pooled OEE is compared with unweighted shift means, not claimed productivity savings. 3,000 BigInt-seconds oracle cases, complete reviewed JSON/CSV/Markdown and fresh-worker offline inference passed. Offline scope is an already-open warmed page only. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261112-23/README.md) and [observed checks](20261112-23/VALIDATION.md).
+
+
+## Counter Folio — 20261112-24
+
+Real local MiniLM meter identity inference assists mandatory human review of cumulative readings and explicit single rollovers. Both tiny fixtures matched 12/12 intended links; interval arithmetic recovered 71 m³ versus naive −929 and 88 kWh versus naive −912, without pooling unlike units. Resets/hidden wraps cannot be inferred; unrelated text still needs holding. 1,000 independent arithmetic cases, complete JSON/CSV/Markdown artifacts, max batches, defensive checks and fresh-worker offline inference passed. Offline scope is an already-open warmed page only. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261112-24/README.md) and [observed checks](20261112-24/VALIDATION.md).

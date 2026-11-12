@@ -1,0 +1,267 @@
+{
+  "version": 1,
+  "originalInput": {
+    "name": "Building meters",
+    "catalog": [
+      {
+        "id": "heat",
+        "title": "Radiator heating energy meter",
+        "description": "Thermal energy counter for hot water radiators and space heating.",
+        "unit": "MWh",
+        "modulus": 10000,
+        "multiplier": 0.1,
+        "maxRate": 2
+      },
+      {
+        "id": "lift",
+        "title": "Elevator electricity meter",
+        "description": "Electrical energy counter for passenger elevators and lift motors.",
+        "unit": "kWh",
+        "modulus": 1000,
+        "multiplier": 1,
+        "maxRate": 10
+      }
+    ],
+    "records": [
+      {
+        "id": "l0",
+        "text": "Passenger lift motor electric counter",
+        "hour": 0,
+        "value": 990,
+        "mode": "normal"
+      },
+      {
+        "id": "h0",
+        "text": "Hot water radiator thermal energy",
+        "hour": 0,
+        "value": 200,
+        "mode": "normal"
+      },
+      {
+        "id": "l1",
+        "text": "Elevator electrical consumption register",
+        "hour": 12,
+        "value": 30,
+        "mode": "rollover"
+      },
+      {
+        "id": "h1",
+        "text": "Space heating hot water energy counter",
+        "hour": 12,
+        "value": 260,
+        "mode": "normal"
+      },
+      {
+        "id": "l2",
+        "text": "Electric power for passenger elevator",
+        "hour": 24,
+        "value": 78,
+        "mode": "normal"
+      },
+      {
+        "id": "h2",
+        "text": "Radiator heating thermal register",
+        "hour": 24,
+        "value": 320,
+        "mode": "normal"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "l0",
+      "text": "Passenger lift motor electric counter",
+      "hour": 0,
+      "value": 990,
+      "mode": "normal",
+      "item": "lift",
+      "proposed": "lift",
+      "candidates": [
+        {
+          "id": "lift",
+          "similarity": 0.670131242721202
+        },
+        {
+          "id": "heat",
+          "similarity": 0.2506288883367963
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "h0",
+      "text": "Hot water radiator thermal energy",
+      "hour": 0,
+      "value": 200,
+      "mode": "normal",
+      "item": "heat",
+      "proposed": "heat",
+      "candidates": [
+        {
+          "id": "heat",
+          "similarity": 0.7020710694547039
+        },
+        {
+          "id": "lift",
+          "similarity": 0.14410558496642314
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "l1",
+      "text": "Elevator electrical consumption register",
+      "hour": 12,
+      "value": 30,
+      "mode": "rollover",
+      "item": "lift",
+      "proposed": "lift",
+      "candidates": [
+        {
+          "id": "lift",
+          "similarity": 0.7485225266202774
+        },
+        {
+          "id": "heat",
+          "similarity": 0.2971847617231117
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "h1",
+      "text": "Space heating hot water energy counter",
+      "hour": 12,
+      "value": 260,
+      "mode": "normal",
+      "item": "heat",
+      "proposed": "heat",
+      "candidates": [
+        {
+          "id": "heat",
+          "similarity": 0.7713373729153166
+        },
+        {
+          "id": "lift",
+          "similarity": 0.33226333249065376
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "l2",
+      "text": "Electric power for passenger elevator",
+      "hour": 24,
+      "value": 78,
+      "mode": "normal",
+      "item": "lift",
+      "proposed": "lift",
+      "candidates": [
+        {
+          "id": "lift",
+          "similarity": 0.6108105255672336
+        },
+        {
+          "id": "heat",
+          "similarity": 0.08747390292956844
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "h2",
+      "text": "Radiator heating thermal register",
+      "hour": 24,
+      "value": 320,
+      "mode": "normal",
+      "item": "heat",
+      "proposed": "heat",
+      "candidates": [
+        {
+          "id": "heat",
+          "similarity": 0.5577555830921082
+        },
+        {
+          "id": "lift",
+          "similarity": 0.09034264817999153
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "issues": [],
+  "released": true,
+  "meters": [
+    {
+      "id": "heat",
+      "title": "Radiator heating energy meter",
+      "description": "Thermal energy counter for hot water radiators and space heating.",
+      "unit": "MWh",
+      "modulus": 10000,
+      "multiplier": 0.1,
+      "maxRate": 2,
+      "n": 3,
+      "intervals": [
+        {
+          "from": "h0",
+          "to": "h1",
+          "hours": 12,
+          "usage": 6,
+          "rate": 0.5,
+          "aboveTarget": false,
+          "rollover": false
+        },
+        {
+          "from": "h1",
+          "to": "h2",
+          "hours": 12,
+          "usage": 6,
+          "rate": 0.5,
+          "aboveTarget": false,
+          "rollover": false
+        }
+      ],
+      "usage": 12,
+      "naive": 12
+    },
+    {
+      "id": "lift",
+      "title": "Elevator electricity meter",
+      "description": "Electrical energy counter for passenger elevators and lift motors.",
+      "unit": "kWh",
+      "modulus": 1000,
+      "multiplier": 1,
+      "maxRate": 10,
+      "n": 3,
+      "intervals": [
+        {
+          "from": "l0",
+          "to": "l1",
+          "hours": 12,
+          "usage": 40,
+          "rate": 3.3333333333333335,
+          "aboveTarget": false,
+          "rollover": true
+        },
+        {
+          "from": "l1",
+          "to": "l2",
+          "hours": 12,
+          "usage": 48,
+          "rate": 4,
+          "aboveTarget": false,
+          "rollover": false
+        }
+      ],
+      "usage": 88,
+      "naive": -912
+    }
+  ],
+  "exactTitleBaseline": 0
+}

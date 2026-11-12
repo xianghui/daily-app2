@@ -676,3 +676,10 @@ Real local MiniLM suggests workstream and completed/still-open labels before man
 ## Renewal Beacon — 20261113-5
 
 Local MiniLM classifies contract renewal clauses before mandatory policy/date/notice review and deterministic calendar-day preparation worksheets. Six of eight tiny fixture labels matched; fixed/opt-in wording sometimes misclassified as automatic renewal. Each reviewed fixture exposes two earlier notices and one already-past notice before term end versus term-end-only reminders. 3,000 independent calendar cases, lossless reviewed audit, independently parsed CSV/ICS, warmed-page offline fresh-worker inference and defensive checks passed locally. No legal deadline certification or notices sent. Reuses immutable WASM from `20261107-2`; preserve that asset. See [workflow/privacy](20261113-5/README.md) and [observed checks](20261113-5/VALIDATION.md).
+
+
+## Component Tide — 20261113-6
+
+Real local MiniLM matches informal kit requests before mandatory identity/quantity review and parent-first multi-level component netting. Eight tiny fixture links matched; unrelated text still needs holds. Finished and shared assembly stock reduces modeled leaf requirements versus leaf-stock-only explosion, with explicit exceeded caps. 2,000 independent BigInt DAG cases, reviewed artifacts and warmed-page fresh-worker offline inference passed locally. Not live inventory, purchasing or a lead-time plan. Reuses immutable WASM from `20261107-2`; preserve that asset. See [workflow/privacy](20261113-6/README.md) and [observed validation](20261113-6/VALIDATION.md).
+
+Component Tide public release, byte-matched app/worker/runtime assets, both real-AI fixtures, full public workflow suite and preserved 631-entry working-tree gallery passed on the first Pages deployment.

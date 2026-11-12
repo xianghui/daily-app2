@@ -1,0 +1,187 @@
+{
+  "version": 1,
+  "originalInput": {
+    "name": "Repair bench",
+    "catalog": [
+      {
+        "id": "bike",
+        "title": "Bicycle repair queue",
+        "description": "Bicycles waiting and undergoing puncture, brake and gear repairs.",
+        "targetDays": 3
+      },
+      {
+        "id": "laptop",
+        "title": "Laptop repair queue",
+        "description": "Computers waiting and undergoing screen, battery and motherboard repairs.",
+        "targetDays": 4
+      }
+    ],
+    "records": [
+      {
+        "id": "b1",
+        "text": "Punctures and bicycle brake servicing",
+        "start": 0,
+        "end": 5,
+        "wip": 8,
+        "completed": 10
+      },
+      {
+        "id": "l1",
+        "text": "Computer battery and screen servicing",
+        "start": 0,
+        "end": 5,
+        "wip": 12,
+        "completed": 10
+      },
+      {
+        "id": "b2",
+        "text": "Cycle gear and tire repair backlog",
+        "start": 5,
+        "end": 15,
+        "wip": 4,
+        "completed": 20
+      },
+      {
+        "id": "l2",
+        "text": "Laptop motherboard repair jobs",
+        "start": 5,
+        "end": 15,
+        "wip": 6,
+        "completed": 30
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "b1",
+      "text": "Punctures and bicycle brake servicing",
+      "start": 0,
+      "end": 5,
+      "wip": 8,
+      "completed": 0,
+      "item": "bike",
+      "proposed": "bike",
+      "candidates": [
+        {
+          "id": "bike",
+          "similarity": 0.5802935275660469
+        },
+        {
+          "id": "laptop",
+          "similarity": 0.1593096498318333
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "l1",
+      "text": "Computer battery and screen servicing",
+      "start": 0,
+      "end": 5,
+      "wip": 12,
+      "completed": 10,
+      "item": "laptop",
+      "proposed": "laptop",
+      "candidates": [
+        {
+          "id": "laptop",
+          "similarity": 0.6315382876711639
+        },
+        {
+          "id": "bike",
+          "similarity": 0.21512387298092725
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "b2",
+      "text": "Cycle gear and tire repair backlog",
+      "start": 5,
+      "end": 15,
+      "wip": 4,
+      "completed": 20,
+      "item": "bike",
+      "proposed": "bike",
+      "candidates": [
+        {
+          "id": "bike",
+          "similarity": 0.5539459950367882
+        },
+        {
+          "id": "laptop",
+          "similarity": 0.2382416417840533
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "l2",
+      "text": "Laptop motherboard repair jobs",
+      "start": 5,
+      "end": 15,
+      "wip": 6,
+      "completed": 30,
+      "item": "laptop",
+      "proposed": "laptop",
+      "candidates": [
+        {
+          "id": "laptop",
+          "similarity": 0.747686382366942
+        },
+        {
+          "id": "bike",
+          "similarity": 0.2754017339756297
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "issues": [],
+  "released": true,
+  "streams": [
+    {
+      "id": "bike",
+      "title": "Bicycle repair queue",
+      "description": "Bicycles waiting and undergoing puncture, brake and gear repairs.",
+      "targetDays": 3,
+      "days": 15,
+      "wipDays": 80,
+      "completed": 20,
+      "meanWip": 5.333333333333333,
+      "throughput": 1.3333333333333333,
+      "leadDays": 4,
+      "baseline": null,
+      "withinTarget": false,
+      "targetWip": 4,
+      "observations": [
+        "b1",
+        "b2"
+      ]
+    },
+    {
+      "id": "laptop",
+      "title": "Laptop repair queue",
+      "description": "Computers waiting and undergoing screen, battery and motherboard repairs.",
+      "targetDays": 4,
+      "days": 15,
+      "wipDays": 120,
+      "completed": 40,
+      "meanWip": 8,
+      "throughput": 2.6666666666666665,
+      "leadDays": 3,
+      "baseline": 4,
+      "withinTarget": true,
+      "targetWip": 10.666666666666666,
+      "observations": [
+        "l1",
+        "l2"
+      ]
+    }
+  ],
+  "exactTitleBaseline": 0
+}

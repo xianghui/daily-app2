@@ -647,3 +647,10 @@ Real local MiniLM reconciles informal shift equipment notes before mandatory tim
 ## Counter Folio — 20261112-24
 
 Real local MiniLM meter identity inference assists mandatory human review of cumulative readings and explicit single rollovers. Both tiny fixtures matched 12/12 intended links; interval arithmetic recovered 71 m³ versus naive −929 and 88 kWh versus naive −912, without pooling unlike units. Resets/hidden wraps cannot be inferred; unrelated text still needs holding. 1,000 independent arithmetic cases, complete JSON/CSV/Markdown artifacts, max batches, defensive checks and fresh-worker offline inference passed. Offline scope is an already-open warmed page only. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261112-24/README.md) and [observed checks](20261112-24/VALIDATION.md).
+
+
+## Flow Window — 20261113-1
+
+Real local MiniLM matches informal queue observations before mandatory stream/window/count review and deterministic Little’s-law pooling. Eight tiny intended links matched; unrelated text still needs holds. Pooled lead estimates are compared with unweighted period ratios, not measured wait or time savings. 1,500 independent BigInt ratio-oracle cases, reviewed JSON/CSV/Markdown and fresh-worker offline inference passed. Offline scope is an already-open warmed page only. Stable flow and genuine time-average WIP must be verified externally. Reuses immutable WASM from `20261107-2`; preserve that asset. See [workflow/privacy](20261113-1/README.md) and [observed checks](20261113-1/VALIDATION.md).
+
+Flow Window public release, byte-matched app/worker/runtime assets, both real-AI fixtures, full public workflow suite and preserved 626-entry working-tree gallery passed on the corrected Pages deployment.

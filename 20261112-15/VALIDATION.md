@@ -23,3 +23,9 @@ Defensive tests intentionally inject malformed vectors, unsupported module worke
 ## Publication
 
 Root gallery/assembly and public asset/runtime/inference checks are recorded in their corresponding reports after release. Public browser validation repeats the full real-inference workflow at the Pages URL. Built text-asset credential-pattern scanning is a supplementary check, not a proof of absence of every conceivable secret. No optional provider or credential path exists.
+
+### Completed public release
+
+Pages commit `d45872285197746b8501f98cc2bf67356b45855b` built and deployed successfully on the first publication. `public-validation.json` confirms byte-identical public app files, bundled worker, local WASM factory, shared WASM and complete 616-entry gallery. `public-browser-validation.json` repeats real inference for both known-answer fixtures plus review/edit/hold/undo, current downloads, maximum batch, input errors, cancellation/stale-input protection and fresh-worker offline inference at the public Pages URL. Independent artifact parsers were rerun on public downloads. `public-gallery-validation.json` verifies newest-first display, all legacy categories and 1440/320px overflow checks. Physical phones, other browser engines and offline reload remain untested.
+
+The combined local server uses the stable repository as its working directory: root deployment replaces `deploy/`, so a server whose current directory is inside that deleted tree must be restarted. Final post-deployment combined checks passed after restarting the harness. Downloaded CSV artifacts intentionally retain RFC-style CRLF record endings; Git's whitespace check reports those carriage returns, not application defects.

@@ -1,0 +1,762 @@
+{
+  "checks": [
+    "real AI Print cooperative",
+    "real AI Ceramics studio",
+    "review editing invalidation undo hold clipboard artifacts roundtrip",
+    "fresh worker fully offline inference",
+    "empty invalid oversized unsupported import numeric guards",
+    "cancel retry input invalidation maximum batch",
+    "desktop phone labels focus no overflow",
+    "unrelated and negated challenge remains mandatory review"
+  ],
+  "fixtures": [
+    {
+      "name": "Print cooperative",
+      "expected": [
+        "ink",
+        "glue",
+        "ink",
+        "glue"
+      ],
+      "actual": [
+        "ink",
+        "glue",
+        "ink",
+        "glue"
+      ],
+      "rescue": {
+        "days": [
+          {
+            "day": 1,
+            "capacity": 3,
+            "picks": [
+              {
+                "id": "ink-short",
+                "item": "ink",
+                "qty": 2
+              },
+              {
+                "id": "glue-short",
+                "item": "glue",
+                "qty": 1
+              }
+            ],
+            "unused": 0
+          },
+          {
+            "day": 2,
+            "capacity": 0,
+            "picks": [],
+            "unused": 0
+          },
+          {
+            "day": 3,
+            "capacity": 0,
+            "picks": [],
+            "unused": 0
+          }
+        ],
+        "lots": [
+          {
+            "id": "ink-new",
+            "item": "ink",
+            "qty": 6,
+            "expiryDay": 10,
+            "left": 2,
+            "used": 4,
+            "expired": 0,
+            "index": 0,
+            "rescued": 0,
+            "rescueLeft": 0,
+            "unrescuedExpiry": 0
+          },
+          {
+            "id": "glue-new",
+            "item": "glue",
+            "qty": 4,
+            "expiryDay": 10,
+            "left": 1,
+            "used": 3,
+            "expired": 0,
+            "index": 1,
+            "rescued": 0,
+            "rescueLeft": 0,
+            "unrescuedExpiry": 0
+          },
+          {
+            "id": "ink-short",
+            "item": "ink",
+            "qty": 4,
+            "expiryDay": 1,
+            "left": 0,
+            "used": 2,
+            "expired": 2,
+            "index": 2,
+            "rescued": 2,
+            "rescueLeft": 0,
+            "unrescuedExpiry": 0
+          },
+          {
+            "id": "glue-short",
+            "item": "glue",
+            "qty": 2,
+            "expiryDay": 1,
+            "left": 0,
+            "used": 1,
+            "expired": 1,
+            "index": 3,
+            "rescued": 1,
+            "rescueLeft": 0,
+            "unrescuedExpiry": 0
+          }
+        ],
+        "rescued": 3,
+        "expired": 0,
+        "meetsGoal": true
+      },
+      "fefo": {
+        "days": [
+          {
+            "day": 1,
+            "item": "ink",
+            "demand": 2,
+            "picks": [
+              {
+                "id": "ink-short",
+                "qty": 2
+              }
+            ],
+            "shortage": 0
+          },
+          {
+            "day": 1,
+            "item": "glue",
+            "demand": 1,
+            "picks": [
+              {
+                "id": "glue-short",
+                "qty": 1
+              }
+            ],
+            "shortage": 0
+          },
+          {
+            "day": 2,
+            "item": "ink",
+            "demand": 2,
+            "picks": [
+              {
+                "id": "ink-new",
+                "qty": 2
+              }
+            ],
+            "shortage": 0
+          },
+          {
+            "day": 2,
+            "item": "glue",
+            "demand": 2,
+            "picks": [
+              {
+                "id": "glue-new",
+                "qty": 2
+              }
+            ],
+            "shortage": 0
+          },
+          {
+            "day": 3,
+            "item": "ink",
+            "demand": 2,
+            "picks": [
+              {
+                "id": "ink-new",
+                "qty": 2
+              }
+            ],
+            "shortage": 0
+          },
+          {
+            "day": 3,
+            "item": "glue",
+            "demand": 1,
+            "picks": [
+              {
+                "id": "glue-new",
+                "qty": 1
+              }
+            ],
+            "shortage": 0
+          }
+        ],
+        "lots": [
+          {
+            "id": "ink-new",
+            "item": "ink",
+            "qty": 6,
+            "expiryDay": 10,
+            "left": 2,
+            "used": 4,
+            "expired": 0,
+            "index": 0
+          },
+          {
+            "id": "glue-new",
+            "item": "glue",
+            "qty": 4,
+            "expiryDay": 10,
+            "left": 1,
+            "used": 3,
+            "expired": 0,
+            "index": 1
+          },
+          {
+            "id": "ink-short",
+            "item": "ink",
+            "qty": 4,
+            "expiryDay": 1,
+            "left": 0,
+            "used": 2,
+            "expired": 2,
+            "index": 2
+          },
+          {
+            "id": "glue-short",
+            "item": "glue",
+            "qty": 2,
+            "expiryDay": 1,
+            "left": 0,
+            "used": 1,
+            "expired": 1,
+            "index": 3
+          }
+        ],
+        "expired": 3,
+        "remaining": 3,
+        "used": 10,
+        "shortage": 0
+      },
+      "fifo": {
+        "days": [
+          {
+            "day": 1,
+            "item": "ink",
+            "demand": 2,
+            "picks": [
+              {
+                "id": "ink-new",
+                "qty": 2
+              }
+            ],
+            "shortage": 0
+          },
+          {
+            "day": 1,
+            "item": "glue",
+            "demand": 1,
+            "picks": [
+              {
+                "id": "glue-new",
+                "qty": 1
+              }
+            ],
+            "shortage": 0
+          },
+          {
+            "day": 2,
+            "item": "ink",
+            "demand": 2,
+            "picks": [
+              {
+                "id": "ink-new",
+                "qty": 2
+              }
+            ],
+            "shortage": 0
+          },
+          {
+            "day": 2,
+            "item": "glue",
+            "demand": 2,
+            "picks": [
+              {
+                "id": "glue-new",
+                "qty": 2
+              }
+            ],
+            "shortage": 0
+          },
+          {
+            "day": 3,
+            "item": "ink",
+            "demand": 2,
+            "picks": [
+              {
+                "id": "ink-new",
+                "qty": 2
+              }
+            ],
+            "shortage": 0
+          },
+          {
+            "day": 3,
+            "item": "glue",
+            "demand": 1,
+            "picks": [
+              {
+                "id": "glue-new",
+                "qty": 1
+              }
+            ],
+            "shortage": 0
+          }
+        ],
+        "lots": [
+          {
+            "id": "ink-new",
+            "item": "ink",
+            "qty": 6,
+            "expiryDay": 10,
+            "left": 0,
+            "used": 6,
+            "expired": 0,
+            "index": 0
+          },
+          {
+            "id": "glue-new",
+            "item": "glue",
+            "qty": 4,
+            "expiryDay": 10,
+            "left": 0,
+            "used": 4,
+            "expired": 0,
+            "index": 1
+          },
+          {
+            "id": "ink-short",
+            "item": "ink",
+            "qty": 4,
+            "expiryDay": 1,
+            "left": 0,
+            "used": 0,
+            "expired": 4,
+            "index": 2
+          },
+          {
+            "id": "glue-short",
+            "item": "glue",
+            "qty": 2,
+            "expiryDay": 1,
+            "left": 0,
+            "used": 0,
+            "expired": 2,
+            "index": 3
+          }
+        ],
+        "expired": 6,
+        "remaining": 0,
+        "used": 10,
+        "shortage": 0
+      }
+    },
+    {
+      "name": "Ceramics studio",
+      "expected": [
+        "clay",
+        "paint",
+        "clay",
+        "paint"
+      ],
+      "actual": [
+        "clay",
+        "paint",
+        "clay",
+        "paint"
+      ],
+      "rescue": {
+        "days": [
+          {
+            "day": 1,
+            "capacity": 1,
+            "picks": [
+              {
+                "id": "paint-soon",
+                "item": "paint",
+                "qty": 1
+              }
+            ],
+            "unused": 0
+          },
+          {
+            "day": 2,
+            "capacity": 1,
+            "picks": [
+              {
+                "id": "clay-soon",
+                "item": "clay",
+                "qty": 1
+              }
+            ],
+            "unused": 0
+          },
+          {
+            "day": 3,
+            "capacity": 0,
+            "picks": [],
+            "unused": 0
+          },
+          {
+            "day": 4,
+            "capacity": 0,
+            "picks": [],
+            "unused": 0
+          }
+        ],
+        "lots": [
+          {
+            "id": "clay-long",
+            "item": "clay",
+            "qty": 4,
+            "expiryDay": 20,
+            "left": 1,
+            "used": 3,
+            "expired": 0,
+            "index": 0,
+            "rescued": 0,
+            "rescueLeft": 0,
+            "unrescuedExpiry": 0
+          },
+          {
+            "id": "paint-long",
+            "item": "paint",
+            "qty": 2,
+            "expiryDay": 20,
+            "left": 0,
+            "used": 2,
+            "expired": 0,
+            "index": 1,
+            "rescued": 0,
+            "rescueLeft": 0,
+            "unrescuedExpiry": 0
+          },
+          {
+            "id": "clay-soon",
+            "item": "clay",
+            "qty": 4,
+            "expiryDay": 2,
+            "left": 0,
+            "used": 3,
+            "expired": 1,
+            "index": 2,
+            "rescued": 1,
+            "rescueLeft": 0,
+            "unrescuedExpiry": 0
+          },
+          {
+            "id": "paint-soon",
+            "item": "paint",
+            "qty": 3,
+            "expiryDay": 1,
+            "left": 0,
+            "used": 1,
+            "expired": 2,
+            "index": 3,
+            "rescued": 1,
+            "rescueLeft": 1,
+            "unrescuedExpiry": 1
+          }
+        ],
+        "rescued": 2,
+        "expired": 1,
+        "meetsGoal": false
+      },
+      "fefo": {
+        "days": [
+          {
+            "day": 1,
+            "item": "clay",
+            "demand": 2,
+            "picks": [
+              {
+                "id": "clay-soon",
+                "qty": 2
+              }
+            ],
+            "shortage": 0
+          },
+          {
+            "day": 1,
+            "item": "paint",
+            "demand": 1,
+            "picks": [
+              {
+                "id": "paint-soon",
+                "qty": 1
+              }
+            ],
+            "shortage": 0
+          },
+          {
+            "day": 2,
+            "item": "clay",
+            "demand": 1,
+            "picks": [
+              {
+                "id": "clay-soon",
+                "qty": 1
+              }
+            ],
+            "shortage": 0
+          },
+          {
+            "day": 2,
+            "item": "paint",
+            "demand": 1,
+            "picks": [
+              {
+                "id": "paint-long",
+                "qty": 1
+              }
+            ],
+            "shortage": 0
+          },
+          {
+            "day": 3,
+            "item": "clay",
+            "demand": 2,
+            "picks": [
+              {
+                "id": "clay-long",
+                "qty": 2
+              }
+            ],
+            "shortage": 0
+          },
+          {
+            "day": 3,
+            "item": "paint",
+            "demand": 1,
+            "picks": [
+              {
+                "id": "paint-long",
+                "qty": 1
+              }
+            ],
+            "shortage": 0
+          },
+          {
+            "day": 4,
+            "item": "clay",
+            "demand": 1,
+            "picks": [
+              {
+                "id": "clay-long",
+                "qty": 1
+              }
+            ],
+            "shortage": 0
+          },
+          {
+            "day": 4,
+            "item": "paint",
+            "demand": 1,
+            "picks": [],
+            "shortage": 1
+          }
+        ],
+        "lots": [
+          {
+            "id": "clay-long",
+            "item": "clay",
+            "qty": 4,
+            "expiryDay": 20,
+            "left": 1,
+            "used": 3,
+            "expired": 0,
+            "index": 0
+          },
+          {
+            "id": "paint-long",
+            "item": "paint",
+            "qty": 2,
+            "expiryDay": 20,
+            "left": 0,
+            "used": 2,
+            "expired": 0,
+            "index": 1
+          },
+          {
+            "id": "clay-soon",
+            "item": "clay",
+            "qty": 4,
+            "expiryDay": 2,
+            "left": 0,
+            "used": 3,
+            "expired": 1,
+            "index": 2
+          },
+          {
+            "id": "paint-soon",
+            "item": "paint",
+            "qty": 3,
+            "expiryDay": 1,
+            "left": 0,
+            "used": 1,
+            "expired": 2,
+            "index": 3
+          }
+        ],
+        "expired": 3,
+        "remaining": 1,
+        "used": 9,
+        "shortage": 1
+      },
+      "fifo": {
+        "days": [
+          {
+            "day": 1,
+            "item": "clay",
+            "demand": 2,
+            "picks": [
+              {
+                "id": "clay-long",
+                "qty": 2
+              }
+            ],
+            "shortage": 0
+          },
+          {
+            "day": 1,
+            "item": "paint",
+            "demand": 1,
+            "picks": [
+              {
+                "id": "paint-long",
+                "qty": 1
+              }
+            ],
+            "shortage": 0
+          },
+          {
+            "day": 2,
+            "item": "clay",
+            "demand": 1,
+            "picks": [
+              {
+                "id": "clay-long",
+                "qty": 1
+              }
+            ],
+            "shortage": 0
+          },
+          {
+            "day": 2,
+            "item": "paint",
+            "demand": 1,
+            "picks": [
+              {
+                "id": "paint-long",
+                "qty": 1
+              }
+            ],
+            "shortage": 0
+          },
+          {
+            "day": 3,
+            "item": "clay",
+            "demand": 2,
+            "picks": [
+              {
+                "id": "clay-long",
+                "qty": 1
+              }
+            ],
+            "shortage": 1
+          },
+          {
+            "day": 3,
+            "item": "paint",
+            "demand": 1,
+            "picks": [],
+            "shortage": 1
+          },
+          {
+            "day": 4,
+            "item": "clay",
+            "demand": 1,
+            "picks": [],
+            "shortage": 1
+          },
+          {
+            "day": 4,
+            "item": "paint",
+            "demand": 1,
+            "picks": [],
+            "shortage": 1
+          }
+        ],
+        "lots": [
+          {
+            "id": "clay-long",
+            "item": "clay",
+            "qty": 4,
+            "expiryDay": 20,
+            "left": 0,
+            "used": 4,
+            "expired": 0,
+            "index": 0
+          },
+          {
+            "id": "paint-long",
+            "item": "paint",
+            "qty": 2,
+            "expiryDay": 20,
+            "left": 0,
+            "used": 2,
+            "expired": 0,
+            "index": 1
+          },
+          {
+            "id": "clay-soon",
+            "item": "clay",
+            "qty": 4,
+            "expiryDay": 2,
+            "left": 0,
+            "used": 0,
+            "expired": 4,
+            "index": 2
+          },
+          {
+            "id": "paint-soon",
+            "item": "paint",
+            "qty": 3,
+            "expiryDay": 1,
+            "left": 0,
+            "used": 0,
+            "expired": 3,
+            "index": 3
+          }
+        ],
+        "expired": 7,
+        "remaining": 0,
+        "used": 6,
+        "shortage": 4
+      }
+    }
+  ],
+  "challenge": [
+    "glue",
+    "glue"
+  ],
+  "privacy": {
+    "allGetNoBody": true,
+    "noContentInUrls": true,
+    "noModelBeforeLoad": true,
+    "hosts": [
+      "127.0.0.1:6501",
+      "",
+      "huggingface.co",
+      "us.aws.cdn.hf.co"
+    ]
+  }
+}

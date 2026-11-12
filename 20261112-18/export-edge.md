@@ -1,0 +1,161 @@
+# Expiry Relay rescue worksheet
+
+Reviewed FEFO scenario, not an inventory transaction. Verify product labels and condition.
+
+- r0 | "=SUM(1,2)\n\"quoted\", supply note................................................................................................................................................................................................................................................................................................................................................................................." | product p0 | 100000 packs | usable through day 365 | approve | note "@formula\n\"reviewed\", detail"
+- r1 | "Binding glue for paper books and cardboard......................................................................................................................................................................................................................................................................................................................................................................" | product p1 | 100000 packs | usable through day 1 | approve | note ""
+- r2 | "Fabric screen printing black ink refill packs..................................................................................................................................................................................................................................................................................................................................................................." | product p2 | 100000 packs | usable through day 365 | approve | note ""
+- r3 | "Paper book repair binding adhesive packs........................................................................................................................................................................................................................................................................................................................................................................" | product p3 | 100000 packs | usable through day 1 | approve | note ""
+- r4 | "Black textile screenprint ink sealed packs......................................................................................................................................................................................................................................................................................................................................................................" | product p4 | 100000 packs | usable through day 365 | approve | note ""
+- r5 | "Binding glue for paper books and cardboard......................................................................................................................................................................................................................................................................................................................................................................" | product p5 | 100000 packs | usable through day 1 | approve | note ""
+- r6 | "Fabric screen printing black ink refill packs..................................................................................................................................................................................................................................................................................................................................................................." | product p6 | 100000 packs | usable through day 365 | approve | note ""
+- r7 | "Paper book repair binding adhesive packs........................................................................................................................................................................................................................................................................................................................................................................" | product p7 | 100000 packs | usable through day 1 | approve | note ""
+- r8 | "Black textile screenprint ink sealed packs......................................................................................................................................................................................................................................................................................................................................................................" | product p0 | 100000 packs | usable through day 365 | approve | note ""
+- r9 | "Binding glue for paper books and cardboard......................................................................................................................................................................................................................................................................................................................................................................" | product p1 | 100000 packs | usable through day 1 | approve | note ""
+- r10 | "Fabric screen printing black ink refill packs..................................................................................................................................................................................................................................................................................................................................................................." | product p2 | 100000 packs | usable through day 365 | approve | note ""
+- r11 | "Paper book repair binding adhesive packs........................................................................................................................................................................................................................................................................................................................................................................" | product p3 | 100000 packs | usable through day 1 | approve | note ""
+- r12 | "Black textile screenprint ink sealed packs......................................................................................................................................................................................................................................................................................................................................................................" | product p4 | 100000 packs | usable through day 365 | approve | note ""
+- r13 | "Binding glue for paper books and cardboard......................................................................................................................................................................................................................................................................................................................................................................" | product p5 | 100000 packs | usable through day 1 | approve | note ""
+- r14 | "Fabric screen printing black ink refill packs..................................................................................................................................................................................................................................................................................................................................................................." | product p6 | 100000 packs | usable through day 365 | approve | note ""
+- r15 | "Paper book repair binding adhesive packs........................................................................................................................................................................................................................................................................................................................................................................" | product p7 | 100000 packs | usable through day 1 | approve | note ""
+- r16 | "Black textile screenprint ink sealed packs......................................................................................................................................................................................................................................................................................................................................................................" | product p0 | 100000 packs | usable through day 365 | approve | note ""
+- r17 | "Binding glue for paper books and cardboard......................................................................................................................................................................................................................................................................................................................................................................" | product p1 | 100000 packs | usable through day 1 | approve | note ""
+- r18 | "Fabric screen printing black ink refill packs..................................................................................................................................................................................................................................................................................................................................................................." | product p2 | 100000 packs | usable through day 365 | approve | note ""
+- r19 | "Paper book repair binding adhesive packs........................................................................................................................................................................................................................................................................................................................................................................" | product p3 | 100000 packs | usable through day 1 | approve | note ""
+- r20 | "Black textile screenprint ink sealed packs......................................................................................................................................................................................................................................................................................................................................................................" | product p4 | 100000 packs | usable through day 365 | approve | note ""
+- r21 | "Binding glue for paper books and cardboard......................................................................................................................................................................................................................................................................................................................................................................" | product p5 | 100000 packs | usable through day 1 | approve | note ""
+- r22 | "Fabric screen printing black ink refill packs..................................................................................................................................................................................................................................................................................................................................................................." | product p6 | 100000 packs | usable through day 365 | approve | note ""
+- r23 | "Paper book repair binding adhesive packs........................................................................................................................................................................................................................................................................................................................................................................" | product p7 | 100000 packs | usable through day 1 | approve | note ""
+
+RESCUE PLAN: 3 packs handed off before expiry; 1199997 still expire, versus FEFO no-rescue baseline 1200000. Goal ≤0: NOT MET. Protect all planned demand picks.
+
+FEFO expired 1200000, unmet 40, closing 1199960 packs. FIFO baseline expired 1200000, unmet 40, closing 1199960. Computed scenarios on supplied demand, not measured savings.
+
+- Rescue day 1 · capacity 3: r1 × 3; unused 0
+- Rescue day 2 · capacity 3: none; unused 3
+- Rescue day 3 · capacity 3: none; unused 3
+- Rescue day 4 · capacity 3: none; unused 3
+- Rescue day 5 · capacity 3: none; unused 3
+- Rescue day 6 · capacity 3: none; unused 3
+- Rescue day 7 · capacity 3: none; unused 3
+- Rescue day 8 · capacity 3: none; unused 3
+- Rescue day 9 · capacity 3: none; unused 3
+- Rescue day 10 · capacity 3: none; unused 3
+- Rescue day 11 · capacity 3: none; unused 3
+- Rescue day 12 · capacity 3: none; unused 3
+- Rescue day 13 · capacity 3: none; unused 3
+- Rescue day 14 · capacity 3: none; unused 3
+
+Protected demand picks:
+- Day 1 · p0: demand 0; pick none; unmet 0
+- Day 1 · p1: demand 0; pick none; unmet 0
+- Day 1 · p2: demand 0; pick none; unmet 0
+- Day 1 · p3: demand 0; pick none; unmet 0
+- Day 1 · p4: demand 0; pick none; unmet 0
+- Day 1 · p5: demand 0; pick none; unmet 0
+- Day 1 · p6: demand 0; pick none; unmet 0
+- Day 1 · p7: demand 0; pick none; unmet 0
+- Day 2 · p0: demand 0; pick none; unmet 0
+- Day 2 · p1: demand 0; pick none; unmet 0
+- Day 2 · p2: demand 0; pick none; unmet 0
+- Day 2 · p3: demand 0; pick none; unmet 0
+- Day 2 · p4: demand 0; pick none; unmet 0
+- Day 2 · p5: demand 0; pick none; unmet 0
+- Day 2 · p6: demand 0; pick none; unmet 0
+- Day 2 · p7: demand 0; pick none; unmet 0
+- Day 3 · p0: demand 0; pick none; unmet 0
+- Day 3 · p1: demand 0; pick none; unmet 0
+- Day 3 · p2: demand 0; pick none; unmet 0
+- Day 3 · p3: demand 0; pick none; unmet 0
+- Day 3 · p4: demand 0; pick none; unmet 0
+- Day 3 · p5: demand 0; pick none; unmet 0
+- Day 3 · p6: demand 0; pick none; unmet 0
+- Day 3 · p7: demand 0; pick none; unmet 0
+- Day 4 · p0: demand 0; pick none; unmet 0
+- Day 4 · p1: demand 0; pick none; unmet 0
+- Day 4 · p2: demand 0; pick none; unmet 0
+- Day 4 · p3: demand 0; pick none; unmet 0
+- Day 4 · p4: demand 0; pick none; unmet 0
+- Day 4 · p5: demand 0; pick none; unmet 0
+- Day 4 · p6: demand 0; pick none; unmet 0
+- Day 4 · p7: demand 0; pick none; unmet 0
+- Day 5 · p0: demand 0; pick none; unmet 0
+- Day 5 · p1: demand 0; pick none; unmet 0
+- Day 5 · p2: demand 0; pick none; unmet 0
+- Day 5 · p3: demand 0; pick none; unmet 0
+- Day 5 · p4: demand 0; pick none; unmet 0
+- Day 5 · p5: demand 0; pick none; unmet 0
+- Day 5 · p6: demand 0; pick none; unmet 0
+- Day 5 · p7: demand 0; pick none; unmet 0
+- Day 6 · p0: demand 0; pick none; unmet 0
+- Day 6 · p1: demand 0; pick none; unmet 0
+- Day 6 · p2: demand 0; pick none; unmet 0
+- Day 6 · p3: demand 0; pick none; unmet 0
+- Day 6 · p4: demand 0; pick none; unmet 0
+- Day 6 · p5: demand 0; pick none; unmet 0
+- Day 6 · p6: demand 0; pick none; unmet 0
+- Day 6 · p7: demand 0; pick none; unmet 0
+- Day 7 · p0: demand 0; pick none; unmet 0
+- Day 7 · p1: demand 0; pick none; unmet 0
+- Day 7 · p2: demand 0; pick none; unmet 0
+- Day 7 · p3: demand 0; pick none; unmet 0
+- Day 7 · p4: demand 0; pick none; unmet 0
+- Day 7 · p5: demand 0; pick none; unmet 0
+- Day 7 · p6: demand 0; pick none; unmet 0
+- Day 7 · p7: demand 0; pick none; unmet 0
+- Day 8 · p0: demand 0; pick none; unmet 0
+- Day 8 · p1: demand 0; pick none; unmet 0
+- Day 8 · p2: demand 0; pick none; unmet 0
+- Day 8 · p3: demand 0; pick none; unmet 0
+- Day 8 · p4: demand 0; pick none; unmet 0
+- Day 8 · p5: demand 0; pick none; unmet 0
+- Day 8 · p6: demand 0; pick none; unmet 0
+- Day 8 · p7: demand 0; pick none; unmet 0
+- Day 9 · p0: demand 0; pick none; unmet 0
+- Day 9 · p1: demand 0; pick none; unmet 0
+- Day 9 · p2: demand 0; pick none; unmet 0
+- Day 9 · p3: demand 0; pick none; unmet 0
+- Day 9 · p4: demand 0; pick none; unmet 0
+- Day 9 · p5: demand 0; pick none; unmet 0
+- Day 9 · p6: demand 0; pick none; unmet 0
+- Day 9 · p7: demand 0; pick none; unmet 0
+- Day 10 · p0: demand 0; pick none; unmet 0
+- Day 10 · p1: demand 0; pick none; unmet 0
+- Day 10 · p2: demand 0; pick none; unmet 0
+- Day 10 · p3: demand 0; pick none; unmet 0
+- Day 10 · p4: demand 0; pick none; unmet 0
+- Day 10 · p5: demand 0; pick none; unmet 0
+- Day 10 · p6: demand 0; pick none; unmet 0
+- Day 10 · p7: demand 0; pick none; unmet 0
+- Day 11 · p0: demand 0; pick none; unmet 0
+- Day 11 · p1: demand 0; pick none; unmet 0
+- Day 11 · p2: demand 0; pick none; unmet 0
+- Day 11 · p3: demand 0; pick none; unmet 0
+- Day 11 · p4: demand 0; pick none; unmet 0
+- Day 11 · p5: demand 0; pick none; unmet 0
+- Day 11 · p6: demand 0; pick none; unmet 0
+- Day 11 · p7: demand 0; pick none; unmet 0
+- Day 12 · p0: demand 0; pick none; unmet 0
+- Day 12 · p1: demand 0; pick none; unmet 0
+- Day 12 · p2: demand 0; pick none; unmet 0
+- Day 12 · p3: demand 0; pick none; unmet 0
+- Day 12 · p4: demand 0; pick none; unmet 0
+- Day 12 · p5: demand 0; pick none; unmet 0
+- Day 12 · p6: demand 0; pick none; unmet 0
+- Day 12 · p7: demand 0; pick none; unmet 0
+- Day 13 · p0: demand 0; pick none; unmet 0
+- Day 13 · p1: demand 0; pick none; unmet 0
+- Day 13 · p2: demand 0; pick none; unmet 0
+- Day 13 · p3: demand 0; pick none; unmet 0
+- Day 13 · p4: demand 0; pick none; unmet 0
+- Day 13 · p5: demand 0; pick none; unmet 0
+- Day 13 · p6: demand 0; pick none; unmet 0
+- Day 13 · p7: demand 0; pick none; unmet 0
+- Day 14 · p0: demand 10; pick r0 × 10; unmet 0
+- Day 14 · p1: demand 10; pick none; unmet 10
+- Day 14 · p2: demand 10; pick r2 × 10; unmet 0
+- Day 14 · p3: demand 10; pick none; unmet 10
+- Day 14 · p4: demand 10; pick r4 × 10; unmet 0
+- Day 14 · p5: demand 10; pick none; unmet 10
+- Day 14 · p6: demand 10; pick r6 × 10; unmet 0
+- Day 14 · p7: demand 10; pick none; unmet 10

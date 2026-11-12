@@ -1,0 +1,164 @@
+{
+  "version": 1,
+  "originalInput": {
+    "name": "Print-room shifts",
+    "minOEE": 0.75,
+    "catalog": [
+      {
+        "id": "press",
+        "title": "Digital printing press",
+        "description": "Production printer applying color ink and printing images onto paper sheets."
+      },
+      {
+        "id": "cut",
+        "title": "Paper cutting guillotine",
+        "description": "Finishing cutter trimming stacks of printed paper sheets with a blade."
+      }
+    ],
+    "records": [
+      {
+        "id": "c1",
+        "text": "Blade trimmer slicing stacks of printed sheets",
+        "shift": "day",
+        "planned": 300,
+        "run": 240,
+        "ideal": 3,
+        "total": 4200,
+        "good": 3990
+      },
+      {
+        "id": "d1",
+        "text": "Color ink printer producing paper images",
+        "shift": "day",
+        "planned": 480,
+        "run": 450,
+        "ideal": 2,
+        "total": 12600,
+        "good": 11970
+      },
+      {
+        "id": "c2",
+        "text": "Guillotine paper finishing cutter",
+        "shift": "late",
+        "planned": 60,
+        "run": 50,
+        "ideal": 3,
+        "total": 800,
+        "good": 720
+      },
+      {
+        "id": "d2",
+        "text": "Digital color printing press on a short run",
+        "shift": "late",
+        "planned": 120,
+        "run": 80,
+        "ideal": 2,
+        "total": 2100,
+        "good": 1890
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "c1",
+      "text": "Blade trimmer slicing stacks of printed sheets",
+      "shift": "day",
+      "planned": 300,
+      "run": 240,
+      "ideal": 3,
+      "total": 4200,
+      "good": 3900,
+      "item": "cut",
+      "proposed": "cut",
+      "candidates": [
+        {
+          "id": "cut",
+          "similarity": 0.6828122239446763
+        },
+        {
+          "id": "press",
+          "similarity": 0.37364268973257186
+        }
+      ],
+      "decision": "hold",
+      "note": "=SUM(1,2)\n\"quoted\", note"
+    },
+    {
+      "id": "d1",
+      "text": "Color ink printer producing paper images",
+      "shift": "day",
+      "planned": 480,
+      "run": 450,
+      "ideal": 2,
+      "total": 12600,
+      "good": 11970,
+      "item": "press",
+      "proposed": "press",
+      "candidates": [
+        {
+          "id": "press",
+          "similarity": 0.7269273134898393
+        },
+        {
+          "id": "cut",
+          "similarity": 0.33712535971008695
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "c2",
+      "text": "Guillotine paper finishing cutter",
+      "shift": "late",
+      "planned": 60,
+      "run": 50,
+      "ideal": 3,
+      "total": 800,
+      "good": 720,
+      "item": "cut",
+      "proposed": "cut",
+      "candidates": [
+        {
+          "id": "cut",
+          "similarity": 0.8849902613101688
+        },
+        {
+          "id": "press",
+          "similarity": 0.3752305504503611
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "d2",
+      "text": "Digital color printing press on a short run",
+      "shift": "late",
+      "planned": 120,
+      "run": 80,
+      "ideal": 2,
+      "total": 2100,
+      "good": 1890,
+      "item": "press",
+      "proposed": "press",
+      "candidates": [
+        {
+          "id": "press",
+          "similarity": 0.6832726006358795
+        },
+        {
+          "id": "cut",
+          "similarity": 0.2639930057533973
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "duplicates": [],
+  "released": false,
+  "summary": null,
+  "machines": [],
+  "exactTitleBaseline": 0
+}

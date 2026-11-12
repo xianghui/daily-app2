@@ -637,3 +637,8 @@ Real local MiniLM inference reconciles rough sound-log notes before human sessio
 ## Cash Estuary — 20261112-22
 
 Real local MiniLM reconciles operating-balance notes before mandatory role/period/amount review and deterministic cash-conversion and target-funding scenarios. Twelve tiny fixture links matched; unrelated text still needs holds. Modeled release was 33,000 versus an inventory-only 18,000 currency units, and 25,000 versus zero; supplied assumptions, not measured recovery. 3,000 independent BigInt rational cases, reviewed JSON/CSV/Markdown and warmed-page fresh-worker offline inference passed. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261112-22/README.md) and [observed checks](20261112-22/VALIDATION.md).
+
+
+## Shift Prism — 20261112-23
+
+Real local MiniLM reconciles informal shift equipment notes before mandatory timing/count review and deterministic OEE loss-minute worksheets. Eight tiny intended links matched; unrelated text still mislinked and needs holds. Pooled OEE is compared with unweighted shift means, not claimed productivity savings. 3,000 BigInt-seconds oracle cases, complete reviewed JSON/CSV/Markdown and fresh-worker offline inference passed. Offline scope is an already-open warmed page only. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261112-23/README.md) and [observed checks](20261112-23/VALIDATION.md).

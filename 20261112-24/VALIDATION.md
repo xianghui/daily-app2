@@ -13,3 +13,8 @@
 - Desktop 1440px and emulated phones 390/320px had no document horizontal overflow, all form fields labeled and keyboard focus working. Physical phones/other browsers remain untested.
 
 Evidence: browser-validation.json, defensive-validation.json, model-cancel-validation.json, stale-result-validation.json, stale-import-validation.json, artifact-validation.json, asset-validation.json, core-validation.txt. Combined root production bundle repeated the full real-inference/workflow/offline suite successfully. Gallery validation compiled its inline script and preserved all 624 prior entries in order, with exactly one new ai-utility entry (625 total). Emulated touch Chrome controls were at least 44px high; tapping the second example and running the real model passed. Public deployment results will be appended only after actual verification.
+
+
+## Public release
+
+Root predeploy/deploy succeeded: 625 apps, zero failures. Pages commit `4469ce6b4896399ae7b551cf0eb32c05e26e9944` reached **built** with successful build/deploy jobs. Public app, worker, module factory, WASM and all emitted static assets matched local production bytes. The full public browser suite passed, including both real AI fixtures, reviewed downloads, max batches, guards, offline fresh-worker inference and responsive layouts. Public gallery retained 625 entries with Counter Folio first and legacy categories intact. See public-browser-validation.json, public-asset-validation.json and public-gallery-validation.json.

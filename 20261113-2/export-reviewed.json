@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "originalInput": {
+    "name": "Textile workshop",
+    "catalog": [
+      {
+        "id": "shirt",
+        "title": "Cotton shirt inspection",
+        "description": "Cotton shirts with stitched collars, sleeves and buttons.",
+        "targetRate": 0.04
+      },
+      {
+        "id": "bag",
+        "title": "Canvas tote bag inspection",
+        "description": "Canvas shopping bags with carrying handles and reinforced straps.",
+        "targetRate": 0.04
+      }
+    ],
+    "records": [
+      {
+        "id": "s1",
+        "text": "Cotton sleeve stitching and shirt buttons",
+        "inspected": 50,
+        "defective": 0
+      },
+      {
+        "id": "t1",
+        "text": "Canvas shopping bag handles and straps",
+        "inspected": 30,
+        "defective": 6
+      },
+      {
+        "id": "s2",
+        "text": "Shirt collars and cotton garment seams",
+        "inspected": 150,
+        "defective": 1
+      },
+      {
+        "id": "t2",
+        "text": "Reinforced handles on canvas totes",
+        "inspected": 70,
+        "defective": 7
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "s1",
+      "text": "Cotton sleeve stitching and shirt buttons",
+      "inspected": 50,
+      "defective": 4,
+      "item": "shirt",
+      "proposed": "shirt",
+      "candidates": [
+        {
+          "id": "shirt",
+          "similarity": 0.6720142962826173
+        },
+        {
+          "id": "bag",
+          "similarity": 0.19019367417622096
+        }
+      ],
+      "decision": "approve",
+      "note": "=SUM(1,2)\n\"quoted\", note"
+    },
+    {
+      "id": "t1",
+      "text": "Canvas shopping bag handles and straps",
+      "inspected": 30,
+      "defective": 6,
+      "item": "bag",
+      "proposed": "bag",
+      "candidates": [
+        {
+          "id": "bag",
+          "similarity": 0.7432781194235077
+        },
+        {
+          "id": "shirt",
+          "similarity": 0.21447594885906765
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "s2",
+      "text": "Shirt collars and cotton garment seams",
+      "inspected": 150,
+      "defective": 1,
+      "item": "shirt",
+      "proposed": "shirt",
+      "candidates": [
+        {
+          "id": "shirt",
+          "similarity": 0.7044795781620198
+        },
+        {
+          "id": "bag",
+          "similarity": 0.15817777817494924
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "t2",
+      "text": "Reinforced handles on canvas totes",
+      "inspected": 70,
+      "defective": 7,
+      "item": "bag",
+      "proposed": "bag",
+      "candidates": [
+        {
+          "id": "bag",
+          "similarity": 0.5846466013439655
+        },
+        {
+          "id": "shirt",
+          "similarity": 0.14236518766067136
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "issues": [],
+  "released": true,
+  "streams": [
+    {
+      "id": "shirt",
+      "title": "Cotton shirt inspection",
+      "description": "Cotton shirts with stitched collars, sleeves and buttons.",
+      "targetRate": 0.04,
+      "inspected": 200,
+      "defective": 5,
+      "rate": 0.025,
+      "lower": 0.010724719651761264,
+      "upper": 0.05717834040664198,
+      "baseline": 0.043333333333333335,
+      "signal": "interval crosses or touches target",
+      "observations": [
+        "s1",
+        "s2"
+      ]
+    },
+    {
+      "id": "bag",
+      "title": "Canvas tote bag inspection",
+      "description": "Canvas shopping bags with carrying handles and reinforced straps.",
+      "targetRate": 0.04,
+      "inspected": 100,
+      "defective": 13,
+      "rate": 0.13,
+      "lower": 0.07757167427240512,
+      "upper": 0.20980351440076428,
+      "baseline": 0.15000000000000002,
+      "signal": "entire interval above target",
+      "observations": [
+        "t1",
+        "t2"
+      ]
+    }
+  ],
+  "exactTitleBaseline": 0
+}

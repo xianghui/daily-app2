@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "originalInput": {
+    "name": "Packaging line",
+    "catalog": [
+      {
+        "id": "bottle",
+        "title": "Glass bottle packaging",
+        "description": "Glass bottles with caps, neck seals and beverage filling.",
+        "targetRate": 0.05
+      },
+      {
+        "id": "carton",
+        "title": "Cardboard carton packaging",
+        "description": "Corrugated cardboard boxes with printed labels and folded seams.",
+        "targetRate": 0.05
+      }
+    ],
+    "records": [
+      {
+        "id": "b1",
+        "text": "Beverage glass neck seals and bottle caps",
+        "inspected": 20,
+        "defective": 2
+      },
+      {
+        "id": "c1",
+        "text": "Corrugated box folds and printed shipping labels",
+        "inspected": 100,
+        "defective": 1
+      },
+      {
+        "id": "b2",
+        "text": "Filled glass bottles with leaking caps",
+        "inspected": 180,
+        "defective": 3
+      },
+      {
+        "id": "c2",
+        "text": "Cardboard shipping carton seams",
+        "inspected": 20,
+        "defective": 2
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "b1",
+      "text": "Beverage glass neck seals and bottle caps",
+      "inspected": 20,
+      "defective": 2,
+      "item": "bottle",
+      "proposed": "bottle",
+      "candidates": [
+        {
+          "id": "bottle",
+          "similarity": 0.756448411102833
+        },
+        {
+          "id": "carton",
+          "similarity": 0.16423623472870857
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "c1",
+      "text": "Corrugated box folds and printed shipping labels",
+      "inspected": 100,
+      "defective": 1,
+      "item": "carton",
+      "proposed": "carton",
+      "candidates": [
+        {
+          "id": "carton",
+          "similarity": 0.7133718382809312
+        },
+        {
+          "id": "bottle",
+          "similarity": 0.3609378458619663
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "b2",
+      "text": "Filled glass bottles with leaking caps",
+      "inspected": 180,
+      "defective": 3,
+      "item": "bottle",
+      "proposed": "bottle",
+      "candidates": [
+        {
+          "id": "bottle",
+          "similarity": 0.6497188292397141
+        },
+        {
+          "id": "carton",
+          "similarity": 0.14040652220440253
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "c2",
+      "text": "Cardboard shipping carton seams",
+      "inspected": 20,
+      "defective": 2,
+      "item": "carton",
+      "proposed": "carton",
+      "candidates": [
+        {
+          "id": "carton",
+          "similarity": 0.6937332424279434
+        },
+        {
+          "id": "bottle",
+          "similarity": 0.25904414151110655
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "issues": [],
+  "released": true,
+  "streams": [
+    {
+      "id": "bottle",
+      "title": "Glass bottle packaging",
+      "description": "Glass bottles with caps, neck seals and beverage filling.",
+      "targetRate": 0.05,
+      "inspected": 200,
+      "defective": 5,
+      "rate": 0.025,
+      "lower": 0.010724719651761264,
+      "upper": 0.05717834040664198,
+      "baseline": 0.058333333333333334,
+      "signal": "interval crosses or touches target",
+      "observations": [
+        "b1",
+        "b2"
+      ]
+    },
+    {
+      "id": "carton",
+      "title": "Cardboard carton packaging",
+      "description": "Corrugated cardboard boxes with printed labels and folded seams.",
+      "targetRate": 0.05,
+      "inspected": 120,
+      "defective": 3,
+      "rate": 0.025,
+      "lower": 0.008538174769902228,
+      "upper": 0.0709300333278661,
+      "baseline": 0.055,
+      "signal": "interval crosses or touches target",
+      "observations": [
+        "c1",
+        "c2"
+      ]
+    }
+  ],
+  "exactTitleBaseline": 0
+}

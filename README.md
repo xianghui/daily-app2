@@ -608,3 +608,10 @@ Local MiniLM matches rough repeat-work notes to task profiles before mandatory r
 Local MiniLM reconciles room surface notes with supplied acoustic materials before mandatory area/coefficient review and three-band Sabine treatment estimates. Eight tiny intended links matched; a negated description and unrelated note still mislinked. Reading room required 16 modules versus 6 for a mid-band-only baseline; studio required 30 versus 13, exceeding its cap of 20. These are synthetic assumption-based scenarios, not acoustic measurements or installation advice. 3,000 independent exact sizing cases, reviewed JSON/CSV/Markdown and warmed-page fresh-worker offline inference passed. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261112-16/README.md) and [observed validation](20261112-16/VALIDATION.md).
 
 Echo Canopy public release, byte-matched runtime assets, both real-AI fixtures, full public workflow suite and preserved 617-entry working-tree gallery passed on the first Pages deployment.
+
+
+## Lumen Ledger — 20261112-17
+
+Local MiniLM matches rough work-area notes to task profiles before mandatory inventory/target review and deterministic maintained-light fixture estimates. Eight tiny intended links matched; negation and unrelated text still mislinked. Required additions were 10 versus a raw-lumen baseline of 1, and 28 versus 8; these are synthetic estimates, not lighting measurements or compliance. 3,000 independent BigInt sizing cases, reviewed JSON/CSV/Markdown and warmed-page fresh-worker offline inference passed. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261112-17/README.md) and [observed validation](20261112-17/VALIDATION.md).
+
+Lumen Ledger public release, byte-matched runtime assets, both real-AI fixtures, full public workflow suite and preserved 618-entry working-tree gallery passed on the first Pages deployment.

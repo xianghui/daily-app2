@@ -1,0 +1,5 @@
+
+
+## Signal Loom — 20261112-19
+
+Real local MiniLM stream inference reconciles rough service measurements before mandatory identity/value/sequence review. Frozen-reference individuals/MR and same-side run checks complement a spec-only baseline; complete JSON/CSV/Markdown preserves every observation and holds. Two tiny fixtures matched 16/16 intended links and exposed two chart-signalled observations each versus zero spec violations. Nearest similarity cannot reject unknown processes; human review and valid stable baselines remain essential. 1,200 independent formula-oracle cases, current reviewed artifacts, offline fresh-worker inference and defensive production-browser checks passed. Offline scope is an already-open warmed page only; physical phone and non-Chrome inference untested. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261112-19/README.md), [observed validation](20261112-19/VALIDATION.md) and [publication status](20261112-19/publication-status.json).

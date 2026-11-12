@@ -1,0 +1,203 @@
+{
+  "app": "Renewal Beacon",
+  "version": 1,
+  "originalInput": {
+    "asOf": "2026-11-13",
+    "leadDays": 14,
+    "records": [
+      {
+        "id": "S1",
+        "title": "Design seats",
+        "note": "Subscription renews automatically each year unless written cancellation notice is received thirty days before expiry.",
+        "end": "2027-01-31",
+        "noticeDays": 30,
+        "owner": "Studio lead"
+      },
+      {
+        "id": "S2",
+        "title": "Storage locker",
+        "note": "Lease automatically extends for a further annual term unless either party provides sixty days written non-renewal notice.",
+        "end": "2026-12-31",
+        "noticeDays": 60,
+        "owner": "Office manager"
+      },
+      {
+        "id": "S3",
+        "title": "Exhibition space",
+        "note": "This fixed term rental expires on the end date and terminates. No automatic extension is offered.",
+        "end": "2027-02-28",
+        "noticeDays": 0,
+        "owner": "Events lead"
+      },
+      {
+        "id": "S4",
+        "title": "Print maintenance",
+        "note": "Continuation requires a signed renewal purchase order. Both parties must actively agree in writing to a new service term.",
+        "end": "2026-12-15",
+        "noticeDays": 0,
+        "owner": "Operations"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "S1",
+      "kind": "automatic",
+      "proposed": "automatic",
+      "candidates": [
+        {
+          "id": "automatic",
+          "similarity": 0.6588275654106531
+        },
+        {
+          "id": "fixed",
+          "similarity": 0.6223562509659208
+        },
+        {
+          "id": "optin",
+          "similarity": 0.27662851109673153
+        }
+      ],
+      "end": "2027-01-31",
+      "noticeDays": 30,
+      "owner": "Studio lead",
+      "note": "",
+      "decision": "approve"
+    },
+    {
+      "id": "S2",
+      "kind": "automatic",
+      "proposed": "automatic",
+      "candidates": [
+        {
+          "id": "automatic",
+          "similarity": 0.6507995207186634
+        },
+        {
+          "id": "fixed",
+          "similarity": 0.4848881775668747
+        },
+        {
+          "id": "optin",
+          "similarity": 0.3564565088425729
+        }
+      ],
+      "end": "2026-12-31",
+      "noticeDays": 60,
+      "owner": "Office manager",
+      "note": "",
+      "decision": "approve"
+    },
+    {
+      "id": "S3",
+      "kind": "fixed",
+      "proposed": "automatic",
+      "candidates": [
+        {
+          "id": "automatic",
+          "similarity": 0.6563367004176048
+        },
+        {
+          "id": "fixed",
+          "similarity": 0.5752121548495504
+        },
+        {
+          "id": "optin",
+          "similarity": 0.31416381578260144
+        }
+      ],
+      "end": "2027-02-28",
+      "noticeDays": 0,
+      "owner": "Events lead",
+      "note": "",
+      "decision": "approve"
+    },
+    {
+      "id": "S4",
+      "kind": "optin",
+      "proposed": "automatic",
+      "candidates": [
+        {
+          "id": "automatic",
+          "similarity": 0.6885584629469491
+        },
+        {
+          "id": "fixed",
+          "similarity": 0.673959376299444
+        },
+        {
+          "id": "optin",
+          "similarity": 0.4641821558819295
+        }
+      ],
+      "end": "2026-12-15",
+      "noticeDays": 0,
+      "owner": "Operations",
+      "note": "",
+      "decision": "approve"
+    }
+  ],
+  "actions": [
+    {
+      "id": "S2",
+      "title": "Storage locker",
+      "kind": "automatic",
+      "owner": "Office manager",
+      "end": "2026-12-31",
+      "deadline": "2026-11-01",
+      "prepare": "2026-10-18",
+      "daysLeft": -12,
+      "status": "past deadline",
+      "action": "Verify notice requirements; decide whether to renew or deliver non-renewal notice.",
+      "reviewNote": ""
+    },
+    {
+      "id": "S4",
+      "title": "Print maintenance",
+      "kind": "optin",
+      "owner": "Operations",
+      "end": "2026-12-15",
+      "deadline": "2026-12-15",
+      "prepare": "2026-12-01",
+      "daysLeft": 32,
+      "status": "upcoming",
+      "action": "Decide whether to sign a new term; verify the actual acceptance deadline.",
+      "reviewNote": ""
+    },
+    {
+      "id": "S1",
+      "title": "Design seats",
+      "kind": "automatic",
+      "owner": "Studio lead",
+      "end": "2027-01-31",
+      "deadline": "2027-01-01",
+      "prepare": "2026-12-18",
+      "daysLeft": 49,
+      "status": "upcoming",
+      "action": "Verify notice requirements; decide whether to renew or deliver non-renewal notice.",
+      "reviewNote": ""
+    },
+    {
+      "id": "S3",
+      "title": "Exhibition space",
+      "kind": "fixed",
+      "owner": "Events lead",
+      "end": "2027-02-28",
+      "deadline": "2027-02-28",
+      "prepare": "2027-02-14",
+      "daysLeft": 107,
+      "status": "upcoming",
+      "action": "Plan expiry and continuity; verify no extension applies.",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "baseline": {
+    "meaning": "Term-end-only baseline misses earlier automatic-renewal notice dates.",
+    "earlierNoticeTasks": 2,
+    "pastNoticeBeforeTermEnd": 1
+  },
+  "limitations": "Calendar-day planning worksheet, not legal advice. Dates and notice lengths are supplied and human-verified; AI does not extract numbers or determine enforceability. No business-day, delivery, jurisdiction, holiday or recurring-renewal calculation. Fixed/opt-in term end is a planning placeholder, not a legally determined deadline. Past dates are preserved, never rolled forward."
+}

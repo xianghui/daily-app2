@@ -1,0 +1,203 @@
+{
+  "app": "Renewal Beacon",
+  "version": 1,
+  "originalInput": {
+    "asOf": "2027-02-15",
+    "leadDays": 7,
+    "records": [
+      {
+        "id": "C1",
+        "title": "Garden water service",
+        "note": "The water delivery agreement automatically renews unless written notice of non-renewal is given at least twenty days before the term ends.",
+        "end": "2027-03-10",
+        "noticeDays": 20,
+        "owner": "Garden coordinator"
+      },
+      {
+        "id": "C2",
+        "title": "Workshop insurance",
+        "note": "Coverage continues by automatic annual renewal unless cancellation notice is delivered forty-five days in advance of expiration.",
+        "end": "2027-03-01",
+        "noticeDays": 45,
+        "owner": "Treasurer"
+      },
+      {
+        "id": "C3",
+        "title": "Hall booking",
+        "note": "The hall hire ends on the stated date. The fixed booking expires without extension or automatic renewal.",
+        "end": "2027-04-30",
+        "noticeDays": 0,
+        "owner": "Bookings volunteer"
+      },
+      {
+        "id": "C4",
+        "title": "Tutoring license",
+        "note": "Renewal is conditional on affirmative written acceptance of a fresh license order. A new term must be actively signed by both parties.",
+        "end": "2027-03-31",
+        "noticeDays": 0,
+        "owner": "Learning lead"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "C1",
+      "kind": "automatic",
+      "proposed": "automatic",
+      "candidates": [
+        {
+          "id": "automatic",
+          "similarity": 0.5865127834648786
+        },
+        {
+          "id": "fixed",
+          "similarity": 0.5535390236876572
+        },
+        {
+          "id": "optin",
+          "similarity": 0.35817414945559417
+        }
+      ],
+      "end": "2027-03-10",
+      "noticeDays": 21,
+      "owner": "=Owner\n\"second\", line",
+      "note": "=SUM(1,2)\n\"quoted\", next step 🎨",
+      "decision": "approve"
+    },
+    {
+      "id": "C2",
+      "kind": "automatic",
+      "proposed": "automatic",
+      "candidates": [
+        {
+          "id": "automatic",
+          "similarity": 0.6887086072987099
+        },
+        {
+          "id": "fixed",
+          "similarity": 0.648158963284073
+        },
+        {
+          "id": "optin",
+          "similarity": 0.3405805765194881
+        }
+      ],
+      "end": "2027-03-01",
+      "noticeDays": 45,
+      "owner": "Treasurer",
+      "note": "",
+      "decision": "approve"
+    },
+    {
+      "id": "C3",
+      "kind": "fixed",
+      "proposed": "fixed",
+      "candidates": [
+        {
+          "id": "fixed",
+          "similarity": 0.621813402209383
+        },
+        {
+          "id": "automatic",
+          "similarity": 0.5511384459145159
+        },
+        {
+          "id": "optin",
+          "similarity": 0.32335281773102514
+        }
+      ],
+      "end": "2027-04-30",
+      "noticeDays": 0,
+      "owner": "Bookings volunteer",
+      "note": "",
+      "decision": "approve"
+    },
+    {
+      "id": "C4",
+      "kind": "optin",
+      "proposed": "optin",
+      "candidates": [
+        {
+          "id": "optin",
+          "similarity": 0.7361814210878675
+        },
+        {
+          "id": "automatic",
+          "similarity": 0.6785831939697626
+        },
+        {
+          "id": "fixed",
+          "similarity": 0.5091431069808214
+        }
+      ],
+      "end": "2027-03-31",
+      "noticeDays": 0,
+      "owner": "Learning lead",
+      "note": "",
+      "decision": "approve"
+    }
+  ],
+  "actions": [
+    {
+      "id": "C2",
+      "title": "Workshop insurance",
+      "kind": "automatic",
+      "owner": "Treasurer",
+      "end": "2027-03-01",
+      "deadline": "2027-01-15",
+      "prepare": "2027-01-08",
+      "daysLeft": -31,
+      "status": "past deadline",
+      "action": "Verify notice requirements; decide whether to renew or deliver non-renewal notice.",
+      "reviewNote": ""
+    },
+    {
+      "id": "C1",
+      "title": "Garden water service",
+      "kind": "automatic",
+      "owner": "=Owner\n\"second\", line",
+      "end": "2027-03-10",
+      "deadline": "2027-02-17",
+      "prepare": "2027-02-10",
+      "daysLeft": 2,
+      "status": "prepare now",
+      "action": "Verify notice requirements; decide whether to renew or deliver non-renewal notice.",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", next step 🎨"
+    },
+    {
+      "id": "C4",
+      "title": "Tutoring license",
+      "kind": "optin",
+      "owner": "Learning lead",
+      "end": "2027-03-31",
+      "deadline": "2027-03-31",
+      "prepare": "2027-03-24",
+      "daysLeft": 44,
+      "status": "upcoming",
+      "action": "Decide whether to sign a new term; verify the actual acceptance deadline.",
+      "reviewNote": ""
+    },
+    {
+      "id": "C3",
+      "title": "Hall booking",
+      "kind": "fixed",
+      "owner": "Bookings volunteer",
+      "end": "2027-04-30",
+      "deadline": "2027-04-30",
+      "prepare": "2027-04-23",
+      "daysLeft": 74,
+      "status": "upcoming",
+      "action": "Plan expiry and continuity; verify no extension applies.",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "baseline": {
+    "meaning": "Term-end-only baseline misses earlier automatic-renewal notice dates.",
+    "earlierNoticeTasks": 2,
+    "pastNoticeBeforeTermEnd": 1
+  },
+  "limitations": "Calendar-day planning worksheet, not legal advice. Dates and notice lengths are supplied and human-verified; AI does not extract numbers or determine enforceability. No business-day, delivery, jurisdiction, holiday or recurring-renewal calculation. Fixed/opt-in term end is a planning placeholder, not a legally determined deadline. Past dates are preserved, never rolled forward."
+}

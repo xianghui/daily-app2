@@ -601,3 +601,10 @@ Local MiniLM inference reconciles catchment notes with supplied runoff profiles 
 ## Learning Loom — 20261112-15
 
 Local MiniLM matches rough repeat-work notes to task profiles before mandatory review and Crawford unit-time labor estimates. Eight simple intended links matched; negation and unrelated notes still mislinked, so holds and human verification are essential. One thousand arithmetic oracle cases, reviewed JSON/CSV/Markdown and warmed-page fresh-worker offline inference passed. Reuses immutable WASM from `20261107-2`; preserve its asset. See [workflow/privacy](20261112-15/README.md) and [observed validation](20261112-15/VALIDATION.md).
+
+
+## Echo Canopy — 20261112-16
+
+Local MiniLM reconciles room surface notes with supplied acoustic materials before mandatory area/coefficient review and three-band Sabine treatment estimates. Eight tiny intended links matched; a negated description and unrelated note still mislinked. Reading room required 16 modules versus 6 for a mid-band-only baseline; studio required 30 versus 13, exceeding its cap of 20. These are synthetic assumption-based scenarios, not acoustic measurements or installation advice. 3,000 independent exact sizing cases, reviewed JSON/CSV/Markdown and warmed-page fresh-worker offline inference passed. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261112-16/README.md) and [observed validation](20261112-16/VALIDATION.md).
+
+Echo Canopy public release, byte-matched runtime assets, both real-AI fixtures, full public workflow suite and preserved 617-entry working-tree gallery passed on the first Pages deployment.

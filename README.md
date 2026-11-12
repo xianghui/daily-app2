@@ -576,3 +576,8 @@ Tally Quay public release, byte-matched runtime assets, both real-AI fixtures, f
 ## Trace Orchard — 20261112-10
 
 Real local MiniLM reconciles informal source-batch transfer notes before mandatory endpoint/quantity review and deterministic downstream investigation paths. Eight tiny fixture links matched; both traces exposed two indirect batches missed by one-hop review. Unrelated text mislinked, so primary-record checks remain essential. Holds/cycles block release; 2,400 independent graph-oracle cases, complete reviewed JSON/CSV/Markdown and fresh-worker offline inference passed. Offline scope is an already-open warmed page only. No safety certification, mass balance or recall actions. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow/privacy](20261112-10/README.md) and [observed checks](20261112-10/VALIDATION.md).
+
+
+## Share Tapestry — 20261112-11
+
+Real local MiniLM payer retrieval supports mandatory human-reviewed shared expenses. Exact-cent largest-remainder weighted splits feed deterministic greedy balance netting, compared with per-expense reimbursements. Eight tiny fixture payers matched; a negated payer note mislinked, so this is not authentication or payment execution. Both fixtures yielded 3 transfers versus 12 direct reimbursements; computed counts, not measured savings. Complete JSON/CSV/Markdown preserves all expenses and holds. 3,000 independent rounding/netting cases, offline fresh-worker inference and defensive production-browser checks passed. Offline scope is an already-open warmed page only. Reuses immutable WASM from `20261107-2`; preserve that asset. See [workflow/privacy](20261112-11/README.md) and [observed checks](20261112-11/VALIDATION.md).

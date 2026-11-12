@@ -1,0 +1,108 @@
+{
+  "checks": [
+    "real AI Help desk",
+    "real AI Campus workshop",
+    "review edit invalidation undo hold clipboard artifacts roundtrip",
+    "fresh worker fully offline inference",
+    "empty invalid oversized unsupported import numeric guards",
+    "cancel retry input invalidation maximum batch",
+    "phone desktop labels focus no overflow"
+  ],
+  "fixtures": [
+    {
+      "name": "Help desk",
+      "expected": [
+        "access",
+        "access",
+        "access",
+        "billing",
+        "delivery",
+        "billing"
+      ],
+      "actual": [
+        "access",
+        "access",
+        "access",
+        "billing",
+        "delivery",
+        "billing"
+      ],
+      "metrics": [
+        {
+          "queue": "access",
+          "weight": 2,
+          "jobs": 3,
+          "fairMeanStart": 30,
+          "fifoMeanStart": 16.666666666666668
+        },
+        {
+          "queue": "billing",
+          "weight": 1,
+          "jobs": 2,
+          "fairMeanStart": 40,
+          "fifoMeanStart": 50
+        },
+        {
+          "queue": "delivery",
+          "weight": 1,
+          "jobs": 1,
+          "fairMeanStart": 30,
+          "fifoMeanStart": 50
+        }
+      ]
+    },
+    {
+      "name": "Campus workshop",
+      "expected": [
+        "bike",
+        "bike",
+        "bike",
+        "garden",
+        "computer",
+        "garden"
+      ],
+      "actual": [
+        "bike",
+        "bike",
+        "bike",
+        "garden",
+        "computer",
+        "garden"
+      ],
+      "metrics": [
+        {
+          "queue": "bike",
+          "weight": 1,
+          "jobs": 3,
+          "fairMeanStart": 48.333333333333336,
+          "fifoMeanStart": 15
+        },
+        {
+          "queue": "garden",
+          "weight": 2,
+          "jobs": 2,
+          "fairMeanStart": 5,
+          "fifoMeanStart": 55
+        },
+        {
+          "queue": "computer",
+          "weight": 1,
+          "jobs": 1,
+          "fairMeanStart": 35,
+          "fifoMeanStart": 50
+        }
+      ]
+    }
+  ],
+  "privacy": {
+    "allGetNoBody": true,
+    "noContentInUrls": true,
+    "noModelBeforeLoad": true,
+    "hosts": [
+      "xianghui.github.io",
+      "",
+      "huggingface.co",
+      "us.aws.cdn.hf.co"
+    ]
+  }
+}

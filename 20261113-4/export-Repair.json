@@ -1,0 +1,362 @@
+{
+  "app": "Closure Horizon",
+  "version": 1,
+  "originalInput": {
+    "endpoint": "Device repair completed and returned",
+    "eventAnchor": "The device was fixed, repair completed, working again and returned to the customer.",
+    "censorAnchor": "The device is still broken, awaiting parts or repair, unresolved at the last follow-up.",
+    "groups": [
+      {
+        "id": "screen",
+        "label": "Screen repair",
+        "description": "Cracked glass display, shattered screen replacement and touch panel repairs."
+      },
+      {
+        "id": "power",
+        "label": "Battery repair",
+        "description": "Battery charging, dead power cell replacement, short battery life repairs."
+      }
+    ],
+    "records": [
+      {
+        "id": "R1",
+        "note": "Shattered phone display replaced; repair finished and customer collected the working handset.",
+        "days": 2
+      },
+      {
+        "id": "R2",
+        "note": "Cracked touchscreen restored, repaired phone returned.",
+        "days": 4
+      },
+      {
+        "id": "R3",
+        "note": "Replacement glass display still on order; repair not yet completed at last contact.",
+        "days": 1
+      },
+      {
+        "id": "R4",
+        "note": "Cracked screen remains broken; awaiting display parts at last follow-up.",
+        "days": 3
+      },
+      {
+        "id": "R5",
+        "note": "Dead battery replaced, charging restored; repaired device returned.",
+        "days": 3
+      },
+      {
+        "id": "R6",
+        "note": "Swollen power cell replaced and working phone collected.",
+        "days": 6
+      },
+      {
+        "id": "R7",
+        "note": "Battery repair still waiting for a replacement cell at last contact.",
+        "days": 2
+      },
+      {
+        "id": "R8",
+        "note": "Short battery life issue remains unresolved, replacement cell still pending.",
+        "days": 5
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "R1",
+      "group": "screen",
+      "state": "event",
+      "days": 2,
+      "decision": "approve",
+      "note": "",
+      "proposedGroup": "screen",
+      "proposedState": "censor",
+      "candidates": [
+        {
+          "id": "screen",
+          "similarity": 0.6674799889325795
+        },
+        {
+          "id": "power",
+          "similarity": 0.3796297256680246
+        }
+      ],
+      "eventSimilarity": 0.361668597558094,
+      "censorSimilarity": 0.43241446970811237
+    },
+    {
+      "id": "R2",
+      "group": "screen",
+      "state": "event",
+      "days": 4,
+      "decision": "approve",
+      "note": "",
+      "proposedGroup": "screen",
+      "proposedState": "censor",
+      "candidates": [
+        {
+          "id": "screen",
+          "similarity": 0.7622405572730085
+        },
+        {
+          "id": "power",
+          "similarity": 0.36389725511002186
+        }
+      ],
+      "eventSimilarity": 0.40641028938355894,
+      "censorSimilarity": 0.4269109901945955
+    },
+    {
+      "id": "R3",
+      "group": "screen",
+      "state": "censor",
+      "days": 1,
+      "decision": "approve",
+      "note": "",
+      "proposedGroup": "screen",
+      "proposedState": "censor",
+      "candidates": [
+        {
+          "id": "screen",
+          "similarity": 0.6598724151224055
+        },
+        {
+          "id": "power",
+          "similarity": 0.32448179662068977
+        }
+      ],
+      "eventSimilarity": 0.33953857224427575,
+      "censorSimilarity": 0.4269716662209931
+    },
+    {
+      "id": "R4",
+      "group": "screen",
+      "state": "censor",
+      "days": 3,
+      "decision": "approve",
+      "note": "",
+      "proposedGroup": "screen",
+      "proposedState": "censor",
+      "candidates": [
+        {
+          "id": "screen",
+          "similarity": 0.7274337776558368
+        },
+        {
+          "id": "power",
+          "similarity": 0.34000823839658045
+        }
+      ],
+      "eventSimilarity": 0.2896376902301201,
+      "censorSimilarity": 0.521967671324534
+    },
+    {
+      "id": "R5",
+      "group": "power",
+      "state": "event",
+      "days": 3,
+      "decision": "approve",
+      "note": "",
+      "proposedGroup": "power",
+      "proposedState": "event",
+      "candidates": [
+        {
+          "id": "power",
+          "similarity": 0.7173798551240902
+        },
+        {
+          "id": "screen",
+          "similarity": 0.48921479546458446
+        }
+      ],
+      "eventSimilarity": 0.5796767145225151,
+      "censorSimilarity": 0.49608078061538274
+    },
+    {
+      "id": "R6",
+      "group": "power",
+      "state": "event",
+      "days": 6,
+      "decision": "approve",
+      "note": "",
+      "proposedGroup": "power",
+      "proposedState": "event",
+      "candidates": [
+        {
+          "id": "power",
+          "similarity": 0.4717521649586169
+        },
+        {
+          "id": "screen",
+          "similarity": 0.39383736235291755
+        }
+      ],
+      "eventSimilarity": 0.330084599423232,
+      "censorSimilarity": 0.32867824049232086
+    },
+    {
+      "id": "R7",
+      "group": "power",
+      "state": "censor",
+      "days": 2,
+      "decision": "approve",
+      "note": "",
+      "proposedGroup": "power",
+      "proposedState": "censor",
+      "candidates": [
+        {
+          "id": "power",
+          "similarity": 0.6813092125255296
+        },
+        {
+          "id": "screen",
+          "similarity": 0.4380087019105189
+        }
+      ],
+      "eventSimilarity": 0.3986818516477167,
+      "censorSimilarity": 0.41408709213730865
+    },
+    {
+      "id": "R8",
+      "group": "power",
+      "state": "censor",
+      "days": 5,
+      "decision": "approve",
+      "note": "",
+      "proposedGroup": "power",
+      "proposedState": "censor",
+      "candidates": [
+        {
+          "id": "power",
+          "similarity": 0.6212235115897969
+        },
+        {
+          "id": "screen",
+          "similarity": 0.30742863521870695
+        }
+      ],
+      "eventSimilarity": 0.3666416065733408,
+      "censorSimilarity": 0.4675554505035451
+    }
+  ],
+  "followUpThreshold": 3,
+  "groups": [
+    {
+      "id": "screen",
+      "label": "Screen repair",
+      "description": "Cracked glass display, shattered screen replacement and touch panel repairs.",
+      "count": 4,
+      "events": 2,
+      "censored": 2,
+      "naiveCompletion": 0.5,
+      "completion": 1,
+      "median": 4,
+      "steps": [
+        {
+          "day": 1,
+          "risk": 4,
+          "events": 0,
+          "censored": 1,
+          "survival": 1,
+          "completion": 0,
+          "before": 1
+        },
+        {
+          "day": 2,
+          "risk": 3,
+          "events": 1,
+          "censored": 0,
+          "survival": 0.6666666666666666,
+          "completion": 0.33333333333333337,
+          "before": 1
+        },
+        {
+          "day": 3,
+          "risk": 2,
+          "events": 0,
+          "censored": 1,
+          "survival": 0.6666666666666666,
+          "completion": 0.33333333333333337,
+          "before": 0.6666666666666666
+        },
+        {
+          "day": 4,
+          "risk": 1,
+          "events": 1,
+          "censored": 0,
+          "survival": 0,
+          "completion": 1,
+          "before": 0.6666666666666666
+        }
+      ]
+    },
+    {
+      "id": "power",
+      "label": "Battery repair",
+      "description": "Battery charging, dead power cell replacement, short battery life repairs.",
+      "count": 4,
+      "events": 2,
+      "censored": 2,
+      "naiveCompletion": 0.5,
+      "completion": 1,
+      "median": 6,
+      "steps": [
+        {
+          "day": 2,
+          "risk": 4,
+          "events": 0,
+          "censored": 1,
+          "survival": 1,
+          "completion": 0,
+          "before": 1
+        },
+        {
+          "day": 3,
+          "risk": 3,
+          "events": 1,
+          "censored": 0,
+          "survival": 0.6666666666666666,
+          "completion": 0.33333333333333337,
+          "before": 1
+        },
+        {
+          "day": 5,
+          "risk": 2,
+          "events": 0,
+          "censored": 1,
+          "survival": 0.6666666666666666,
+          "completion": 0.33333333333333337,
+          "before": 0.6666666666666666
+        },
+        {
+          "day": 6,
+          "risk": 1,
+          "events": 1,
+          "censored": 0,
+          "survival": 0,
+          "completion": 1,
+          "before": 0.6666666666666666
+        }
+      ]
+    }
+  ],
+  "approved": 8,
+  "held": 0,
+  "total": 8,
+  "followUps": [
+    {
+      "id": "R4",
+      "group": "screen",
+      "lastObservedDay": 3,
+      "sourceNote": "Cracked screen remains broken; awaiting display parts at last follow-up.",
+      "reviewNote": ""
+    },
+    {
+      "id": "R8",
+      "group": "power",
+      "lastObservedDay": 5,
+      "sourceNote": "Short battery life issue remains unresolved, replacement cell still pending.",
+      "reviewNote": ""
+    }
+  ],
+  "limitations": "Descriptive Kaplan–Meier estimates require independent censoring and a consistent start and endpoint. No causal comparison, forecast, confidence interval or measured time saving. Last observed tail is not a future probability."
+}

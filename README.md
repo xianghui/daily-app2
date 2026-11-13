@@ -818,3 +818,10 @@ Funnel Prism public release, byte-matched runtime assets, both real-AI fixtures,
 Local MiniLM reconciles roster-segment meanings before mandatory stratum/count review. Exact convex integer sample allocation uses supplied within-stratum SDs and population caps, comparing assumed mean variance with equal allocation. Both tiny fixtures matched 8/8 links; 1,125 exhaustive optimization cases and reviewed artifact conservation passed. No respondent selection or representativeness guarantee. Fresh-worker offline inference is limited to an already-open warmed page. Reuses immutable shared WASM from `20261107-2`. See [workflow](20261114-3/README.md) and [validation](20261114-3/VALIDATION.md).
 
 Strata Orchard public release: Pages built commit `280e7e79a6ef0c3d97654e17a975ad31161179f6`; byte-matched assets and the complete public real-AI workflow suite passed, with all 652 gallery entries preserved.
+
+
+## Decision Estuary — 20261114-4
+
+Real local MiniLM reconciles both identities in pairwise consultation logs before mandatory option/count review. Winning-votes strongest-path tiers expose cycles beyond direct-win baselines, retaining missing/tied/repeated pairs and complete JSON/CSV/Markdown reviews. Two tiny fixtures matched 16/16 intended identities; 650 independent simple-path oracle cases passed. Counts are preference observations, not unique respondents, and incomplete/incomparable logs can mislead. Offline fresh-worker inference is limited to an already-open warmed page. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow/privacy](20261114-4/README.md) and [observed validation](20261114-4/VALIDATION.md).
+
+Decision Estuary public release: Pages built commit `04fc63f9bebc4271bea4c6c9ae3b9f236389227a`; byte-matched public app/worker/runtime, both real-AI fixtures, all nine public workflow groups and preserved 653-entry gallery passed on the first deployment.

@@ -1,0 +1,27 @@
+# Observed validation — Decision Estuary
+
+## Local production bundle
+
+- `npm run predeploy`: passed, React + Vite base `/daily-app2/20261114-4/`.
+- Real Chrome CPU/WASM inference (no mocks for success): **16/16 intended option identities** across two materially different synthetic workflows. Neighborhood 3-option cycle and 2-option maker-space comparisons produce different reviewed results. Tiny fixtures are not an accuracy estimate.
+- Neighborhood directional totals: garden→cycle 8:3, cycle→library 7:2, library→garden 6:4. Direct wins tie 1–1–1; strongest-path tiers are garden, cycle, library. Workshop shortlist is clay. Known counts are supplied, never extracted or fabricated by AI.
+- **650 independent graph oracle cases**: exhaustive enumeration of every simple winning path matched Floyd–Warshall max/min closure for 2–6 options. Tier conservation and ordering, tied/disconnected graphs, self-comparison blocking, held records, malformed embeddings, invalid counts and spreadsheet escaping passed (`core-validation.json`).
+- Production browser suite: two real fixtures; pending-review gating; editable counts/identities; multiline notes/owner; undo; hold; stale export invalidation; current downloaded JSON/CSV/Markdown; clipboard; original-only reimport; warmed-page offline fresh-worker inference; empty/malformed/oversized/duplicate/unsupported inputs; cancellation/retry; input-change invalidation; 24-log batching/reimport; all-held preservation; self-comparison blocking; missing and tied pairs; instruction-like content retained as unapproved data; desktop/390/320px layouts, explicit labels, keyboard focus and ≥44px button heights. Normal viewport screenshots inspected for overview, review and results.
+- Independent Python artifact parser: 13 downloaded JSON artifacts after the boundary check and four CSV artifacts preserve all records and directional counts; quoted commas/newlines survive; formula-like multiline text is escaped; Markdown reflects current reviewed content. Boundary export is included in the parser run.
+- Defensive fault injection (not counted as successful AI): abort model download, abort worker download, unavailable module-worker device, malformed AI vectors, timeout and worker error all display errors, preserve no fabricated rows and disable exports. Model-network failure then real retry passed.
+- Additional late-callback/max-boundary browser checks are recorded in `boundary-validation.json`: real inference result delivery is delayed to exercise stale callbacks; a newer one-row run must remain authoritative. Six-option / 24-log real inference exercises 54 texts and maximum directional vote values. Both checks passed before publication; vote observations totaled 4,799,976 without loss.
+- Runtime audit: bundled worker/factory paths are correct; shared 26,861,777-byte WASM equals installed runtime bytes. Production text asset credential-pattern scan has zero hits; this limited scan is supplemented by source review of no-key/no-provider integration. No user content is embedded in fixtures beyond synthetic data.
+- Browser network capture: only static asset GET requests, no request bodies; no model-host request before explicit load; no source content in URLs. Model and runtime assets download, user content stays on device. Real inference with network fully disabled works from an already-open warmed page and a fresh worker. Offline reload/navigation, cache eviction and disabled caches are not promised.
+- Gallery scripts compile via Node `new Function`; prior working-tree entries/categories remain intact. New AI utility appears exactly once and first. Root gallery search and desktop/phone rendering checked. Previous uncommitted workspace changes are preserved and kept out of this app's source commit.
+
+## Scope / limitations
+
+Only current desktop Chrome CPU tested. Phone viewport emulation is not physical-phone or cross-browser validation. Semantic similarity does not authenticate aliases, negation, votes, participants, independence or collection quality. An unrelated instruction-like source still receives a nearest option; mandatory review/hold is essential. Missing edges are not inferred votes. No elapsed-time, accuracy-percentage, representative-sample or certified-election claim. Model revision is mutable upstream. Tied paths remain tied.
+
+## Publication
+
+Combined root assembly, Pages commit/build identity, byte-matched public app/worker/runtime and full public real-AI workflow results are recorded after publishing. Until those checks pass, local tests alone do not establish public availability.
+
+## Verified public release
+
+Pages commit `04fc63f9bebc4271bea4c6c9ae3b9f236389227a` reached `built` and matches remote gh-pages. All public app files, worker, runtime factory and shared WASM are byte-identical to the tested production build. Both real-inference fixtures matched 16/16 intended identities; all nine public workflow groups passed including fresh-worker offline inference, actual exports, review/undo, batching and narrow layouts. Public gallery preserves all 652 earlier working-tree entries (653 total), categories and search. `public-browser-validation.json`, `public-asset-validation.json`, `public-gallery-ui-validation.json` and `publication-status.json` record the observed checks. Root predeploy and deploy each assembled 653 apps with zero failed/skipped builds; only the root combined-site workflow published.

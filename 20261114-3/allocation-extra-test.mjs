@@ -1,0 +1,4 @@
+import a from 'node:assert/strict';import {allocate} from './src/core.js';
+let seed=54;const rand=n=>{seed=(seed*1664525+1013904223)>>>0;return seed%n};let cases=0;
+for(let t=0;t<240;t++){const size=3+rand(4),g=Array.from({length:size},()=>({population:1+rand(4),sd:rand(16)})),budget=size+rand(g.reduce((s,x)=>s+x.population,0)-size+1),out=allocate(g,budget),v=n=>g.reduce((s,x,i)=>s+x.population**2*x.sd**2/n[i],0);let best=Infinity;const walk=(arr,left)=>{const i=arr.length;if(i===size){if(!left)best=Math.min(best,v(arr));return}for(let n=1;n<=g[i].population&&n<=left;n++)walk([...arr,n],left-n)};walk([],budget);a(Math.abs(v(out)-best)<1e-7);cases++}
+const g=Array.from({length:6},(_,i)=>({population:400000,sd:i*2000}));for(const mode of ['optimal','equal']){const ns=allocate(g,300,mode);a.equal(ns.reduce((s,n)=>s+n,0),300);a(ns.every(n=>n>=1&&n<=400000))}console.log('PASS',cases,'seeded independent exhaustive 3–6-stratum cases and 300-sample bounds');

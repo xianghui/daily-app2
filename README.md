@@ -811,3 +811,10 @@ Changeover Grove public release: byte-matched app/worker/runtime assets, both re
 Real local MiniLM reconciles rough notes to ordered journey stages before mandatory human count review. Exact handoff checks and backwards integer sizing produce minimum-intake target worksheets, compared with a first-stage-only baseline. Ten tiny fixture links and six reworded notes matched; 1,200 independent sizing-oracle cases passed. Complete JSON/CSV/Markdown preserves every held observation and original. Offline fresh-worker inference is tested only inside an already-open warmed page. Reuses immutable shared WASM from `20261107-2`; preserve that asset. See [workflow/privacy](20261114-2/README.md) and [observed validation](20261114-2/VALIDATION.md).
 
 Funnel Prism public release, byte-matched runtime assets, both real-AI fixtures, the full public workflow suite and preserved 651-entry gallery passed on the first Pages deployment.
+
+
+## Strata Orchard — 20261114-3
+
+Local MiniLM reconciles roster-segment meanings before mandatory stratum/count review. Exact convex integer sample allocation uses supplied within-stratum SDs and population caps, comparing assumed mean variance with equal allocation. Both tiny fixtures matched 8/8 links; 1,125 exhaustive optimization cases and reviewed artifact conservation passed. No respondent selection or representativeness guarantee. Fresh-worker offline inference is limited to an already-open warmed page. Reuses immutable shared WASM from `20261107-2`. See [workflow](20261114-3/README.md) and [validation](20261114-3/VALIDATION.md).
+
+Strata Orchard public release: Pages built commit `280e7e79a6ef0c3d97654e17a975ad31161179f6`; byte-matched assets and the complete public real-AI workflow suite passed, with all 652 gallery entries preserved.

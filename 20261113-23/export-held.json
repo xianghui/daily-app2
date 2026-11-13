@@ -1,0 +1,158 @@
+{
+  "version": 1,
+  "originalInput": {
+    "project": "Synthetic kitchen sorting audit",
+    "limitPercent": 5,
+    "materials": [
+      {
+        "id": "food",
+        "label": "Food scraps",
+        "description": "Vegetable peelings, fruit scraps, coffee grounds and food leftovers."
+      },
+      {
+        "id": "glass",
+        "label": "Glass jars",
+        "description": "Empty glass jars, glass bottles and broken glass containers."
+      }
+    ],
+    "bins": [
+      {
+        "id": "organics",
+        "label": "Food-only collection",
+        "accepts": [
+          "food"
+        ]
+      },
+      {
+        "id": "glass-bin",
+        "label": "Glass collection",
+        "accepts": [
+          "glass"
+        ]
+      }
+    ],
+    "records": [
+      {
+        "id": "K1",
+        "bin": "organics",
+        "note": "Potato peelings and apple cores from lunch.",
+        "grams": 900,
+        "owner": "Audit lead"
+      },
+      {
+        "id": "K2",
+        "bin": "organics",
+        "note": "Empty glass jam jars and glass bottles.",
+        "grams": 150,
+        "owner": "Audit lead"
+      },
+      {
+        "id": "K3",
+        "bin": "organics",
+        "note": "A broken glass jar from the pantry.",
+        "grams": 50,
+        "owner": "Audit lead"
+      },
+      {
+        "id": "K4",
+        "bin": "glass-bin",
+        "note": "Empty glass sauce bottles.",
+        "grams": 300,
+        "owner": "Audit lead"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "K1",
+      "bin": "organics",
+      "note": "Potato peelings and apple cores from lunch.",
+      "grams": 900,
+      "owner": "=Owner\n\"second\", line",
+      "kind": "food",
+      "proposed": "food",
+      "evidence": [
+        {
+          "id": "food",
+          "score": 0.6873844943729658
+        },
+        {
+          "id": "glass",
+          "score": 0.2984746149762764
+        }
+      ],
+      "decision": "hold",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", contact workshop"
+    },
+    {
+      "id": "K2",
+      "bin": "organics",
+      "note": "Empty glass jam jars and glass bottles.",
+      "grams": 150,
+      "owner": "Audit lead",
+      "kind": "glass",
+      "proposed": "glass",
+      "evidence": [
+        {
+          "id": "glass",
+          "score": 0.8761055601496834
+        },
+        {
+          "id": "food",
+          "score": 0.3034377708705218
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "K3",
+      "bin": "organics",
+      "note": "A broken glass jar from the pantry.",
+      "grams": 50,
+      "owner": "Audit lead",
+      "kind": "glass",
+      "proposed": "glass",
+      "evidence": [
+        {
+          "id": "glass",
+          "score": 0.7207466194566746
+        },
+        {
+          "id": "food",
+          "score": 0.3780513724592641
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "K4",
+      "bin": "glass-bin",
+      "note": "Empty glass sauce bottles.",
+      "grams": 300,
+      "owner": "Audit lead",
+      "kind": "glass",
+      "proposed": "glass",
+      "evidence": [
+        {
+          "id": "glass",
+          "score": 0.7007495152202933
+        },
+        {
+          "id": "food",
+          "score": 0.25624122276578054
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 3,
+  "held": 1,
+  "blocked": [
+    "Resolve held identities before computing a complete bin audit."
+  ],
+  "plan": null
+}

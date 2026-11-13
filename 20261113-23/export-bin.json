@@ -1,0 +1,197 @@
+{
+  "version": 1,
+  "originalInput": {
+    "project": "Synthetic office sorting audit",
+    "limitPercent": 10,
+    "materials": [
+      {
+        "id": "paper",
+        "label": "Clean paper",
+        "description": "Clean office paper, sheets, newspapers and cardboard packaging."
+      },
+      {
+        "id": "plastic",
+        "label": "Plastic bottles",
+        "description": "Empty plastic water bottles, PET drinks containers and plastic packaging."
+      }
+    ],
+    "bins": [
+      {
+        "id": "paper-bin",
+        "label": "Paper collection",
+        "accepts": [
+          "paper"
+        ]
+      },
+      {
+        "id": "mixed-bin",
+        "label": "Mixed recycling",
+        "accepts": [
+          "paper",
+          "plastic"
+        ]
+      }
+    ],
+    "records": [
+      {
+        "id": "O1",
+        "bin": "paper-bin",
+        "note": "A stack of printed office paper sheets.",
+        "grams": 800,
+        "owner": "Audit lead"
+      },
+      {
+        "id": "O2",
+        "bin": "paper-bin",
+        "note": "Empty plastic drinking water bottles.",
+        "grams": 120,
+        "owner": "Audit lead"
+      },
+      {
+        "id": "O3",
+        "bin": "paper-bin",
+        "note": "PET soda bottles and plastic containers.",
+        "grams": 80,
+        "owner": "Audit lead"
+      },
+      {
+        "id": "O4",
+        "bin": "mixed-bin",
+        "note": "Flattened cardboard boxes and newspapers.",
+        "grams": 400,
+        "owner": "Audit lead"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "O1",
+      "bin": "paper-bin",
+      "note": "A stack of printed office paper sheets.",
+      "grams": 800,
+      "owner": "Audit lead",
+      "kind": "paper",
+      "proposed": "paper",
+      "evidence": [
+        {
+          "id": "paper",
+          "score": 0.6114876756289983
+        },
+        {
+          "id": "plastic",
+          "score": 0.22123656156223634
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "O2",
+      "bin": "mixed-bin",
+      "note": "Empty plastic drinking water bottles.",
+      "grams": 1,
+      "owner": "Audit lead",
+      "kind": "plastic",
+      "proposed": "plastic",
+      "evidence": [
+        {
+          "id": "plastic",
+          "score": 0.7892469744914994
+        },
+        {
+          "id": "paper",
+          "score": 0.2797356658173299
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "O3",
+      "bin": "paper-bin",
+      "note": "PET soda bottles and plastic containers.",
+      "grams": 80,
+      "owner": "Audit lead",
+      "kind": "plastic",
+      "proposed": "plastic",
+      "evidence": [
+        {
+          "id": "plastic",
+          "score": 0.8226045844216918
+        },
+        {
+          "id": "paper",
+          "score": 0.3919479612467915
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "O4",
+      "bin": "mixed-bin",
+      "note": "Flattened cardboard boxes and newspapers.",
+      "grams": 400,
+      "owner": "Audit lead",
+      "kind": "paper",
+      "proposed": "paper",
+      "evidence": [
+        {
+          "id": "paper",
+          "score": 0.6679626617374113
+        },
+        {
+          "id": "plastic",
+          "score": 0.44468249593401
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "blocked": [],
+  "plan": [
+    {
+      "id": "paper-bin",
+      "label": "Paper collection",
+      "accepts": [
+        "paper"
+      ],
+      "records": 2,
+      "gross": 880,
+      "contamination": 80,
+      "contaminationPercent": 9.090909090909092,
+      "countBaselinePercent": 50,
+      "exceeds": false,
+      "remove": [],
+      "moved": 0,
+      "remaining": 880,
+      "residual": 80,
+      "remainingPercent": 9.090909090909092,
+      "status": "At/below supplied limit"
+    },
+    {
+      "id": "mixed-bin",
+      "label": "Mixed recycling",
+      "accepts": [
+        "paper",
+        "plastic"
+      ],
+      "records": 2,
+      "gross": 401,
+      "contamination": 0,
+      "contaminationPercent": 0,
+      "countBaselinePercent": 0,
+      "exceeds": false,
+      "remove": [],
+      "moved": 0,
+      "remaining": 401,
+      "residual": 0,
+      "remainingPercent": 0,
+      "status": "At/below supplied limit"
+    }
+  ]
+}

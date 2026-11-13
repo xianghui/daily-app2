@@ -832,3 +832,10 @@ Decision Estuary public release: Pages built commit `04fc63f9bebc4271bea4c6c9ae3
 Local MiniLM reconciles repeated sales-log product descriptions before mandatory identity, price, units and exposure review. Deterministic log-demand fits compare bounded contribution-maximizing price grids against current-price baselines; no causal or realized-profit claims. Both six-row synthetic fixtures matched expected products, known curves and independent grid objectives. Complete JSON/CSV/Markdown preserves originals and held rows; fresh-worker offline inference is tested only on an already-open warmed page. Reuses the immutable shared WASM from `20261107-2`; preserve it. See [workflow/privacy](20261114-5/README.md) and [observed validation](20261114-5/VALIDATION.md).
 
 Price Lens public release passed on the first Pages workflow: matching built gh-pages head, byte-matched app/runtime assets, both real-AI fixtures, full reviewed workflow/export/offline suite and preserved 654-entry gallery.
+
+
+## Trace Current — 20261114-6
+
+Local real MiniLM event-to-activity retrieval assists reviewed process trace reconstruction. Explicit prerequisite checks, repeated-step cues and inter-event gaps expose ordering evidence beyond count-only logs. Tiny repair/publishing fixtures matched 14/14 links, both expected prerequisite exceptions and long gaps; unrelated text still gets a nearest candidate and requires human hold. Complete JSON/CSV/Markdown preserves every original/reviewed event. Fresh-worker offline inference tested only in an already-open warmed page. Reuses immutable shared WASM from `20261107-2`; preserve that asset. See [workflow/privacy](20261114-6/README.md) and [observed validation](20261114-6/VALIDATION.md).
+
+Trace Current public release: Pages built the matching final gh-pages head; byte-matched public app/worker/runtime/WASM, both real-AI fixtures, the full review/export/offline browser suite and preserved 655-entry current gallery passed. Physical phones and offline navigation remain unverified.

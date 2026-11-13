@@ -1,0 +1,315 @@
+{
+  "version": 1,
+  "originalInput": {
+    "project": "Synthetic editorial event log",
+    "maxGapMinutes": 90,
+    "activities": [
+      {
+        "id": "draft",
+        "label": "Manuscript drafting",
+        "description": "Write the initial article manuscript and compose text.",
+        "requires": []
+      },
+      {
+        "id": "review",
+        "label": "Editorial review",
+        "description": "Editor reviews article text for clarity and factual accuracy.",
+        "requires": [
+          "draft"
+        ]
+      },
+      {
+        "id": "publish",
+        "label": "Public release",
+        "description": "Publish the finished article on the public website.",
+        "requires": [
+          "review"
+        ]
+      }
+    ],
+    "records": [
+      {
+        "id": "P1",
+        "caseId": "X",
+        "description": "Author writes the first version of the article.",
+        "minute": 0,
+        "owner": "Process analyst"
+      },
+      {
+        "id": "P2",
+        "caseId": "X",
+        "description": "Editor checks the manuscript for facts and readability.",
+        "minute": 20,
+        "owner": "Process analyst"
+      },
+      {
+        "id": "P3",
+        "caseId": "X",
+        "description": "Finished article goes live on the website.",
+        "minute": 150,
+        "owner": "Process analyst"
+      },
+      {
+        "id": "P4",
+        "caseId": "Y",
+        "description": "Writer composes the initial manuscript.",
+        "minute": 5,
+        "owner": "Process analyst"
+      },
+      {
+        "id": "P5",
+        "caseId": "Y",
+        "description": "Article is released on the public site.",
+        "minute": 30,
+        "owner": "Process analyst"
+      },
+      {
+        "id": "P6",
+        "caseId": "Y",
+        "description": "Editor verifies facts and improves the article.",
+        "minute": 45,
+        "owner": "Process analyst"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "P1",
+      "caseId": "X",
+      "description": "Author writes the first version of the article.",
+      "minute": 0,
+      "owner": "Process analyst",
+      "kind": "draft",
+      "proposed": "draft",
+      "evidence": [
+        {
+          "id": "draft",
+          "score": 0.6232846158576434
+        },
+        {
+          "id": "review",
+          "score": 0.3970247600674989
+        },
+        {
+          "id": "publish",
+          "score": 0.3871111893731932
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "P2",
+      "caseId": "X",
+      "description": "Editor checks the manuscript for facts and readability.",
+      "minute": 20,
+      "owner": "Process analyst",
+      "kind": "review",
+      "proposed": "review",
+      "evidence": [
+        {
+          "id": "review",
+          "score": 0.7017061793217513
+        },
+        {
+          "id": "draft",
+          "score": 0.4892405671964454
+        },
+        {
+          "id": "publish",
+          "score": 0.26689256138024936
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "P3",
+      "caseId": "X",
+      "description": "Finished article goes live on the website.",
+      "minute": 150,
+      "owner": "Process analyst",
+      "kind": "publish",
+      "proposed": "publish",
+      "evidence": [
+        {
+          "id": "publish",
+          "score": 0.6321714443839888
+        },
+        {
+          "id": "draft",
+          "score": 0.39686544837239063
+        },
+        {
+          "id": "review",
+          "score": 0.260748422991232
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "P4",
+      "caseId": "Y",
+      "description": "Writer composes the initial manuscript.",
+      "minute": 5,
+      "owner": "Process analyst",
+      "kind": "draft",
+      "proposed": "draft",
+      "evidence": [
+        {
+          "id": "draft",
+          "score": 0.7522000243079663
+        },
+        {
+          "id": "review",
+          "score": 0.4109397050679872
+        },
+        {
+          "id": "publish",
+          "score": 0.29679854163813374
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "P5",
+      "caseId": "Y",
+      "description": "Article is released on the public site.",
+      "minute": 30,
+      "owner": "Process analyst",
+      "kind": "publish",
+      "proposed": "publish",
+      "evidence": [
+        {
+          "id": "publish",
+          "score": 0.6994390205668659
+        },
+        {
+          "id": "draft",
+          "score": 0.3869034226929664
+        },
+        {
+          "id": "review",
+          "score": 0.29371059736494753
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "P6",
+      "caseId": "Y",
+      "description": "Editor verifies facts and improves the article.",
+      "minute": 45,
+      "owner": "Process analyst",
+      "kind": "review",
+      "proposed": "review",
+      "evidence": [
+        {
+          "id": "review",
+          "score": 0.648865993192062
+        },
+        {
+          "id": "draft",
+          "score": 0.5646197635802436
+        },
+        {
+          "id": "publish",
+          "score": 0.4471067808154426
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 6,
+  "approved": 6,
+  "held": 0,
+  "cases": [
+    {
+      "id": "X",
+      "eventIds": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "reasons": [],
+      "sequence": [
+        "draft",
+        "review",
+        "publish"
+      ],
+      "elapsedMinutes": 150,
+      "violations": [],
+      "repeats": [],
+      "gaps": [
+        {
+          "from": "P1",
+          "to": "P2",
+          "fromActivity": "draft",
+          "toActivity": "review",
+          "minutes": 20,
+          "overTarget": false
+        },
+        {
+          "from": "P2",
+          "to": "P3",
+          "fromActivity": "review",
+          "toActivity": "publish",
+          "minutes": 130,
+          "overTarget": true
+        }
+      ]
+    },
+    {
+      "id": "Y",
+      "eventIds": [
+        "P4",
+        "P5",
+        "P6"
+      ],
+      "reasons": [],
+      "sequence": [
+        "draft",
+        "publish",
+        "review"
+      ],
+      "elapsedMinutes": 40,
+      "violations": [
+        {
+          "eventId": "P5",
+          "activity": "publish",
+          "missing": [
+            "review"
+          ]
+        }
+      ],
+      "repeats": [],
+      "gaps": [
+        {
+          "from": "P4",
+          "to": "P5",
+          "fromActivity": "draft",
+          "toActivity": "publish",
+          "minutes": 25,
+          "overTarget": false
+        },
+        {
+          "from": "P5",
+          "to": "P6",
+          "fromActivity": "publish",
+          "toActivity": "review",
+          "minutes": 15,
+          "overTarget": false
+        }
+      ]
+    }
+  ],
+  "literalLabelMatches": 0,
+  "checkedCases": 2,
+  "violationCount": 1,
+  "repeatCount": 0,
+  "longGapCount": 1
+}

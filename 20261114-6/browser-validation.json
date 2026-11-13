@@ -1,0 +1,876 @@
+{
+  "checks": [
+    "real CPU inference Repair desk",
+    "real CPU inference Publishing desk",
+    "review multiline edit reject hold undo copy roundtrip",
+    "offline fresh worker real inference warmed page",
+    "invalid empty oversized duplicate cycle formats",
+    "cancel retry stale input 32-row batch full audit roundtrip",
+    "invalid review tied timestamps changed threshold",
+    "instruction-like unrelated content stays pending data",
+    "desktop phone labels touch focus"
+  ],
+  "fixtures": [
+    {
+      "name": "Repair desk",
+      "actual": [
+        "intake",
+        "repair",
+        "test",
+        "close",
+        "intake",
+        "close",
+        "repair",
+        "repair"
+      ],
+      "expected": [
+        "intake",
+        "repair",
+        "test",
+        "close",
+        "intake",
+        "close",
+        "repair",
+        "repair"
+      ],
+      "correct": 8,
+      "computed": {
+        "version": 1,
+        "originalInput": {
+          "project": "Synthetic repair desk week",
+          "maxGapMinutes": 60,
+          "activities": [
+            {
+              "id": "intake",
+              "label": "Request intake",
+              "description": "Receive customer repair request and register a service ticket.",
+              "requires": []
+            },
+            {
+              "id": "repair",
+              "label": "Repair work",
+              "description": "Technician fixes broken equipment and replaces damaged components.",
+              "requires": [
+                "intake"
+              ]
+            },
+            {
+              "id": "test",
+              "label": "Quality test",
+              "description": "Run functional quality checks to verify repaired equipment works.",
+              "requires": [
+                "repair"
+              ]
+            },
+            {
+              "id": "close",
+              "label": "Ticket closure",
+              "description": "Close service ticket and notify customer that repair is complete.",
+              "requires": [
+                "test"
+              ]
+            }
+          ],
+          "records": [
+            {
+              "id": "R1",
+              "caseId": "A",
+              "description": "Customer asks for help; new repair ticket is logged.",
+              "minute": 0,
+              "owner": "Process analyst"
+            },
+            {
+              "id": "R2",
+              "caseId": "A",
+              "description": "Technician replaces the broken motor.",
+              "minute": 30,
+              "owner": "Process analyst"
+            },
+            {
+              "id": "R3",
+              "caseId": "A",
+              "description": "Bench check confirms the repaired device runs correctly.",
+              "minute": 120,
+              "owner": "Process analyst"
+            },
+            {
+              "id": "R4",
+              "caseId": "A",
+              "description": "Repair ticket closed and customer informed.",
+              "minute": 135,
+              "owner": "Process analyst"
+            },
+            {
+              "id": "R5",
+              "caseId": "B",
+              "description": "A fault report is registered for service.",
+              "minute": 10,
+              "owner": "Process analyst"
+            },
+            {
+              "id": "R6",
+              "caseId": "B",
+              "description": "Case closed with notification to the customer.",
+              "minute": 20,
+              "owner": "Process analyst"
+            },
+            {
+              "id": "R7",
+              "caseId": "B",
+              "description": "Broken wiring fixed by the technician.",
+              "minute": 40,
+              "owner": "Process analyst"
+            },
+            {
+              "id": "R8",
+              "caseId": "B",
+              "description": "Technician fixes the wiring a second time.",
+              "minute": 55,
+              "owner": "Process analyst"
+            }
+          ]
+        },
+        "reviews": [
+          {
+            "id": "R1",
+            "caseId": "A",
+            "description": "Customer asks for help; new repair ticket is logged.",
+            "minute": 0,
+            "owner": "Process analyst",
+            "kind": "intake",
+            "proposed": "intake",
+            "evidence": [
+              {
+                "id": "intake",
+                "score": 0.7121492388663867
+              },
+              {
+                "id": "close",
+                "score": 0.6654694722872078
+              },
+              {
+                "id": "test",
+                "score": 0.4566040060082081
+              },
+              {
+                "id": "repair",
+                "score": 0.4251689295805494
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": ""
+          },
+          {
+            "id": "R2",
+            "caseId": "A",
+            "description": "Technician replaces the broken motor.",
+            "minute": 30,
+            "owner": "Process analyst",
+            "kind": "repair",
+            "proposed": "repair",
+            "evidence": [
+              {
+                "id": "repair",
+                "score": 0.7237751932229367
+              },
+              {
+                "id": "test",
+                "score": 0.47328424889490384
+              },
+              {
+                "id": "intake",
+                "score": 0.47168549889668554
+              },
+              {
+                "id": "close",
+                "score": 0.38906197508609447
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": ""
+          },
+          {
+            "id": "R3",
+            "caseId": "A",
+            "description": "Bench check confirms the repaired device runs correctly.",
+            "minute": 120,
+            "owner": "Process analyst",
+            "kind": "test",
+            "proposed": "test",
+            "evidence": [
+              {
+                "id": "test",
+                "score": 0.6379754992300413
+              },
+              {
+                "id": "repair",
+                "score": 0.4536226339616499
+              },
+              {
+                "id": "intake",
+                "score": 0.4524386617325486
+              },
+              {
+                "id": "close",
+                "score": 0.42425044010557117
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": ""
+          },
+          {
+            "id": "R4",
+            "caseId": "A",
+            "description": "Repair ticket closed and customer informed.",
+            "minute": 135,
+            "owner": "Process analyst",
+            "kind": "close",
+            "proposed": "close",
+            "evidence": [
+              {
+                "id": "close",
+                "score": 0.8306736134686347
+              },
+              {
+                "id": "intake",
+                "score": 0.7206901080874067
+              },
+              {
+                "id": "test",
+                "score": 0.41457134685370967
+              },
+              {
+                "id": "repair",
+                "score": 0.3651525603164066
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": ""
+          },
+          {
+            "id": "R5",
+            "caseId": "B",
+            "description": "A fault report is registered for service.",
+            "minute": 10,
+            "owner": "Process analyst",
+            "kind": "intake",
+            "proposed": "intake",
+            "evidence": [
+              {
+                "id": "intake",
+                "score": 0.5874786431929198
+              },
+              {
+                "id": "close",
+                "score": 0.46297536109658377
+              },
+              {
+                "id": "test",
+                "score": 0.45585483146758476
+              },
+              {
+                "id": "repair",
+                "score": 0.40985500349708154
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": ""
+          },
+          {
+            "id": "R6",
+            "caseId": "B",
+            "description": "Case closed with notification to the customer.",
+            "minute": 20,
+            "owner": "Process analyst",
+            "kind": "close",
+            "proposed": "close",
+            "evidence": [
+              {
+                "id": "close",
+                "score": 0.599891279373982
+              },
+              {
+                "id": "intake",
+                "score": 0.44084732949180017
+              },
+              {
+                "id": "test",
+                "score": 0.1987292703921349
+              },
+              {
+                "id": "repair",
+                "score": 0.08387864049480243
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": ""
+          },
+          {
+            "id": "R7",
+            "caseId": "B",
+            "description": "Broken wiring fixed by the technician.",
+            "minute": 40,
+            "owner": "Process analyst",
+            "kind": "repair",
+            "proposed": "repair",
+            "evidence": [
+              {
+                "id": "repair",
+                "score": 0.6124875664792958
+              },
+              {
+                "id": "intake",
+                "score": 0.520166187329685
+              },
+              {
+                "id": "test",
+                "score": 0.4731047822506609
+              },
+              {
+                "id": "close",
+                "score": 0.4009432851308953
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": ""
+          },
+          {
+            "id": "R8",
+            "caseId": "B",
+            "description": "Technician fixes the wiring a second time.",
+            "minute": 55,
+            "owner": "Process analyst",
+            "kind": "repair",
+            "proposed": "repair",
+            "evidence": [
+              {
+                "id": "repair",
+                "score": 0.5686840478825748
+              },
+              {
+                "id": "test",
+                "score": 0.4187890858629331
+              },
+              {
+                "id": "intake",
+                "score": 0.37801477253969223
+              },
+              {
+                "id": "close",
+                "score": 0.283526542572299
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": ""
+          }
+        ],
+        "total": 8,
+        "approved": 8,
+        "held": 0,
+        "cases": [
+          {
+            "id": "A",
+            "eventIds": [
+              "R1",
+              "R2",
+              "R3",
+              "R4"
+            ],
+            "reasons": [],
+            "sequence": [
+              "intake",
+              "repair",
+              "test",
+              "close"
+            ],
+            "elapsedMinutes": 135,
+            "violations": [],
+            "repeats": [],
+            "gaps": [
+              {
+                "from": "R1",
+                "to": "R2",
+                "fromActivity": "intake",
+                "toActivity": "repair",
+                "minutes": 30,
+                "overTarget": false
+              },
+              {
+                "from": "R2",
+                "to": "R3",
+                "fromActivity": "repair",
+                "toActivity": "test",
+                "minutes": 90,
+                "overTarget": true
+              },
+              {
+                "from": "R3",
+                "to": "R4",
+                "fromActivity": "test",
+                "toActivity": "close",
+                "minutes": 15,
+                "overTarget": false
+              }
+            ]
+          },
+          {
+            "id": "B",
+            "eventIds": [
+              "R5",
+              "R6",
+              "R7",
+              "R8"
+            ],
+            "reasons": [],
+            "sequence": [
+              "intake",
+              "close",
+              "repair",
+              "repair"
+            ],
+            "elapsedMinutes": 45,
+            "violations": [
+              {
+                "eventId": "R6",
+                "activity": "close",
+                "missing": [
+                  "test"
+                ]
+              }
+            ],
+            "repeats": [
+              "R8"
+            ],
+            "gaps": [
+              {
+                "from": "R5",
+                "to": "R6",
+                "fromActivity": "intake",
+                "toActivity": "close",
+                "minutes": 10,
+                "overTarget": false
+              },
+              {
+                "from": "R6",
+                "to": "R7",
+                "fromActivity": "close",
+                "toActivity": "repair",
+                "minutes": 20,
+                "overTarget": false
+              },
+              {
+                "from": "R7",
+                "to": "R8",
+                "fromActivity": "repair",
+                "toActivity": "repair",
+                "minutes": 15,
+                "overTarget": false
+              }
+            ]
+          }
+        ],
+        "literalLabelMatches": 0,
+        "checkedCases": 2,
+        "violationCount": 1,
+        "repeatCount": 1,
+        "longGapCount": 1
+      }
+    },
+    {
+      "name": "Publishing desk",
+      "actual": [
+        "draft",
+        "review",
+        "publish",
+        "draft",
+        "publish",
+        "review"
+      ],
+      "expected": [
+        "draft",
+        "review",
+        "publish",
+        "draft",
+        "publish",
+        "review"
+      ],
+      "correct": 6,
+      "computed": {
+        "version": 1,
+        "originalInput": {
+          "project": "Synthetic editorial event log",
+          "maxGapMinutes": 90,
+          "activities": [
+            {
+              "id": "draft",
+              "label": "Manuscript drafting",
+              "description": "Write the initial article manuscript and compose text.",
+              "requires": []
+            },
+            {
+              "id": "review",
+              "label": "Editorial review",
+              "description": "Editor reviews article text for clarity and factual accuracy.",
+              "requires": [
+                "draft"
+              ]
+            },
+            {
+              "id": "publish",
+              "label": "Public release",
+              "description": "Publish the finished article on the public website.",
+              "requires": [
+                "review"
+              ]
+            }
+          ],
+          "records": [
+            {
+              "id": "P1",
+              "caseId": "X",
+              "description": "Author writes the first version of the article.",
+              "minute": 0,
+              "owner": "Process analyst"
+            },
+            {
+              "id": "P2",
+              "caseId": "X",
+              "description": "Editor checks the manuscript for facts and readability.",
+              "minute": 20,
+              "owner": "Process analyst"
+            },
+            {
+              "id": "P3",
+              "caseId": "X",
+              "description": "Finished article goes live on the website.",
+              "minute": 150,
+              "owner": "Process analyst"
+            },
+            {
+              "id": "P4",
+              "caseId": "Y",
+              "description": "Writer composes the initial manuscript.",
+              "minute": 5,
+              "owner": "Process analyst"
+            },
+            {
+              "id": "P5",
+              "caseId": "Y",
+              "description": "Article is released on the public site.",
+              "minute": 30,
+              "owner": "Process analyst"
+            },
+            {
+              "id": "P6",
+              "caseId": "Y",
+              "description": "Editor verifies facts and improves the article.",
+              "minute": 45,
+              "owner": "Process analyst"
+            }
+          ]
+        },
+        "reviews": [
+          {
+            "id": "P1",
+            "caseId": "X",
+            "description": "Author writes the first version of the article.",
+            "minute": 0,
+            "owner": "Process analyst",
+            "kind": "draft",
+            "proposed": "draft",
+            "evidence": [
+              {
+                "id": "draft",
+                "score": 0.6232846158576434
+              },
+              {
+                "id": "review",
+                "score": 0.3970247600674989
+              },
+              {
+                "id": "publish",
+                "score": 0.3871111893731932
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": ""
+          },
+          {
+            "id": "P2",
+            "caseId": "X",
+            "description": "Editor checks the manuscript for facts and readability.",
+            "minute": 20,
+            "owner": "Process analyst",
+            "kind": "review",
+            "proposed": "review",
+            "evidence": [
+              {
+                "id": "review",
+                "score": 0.7017061793217513
+              },
+              {
+                "id": "draft",
+                "score": 0.4892405671964454
+              },
+              {
+                "id": "publish",
+                "score": 0.26689256138024936
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": ""
+          },
+          {
+            "id": "P3",
+            "caseId": "X",
+            "description": "Finished article goes live on the website.",
+            "minute": 150,
+            "owner": "Process analyst",
+            "kind": "publish",
+            "proposed": "publish",
+            "evidence": [
+              {
+                "id": "publish",
+                "score": 0.6321714443839888
+              },
+              {
+                "id": "draft",
+                "score": 0.39686544837239063
+              },
+              {
+                "id": "review",
+                "score": 0.260748422991232
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": ""
+          },
+          {
+            "id": "P4",
+            "caseId": "Y",
+            "description": "Writer composes the initial manuscript.",
+            "minute": 5,
+            "owner": "Process analyst",
+            "kind": "draft",
+            "proposed": "draft",
+            "evidence": [
+              {
+                "id": "draft",
+                "score": 0.7522000243079663
+              },
+              {
+                "id": "review",
+                "score": 0.4109397050679872
+              },
+              {
+                "id": "publish",
+                "score": 0.29679854163813374
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": ""
+          },
+          {
+            "id": "P5",
+            "caseId": "Y",
+            "description": "Article is released on the public site.",
+            "minute": 30,
+            "owner": "Process analyst",
+            "kind": "publish",
+            "proposed": "publish",
+            "evidence": [
+              {
+                "id": "publish",
+                "score": 0.6994390205668659
+              },
+              {
+                "id": "draft",
+                "score": 0.3869034226929664
+              },
+              {
+                "id": "review",
+                "score": 0.29371059736494753
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": ""
+          },
+          {
+            "id": "P6",
+            "caseId": "Y",
+            "description": "Editor verifies facts and improves the article.",
+            "minute": 45,
+            "owner": "Process analyst",
+            "kind": "review",
+            "proposed": "review",
+            "evidence": [
+              {
+                "id": "review",
+                "score": 0.648865993192062
+              },
+              {
+                "id": "draft",
+                "score": 0.5646197635802436
+              },
+              {
+                "id": "publish",
+                "score": 0.4471067808154426
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": ""
+          }
+        ],
+        "total": 6,
+        "approved": 6,
+        "held": 0,
+        "cases": [
+          {
+            "id": "X",
+            "eventIds": [
+              "P1",
+              "P2",
+              "P3"
+            ],
+            "reasons": [],
+            "sequence": [
+              "draft",
+              "review",
+              "publish"
+            ],
+            "elapsedMinutes": 150,
+            "violations": [],
+            "repeats": [],
+            "gaps": [
+              {
+                "from": "P1",
+                "to": "P2",
+                "fromActivity": "draft",
+                "toActivity": "review",
+                "minutes": 20,
+                "overTarget": false
+              },
+              {
+                "from": "P2",
+                "to": "P3",
+                "fromActivity": "review",
+                "toActivity": "publish",
+                "minutes": 130,
+                "overTarget": true
+              }
+            ]
+          },
+          {
+            "id": "Y",
+            "eventIds": [
+              "P4",
+              "P5",
+              "P6"
+            ],
+            "reasons": [],
+            "sequence": [
+              "draft",
+              "publish",
+              "review"
+            ],
+            "elapsedMinutes": 40,
+            "violations": [
+              {
+                "eventId": "P5",
+                "activity": "publish",
+                "missing": [
+                  "review"
+                ]
+              }
+            ],
+            "repeats": [],
+            "gaps": [
+              {
+                "from": "P4",
+                "to": "P5",
+                "fromActivity": "draft",
+                "toActivity": "publish",
+                "minutes": 25,
+                "overTarget": false
+              },
+              {
+                "from": "P5",
+                "to": "P6",
+                "fromActivity": "publish",
+                "toActivity": "review",
+                "minutes": 15,
+                "overTarget": false
+              }
+            ]
+          }
+        ],
+        "literalLabelMatches": 0,
+        "checkedCases": 2,
+        "violationCount": 1,
+        "repeatCount": 0,
+        "longGapCount": 1
+      }
+    }
+  ],
+  "challenge": {
+    "proposal": "close",
+    "decision": "pending"
+  },
+  "privacy": {
+    "requests": 57,
+    "allGetNoBody": true,
+    "urls": [
+      "http://127.0.0.1:6785/daily-app2/20261114-6/",
+      "http://127.0.0.1:6785/daily-app2/20261114-6/assets/index-BrEIOqNP.js",
+      "http://127.0.0.1:6785/daily-app2/20261114-6/assets/index-CdU-gFxC.css",
+      "http://127.0.0.1:6785/daily-app2/20261114-6/assets/ai.worker-BiROo5Zc.js",
+      "blob:http://127.0.0.1:6785/bd1da2bd-624d-4cf8-8ecb-d834ce263e95",
+      "http://127.0.0.1:6785/daily-app2/20261114-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "http://127.0.0.1:6785/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "blob:http://127.0.0.1:6785/6a203ff8-507d-42dc-8ec8-707eb9803dee",
+      "blob:http://127.0.0.1:6785/ee48b85f-4682-4961-8ca4-4c1ea0132d44",
+      "blob:http://127.0.0.1:6785/94971a34-8bda-4969-87d3-96f9fa94cef8",
+      "blob:http://127.0.0.1:6785/dcd6ad2b-c991-4c3f-9ed4-e57b80ae4da9",
+      "blob:http://127.0.0.1:6785/015c1bf1-6db3-4137-842c-817d7e5e294e",
+      "blob:http://127.0.0.1:6785/a3bc8e74-0422-45e5-be64-320fcb58547d",
+      "blob:http://127.0.0.1:6785/d9556204-b073-4b7f-bae0-4fe1c9076b56",
+      "blob:http://127.0.0.1:6785/9e8cf122-5147-4b49-8674-713227a8bcfc",
+      "blob:http://127.0.0.1:6785/fec1ec54-d7d7-4d2d-aa01-9ffbebebbf27",
+      "blob:http://127.0.0.1:6785/345d28e8-c048-40d5-aa4d-c6503883a7e5",
+      "blob:http://127.0.0.1:6785/a5073511-f916-44d2-a551-24724afe2ceb",
+      "blob:http://127.0.0.1:6785/4537d805-b975-41df-936a-9f7a3dc1e779",
+      "blob:http://127.0.0.1:6785/260fee11-a4bd-4b3b-8c13-80016c4b59c9",
+      "blob:http://127.0.0.1:6785/4c2c8115-4f1c-4d9b-881c-02b9515d2696",
+      "blob:http://127.0.0.1:6785/baece9fd-ee05-4305-8006-80eaaae8ceb6",
+      "blob:http://127.0.0.1:6785/fcdde9f8-86b3-465c-9698-6c75bec28a87",
+      "blob:http://127.0.0.1:6785/0f851fe6-d31c-4e73-ad24-b60179d89235",
+      "blob:http://127.0.0.1:6785/b1e7cf67-959d-4ef0-864e-86d0d4a73c9c",
+      "blob:http://127.0.0.1:6785/e754d30c-9ffa-4986-9b2b-7e9e7154a7d7",
+      "blob:http://127.0.0.1:6785/b6a282d0-79af-4025-a0cf-29bbfcdbaac8",
+      "blob:http://127.0.0.1:6785/a3a7c319-430d-4eac-b32c-bfcb9d5e5c55",
+      "blob:http://127.0.0.1:6785/439261b0-b02f-47bc-bcc6-5fd8e1e1a8da",
+      "blob:http://127.0.0.1:6785/5102c39a-5993-456c-910b-131600d3e534",
+      "blob:http://127.0.0.1:6785/e7212f15-91c3-48c6-862f-5fc07d992409",
+      "blob:http://127.0.0.1:6785/6f36fbca-e299-443a-98c0-2ed756330ee3",
+      "blob:http://127.0.0.1:6785/aa048805-d0de-499f-845b-a1de8a9be684",
+      "blob:http://127.0.0.1:6785/3e49a40b-d2d9-4f59-a124-30edeabe36a2",
+      "blob:http://127.0.0.1:6785/05dbda23-4f2d-4e41-8e3a-b6568e1fa888",
+      "blob:http://127.0.0.1:6785/4e5987d7-2b8b-476a-8443-4a441ecf0eb1",
+      "blob:http://127.0.0.1:6785/1e916a4a-50ec-4338-b53b-17c66f0b1edc",
+      "blob:http://127.0.0.1:6785/5187b9c7-56f5-4681-80b2-6fecba8edeeb",
+      "blob:http://127.0.0.1:6785/e1104840-19d6-4655-999b-425cdb3a7209",
+      "blob:http://127.0.0.1:6785/232705ad-75da-4228-8da1-d3c43d9cec66",
+      "blob:http://127.0.0.1:6785/9fd79b36-cabe-4587-969a-d4a9d189bb7e",
+      "blob:http://127.0.0.1:6785/1bc9e469-c130-4cfe-8eb1-0938b4ea1c9f",
+      "blob:http://127.0.0.1:6785/f92a9298-21e4-410a-abe7-ed7d65cf6783"
+    ]
+  }
+}

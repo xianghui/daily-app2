@@ -1,0 +1,441 @@
+{
+  "version": 1,
+  "originalInput": {
+    "project": "Synthetic repair desk week",
+    "maxGapMinutes": 100,
+    "activities": [
+      {
+        "id": "intake",
+        "label": "Request intake",
+        "description": "Receive customer repair request and register a service ticket.",
+        "requires": []
+      },
+      {
+        "id": "repair",
+        "label": "Repair work",
+        "description": "Technician fixes broken equipment and replaces damaged components.",
+        "requires": [
+          "intake"
+        ]
+      },
+      {
+        "id": "test",
+        "label": "Quality test",
+        "description": "Run functional quality checks to verify repaired equipment works.",
+        "requires": [
+          "repair"
+        ]
+      },
+      {
+        "id": "close",
+        "label": "Ticket closure",
+        "description": "Close service ticket and notify customer that repair is complete.",
+        "requires": [
+          "test"
+        ]
+      }
+    ],
+    "records": [
+      {
+        "id": "R1",
+        "caseId": "A",
+        "description": "Customer asks for help; new repair ticket is logged.",
+        "minute": 0,
+        "owner": "Process analyst"
+      },
+      {
+        "id": "R2",
+        "caseId": "A",
+        "description": "Technician replaces the broken motor.",
+        "minute": 30,
+        "owner": "Process analyst"
+      },
+      {
+        "id": "R3",
+        "caseId": "A",
+        "description": "Bench check confirms the repaired device runs correctly.",
+        "minute": 120,
+        "owner": "Process analyst"
+      },
+      {
+        "id": "R4",
+        "caseId": "A",
+        "description": "Repair ticket closed and customer informed.",
+        "minute": 135,
+        "owner": "Process analyst"
+      },
+      {
+        "id": "R5",
+        "caseId": "B",
+        "description": "A fault report is registered for service.",
+        "minute": 10,
+        "owner": "Process analyst"
+      },
+      {
+        "id": "R6",
+        "caseId": "B",
+        "description": "Case closed with notification to the customer.",
+        "minute": 20,
+        "owner": "Process analyst"
+      },
+      {
+        "id": "R7",
+        "caseId": "B",
+        "description": "Broken wiring fixed by the technician.",
+        "minute": 40,
+        "owner": "Process analyst"
+      },
+      {
+        "id": "R8",
+        "caseId": "B",
+        "description": "Technician fixes the wiring a second time.",
+        "minute": 55,
+        "owner": "Process analyst"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "R1",
+      "caseId": "A",
+      "description": "Customer asks for help; new repair ticket is logged.",
+      "minute": 0,
+      "owner": "Process analyst",
+      "kind": "intake",
+      "proposed": "intake",
+      "evidence": [
+        {
+          "id": "intake",
+          "score": 0.7121492388663867
+        },
+        {
+          "id": "close",
+          "score": 0.6654694722872078
+        },
+        {
+          "id": "test",
+          "score": 0.4566040060082081
+        },
+        {
+          "id": "repair",
+          "score": 0.4251689295805494
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "R2",
+      "caseId": "A",
+      "description": "Technician replaces the broken motor.",
+      "minute": 30,
+      "owner": "Process analyst",
+      "kind": "repair",
+      "proposed": "repair",
+      "evidence": [
+        {
+          "id": "repair",
+          "score": 0.7237751932229367
+        },
+        {
+          "id": "test",
+          "score": 0.47328424889490384
+        },
+        {
+          "id": "intake",
+          "score": 0.47168549889668554
+        },
+        {
+          "id": "close",
+          "score": 0.38906197508609447
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "R3",
+      "caseId": "A",
+      "description": "Bench check confirms the repaired device runs correctly.",
+      "minute": 120,
+      "owner": "Process analyst",
+      "kind": "test",
+      "proposed": "test",
+      "evidence": [
+        {
+          "id": "test",
+          "score": 0.6379754992300413
+        },
+        {
+          "id": "repair",
+          "score": 0.4536226339616499
+        },
+        {
+          "id": "intake",
+          "score": 0.4524386617325486
+        },
+        {
+          "id": "close",
+          "score": 0.42425044010557117
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "R4",
+      "caseId": "A",
+      "description": "Repair ticket closed and customer informed.",
+      "minute": 135,
+      "owner": "Process analyst",
+      "kind": "close",
+      "proposed": "close",
+      "evidence": [
+        {
+          "id": "close",
+          "score": 0.8306736134686347
+        },
+        {
+          "id": "intake",
+          "score": 0.7206901080874067
+        },
+        {
+          "id": "test",
+          "score": 0.41457134685370967
+        },
+        {
+          "id": "repair",
+          "score": 0.3651525603164066
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "R5",
+      "caseId": "B",
+      "description": "A fault report is registered for service.",
+      "minute": 10,
+      "owner": "Process analyst",
+      "kind": "intake",
+      "proposed": "intake",
+      "evidence": [
+        {
+          "id": "intake",
+          "score": 0.5874786431929198
+        },
+        {
+          "id": "close",
+          "score": 0.46297536109658377
+        },
+        {
+          "id": "test",
+          "score": 0.45585483146758476
+        },
+        {
+          "id": "repair",
+          "score": 0.40985500349708154
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "R6",
+      "caseId": "B",
+      "description": "Case closed with notification to the customer.",
+      "minute": 20,
+      "owner": "Process analyst",
+      "kind": "close",
+      "proposed": "close",
+      "evidence": [
+        {
+          "id": "close",
+          "score": 0.599891279373982
+        },
+        {
+          "id": "intake",
+          "score": 0.44084732949180017
+        },
+        {
+          "id": "test",
+          "score": 0.1987292703921349
+        },
+        {
+          "id": "repair",
+          "score": 0.08387864049480243
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "R7",
+      "caseId": "B",
+      "description": "Broken wiring fixed by the technician.",
+      "minute": 40,
+      "owner": "Process analyst",
+      "kind": "repair",
+      "proposed": "repair",
+      "evidence": [
+        {
+          "id": "repair",
+          "score": 0.6124875664792958
+        },
+        {
+          "id": "intake",
+          "score": 0.520166187329685
+        },
+        {
+          "id": "test",
+          "score": 0.4731047822506609
+        },
+        {
+          "id": "close",
+          "score": 0.4009432851308953
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "R8",
+      "caseId": "B",
+      "description": "Technician fixes the wiring a second time.",
+      "minute": 55,
+      "owner": "Process analyst",
+      "kind": "repair",
+      "proposed": "repair",
+      "evidence": [
+        {
+          "id": "repair",
+          "score": 0.5686840478825748
+        },
+        {
+          "id": "test",
+          "score": 0.4187890858629331
+        },
+        {
+          "id": "intake",
+          "score": 0.37801477253969223
+        },
+        {
+          "id": "close",
+          "score": 0.283526542572299
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 8,
+  "approved": 8,
+  "held": 0,
+  "cases": [
+    {
+      "id": "A",
+      "eventIds": [
+        "R1",
+        "R2",
+        "R3",
+        "R4"
+      ],
+      "reasons": [],
+      "sequence": [
+        "intake",
+        "repair",
+        "test",
+        "close"
+      ],
+      "elapsedMinutes": 135,
+      "violations": [],
+      "repeats": [],
+      "gaps": [
+        {
+          "from": "R1",
+          "to": "R2",
+          "fromActivity": "intake",
+          "toActivity": "repair",
+          "minutes": 30,
+          "overTarget": false
+        },
+        {
+          "from": "R2",
+          "to": "R3",
+          "fromActivity": "repair",
+          "toActivity": "test",
+          "minutes": 90,
+          "overTarget": false
+        },
+        {
+          "from": "R3",
+          "to": "R4",
+          "fromActivity": "test",
+          "toActivity": "close",
+          "minutes": 15,
+          "overTarget": false
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "eventIds": [
+        "R5",
+        "R6",
+        "R7",
+        "R8"
+      ],
+      "reasons": [],
+      "sequence": [
+        "intake",
+        "close",
+        "repair",
+        "repair"
+      ],
+      "elapsedMinutes": 45,
+      "violations": [
+        {
+          "eventId": "R6",
+          "activity": "close",
+          "missing": [
+            "test"
+          ]
+        }
+      ],
+      "repeats": [
+        "R8"
+      ],
+      "gaps": [
+        {
+          "from": "R5",
+          "to": "R6",
+          "fromActivity": "intake",
+          "toActivity": "close",
+          "minutes": 10,
+          "overTarget": false
+        },
+        {
+          "from": "R6",
+          "to": "R7",
+          "fromActivity": "close",
+          "toActivity": "repair",
+          "minutes": 20,
+          "overTarget": false
+        },
+        {
+          "from": "R7",
+          "to": "R8",
+          "fromActivity": "repair",
+          "toActivity": "repair",
+          "minutes": 15,
+          "overTarget": false
+        }
+      ]
+    }
+  ],
+  "literalLabelMatches": 0,
+  "checkedCases": 2,
+  "violationCount": 1,
+  "repeatCount": 1,
+  "longGapCount": 0
+}

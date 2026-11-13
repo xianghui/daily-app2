@@ -1,0 +1,12 @@
+import fs from 'node:fs';import a from 'node:assert/strict';import {scale,parse,examples,suggest,analyze,csv} from './src/core.js';import Papa from 'papaparse';
+const cases=JSON.parse(fs.readFileSync('oracle-cases.json'));let feasible=0,blocked=0;
+for(const c of cases){if(c.error){a.throws(()=>scale(c.d,c.rows),new RegExp(c.error));blocked++;continue}const p=scale(c.d,c.rows);a.deepEqual(p.lines.map(l=>l.id),c.ids);a.deepEqual(p.lines.map(l=>l.grams),c.grams);a.equal(p.mass,c.d.targetGrams);for(let j=0;j<p.lines.length;j++)a(Math.abs(p.lines[j].idealGrams-c.ideal[j])<1e-7);feasible++}
+for(const e of examples){const d=parse(JSON.stringify(e.data));for(const v of [[],Array(10).fill(Array(384).fill(0)),[[Infinity]]])a.throws(()=>suggest(d,v),/Malformed/)}
+const d=examples[0].data,rows=d.records.map((r,i)=>({...r,kind:['flour','water','milk','salt'][i],proposed:'flour',decision:'approve',reviewNote:'',evidence:[]}));a.equal(analyze(d,rows).plan.mass,2000);a.throws(()=>analyze(d,rows.map(r=>({...r,decision:'pending'}))),/Review/);
+for(const s of ['', '{}','null','[]',JSON.stringify({...d,targetGrams:99}),JSON.stringify({...d,targetHydrationBP:20001})])a.throws(()=>parse(s));
+rows[0].owner='=SUM(1,2)\n"quoted", name';rows[0].reviewNote='@start\nsecond';const out=Papa.parse(csv(analyze(d,rows)),{header:true});a.equal(out.data[0].owner,"'"+rows[0].owner);a.equal(out.data[0].review_note,"'"+rows[0].reviewNote);
+const pp=[{id:'f',flour:true,waterBP:0},{id:'w',flour:false,waterBP:10000},{id:'m',flour:false,waterBP:8700},{id:'s',flour:false,waterBP:0}],rr=(id,kind,grams)=>({id,kind,grams,note:'synthetic',owner:'reviewer'});
+a.throws(()=>scale({targetGrams:100,targetHydrationBP:6500,policies:pp},[rr('f','f',1),rr('s','s',1000000)]),/removed all flour/);
+const zero=scale({targetGrams:100,targetHydrationBP:8700,policies:pp},[rr('f','f',100),rr('m','m',100)]);a.equal(zero.waterAdditionGrams,0);a.equal(zero.mass,100);a.equal(zero.actualHydrationBP,8700);
+const tie=scale({targetGrams:100,targetHydrationBP:10000,policies:pp},[rr('f','f',1),rr('s','s',1),rr('w','w',1)]);a.deepEqual(tie.lines.map(l=>l.grams),[34,33,33]);
+fs.writeFileSync('core-validation.json',JSON.stringify({independentFractionOracle:cases.length,feasible,blocked,exactMassAndLargestRemainder:true,schemaAndFormulaEscaping:true,targetedZeroWaterRoundingLossAndTieCases:3},null,2));console.log('PASS',cases.length,'independent Fraction-oracle cases',feasible,'feasible',blocked,'blocked');

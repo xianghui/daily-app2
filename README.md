@@ -825,3 +825,10 @@ Strata Orchard public release: Pages built commit `280e7e79a6ef0c3d97654e17a975a
 Real local MiniLM reconciles both identities in pairwise consultation logs before mandatory option/count review. Winning-votes strongest-path tiers expose cycles beyond direct-win baselines, retaining missing/tied/repeated pairs and complete JSON/CSV/Markdown reviews. Two tiny fixtures matched 16/16 intended identities; 650 independent simple-path oracle cases passed. Counts are preference observations, not unique respondents, and incomplete/incomparable logs can mislead. Offline fresh-worker inference is limited to an already-open warmed page. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow/privacy](20261114-4/README.md) and [observed validation](20261114-4/VALIDATION.md).
 
 Decision Estuary public release: Pages built commit `04fc63f9bebc4271bea4c6c9ae3b9f236389227a`; byte-matched public app/worker/runtime, both real-AI fixtures, all nine public workflow groups and preserved 653-entry gallery passed on the first deployment.
+
+
+## Price Lens — 20261114-5
+
+Local MiniLM reconciles repeated sales-log product descriptions before mandatory identity, price, units and exposure review. Deterministic log-demand fits compare bounded contribution-maximizing price grids against current-price baselines; no causal or realized-profit claims. Both six-row synthetic fixtures matched expected products, known curves and independent grid objectives. Complete JSON/CSV/Markdown preserves originals and held rows; fresh-worker offline inference is tested only on an already-open warmed page. Reuses the immutable shared WASM from `20261107-2`; preserve it. See [workflow/privacy](20261114-5/README.md) and [observed validation](20261114-5/VALIDATION.md).
+
+Price Lens public release passed on the first Pages workflow: matching built gh-pages head, byte-matched app/runtime assets, both real-AI fixtures, full reviewed workflow/export/offline suite and preserved 654-entry gallery.

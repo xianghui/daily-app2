@@ -846,3 +846,10 @@ Trace Current public release: Pages built the matching final gh-pages head; byte
 Real local MiniLM category inference supports mandatory purchase/rate/basis review before exact-cent inclusive/exclusive tax worksheets. Both tiny synthetic batches matched 8/8 intended categories; 8,004 independent rational-arithmetic cases and complete reviewed artifact checks passed. Hypothetical supplied rates are not tax rules, eligibility or filing advice. Fresh-worker offline inference is limited to an already-open warmed page. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow/privacy](20261114-7/README.md) and [observed checks](20261114-7/VALIDATION.md).
 
 Tax Weave public release: Pages built matching gh-pages head `00a33cd42d7d2e1fb47523a1e36cc08cd28ce30b`; byte-matched app/worker/runtime assets, both real-AI fixtures, all nine public workflow groups, warmed-page fresh-worker offline inference and preserved 656-entry gallery passed.
+
+
+## Contingency Lens — 20261114-8
+
+Real local MiniLM scenario matching assists recurring stock, venue and production decision worksheets. Review supplied likelihood weights, options and signed payoffs; incomplete/duplicate matrices block recommendations. Exact weighted expected value, minimax regret and a perfect-information ceiling expose different choices beyond an optimistic baseline. Both tiny fixtures matched 8/8 scenario links; 1,500 independent rational-arithmetic cases, reviewed artifact conservation and warmed-page fresh-worker offline inference passed locally. No forecasts or real-study valuation. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261114-8/README.md) and [observed validation](20261114-8/VALIDATION.md).
+
+Contingency Lens public release: matching Pages gh-pages `86efbfac06b7c90700e6eb5f35a6bee844242632`, byte-matched public assets, both real-AI fixtures, all nine workflow groups, reviewed artifact round-trips, warmed-page offline fresh-worker inference and preserved 657-entry gallery passed.

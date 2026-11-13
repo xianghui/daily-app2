@@ -1,0 +1,166 @@
+{
+  "version": 1,
+  "originalInput": {
+    "project": "Synthetic seasonal print decision",
+    "scenarios": [
+      {
+        "id": "high",
+        "label": "Strong demand",
+        "description": "Strong customer demand, rapid sales and a large number of orders.",
+        "weight": 1
+      },
+      {
+        "id": "low",
+        "label": "Weak demand",
+        "description": "Weak customer demand, slow sales and very few orders.",
+        "weight": 3
+      }
+    ],
+    "options": [
+      {
+        "id": "bulk",
+        "label": "Large print run"
+      },
+      {
+        "id": "small",
+        "label": "Short print run"
+      }
+    ],
+    "records": [
+      {
+        "id": "P1",
+        "description": "Orders flood in and customers buy every copy quickly.",
+        "option": "bulk",
+        "payoffCents": 180000,
+        "owner": "Planner"
+      },
+      {
+        "id": "P2",
+        "description": "Very few customers buy copies and sales are slow.",
+        "option": "bulk",
+        "payoffCents": -80000,
+        "owner": "Planner"
+      },
+      {
+        "id": "P3",
+        "description": "Huge customer interest leads to many orders and brisk sales.",
+        "option": "small",
+        "payoffCents": 70000,
+        "owner": "Planner"
+      },
+      {
+        "id": "P4",
+        "description": "Low customer interest and weak sales leave few orders.",
+        "option": "small",
+        "payoffCents": 20000,
+        "owner": "Planner"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "P1",
+      "description": "Orders flood in and customers buy every copy quickly.",
+      "option": "bulk",
+      "payoffCents": 180000,
+      "owner": "=Owner\n\"second\", line",
+      "kind": "low",
+      "proposed": "high",
+      "evidence": [
+        {
+          "id": "high",
+          "score": 0.6650745963966296
+        },
+        {
+          "id": "low",
+          "score": 0.5595198183137916
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", confirm payoff"
+    },
+    {
+      "id": "P2",
+      "description": "Very few customers buy copies and sales are slow.",
+      "option": "bulk",
+      "payoffCents": -80000,
+      "owner": "Planner",
+      "kind": "low",
+      "proposed": "low",
+      "evidence": [
+        {
+          "id": "low",
+          "score": 0.6876875581467758
+        },
+        {
+          "id": "high",
+          "score": 0.5245907957058524
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "P3",
+      "description": "Huge customer interest leads to many orders and brisk sales.",
+      "option": "small",
+      "payoffCents": 70000,
+      "owner": "Planner",
+      "kind": "high",
+      "proposed": "high",
+      "evidence": [
+        {
+          "id": "high",
+          "score": 0.7810415801477666
+        },
+        {
+          "id": "low",
+          "score": 0.5788224394620332
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "P4",
+      "description": "Low customer interest and weak sales leave few orders.",
+      "option": "small",
+      "payoffCents": 20000,
+      "owner": "Planner",
+      "kind": "low",
+      "proposed": "low",
+      "evidence": [
+        {
+          "id": "low",
+          "score": 0.8159687784628382
+        },
+        {
+          "id": "high",
+          "score": 0.632823778708244
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "complete": false,
+  "issues": [
+    "Large print run / Strong demand: missing approved outcome",
+    "Large print run / Weak demand: duplicate approved outcomes"
+  ],
+  "matrix": [
+    [
+      null,
+      null
+    ],
+    [
+      70000,
+      20000
+    ]
+  ],
+  "analysis": null,
+  "literalLabelMatches": 0
+}

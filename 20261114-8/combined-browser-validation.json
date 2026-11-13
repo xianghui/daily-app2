@@ -1,0 +1,532 @@
+{
+  "checks": [
+    "real CPU inference Outdoor market",
+    "real CPU inference Print run",
+    "review multiline edit reject hold undo copy roundtrip",
+    "offline fresh worker real inference warmed page",
+    "invalid empty oversized duplicate unsupported formats",
+    "cancel retry stale input maximum 32-row batch audit roundtrip",
+    "invalid reviewed payoff and changed likelihood sensitivity",
+    "instruction-like unrelated text remains pending data",
+    "desktop phone labels touch focus screenshots"
+  ],
+  "fixtures": [
+    {
+      "name": "Outdoor market",
+      "actual": [
+        "sun",
+        "rain",
+        "sun",
+        "rain"
+      ],
+      "expected": [
+        "sun",
+        "rain",
+        "sun",
+        "rain"
+      ],
+      "correct": 4,
+      "computed": {
+        "version": 1,
+        "originalInput": {
+          "project": "Synthetic weekend stall choice",
+          "scenarios": [
+            {
+              "id": "sun",
+              "label": "Dry weather",
+              "description": "Sunny dry weather with clear skies and no rain.",
+              "weight": 3
+            },
+            {
+              "id": "rain",
+              "label": "Wet weather",
+              "description": "Heavy rain, wet weather and stormy skies.",
+              "weight": 2
+            }
+          ],
+          "options": [
+            {
+              "id": "open",
+              "label": "Open-air stall"
+            },
+            {
+              "id": "tent",
+              "label": "Covered stall"
+            }
+          ],
+          "records": [
+            {
+              "id": "M1",
+              "description": "Bright sunshine and clear skies all weekend.",
+              "option": "open",
+              "payoffCents": 100000,
+              "owner": "Planner"
+            },
+            {
+              "id": "M2",
+              "description": "Torrential rain and thunderstorms all day.",
+              "option": "open",
+              "payoffCents": -40000,
+              "owner": "Planner"
+            },
+            {
+              "id": "M3",
+              "description": "Warm sunny dry conditions without clouds.",
+              "option": "tent",
+              "payoffCents": 60000,
+              "owner": "Planner"
+            },
+            {
+              "id": "M4",
+              "description": "Persistent heavy rainfall and wet storm conditions.",
+              "option": "tent",
+              "payoffCents": 30000,
+              "owner": "Planner"
+            }
+          ]
+        },
+        "reviews": [
+          {
+            "id": "M1",
+            "description": "Bright sunshine and clear skies all weekend.",
+            "option": "open",
+            "payoffCents": 100000,
+            "owner": "Planner",
+            "kind": "sun",
+            "proposed": "sun",
+            "evidence": [
+              {
+                "id": "sun",
+                "score": 0.6523881191547926
+              },
+              {
+                "id": "rain",
+                "score": 0.6159974576243618
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": ""
+          },
+          {
+            "id": "M2",
+            "description": "Torrential rain and thunderstorms all day.",
+            "option": "open",
+            "payoffCents": -40000,
+            "owner": "Planner",
+            "kind": "rain",
+            "proposed": "rain",
+            "evidence": [
+              {
+                "id": "rain",
+                "score": 0.6911158994917493
+              },
+              {
+                "id": "sun",
+                "score": 0.5284842893693357
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": ""
+          },
+          {
+            "id": "M3",
+            "description": "Warm sunny dry conditions without clouds.",
+            "option": "tent",
+            "payoffCents": 60000,
+            "owner": "Planner",
+            "kind": "sun",
+            "proposed": "sun",
+            "evidence": [
+              {
+                "id": "sun",
+                "score": 0.7379945356680567
+              },
+              {
+                "id": "rain",
+                "score": 0.5046540553592046
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": ""
+          },
+          {
+            "id": "M4",
+            "description": "Persistent heavy rainfall and wet storm conditions.",
+            "option": "tent",
+            "payoffCents": 30000,
+            "owner": "Planner",
+            "kind": "rain",
+            "proposed": "rain",
+            "evidence": [
+              {
+                "id": "rain",
+                "score": 0.7519353621591413
+              },
+              {
+                "id": "sun",
+                "score": 0.6046966091180486
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": ""
+          }
+        ],
+        "total": 4,
+        "approved": 4,
+        "held": 0,
+        "complete": true,
+        "issues": [],
+        "matrix": [
+          [
+            100000,
+            -40000
+          ],
+          [
+            60000,
+            30000
+          ]
+        ],
+        "analysis": {
+          "weight": 5,
+          "scores": [
+            {
+              "id": "open",
+              "label": "Open-air stall",
+              "payoffs": [
+                100000,
+                -40000
+              ],
+              "expectedNumerator": 220000,
+              "bestCaseCents": 100000,
+              "worstCaseCents": -40000,
+              "regrets": [
+                0,
+                70000
+              ],
+              "maxRegretCents": 70000
+            },
+            {
+              "id": "tent",
+              "label": "Covered stall",
+              "payoffs": [
+                60000,
+                30000
+              ],
+              "expectedNumerator": 240000,
+              "bestCaseCents": 60000,
+              "worstCaseCents": 30000,
+              "regrets": [
+                40000,
+                0
+              ],
+              "maxRegretCents": 40000
+            }
+          ],
+          "perfectNumerator": 360000,
+          "evpiNumerator": 120000,
+          "expectedChoice": [
+            "tent"
+          ],
+          "regretChoice": [
+            "tent"
+          ],
+          "optimisticChoice": [
+            "open"
+          ],
+          "expectedNumerator": 240000,
+          "optimisticEVNumerator": 220000
+        },
+        "literalLabelMatches": 0
+      }
+    },
+    {
+      "name": "Print run",
+      "actual": [
+        "high",
+        "low",
+        "high",
+        "low"
+      ],
+      "expected": [
+        "high",
+        "low",
+        "high",
+        "low"
+      ],
+      "correct": 4,
+      "computed": {
+        "version": 1,
+        "originalInput": {
+          "project": "Synthetic seasonal print decision",
+          "scenarios": [
+            {
+              "id": "high",
+              "label": "Strong demand",
+              "description": "Strong customer demand, rapid sales and a large number of orders.",
+              "weight": 1
+            },
+            {
+              "id": "low",
+              "label": "Weak demand",
+              "description": "Weak customer demand, slow sales and very few orders.",
+              "weight": 3
+            }
+          ],
+          "options": [
+            {
+              "id": "bulk",
+              "label": "Large print run"
+            },
+            {
+              "id": "small",
+              "label": "Short print run"
+            }
+          ],
+          "records": [
+            {
+              "id": "P1",
+              "description": "Orders flood in and customers buy every copy quickly.",
+              "option": "bulk",
+              "payoffCents": 180000,
+              "owner": "Planner"
+            },
+            {
+              "id": "P2",
+              "description": "Very few customers buy copies and sales are slow.",
+              "option": "bulk",
+              "payoffCents": -80000,
+              "owner": "Planner"
+            },
+            {
+              "id": "P3",
+              "description": "Huge customer interest leads to many orders and brisk sales.",
+              "option": "small",
+              "payoffCents": 70000,
+              "owner": "Planner"
+            },
+            {
+              "id": "P4",
+              "description": "Low customer interest and weak sales leave few orders.",
+              "option": "small",
+              "payoffCents": 20000,
+              "owner": "Planner"
+            }
+          ]
+        },
+        "reviews": [
+          {
+            "id": "P1",
+            "description": "Orders flood in and customers buy every copy quickly.",
+            "option": "bulk",
+            "payoffCents": 180000,
+            "owner": "Planner",
+            "kind": "high",
+            "proposed": "high",
+            "evidence": [
+              {
+                "id": "high",
+                "score": 0.6650745963966296
+              },
+              {
+                "id": "low",
+                "score": 0.5595198183137916
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": ""
+          },
+          {
+            "id": "P2",
+            "description": "Very few customers buy copies and sales are slow.",
+            "option": "bulk",
+            "payoffCents": -80000,
+            "owner": "Planner",
+            "kind": "low",
+            "proposed": "low",
+            "evidence": [
+              {
+                "id": "low",
+                "score": 0.6876875581467758
+              },
+              {
+                "id": "high",
+                "score": 0.5245907957058524
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": ""
+          },
+          {
+            "id": "P3",
+            "description": "Huge customer interest leads to many orders and brisk sales.",
+            "option": "small",
+            "payoffCents": 70000,
+            "owner": "Planner",
+            "kind": "high",
+            "proposed": "high",
+            "evidence": [
+              {
+                "id": "high",
+                "score": 0.7810415801477666
+              },
+              {
+                "id": "low",
+                "score": 0.5788224394620332
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": ""
+          },
+          {
+            "id": "P4",
+            "description": "Low customer interest and weak sales leave few orders.",
+            "option": "small",
+            "payoffCents": 20000,
+            "owner": "Planner",
+            "kind": "low",
+            "proposed": "low",
+            "evidence": [
+              {
+                "id": "low",
+                "score": 0.8159687784628382
+              },
+              {
+                "id": "high",
+                "score": 0.632823778708244
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": ""
+          }
+        ],
+        "total": 4,
+        "approved": 4,
+        "held": 0,
+        "complete": true,
+        "issues": [],
+        "matrix": [
+          [
+            180000,
+            -80000
+          ],
+          [
+            70000,
+            20000
+          ]
+        ],
+        "analysis": {
+          "weight": 4,
+          "scores": [
+            {
+              "id": "bulk",
+              "label": "Large print run",
+              "payoffs": [
+                180000,
+                -80000
+              ],
+              "expectedNumerator": -60000,
+              "bestCaseCents": 180000,
+              "worstCaseCents": -80000,
+              "regrets": [
+                0,
+                100000
+              ],
+              "maxRegretCents": 100000
+            },
+            {
+              "id": "small",
+              "label": "Short print run",
+              "payoffs": [
+                70000,
+                20000
+              ],
+              "expectedNumerator": 130000,
+              "bestCaseCents": 70000,
+              "worstCaseCents": 20000,
+              "regrets": [
+                110000,
+                0
+              ],
+              "maxRegretCents": 110000
+            }
+          ],
+          "perfectNumerator": 240000,
+          "evpiNumerator": 110000,
+          "expectedChoice": [
+            "small"
+          ],
+          "regretChoice": [
+            "bulk"
+          ],
+          "optimisticChoice": [
+            "bulk"
+          ],
+          "expectedNumerator": 130000,
+          "optimisticEVNumerator": -60000
+        },
+        "literalLabelMatches": 0
+      }
+    }
+  ],
+  "challenge": {
+    "proposal": "rain",
+    "decision": "pending"
+  },
+  "privacy": {
+    "requests": 57,
+    "allGetNoBody": true,
+    "urls": [
+      "http://127.0.0.1:6788/daily-app2/20261114-8/",
+      "http://127.0.0.1:6788/daily-app2/20261114-8/assets/index-C4EKKtah.js",
+      "http://127.0.0.1:6788/daily-app2/20261114-8/assets/index-Dxv_noaP.css",
+      "http://127.0.0.1:6788/daily-app2/20261114-8/assets/ai.worker-B2Emy9L9.js",
+      "blob:http://127.0.0.1:6788/3ff65475-b969-49fe-9a69-c65787647017",
+      "http://127.0.0.1:6788/daily-app2/20261114-8/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "http://127.0.0.1:6788/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "blob:http://127.0.0.1:6788/3b800610-05cd-489c-a92a-4d9c79ad40fa",
+      "blob:http://127.0.0.1:6788/f68633e0-3d47-4c27-9f22-8f4c59c7c5d8",
+      "blob:http://127.0.0.1:6788/a7cec553-3c10-44f8-b73e-64cfafb64d1d",
+      "blob:http://127.0.0.1:6788/f4010664-0165-43e9-a7d7-b096de0f152f",
+      "blob:http://127.0.0.1:6788/577eb66d-2912-42a5-a9bf-3ffc2378c4b0",
+      "blob:http://127.0.0.1:6788/cbbc24dc-93b5-491a-8b20-cb85f6e0d451",
+      "blob:http://127.0.0.1:6788/6ce37700-5f66-4633-9ecf-4be22bb7789a",
+      "blob:http://127.0.0.1:6788/5093dcc3-3b31-43be-9b43-a2e344ed222d",
+      "blob:http://127.0.0.1:6788/1a0b8861-3114-453a-939d-33a6ff6b67ee",
+      "blob:http://127.0.0.1:6788/22b00de3-9ecf-42d0-bcb2-f2cea8b8f06b",
+      "blob:http://127.0.0.1:6788/6863a1fc-64b6-411b-8bb4-637db4907956",
+      "blob:http://127.0.0.1:6788/5d95cf45-0842-4cec-897e-86321dd0eefd",
+      "blob:http://127.0.0.1:6788/5fe1b16b-a847-4f43-ab7b-2bf1216348fb",
+      "blob:http://127.0.0.1:6788/8ddc3a9c-6e84-4e24-84be-f521a08b31e3",
+      "blob:http://127.0.0.1:6788/0a3edd79-6fd5-4c6c-914e-280c97fe2b1a",
+      "blob:http://127.0.0.1:6788/e3955e05-b93f-42bc-82cd-52e6b3c79809",
+      "blob:http://127.0.0.1:6788/42742576-3c53-495b-a3a0-dcc6a85e3736",
+      "blob:http://127.0.0.1:6788/257e4718-95fe-4f3e-a2a8-bd626f45b55e",
+      "blob:http://127.0.0.1:6788/c42d436e-a9aa-4751-a3c3-012f24c3d615",
+      "blob:http://127.0.0.1:6788/65f77a93-ad9d-4281-90c3-cb997942ed2e",
+      "blob:http://127.0.0.1:6788/8357211c-74b5-4415-97ae-f18cfe877ba4",
+      "blob:http://127.0.0.1:6788/c453649e-d48a-456c-8eca-322eea36d88a",
+      "blob:http://127.0.0.1:6788/e40271be-b6a1-4ecc-ae60-db54c8362094",
+      "blob:http://127.0.0.1:6788/13c65234-fd21-4947-a0f3-d3d2e7b45cc1",
+      "blob:http://127.0.0.1:6788/c44ab9e8-5f41-4584-aebc-a6b07d8cee83",
+      "blob:http://127.0.0.1:6788/fde199f3-a41a-47c9-921b-72f66680a5f4",
+      "blob:http://127.0.0.1:6788/b39d33a5-5e1b-433f-ad67-5ae986b5e853",
+      "blob:http://127.0.0.1:6788/1520e3c5-a6d2-4016-a368-0e93c96f4b84",
+      "blob:http://127.0.0.1:6788/43cc8a5a-1aed-4422-a905-d98d45ab7170",
+      "blob:http://127.0.0.1:6788/701c5f9f-3764-4dd3-8243-ca7403be2a1f",
+      "blob:http://127.0.0.1:6788/bf6234e3-fc14-4976-8caa-384b1281280a",
+      "blob:http://127.0.0.1:6788/5ef54ad9-f7ec-4b31-a073-3cd8536d123b",
+      "blob:http://127.0.0.1:6788/c2761290-1980-4a05-8653-1636384c1dea",
+      "blob:http://127.0.0.1:6788/b6cf9c80-1757-4b39-98c6-818dabc22b50",
+      "blob:http://127.0.0.1:6788/145fdb87-9f23-43d8-a98d-5d290dafdb6f",
+      "blob:http://127.0.0.1:6788/54591639-09c3-44e6-916f-c1bf5f717129"
+    ]
+  }
+}

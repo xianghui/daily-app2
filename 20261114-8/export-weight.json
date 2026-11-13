@@ -1,0 +1,212 @@
+{
+  "version": 1,
+  "originalInput": {
+    "project": "Synthetic weekend stall choice",
+    "scenarios": [
+      {
+        "id": "sun",
+        "label": "Dry weather",
+        "description": "Sunny dry weather with clear skies and no rain.",
+        "weight": 9
+      },
+      {
+        "id": "rain",
+        "label": "Wet weather",
+        "description": "Heavy rain, wet weather and stormy skies.",
+        "weight": 1
+      }
+    ],
+    "options": [
+      {
+        "id": "open",
+        "label": "Open-air stall"
+      },
+      {
+        "id": "tent",
+        "label": "Covered stall"
+      }
+    ],
+    "records": [
+      {
+        "id": "M1",
+        "description": "Bright sunshine and clear skies all weekend.",
+        "option": "open",
+        "payoffCents": 100000,
+        "owner": "Planner"
+      },
+      {
+        "id": "M2",
+        "description": "Torrential rain and thunderstorms all day.",
+        "option": "open",
+        "payoffCents": -40000,
+        "owner": "Planner"
+      },
+      {
+        "id": "M3",
+        "description": "Warm sunny dry conditions without clouds.",
+        "option": "tent",
+        "payoffCents": 60000,
+        "owner": "Planner"
+      },
+      {
+        "id": "M4",
+        "description": "Persistent heavy rainfall and wet storm conditions.",
+        "option": "tent",
+        "payoffCents": 30000,
+        "owner": "Planner"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "M1",
+      "description": "Bright sunshine and clear skies all weekend.",
+      "option": "open",
+      "payoffCents": 100000,
+      "owner": "Planner",
+      "kind": "sun",
+      "proposed": "sun",
+      "evidence": [
+        {
+          "id": "sun",
+          "score": 0.6523881191547926
+        },
+        {
+          "id": "rain",
+          "score": 0.6159974576243618
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "M2",
+      "description": "Torrential rain and thunderstorms all day.",
+      "option": "open",
+      "payoffCents": -40000,
+      "owner": "Planner",
+      "kind": "rain",
+      "proposed": "rain",
+      "evidence": [
+        {
+          "id": "rain",
+          "score": 0.6911158994917493
+        },
+        {
+          "id": "sun",
+          "score": 0.5284842893693357
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "M3",
+      "description": "Warm sunny dry conditions without clouds.",
+      "option": "tent",
+      "payoffCents": 60000,
+      "owner": "Planner",
+      "kind": "sun",
+      "proposed": "sun",
+      "evidence": [
+        {
+          "id": "sun",
+          "score": 0.7379945356680567
+        },
+        {
+          "id": "rain",
+          "score": 0.5046540553592046
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "M4",
+      "description": "Persistent heavy rainfall and wet storm conditions.",
+      "option": "tent",
+      "payoffCents": 30000,
+      "owner": "Planner",
+      "kind": "rain",
+      "proposed": "rain",
+      "evidence": [
+        {
+          "id": "rain",
+          "score": 0.7519353621591413
+        },
+        {
+          "id": "sun",
+          "score": 0.6046966091180486
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "complete": true,
+  "issues": [],
+  "matrix": [
+    [
+      100000,
+      -40000
+    ],
+    [
+      60000,
+      30000
+    ]
+  ],
+  "analysis": {
+    "weight": 10,
+    "scores": [
+      {
+        "id": "open",
+        "label": "Open-air stall",
+        "payoffs": [
+          100000,
+          -40000
+        ],
+        "expectedNumerator": 860000,
+        "bestCaseCents": 100000,
+        "worstCaseCents": -40000,
+        "regrets": [
+          0,
+          70000
+        ],
+        "maxRegretCents": 70000
+      },
+      {
+        "id": "tent",
+        "label": "Covered stall",
+        "payoffs": [
+          60000,
+          30000
+        ],
+        "expectedNumerator": 570000,
+        "bestCaseCents": 60000,
+        "worstCaseCents": 30000,
+        "regrets": [
+          40000,
+          0
+        ],
+        "maxRegretCents": 40000
+      }
+    ],
+    "perfectNumerator": 930000,
+    "evpiNumerator": 70000,
+    "expectedChoice": [
+      "open"
+    ],
+    "regretChoice": [
+      "tent"
+    ],
+    "optimisticChoice": [
+      "open"
+    ],
+    "expectedNumerator": 860000,
+    "optimisticEVNumerator": 860000
+  },
+  "literalLabelMatches": 0
+}

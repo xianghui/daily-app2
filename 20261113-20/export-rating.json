@@ -1,0 +1,198 @@
+{
+  "version": 1,
+  "originalInput": {
+    "project": "Synthetic ceramics studio · one supplied operating day",
+    "energyCentsPerKWh": 20,
+    "demandCentsPerKW": 1200,
+    "peakLimitW": 9000,
+    "policies": [
+      {
+        "id": "kiln",
+        "label": "Electric kiln",
+        "description": "Electric pottery ceramic kiln firing clay pots in a heated furnace.",
+        "ratedW": 10000
+      },
+      {
+        "id": "air",
+        "label": "Air compressor",
+        "description": "Compressed air compressor tank supplying pneumatic workshop tools.",
+        "ratedW": 5000
+      },
+      {
+        "id": "light",
+        "label": "Room lighting",
+        "description": "Overhead ceiling LED lighting illuminating the workshop room.",
+        "ratedW": 3000
+      },
+      {
+        "id": "vent",
+        "label": "Ventilation fan",
+        "description": "Ventilation exhaust fan extracting air and fumes from the room.",
+        "ratedW": 3000
+      }
+    ],
+    "records": [
+      {
+        "id": "a",
+        "note": "Pottery furnace firing the clay pots.",
+        "startSlot": 32,
+        "slots": 16,
+        "watts": 6000,
+        "owner": "Workshop planner"
+      },
+      {
+        "id": "b",
+        "note": "Compressed air tank powering pneumatic tools.",
+        "startSlot": 40,
+        "slots": 8,
+        "watts": 3000,
+        "owner": "Workshop planner"
+      },
+      {
+        "id": "c",
+        "note": "Overhead LED lamps illuminating the workshop.",
+        "startSlot": 28,
+        "slots": 32,
+        "watts": 1000,
+        "owner": "Workshop planner"
+      },
+      {
+        "id": "d",
+        "note": "Exhaust fan extracting kiln fumes from the room.",
+        "startSlot": 32,
+        "slots": 16,
+        "watts": 800,
+        "owner": "Workshop planner"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "a",
+      "note": "Pottery furnace firing the clay pots.",
+      "startSlot": 32,
+      "slots": 16,
+      "watts": 6000,
+      "owner": "Workshop planner",
+      "kind": "kiln",
+      "proposed": "kiln",
+      "evidence": [
+        {
+          "id": "kiln",
+          "score": 0.8955044900707024
+        },
+        {
+          "id": "vent",
+          "score": 0.23033829808378187
+        },
+        {
+          "id": "air",
+          "score": 0.2240355358148163
+        },
+        {
+          "id": "light",
+          "score": 0.14740214799446452
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "b",
+      "note": "Compressed air tank powering pneumatic tools.",
+      "startSlot": 40,
+      "slots": 8,
+      "watts": 6000,
+      "owner": "Workshop planner",
+      "kind": "air",
+      "proposed": "air",
+      "evidence": [
+        {
+          "id": "air",
+          "score": 0.8755819913052927
+        },
+        {
+          "id": "kiln",
+          "score": 0.22979523814965025
+        },
+        {
+          "id": "vent",
+          "score": 0.22905025325937894
+        },
+        {
+          "id": "light",
+          "score": 0.024185800366068145
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "c",
+      "note": "Overhead LED lamps illuminating the workshop.",
+      "startSlot": 28,
+      "slots": 32,
+      "watts": 1000,
+      "owner": "Workshop planner",
+      "kind": "light",
+      "proposed": "light",
+      "evidence": [
+        {
+          "id": "light",
+          "score": 0.8877347455172092
+        },
+        {
+          "id": "air",
+          "score": 0.24397816601515385
+        },
+        {
+          "id": "kiln",
+          "score": 0.2289902782907008
+        },
+        {
+          "id": "vent",
+          "score": 0.09382734530484446
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "d",
+      "note": "Exhaust fan extracting kiln fumes from the room.",
+      "startSlot": 32,
+      "slots": 16,
+      "watts": 800,
+      "owner": "Workshop planner",
+      "kind": "vent",
+      "proposed": "vent",
+      "evidence": [
+        {
+          "id": "vent",
+          "score": 0.7996260719795324
+        },
+        {
+          "id": "kiln",
+          "score": 0.4218775316607192
+        },
+        {
+          "id": "air",
+          "score": 0.1949750441543044
+        },
+        {
+          "id": "light",
+          "score": 0.1842220283310595
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "held": 0,
+  "approved": 4,
+  "plan": null,
+  "blocked": [
+    "b: exceeds Air compressor rated watts."
+  ]
+}

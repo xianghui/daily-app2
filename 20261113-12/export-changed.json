@@ -1,0 +1,437 @@
+{
+  "version": 1,
+  "originalInput": {
+    "project": "Workshop book worksheet",
+    "policies": [
+      {
+        "id": "computer",
+        "label": "Computers",
+        "description": "Laptop computers, desktop workstations, computer servers and office computing hardware.",
+        "years": 3,
+        "method": "ddb"
+      },
+      {
+        "id": "furniture",
+        "label": "Furniture",
+        "description": "Office desks, chairs, conference tables and workplace furniture.",
+        "years": 5,
+        "method": "sl"
+      },
+      {
+        "id": "vehicle",
+        "label": "Vehicles",
+        "description": "Delivery vans, company cars, transport trucks and motor vehicles.",
+        "years": 4,
+        "method": "ddb"
+      },
+      {
+        "id": "machine",
+        "label": "Production machinery",
+        "description": "Factory manufacturing equipment, industrial production machines and workshop machinery.",
+        "years": 6,
+        "method": "sl"
+      }
+    ],
+    "records": [
+      {
+        "id": "v",
+        "note": "Company transport truck and delivery motor vehicle.",
+        "cost": 1600000,
+        "residual": 200000,
+        "owner": "Asset reviewer"
+      },
+      {
+        "id": "m",
+        "note": "Factory workshop industrial production machine.",
+        "cost": 2400000,
+        "residual": 300000,
+        "owner": "Asset reviewer"
+      },
+      {
+        "id": "f",
+        "note": "Workplace furniture conference tables and office chairs.",
+        "cost": 180000,
+        "residual": 18000,
+        "owner": "Asset reviewer"
+      },
+      {
+        "id": "c",
+        "note": "Computer servers and desktop computing hardware.",
+        "cost": 360000,
+        "residual": 30000,
+        "owner": "Asset reviewer"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "v",
+      "note": "Company transport truck and delivery motor vehicle.",
+      "cost": 1600000,
+      "residual": 200000,
+      "owner": "=Owner\n\"second\", line",
+      "kind": "computer",
+      "proposed": "vehicle",
+      "evidence": [
+        {
+          "id": "vehicle",
+          "score": 0.8184083480608232
+        },
+        {
+          "id": "machine",
+          "score": 0.5155524339431451
+        },
+        {
+          "id": "furniture",
+          "score": 0.32530876811343157
+        },
+        {
+          "id": "computer",
+          "score": 0.2858870720217329
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", verify 🌿"
+    },
+    {
+      "id": "m",
+      "note": "Factory workshop industrial production machine.",
+      "cost": 2400000,
+      "residual": 300000,
+      "owner": "Asset reviewer",
+      "kind": "machine",
+      "proposed": "machine",
+      "evidence": [
+        {
+          "id": "machine",
+          "score": 0.8095695130244455
+        },
+        {
+          "id": "furniture",
+          "score": 0.34533238901817725
+        },
+        {
+          "id": "vehicle",
+          "score": 0.3340089327162462
+        },
+        {
+          "id": "computer",
+          "score": 0.30095342065729297
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "f",
+      "note": "Workplace furniture conference tables and office chairs.",
+      "cost": 180000,
+      "residual": 18000,
+      "owner": "Asset reviewer",
+      "kind": "furniture",
+      "proposed": "furniture",
+      "evidence": [
+        {
+          "id": "furniture",
+          "score": 0.8887122010273956
+        },
+        {
+          "id": "machine",
+          "score": 0.34764171603125743
+        },
+        {
+          "id": "computer",
+          "score": 0.32012416608354993
+        },
+        {
+          "id": "vehicle",
+          "score": 0.24011483920832655
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "c",
+      "note": "Computer servers and desktop computing hardware.",
+      "cost": 360000,
+      "residual": 30000,
+      "owner": "Asset reviewer",
+      "kind": "computer",
+      "proposed": "computer",
+      "evidence": [
+        {
+          "id": "computer",
+          "score": 0.7880627495665953
+        },
+        {
+          "id": "machine",
+          "score": 0.3588420292693977
+        },
+        {
+          "id": "furniture",
+          "score": 0.286653696847904
+        },
+        {
+          "id": "vehicle",
+          "score": 0.25033413347335065
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "plans": [
+    {
+      "id": "v",
+      "policy": "computer",
+      "years": 3,
+      "method": "ddb",
+      "annual": [
+        {
+          "year": 1,
+          "opening": 1600000,
+          "charge": 1066667,
+          "closing": 533333
+        },
+        {
+          "year": 2,
+          "opening": 533333,
+          "charge": 333333,
+          "closing": 200000
+        },
+        {
+          "year": 3,
+          "opening": 200000,
+          "charge": 0,
+          "closing": 200000
+        }
+      ],
+      "baseline": [
+        {
+          "year": 1,
+          "opening": 1600000,
+          "charge": 466667,
+          "closing": 1133333
+        },
+        {
+          "year": 2,
+          "opening": 1133333,
+          "charge": 466667,
+          "closing": 666666
+        },
+        {
+          "year": 3,
+          "opening": 666666,
+          "charge": 466666,
+          "closing": 200000
+        }
+      ]
+    },
+    {
+      "id": "m",
+      "policy": "machine",
+      "years": 6,
+      "method": "sl",
+      "annual": [
+        {
+          "year": 1,
+          "opening": 2400000,
+          "charge": 350000,
+          "closing": 2050000
+        },
+        {
+          "year": 2,
+          "opening": 2050000,
+          "charge": 350000,
+          "closing": 1700000
+        },
+        {
+          "year": 3,
+          "opening": 1700000,
+          "charge": 350000,
+          "closing": 1350000
+        },
+        {
+          "year": 4,
+          "opening": 1350000,
+          "charge": 350000,
+          "closing": 1000000
+        },
+        {
+          "year": 5,
+          "opening": 1000000,
+          "charge": 350000,
+          "closing": 650000
+        },
+        {
+          "year": 6,
+          "opening": 650000,
+          "charge": 350000,
+          "closing": 300000
+        }
+      ],
+      "baseline": [
+        {
+          "year": 1,
+          "opening": 2400000,
+          "charge": 350000,
+          "closing": 2050000
+        },
+        {
+          "year": 2,
+          "opening": 2050000,
+          "charge": 350000,
+          "closing": 1700000
+        },
+        {
+          "year": 3,
+          "opening": 1700000,
+          "charge": 350000,
+          "closing": 1350000
+        },
+        {
+          "year": 4,
+          "opening": 1350000,
+          "charge": 350000,
+          "closing": 1000000
+        },
+        {
+          "year": 5,
+          "opening": 1000000,
+          "charge": 350000,
+          "closing": 650000
+        },
+        {
+          "year": 6,
+          "opening": 650000,
+          "charge": 350000,
+          "closing": 300000
+        }
+      ]
+    },
+    {
+      "id": "f",
+      "policy": "furniture",
+      "years": 5,
+      "method": "sl",
+      "annual": [
+        {
+          "year": 1,
+          "opening": 180000,
+          "charge": 32400,
+          "closing": 147600
+        },
+        {
+          "year": 2,
+          "opening": 147600,
+          "charge": 32400,
+          "closing": 115200
+        },
+        {
+          "year": 3,
+          "opening": 115200,
+          "charge": 32400,
+          "closing": 82800
+        },
+        {
+          "year": 4,
+          "opening": 82800,
+          "charge": 32400,
+          "closing": 50400
+        },
+        {
+          "year": 5,
+          "opening": 50400,
+          "charge": 32400,
+          "closing": 18000
+        }
+      ],
+      "baseline": [
+        {
+          "year": 1,
+          "opening": 180000,
+          "charge": 32400,
+          "closing": 147600
+        },
+        {
+          "year": 2,
+          "opening": 147600,
+          "charge": 32400,
+          "closing": 115200
+        },
+        {
+          "year": 3,
+          "opening": 115200,
+          "charge": 32400,
+          "closing": 82800
+        },
+        {
+          "year": 4,
+          "opening": 82800,
+          "charge": 32400,
+          "closing": 50400
+        },
+        {
+          "year": 5,
+          "opening": 50400,
+          "charge": 32400,
+          "closing": 18000
+        }
+      ]
+    },
+    {
+      "id": "c",
+      "policy": "computer",
+      "years": 3,
+      "method": "ddb",
+      "annual": [
+        {
+          "year": 1,
+          "opening": 360000,
+          "charge": 240000,
+          "closing": 120000
+        },
+        {
+          "year": 2,
+          "opening": 120000,
+          "charge": 80000,
+          "closing": 40000
+        },
+        {
+          "year": 3,
+          "opening": 40000,
+          "charge": 10000,
+          "closing": 30000
+        }
+      ],
+      "baseline": [
+        {
+          "year": 1,
+          "opening": 360000,
+          "charge": 110000,
+          "closing": 250000
+        },
+        {
+          "year": 2,
+          "opening": 250000,
+          "charge": 110000,
+          "closing": 140000
+        },
+        {
+          "year": 3,
+          "opening": 140000,
+          "charge": 110000,
+          "closing": 30000
+        }
+      ]
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "firstYear": 1689067,
+  "baselineFirstYear": 959067,
+  "totalDepreciable": 3992000,
+  "status": "Reviewed planning worksheet"
+}

@@ -1,0 +1,449 @@
+{
+  "version": 1,
+  "originalInput": {
+    "project": "Office book worksheet",
+    "policies": [
+      {
+        "id": "computer",
+        "label": "Computers",
+        "description": "Laptop computers, desktop workstations, computer servers and office computing hardware.",
+        "years": 3,
+        "method": "ddb"
+      },
+      {
+        "id": "furniture",
+        "label": "Furniture",
+        "description": "Office desks, chairs, conference tables and workplace furniture.",
+        "years": 5,
+        "method": "sl"
+      },
+      {
+        "id": "vehicle",
+        "label": "Vehicles",
+        "description": "Delivery vans, company cars, transport trucks and motor vehicles.",
+        "years": 4,
+        "method": "ddb"
+      },
+      {
+        "id": "machine",
+        "label": "Production machinery",
+        "description": "Factory manufacturing equipment, industrial production machines and workshop machinery.",
+        "years": 6,
+        "method": "sl"
+      }
+    ],
+    "records": [
+      {
+        "id": "a",
+        "note": "Laptop computers and desktop workstations for office computing.",
+        "cost": 120000,
+        "residual": 12000,
+        "owner": "Asset reviewer"
+      },
+      {
+        "id": "b",
+        "note": "Office desks chairs and conference room furniture.",
+        "cost": 250000,
+        "residual": 25000,
+        "owner": "Asset reviewer"
+      },
+      {
+        "id": "c",
+        "note": "Delivery van for transporting customer packages.",
+        "cost": 900000,
+        "residual": 100000,
+        "owner": "Asset reviewer"
+      },
+      {
+        "id": "d",
+        "note": "Industrial manufacturing production machinery.",
+        "cost": 1400000,
+        "residual": 200000,
+        "owner": "Asset reviewer"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "a",
+      "note": "Laptop computers and desktop workstations for office computing.",
+      "cost": 120000,
+      "residual": 12000,
+      "owner": "Asset reviewer",
+      "kind": "computer",
+      "proposed": "computer",
+      "evidence": [
+        {
+          "id": "computer",
+          "score": 0.8632954780006886
+        },
+        {
+          "id": "furniture",
+          "score": 0.49772635456689257
+        },
+        {
+          "id": "machine",
+          "score": 0.36754149089261684
+        },
+        {
+          "id": "vehicle",
+          "score": 0.2689944626106784
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "b",
+      "note": "Office desks chairs and conference room furniture.",
+      "cost": 250000,
+      "residual": 25000,
+      "owner": "Asset reviewer",
+      "kind": "furniture",
+      "proposed": "furniture",
+      "evidence": [
+        {
+          "id": "furniture",
+          "score": 0.9387556779635726
+        },
+        {
+          "id": "computer",
+          "score": 0.44939066187073845
+        },
+        {
+          "id": "machine",
+          "score": 0.39546363602040124
+        },
+        {
+          "id": "vehicle",
+          "score": 0.2885181936824532
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "c",
+      "note": "Delivery van for transporting customer packages.",
+      "cost": 900000,
+      "residual": 100000,
+      "owner": "Asset reviewer",
+      "kind": "vehicle",
+      "proposed": "vehicle",
+      "evidence": [
+        {
+          "id": "vehicle",
+          "score": 0.7276683074697079
+        },
+        {
+          "id": "machine",
+          "score": 0.2695056633448579
+        },
+        {
+          "id": "furniture",
+          "score": 0.2632648016911806
+        },
+        {
+          "id": "computer",
+          "score": 0.1630375634415589
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "d",
+      "note": "Industrial manufacturing production machinery.",
+      "cost": 1400000,
+      "residual": 200000,
+      "owner": "Asset reviewer",
+      "kind": "machine",
+      "proposed": "machine",
+      "evidence": [
+        {
+          "id": "machine",
+          "score": 0.847067465796514
+        },
+        {
+          "id": "vehicle",
+          "score": 0.4164307698879912
+        },
+        {
+          "id": "computer",
+          "score": 0.3671637393955791
+        },
+        {
+          "id": "furniture",
+          "score": 0.3327137375142939
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "plans": [
+    {
+      "id": "a",
+      "policy": "computer",
+      "years": 3,
+      "method": "ddb",
+      "annual": [
+        {
+          "year": 1,
+          "opening": 120000,
+          "charge": 80000,
+          "closing": 40000
+        },
+        {
+          "year": 2,
+          "opening": 40000,
+          "charge": 26667,
+          "closing": 13333
+        },
+        {
+          "year": 3,
+          "opening": 13333,
+          "charge": 1333,
+          "closing": 12000
+        }
+      ],
+      "baseline": [
+        {
+          "year": 1,
+          "opening": 120000,
+          "charge": 36000,
+          "closing": 84000
+        },
+        {
+          "year": 2,
+          "opening": 84000,
+          "charge": 36000,
+          "closing": 48000
+        },
+        {
+          "year": 3,
+          "opening": 48000,
+          "charge": 36000,
+          "closing": 12000
+        }
+      ]
+    },
+    {
+      "id": "b",
+      "policy": "furniture",
+      "years": 5,
+      "method": "sl",
+      "annual": [
+        {
+          "year": 1,
+          "opening": 250000,
+          "charge": 45000,
+          "closing": 205000
+        },
+        {
+          "year": 2,
+          "opening": 205000,
+          "charge": 45000,
+          "closing": 160000
+        },
+        {
+          "year": 3,
+          "opening": 160000,
+          "charge": 45000,
+          "closing": 115000
+        },
+        {
+          "year": 4,
+          "opening": 115000,
+          "charge": 45000,
+          "closing": 70000
+        },
+        {
+          "year": 5,
+          "opening": 70000,
+          "charge": 45000,
+          "closing": 25000
+        }
+      ],
+      "baseline": [
+        {
+          "year": 1,
+          "opening": 250000,
+          "charge": 45000,
+          "closing": 205000
+        },
+        {
+          "year": 2,
+          "opening": 205000,
+          "charge": 45000,
+          "closing": 160000
+        },
+        {
+          "year": 3,
+          "opening": 160000,
+          "charge": 45000,
+          "closing": 115000
+        },
+        {
+          "year": 4,
+          "opening": 115000,
+          "charge": 45000,
+          "closing": 70000
+        },
+        {
+          "year": 5,
+          "opening": 70000,
+          "charge": 45000,
+          "closing": 25000
+        }
+      ]
+    },
+    {
+      "id": "c",
+      "policy": "vehicle",
+      "years": 4,
+      "method": "ddb",
+      "annual": [
+        {
+          "year": 1,
+          "opening": 900000,
+          "charge": 450000,
+          "closing": 450000
+        },
+        {
+          "year": 2,
+          "opening": 450000,
+          "charge": 225000,
+          "closing": 225000
+        },
+        {
+          "year": 3,
+          "opening": 225000,
+          "charge": 112500,
+          "closing": 112500
+        },
+        {
+          "year": 4,
+          "opening": 112500,
+          "charge": 12500,
+          "closing": 100000
+        }
+      ],
+      "baseline": [
+        {
+          "year": 1,
+          "opening": 900000,
+          "charge": 200000,
+          "closing": 700000
+        },
+        {
+          "year": 2,
+          "opening": 700000,
+          "charge": 200000,
+          "closing": 500000
+        },
+        {
+          "year": 3,
+          "opening": 500000,
+          "charge": 200000,
+          "closing": 300000
+        },
+        {
+          "year": 4,
+          "opening": 300000,
+          "charge": 200000,
+          "closing": 100000
+        }
+      ]
+    },
+    {
+      "id": "d",
+      "policy": "machine",
+      "years": 6,
+      "method": "sl",
+      "annual": [
+        {
+          "year": 1,
+          "opening": 1400000,
+          "charge": 200000,
+          "closing": 1200000
+        },
+        {
+          "year": 2,
+          "opening": 1200000,
+          "charge": 200000,
+          "closing": 1000000
+        },
+        {
+          "year": 3,
+          "opening": 1000000,
+          "charge": 200000,
+          "closing": 800000
+        },
+        {
+          "year": 4,
+          "opening": 800000,
+          "charge": 200000,
+          "closing": 600000
+        },
+        {
+          "year": 5,
+          "opening": 600000,
+          "charge": 200000,
+          "closing": 400000
+        },
+        {
+          "year": 6,
+          "opening": 400000,
+          "charge": 200000,
+          "closing": 200000
+        }
+      ],
+      "baseline": [
+        {
+          "year": 1,
+          "opening": 1400000,
+          "charge": 200000,
+          "closing": 1200000
+        },
+        {
+          "year": 2,
+          "opening": 1200000,
+          "charge": 200000,
+          "closing": 1000000
+        },
+        {
+          "year": 3,
+          "opening": 1000000,
+          "charge": 200000,
+          "closing": 800000
+        },
+        {
+          "year": 4,
+          "opening": 800000,
+          "charge": 200000,
+          "closing": 600000
+        },
+        {
+          "year": 5,
+          "opening": 600000,
+          "charge": 200000,
+          "closing": 400000
+        },
+        {
+          "year": 6,
+          "opening": 400000,
+          "charge": 200000,
+          "closing": 200000
+        }
+      ]
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "firstYear": 775000,
+  "baselineFirstYear": 481000,
+  "totalDepreciable": 2333000,
+  "status": "Reviewed planning worksheet"
+}

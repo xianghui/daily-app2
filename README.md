@@ -710,3 +710,10 @@ Real local MiniLM supplier-profile retrieval supports mandatory human-reviewed e
 ## Restore Harbor — 20261113-11
 
 Real local MiniLM links informal backup notes to system profiles before mandatory evidence review and deterministic RPO/RTO gap checks. Eight tiny intended links matched; unrelated text still needs holds. Successful-job coverage versus tested target-meeting copies was 4 vs 1 and 3 vs 2 systems in the fixtures. Three thousand independent coverage cases, complete reviewed artifacts, defensive tests and warmed-page fresh-worker offline inference passed locally. No resilience certification, account access or restore execution. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261113-11/README.md) and [observed checks](20261113-11/VALIDATION.md).
+
+
+## Asset Almanac — 20261113-12
+
+Real local MiniLM links informal asset-register notes to supplied accounting policies before mandatory review and exact-cent annual SL/DDB book-value worksheets. Eight tiny intended links matched; unrelated text still needs holding. All-SL comparisons show timing, not savings. Four thousand independent BigInt cases, complete reviewed artifacts, defensive browser checks and warmed-page fresh-worker offline inference passed locally. No tax certification or ledger writes. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261113-12/README.md) and [observed checks](20261113-12/VALIDATION.md).
+
+Asset Almanac public release, byte-matched worker/runtime assets, both real-AI fixtures, full public workflow suite and preserved 637-entry working-tree gallery passed on the first Pages deployment.

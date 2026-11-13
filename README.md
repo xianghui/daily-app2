@@ -723,3 +723,10 @@ Asset Almanac public release, byte-matched worker/runtime assets, both real-AI f
 Real local MiniLM work-category proposals with mandatory billability review, exact-minute reconciliation and daily-versus-entry contract rounding. All records survive reviewed JSON/CSV/Markdown; no uploads or invoices sent. Reuses the immutable shared WASM from 20261107-2. See [workflow](20261113-13/README.md) and [observed checks](20261113-13/VALIDATION.md).
 
 Time Folio public release: both real-AI fixtures and complete public workflow suite, byte-matched worker/runtime assets, warmed-page offline inference and preserved 638-entry gallery verified. Harder paraphrases matched 3/4; human category/billability review remains essential.
+
+
+## Paydown Harbor — 20261113-14
+
+Real local MiniLM account retrieval supports mandatory review of debt notes before fixed-budget monthly repayment simulation. Compare highest-APR-first with smallest-balance-first under explicit fixed-rate/minimum assumptions; held or duplicate links block plans. Complete JSON/CSV/Markdown preserves every original/review and monthly ledgers. Eight simple fixture links and four paraphrases matched; 600 independent BigInt scenarios checked exact arithmetic. Not lender quotes or payment advice. Reuses immutable WASM from `20261107-2`; preserve that asset. See [workflow/privacy](20261113-14/README.md) and [observed checks](20261113-14/VALIDATION.md).
+
+Paydown Harbor public release: byte-matched worker/runtime assets, both real-AI fixtures, all ten public workflow checks, full-ledger reimport, warmed-page offline inference and preserved 639-entry gallery verified on the first Pages deployment.

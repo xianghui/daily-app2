@@ -1,0 +1,241 @@
+{
+  "version": 1,
+  "originalInput": {
+    "project": "Synthetic course enrollment",
+    "target": 40,
+    "parts": [
+      {
+        "id": "visit",
+        "label": "Website discovery",
+        "description": "People visiting a course website and browsing the course landing page."
+      },
+      {
+        "id": "form",
+        "label": "Application forms",
+        "description": "Applicants filling out and submitting a course application form."
+      },
+      {
+        "id": "payment",
+        "label": "Enrollment payment",
+        "description": "Applicants paying tuition fees and completing an enrollment payment."
+      }
+    ],
+    "records": [
+      {
+        "id": "A1",
+        "note": "Visitors browsing the course website landing page.",
+        "period": "before",
+        "total": 100,
+        "converted": 50,
+        "owner": "Intake analyst"
+      },
+      {
+        "id": "A2",
+        "note": "Applicants submitting their course application forms.",
+        "period": "before",
+        "total": 50,
+        "converted": 40,
+        "owner": "Intake analyst"
+      },
+      {
+        "id": "A3",
+        "note": "Applicants paying tuition fees to enroll.",
+        "period": "before",
+        "total": 40,
+        "converted": 20,
+        "owner": "Intake analyst"
+      },
+      {
+        "id": "B1",
+        "note": "People visiting and browsing our course website.",
+        "period": "after",
+        "total": 120,
+        "converted": 72,
+        "owner": "Intake analyst"
+      },
+      {
+        "id": "B2",
+        "note": "Completion of submitted course application forms.",
+        "period": "after",
+        "total": 72,
+        "converted": 54,
+        "owner": "Intake analyst"
+      },
+      {
+        "id": "B3",
+        "note": "Tuition fee payments for completed enrollment.",
+        "period": "after",
+        "total": 54,
+        "converted": 27,
+        "owner": "Intake analyst"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "A1",
+      "note": "Visitors browsing the course website landing page.",
+      "period": "after",
+      "total": 100,
+      "converted": 50,
+      "owner": "Intake analyst",
+      "kind": "visit",
+      "proposed": "visit",
+      "evidence": [
+        {
+          "id": "visit",
+          "score": 0.9289305043777537
+        },
+        {
+          "id": "form",
+          "score": 0.4238267740873253
+        },
+        {
+          "id": "payment",
+          "score": 0.3108328612381582
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "A2",
+      "note": "Applicants submitting their course application forms.",
+      "period": "before",
+      "total": 50,
+      "converted": 40,
+      "owner": "Intake analyst",
+      "kind": "form",
+      "proposed": "form",
+      "evidence": [
+        {
+          "id": "form",
+          "score": 0.9407036100476326
+        },
+        {
+          "id": "payment",
+          "score": 0.5388768187121529
+        },
+        {
+          "id": "visit",
+          "score": 0.4644245390724274
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "A3",
+      "note": "Applicants paying tuition fees to enroll.",
+      "period": "before",
+      "total": 40,
+      "converted": 20,
+      "owner": "Intake analyst",
+      "kind": "payment",
+      "proposed": "payment",
+      "evidence": [
+        {
+          "id": "payment",
+          "score": 0.9373161241088639
+        },
+        {
+          "id": "form",
+          "score": 0.5297061886643935
+        },
+        {
+          "id": "visit",
+          "score": 0.33554601679887297
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "B1",
+      "note": "People visiting and browsing our course website.",
+      "period": "after",
+      "total": 120,
+      "converted": 72,
+      "owner": "Intake analyst",
+      "kind": "visit",
+      "proposed": "visit",
+      "evidence": [
+        {
+          "id": "visit",
+          "score": 0.8755220376740892
+        },
+        {
+          "id": "form",
+          "score": 0.3944431540519051
+        },
+        {
+          "id": "payment",
+          "score": 0.25398191625592614
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "B2",
+      "note": "Completion of submitted course application forms.",
+      "period": "after",
+      "total": 72,
+      "converted": 54,
+      "owner": "Intake analyst",
+      "kind": "form",
+      "proposed": "form",
+      "evidence": [
+        {
+          "id": "form",
+          "score": 0.8200185817157148
+        },
+        {
+          "id": "payment",
+          "score": 0.5129268265797852
+        },
+        {
+          "id": "visit",
+          "score": 0.40842064083606355
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "B3",
+      "note": "Tuition fee payments for completed enrollment.",
+      "period": "after",
+      "total": 54,
+      "converted": 27,
+      "owner": "Intake analyst",
+      "kind": "payment",
+      "proposed": "payment",
+      "evidence": [
+        {
+          "id": "payment",
+          "score": 0.8798604453282506
+        },
+        {
+          "id": "form",
+          "score": 0.3398882197968708
+        },
+        {
+          "id": "visit",
+          "score": 0.2792593475939779
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 6,
+  "approved": 6,
+  "held": 0,
+  "blocked": [
+    "Website discovery: missing before opportunities. Supply positive denominators in both periods.",
+    "before: Website discovery outputs must equal Application forms inputs. Reconcile missing or duplicated handoffs.",
+    "after: Website discovery outputs must equal Application forms inputs. Reconcile missing or duplicated handoffs."
+  ],
+  "plan": null
+}

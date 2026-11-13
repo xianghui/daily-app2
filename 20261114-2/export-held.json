@@ -1,0 +1,150 @@
+{
+  "version": 1,
+  "originalInput": {
+    "project": "Synthetic library workshop",
+    "target": 30,
+    "parts": [
+      {
+        "id": "booking",
+        "label": "Workshop bookings",
+        "description": "Readers booking and reserving a library workshop place with an online registration."
+      },
+      {
+        "id": "attendance",
+        "label": "Workshop attendance",
+        "description": "Registered readers attending and checking in at the library workshop."
+      }
+    ],
+    "records": [
+      {
+        "id": "L1",
+        "note": "Readers reserving workshop places through online registration.",
+        "period": "before",
+        "total": 80,
+        "converted": 40,
+        "owner": "Intake analyst"
+      },
+      {
+        "id": "L2",
+        "note": "Registered readers attending and checking in at the workshop.",
+        "period": "before",
+        "total": 40,
+        "converted": 30,
+        "owner": "Intake analyst"
+      },
+      {
+        "id": "L3",
+        "note": "Online bookings and place reservations for workshops.",
+        "period": "after",
+        "total": 100,
+        "converted": 60,
+        "owner": "Intake analyst"
+      },
+      {
+        "id": "L4",
+        "note": "Workshop attendees checked in at the venue.",
+        "period": "after",
+        "total": 60,
+        "converted": 45,
+        "owner": "Intake analyst"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "L1",
+      "note": "Readers reserving workshop places through online registration.",
+      "period": "before",
+      "total": 80,
+      "converted": 40,
+      "owner": "=Owner\n\"second\", line",
+      "kind": "booking",
+      "proposed": "booking",
+      "evidence": [
+        {
+          "id": "booking",
+          "score": 0.8775791837867732
+        },
+        {
+          "id": "attendance",
+          "score": 0.666724572588317
+        }
+      ],
+      "decision": "hold",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", verify attribution"
+    },
+    {
+      "id": "L2",
+      "note": "Registered readers attending and checking in at the workshop.",
+      "period": "before",
+      "total": 40,
+      "converted": 30,
+      "owner": "Intake analyst",
+      "kind": "attendance",
+      "proposed": "attendance",
+      "evidence": [
+        {
+          "id": "attendance",
+          "score": 0.9135011191425497
+        },
+        {
+          "id": "booking",
+          "score": 0.7368312240302737
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "L3",
+      "note": "Online bookings and place reservations for workshops.",
+      "period": "after",
+      "total": 100,
+      "converted": 60,
+      "owner": "Intake analyst",
+      "kind": "booking",
+      "proposed": "booking",
+      "evidence": [
+        {
+          "id": "booking",
+          "score": 0.6720879346300339
+        },
+        {
+          "id": "attendance",
+          "score": 0.42967771930973886
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "L4",
+      "note": "Workshop attendees checked in at the venue.",
+      "period": "after",
+      "total": 60,
+      "converted": 45,
+      "owner": "Intake analyst",
+      "kind": "attendance",
+      "proposed": "attendance",
+      "evidence": [
+        {
+          "id": "attendance",
+          "score": 0.6164030786862681
+        },
+        {
+          "id": "booking",
+          "score": 0.5297590470810833
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 3,
+  "held": 1,
+  "blocked": [
+    "Resolve all held observations before comparing the complete frame."
+  ],
+  "plan": null
+}

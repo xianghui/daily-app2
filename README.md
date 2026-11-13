@@ -804,3 +804,10 @@ Folio Press public release: byte-matched app/worker/runtime assets, both real-AI
 Real local MiniLM job-family proposals support mandatory process/timing review before exact deadline-constrained asymmetric changeover sequencing. Both tiny synthetic batches matched 8/8 intended links; unrelated text still needs holding. Six hundred independent exhaustive permutation cases, complete reviewed artifacts, defensive browser checks and warmed-page fresh-worker offline inference passed locally. Scenario comparisons are not measured savings or live dispatch. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261114-1/README.md) and [observed validation](20261114-1/VALIDATION.md).
 
 Changeover Grove public release: byte-matched app/worker/runtime assets, both real-AI fixtures, all nine public workflow groups, warmed-page fresh-worker offline inference and the preserved 650-entry working-tree gallery verified on the first Pages deployment.
+
+
+## Funnel Prism — 20261114-2
+
+Real local MiniLM reconciles rough notes to ordered journey stages before mandatory human count review. Exact handoff checks and backwards integer sizing produce minimum-intake target worksheets, compared with a first-stage-only baseline. Ten tiny fixture links and six reworded notes matched; 1,200 independent sizing-oracle cases passed. Complete JSON/CSV/Markdown preserves every held observation and original. Offline fresh-worker inference is tested only inside an already-open warmed page. Reuses immutable shared WASM from `20261107-2`; preserve that asset. See [workflow/privacy](20261114-2/README.md) and [observed validation](20261114-2/VALIDATION.md).
+
+Funnel Prism public release, byte-matched runtime assets, both real-AI fixtures, the full public workflow suite and preserved 651-entry gallery passed on the first Pages deployment.

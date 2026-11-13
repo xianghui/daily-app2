@@ -1,0 +1,193 @@
+{
+  "version": 1,
+  "originalInput": {
+    "project": "Synthetic repair service pulse",
+    "importanceCutoff": 4,
+    "performanceTarget": 4,
+    "policies": [
+      {
+        "id": "updates",
+        "label": "Repair updates",
+        "description": "Repair status messages, progress notifications and information about completion."
+      },
+      {
+        "id": "booking",
+        "label": "Appointment booking",
+        "description": "Scheduling service appointments, choosing time slots and making reservations."
+      }
+    ],
+    "records": [
+      {
+        "id": "R1",
+        "respondent": "C",
+        "note": "Messages tell me how the repair is progressing.",
+        "importance": 5,
+        "performance": 1,
+        "owner": "Service lead"
+      },
+      {
+        "id": "R2",
+        "respondent": "C",
+        "note": "Choosing a service appointment time slot.",
+        "importance": 3,
+        "performance": 4,
+        "owner": "Service lead"
+      },
+      {
+        "id": "R3",
+        "respondent": "D",
+        "note": "Notifications about repair status and completion.",
+        "importance": 4,
+        "performance": 2,
+        "owner": "Service lead"
+      },
+      {
+        "id": "R4",
+        "respondent": "D",
+        "note": "Making a reservation for a convenient appointment.",
+        "importance": 2,
+        "performance": 5,
+        "owner": "Service lead"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "R1",
+      "respondent": "C",
+      "note": "Messages tell me how the repair is progressing.",
+      "importance": 5,
+      "performance": 1,
+      "owner": "=Owner\n\"second\", line",
+      "kind": "updates",
+      "proposed": "updates",
+      "evidence": [
+        {
+          "id": "updates",
+          "score": 0.7014195239983801
+        },
+        {
+          "id": "booking",
+          "score": 0.10341152233014894
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", contact workshop"
+    },
+    {
+      "id": "R2",
+      "respondent": "C",
+      "note": "Choosing a service appointment time slot.",
+      "importance": 3,
+      "performance": 4,
+      "owner": "Service lead",
+      "kind": "booking",
+      "proposed": "booking",
+      "evidence": [
+        {
+          "id": "booking",
+          "score": 0.8151436791306321
+        },
+        {
+          "id": "updates",
+          "score": 0.16499945441862218
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "R3",
+      "respondent": "D",
+      "note": "Notifications about repair status and completion.",
+      "importance": 4,
+      "performance": 2,
+      "owner": "Service lead",
+      "kind": "updates",
+      "proposed": "updates",
+      "evidence": [
+        {
+          "id": "updates",
+          "score": 0.8983504700892837
+        },
+        {
+          "id": "booking",
+          "score": 0.16706925831773722
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "R4",
+      "respondent": "D",
+      "note": "Making a reservation for a convenient appointment.",
+      "importance": 2,
+      "performance": 5,
+      "owner": "Service lead",
+      "kind": "booking",
+      "proposed": "booking",
+      "evidence": [
+        {
+          "id": "booking",
+          "score": 0.7551251417175029
+        },
+        {
+          "id": "updates",
+          "score": 0.15522608968923812
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "held": 0,
+  "approved": 4,
+  "plan": {
+    "dimensions": [
+      {
+        "id": "updates",
+        "label": "Repair updates",
+        "description": "Repair status messages, progress notifications and information about completion.",
+        "n": 2,
+        "importance": 4.5,
+        "performance": 1.5,
+        "gap": 3,
+        "belowTarget": 2,
+        "shortfall": 2.5,
+        "weightedShortfall": 2.5555555555555554,
+        "quadrant": "Focus first"
+      },
+      {
+        "id": "booking",
+        "label": "Appointment booking",
+        "description": "Scheduling service appointments, choosing time slots and making reservations.",
+        "n": 2,
+        "importance": 2.5,
+        "performance": 4.5,
+        "gap": -2,
+        "belowTarget": 0,
+        "shortfall": 0,
+        "weightedShortfall": 0,
+        "quadrant": "Lower priority"
+      }
+    ],
+    "pairedCount": 4,
+    "respondents": 2,
+    "focus": [
+      "updates"
+    ],
+    "baselineOrder": [
+      "updates",
+      "booking"
+    ],
+    "weightedOrder": [
+      "updates",
+      "booking"
+    ],
+    "importanceCutoff": 4,
+    "performanceTarget": 4
+  },
+  "blocked": []
+}

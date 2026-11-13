@@ -839,3 +839,10 @@ Price Lens public release passed on the first Pages workflow: matching built gh-
 Local real MiniLM event-to-activity retrieval assists reviewed process trace reconstruction. Explicit prerequisite checks, repeated-step cues and inter-event gaps expose ordering evidence beyond count-only logs. Tiny repair/publishing fixtures matched 14/14 links, both expected prerequisite exceptions and long gaps; unrelated text still gets a nearest candidate and requires human hold. Complete JSON/CSV/Markdown preserves every original/reviewed event. Fresh-worker offline inference tested only in an already-open warmed page. Reuses immutable shared WASM from `20261107-2`; preserve that asset. See [workflow/privacy](20261114-6/README.md) and [observed validation](20261114-6/VALIDATION.md).
 
 Trace Current public release: Pages built the matching final gh-pages head; byte-matched public app/worker/runtime/WASM, both real-AI fixtures, the full review/export/offline browser suite and preserved 655-entry current gallery passed. Physical phones and offline navigation remain unverified.
+
+
+## Tax Weave — 20261114-7
+
+Real local MiniLM category inference supports mandatory purchase/rate/basis review before exact-cent inclusive/exclusive tax worksheets. Both tiny synthetic batches matched 8/8 intended categories; 8,004 independent rational-arithmetic cases and complete reviewed artifact checks passed. Hypothetical supplied rates are not tax rules, eligibility or filing advice. Fresh-worker offline inference is limited to an already-open warmed page. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow/privacy](20261114-7/README.md) and [observed checks](20261114-7/VALIDATION.md).
+
+Tax Weave public release: Pages built matching gh-pages head `00a33cd42d7d2e1fb47523a1e36cc08cd28ce30b`; byte-matched app/worker/runtime assets, both real-AI fixtures, all nine public workflow groups, warmed-page fresh-worker offline inference and preserved 656-entry gallery passed.

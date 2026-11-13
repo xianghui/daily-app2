@@ -1,0 +1,736 @@
+{
+  "checks": [
+    "real CPU inference Studio purchases",
+    "real CPU inference Workshop purchases",
+    "review multiline edit reject hold undo copy roundtrip",
+    "offline fresh worker real inference warmed page",
+    "invalid empty oversized duplicate formats",
+    "cancel retry stale input 32-row batch full audit roundtrip",
+    "invalid reviewed amount and changed supplied rate",
+    "instruction-like unrelated content stays pending data",
+    "desktop phone labels touch focus"
+  ],
+  "fixtures": [
+    {
+      "name": "Studio purchases",
+      "actual": [
+        "supplies",
+        "books",
+        "postage",
+        "supplies"
+      ],
+      "expected": [
+        "supplies",
+        "books",
+        "postage",
+        "supplies"
+      ],
+      "correct": 4,
+      "computed": {
+        "version": 1,
+        "originalInput": {
+          "project": "Synthetic studio purchase review",
+          "categories": [
+            {
+              "id": "supplies",
+              "label": "Art supplies",
+              "description": "Paint, brushes, canvas and art materials.",
+              "rateBps": 2000
+            },
+            {
+              "id": "books",
+              "label": "Printed books",
+              "description": "Printed educational books and reference textbooks.",
+              "rateBps": 500
+            },
+            {
+              "id": "postage",
+              "label": "Postal services",
+              "description": "Postal stamps and letter delivery services.",
+              "rateBps": 0
+            }
+          ],
+          "records": [
+            {
+              "id": "S1",
+              "description": "Acrylic paints and brushes for the art class.",
+              "amountCents": 12000,
+              "basis": "inclusive",
+              "owner": "Bookkeeper"
+            },
+            {
+              "id": "S2",
+              "description": "Printed reference textbook on painting.",
+              "amountCents": 2100,
+              "basis": "inclusive",
+              "owner": "Bookkeeper"
+            },
+            {
+              "id": "S3",
+              "description": "Postage stamps for mailing letters.",
+              "amountCents": 800,
+              "basis": "exclusive",
+              "owner": "Bookkeeper"
+            },
+            {
+              "id": "S4",
+              "description": "Canvas sheets and artist brushes.",
+              "amountCents": 10000,
+              "basis": "exclusive",
+              "owner": "Bookkeeper"
+            }
+          ]
+        },
+        "reviews": [
+          {
+            "id": "S1",
+            "description": "Acrylic paints and brushes for the art class.",
+            "amountCents": 12000,
+            "basis": "inclusive",
+            "owner": "Bookkeeper",
+            "kind": "supplies",
+            "proposed": "supplies",
+            "evidence": [
+              {
+                "id": "supplies",
+                "score": 0.7139890779228534
+              },
+              {
+                "id": "books",
+                "score": 0.23859414619602368
+              },
+              {
+                "id": "postage",
+                "score": 0.08281266503600734
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": ""
+          },
+          {
+            "id": "S2",
+            "description": "Printed reference textbook on painting.",
+            "amountCents": 2100,
+            "basis": "inclusive",
+            "owner": "Bookkeeper",
+            "kind": "books",
+            "proposed": "books",
+            "evidence": [
+              {
+                "id": "books",
+                "score": 0.563410354807979
+              },
+              {
+                "id": "supplies",
+                "score": 0.5534181593432393
+              },
+              {
+                "id": "postage",
+                "score": 0.09689983823848153
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": ""
+          },
+          {
+            "id": "S3",
+            "description": "Postage stamps for mailing letters.",
+            "amountCents": 800,
+            "basis": "exclusive",
+            "owner": "Bookkeeper",
+            "kind": "postage",
+            "proposed": "postage",
+            "evidence": [
+              {
+                "id": "postage",
+                "score": 0.8290822437604587
+              },
+              {
+                "id": "books",
+                "score": 0.32957030094001377
+              },
+              {
+                "id": "supplies",
+                "score": 0.17595777887222866
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": ""
+          },
+          {
+            "id": "S4",
+            "description": "Canvas sheets and artist brushes.",
+            "amountCents": 10000,
+            "basis": "exclusive",
+            "owner": "Bookkeeper",
+            "kind": "supplies",
+            "proposed": "supplies",
+            "evidence": [
+              {
+                "id": "supplies",
+                "score": 0.7742286309445023
+              },
+              {
+                "id": "books",
+                "score": 0.24386697594778656
+              },
+              {
+                "id": "postage",
+                "score": 0.09981870965748524
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": ""
+          }
+        ],
+        "lines": [
+          {
+            "id": "S1",
+            "description": "Acrylic paints and brushes for the art class.",
+            "amountCents": 12000,
+            "basis": "inclusive",
+            "owner": "Bookkeeper",
+            "kind": "supplies",
+            "proposed": "supplies",
+            "evidence": [
+              {
+                "id": "supplies",
+                "score": 0.7139890779228534
+              },
+              {
+                "id": "books",
+                "score": 0.23859414619602368
+              },
+              {
+                "id": "postage",
+                "score": 0.08281266503600734
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": "",
+            "rateBps": 2000,
+            "netCents": 10000,
+            "taxCents": 2000,
+            "grossCents": 12000
+          },
+          {
+            "id": "S2",
+            "description": "Printed reference textbook on painting.",
+            "amountCents": 2100,
+            "basis": "inclusive",
+            "owner": "Bookkeeper",
+            "kind": "books",
+            "proposed": "books",
+            "evidence": [
+              {
+                "id": "books",
+                "score": 0.563410354807979
+              },
+              {
+                "id": "supplies",
+                "score": 0.5534181593432393
+              },
+              {
+                "id": "postage",
+                "score": 0.09689983823848153
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": "",
+            "rateBps": 500,
+            "netCents": 2000,
+            "taxCents": 100,
+            "grossCents": 2100
+          },
+          {
+            "id": "S3",
+            "description": "Postage stamps for mailing letters.",
+            "amountCents": 800,
+            "basis": "exclusive",
+            "owner": "Bookkeeper",
+            "kind": "postage",
+            "proposed": "postage",
+            "evidence": [
+              {
+                "id": "postage",
+                "score": 0.8290822437604587
+              },
+              {
+                "id": "books",
+                "score": 0.32957030094001377
+              },
+              {
+                "id": "supplies",
+                "score": 0.17595777887222866
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": "",
+            "rateBps": 0,
+            "netCents": 800,
+            "taxCents": 0,
+            "grossCents": 800
+          },
+          {
+            "id": "S4",
+            "description": "Canvas sheets and artist brushes.",
+            "amountCents": 10000,
+            "basis": "exclusive",
+            "owner": "Bookkeeper",
+            "kind": "supplies",
+            "proposed": "supplies",
+            "evidence": [
+              {
+                "id": "supplies",
+                "score": 0.7742286309445023
+              },
+              {
+                "id": "books",
+                "score": 0.24386697594778656
+              },
+              {
+                "id": "postage",
+                "score": 0.09981870965748524
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": "",
+            "rateBps": 2000,
+            "netCents": 10000,
+            "taxCents": 2000,
+            "grossCents": 12000
+          }
+        ],
+        "total": 4,
+        "approved": 4,
+        "held": 0,
+        "netCents": 22800,
+        "taxCents": 4100,
+        "grossCents": 26900,
+        "baselineGrossCents": 29405,
+        "overstatementCents": 2505,
+        "literalLabelMatches": 0,
+        "groups": [
+          {
+            "id": "supplies",
+            "label": "Art supplies",
+            "rateBps": 2000,
+            "records": 2,
+            "netCents": 20000,
+            "taxCents": 4000,
+            "grossCents": 24000
+          },
+          {
+            "id": "books",
+            "label": "Printed books",
+            "rateBps": 500,
+            "records": 1,
+            "netCents": 2000,
+            "taxCents": 100,
+            "grossCents": 2100
+          },
+          {
+            "id": "postage",
+            "label": "Postal services",
+            "rateBps": 0,
+            "records": 1,
+            "netCents": 800,
+            "taxCents": 0,
+            "grossCents": 800
+          }
+        ]
+      }
+    },
+    {
+      "name": "Workshop purchases",
+      "actual": [
+        "tools",
+        "training",
+        "food",
+        "tools"
+      ],
+      "expected": [
+        "tools",
+        "training",
+        "food",
+        "tools"
+      ],
+      "correct": 4,
+      "computed": {
+        "version": 1,
+        "originalInput": {
+          "project": "Synthetic workshop purchase review",
+          "categories": [
+            {
+              "id": "tools",
+              "label": "Workshop tools",
+              "description": "Hand tools, drills, saws and mechanical workshop equipment.",
+              "rateBps": 1800
+            },
+            {
+              "id": "training",
+              "label": "Training courses",
+              "description": "Educational training classes, instruction and workshop tuition.",
+              "rateBps": 0
+            },
+            {
+              "id": "food",
+              "label": "Catering food",
+              "description": "Prepared food, meals and catering refreshments.",
+              "rateBps": 900
+            }
+          ],
+          "records": [
+            {
+              "id": "W1",
+              "description": "Cordless drill and a set of hand saws.",
+              "amountCents": 11800,
+              "basis": "inclusive",
+              "owner": "Bookkeeper"
+            },
+            {
+              "id": "W2",
+              "description": "Tuition for an equipment maintenance class.",
+              "amountCents": 5000,
+              "basis": "exclusive",
+              "owner": "Bookkeeper"
+            },
+            {
+              "id": "W3",
+              "description": "Catered sandwiches and prepared lunch meals.",
+              "amountCents": 1090,
+              "basis": "inclusive",
+              "owner": "Bookkeeper"
+            },
+            {
+              "id": "W4",
+              "description": "Mechanical hand tools for the workbench.",
+              "amountCents": 2500,
+              "basis": "exclusive",
+              "owner": "Bookkeeper"
+            }
+          ]
+        },
+        "reviews": [
+          {
+            "id": "W1",
+            "description": "Cordless drill and a set of hand saws.",
+            "amountCents": 11800,
+            "basis": "inclusive",
+            "owner": "Bookkeeper",
+            "kind": "tools",
+            "proposed": "tools",
+            "evidence": [
+              {
+                "id": "tools",
+                "score": 0.7567664494029234
+              },
+              {
+                "id": "food",
+                "score": 0.19873237585635858
+              },
+              {
+                "id": "training",
+                "score": 0.0908975237830425
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": ""
+          },
+          {
+            "id": "W2",
+            "description": "Tuition for an equipment maintenance class.",
+            "amountCents": 5000,
+            "basis": "exclusive",
+            "owner": "Bookkeeper",
+            "kind": "training",
+            "proposed": "training",
+            "evidence": [
+              {
+                "id": "training",
+                "score": 0.6143671796370067
+              },
+              {
+                "id": "tools",
+                "score": 0.27943470832092887
+              },
+              {
+                "id": "food",
+                "score": 0.15659584276121483
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": ""
+          },
+          {
+            "id": "W3",
+            "description": "Catered sandwiches and prepared lunch meals.",
+            "amountCents": 1090,
+            "basis": "inclusive",
+            "owner": "Bookkeeper",
+            "kind": "food",
+            "proposed": "food",
+            "evidence": [
+              {
+                "id": "food",
+                "score": 0.739145182622761
+              },
+              {
+                "id": "training",
+                "score": 0.25766492658690254
+              },
+              {
+                "id": "tools",
+                "score": 0.21936615802595993
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": ""
+          },
+          {
+            "id": "W4",
+            "description": "Mechanical hand tools for the workbench.",
+            "amountCents": 2500,
+            "basis": "exclusive",
+            "owner": "Bookkeeper",
+            "kind": "tools",
+            "proposed": "tools",
+            "evidence": [
+              {
+                "id": "tools",
+                "score": 0.7291571917618521
+              },
+              {
+                "id": "food",
+                "score": 0.11654177072855751
+              },
+              {
+                "id": "training",
+                "score": 0.08212627432258784
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": ""
+          }
+        ],
+        "lines": [
+          {
+            "id": "W1",
+            "description": "Cordless drill and a set of hand saws.",
+            "amountCents": 11800,
+            "basis": "inclusive",
+            "owner": "Bookkeeper",
+            "kind": "tools",
+            "proposed": "tools",
+            "evidence": [
+              {
+                "id": "tools",
+                "score": 0.7567664494029234
+              },
+              {
+                "id": "food",
+                "score": 0.19873237585635858
+              },
+              {
+                "id": "training",
+                "score": 0.0908975237830425
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": "",
+            "rateBps": 1800,
+            "netCents": 10000,
+            "taxCents": 1800,
+            "grossCents": 11800
+          },
+          {
+            "id": "W2",
+            "description": "Tuition for an equipment maintenance class.",
+            "amountCents": 5000,
+            "basis": "exclusive",
+            "owner": "Bookkeeper",
+            "kind": "training",
+            "proposed": "training",
+            "evidence": [
+              {
+                "id": "training",
+                "score": 0.6143671796370067
+              },
+              {
+                "id": "tools",
+                "score": 0.27943470832092887
+              },
+              {
+                "id": "food",
+                "score": 0.15659584276121483
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": "",
+            "rateBps": 0,
+            "netCents": 5000,
+            "taxCents": 0,
+            "grossCents": 5000
+          },
+          {
+            "id": "W3",
+            "description": "Catered sandwiches and prepared lunch meals.",
+            "amountCents": 1090,
+            "basis": "inclusive",
+            "owner": "Bookkeeper",
+            "kind": "food",
+            "proposed": "food",
+            "evidence": [
+              {
+                "id": "food",
+                "score": 0.739145182622761
+              },
+              {
+                "id": "training",
+                "score": 0.25766492658690254
+              },
+              {
+                "id": "tools",
+                "score": 0.21936615802595993
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": "",
+            "rateBps": 900,
+            "netCents": 1000,
+            "taxCents": 90,
+            "grossCents": 1090
+          },
+          {
+            "id": "W4",
+            "description": "Mechanical hand tools for the workbench.",
+            "amountCents": 2500,
+            "basis": "exclusive",
+            "owner": "Bookkeeper",
+            "kind": "tools",
+            "proposed": "tools",
+            "evidence": [
+              {
+                "id": "tools",
+                "score": 0.7291571917618521
+              },
+              {
+                "id": "food",
+                "score": 0.11654177072855751
+              },
+              {
+                "id": "training",
+                "score": 0.08212627432258784
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": "",
+            "rateBps": 1800,
+            "netCents": 2500,
+            "taxCents": 450,
+            "grossCents": 2950
+          }
+        ],
+        "total": 4,
+        "approved": 4,
+        "held": 0,
+        "netCents": 18500,
+        "taxCents": 2340,
+        "grossCents": 20840,
+        "baselineGrossCents": 23062,
+        "overstatementCents": 2222,
+        "literalLabelMatches": 0,
+        "groups": [
+          {
+            "id": "tools",
+            "label": "Workshop tools",
+            "rateBps": 1800,
+            "records": 2,
+            "netCents": 12500,
+            "taxCents": 2250,
+            "grossCents": 14750
+          },
+          {
+            "id": "training",
+            "label": "Training courses",
+            "rateBps": 0,
+            "records": 1,
+            "netCents": 5000,
+            "taxCents": 0,
+            "grossCents": 5000
+          },
+          {
+            "id": "food",
+            "label": "Catering food",
+            "rateBps": 900,
+            "records": 1,
+            "netCents": 1000,
+            "taxCents": 90,
+            "grossCents": 1090
+          }
+        ]
+      }
+    }
+  ],
+  "challenge": {
+    "proposal": "postage",
+    "decision": "pending"
+  },
+  "privacy": {
+    "requests": 57,
+    "allGetNoBody": true,
+    "urls": [
+      "https://xianghui.github.io/daily-app2/20261114-7/",
+      "https://xianghui.github.io/daily-app2/20261114-7/assets/index-CaiISCY_.js",
+      "https://xianghui.github.io/daily-app2/20261114-7/assets/index-33JObm3-.css",
+      "https://xianghui.github.io/daily-app2/20261114-7/assets/ai.worker-CLHNBQVO.js",
+      "blob:https://xianghui.github.io/d13b6efd-d077-41a6-92db-ab66dd4dbd52",
+      "https://xianghui.github.io/daily-app2/20261114-7/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "https://xianghui.github.io/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "blob:https://xianghui.github.io/66ff97b8-fa22-4869-834c-1badb995b681",
+      "blob:https://xianghui.github.io/9bdc91af-a00c-43c5-b9e1-42ba7355fe62",
+      "blob:https://xianghui.github.io/9e612af0-f949-4e59-8334-f4cecdb96704",
+      "blob:https://xianghui.github.io/7ed91260-d160-419a-aa13-093caf8d8e31",
+      "blob:https://xianghui.github.io/3510a404-2dcf-4b59-a3df-739a4ba68f95",
+      "blob:https://xianghui.github.io/aa921078-0282-40df-bcae-fdffcb357eea",
+      "blob:https://xianghui.github.io/573d465a-43ad-4b95-8ab6-d8dfb677897b",
+      "blob:https://xianghui.github.io/20dd3906-a2ab-4cc8-8b7a-4d5b5b2ac6ba",
+      "blob:https://xianghui.github.io/bc618d9b-6846-4b2d-ae4a-0302e0c48714",
+      "blob:https://xianghui.github.io/e5588929-dc29-4fd8-8113-2d5ef9308107",
+      "blob:https://xianghui.github.io/a9229992-2039-41d5-8b37-2468e30189c7",
+      "blob:https://xianghui.github.io/69db68f5-655f-41a7-b7cb-96f0db94c1c8",
+      "blob:https://xianghui.github.io/d7e2d54e-6a7b-445b-980c-0c3ed1295f0b",
+      "blob:https://xianghui.github.io/50f89bd8-1ae0-4542-ac01-1aea570f3c9f",
+      "blob:https://xianghui.github.io/1d836ce2-f2b9-4442-8de1-70d317b17bbc",
+      "blob:https://xianghui.github.io/8153c7f8-3c68-4a32-a0f5-ef9b3b417006",
+      "blob:https://xianghui.github.io/8a48b2bf-46ad-49a0-a986-ff146f335651",
+      "blob:https://xianghui.github.io/fe89cc37-2438-4223-836e-e19eecf57f48",
+      "blob:https://xianghui.github.io/183586ae-851e-4a76-b87e-5d6d31b0d88f",
+      "blob:https://xianghui.github.io/4abf61ab-ae5f-44e1-a48c-b476da6e8828",
+      "blob:https://xianghui.github.io/ce9f375b-53ee-4163-b675-f8a0960de90f",
+      "blob:https://xianghui.github.io/9eeb3a3e-e489-45b0-9bc4-d7a8772b58c9",
+      "blob:https://xianghui.github.io/b5acf3ff-6fa4-414f-b521-572c818cd06d",
+      "blob:https://xianghui.github.io/76e779ce-fada-4733-b9a6-c050dba93221",
+      "blob:https://xianghui.github.io/8764ea06-69df-4523-8ebb-02253ac97ec2",
+      "blob:https://xianghui.github.io/7b13f83c-210b-423c-a76c-0369e7cffeb5",
+      "blob:https://xianghui.github.io/c4866b89-c984-49da-b6b1-3ad2454460c9",
+      "blob:https://xianghui.github.io/46e6b16a-7c60-4a90-962d-6f013db69db7",
+      "blob:https://xianghui.github.io/dc6079ef-a17a-4ac5-912f-353ed2376f85",
+      "blob:https://xianghui.github.io/3504d5e7-0e33-413f-a59f-a903b3b66ce7",
+      "blob:https://xianghui.github.io/9a3742f3-5b1d-4a21-928a-872929748237",
+      "blob:https://xianghui.github.io/c3e374ff-0c53-4a8e-b6b5-9349cd377d22",
+      "blob:https://xianghui.github.io/2b093c32-1842-4799-8d86-18be25be49ef",
+      "blob:https://xianghui.github.io/04875155-ead9-4104-b9cf-c21a41df3e35",
+      "blob:https://xianghui.github.io/322ae219-126e-4200-9376-554371866210",
+      "blob:https://xianghui.github.io/c989a47d-af08-4d88-91c5-90755d37182f"
+    ]
+  }
+}

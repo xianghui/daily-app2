@@ -1,0 +1,230 @@
+{
+  "version": 1,
+  "originalInput": {
+    "project": "Synthetic community portal",
+    "budget": 200,
+    "policies": [
+      {
+        "id": "power",
+        "label": "Power supply",
+        "description": "Electrical power supply, mains electricity, UPS battery power feed.",
+        "extraCost": 120,
+        "maxExtra": 2
+      },
+      {
+        "id": "network",
+        "label": "Internet uplink",
+        "description": "Internet network connectivity broadband fiber uplink router connection.",
+        "extraCost": 80,
+        "maxExtra": 3
+      },
+      {
+        "id": "compute",
+        "label": "Application worker",
+        "description": "Application server compute processing worker running requests.",
+        "extraCost": 100,
+        "maxExtra": 2
+      },
+      {
+        "id": "storage",
+        "label": "Data store",
+        "description": "Database data storage persistent disk volume storing records.",
+        "extraCost": 140,
+        "maxExtra": 2
+      }
+    ],
+    "records": [
+      {
+        "id": "a",
+        "note": "Electricity from the mains power feed.",
+        "successBp": 9500,
+        "owner": "Service planner"
+      },
+      {
+        "id": "b",
+        "note": "Fiber broadband internet connection to the site.",
+        "successBp": 9000,
+        "owner": "Service planner"
+      },
+      {
+        "id": "c",
+        "note": "Application server processing incoming requests.",
+        "successBp": 9800,
+        "owner": "Service planner"
+      },
+      {
+        "id": "d",
+        "note": "Persistent database storage for records.",
+        "successBp": 9700,
+        "owner": "Service planner"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "a",
+      "note": "Electricity from the mains power feed.",
+      "successBp": 9500,
+      "owner": "Service planner",
+      "kind": "power",
+      "proposed": "power",
+      "evidence": [
+        {
+          "id": "power",
+          "score": 0.7251730893982381
+        },
+        {
+          "id": "compute",
+          "score": 0.23023780206190886
+        },
+        {
+          "id": "network",
+          "score": 0.1327390645229345
+        },
+        {
+          "id": "storage",
+          "score": 0.010411769797398227
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "b",
+      "note": "Fiber broadband internet connection to the site.",
+      "successBp": 9000,
+      "owner": "Service planner",
+      "kind": "network",
+      "proposed": "network",
+      "evidence": [
+        {
+          "id": "network",
+          "score": 0.7263659346904401
+        },
+        {
+          "id": "power",
+          "score": 0.2039069136560727
+        },
+        {
+          "id": "compute",
+          "score": 0.1498963038677961
+        },
+        {
+          "id": "storage",
+          "score": 0.04820672973412766
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "c",
+      "note": "Application server processing incoming requests.",
+      "successBp": 9800,
+      "owner": "Service planner",
+      "kind": "compute",
+      "proposed": "compute",
+      "evidence": [
+        {
+          "id": "compute",
+          "score": 0.7174824656636065
+        },
+        {
+          "id": "network",
+          "score": 0.19611926129342064
+        },
+        {
+          "id": "power",
+          "score": 0.13492709205859713
+        },
+        {
+          "id": "storage",
+          "score": 0.10705475522792075
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "d",
+      "note": "Persistent database storage for records.",
+      "successBp": 9700,
+      "owner": "Service planner",
+      "kind": "storage",
+      "proposed": "storage",
+      "evidence": [
+        {
+          "id": "storage",
+          "score": 0.8621533690902684
+        },
+        {
+          "id": "power",
+          "score": 0.10598017808600918
+        },
+        {
+          "id": "network",
+          "score": 0.07144378733751164
+        },
+        {
+          "id": "compute",
+          "score": 0.045686342810894266
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "held": 0,
+  "approved": 4,
+  "plan": {
+    "baseline": 0.812763,
+    "probability": 0.938741265,
+    "cost": 200,
+    "remaining": 0,
+    "considered": 9,
+    "lines": [
+      {
+        "id": "a",
+        "kind": "power",
+        "successBp": 9500,
+        "extra": 1,
+        "units": 2,
+        "cost": 120,
+        "stageProbability": 0.9974999999999999,
+        "owner": "Service planner"
+      },
+      {
+        "id": "b",
+        "kind": "network",
+        "successBp": 9000,
+        "extra": 1,
+        "units": 2,
+        "cost": 80,
+        "stageProbability": 0.99,
+        "owner": "Service planner"
+      },
+      {
+        "id": "c",
+        "kind": "compute",
+        "successBp": 9800,
+        "extra": 0,
+        "units": 1,
+        "cost": 0,
+        "stageProbability": 0.98,
+        "owner": "Service planner"
+      },
+      {
+        "id": "d",
+        "kind": "storage",
+        "successBp": 9700,
+        "extra": 0,
+        "units": 1,
+        "cost": 0,
+        "stageProbability": 0.97,
+        "owner": "Service planner"
+      }
+    ]
+  },
+  "blocked": []
+}

@@ -717,3 +717,9 @@ Real local MiniLM links informal backup notes to system profiles before mandator
 Real local MiniLM links informal asset-register notes to supplied accounting policies before mandatory review and exact-cent annual SL/DDB book-value worksheets. Eight tiny intended links matched; unrelated text still needs holding. All-SL comparisons show timing, not savings. Four thousand independent BigInt cases, complete reviewed artifacts, defensive browser checks and warmed-page fresh-worker offline inference passed locally. No tax certification or ledger writes. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261113-12/README.md) and [observed checks](20261113-12/VALIDATION.md).
 
 Asset Almanac public release, byte-matched worker/runtime assets, both real-AI fixtures, full public workflow suite and preserved 637-entry working-tree gallery passed on the first Pages deployment.
+
+## Time Folio — 20261113-13
+
+Real local MiniLM work-category proposals with mandatory billability review, exact-minute reconciliation and daily-versus-entry contract rounding. All records survive reviewed JSON/CSV/Markdown; no uploads or invoices sent. Reuses the immutable shared WASM from 20261107-2. See [workflow](20261113-13/README.md) and [observed checks](20261113-13/VALIDATION.md).
+
+Time Folio public release: both real-AI fixtures and complete public workflow suite, byte-matched worker/runtime assets, warmed-page offline inference and preserved 638-entry gallery verified. Harder paraphrases matched 3/4; human category/billability review remains essential.

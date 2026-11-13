@@ -1,0 +1,309 @@
+{
+  "version": 1,
+  "originalInput": {
+    "project": "Consultancy contract draft",
+    "increment": 6,
+    "mode": "entry",
+    "policies": [
+      {
+        "id": "delivery",
+        "label": "Client delivery",
+        "description": "Implementing client software features, writing production code, fixing application defects and delivering technical work.",
+        "billable": true,
+        "rate": 12000
+      },
+      {
+        "id": "advice",
+        "label": "Client advisory",
+        "description": "Client consultation, strategic planning meetings, professional advice and recommendations for the customer.",
+        "billable": true,
+        "rate": 15000
+      },
+      {
+        "id": "admin",
+        "label": "Internal administration",
+        "description": "Internal timesheets, expense reports, bookkeeping, scheduling staff and office administration.",
+        "billable": false,
+        "rate": 0
+      },
+      {
+        "id": "learning",
+        "label": "Internal learning",
+        "description": "Employee training, self study, professional development, attending educational courses and learning new skills.",
+        "billable": false,
+        "rate": 0
+      }
+    ],
+    "records": [
+      {
+        "id": "v",
+        "note": "Professional development course and employee learning new skills.",
+        "minutes": 43,
+        "date": "2026-11-03",
+        "owner": "Time reviewer"
+      },
+      {
+        "id": "m",
+        "note": "Office administration: scheduling staff and internal timesheets.",
+        "minutes": 11,
+        "date": "2026-11-03",
+        "owner": "Time reviewer"
+      },
+      {
+        "id": "f",
+        "note": "Giving strategic recommendations and professional consultation to a customer.",
+        "minutes": 13,
+        "date": "2026-11-03",
+        "owner": "Time reviewer"
+      },
+      {
+        "id": "c",
+        "note": "Fixing software defects and implementing customer application features.",
+        "minutes": 7,
+        "date": "2026-11-03",
+        "owner": "Time reviewer"
+      },
+      {
+        "id": "s",
+        "note": "Customer consultation with strategic planning advice.",
+        "minutes": 11,
+        "date": "2026-11-03",
+        "owner": "Time reviewer"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "v",
+      "note": "Professional development course and employee learning new skills.",
+      "minutes": 43,
+      "date": "2026-11-03",
+      "owner": "=Owner\n\"second\", line",
+      "kind": "learning",
+      "proposed": "learning",
+      "evidence": [
+        {
+          "id": "learning",
+          "score": 0.7890387792783168
+        },
+        {
+          "id": "advice",
+          "score": 0.31868299556210256
+        },
+        {
+          "id": "admin",
+          "score": 0.3165548926905499
+        },
+        {
+          "id": "delivery",
+          "score": 0.29059829866484826
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", verify 🌿"
+    },
+    {
+      "id": "m",
+      "note": "Office administration: scheduling staff and internal timesheets.",
+      "minutes": 11,
+      "date": "2026-11-03",
+      "owner": "Time reviewer",
+      "kind": "admin",
+      "proposed": "admin",
+      "evidence": [
+        {
+          "id": "admin",
+          "score": 0.7662278509875962
+        },
+        {
+          "id": "advice",
+          "score": 0.2563774983278395
+        },
+        {
+          "id": "learning",
+          "score": 0.23093724663291107
+        },
+        {
+          "id": "delivery",
+          "score": 0.22327823367453592
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "f",
+      "note": "Giving strategic recommendations and professional consultation to a customer.",
+      "minutes": 13,
+      "date": "2026-11-03",
+      "owner": "Time reviewer",
+      "kind": "advice",
+      "proposed": "advice",
+      "evidence": [
+        {
+          "id": "advice",
+          "score": 0.8274844909871778
+        },
+        {
+          "id": "delivery",
+          "score": 0.41533530186914136
+        },
+        {
+          "id": "admin",
+          "score": 0.3034606143226097
+        },
+        {
+          "id": "learning",
+          "score": 0.21292815086729805
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "c",
+      "note": "Fixing software defects and implementing customer application features.",
+      "minutes": 7,
+      "date": "2026-11-03",
+      "owner": "Time reviewer",
+      "kind": "delivery",
+      "proposed": "delivery",
+      "evidence": [
+        {
+          "id": "delivery",
+          "score": 0.7528612288261106
+        },
+        {
+          "id": "advice",
+          "score": 0.4334085268272373
+        },
+        {
+          "id": "admin",
+          "score": 0.18446466507689468
+        },
+        {
+          "id": "learning",
+          "score": 0.18303352936882783
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "s",
+      "note": "Customer consultation with strategic planning advice.",
+      "minutes": 11,
+      "date": "2026-11-03",
+      "owner": "Time reviewer",
+      "kind": "advice",
+      "proposed": "advice",
+      "evidence": [
+        {
+          "id": "advice",
+          "score": 0.8200469798612463
+        },
+        {
+          "id": "delivery",
+          "score": 0.3132421990502894
+        },
+        {
+          "id": "admin",
+          "score": 0.2043862407006834
+        },
+        {
+          "id": "learning",
+          "score": 0.14775076266998455
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "plans": [
+    {
+      "date": "2026-11-03",
+      "policy": "advice",
+      "rate": 15000,
+      "ids": [
+        "f"
+      ],
+      "actual": 13,
+      "rounded": 18,
+      "added": 5,
+      "charge": 4500
+    },
+    {
+      "date": "2026-11-03",
+      "policy": "delivery",
+      "rate": 12000,
+      "ids": [
+        "c"
+      ],
+      "actual": 7,
+      "rounded": 12,
+      "added": 5,
+      "charge": 2400
+    },
+    {
+      "date": "2026-11-03",
+      "policy": "advice",
+      "rate": 15000,
+      "ids": [
+        "s"
+      ],
+      "actual": 11,
+      "rounded": 12,
+      "added": 1,
+      "charge": 3000
+    }
+  ],
+  "baseline": [
+    {
+      "date": "2026-11-03",
+      "policy": "advice",
+      "rate": 15000,
+      "ids": [
+        "f"
+      ],
+      "actual": 13,
+      "rounded": 18,
+      "added": 5,
+      "charge": 4500
+    },
+    {
+      "date": "2026-11-03",
+      "policy": "delivery",
+      "rate": 12000,
+      "ids": [
+        "c"
+      ],
+      "actual": 7,
+      "rounded": 12,
+      "added": 5,
+      "charge": 2400
+    },
+    {
+      "date": "2026-11-03",
+      "policy": "advice",
+      "rate": 15000,
+      "ids": [
+        "s"
+      ],
+      "actual": 11,
+      "rounded": 12,
+      "added": 1,
+      "charge": 3000
+    }
+  ],
+  "total": 5,
+  "approved": 5,
+  "held": 0,
+  "actualMinutes": 85,
+  "billableMinutes": 31,
+  "nonbillableMinutes": 54,
+  "roundedMinutes": 42,
+  "charge": 9900,
+  "baselineCharge": 9900,
+  "baselineMinutes": 42,
+  "status": "Reviewed draft — not an invoice"
+}

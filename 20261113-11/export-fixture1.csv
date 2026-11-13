@@ -1,0 +1,9 @@
+record_type,id,source_note,ai_system,reviewed_system,decision,owner,review_note,age_hours,restore_minutes,tested,job_ok,passes,actions
+backup,git-b,Developer git repository mirror containing application source code and commits.,code,code,approve,Recovery reviewer,,1,35,true,true,true,Verify complete recovery
+backup,art-b,Creative project archive with illustration artwork and graphic design files.,design,design,approve,Recovery reviewer,,12,100,true,true,true,Verify complete recovery
+backup,db-b,Shopping checkout purchases and customer order transaction database.,orders,orders,approve,Recovery reviewer,,6,40,true,true,false,RPO gap: refresh backup; age exceeds target by 2 hours
+backup,mail-b,Shared team email messages and employee inbox correspondence backup.,mail,mail,approve,Recovery reviewer,,2,50,true,false,false,Failed job: obtain a successful backup
+system,orders,Order database,,orders,,,,,,,,false,No supplied copy meets all checks: resolve copy-level gaps and rerun drill
+system,design,Design archive,,design,,,,,,,,true,At least one supplied copy meets all checks; verify dependencies and full recovery separately
+system,mail,Team email,,mail,,,,,,,,false,No supplied copy meets all checks: resolve copy-level gaps and rerun drill
+system,code,Source repository,,code,,,,,,,,true,At least one supplied copy meets all checks; verify dependencies and full recovery separately

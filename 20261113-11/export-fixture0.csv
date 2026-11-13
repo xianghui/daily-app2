@@ -1,0 +1,9 @@
+record_type,id,source_note,ai_system,reviewed_system,decision,owner,review_note,age_hours,restore_minutes,tested,job_ok,passes,actions
+backup,db-a,Customer checkout transactions and shopping cart order database snapshot.,orders,orders,approve,Recovery reviewer,,2,40,true,true,true,Verify complete recovery
+backup,art-a,Graphic illustration source files and studio design artwork archive.,design,design,approve,Recovery reviewer,,30,120,true,true,false,RPO gap: refresh backup; age exceeds target by 6 hours
+backup,mail-a,Employee email mailboxes and sent message correspondence backup.,mail,mail,approve,Recovery reviewer,,3,180,true,true,false,RTO gap: investigate restore path; duration exceeds target by 60 minutes
+backup,git-a,Software source code git repositories and developer commit history mirror.,code,code,approve,Recovery reviewer,,6,60,false,true,false,Untested: run and document an isolated restore drill
+system,orders,Order database,,orders,,,,,,,,true,At least one supplied copy meets all checks; verify dependencies and full recovery separately
+system,design,Design archive,,design,,,,,,,,false,No supplied copy meets all checks: resolve copy-level gaps and rerun drill
+system,mail,Team email,,mail,,,,,,,,false,No supplied copy meets all checks: resolve copy-level gaps and rerun drill
+system,code,Source repository,,code,,,,,,,,false,No supplied copy meets all checks: resolve copy-level gaps and rerun drill

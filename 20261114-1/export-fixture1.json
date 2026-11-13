@@ -1,0 +1,247 @@
+{
+  "version": 1,
+  "originalInput": {
+    "project": "Synthetic packing queue",
+    "start": "dry",
+    "parts": [
+      {
+        "id": "dry",
+        "label": "Dry goods packing",
+        "description": "Packing dry rice, dried lentils, flour and grain into sealed bags."
+      },
+      {
+        "id": "chill",
+        "label": "Chilled produce packing",
+        "description": "Packing fresh chilled lettuce, salad leaves, refrigerated vegetables and herbs."
+      }
+    ],
+    "setup": [
+      [
+        0,
+        9
+      ],
+      [
+        15,
+        0
+      ]
+    ],
+    "records": [
+      {
+        "id": "F1",
+        "note": "Fresh chilled lettuce and refrigerated salad leaves.",
+        "minutes": 7,
+        "deadline": 70,
+        "owner": "Shift planner"
+      },
+      {
+        "id": "F2",
+        "note": "Dried lentils and rice packed into sealed bags.",
+        "minutes": 9,
+        "deadline": 25,
+        "owner": "Shift planner"
+      },
+      {
+        "id": "F3",
+        "note": "Refrigerated fresh herbs and chilled vegetables.",
+        "minutes": 8,
+        "deadline": 80,
+        "owner": "Shift planner"
+      },
+      {
+        "id": "F4",
+        "note": "Bags of dry flour and grain.",
+        "minutes": 6,
+        "deadline": 35,
+        "owner": "Shift planner"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "F1",
+      "note": "Fresh chilled lettuce and refrigerated salad leaves.",
+      "minutes": 7,
+      "deadline": 70,
+      "owner": "Shift planner",
+      "kind": "chill",
+      "proposed": "chill",
+      "evidence": [
+        {
+          "id": "chill",
+          "score": 0.7983172488576892
+        },
+        {
+          "id": "dry",
+          "score": 0.3862338630633349
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "F2",
+      "note": "Dried lentils and rice packed into sealed bags.",
+      "minutes": 9,
+      "deadline": 25,
+      "owner": "Shift planner",
+      "kind": "dry",
+      "proposed": "dry",
+      "evidence": [
+        {
+          "id": "dry",
+          "score": 0.8782956666278184
+        },
+        {
+          "id": "chill",
+          "score": 0.49565771641480566
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "F3",
+      "note": "Refrigerated fresh herbs and chilled vegetables.",
+      "minutes": 8,
+      "deadline": 80,
+      "owner": "Shift planner",
+      "kind": "chill",
+      "proposed": "chill",
+      "evidence": [
+        {
+          "id": "chill",
+          "score": 0.7666521577191046
+        },
+        {
+          "id": "dry",
+          "score": 0.4374622811217181
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "F4",
+      "note": "Bags of dry flour and grain.",
+      "minutes": 6,
+      "deadline": 35,
+      "owner": "Shift planner",
+      "kind": "dry",
+      "proposed": "dry",
+      "evidence": [
+        {
+          "id": "dry",
+          "score": 0.7080100645656037
+        },
+        {
+          "id": "chill",
+          "score": 0.46910659052163295
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "blocked": [],
+  "plan": {
+    "jobs": [
+      {
+        "id": "F4",
+        "kind": "dry",
+        "setupStart": 0,
+        "setup": 0,
+        "start": 0,
+        "end": 6,
+        "deadline": 35,
+        "late": 0
+      },
+      {
+        "id": "F2",
+        "kind": "dry",
+        "setupStart": 6,
+        "setup": 0,
+        "start": 6,
+        "end": 15,
+        "deadline": 25,
+        "late": 0
+      },
+      {
+        "id": "F3",
+        "kind": "chill",
+        "setupStart": 15,
+        "setup": 9,
+        "start": 24,
+        "end": 32,
+        "deadline": 80,
+        "late": 0
+      },
+      {
+        "id": "F1",
+        "kind": "chill",
+        "setupStart": 32,
+        "setup": 0,
+        "start": 32,
+        "end": 39,
+        "deadline": 70,
+        "late": 0
+      }
+    ],
+    "totalMinutes": 39,
+    "setupMinutes": 9,
+    "processingMinutes": 30,
+    "lateJobs": 0,
+    "feasible": true
+  },
+  "baseline": {
+    "jobs": [
+      {
+        "id": "F1",
+        "kind": "chill",
+        "setupStart": 0,
+        "setup": 9,
+        "start": 9,
+        "end": 16,
+        "deadline": 70,
+        "late": 0
+      },
+      {
+        "id": "F2",
+        "kind": "dry",
+        "setupStart": 16,
+        "setup": 15,
+        "start": 31,
+        "end": 40,
+        "deadline": 25,
+        "late": 15
+      },
+      {
+        "id": "F3",
+        "kind": "chill",
+        "setupStart": 40,
+        "setup": 9,
+        "start": 49,
+        "end": 57,
+        "deadline": 80,
+        "late": 0
+      },
+      {
+        "id": "F4",
+        "kind": "dry",
+        "setupStart": 57,
+        "setup": 15,
+        "start": 72,
+        "end": 78,
+        "deadline": 35,
+        "late": 43
+      }
+    ],
+    "totalMinutes": 78,
+    "setupMinutes": 48,
+    "processingMinutes": 30,
+    "lateJobs": 2,
+    "feasible": false
+  }
+}

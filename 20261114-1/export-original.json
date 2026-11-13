@@ -1,0 +1,247 @@
+{
+  "version": 1,
+  "originalInput": {
+    "project": "Synthetic print queue",
+    "start": "paper",
+    "parts": [
+      {
+        "id": "paper",
+        "label": "Paper printing",
+        "description": "Paper printing of booklets, leaflets, posters and printed pages."
+      },
+      {
+        "id": "fabric",
+        "label": "Textile printing",
+        "description": "Textile fabric printing on cotton shirts, canvas bags and clothing."
+      }
+    ],
+    "setup": [
+      [
+        0,
+        12
+      ],
+      [
+        20,
+        0
+      ]
+    ],
+    "records": [
+      {
+        "id": "P1",
+        "note": "Printing cotton shirts and textile clothing.",
+        "minutes": 8,
+        "deadline": 80,
+        "owner": "Shift planner"
+      },
+      {
+        "id": "P2",
+        "note": "Printed paper leaflets and booklets.",
+        "minutes": 10,
+        "deadline": 30,
+        "owner": "Shift planner"
+      },
+      {
+        "id": "P3",
+        "note": "Canvas bags with textile fabric printing.",
+        "minutes": 6,
+        "deadline": 90,
+        "owner": "Shift planner"
+      },
+      {
+        "id": "P4",
+        "note": "Paper posters and printed pages.",
+        "minutes": 5,
+        "deadline": 40,
+        "owner": "Shift planner"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "P1",
+      "note": "Printing cotton shirts and textile clothing.",
+      "minutes": 8,
+      "deadline": 80,
+      "owner": "Shift planner",
+      "kind": "fabric",
+      "proposed": "fabric",
+      "evidence": [
+        {
+          "id": "fabric",
+          "score": 0.9039170514888669
+        },
+        {
+          "id": "paper",
+          "score": 0.5959450590794387
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "P2",
+      "note": "Printed paper leaflets and booklets.",
+      "minutes": 10,
+      "deadline": 30,
+      "owner": "Shift planner",
+      "kind": "paper",
+      "proposed": "paper",
+      "evidence": [
+        {
+          "id": "paper",
+          "score": 0.9440371400563632
+        },
+        {
+          "id": "fabric",
+          "score": 0.5079527429037786
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "P3",
+      "note": "Canvas bags with textile fabric printing.",
+      "minutes": 6,
+      "deadline": 90,
+      "owner": "Shift planner",
+      "kind": "fabric",
+      "proposed": "fabric",
+      "evidence": [
+        {
+          "id": "fabric",
+          "score": 0.8301653929407908
+        },
+        {
+          "id": "paper",
+          "score": 0.47147711403687387
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "P4",
+      "note": "Paper posters and printed pages.",
+      "minutes": 5,
+      "deadline": 40,
+      "owner": "Shift planner",
+      "kind": "paper",
+      "proposed": "paper",
+      "evidence": [
+        {
+          "id": "paper",
+          "score": 0.8487044184448581
+        },
+        {
+          "id": "fabric",
+          "score": 0.5184687438850678
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "blocked": [],
+  "plan": {
+    "jobs": [
+      {
+        "id": "P4",
+        "kind": "paper",
+        "setupStart": 0,
+        "setup": 0,
+        "start": 0,
+        "end": 5,
+        "deadline": 40,
+        "late": 0
+      },
+      {
+        "id": "P2",
+        "kind": "paper",
+        "setupStart": 5,
+        "setup": 0,
+        "start": 5,
+        "end": 15,
+        "deadline": 30,
+        "late": 0
+      },
+      {
+        "id": "P3",
+        "kind": "fabric",
+        "setupStart": 15,
+        "setup": 12,
+        "start": 27,
+        "end": 33,
+        "deadline": 90,
+        "late": 0
+      },
+      {
+        "id": "P1",
+        "kind": "fabric",
+        "setupStart": 33,
+        "setup": 0,
+        "start": 33,
+        "end": 41,
+        "deadline": 80,
+        "late": 0
+      }
+    ],
+    "totalMinutes": 41,
+    "setupMinutes": 12,
+    "processingMinutes": 29,
+    "lateJobs": 0,
+    "feasible": true
+  },
+  "baseline": {
+    "jobs": [
+      {
+        "id": "P1",
+        "kind": "fabric",
+        "setupStart": 0,
+        "setup": 12,
+        "start": 12,
+        "end": 20,
+        "deadline": 80,
+        "late": 0
+      },
+      {
+        "id": "P2",
+        "kind": "paper",
+        "setupStart": 20,
+        "setup": 20,
+        "start": 40,
+        "end": 50,
+        "deadline": 30,
+        "late": 20
+      },
+      {
+        "id": "P3",
+        "kind": "fabric",
+        "setupStart": 50,
+        "setup": 12,
+        "start": 62,
+        "end": 68,
+        "deadline": 90,
+        "late": 0
+      },
+      {
+        "id": "P4",
+        "kind": "paper",
+        "setupStart": 68,
+        "setup": 20,
+        "start": 88,
+        "end": 93,
+        "deadline": 40,
+        "late": 53
+      }
+    ],
+    "totalMinutes": 93,
+    "setupMinutes": 64,
+    "processingMinutes": 29,
+    "lateJobs": 2,
+    "feasible": false
+  }
+}

@@ -797,3 +797,10 @@ Local MiniLM material matching supports recurring waste-bin audits. Review every
 Real local MiniLM section proposals support mandatory document-placement/page-count review before recto-aware booklet pagination and saddle-stitch sheet pairing. Both tiny synthetic batches matched 8/8 intended sections. Three thousand independent pagination cases in two orders, complete reviewed JSON/CSV/Markdown/sheet artifacts, defensive browser checks and warmed-page fresh-worker offline inference passed locally. Not PDF processing or print-production certification; fold a paper dummy and verify printer orientation. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261113-24/README.md) and [observed validation](20261113-24/VALIDATION.md).
 
 Folio Press public release: byte-matched app/worker/runtime assets, both real-AI fixtures, all nine public workflow groups, reviewed artifact round-trips, warmed-page fresh-worker offline inference and the preserved 649-entry gallery verified on the first Pages deployment.
+
+
+## Changeover Grove — 20261114-1
+
+Real local MiniLM job-family proposals support mandatory process/timing review before exact deadline-constrained asymmetric changeover sequencing. Both tiny synthetic batches matched 8/8 intended links; unrelated text still needs holding. Six hundred independent exhaustive permutation cases, complete reviewed artifacts, defensive browser checks and warmed-page fresh-worker offline inference passed locally. Scenario comparisons are not measured savings or live dispatch. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261114-1/README.md) and [observed validation](20261114-1/VALIDATION.md).
+
+Changeover Grove public release: byte-matched app/worker/runtime assets, both real-AI fixtures, all nine public workflow groups, warmed-page fresh-worker offline inference and the preserved 650-entry working-tree gallery verified on the first Pages deployment.

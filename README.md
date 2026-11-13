@@ -736,3 +736,10 @@ Paydown Harbor public release: byte-matched worker/runtime assets, both real-AI 
 Real local MiniLM material inference assists mandatory intake review before exact-ratio wet-basis moisture mass accounting. Eight simple fixture links matched; unrelated text still needs holds. Dry solids and standardized equivalents compare with gross received mass, not measured savings or processing instructions. 3,003 independent Fraction-oracle cases, current reviewed JSON/CSV/Markdown, maximum batches, defensive checks and warmed-page fresh-worker offline inference passed. Offline scope is an already-open warmed page only. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261113-15/README.md) and [observed checks](20261113-15/VALIDATION.md).
 
 Dry Matter public release: byte-matched app/worker/runtime assets, both real-AI fixtures, all eight public workflow checks, warmed-page offline inference and preserved 640-entry working-tree gallery verified on the first Pages deployment.
+
+
+## Gauge Harbor — 20261113-16
+
+Real local MiniLM reconciles rough inspection notes with drawing features before mandatory identity/reading/uncertainty review. Deterministic closed-interval checks expose nominal-inside boundary cases; complete JSON/CSV/Markdown preserves all records and follow-ups. Eight tiny fixture links matched; unrelated text still needs holds. 4,009 independent BigInt cases, reviewed artifacts, defensive checks and warmed-page fresh-worker offline inference passed locally. Not conformity certification or lot release. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261113-16/README.md) and [observed checks](20261113-16/VALIDATION.md).
+
+Gauge Harbor public release: byte-matched app/worker/runtime assets, both real-AI fixtures, all eight public workflow checks, warmed-page offline inference and preserved 641-entry working-tree gallery verified on the final phone-layout revision.

@@ -1,0 +1,249 @@
+{
+  "version": 1,
+  "originalInput": {
+    "project": "Synthetic machined-part inspection",
+    "policies": [
+      {
+        "id": "bore",
+        "label": "Bearing bore",
+        "description": "Circular bearing hole internal diameter, machined housing bore opening.",
+        "low": 19980,
+        "high": 20020
+      },
+      {
+        "id": "shaft",
+        "label": "Drive shaft",
+        "description": "External diameter of cylindrical steel drive shaft spindle.",
+        "low": 11990,
+        "high": 12010
+      },
+      {
+        "id": "slot",
+        "label": "Guide slot",
+        "description": "Width of rectangular guide groove slot channel.",
+        "low": 7950,
+        "high": 8050
+      },
+      {
+        "id": "plate",
+        "label": "Cover plate",
+        "description": "Thickness of flat cover plate sheet metal panel.",
+        "low": 2950,
+        "high": 3050
+      }
+    ],
+    "records": [
+      {
+        "id": "a",
+        "note": "Internal diameter of the circular bearing housing bore.",
+        "value": 20000,
+        "uncertainty": 5,
+        "owner": "Inspection reviewer"
+      },
+      {
+        "id": "b",
+        "note": "External diameter of the cylindrical drive shaft spindle.",
+        "value": 12008,
+        "uncertainty": 6,
+        "owner": "Inspection reviewer"
+      },
+      {
+        "id": "c",
+        "note": "Width of rectangular guide slot channel.",
+        "value": 8070,
+        "uncertainty": 10,
+        "owner": "Inspection reviewer"
+      },
+      {
+        "id": "d",
+        "note": "Thickness of flat cover plate sheet metal.",
+        "value": 2945,
+        "uncertainty": 10,
+        "owner": "Inspection reviewer"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "a",
+      "note": "Internal diameter of the circular bearing housing bore.",
+      "value": 20000,
+      "uncertainty": 5,
+      "owner": "Inspection reviewer",
+      "kind": "bore",
+      "proposed": "bore",
+      "evidence": [
+        {
+          "id": "bore",
+          "score": 0.8257867024209553
+        },
+        {
+          "id": "shaft",
+          "score": 0.5423016210436908
+        },
+        {
+          "id": "slot",
+          "score": 0.24304706448807026
+        },
+        {
+          "id": "plate",
+          "score": 0.16859058381167943
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "b",
+      "note": "External diameter of the cylindrical drive shaft spindle.",
+      "value": 12008,
+      "uncertainty": 6,
+      "owner": "Inspection reviewer",
+      "kind": "shaft",
+      "proposed": "shaft",
+      "evidence": [
+        {
+          "id": "shaft",
+          "score": 0.9413712382189843
+        },
+        {
+          "id": "bore",
+          "score": 0.518748040813112
+        },
+        {
+          "id": "slot",
+          "score": 0.31345746680192127
+        },
+        {
+          "id": "plate",
+          "score": 0.2144879898147511
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "c",
+      "note": "Width of rectangular guide slot channel.",
+      "value": 8070,
+      "uncertainty": 10,
+      "owner": "Inspection reviewer",
+      "kind": "slot",
+      "proposed": "slot",
+      "evidence": [
+        {
+          "id": "slot",
+          "score": 0.9189511790535191
+        },
+        {
+          "id": "plate",
+          "score": 0.21266855935967746
+        },
+        {
+          "id": "shaft",
+          "score": 0.16512240614402293
+        },
+        {
+          "id": "bore",
+          "score": 0.16198018503355116
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "d",
+      "note": "Thickness of flat cover plate sheet metal.",
+      "value": 2945,
+      "uncertainty": 10,
+      "owner": "Inspection reviewer",
+      "kind": "plate",
+      "proposed": "plate",
+      "evidence": [
+        {
+          "id": "plate",
+          "score": 0.9036478291949906
+        },
+        {
+          "id": "shaft",
+          "score": 0.2467315429033565
+        },
+        {
+          "id": "slot",
+          "score": 0.18213843130317414
+        },
+        {
+          "id": "bore",
+          "score": 0.1529062207564478
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "held": 0,
+  "approved": 4,
+  "lines": [
+    {
+      "id": "a",
+      "kind": "bore",
+      "value": 20000,
+      "uncertainty": 5,
+      "low": 19980,
+      "high": 20020,
+      "start": 19995,
+      "end": 20005,
+      "nominal": "inside",
+      "outcome": "contained",
+      "action": "Document reviewed evidence"
+    },
+    {
+      "id": "b",
+      "kind": "shaft",
+      "value": 12008,
+      "uncertainty": 6,
+      "low": 11990,
+      "high": 12010,
+      "start": 12002,
+      "end": 12014,
+      "nominal": "inside",
+      "outcome": "overlap",
+      "action": "Remeasure or reduce justified uncertainty; do not assume conformity"
+    },
+    {
+      "id": "c",
+      "kind": "slot",
+      "value": 8070,
+      "uncertainty": 10,
+      "low": 7950,
+      "high": 8050,
+      "start": 8060,
+      "end": 8080,
+      "nominal": "outside",
+      "outcome": "disjoint",
+      "action": "Investigate nonconformance; verify measurement"
+    },
+    {
+      "id": "d",
+      "kind": "plate",
+      "value": 2945,
+      "uncertainty": 10,
+      "low": 2950,
+      "high": 3050,
+      "start": 2935,
+      "end": 2955,
+      "nominal": "outside",
+      "outcome": "overlap",
+      "action": "Remeasure or reduce justified uncertainty; do not assume conformity"
+    }
+  ],
+  "counts": {
+    "contained": 1,
+    "disjoint": 1,
+    "overlap": 2
+  },
+  "baseline": 2,
+  "flagged": 1,
+  "incomplete": false
+}

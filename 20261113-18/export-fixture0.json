@@ -1,0 +1,302 @@
+{
+  "version": 1,
+  "originalInput": {
+    "project": "Synthetic row-house survey",
+    "deltaDeciK": 200,
+    "degreeDays": 2200,
+    "targetWatts": 1500,
+    "policies": [
+      {
+        "id": "wall",
+        "label": "External wall",
+        "description": "Opaque exterior brick masonry wall, external vertical facade excluding windows and doors.",
+        "unit": "m²",
+        "coefficientMilli": 1500,
+        "upgradeMilli": 300
+      },
+      {
+        "id": "roof",
+        "label": "Roof",
+        "description": "Roof ceiling loft attic horizontal upper building covering.",
+        "unit": "m²",
+        "coefficientMilli": 900,
+        "upgradeMilli": 180
+      },
+      {
+        "id": "window",
+        "label": "Glazing",
+        "description": "Window glazing glass panes transparent exterior windows.",
+        "unit": "m²",
+        "coefficientMilli": 2800,
+        "upgradeMilli": 1400
+      },
+      {
+        "id": "door",
+        "label": "External door",
+        "description": "Solid exterior entrance front door insulated entry door.",
+        "unit": "m²",
+        "coefficientMilli": 2200,
+        "upgradeMilli": 1000
+      },
+      {
+        "id": "junction",
+        "label": "Wall-floor junction",
+        "description": "Linear thermal bridge junction along wall and floor slab perimeter edge.",
+        "unit": "m",
+        "coefficientMilli": 300,
+        "upgradeMilli": 100
+      },
+      {
+        "id": "lintel",
+        "label": "Window lintel",
+        "description": "Linear thermal bridge above window opening lintel header beam.",
+        "unit": "m",
+        "coefficientMilli": 400,
+        "upgradeMilli": 150
+      }
+    ],
+    "records": [
+      {
+        "id": "a",
+        "note": "Exterior opaque brick masonry walls, openings already deducted.",
+        "quantity100": 8000,
+        "owner": "Envelope reviewer"
+      },
+      {
+        "id": "b",
+        "note": "Window glass panes on the facade.",
+        "quantity100": 1500,
+        "owner": "Envelope reviewer"
+      },
+      {
+        "id": "c",
+        "note": "Roof loft ceiling above the rooms.",
+        "quantity100": 5000,
+        "owner": "Envelope reviewer"
+      },
+      {
+        "id": "d",
+        "note": "Wall floor slab perimeter thermal bridge junction.",
+        "quantity100": 3000,
+        "owner": "Envelope reviewer"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "a",
+      "note": "Exterior opaque brick masonry walls, openings already deducted.",
+      "quantity100": 8000,
+      "owner": "Envelope reviewer",
+      "kind": "wall",
+      "proposed": "wall",
+      "coefficientMilli": 1500,
+      "upgradeMilli": 300,
+      "evidence": [
+        {
+          "id": "wall",
+          "score": 0.78480521420193
+        },
+        {
+          "id": "window",
+          "score": 0.3409418710610147
+        },
+        {
+          "id": "roof",
+          "score": 0.28404294312275286
+        },
+        {
+          "id": "door",
+          "score": 0.2817731775682478
+        },
+        {
+          "id": "lintel",
+          "score": 0.18547140373978238
+        },
+        {
+          "id": "junction",
+          "score": 0.14247257911931516
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "b",
+      "note": "Window glass panes on the facade.",
+      "quantity100": 1500,
+      "owner": "Envelope reviewer",
+      "kind": "window",
+      "proposed": "window",
+      "coefficientMilli": 2800,
+      "upgradeMilli": 1400,
+      "evidence": [
+        {
+          "id": "window",
+          "score": 0.7001637192189916
+        },
+        {
+          "id": "wall",
+          "score": 0.39064590748013944
+        },
+        {
+          "id": "lintel",
+          "score": 0.3006823400388589
+        },
+        {
+          "id": "door",
+          "score": 0.29514346581911066
+        },
+        {
+          "id": "roof",
+          "score": 0.24794085406347963
+        },
+        {
+          "id": "junction",
+          "score": 0.10726305961138384
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "c",
+      "note": "Roof loft ceiling above the rooms.",
+      "quantity100": 5000,
+      "owner": "Envelope reviewer",
+      "kind": "roof",
+      "proposed": "roof",
+      "coefficientMilli": 900,
+      "upgradeMilli": 180,
+      "evidence": [
+        {
+          "id": "roof",
+          "score": 0.7552278704913573
+        },
+        {
+          "id": "lintel",
+          "score": 0.3778827105013308
+        },
+        {
+          "id": "wall",
+          "score": 0.32230261653208436
+        },
+        {
+          "id": "junction",
+          "score": 0.2910833971415016
+        },
+        {
+          "id": "window",
+          "score": 0.24630668047072013
+        },
+        {
+          "id": "door",
+          "score": 0.15150006667034124
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "d",
+      "note": "Wall floor slab perimeter thermal bridge junction.",
+      "quantity100": 3000,
+      "owner": "Envelope reviewer",
+      "kind": "junction",
+      "proposed": "junction",
+      "coefficientMilli": 300,
+      "upgradeMilli": 100,
+      "evidence": [
+        {
+          "id": "junction",
+          "score": 0.932805589399551
+        },
+        {
+          "id": "lintel",
+          "score": 0.5926368449636579
+        },
+        {
+          "id": "door",
+          "score": 0.25961402690696356
+        },
+        {
+          "id": "roof",
+          "score": 0.2362362110825428
+        },
+        {
+          "id": "wall",
+          "score": 0.2264910464797161
+        },
+        {
+          "id": "window",
+          "score": 0.16052469384099013
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "held": 0,
+  "approved": 4,
+  "plan": {
+    "lines": [
+      {
+        "id": "a",
+        "kind": "wall",
+        "unit": "m²",
+        "quantity": 80,
+        "currentH": 120,
+        "scenarioH": 24,
+        "currentWatts": 2400,
+        "scenarioWatts": 480,
+        "owner": "Envelope reviewer"
+      },
+      {
+        "id": "b",
+        "kind": "window",
+        "unit": "m²",
+        "quantity": 15,
+        "currentH": 42,
+        "scenarioH": 21,
+        "currentWatts": 840,
+        "scenarioWatts": 420,
+        "owner": "Envelope reviewer"
+      },
+      {
+        "id": "c",
+        "kind": "roof",
+        "unit": "m²",
+        "quantity": 50,
+        "currentH": 45,
+        "scenarioH": 9,
+        "currentWatts": 900,
+        "scenarioWatts": 180,
+        "owner": "Envelope reviewer"
+      },
+      {
+        "id": "d",
+        "kind": "junction",
+        "unit": "m",
+        "quantity": 30,
+        "currentH": 9,
+        "scenarioH": 3,
+        "currentWatts": 180,
+        "scenarioWatts": 60,
+        "owner": "Envelope reviewer"
+      }
+    ],
+    "currentH": 216,
+    "scenarioH": 57,
+    "planeOnlyWatts": 4140,
+    "bridgeWatts": 180,
+    "currentWatts": 4320,
+    "scenarioWatts": 1140,
+    "avoidedWatts": 3180,
+    "currentKWh": 11404.8,
+    "scenarioKWh": 3009.6,
+    "avoidedKWh": 8395.2,
+    "withinTarget": true
+  },
+  "blocked": []
+}

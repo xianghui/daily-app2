@@ -1,0 +1,252 @@
+{
+  "version": 1,
+  "originalInput": {
+    "project": "Warehouse payment review",
+    "annualRatePct": 12,
+    "terms": [
+      {
+        "id": "pack",
+        "label": "Box & Paper",
+        "description": "Corrugated shipping cartons, cardboard boxes, packing paper and protective parcel packaging supplies.",
+        "discountBps": 200,
+        "discountDay": 10,
+        "netDay": 30
+      },
+      {
+        "id": "cloud",
+        "label": "Compute Grove",
+        "description": "Cloud server hosting, virtual machines, online data storage and managed computing infrastructure.",
+        "discountBps": 100,
+        "discountDay": 10,
+        "netDay": 30
+      },
+      {
+        "id": "office",
+        "label": "Desk Habitat",
+        "description": "Office furniture including ergonomic chairs, standing desks and meeting room tables.",
+        "discountBps": 300,
+        "discountDay": 15,
+        "netDay": 45
+      },
+      {
+        "id": "courier",
+        "label": "Parcel Fleet",
+        "description": "Courier shipping service, parcel delivery, express freight transport and overnight document delivery.",
+        "discountBps": 0,
+        "discountDay": 10,
+        "netDay": 30
+      }
+    ],
+    "records": [
+      {
+        "id": "box-1",
+        "note": "Corrugated cardboard cartons and protective wrapping paper for packing orders.",
+        "cents": 100000,
+        "ageDays": 5,
+        "owner": "AP reviewer"
+      },
+      {
+        "id": "host-1",
+        "note": "Monthly virtual machine hosting and cloud data storage infrastructure.",
+        "cents": 200000,
+        "ageDays": 2,
+        "owner": "AP reviewer"
+      },
+      {
+        "id": "chair-1",
+        "note": "Ergonomic office chairs and adjustable standing desks for the team.",
+        "cents": 50000,
+        "ageDays": 20,
+        "owner": "AP reviewer"
+      },
+      {
+        "id": "ship-1",
+        "note": "Overnight parcel delivery and express courier transport service.",
+        "cents": 75000,
+        "ageDays": 4,
+        "owner": "AP reviewer"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "box-1",
+      "kind": "pack",
+      "proposed": "pack",
+      "evidence": [
+        {
+          "id": "pack",
+          "score": 0.8803704225461626
+        },
+        {
+          "id": "courier",
+          "score": 0.39557627656967653
+        },
+        {
+          "id": "office",
+          "score": 0.240343840868367
+        },
+        {
+          "id": "cloud",
+          "score": 0.07917287486693025
+        }
+      ],
+      "owner": "AP reviewer",
+      "note": "",
+      "decision": "approve"
+    },
+    {
+      "id": "host-1",
+      "kind": "cloud",
+      "proposed": "cloud",
+      "evidence": [
+        {
+          "id": "cloud",
+          "score": 0.7637813045512376
+        },
+        {
+          "id": "courier",
+          "score": 0.19880092989089282
+        },
+        {
+          "id": "pack",
+          "score": 0.10114228889024227
+        },
+        {
+          "id": "office",
+          "score": 0.05877850821182333
+        }
+      ],
+      "owner": "AP reviewer",
+      "note": "",
+      "decision": "approve"
+    },
+    {
+      "id": "chair-1",
+      "kind": "office",
+      "proposed": "office",
+      "evidence": [
+        {
+          "id": "office",
+          "score": 0.7863943774054175
+        },
+        {
+          "id": "pack",
+          "score": 0.2372291818317943
+        },
+        {
+          "id": "courier",
+          "score": 0.1598025077418792
+        },
+        {
+          "id": "cloud",
+          "score": 0.10825656426731996
+        }
+      ],
+      "owner": "AP reviewer",
+      "note": "",
+      "decision": "approve"
+    },
+    {
+      "id": "ship-1",
+      "kind": "courier",
+      "proposed": "courier",
+      "evidence": [
+        {
+          "id": "courier",
+          "score": 0.8454164166488234
+        },
+        {
+          "id": "pack",
+          "score": 0.4600881173921527
+        },
+        {
+          "id": "office",
+          "score": 0.17516805669862712
+        },
+        {
+          "id": "cloud",
+          "score": 0.13717726694756233
+        }
+      ],
+      "owner": "AP reviewer",
+      "note": "",
+      "decision": "approve"
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "plans": [
+    {
+      "id": "box-1",
+      "term": "pack",
+      "grossCents": 100000,
+      "discountCents": 2000,
+      "financingCents": 644,
+      "netBenefitCents": 1356,
+      "advanceDays": 20,
+      "earlyCents": 98000,
+      "discountInDays": 5,
+      "netInDays": 25,
+      "breakEvenRatePct": 37.24489795918367,
+      "recommendation": "Consider discount-day payment",
+      "takeDiscount": true
+    },
+    {
+      "id": "host-1",
+      "term": "cloud",
+      "grossCents": 200000,
+      "discountCents": 2000,
+      "financingCents": 1302,
+      "netBenefitCents": 698,
+      "advanceDays": 20,
+      "earlyCents": 198000,
+      "discountInDays": 8,
+      "netInDays": 28,
+      "breakEvenRatePct": 18.434343434343436,
+      "recommendation": "Consider discount-day payment",
+      "takeDiscount": true
+    },
+    {
+      "id": "chair-1",
+      "term": "office",
+      "grossCents": 50000,
+      "discountCents": 0,
+      "financingCents": 0,
+      "netBenefitCents": 0,
+      "advanceDays": 0,
+      "earlyCents": 50000,
+      "discountInDays": -5,
+      "netInDays": 25,
+      "breakEvenRatePct": 37.62886597938145,
+      "recommendation": "Pay net / discount unavailable",
+      "takeDiscount": false
+    },
+    {
+      "id": "ship-1",
+      "term": "courier",
+      "grossCents": 75000,
+      "discountCents": 0,
+      "financingCents": 0,
+      "netBenefitCents": 0,
+      "advanceDays": 0,
+      "earlyCents": 75000,
+      "discountInDays": 6,
+      "netInDays": 26,
+      "breakEvenRatePct": null,
+      "recommendation": "Pay net / discount unavailable",
+      "takeDiscount": false
+    }
+  ],
+  "grossCents": 425000,
+  "earlyCashCents": 296000,
+  "discountCents": 4000,
+  "financingCents": 1946,
+  "netBenefitCents": 2054,
+  "baseline": {
+    "method": "Pay all approved invoices at net; no discounts and no incremental advance financing",
+    "netBenefitCents": 0
+  },
+  "status": "Reviewed worksheet — verify terms and liquidity before use"
+}

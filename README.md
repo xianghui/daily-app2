@@ -730,3 +730,9 @@ Time Folio public release: both real-AI fixtures and complete public workflow su
 Real local MiniLM account retrieval supports mandatory review of debt notes before fixed-budget monthly repayment simulation. Compare highest-APR-first with smallest-balance-first under explicit fixed-rate/minimum assumptions; held or duplicate links block plans. Complete JSON/CSV/Markdown preserves every original/review and monthly ledgers. Eight simple fixture links and four paraphrases matched; 600 independent BigInt scenarios checked exact arithmetic. Not lender quotes or payment advice. Reuses immutable WASM from `20261107-2`; preserve that asset. See [workflow/privacy](20261113-14/README.md) and [observed checks](20261113-14/VALIDATION.md).
 
 Paydown Harbor public release: byte-matched worker/runtime assets, both real-AI fixtures, all ten public workflow checks, full-ledger reimport, warmed-page offline inference and preserved 639-entry gallery verified on the first Pages deployment.
+
+## Dry Matter — 20261113-15
+
+Real local MiniLM material inference assists mandatory intake review before exact-ratio wet-basis moisture mass accounting. Eight simple fixture links matched; unrelated text still needs holds. Dry solids and standardized equivalents compare with gross received mass, not measured savings or processing instructions. 3,003 independent Fraction-oracle cases, current reviewed JSON/CSV/Markdown, maximum batches, defensive checks and warmed-page fresh-worker offline inference passed. Offline scope is an already-open warmed page only. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261113-15/README.md) and [observed checks](20261113-15/VALIDATION.md).
+
+Dry Matter public release: byte-matched app/worker/runtime assets, both real-AI fixtures, all eight public workflow checks, warmed-page offline inference and preserved 640-entry working-tree gallery verified on the first Pages deployment.

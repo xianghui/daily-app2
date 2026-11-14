@@ -1,0 +1,821 @@
+{
+  "fixtures": [
+    {
+      "name": "Community parcels",
+      "expected": [
+        "library",
+        "sports",
+        "waste",
+        "library"
+      ],
+      "actual": [
+        "library",
+        "sports",
+        "waste",
+        "library"
+      ],
+      "optimized": {
+        "shipments": [
+          {
+            "from": "north",
+            "to": "library",
+            "cap": 8,
+            "cents": 100,
+            "quantity": 0
+          },
+          {
+            "from": "north",
+            "to": "sports",
+            "cap": 8,
+            "cents": 200,
+            "quantity": 4
+          },
+          {
+            "from": "north",
+            "to": "waste",
+            "cap": 8,
+            "cents": 300,
+            "quantity": 4
+          },
+          {
+            "from": "south",
+            "to": "library",
+            "cap": 4,
+            "cents": 150,
+            "quantity": 4
+          },
+          {
+            "from": "south",
+            "to": "sports",
+            "cap": 4,
+            "cents": 900,
+            "quantity": 0
+          },
+          {
+            "from": "south",
+            "to": "waste",
+            "cap": 4,
+            "cents": 900,
+            "quantity": 0
+          }
+        ],
+        "served": 12,
+        "costCents": 2600,
+        "unmet": [
+          {
+            "destination": "library",
+            "demand": 4,
+            "served": 4,
+            "unmet": 0
+          },
+          {
+            "destination": "sports",
+            "demand": 4,
+            "served": 4,
+            "unmet": 0
+          },
+          {
+            "destination": "waste",
+            "demand": 4,
+            "served": 4,
+            "unmet": 0
+          }
+        ]
+      },
+      "baseline": {
+        "shipments": [
+          {
+            "from": "north",
+            "to": "library",
+            "cap": 8,
+            "cents": 100,
+            "quantity": 4
+          },
+          {
+            "from": "north",
+            "to": "sports",
+            "cap": 8,
+            "cents": 200,
+            "quantity": 4
+          },
+          {
+            "from": "north",
+            "to": "waste",
+            "cap": 8,
+            "cents": 300,
+            "quantity": 0
+          },
+          {
+            "from": "south",
+            "to": "library",
+            "cap": 4,
+            "cents": 150,
+            "quantity": 0
+          },
+          {
+            "from": "south",
+            "to": "sports",
+            "cap": 4,
+            "cents": 900,
+            "quantity": 0
+          },
+          {
+            "from": "south",
+            "to": "waste",
+            "cap": 4,
+            "cents": 900,
+            "quantity": 4
+          }
+        ],
+        "served": 12,
+        "costCents": 4800,
+        "unmet": [
+          {
+            "destination": "library",
+            "demand": 4,
+            "served": 4,
+            "unmet": 0
+          },
+          {
+            "destination": "sports",
+            "demand": 4,
+            "served": 4,
+            "unmet": 0
+          },
+          {
+            "destination": "waste",
+            "demand": 4,
+            "served": 4,
+            "unmet": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "Workshop deliveries",
+      "expected": [
+        "charge",
+        "wash",
+        "inflate",
+        "charge"
+      ],
+      "actual": [
+        "charge",
+        "wash",
+        "inflate",
+        "charge"
+      ],
+      "optimized": {
+        "shipments": [
+          {
+            "from": "main",
+            "to": "charge",
+            "cap": 6,
+            "cents": 10,
+            "quantity": 0
+          },
+          {
+            "from": "main",
+            "to": "wash",
+            "cap": 6,
+            "cents": 20,
+            "quantity": 3
+          },
+          {
+            "from": "main",
+            "to": "inflate",
+            "cap": 6,
+            "cents": 30,
+            "quantity": 3
+          },
+          {
+            "from": "annex",
+            "to": "charge",
+            "cap": 3,
+            "cents": 15,
+            "quantity": 3
+          }
+        ],
+        "served": 9,
+        "costCents": 195,
+        "unmet": [
+          {
+            "destination": "charge",
+            "demand": 3,
+            "served": 3,
+            "unmet": 0
+          },
+          {
+            "destination": "wash",
+            "demand": 3,
+            "served": 3,
+            "unmet": 0
+          },
+          {
+            "destination": "inflate",
+            "demand": 3,
+            "served": 3,
+            "unmet": 0
+          }
+        ]
+      },
+      "baseline": {
+        "shipments": [
+          {
+            "from": "main",
+            "to": "charge",
+            "cap": 6,
+            "cents": 10,
+            "quantity": 3
+          },
+          {
+            "from": "main",
+            "to": "wash",
+            "cap": 6,
+            "cents": 20,
+            "quantity": 3
+          },
+          {
+            "from": "main",
+            "to": "inflate",
+            "cap": 6,
+            "cents": 30,
+            "quantity": 0
+          },
+          {
+            "from": "annex",
+            "to": "charge",
+            "cap": 3,
+            "cents": 15,
+            "quantity": 0
+          }
+        ],
+        "served": 6,
+        "costCents": 90,
+        "unmet": [
+          {
+            "destination": "charge",
+            "demand": 3,
+            "served": 3,
+            "unmet": 0
+          },
+          {
+            "destination": "wash",
+            "demand": 3,
+            "served": 3,
+            "unmet": 0
+          },
+          {
+            "destination": "inflate",
+            "demand": 3,
+            "served": 0,
+            "unmet": 3
+          }
+        ]
+      }
+    }
+  ],
+  "checks": [
+    "approve hold destination reassignment multiline edit undo invalidated exports copy downloads audit reimport",
+    "warmed page offline fresh worker real CPU inference",
+    "empty invalid oversized duplicate unsupported format bounds numeric guards",
+    "cancel retry stale input maximum 38 texts chunking 32 records 6 destinations conserved audit roundtrip",
+    "instruction-like data inert human hold all-held no approved demand",
+    "zero supply and no available lanes explicit unmet demand",
+    "desktop 390px 320px overflow labels touch focus screenshots"
+  ],
+  "challenge": {
+    "proposed": "wash",
+    "expected": "unrelated / human hold",
+    "limitation": "Nearest destination always returned; no relevance or suitability guarantee"
+  },
+  "layout": [
+    {
+      "width": 1440,
+      "buttons": [
+        {
+          "text": "Community parcels",
+          "height": 48.390625
+        },
+        {
+          "text": "Workshop deliveries",
+          "height": 48.390625
+        },
+        {
+          "text": "Load AI & match destinations",
+          "height": 48.390625
+        },
+        {
+          "text": "Cancel download / run",
+          "height": 48.390625
+        },
+        {
+          "text": "Undo last review edit",
+          "height": 48.390625
+        },
+        {
+          "text": "Apply reviewed worksheet",
+          "height": 48.390625
+        },
+        {
+          "text": "Download JSON",
+          "height": 48.390625
+        },
+        {
+          "text": "Download CSV",
+          "height": 48.390625
+        },
+        {
+          "text": "Download Lanes",
+          "height": 48.390625
+        },
+        {
+          "text": "Download Markdown",
+          "height": 48.390625
+        },
+        {
+          "text": "Copy worksheet",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "buttons": [
+        {
+          "text": "Community parcels",
+          "height": 48.390625
+        },
+        {
+          "text": "Workshop deliveries",
+          "height": 48.390625
+        },
+        {
+          "text": "Load AI & match destinations",
+          "height": 48.390625
+        },
+        {
+          "text": "Cancel download / run",
+          "height": 48.390625
+        },
+        {
+          "text": "Undo last review edit",
+          "height": 48.390625
+        },
+        {
+          "text": "Apply reviewed worksheet",
+          "height": 48.390625
+        },
+        {
+          "text": "Download JSON",
+          "height": 48.390625
+        },
+        {
+          "text": "Download CSV",
+          "height": 48.390625
+        },
+        {
+          "text": "Download Lanes",
+          "height": 48.390625
+        },
+        {
+          "text": "Download Markdown",
+          "height": 48.390625
+        },
+        {
+          "text": "Copy worksheet",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "buttons": [
+        {
+          "text": "Community parcels",
+          "height": 48.390625
+        },
+        {
+          "text": "Workshop deliveries",
+          "height": 48.390625
+        },
+        {
+          "text": "Load AI & match destinations",
+          "height": 48.390625
+        },
+        {
+          "text": "Cancel download / run",
+          "height": 48.390625
+        },
+        {
+          "text": "Undo last review edit",
+          "height": 48.390625
+        },
+        {
+          "text": "Apply reviewed worksheet",
+          "height": 48.390625
+        },
+        {
+          "text": "Download JSON",
+          "height": 48.390625
+        },
+        {
+          "text": "Download CSV",
+          "height": 48.390625
+        },
+        {
+          "text": "Download Lanes",
+          "height": 48.390625
+        },
+        {
+          "text": "Download Markdown",
+          "height": 48.390625
+        },
+        {
+          "text": "Copy worksheet",
+          "height": 48.390625
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "url": "https://xianghui.github.io/daily-app2/20261115-7/",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "https://xianghui.github.io/daily-app2/20261115-7/assets/index-CYjtSd6x.js",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "https://xianghui.github.io/daily-app2/20261115-7/assets/index-CR6Wi6cF.css",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "https://xianghui.github.io/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:https://xianghui.github.io/b647ef6e-fd36-4f29-b791-b518d53ca0f4",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "https://xianghui.github.io/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "https://xianghui.github.io/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "method": "GET",
+      "body": null,
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "method": "GET",
+      "body": null,
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "method": "GET",
+      "body": null,
+      "queryKeys": [
+        "X-Xet-Cas-Uid",
+        "user_id",
+        "xip",
+        "response-content-disposition",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "method": "GET",
+      "body": null,
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "method": "GET",
+      "body": null,
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "method": "GET",
+      "body": null,
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ]
+    },
+    {
+      "url": "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "method": "GET",
+      "body": null,
+      "queryKeys": [
+        "user_id",
+        "response-content-disposition",
+        "X-Xet-Cas-Uid",
+        "xip",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ]
+    },
+    {
+      "url": "blob:https://xianghui.github.io/a7a7e907-2308-4ca3-943a-707956eb4dad",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:https://xianghui.github.io/8ce54414-693f-4430-aef7-546867933ff8",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:https://xianghui.github.io/249d612a-e434-4505-8a24-823b06f2bf98",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:https://xianghui.github.io/4a8504d6-856f-4614-bddc-b6c0e68cbb09",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:https://xianghui.github.io/96e4882a-5161-47db-b915-8659acf957b8",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:https://xianghui.github.io/b4c4ac60-76b1-4915-bc68-d0cdc61c9e51",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:https://xianghui.github.io/f9490bd0-cbd1-4a73-8dab-74de4949afff",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:https://xianghui.github.io/4d9fd14d-a35a-49ef-bad8-4291e4e7c712",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:https://xianghui.github.io/81be6f00-e830-4e1e-b239-189378d6b409",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:https://xianghui.github.io/c06ffa08-fb66-47c4-8875-4603d9481eef",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:https://xianghui.github.io/84221420-0cb2-4262-8d5d-91110af69c29",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:https://xianghui.github.io/b7265f04-670d-4e9c-8e4d-45b38d995a1e",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:https://xianghui.github.io/160aca2a-ce37-4a0c-aea8-d4a4a982b5db",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:https://xianghui.github.io/58da69c3-ed33-42e5-8b98-6af12154bde2",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:https://xianghui.github.io/89139b85-8ccf-415d-8eb7-c892667c36d7",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:https://xianghui.github.io/bf3e2cde-d06f-4890-b200-fc5b99d69988",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:https://xianghui.github.io/6b594cb0-9683-4a16-9c31-6c818cb32903",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:https://xianghui.github.io/2d08c462-e44e-492c-a432-fdd1839c2ff2",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:https://xianghui.github.io/193b2649-8f58-4468-ad4a-f9891c33c2c7",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:https://xianghui.github.io/60725928-4a33-4768-9b12-dd2a73012bae",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:https://xianghui.github.io/0561e5bd-7146-471b-81f1-a190557021a2",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:https://xianghui.github.io/24e6e206-be97-40f9-b8b0-bbb027e58904",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:https://xianghui.github.io/016622e2-5900-4a11-bedf-ffc97db3f6df",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:https://xianghui.github.io/dfe044ae-4882-4513-8075-3eba9de35fe9",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:https://xianghui.github.io/b6688f5a-363d-4a1f-9008-77fcad004773",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:https://xianghui.github.io/4ea796bb-4dbc-45e0-b5b3-2c263f8521b9",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:https://xianghui.github.io/f617b2b8-c5f9-4fd4-ad14-2503570906ae",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:https://xianghui.github.io/efd12052-b4a7-4668-8465-8df7d4324d6d",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:https://xianghui.github.io/0a29b02a-22f6-47d7-bdcd-11ed50fc9e98",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:https://xianghui.github.io/b1d6b7e7-fe63-4519-af8e-9f8d7da80b35",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:https://xianghui.github.io/57a56549-0887-4be4-89ad-b31fd4a897dd",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:https://xianghui.github.io/04190432-5280-4cf9-8306-8698501ee539",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:https://xianghui.github.io/d930805c-fead-4946-89bb-22949da294ed",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:https://xianghui.github.io/c203590f-b439-4e61-b2d2-13143286075e",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:https://xianghui.github.io/33ed7f67-80ee-4bf3-9af3-36a46a103102",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:https://xianghui.github.io/f53dff93-e7ab-42ee-8ed4-47ecc34932bf",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    }
+  ],
+  "signedDownloadQueryValuesOmitted": true
+}

@@ -1,0 +1,346 @@
+{
+  "app": "Freight Weave",
+  "originalInput": {
+    "rules": [
+      {
+        "id": "library",
+        "label": "Library collection point",
+        "description": "Public library books reading room catalogue lending library collection point"
+      },
+      {
+        "id": "sports",
+        "label": "Recreation centre",
+        "description": "Swimming pool sports recreation gym fitness leisure centre"
+      },
+      {
+        "id": "waste",
+        "label": "Recycling depot",
+        "description": "Waste recycling rubbish collection sorting depot bins"
+      }
+    ],
+    "warehouses": [
+      {
+        "id": "north",
+        "supply": 8
+      },
+      {
+        "id": "south",
+        "supply": 4
+      }
+    ],
+    "routes": [
+      {
+        "from": "north",
+        "to": "library",
+        "cap": 8,
+        "cents": 100
+      },
+      {
+        "from": "north",
+        "to": "sports",
+        "cap": 8,
+        "cents": 200
+      },
+      {
+        "from": "north",
+        "to": "waste",
+        "cap": 8,
+        "cents": 300
+      },
+      {
+        "from": "south",
+        "to": "library",
+        "cap": 4,
+        "cents": 150
+      },
+      {
+        "from": "south",
+        "to": "sports",
+        "cap": 4,
+        "cents": 900
+      },
+      {
+        "from": "south",
+        "to": "waste",
+        "cap": 4,
+        "cents": 900
+      }
+    ],
+    "records": [
+      {
+        "id": "C1",
+        "description": "Deliver the standard parcel to the book lending and reading building",
+        "quantity": 2,
+        "owner": "Library operations"
+      },
+      {
+        "id": "C2",
+        "description": "Standard parcels for the swimming and gym facility",
+        "quantity": 4,
+        "owner": "Recreation desk"
+      },
+      {
+        "id": "C3",
+        "description": "Standard parcels for the rubbish sorting and recycling site",
+        "quantity": 4,
+        "owner": "Collection desk"
+      },
+      {
+        "id": "C4",
+        "description": "Two more standard parcels for the public library catalogue desk",
+        "quantity": 2,
+        "owner": "Library operations"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "C1",
+      "description": "Deliver the standard parcel to the book lending and reading building",
+      "quantity": 2,
+      "owner": "Library operations",
+      "procedure": "library",
+      "proposed": "library",
+      "evidence": [
+        {
+          "id": "library",
+          "score": 0.5858170567926276
+        },
+        {
+          "id": "waste",
+          "score": 0.19260731353087018
+        },
+        {
+          "id": "sports",
+          "score": 0.017721548629127053
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "",
+      "allocated": 2,
+      "unmet": 0
+    },
+    {
+      "id": "C2",
+      "description": "Standard parcels for the swimming and gym facility",
+      "quantity": 4,
+      "owner": "Recreation desk",
+      "procedure": "sports",
+      "proposed": "sports",
+      "evidence": [
+        {
+          "id": "sports",
+          "score": 0.56994957902136
+        },
+        {
+          "id": "waste",
+          "score": 0.2313246063342419
+        },
+        {
+          "id": "library",
+          "score": 0.14726875071721712
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "",
+      "allocated": 4,
+      "unmet": 0
+    },
+    {
+      "id": "C3",
+      "description": "Standard parcels for the rubbish sorting and recycling site",
+      "quantity": 4,
+      "owner": "Collection desk",
+      "procedure": "waste",
+      "proposed": "waste",
+      "evidence": [
+        {
+          "id": "waste",
+          "score": 0.7349952350625731
+        },
+        {
+          "id": "library",
+          "score": 0.16545034840428172
+        },
+        {
+          "id": "sports",
+          "score": 0.12466960268294558
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "",
+      "allocated": 4,
+      "unmet": 0
+    },
+    {
+      "id": "C4",
+      "description": "Two more standard parcels for the public library catalogue desk",
+      "quantity": 2,
+      "owner": "Library operations",
+      "procedure": "library",
+      "proposed": "library",
+      "evidence": [
+        {
+          "id": "library",
+          "score": 0.4907760608124363
+        },
+        {
+          "id": "waste",
+          "score": 0.36284072855213184
+        },
+        {
+          "id": "sports",
+          "score": 0.05333214482471661
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "",
+      "allocated": 2,
+      "unmet": 0
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "demand": {
+    "library": 4,
+    "sports": 4,
+    "waste": 4
+  },
+  "optimized": {
+    "shipments": [
+      {
+        "from": "north",
+        "to": "library",
+        "cap": 8,
+        "cents": 100,
+        "quantity": 0
+      },
+      {
+        "from": "north",
+        "to": "sports",
+        "cap": 8,
+        "cents": 200,
+        "quantity": 4
+      },
+      {
+        "from": "north",
+        "to": "waste",
+        "cap": 8,
+        "cents": 300,
+        "quantity": 4
+      },
+      {
+        "from": "south",
+        "to": "library",
+        "cap": 4,
+        "cents": 150,
+        "quantity": 4
+      },
+      {
+        "from": "south",
+        "to": "sports",
+        "cap": 4,
+        "cents": 900,
+        "quantity": 0
+      },
+      {
+        "from": "south",
+        "to": "waste",
+        "cap": 4,
+        "cents": 900,
+        "quantity": 0
+      }
+    ],
+    "served": 12,
+    "costCents": 2600,
+    "unmet": [
+      {
+        "destination": "library",
+        "demand": 4,
+        "served": 4,
+        "unmet": 0
+      },
+      {
+        "destination": "sports",
+        "demand": 4,
+        "served": 4,
+        "unmet": 0
+      },
+      {
+        "destination": "waste",
+        "demand": 4,
+        "served": 4,
+        "unmet": 0
+      }
+    ]
+  },
+  "baseline": {
+    "shipments": [
+      {
+        "from": "north",
+        "to": "library",
+        "cap": 8,
+        "cents": 100,
+        "quantity": 4
+      },
+      {
+        "from": "north",
+        "to": "sports",
+        "cap": 8,
+        "cents": 200,
+        "quantity": 4
+      },
+      {
+        "from": "north",
+        "to": "waste",
+        "cap": 8,
+        "cents": 300,
+        "quantity": 0
+      },
+      {
+        "from": "south",
+        "to": "library",
+        "cap": 4,
+        "cents": 150,
+        "quantity": 0
+      },
+      {
+        "from": "south",
+        "to": "sports",
+        "cap": 4,
+        "cents": 900,
+        "quantity": 0
+      },
+      {
+        "from": "south",
+        "to": "waste",
+        "cap": 4,
+        "cents": 900,
+        "quantity": 4
+      }
+    ],
+    "served": 12,
+    "costCents": 4800,
+    "unmet": [
+      {
+        "destination": "library",
+        "demand": 4,
+        "served": 4,
+        "unmet": 0
+      },
+      {
+        "destination": "sports",
+        "demand": 4,
+        "served": 4,
+        "unmet": 0
+      },
+      {
+        "destination": "waste",
+        "demand": 4,
+        "served": 4,
+        "unmet": 0
+      }
+    ]
+  }
+}

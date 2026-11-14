@@ -1,0 +1,306 @@
+{
+  "app": "Freight Weave",
+  "originalInput": {
+    "rules": [
+      {
+        "id": "charge",
+        "label": "Battery charging zone",
+        "description": "Electric vehicle battery charging electricity car recharge zone"
+      },
+      {
+        "id": "wash",
+        "label": "Vehicle washing zone",
+        "description": "Vehicle car washing cleaning exterior water shampoo wash zone"
+      },
+      {
+        "id": "inflate",
+        "label": "Tyre inflation zone",
+        "description": "Tyre tire air pressure inflation pump wheel service zone"
+      }
+    ],
+    "warehouses": [
+      {
+        "id": "main",
+        "supply": 6
+      },
+      {
+        "id": "annex",
+        "supply": 3
+      }
+    ],
+    "routes": [
+      {
+        "from": "main",
+        "to": "charge",
+        "cap": 6,
+        "cents": 10
+      },
+      {
+        "from": "main",
+        "to": "wash",
+        "cap": 6,
+        "cents": 20
+      },
+      {
+        "from": "main",
+        "to": "inflate",
+        "cap": 6,
+        "cents": 30
+      },
+      {
+        "from": "annex",
+        "to": "charge",
+        "cap": 3,
+        "cents": 15
+      }
+    ],
+    "records": [
+      {
+        "id": "W1",
+        "description": "Take standard consumable packs to the electric car recharging area",
+        "quantity": 2,
+        "owner": "Energy operations"
+      },
+      {
+        "id": "W2",
+        "description": "Standard packs requested at the exterior shampoo and rinse area",
+        "quantity": 3,
+        "owner": "Wash operations"
+      },
+      {
+        "id": "W3",
+        "description": "Bring standard packs to the tire air pressure pumps",
+        "quantity": 3,
+        "owner": "Forecourt"
+      },
+      {
+        "id": "W4",
+        "description": "One more standard pack for electric van battery recharging",
+        "quantity": 1,
+        "owner": "Energy operations"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "W1",
+      "description": "Take standard consumable packs to the electric car recharging area",
+      "quantity": 2,
+      "owner": "=Owner\nline, \"two\"",
+      "procedure": "wash",
+      "proposed": "charge",
+      "evidence": [
+        {
+          "id": "charge",
+          "score": 0.5971913355747953
+        },
+        {
+          "id": "inflate",
+          "score": 0.07728060144902979
+        },
+        {
+          "id": "wash",
+          "score": 0.06878200168844154
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", recheck",
+      "allocated": 2,
+      "unmet": 0
+    },
+    {
+      "id": "W2",
+      "description": "Standard packs requested at the exterior shampoo and rinse area",
+      "quantity": 3,
+      "owner": "Wash operations",
+      "procedure": "wash",
+      "proposed": "wash",
+      "evidence": [
+        {
+          "id": "wash",
+          "score": 0.42034589573951703
+        },
+        {
+          "id": "inflate",
+          "score": 0.036836414694231094
+        },
+        {
+          "id": "charge",
+          "score": 0.002361903569368311
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "",
+      "allocated": 3,
+      "unmet": 0
+    },
+    {
+      "id": "W3",
+      "description": "Bring standard packs to the tire air pressure pumps",
+      "quantity": 3,
+      "owner": "Forecourt",
+      "procedure": "inflate",
+      "proposed": "inflate",
+      "evidence": [
+        {
+          "id": "inflate",
+          "score": 0.6192831512321775
+        },
+        {
+          "id": "charge",
+          "score": 0.06807344894365366
+        },
+        {
+          "id": "wash",
+          "score": 0.04542492350206363
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "",
+      "allocated": 1,
+      "unmet": 2
+    },
+    {
+      "id": "W4",
+      "description": "One more standard pack for electric van battery recharging",
+      "quantity": 1,
+      "owner": "Energy operations",
+      "procedure": "charge",
+      "proposed": "charge",
+      "evidence": [
+        {
+          "id": "charge",
+          "score": 0.5114705995985588
+        },
+        {
+          "id": "inflate",
+          "score": 0.05768944677273338
+        },
+        {
+          "id": "wash",
+          "score": -0.012296111655150021
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "",
+      "allocated": 1,
+      "unmet": 0
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "demand": {
+    "charge": 1,
+    "wash": 5,
+    "inflate": 3
+  },
+  "optimized": {
+    "shipments": [
+      {
+        "from": "main",
+        "to": "charge",
+        "cap": 6,
+        "cents": 10,
+        "quantity": 0
+      },
+      {
+        "from": "main",
+        "to": "wash",
+        "cap": 6,
+        "cents": 20,
+        "quantity": 5
+      },
+      {
+        "from": "main",
+        "to": "inflate",
+        "cap": 6,
+        "cents": 30,
+        "quantity": 1
+      },
+      {
+        "from": "annex",
+        "to": "charge",
+        "cap": 3,
+        "cents": 15,
+        "quantity": 1
+      }
+    ],
+    "served": 7,
+    "costCents": 145,
+    "unmet": [
+      {
+        "destination": "charge",
+        "demand": 1,
+        "served": 1,
+        "unmet": 0
+      },
+      {
+        "destination": "wash",
+        "demand": 5,
+        "served": 5,
+        "unmet": 0
+      },
+      {
+        "destination": "inflate",
+        "demand": 3,
+        "served": 1,
+        "unmet": 2
+      }
+    ]
+  },
+  "baseline": {
+    "shipments": [
+      {
+        "from": "main",
+        "to": "charge",
+        "cap": 6,
+        "cents": 10,
+        "quantity": 1
+      },
+      {
+        "from": "main",
+        "to": "wash",
+        "cap": 6,
+        "cents": 20,
+        "quantity": 5
+      },
+      {
+        "from": "main",
+        "to": "inflate",
+        "cap": 6,
+        "cents": 30,
+        "quantity": 0
+      },
+      {
+        "from": "annex",
+        "to": "charge",
+        "cap": 3,
+        "cents": 15,
+        "quantity": 0
+      }
+    ],
+    "served": 6,
+    "costCents": 110,
+    "unmet": [
+      {
+        "destination": "charge",
+        "demand": 1,
+        "served": 1,
+        "unmet": 0
+      },
+      {
+        "destination": "wash",
+        "demand": 5,
+        "served": 5,
+        "unmet": 0
+      },
+      {
+        "destination": "inflate",
+        "demand": 3,
+        "served": 0,
+        "unmet": 3
+      }
+    ]
+  }
+}

@@ -1,0 +1,827 @@
+{
+  "fixtures": [
+    {
+      "name": "Community parcels",
+      "expected": [
+        "library",
+        "sports",
+        "waste",
+        "library"
+      ],
+      "actual": [
+        "library",
+        "sports",
+        "waste",
+        "library"
+      ],
+      "optimized": {
+        "shipments": [
+          {
+            "from": "north",
+            "to": "library",
+            "cap": 8,
+            "cents": 100,
+            "quantity": 0
+          },
+          {
+            "from": "north",
+            "to": "sports",
+            "cap": 8,
+            "cents": 200,
+            "quantity": 4
+          },
+          {
+            "from": "north",
+            "to": "waste",
+            "cap": 8,
+            "cents": 300,
+            "quantity": 4
+          },
+          {
+            "from": "south",
+            "to": "library",
+            "cap": 4,
+            "cents": 150,
+            "quantity": 4
+          },
+          {
+            "from": "south",
+            "to": "sports",
+            "cap": 4,
+            "cents": 900,
+            "quantity": 0
+          },
+          {
+            "from": "south",
+            "to": "waste",
+            "cap": 4,
+            "cents": 900,
+            "quantity": 0
+          }
+        ],
+        "served": 12,
+        "costCents": 2600,
+        "unmet": [
+          {
+            "destination": "library",
+            "demand": 4,
+            "served": 4,
+            "unmet": 0
+          },
+          {
+            "destination": "sports",
+            "demand": 4,
+            "served": 4,
+            "unmet": 0
+          },
+          {
+            "destination": "waste",
+            "demand": 4,
+            "served": 4,
+            "unmet": 0
+          }
+        ]
+      },
+      "baseline": {
+        "shipments": [
+          {
+            "from": "north",
+            "to": "library",
+            "cap": 8,
+            "cents": 100,
+            "quantity": 4
+          },
+          {
+            "from": "north",
+            "to": "sports",
+            "cap": 8,
+            "cents": 200,
+            "quantity": 4
+          },
+          {
+            "from": "north",
+            "to": "waste",
+            "cap": 8,
+            "cents": 300,
+            "quantity": 0
+          },
+          {
+            "from": "south",
+            "to": "library",
+            "cap": 4,
+            "cents": 150,
+            "quantity": 0
+          },
+          {
+            "from": "south",
+            "to": "sports",
+            "cap": 4,
+            "cents": 900,
+            "quantity": 0
+          },
+          {
+            "from": "south",
+            "to": "waste",
+            "cap": 4,
+            "cents": 900,
+            "quantity": 4
+          }
+        ],
+        "served": 12,
+        "costCents": 4800,
+        "unmet": [
+          {
+            "destination": "library",
+            "demand": 4,
+            "served": 4,
+            "unmet": 0
+          },
+          {
+            "destination": "sports",
+            "demand": 4,
+            "served": 4,
+            "unmet": 0
+          },
+          {
+            "destination": "waste",
+            "demand": 4,
+            "served": 4,
+            "unmet": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "Workshop deliveries",
+      "expected": [
+        "charge",
+        "wash",
+        "inflate",
+        "charge"
+      ],
+      "actual": [
+        "charge",
+        "wash",
+        "inflate",
+        "charge"
+      ],
+      "optimized": {
+        "shipments": [
+          {
+            "from": "main",
+            "to": "charge",
+            "cap": 6,
+            "cents": 10,
+            "quantity": 0
+          },
+          {
+            "from": "main",
+            "to": "wash",
+            "cap": 6,
+            "cents": 20,
+            "quantity": 3
+          },
+          {
+            "from": "main",
+            "to": "inflate",
+            "cap": 6,
+            "cents": 30,
+            "quantity": 3
+          },
+          {
+            "from": "annex",
+            "to": "charge",
+            "cap": 3,
+            "cents": 15,
+            "quantity": 3
+          }
+        ],
+        "served": 9,
+        "costCents": 195,
+        "unmet": [
+          {
+            "destination": "charge",
+            "demand": 3,
+            "served": 3,
+            "unmet": 0
+          },
+          {
+            "destination": "wash",
+            "demand": 3,
+            "served": 3,
+            "unmet": 0
+          },
+          {
+            "destination": "inflate",
+            "demand": 3,
+            "served": 3,
+            "unmet": 0
+          }
+        ]
+      },
+      "baseline": {
+        "shipments": [
+          {
+            "from": "main",
+            "to": "charge",
+            "cap": 6,
+            "cents": 10,
+            "quantity": 3
+          },
+          {
+            "from": "main",
+            "to": "wash",
+            "cap": 6,
+            "cents": 20,
+            "quantity": 3
+          },
+          {
+            "from": "main",
+            "to": "inflate",
+            "cap": 6,
+            "cents": 30,
+            "quantity": 0
+          },
+          {
+            "from": "annex",
+            "to": "charge",
+            "cap": 3,
+            "cents": 15,
+            "quantity": 0
+          }
+        ],
+        "served": 6,
+        "costCents": 90,
+        "unmet": [
+          {
+            "destination": "charge",
+            "demand": 3,
+            "served": 3,
+            "unmet": 0
+          },
+          {
+            "destination": "wash",
+            "demand": 3,
+            "served": 3,
+            "unmet": 0
+          },
+          {
+            "destination": "inflate",
+            "demand": 3,
+            "served": 0,
+            "unmet": 3
+          }
+        ]
+      }
+    }
+  ],
+  "checks": [
+    "approve hold destination reassignment multiline edit undo invalidated exports copy downloads audit reimport",
+    "warmed page offline fresh worker real CPU inference",
+    "empty invalid oversized duplicate unsupported format bounds numeric guards",
+    "cancel retry stale input maximum 38 texts chunking 32 records 6 destinations conserved audit roundtrip",
+    "instruction-like data inert human hold all-held no approved demand",
+    "zero supply and no available lanes explicit unmet demand",
+    "desktop 390px 320px overflow labels touch focus screenshots"
+  ],
+  "challenge": {
+    "proposed": "wash",
+    "expected": "unrelated / human hold",
+    "limitation": "Nearest pool always returned; no relevance or suitability guarantee"
+  },
+  "layout": [
+    {
+      "width": 1440,
+      "buttons": [
+        {
+          "text": "Community parcels",
+          "height": 48.390625
+        },
+        {
+          "text": "Workshop deliveries",
+          "height": 48.390625
+        },
+        {
+          "text": "Load AI & match destinations",
+          "height": 48.390625
+        },
+        {
+          "text": "Cancel download / run",
+          "height": 48.390625
+        },
+        {
+          "text": "Undo last review edit",
+          "height": 48.390625
+        },
+        {
+          "text": "Apply reviewed worksheet",
+          "height": 48.390625
+        },
+        {
+          "text": "Download JSON",
+          "height": 48.390625
+        },
+        {
+          "text": "Download CSV",
+          "height": 48.390625
+        },
+        {
+          "text": "Download Lanes",
+          "height": 48.390625
+        },
+        {
+          "text": "Download Markdown",
+          "height": 48.390625
+        },
+        {
+          "text": "Copy worksheet",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "buttons": [
+        {
+          "text": "Community parcels",
+          "height": 48.390625
+        },
+        {
+          "text": "Workshop deliveries",
+          "height": 48.390625
+        },
+        {
+          "text": "Load AI & match destinations",
+          "height": 48.390625
+        },
+        {
+          "text": "Cancel download / run",
+          "height": 48.390625
+        },
+        {
+          "text": "Undo last review edit",
+          "height": 48.390625
+        },
+        {
+          "text": "Apply reviewed worksheet",
+          "height": 48.390625
+        },
+        {
+          "text": "Download JSON",
+          "height": 48.390625
+        },
+        {
+          "text": "Download CSV",
+          "height": 48.390625
+        },
+        {
+          "text": "Download Lanes",
+          "height": 48.390625
+        },
+        {
+          "text": "Download Markdown",
+          "height": 48.390625
+        },
+        {
+          "text": "Copy worksheet",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "buttons": [
+        {
+          "text": "Community parcels",
+          "height": 48.390625
+        },
+        {
+          "text": "Workshop deliveries",
+          "height": 48.390625
+        },
+        {
+          "text": "Load AI & match destinations",
+          "height": 48.390625
+        },
+        {
+          "text": "Cancel download / run",
+          "height": 48.390625
+        },
+        {
+          "text": "Undo last review edit",
+          "height": 48.390625
+        },
+        {
+          "text": "Apply reviewed worksheet",
+          "height": 48.390625
+        },
+        {
+          "text": "Download JSON",
+          "height": 48.390625
+        },
+        {
+          "text": "Download CSV",
+          "height": 48.390625
+        },
+        {
+          "text": "Download Lanes",
+          "height": 48.390625
+        },
+        {
+          "text": "Download Markdown",
+          "height": 48.390625
+        },
+        {
+          "text": "Copy worksheet",
+          "height": 48.390625
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "url": "http://127.0.0.1:6857/daily-app2/20261115-7/",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "http://127.0.0.1:6857/daily-app2/20261115-7/assets/index-CYjtSd6x.js",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "http://127.0.0.1:6857/daily-app2/20261115-7/assets/index-CR6Wi6cF.css",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "http://127.0.0.1:6857/favicon.svg",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "http://127.0.0.1:6857/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6857/a194b581-308c-4157-a29d-fef1e8275502",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "http://127.0.0.1:6857/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "http://127.0.0.1:6857/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "method": "GET",
+      "body": null,
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "method": "GET",
+      "body": null,
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "method": "GET",
+      "body": null,
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ]
+    },
+    {
+      "url": "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "method": "GET",
+      "body": null,
+      "queryKeys": [
+        "X-Xet-Cas-Uid",
+        "user_id",
+        "xip",
+        "response-content-disposition",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "method": "GET",
+      "body": null,
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "method": "GET",
+      "body": null,
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ]
+    },
+    {
+      "url": "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "method": "GET",
+      "body": null,
+      "queryKeys": [
+        "X-Xet-Cas-Uid",
+        "user_id",
+        "xip",
+        "response-content-disposition",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ]
+    },
+    {
+      "url": "blob:http://127.0.0.1:6857/618ad6a9-8005-42da-924a-7bf75ca2e7cb",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6857/94dc4167-a164-4976-ba8b-4e921a978456",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6857/4637db79-226d-4b1f-a294-2120d111d66c",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6857/5673ad84-1287-49ca-b1a9-60bd54f97ec2",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6857/36576fdb-7526-4d32-832a-6ab76250a5a5",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6857/c35f8193-859a-4279-98e7-083ad24d9586",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6857/98a0822a-bd59-4336-a1c8-02bb1f1b57cb",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6857/2881f62a-9a5e-43a9-8906-eeabc489165e",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6857/6fded214-8e23-44a0-9dac-cd142fac3dc9",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6857/8e86616d-1ca7-44b7-8194-cdc018a5acf4",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6857/11429b1a-6bd5-4240-b0fb-f5c7ba9b50d4",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6857/d98a3d01-6967-4ebc-92f0-c4276bf61263",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6857/a921d11c-ffaa-4c10-a4b1-504a84942770",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6857/7eb39643-f877-482d-ba86-696b91f05005",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6857/c653379e-52e7-4671-8419-e6c5b24caadb",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6857/89c3dcd9-db8e-4ab1-8a6f-025ff1304129",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6857/55ccaa68-ad0f-47e7-98cd-9d790adb20ca",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6857/e35216ba-dd32-4f66-808d-a11e3b2c9159",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6857/89004b16-a944-480d-88f9-915389d88f66",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6857/6e5244ad-1424-40bb-b463-4df62277021a",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6857/7ff9b0fe-91d9-41aa-a305-62dc8015a54a",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6857/a2dbddba-4e8d-4dc4-8b5c-89cdcfe14e5d",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6857/ea10cf98-bd29-40c3-b0f5-db9358d6eaa2",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6857/f36b5d6d-d44e-425e-98e0-307ff5c8ea38",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6857/33963e34-ac1c-4f81-bdcf-7dd0aecb3483",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6857/bac5fefd-56be-414e-9f44-f2d4f152c586",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6857/cb0581b9-0eb7-41a3-94bd-ac9fc7e82a10",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6857/cd0f63c5-680c-4ca3-ad7e-1d06d0729a69",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6857/d3b050dc-ba89-4128-b4dc-2ae70d359014",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6857/40b8fe82-0b1b-4635-b8d1-018387abf55f",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6857/722a5d86-739c-4ad7-bcea-53ba0db7e0d6",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6857/e14b7c0d-2acd-4d05-9d5b-8974c775eec8",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6857/1e56dcf6-4282-4791-aa22-4a71e31986dd",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6857/ee7b85f5-5544-46b9-b174-89f0aaa94c0c",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6857/9df5a39c-cd5e-4e0e-9b16-cfd840a6c27c",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6857/cd3c5728-065c-4f8e-b8e0-9b82e1306ee5",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    }
+  ],
+  "signedDownloadQueryValuesOmitted": true
+}

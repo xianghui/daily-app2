@@ -942,3 +942,8 @@ Uptime Orchard public release: first combined Pages deployment built matching gh
 ## Stock Saffron — 20261114-22
 
 Real local MiniLM reconciles full-period demand scenarios before mandatory product/quantity/weight review. Bounded single-period shortage/overage loss optimization compares a rounded-mean baseline; complete JSON/CSV/Markdown preserves all originals and holds. Both tiny fixtures matched 8/8 links; 2,500 exhaustive quantity checks and reviewed artifact round-trips passed. No demand forecasting or purchases. Offline fresh-worker inference is limited to an already-open warmed page. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261114-22/README.md) and [observed checks](20261114-22/VALIDATION.md).
+
+
+## Window Weave — 20261114-23
+
+Real local MiniLM service inference assists appointment waitlist review. Verify availability, required minutes and priorities before exact count-first/priority-second matching against FIFO; complete JSON/CSV/Markdown retains every held/unplaced request and original. Both tiny synthetic batches matched 8/8 links; 2,000 independent exhaustive allocation cases, reviewed artifact round-trips and warmed-page fresh-worker offline inference passed locally. No bookings or messages. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow/privacy](20261114-23/README.md) and [observed validation](20261114-23/VALIDATION.md).

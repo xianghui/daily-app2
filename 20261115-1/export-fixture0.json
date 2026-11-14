@@ -1,0 +1,256 @@
+{
+  "app": "Pilot Prior",
+  "originalInput": {
+    "rules": [
+      {
+        "id": "coffee",
+        "label": "Coffee-brewing pilot",
+        "description": "Roasted coffee beans espresso cafe brewing coffee",
+        "priorAlpha": 1,
+        "priorBeta": 1,
+        "successValue": 100,
+        "failureLoss": 100,
+        "pilotCost": 0.5
+      },
+      {
+        "id": "detergent",
+        "label": "Dishwasher-cleaning pilot",
+        "description": "Dishwashing cleaning detergent soap commercial dishwasher",
+        "priorAlpha": 1,
+        "priorBeta": 1,
+        "successValue": 100,
+        "failureLoss": 100,
+        "pilotCost": 0.5
+      }
+    ],
+    "records": [
+      {
+        "id": "D1",
+        "description": "Roasted beans trial for the espresso machine",
+        "weight": 1,
+        "trials": 1,
+        "owner": "Pilot coordinator"
+      },
+      {
+        "id": "D2",
+        "description": "Cafe coffee brewing quality test",
+        "weight": 0,
+        "trials": 1,
+        "owner": "Pilot coordinator"
+      },
+      {
+        "id": "D3",
+        "description": "Cleaning soap test for the commercial dishwasher",
+        "weight": 8,
+        "trials": 10,
+        "owner": "Pilot coordinator"
+      },
+      {
+        "id": "D4",
+        "description": "Dishwashing detergent trial for kitchen plates",
+        "weight": 8,
+        "trials": 10,
+        "owner": "Pilot coordinator"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "D1",
+      "description": "Roasted beans trial for the espresso machine",
+      "weight": 1,
+      "trials": 1,
+      "owner": "Pilot coordinator",
+      "kind": "coffee",
+      "proposed": "coffee",
+      "evidence": [
+        {
+          "id": "coffee",
+          "score": 0.7625005537610058
+        },
+        {
+          "id": "detergent",
+          "score": 0.007036038711119183
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "D2",
+      "description": "Cafe coffee brewing quality test",
+      "weight": 0,
+      "trials": 1,
+      "owner": "Pilot coordinator",
+      "kind": "coffee",
+      "proposed": "coffee",
+      "evidence": [
+        {
+          "id": "coffee",
+          "score": 0.5691945731965041
+        },
+        {
+          "id": "detergent",
+          "score": 0.12224815973824311
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "D3",
+      "description": "Cleaning soap test for the commercial dishwasher",
+      "weight": 8,
+      "trials": 10,
+      "owner": "Pilot coordinator",
+      "kind": "detergent",
+      "proposed": "detergent",
+      "evidence": [
+        {
+          "id": "detergent",
+          "score": 0.8368106102101155
+        },
+        {
+          "id": "coffee",
+          "score": -0.04068477248503099
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "D4",
+      "description": "Dishwashing detergent trial for kitchen plates",
+      "weight": 8,
+      "trials": 10,
+      "owner": "Pilot coordinator",
+      "kind": "detergent",
+      "proposed": "detergent",
+      "evidence": [
+        {
+          "id": "detergent",
+          "score": 0.6971259252500402
+        },
+        {
+          "id": "coffee",
+          "score": 0.027691831599575285
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "pilots": [
+    {
+      "id": "coffee",
+      "label": "Coffee-brewing pilot",
+      "description": "Roasted coffee beans espresso cafe brewing coffee",
+      "priorAlpha": 1,
+      "priorBeta": 1,
+      "successValue": 100,
+      "failureLoss": 100,
+      "pilotCost": 0.5,
+      "successes": 1,
+      "trials": 2,
+      "posterior": {
+        "alpha": 2,
+        "beta": 2,
+        "mean": 0.5,
+        "launchValue": 0,
+        "optimalValue": 0,
+        "afterSuccess": 20,
+        "afterFailure": 0,
+        "expectedAfter": 10,
+        "evsi": 10,
+        "netPilotValue": 9.5
+      },
+      "baseline": {
+        "rate": 0.5,
+        "launchValue": 0,
+        "decision": "Skip"
+      },
+      "sensitivity": [
+        {
+          "label": "Uniform Beta(1,1)",
+          "a": 1,
+          "b": 1,
+          "mean": 0.5,
+          "launchValue": 0
+        },
+        {
+          "label": "Skeptical Beta(1,3)",
+          "a": 1,
+          "b": 3,
+          "mean": 0.3333333333333333,
+          "launchValue": -33.33333333333334
+        },
+        {
+          "label": "Optimistic Beta(3,1)",
+          "a": 3,
+          "b": 1,
+          "mean": 0.6666666666666666,
+          "launchValue": 33.33333333333332
+        }
+      ],
+      "decision": "Run one pilot"
+    },
+    {
+      "id": "detergent",
+      "label": "Dishwasher-cleaning pilot",
+      "description": "Dishwashing cleaning detergent soap commercial dishwasher",
+      "priorAlpha": 1,
+      "priorBeta": 1,
+      "successValue": 100,
+      "failureLoss": 100,
+      "pilotCost": 0.5,
+      "successes": 16,
+      "trials": 20,
+      "posterior": {
+        "alpha": 17,
+        "beta": 5,
+        "mean": 0.7727272727272727,
+        "launchValue": 54.54545454545453,
+        "optimalValue": 54.54545454545453,
+        "afterSuccess": 56.52173913043478,
+        "afterFailure": 47.82608695652172,
+        "expectedAfter": 54.54545454545455,
+        "evsi": 1.4210854715202004e-14,
+        "netPilotValue": -0.4999999999999858
+      },
+      "baseline": {
+        "rate": 0.8,
+        "launchValue": 60,
+        "decision": "Launch"
+      },
+      "sensitivity": [
+        {
+          "label": "Uniform Beta(1,1)",
+          "a": 1,
+          "b": 1,
+          "mean": 0.7727272727272727,
+          "launchValue": 54.54545454545453
+        },
+        {
+          "label": "Skeptical Beta(1,3)",
+          "a": 1,
+          "b": 3,
+          "mean": 0.7083333333333334,
+          "launchValue": 41.66666666666668
+        },
+        {
+          "label": "Optimistic Beta(3,1)",
+          "a": 3,
+          "b": 1,
+          "mean": 0.7916666666666666,
+          "launchValue": 58.33333333333332
+        }
+      ],
+      "decision": "Launch"
+    }
+  ],
+  "totalTrials": 22,
+  "totalSuccesses": 17
+}

@@ -1,0 +1,256 @@
+{
+  "app": "Pilot Prior",
+  "originalInput": {
+    "rules": [
+      {
+        "id": "toner",
+        "label": "Print-quality pilot",
+        "description": "Printer toner cartridges laser printing office documents",
+        "priorAlpha": 1,
+        "priorBeta": 1,
+        "successValue": 100,
+        "failureLoss": 100,
+        "pilotCost": 0.5
+      },
+      {
+        "id": "gloves",
+        "label": "Glove-fit pilot",
+        "description": "Disposable nitrile protective gloves hand protection laboratory",
+        "priorAlpha": 1,
+        "priorBeta": 1,
+        "successValue": 100,
+        "failureLoss": 100,
+        "pilotCost": 0.5
+      }
+    ],
+    "records": [
+      {
+        "id": "D1",
+        "description": "Laser printer cartridge test for office documents",
+        "weight": 0,
+        "trials": 1,
+        "owner": "Pilot coordinator"
+      },
+      {
+        "id": "D2",
+        "description": "Black toner trial for the document printers",
+        "weight": 0,
+        "trials": 1,
+        "owner": "Pilot coordinator"
+      },
+      {
+        "id": "D3",
+        "description": "Disposable nitrile hand protection fit test",
+        "weight": 1,
+        "trials": 1,
+        "owner": "Pilot coordinator"
+      },
+      {
+        "id": "D4",
+        "description": "Protective exam glove fit check for laboratory work",
+        "weight": 0,
+        "trials": 1,
+        "owner": "Pilot coordinator"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "D1",
+      "description": "Laser printer cartridge test for office documents",
+      "weight": 0,
+      "trials": 1,
+      "owner": "=Owner\nline, \"two\"",
+      "kind": "toner",
+      "proposed": "toner",
+      "evidence": [
+        {
+          "id": "toner",
+          "score": 0.8308255953791216
+        },
+        {
+          "id": "gloves",
+          "score": 0.15686200781158552
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", recheck"
+    },
+    {
+      "id": "D2",
+      "description": "Black toner trial for the document printers",
+      "weight": 0,
+      "trials": 1,
+      "owner": "Pilot coordinator",
+      "kind": "toner",
+      "proposed": "toner",
+      "evidence": [
+        {
+          "id": "toner",
+          "score": 0.7212316294958597
+        },
+        {
+          "id": "gloves",
+          "score": 0.10591740566411866
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "D3",
+      "description": "Disposable nitrile hand protection fit test",
+      "weight": 1,
+      "trials": 1,
+      "owner": "Pilot coordinator",
+      "kind": "gloves",
+      "proposed": "gloves",
+      "evidence": [
+        {
+          "id": "gloves",
+          "score": 0.7947983675464322
+        },
+        {
+          "id": "toner",
+          "score": 0.05672361413532824
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "D4",
+      "description": "Protective exam glove fit check for laboratory work",
+      "weight": 0,
+      "trials": 1,
+      "owner": "Pilot coordinator",
+      "kind": "gloves",
+      "proposed": "gloves",
+      "evidence": [
+        {
+          "id": "gloves",
+          "score": 0.5809637818129081
+        },
+        {
+          "id": "toner",
+          "score": 0.06738614313877936
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "pilots": [
+    {
+      "id": "toner",
+      "label": "Print-quality pilot",
+      "description": "Printer toner cartridges laser printing office documents",
+      "priorAlpha": 1,
+      "priorBeta": 1,
+      "successValue": 100,
+      "failureLoss": 100,
+      "pilotCost": 0.5,
+      "successes": 0,
+      "trials": 2,
+      "posterior": {
+        "alpha": 1,
+        "beta": 3,
+        "mean": 0.25,
+        "launchValue": -50,
+        "optimalValue": 0,
+        "afterSuccess": 0,
+        "afterFailure": 0,
+        "expectedAfter": 0,
+        "evsi": 0,
+        "netPilotValue": -0.5
+      },
+      "baseline": {
+        "rate": 0,
+        "launchValue": -100,
+        "decision": "Skip"
+      },
+      "sensitivity": [
+        {
+          "label": "Uniform Beta(1,1)",
+          "a": 1,
+          "b": 1,
+          "mean": 0.25,
+          "launchValue": -50
+        },
+        {
+          "label": "Skeptical Beta(1,3)",
+          "a": 1,
+          "b": 3,
+          "mean": 0.16666666666666666,
+          "launchValue": -66.66666666666669
+        },
+        {
+          "label": "Optimistic Beta(3,1)",
+          "a": 3,
+          "b": 1,
+          "mean": 0.5,
+          "launchValue": 0
+        }
+      ],
+      "decision": "Skip"
+    },
+    {
+      "id": "gloves",
+      "label": "Glove-fit pilot",
+      "description": "Disposable nitrile protective gloves hand protection laboratory",
+      "priorAlpha": 1,
+      "priorBeta": 1,
+      "successValue": 100,
+      "failureLoss": 100,
+      "pilotCost": 0.5,
+      "successes": 1,
+      "trials": 2,
+      "posterior": {
+        "alpha": 2,
+        "beta": 2,
+        "mean": 0.5,
+        "launchValue": 0,
+        "optimalValue": 0,
+        "afterSuccess": 20,
+        "afterFailure": 0,
+        "expectedAfter": 10,
+        "evsi": 10,
+        "netPilotValue": 9.5
+      },
+      "baseline": {
+        "rate": 0.5,
+        "launchValue": 0,
+        "decision": "Skip"
+      },
+      "sensitivity": [
+        {
+          "label": "Uniform Beta(1,1)",
+          "a": 1,
+          "b": 1,
+          "mean": 0.5,
+          "launchValue": 0
+        },
+        {
+          "label": "Skeptical Beta(1,3)",
+          "a": 1,
+          "b": 3,
+          "mean": 0.3333333333333333,
+          "launchValue": -33.33333333333334
+        },
+        {
+          "label": "Optimistic Beta(3,1)",
+          "a": 3,
+          "b": 1,
+          "mean": 0.6666666666666666,
+          "launchValue": 33.33333333333332
+        }
+      ],
+      "decision": "Run one pilot"
+    }
+  ],
+  "totalTrials": 4,
+  "totalSuccesses": 1
+}

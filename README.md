@@ -956,3 +956,10 @@ Window Weave public release: first combined Pages deployment built matching gh-p
 Local MiniLM neighborhood reconciliation plus mandatory demand review supports radius-constrained candidate pickup-hub scoring. Both synthetic fixtures matched 8/8 zone links; independent 500-case distance checks, max-batch conservation, offline warmed-page fresh-worker inference and real exports passed. Not road routing, geocoding or site certification. See [workflow/privacy](20261114-24/README.md) and [observed validation](20261114-24/VALIDATION.md).
 
 Hub Orchard public release: first combined Pages build `19861ca377d19ba7688025469a502f4ea8902839` built successfully; live byte-matched runtime/worker/WASM, both real-AI fixtures, full workflow/artifact checks and preserved 673-entry working-tree gallery passed. Source commit excludes unrelated pre-existing edits.
+
+
+## Pilot Prior — 20261115-1
+
+Real local MiniLM pilot inference reconciles binary trial-result notes before mandatory human review. Explicit Beta priors and supplied utilities support one-step sample-information values and paid-pilot/launch/skip scenario comparisons against raw-rate decisions. Not a sequential stopping policy, causal claim or automatic launch. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow/privacy](20261115-1/README.md) and [observed validation](20261115-1/VALIDATION.md).
+
+Pilot Prior public release: matching Pages `2304ca7b82db0ca37a3dc612592197fc8904b7e8` built on the first combined deployment; byte-matched public app/runtime/worker/WASM, both real-AI fixtures, seven workflow groups, prior/cost sensitivity, complete reviewed artifacts, warmed-page offline inference and all 673 prior working-tree gallery entries passed. Source commit excludes unrelated pre-existing edits.

@@ -963,3 +963,10 @@ Hub Orchard public release: first combined Pages build `19861ca377d19ba768802546
 Real local MiniLM pilot inference reconciles binary trial-result notes before mandatory human review. Explicit Beta priors and supplied utilities support one-step sample-information values and paid-pilot/launch/skip scenario comparisons against raw-rate decisions. Not a sequential stopping policy, causal claim or automatic launch. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow/privacy](20261115-1/README.md) and [observed validation](20261115-1/VALIDATION.md).
 
 Pilot Prior public release: matching Pages `2304ca7b82db0ca37a3dc612592197fc8904b7e8` built on the first combined deployment; byte-matched public app/runtime/worker/WASM, both real-AI fixtures, seven workflow groups, prior/cost sensitivity, complete reviewed artifacts, warmed-page offline inference and all 673 prior working-tree gallery entries passed. Source commit excludes unrelated pre-existing edits.
+
+
+## Evidence Loom — 20261115-2
+
+Real local MiniLM outcome inference reconciles rough experiment summaries before mandatory signed-effect/SE/independence review. Inverse-variance common-effect synthesis, descriptive heterogeneity and leave-one-out sensitivity compare against unweighted means; complete JSON/CSV/Markdown retains every held/original row. Both tiny fixtures matched 8/8 links; 1,200 independent Fraction cases, reviewed artifact round-trips and warmed-page fresh-worker offline inference passed locally. Not random-effects, clinical or study-validity inference. Reuses immutable WASM from `20261107-2`; preserve that asset. See [workflow/privacy](20261115-2/README.md) and [observed validation](20261115-2/VALIDATION.md).
+
+Evidence Loom public release: first combined Pages deployment built matching gh-pages `208e164e2a00237c581ee96f83886538c8c09b0e`; byte-matched public app/runtime/worker/WASM, both real-AI fixtures, all seven workflow groups, reviewed artifacts, warmed-page offline inference and all 674 earlier working-tree gallery entries passed. Source commit excludes unrelated pre-existing edits.

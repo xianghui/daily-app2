@@ -1,0 +1,287 @@
+{
+  "app": "Evidence Loom",
+  "originalInput": {
+    "rules": [
+      {
+        "id": "energy",
+        "label": "Building energy savings",
+        "description": "Building electricity energy savings reduction kilowatt hours",
+        "unit": "kWh/day saved",
+        "target": 8
+      },
+      {
+        "id": "water",
+        "label": "Garden water savings",
+        "description": "Garden irrigation water savings reduction liters",
+        "unit": "liters/day saved",
+        "target": 20
+      }
+    ],
+    "records": [
+      {
+        "id": "D1",
+        "description": "Electricity saved in the office building trial",
+        "effect": 10,
+        "se": 1,
+        "study": "Site A",
+        "owner": "Evidence analyst"
+      },
+      {
+        "id": "D2",
+        "description": "Power consumption reduction in the library building",
+        "effect": 12,
+        "se": 2,
+        "study": "Site B",
+        "owner": "Evidence analyst"
+      },
+      {
+        "id": "D3",
+        "description": "Drip irrigation garden water reduction",
+        "effect": 30,
+        "se": 5,
+        "study": "Garden A",
+        "owner": "Evidence analyst"
+      },
+      {
+        "id": "D4",
+        "description": "Outdoor watering liters saved by new irrigation",
+        "effect": 10,
+        "se": 5,
+        "study": "Garden B",
+        "owner": "Evidence analyst"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "D1",
+      "description": "Electricity saved in the office building trial",
+      "effect": 10,
+      "se": 1,
+      "study": "Site A",
+      "owner": "=Owner\nline, \"two\"",
+      "kind": "water",
+      "proposed": "energy",
+      "evidence": [
+        {
+          "id": "energy",
+          "score": 0.5539437455703756
+        },
+        {
+          "id": "water",
+          "score": 0.23261102455098212
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", recheck"
+    },
+    {
+      "id": "D2",
+      "description": "Power consumption reduction in the library building",
+      "effect": 12,
+      "se": 2,
+      "study": "Site B",
+      "owner": "Evidence analyst",
+      "kind": "energy",
+      "proposed": "energy",
+      "evidence": [
+        {
+          "id": "energy",
+          "score": 0.5047267901225171
+        },
+        {
+          "id": "water",
+          "score": 0.20941838044204403
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "D3",
+      "description": "Drip irrigation garden water reduction",
+      "effect": 30,
+      "se": 5,
+      "study": "Garden A",
+      "owner": "Evidence analyst",
+      "kind": "water",
+      "proposed": "water",
+      "evidence": [
+        {
+          "id": "water",
+          "score": 0.7435700734907454
+        },
+        {
+          "id": "energy",
+          "score": 0.22455671459881552
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "D4",
+      "description": "Outdoor watering liters saved by new irrigation",
+      "effect": 10,
+      "se": 5,
+      "study": "Garden B",
+      "owner": "Evidence analyst",
+      "kind": "water",
+      "proposed": "water",
+      "evidence": [
+        {
+          "id": "water",
+          "score": 0.8173817416766599
+        },
+        {
+          "id": "energy",
+          "score": 0.22217562555602052
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "outcomes": [
+    {
+      "id": "energy",
+      "label": "Building energy savings",
+      "description": "Building electricity energy savings reduction kilowatt hours",
+      "unit": "kWh/day saved",
+      "target": 8,
+      "pooled": {
+        "n": 1,
+        "mean": 12,
+        "se": 2,
+        "lower": 8.08,
+        "upper": 15.92,
+        "baseline": 12,
+        "q": 0,
+        "df": 0,
+        "i2": null,
+        "weights": [
+          {
+            "id": "D2",
+            "weight": 0.25,
+            "share": 1
+          }
+        ]
+      },
+      "leaveOneOut": [],
+      "assessment": "Single estimate — not a synthesis"
+    },
+    {
+      "id": "water",
+      "label": "Garden water savings",
+      "description": "Garden irrigation water savings reduction liters",
+      "unit": "liters/day saved",
+      "target": 20,
+      "pooled": {
+        "n": 3,
+        "mean": 10.74074074074074,
+        "se": 0.9622504486493763,
+        "lower": 8.854729861387963,
+        "upper": 12.626751620093518,
+        "baseline": 16.666666666666668,
+        "q": 15.407407407407405,
+        "df": 2,
+        "i2": 0.8701923076923077,
+        "weights": [
+          {
+            "id": "D1",
+            "weight": 1,
+            "share": 0.9259259259259258
+          },
+          {
+            "id": "D3",
+            "weight": 0.04,
+            "share": 0.037037037037037035
+          },
+          {
+            "id": "D4",
+            "weight": 0.04,
+            "share": 0.037037037037037035
+          }
+        ]
+      },
+      "leaveOneOut": [
+        {
+          "omitted": "D1",
+          "n": 2,
+          "mean": 20,
+          "se": 3.5355339059327378,
+          "lower": 13.070353544371834,
+          "upper": 26.929646455628166,
+          "baseline": 20,
+          "q": 8,
+          "df": 1,
+          "i2": 0.875,
+          "weights": [
+            {
+              "id": "D3",
+              "weight": 0.04,
+              "share": 0.5
+            },
+            {
+              "id": "D4",
+              "weight": 0.04,
+              "share": 0.5
+            }
+          ]
+        },
+        {
+          "omitted": "D3",
+          "n": 2,
+          "mean": 10,
+          "se": 0.9805806756909201,
+          "lower": 8.078061875645798,
+          "upper": 11.921938124354202,
+          "baseline": 10,
+          "q": 0,
+          "df": 1,
+          "i2": 0,
+          "weights": [
+            {
+              "id": "D1",
+              "weight": 1,
+              "share": 0.9615384615384615
+            },
+            {
+              "id": "D4",
+              "weight": 0.04,
+              "share": 0.038461538461538464
+            }
+          ]
+        },
+        {
+          "omitted": "D4",
+          "n": 2,
+          "mean": 10.769230769230768,
+          "se": 0.9805806756909201,
+          "lower": 8.847292644876564,
+          "upper": 12.691168893584972,
+          "baseline": 20,
+          "q": 15.384615384615387,
+          "df": 1,
+          "i2": 0.935,
+          "weights": [
+            {
+              "id": "D1",
+              "weight": 1,
+              "share": 0.9615384615384615
+            },
+            {
+              "id": "D3",
+              "weight": 0.04,
+              "share": 0.038461538461538464
+            }
+          ]
+        }
+      ],
+      "assessment": "Interval below target"
+    }
+  ]
+}

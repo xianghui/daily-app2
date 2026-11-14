@@ -1,0 +1,192 @@
+{
+  "version": 1,
+  "originalInput": {
+    "project": "Synthetic office link worksheet",
+    "rules": [
+      {
+        "id": "internet",
+        "label": "Internet links",
+        "description": "Internet access through broadband fiber lines and cellular mobile data connections.",
+        "required": 1
+      },
+      {
+        "id": "power",
+        "label": "Power supply",
+        "description": "Electrical power supply using mains electricity, batteries and backup generators.",
+        "required": 1
+      }
+    ],
+    "records": [
+      {
+        "id": "L1",
+        "description": "Fiber optic broadband from the street cabinet.",
+        "availability": 0.98,
+        "owner": "Reliability reviewer"
+      },
+      {
+        "id": "P1",
+        "description": "Battery backup supplying electrical energy during outages.",
+        "availability": 0.95,
+        "owner": "Reliability reviewer"
+      },
+      {
+        "id": "L2",
+        "description": "Cellular 5G mobile data connection for the office router.",
+        "availability": 0.9,
+        "owner": "Reliability reviewer"
+      },
+      {
+        "id": "P2",
+        "description": "Utility mains electricity feeding the equipment.",
+        "availability": 0.99,
+        "owner": "Reliability reviewer"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "L1",
+      "description": "Fiber optic broadband from the street cabinet.",
+      "availability": 0.98,
+      "owner": "Reliability reviewer",
+      "kind": "internet",
+      "proposed": "internet",
+      "evidence": [
+        {
+          "id": "internet",
+          "score": 0.47943044828845943
+        },
+        {
+          "id": "power",
+          "score": 0.1716382400500049
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "P1",
+      "description": "Battery backup supplying electrical energy during outages.",
+      "availability": 0.95,
+      "owner": "Reliability reviewer",
+      "kind": "power",
+      "proposed": "power",
+      "evidence": [
+        {
+          "id": "power",
+          "score": 0.5402198133183095
+        },
+        {
+          "id": "internet",
+          "score": 0.12073041378397734
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "L2",
+      "description": "Cellular 5G mobile data connection for the office router.",
+      "availability": 0.9,
+      "owner": "Reliability reviewer",
+      "kind": "internet",
+      "proposed": "internet",
+      "evidence": [
+        {
+          "id": "internet",
+          "score": 0.6336262566284672
+        },
+        {
+          "id": "power",
+          "score": 0.1515435033623353
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "P2",
+      "description": "Utility mains electricity feeding the equipment.",
+      "availability": 0.99,
+      "owner": "Reliability reviewer",
+      "kind": "power",
+      "proposed": "power",
+      "evidence": [
+        {
+          "id": "power",
+          "score": 0.6667599440538445
+        },
+        {
+          "id": "internet",
+          "score": 0.2079717418272083
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "partial": false,
+  "groups": [
+    {
+      "id": "internet",
+      "label": "Internet links",
+      "description": "Internet access through broadband fiber lines and cellular mobile data connections.",
+      "required": 1,
+      "count": 2,
+      "memberIds": [
+        "L1",
+        "L2"
+      ],
+      "enough": true,
+      "availability": 0.998,
+      "allRequired": 0.882
+    },
+    {
+      "id": "power",
+      "label": "Power supply",
+      "description": "Electrical power supply using mains electricity, batteries and backup generators.",
+      "required": 1,
+      "count": 2,
+      "memberIds": [
+        "P1",
+        "P2"
+      ],
+      "enough": true,
+      "availability": 0.9995,
+      "allRequired": 0.9405
+    }
+  ],
+  "complete": true,
+  "system": 0.9975010000000001,
+  "baseline": 0.829521,
+  "gain": 0.16798000000000013,
+  "improvement": [
+    {
+      "id": "L1",
+      "group": "internet",
+      "perfectAvailability": 0.9995,
+      "gain": 0.001998999999999973
+    },
+    {
+      "id": "L2",
+      "group": "internet",
+      "perfectAvailability": 0.9995,
+      "gain": 0.001998999999999973
+    },
+    {
+      "id": "P1",
+      "group": "power",
+      "perfectAvailability": 0.998,
+      "gain": 0.0004989999999999162
+    },
+    {
+      "id": "P2",
+      "group": "power",
+      "perfectAvailability": 0.998,
+      "gain": 0.0004989999999999162
+    }
+  ]
+}

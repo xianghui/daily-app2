@@ -1,0 +1,9 @@
+import {atLeast,analyze,parse,suggest,texts,examples} from './src/core.js';import a from 'node:assert/strict';import fs from 'node:fs';
+function oracle(ps,k){let out=0;for(let mask=0;mask<2**ps.length;mask++){let pr=1,n=0;ps.forEach((p,i)=>{if(mask&(1<<i)){n++;pr*=p}else pr*=1-p});if(n>=k)out+=pr}return out}
+let seed=82;const random=()=>{seed=(1664525*seed+1013904223)>>>0;return seed/2**32};let cases=0;
+for(let n=1;n<=9;n++)for(let t=0;t<50;t++){const ps=Array.from({length:n},()=>Math.round(random()*100)/100),k=1+Math.floor(random()*(n+1));a(Math.abs(atLeast(ps,k)-oracle(ps,k))<1e-12);cases++}
+for(const ps of [[0,0],[1,1],[0,1],[]])for(let k=1;k<4;k++){a(Math.abs(atLeast(ps,k)-oracle(ps,k))<1e-12);cases++}
+const fixture=JSON.parse(fs.readFileSync('export-fixture1.json'));const r=analyze(fixture.originalInput,fixture.reviews);for(const item of r.improvement){const rows=structuredClone(fixture.reviews);rows.find(x=>x.id===item.id).availability=1;const x=analyze(fixture.originalInput,rows);a(Math.abs(x.system-item.perfectAvailability)<1e-12)}
+for(const bad of [null,[],[[NaN]],Array(texts(examples[0].data).length).fill(Array(384).fill(0))])a.throws(()=>suggest(examples[0].data,bad));
+a.equal(atLeast([.9,.8,.7],2),.902);a.equal(atLeast([.5,.5],3),0);a.equal(analyze(fixture.originalInput,fixture.reviews.map((r,i)=>i? r:{...r,decision:'hold'})).system,null);a.throws(()=>analyze(fixture.originalInput,fixture.reviews.slice(1)));a.throws(()=>parse(JSON.stringify({...examples[0].data,rules:examples[0].data.rules.map(x=>({...x,required:0}))})));
+fs.writeFileSync('arithmetic-validation.json',JSON.stringify({independentEnumerationCases:cases,sensitivityRecalculated:true,malformedEmbeddingChecks:4,heldSystemBlocked:true},null,2));console.log('PASS',cases,'independent enumeration cases, sensitivity and constraints');

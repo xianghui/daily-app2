@@ -1,0 +1,303 @@
+{
+  "app": "Hub Orchard",
+  "originalInput": {
+    "radius": 8,
+    "rules": [
+      {
+        "id": "campus",
+        "label": "University quarter",
+        "description": "University campus student dormitories lecture halls library",
+        "x": 0,
+        "y": 0
+      },
+      {
+        "id": "port",
+        "label": "Harbor quarter",
+        "description": "Harbor docks fishing boats maritime freight port",
+        "x": 10,
+        "y": 0
+      }
+    ],
+    "hubs": [
+      {
+        "id": "West hall",
+        "x": 0,
+        "y": 0
+      },
+      {
+        "id": "Central hall",
+        "x": 5,
+        "y": 0
+      },
+      {
+        "id": "East hall",
+        "x": 10,
+        "y": 0
+      }
+    ],
+    "records": [
+      {
+        "id": "D1",
+        "description": "Students living near lecture theatres",
+        "weight": 1,
+        "owner": "Collection coordinator"
+      },
+      {
+        "id": "D2",
+        "description": "Dormitory residents by the university library",
+        "weight": 2,
+        "owner": "Collection coordinator"
+      },
+      {
+        "id": "D3",
+        "description": "Fishing crews beside the cargo docks",
+        "weight": 8,
+        "owner": "Collection coordinator"
+      },
+      {
+        "id": "D4",
+        "description": "Mariners near the harbor boats",
+        "weight": 9,
+        "owner": "Collection coordinator"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "D1",
+      "description": "Students living near lecture theatres",
+      "weight": 1,
+      "owner": "=Owner\nline, \"two\"",
+      "kind": "campus",
+      "proposed": "campus",
+      "evidence": [
+        {
+          "id": "campus",
+          "score": 0.5280066856464444
+        },
+        {
+          "id": "port",
+          "score": 0.03361783053262404
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", recheck"
+    },
+    {
+      "id": "D2",
+      "description": "Dormitory residents by the university library",
+      "weight": 2,
+      "owner": "Collection coordinator",
+      "kind": "campus",
+      "proposed": "campus",
+      "evidence": [
+        {
+          "id": "campus",
+          "score": 0.7432233558879149
+        },
+        {
+          "id": "port",
+          "score": 0.01637428669361171
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "D3",
+      "description": "Fishing crews beside the cargo docks",
+      "weight": 8,
+      "owner": "Collection coordinator",
+      "kind": "port",
+      "proposed": "port",
+      "evidence": [
+        {
+          "id": "port",
+          "score": 0.6275211059136369
+        },
+        {
+          "id": "campus",
+          "score": 0.1170322207269302
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "D4",
+      "description": "Mariners near the harbor boats",
+      "weight": 9,
+      "owner": "Collection coordinator",
+      "kind": "port",
+      "proposed": "port",
+      "evidence": [
+        {
+          "id": "port",
+          "score": 0.6785129524392391
+        },
+        {
+          "id": "campus",
+          "score": 0.08019522783477968
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "totalDemand": 20,
+  "candidates": [
+    {
+      "id": "West hall",
+      "x": 0,
+      "y": 0,
+      "cost": 170,
+      "max": 10,
+      "violations": 2,
+      "distances": [
+        {
+          "id": "D1",
+          "distance": 0,
+          "weight": 1
+        },
+        {
+          "id": "D2",
+          "distance": 0,
+          "weight": 2
+        },
+        {
+          "id": "D3",
+          "distance": 10,
+          "weight": 8
+        },
+        {
+          "id": "D4",
+          "distance": 10,
+          "weight": 9
+        }
+      ]
+    },
+    {
+      "id": "Central hall",
+      "x": 5,
+      "y": 0,
+      "cost": 100,
+      "max": 5,
+      "violations": 0,
+      "distances": [
+        {
+          "id": "D1",
+          "distance": 5,
+          "weight": 1
+        },
+        {
+          "id": "D2",
+          "distance": 5,
+          "weight": 2
+        },
+        {
+          "id": "D3",
+          "distance": 5,
+          "weight": 8
+        },
+        {
+          "id": "D4",
+          "distance": 5,
+          "weight": 9
+        }
+      ]
+    },
+    {
+      "id": "East hall",
+      "x": 10,
+      "y": 0,
+      "cost": 30,
+      "max": 10,
+      "violations": 2,
+      "distances": [
+        {
+          "id": "D1",
+          "distance": 10,
+          "weight": 1
+        },
+        {
+          "id": "D2",
+          "distance": 10,
+          "weight": 2
+        },
+        {
+          "id": "D3",
+          "distance": 0,
+          "weight": 8
+        },
+        {
+          "id": "D4",
+          "distance": 0,
+          "weight": 9
+        }
+      ]
+    }
+  ],
+  "baseline": {
+    "id": "West hall",
+    "x": 0,
+    "y": 0,
+    "cost": 170,
+    "max": 10,
+    "violations": 2,
+    "distances": [
+      {
+        "id": "D1",
+        "distance": 0,
+        "weight": 1
+      },
+      {
+        "id": "D2",
+        "distance": 0,
+        "weight": 2
+      },
+      {
+        "id": "D3",
+        "distance": 10,
+        "weight": 8
+      },
+      {
+        "id": "D4",
+        "distance": 10,
+        "weight": 9
+      }
+    ]
+  },
+  "best": {
+    "id": "Central hall",
+    "x": 5,
+    "y": 0,
+    "cost": 100,
+    "max": 5,
+    "violations": 0,
+    "distances": [
+      {
+        "id": "D1",
+        "distance": 5,
+        "weight": 1
+      },
+      {
+        "id": "D2",
+        "distance": 5,
+        "weight": 2
+      },
+      {
+        "id": "D3",
+        "distance": 5,
+        "weight": 8
+      },
+      {
+        "id": "D4",
+        "distance": 5,
+        "weight": 9
+      }
+    ]
+  }
+}

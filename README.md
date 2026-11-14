@@ -949,3 +949,10 @@ Real local MiniLM reconciles full-period demand scenarios before mandatory produ
 Real local MiniLM service inference assists appointment waitlist review. Verify availability, required minutes and priorities before exact count-first/priority-second matching against FIFO; complete JSON/CSV/Markdown retains every held/unplaced request and original. Both tiny synthetic batches matched 8/8 links; 2,000 independent exhaustive allocation cases, reviewed artifact round-trips and warmed-page fresh-worker offline inference passed locally. No bookings or messages. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow/privacy](20261114-23/README.md) and [observed validation](20261114-23/VALIDATION.md).
 
 Window Weave public release: first combined Pages deployment built matching gh-pages `c0cc05502eacc0d2377d3c8740cdc8cf3f6102db`; byte-matched public app/worker/runtime/WASM, both real-AI fixtures, all eight workflow groups, reviewed artifacts, warmed-page offline inference and all 671 prior working-tree gallery entries passed. No appointments were booked or messages sent.
+
+
+## Hub Orchard — 20261114-24
+
+Local MiniLM neighborhood reconciliation plus mandatory demand review supports radius-constrained candidate pickup-hub scoring. Both synthetic fixtures matched 8/8 zone links; independent 500-case distance checks, max-batch conservation, offline warmed-page fresh-worker inference and real exports passed. Not road routing, geocoding or site certification. See [workflow/privacy](20261114-24/README.md) and [observed validation](20261114-24/VALIDATION.md).
+
+Hub Orchard public release: first combined Pages build `19861ca377d19ba7688025469a502f4ea8902839` built successfully; live byte-matched runtime/worker/WASM, both real-AI fixtures, full workflow/artifact checks and preserved 673-entry working-tree gallery passed. Source commit excludes unrelated pre-existing edits.

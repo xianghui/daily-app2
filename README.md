@@ -910,3 +910,10 @@ Alert Orchard public release: matching Pages gh-pages `b8885aa67264994c1b26771ca
 Real local MiniLM category inference reconciles two inspection logs before mandatory pass/shared-ID review. Duplicate/conflicting detections block applying; A-only/B-only lists support cross-checks and exploratory Chapman totals expose assumptions beyond the observed union. Both tiny synthetic fixtures matched 16/16 links; 3,311 independent Fraction cases, reviewed artifact conservation and warmed-page fresh-worker offline inference passed locally. Independence, equal detectability and correct IDs are unverified user assumptions—not audit certification. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261114-17/README.md) and [observed validation](20261114-17/VALIDATION.md).
 
 Audit Estuary public release: matching Pages `0f780ca29e7c44110e10328e3885b74ea60fef2d` built on the first deployment; byte-matched public app/worker/runtime/WASM, both real-AI fixtures, all eight workflow groups, reviewed artifacts, warmed-page offline inference and all 665 prior gallery entries passed.
+
+
+## Crossed Bench — 20261114-18
+
+Real local MiniLM feature inference reconciles repeated measurements before mandatory part/operator/trial/unit review. Balanced crossed ANOVA retains interaction, flags incomplete cells and compares full measurement SD against repeat-only noise. Both synthetic workflows matched 32/32 links; 1,200 independent Fraction cases, reviewed artifact conservation and warmed-page fresh-worker offline inference passed. No certification, capability or causal operator claims. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261114-18/README.md) and [observed validation](20261114-18/VALIDATION.md).
+
+Crossed Bench public release: first combined Pages deployment built matching gh-pages `9209cda1bdd175baa85c96fdc61f6f277c77b862`; byte-matched public app/runtime, both real-AI fixtures, all eight workflow groups, reviewed artifacts, warmed-page offline inference and all 666 prior working-tree gallery entries passed.

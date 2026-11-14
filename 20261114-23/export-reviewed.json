@@ -1,0 +1,312 @@
+{
+  "version": 1,
+  "originalInput": {
+    "project": "Synthetic library help appointments",
+    "rules": [
+      {
+        "id": "device",
+        "label": "Device help",
+        "description": "Technology help with phones, tablets, WiFi and email settings."
+      },
+      {
+        "id": "research",
+        "label": "Research help",
+        "description": "Library research help finding books, historical archives and reference sources."
+      }
+    ],
+    "slots": [
+      {
+        "id": "TECH1",
+        "kind": "device",
+        "start": 780,
+        "end": 810
+      },
+      {
+        "id": "TECH2",
+        "kind": "device",
+        "start": 840,
+        "end": 870
+      },
+      {
+        "id": "ARCHIVE",
+        "kind": "research",
+        "start": 900,
+        "end": 930
+      }
+    ],
+    "records": [
+      {
+        "id": "L1",
+        "description": "I cannot connect my tablet to wireless internet.",
+        "earliest": 780,
+        "latest": 870,
+        "minutes": 25,
+        "priority": 2,
+        "owner": "Waitlist coordinator"
+      },
+      {
+        "id": "L2",
+        "description": "Please help configure email on my smartphone.",
+        "earliest": 780,
+        "latest": 810,
+        "minutes": 30,
+        "priority": 6,
+        "owner": "Waitlist coordinator"
+      },
+      {
+        "id": "L3",
+        "description": "I need historical archives for a local history research project.",
+        "earliest": 900,
+        "latest": 930,
+        "minutes": 30,
+        "priority": 8,
+        "owner": "Waitlist coordinator"
+      },
+      {
+        "id": "L4",
+        "description": "Looking for reference books and sources for my research.",
+        "earliest": 900,
+        "latest": 930,
+        "minutes": 30,
+        "priority": 1,
+        "owner": "Waitlist coordinator"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "L1",
+      "description": "I cannot connect my tablet to wireless internet.",
+      "earliest": 780,
+      "latest": 870,
+      "minutes": 25,
+      "priority": 2,
+      "owner": "=Owner\n\"second\", line",
+      "kind": "device",
+      "proposed": "device",
+      "evidence": [
+        {
+          "id": "device",
+          "score": 0.26667918659365175
+        },
+        {
+          "id": "research",
+          "score": 0.0325679456536818
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", investigate"
+    },
+    {
+      "id": "L2",
+      "description": "Please help configure email on my smartphone.",
+      "earliest": 780,
+      "latest": 810,
+      "minutes": 30,
+      "priority": 6,
+      "owner": "Waitlist coordinator",
+      "kind": "device",
+      "proposed": "device",
+      "evidence": [
+        {
+          "id": "device",
+          "score": 0.433828057118386
+        },
+        {
+          "id": "research",
+          "score": -0.005552030771417838
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "L3",
+      "description": "I need historical archives for a local history research project.",
+      "earliest": 900,
+      "latest": 930,
+      "minutes": 30,
+      "priority": 8,
+      "owner": "Waitlist coordinator",
+      "kind": "research",
+      "proposed": "research",
+      "evidence": [
+        {
+          "id": "research",
+          "score": 0.7071601951492725
+        },
+        {
+          "id": "device",
+          "score": 0.006762076085256691
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "L4",
+      "description": "Looking for reference books and sources for my research.",
+      "earliest": 900,
+      "latest": 930,
+      "minutes": 30,
+      "priority": 1,
+      "owner": "Waitlist coordinator",
+      "kind": "research",
+      "proposed": "research",
+      "evidence": [
+        {
+          "id": "research",
+          "score": 0.6765622647472114
+        },
+        {
+          "id": "device",
+          "score": 0.14851052174170862
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "outcomes": [
+    {
+      "id": "L1",
+      "description": "I cannot connect my tablet to wireless internet.",
+      "earliest": 780,
+      "latest": 870,
+      "minutes": 25,
+      "priority": 2,
+      "owner": "=Owner\n\"second\", line",
+      "kind": "device",
+      "proposed": "device",
+      "evidence": [
+        {
+          "id": "device",
+          "score": 0.26667918659365175
+        },
+        {
+          "id": "research",
+          "score": 0.0325679456536818
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", investigate",
+      "slot": "TECH2",
+      "outcome": "Proposed booking"
+    },
+    {
+      "id": "L2",
+      "description": "Please help configure email on my smartphone.",
+      "earliest": 780,
+      "latest": 810,
+      "minutes": 30,
+      "priority": 6,
+      "owner": "Waitlist coordinator",
+      "kind": "device",
+      "proposed": "device",
+      "evidence": [
+        {
+          "id": "device",
+          "score": 0.433828057118386
+        },
+        {
+          "id": "research",
+          "score": -0.005552030771417838
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "",
+      "slot": "TECH1",
+      "outcome": "Proposed booking"
+    },
+    {
+      "id": "L3",
+      "description": "I need historical archives for a local history research project.",
+      "earliest": 900,
+      "latest": 930,
+      "minutes": 30,
+      "priority": 8,
+      "owner": "Waitlist coordinator",
+      "kind": "research",
+      "proposed": "research",
+      "evidence": [
+        {
+          "id": "research",
+          "score": 0.7071601951492725
+        },
+        {
+          "id": "device",
+          "score": 0.006762076085256691
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "",
+      "slot": "ARCHIVE",
+      "outcome": "Proposed booking"
+    },
+    {
+      "id": "L4",
+      "description": "Looking for reference books and sources for my research.",
+      "earliest": 900,
+      "latest": 930,
+      "minutes": 30,
+      "priority": 1,
+      "owner": "Waitlist coordinator",
+      "kind": "research",
+      "proposed": "research",
+      "evidence": [
+        {
+          "id": "research",
+          "score": 0.6765622647472114
+        },
+        {
+          "id": "device",
+          "score": 0.14851052174170862
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "",
+      "slot": null,
+      "outcome": "Waitlist: capacity/priority"
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "optimized": {
+    "count": 3,
+    "priority": 16,
+    "pairs": [
+      {
+        "request": "L2",
+        "slot": "TECH1",
+        "priority": 6
+      },
+      {
+        "request": "L1",
+        "slot": "TECH2",
+        "priority": 2
+      },
+      {
+        "request": "L3",
+        "slot": "ARCHIVE",
+        "priority": 8
+      }
+    ]
+  },
+  "baseline": {
+    "count": 2,
+    "priority": 10,
+    "pairs": [
+      {
+        "request": "L1",
+        "slot": "TECH1",
+        "priority": 2
+      },
+      {
+        "request": "L3",
+        "slot": "ARCHIVE",
+        "priority": 8
+      }
+    ]
+  }
+}

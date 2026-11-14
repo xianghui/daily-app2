@@ -917,3 +917,10 @@ Audit Estuary public release: matching Pages `0f780ca29e7c44110e10328e3885b74ea6
 Real local MiniLM feature inference reconciles repeated measurements before mandatory part/operator/trial/unit review. Balanced crossed ANOVA retains interaction, flags incomplete cells and compares full measurement SD against repeat-only noise. Both synthetic workflows matched 32/32 links; 1,200 independent Fraction cases, reviewed artifact conservation and warmed-page fresh-worker offline inference passed. No certification, capability or causal operator claims. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261114-18/README.md) and [observed validation](20261114-18/VALIDATION.md).
 
 Crossed Bench public release: first combined Pages deployment built matching gh-pages `9209cda1bdd175baa85c96fdc61f6f277c77b862`; byte-matched public app/runtime, both real-AI fixtures, all eight workflow groups, reviewed artifacts, warmed-page offline inference and all 666 prior working-tree gallery entries passed.
+
+
+## Stack Harbor — 20261114-19
+
+Real local MiniLM reconciles rough contribution notes to supplied signed tolerance chains. Mandatory review feeds worst-case bounds and explicitly conditional RSS, compared with nominal-only target placement; complete JSON/CSV/Markdown retains held rows and originals. Both tiny synthetic fixtures matched all 12 links; 500 independently enumerated corner cases matched bounds. No unit conversion, correlation handling or certification. Fresh-worker offline inference tested only on an already-open warmed page. Reuses immutable shared WASM from `20261107-2`; preserve that asset. See [workflow/privacy](20261114-19/README.md) and [observed validation](20261114-19/VALIDATION.md).
+
+Stack Harbor public release: first combined Pages deployment built matching gh-pages `7044095fcd425f357d4d36cffab7908e3a98452e`; byte-matched public runtime assets, both real-AI fixtures, all eight workflow groups, reviewed artifacts, warmed-page offline inference and all 667 prior working-tree gallery entries passed. Negation challenge mislinked and is documented.

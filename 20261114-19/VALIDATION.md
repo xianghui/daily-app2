@@ -1,0 +1,21 @@
+# Observed validation — 2026-11-14
+
+- Production `npm run predeploy` passed. Real browser: installed desktop Chrome via Playwright, WASM CPU with GPU disabled.
+- Two materially different synthetic fixtures: Assembly gaps and Event budgets. All 12 intended semantic chain assignments matched (6 each). Tiny synthetic known-answer checks, not a general accuracy estimate. Nearest-chain inference is forced: an unrelated/instruction-like note still produces a suggestion, remains pending and was explicitly held. No authority or credential request is granted to source content.
+- Assembly clearance nominal 1 mm is within [0.5,1.5], but worst-case [0.4,1.6] is not; conditional RSS half-width sqrt(0.14). Mass nominal 100 g, worst-case [96,104], RSS sqrt(6).
+- Event duration nominal 60 min, worst-case [52,68], RSS sqrt(26), target [55,65]. Archive nominal 85 MB, worst-case [77,93], RSS sqrt(30). Signs and all counts preserved.
+- Real negation challenge intended payload mass but selected axial clearance; the negated vocabulary dominated. It remained pending and was held. This is an observed failure, not reliable negation reasoning.
+- 500 independently enumerated interval-corner cases matched min/max; squared RSS and all-zero handling checked. No Monte Carlo accuracy/probability claims.
+- Actual downloaded CSV parsed using Python's independent csv parser: all rows, originals, signs, numbers, multiline owner/action text and formula escaping survived. JSON original-input roundtrip; Markdown and clipboard verified. Review edit, undo, holds, sign correction and chain reassignment affected exports; edits invalidated previous exports.
+- Maximum 6-chain/32-row workload inferred, exported, parsed and reimported as originals with approvals reset. Four-text chunking executed. Empty/invalid/oversized/duplicate IDs, invalid targets/signs/numbers, unsupported file type and empty edited numeric input rejected.
+- Cancellation/retry, source invalidation and delayed cancelled-worker callback guards tested. Delayed file import cannot overwrite newer input. Defensive worker mocks were used ONLY for faults/stale tests, not successful AI checks.
+- Eight defensive modes: model-host network abort with real retry, missing WebAssembly, failed worker download, unsupported module worker construction, malformed embedding vectors, malformed worker envelope, timeout and worker error. All displayed errors, kept exports disabled and produced no fake results.
+- Fresh-worker real inference worked with browser fully offline after warming assets/model. Scope: already-open page only, not navigation/reload. Network trace from startup through inference: only GET requests, no request bodies; model downloads occur after explicit load. No user data in model requests. Built-text credential pattern scan and runtime integration inspection performed; no provider integration or keys.
+- Desktop 1440px and narrow 390/320px layouts, labeled fields, ≥44px buttons, keyboard focus and no horizontal overflow checked. Normal viewport input/review/result screenshots saved; physical phones and screen readers untested.
+- Gallery scripts, exact single new ai-utility entry, newest-first and preservation of every prior entry/category checked. Combined deployment and public checks recorded in their own validation JSON files.
+
+Known limitations: English semantic resemblance is not correct chain membership; numbers/units/signs and chain completeness must be manually verified. No unit conversion, nonlinear/asymmetric/correlated tolerance solver, design certification, probability of fit or external changes. RSS assumptions may be inappropriate; worst-case containment only describes reviewed supplied terms. Held rows make results partial.
+
+## Public release
+
+First root combined deployment built successfully at matching gh-pages commit `7044095fcd425f357d4d36cffab7908e3a98452e` (Pages workflow 43583785987). Public app, worker, factory and shared WASM were byte-matched to the production build; complete 668-entry gallery matched source and preserved all 667 prior working-tree entries/categories. Both real-AI fixtures, all eight workflow groups, actual downloaded artifacts, warmed-page offline fresh-worker inference and negation limitation were rechecked at the public URL. Source main commit/push is recorded in Git history.

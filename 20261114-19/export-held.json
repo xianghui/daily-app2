@@ -1,0 +1,294 @@
+{
+  "version": 1,
+  "originalInput": {
+    "project": "Synthetic workshop planning",
+    "rules": [
+      {
+        "id": "time",
+        "label": "Session duration",
+        "description": "Total elapsed time for the workshop program including presentations and breaks.",
+        "unit": "min",
+        "lower": 55,
+        "upper": 65
+      },
+      {
+        "id": "storage",
+        "label": "Archive capacity",
+        "description": "Total disk storage occupied by the backup package containing media and documents.",
+        "unit": "MB",
+        "lower": 0,
+        "upper": 100
+      }
+    ],
+    "records": [
+      {
+        "id": "T1",
+        "description": "The opening speaker talks to the workshop participants.",
+        "nominal": 25,
+        "tolerance": 3,
+        "sign": 1,
+        "owner": "Design reviewer"
+      },
+      {
+        "id": "T2",
+        "description": "The practical tutorial keeps attendees working on exercises.",
+        "nominal": 30,
+        "tolerance": 4,
+        "sign": 1,
+        "owner": "Design reviewer"
+      },
+      {
+        "id": "T3",
+        "description": "Attendees take a short rest before the program ends.",
+        "nominal": 5,
+        "tolerance": 1,
+        "sign": 1,
+        "owner": "Design reviewer"
+      },
+      {
+        "id": "S1",
+        "description": "The recorded videos occupy most of the saved backup disk space.",
+        "nominal": 70,
+        "tolerance": 5,
+        "sign": 1,
+        "owner": "Design reviewer"
+      },
+      {
+        "id": "S2",
+        "description": "The bundled handouts add more bytes to the compressed file.",
+        "nominal": 20,
+        "tolerance": 2,
+        "sign": 1,
+        "owner": "Design reviewer"
+      },
+      {
+        "id": "S3",
+        "description": "Duplicate media removed from the saved backup frees this much space.",
+        "nominal": 5,
+        "tolerance": 1,
+        "sign": -1,
+        "owner": "Design reviewer"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "T1",
+      "description": "The opening speaker talks to the workshop participants.",
+      "nominal": 25,
+      "tolerance": 3,
+      "sign": 1,
+      "owner": "=Owner\n\"second\", line",
+      "kind": "time",
+      "proposed": "time",
+      "evidence": [
+        {
+          "id": "time",
+          "score": 0.3999499733941594
+        },
+        {
+          "id": "storage",
+          "score": 0.05039718216343575
+        }
+      ],
+      "decision": "hold",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", investigate"
+    },
+    {
+      "id": "T2",
+      "description": "The practical tutorial keeps attendees working on exercises.",
+      "nominal": 30,
+      "tolerance": 4,
+      "sign": 1,
+      "owner": "Design reviewer",
+      "kind": "time",
+      "proposed": "time",
+      "evidence": [
+        {
+          "id": "time",
+          "score": 0.2935258504348647
+        },
+        {
+          "id": "storage",
+          "score": 0.06943946612240798
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "T3",
+      "description": "Attendees take a short rest before the program ends.",
+      "nominal": 5,
+      "tolerance": 1,
+      "sign": 1,
+      "owner": "Design reviewer",
+      "kind": "time",
+      "proposed": "time",
+      "evidence": [
+        {
+          "id": "time",
+          "score": 0.48139591012705857
+        },
+        {
+          "id": "storage",
+          "score": 0.03800842218257203
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "S1",
+      "description": "The recorded videos occupy most of the saved backup disk space.",
+      "nominal": 70,
+      "tolerance": 5,
+      "sign": 1,
+      "owner": "Design reviewer",
+      "kind": "storage",
+      "proposed": "storage",
+      "evidence": [
+        {
+          "id": "storage",
+          "score": 0.6178392737836799
+        },
+        {
+          "id": "time",
+          "score": 0.11252775440088145
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "S2",
+      "description": "The bundled handouts add more bytes to the compressed file.",
+      "nominal": 20,
+      "tolerance": 2,
+      "sign": 1,
+      "owner": "Design reviewer",
+      "kind": "storage",
+      "proposed": "storage",
+      "evidence": [
+        {
+          "id": "storage",
+          "score": 0.3447805436325485
+        },
+        {
+          "id": "time",
+          "score": 0.09217586575485871
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "S3",
+      "description": "Duplicate media removed from the saved backup frees this much space.",
+      "nominal": 5,
+      "tolerance": 1,
+      "sign": -1,
+      "owner": "Design reviewer",
+      "kind": "storage",
+      "proposed": "storage",
+      "evidence": [
+        {
+          "id": "storage",
+          "score": 0.6310544491727311
+        },
+        {
+          "id": "time",
+          "score": 0.08610203906690461
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 6,
+  "approved": 5,
+  "held": 1,
+  "partial": true,
+  "rules": [
+    {
+      "id": "time",
+      "label": "Session duration",
+      "description": "Total elapsed time for the workshop program including presentations and breaks.",
+      "unit": "min",
+      "lower": 55,
+      "upper": 65,
+      "available": true,
+      "count": 2,
+      "nominal": 35,
+      "radius": 5,
+      "low": 30,
+      "high": 40,
+      "rssRadius": 4.123105625617661,
+      "rssLow": 30.87689437438234,
+      "rssHigh": 39.12310562561766,
+      "nominalWithin": false,
+      "worstWithin": false,
+      "rssWithin": false,
+      "contributors": [
+        {
+          "id": "T2",
+          "signedNominal": 30,
+          "halfTolerance": 4,
+          "varianceShare": 0.9411764705882353,
+          "owner": "Design reviewer"
+        },
+        {
+          "id": "T3",
+          "signedNominal": 5,
+          "halfTolerance": 1,
+          "varianceShare": 0.058823529411764705,
+          "owner": "Design reviewer"
+        }
+      ]
+    },
+    {
+      "id": "storage",
+      "label": "Archive capacity",
+      "description": "Total disk storage occupied by the backup package containing media and documents.",
+      "unit": "MB",
+      "lower": 0,
+      "upper": 100,
+      "available": true,
+      "count": 3,
+      "nominal": 85,
+      "radius": 8,
+      "low": 77,
+      "high": 93,
+      "rssRadius": 5.477225575051661,
+      "rssLow": 79.52277442494834,
+      "rssHigh": 90.47722557505166,
+      "nominalWithin": true,
+      "worstWithin": true,
+      "rssWithin": true,
+      "contributors": [
+        {
+          "id": "S1",
+          "signedNominal": 70,
+          "halfTolerance": 5,
+          "varianceShare": 0.8333333333333334,
+          "owner": "Design reviewer"
+        },
+        {
+          "id": "S2",
+          "signedNominal": 20,
+          "halfTolerance": 2,
+          "varianceShare": 0.13333333333333333,
+          "owner": "Design reviewer"
+        },
+        {
+          "id": "S3",
+          "signedNominal": -5,
+          "halfTolerance": 1,
+          "varianceShare": 0.03333333333333333,
+          "owner": "Design reviewer"
+        }
+      ]
+    }
+  ],
+  "literalLabelMatches": 0
+}

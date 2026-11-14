@@ -1,0 +1,203 @@
+{
+  "checks": [
+    "real CPU inference Message filters",
+    "real CPU inference Finance checks",
+    "edit undo hold reviewed artifacts clipboard and audit import",
+    "offline warmed-page fresh-worker inference",
+    "invalid empty oversized unsupported inputs and review validation",
+    "cancel retry changed-input stale guard and maximum batch audit import",
+    "instruction-like data has no authority and can be held",
+    "desktop phone labels focus touch and overflow"
+  ],
+  "fixtures": [
+    {
+      "name": "Message filters",
+      "actual": [
+        "spam",
+        "spam",
+        "spam",
+        "spam",
+        "phish",
+        "phish",
+        "phish",
+        "phish"
+      ],
+      "expected": [
+        "spam",
+        "spam",
+        "spam",
+        "spam",
+        "phish",
+        "phish",
+        "phish",
+        "phish"
+      ],
+      "metrics": [
+        {
+          "id": "spam",
+          "label": "Junk mail",
+          "description": "Unsolicited advertising email spam and promotional junk messages.",
+          "tp": 90,
+          "fp": 50,
+          "tn": 850,
+          "fn": 10,
+          "total": 1000,
+          "accuracy": 0.94,
+          "precision": 0.6428571428571429,
+          "recall": 0.9,
+          "falsePositiveRate": 0.05555555555555555,
+          "allNegativeAccuracy": 0.9,
+          "projected": {
+            "trueAlerts": 90,
+            "falseAlerts": 550,
+            "missed": 9.999999999999998,
+            "alerts": 640,
+            "precision": 0.140625
+          }
+        },
+        {
+          "id": "phish",
+          "label": "Credential theft",
+          "description": "Phishing messages impersonating a login page to steal passwords.",
+          "tp": 90,
+          "fp": 50,
+          "tn": 850,
+          "fn": 10,
+          "total": 1000,
+          "accuracy": 0.94,
+          "precision": 0.6428571428571429,
+          "recall": 0.9,
+          "falsePositiveRate": 0.05555555555555555,
+          "allNegativeAccuracy": 0.9,
+          "projected": {
+            "trueAlerts": 90,
+            "falseAlerts": 550,
+            "missed": 9.999999999999998,
+            "alerts": 640,
+            "precision": 0.140625
+          }
+        }
+      ]
+    },
+    {
+      "name": "Finance checks",
+      "actual": [
+        "duplicate",
+        "duplicate",
+        "duplicate",
+        "duplicate",
+        "late",
+        "late",
+        "late",
+        "late"
+      ],
+      "expected": [
+        "duplicate",
+        "duplicate",
+        "duplicate",
+        "duplicate",
+        "late",
+        "late",
+        "late",
+        "late"
+      ],
+      "metrics": [
+        {
+          "id": "duplicate",
+          "label": "Repeated invoices",
+          "description": "Detect duplicate invoices submitted twice for the same purchase.",
+          "tp": 90,
+          "fp": 50,
+          "tn": 850,
+          "fn": 10,
+          "total": 1000,
+          "accuracy": 0.94,
+          "precision": 0.6428571428571429,
+          "recall": 0.9,
+          "falsePositiveRate": 0.05555555555555555,
+          "allNegativeAccuracy": 0.9,
+          "projected": {
+            "trueAlerts": 90,
+            "falseAlerts": 550,
+            "missed": 9.999999999999998,
+            "alerts": 640,
+            "precision": 0.140625
+          }
+        },
+        {
+          "id": "late",
+          "label": "Overdue accounts",
+          "description": "Detect unpaid bills past their due date and overdue customer balances.",
+          "tp": 90,
+          "fp": 50,
+          "tn": 850,
+          "fn": 10,
+          "total": 1000,
+          "accuracy": 0.94,
+          "precision": 0.6428571428571429,
+          "recall": 0.9,
+          "falsePositiveRate": 0.05555555555555555,
+          "allNegativeAccuracy": 0.9,
+          "projected": {
+            "trueAlerts": 90,
+            "falseAlerts": 550,
+            "missed": 9.999999999999998,
+            "alerts": 640,
+            "precision": 0.140625
+          }
+        }
+      ]
+    }
+  ],
+  "privacy": {
+    "requests": 51,
+    "allGetNoBody": true,
+    "urls": [
+      "http://127.0.0.1:6802/daily-app2/20261114-16/",
+      "http://127.0.0.1:6802/daily-app2/20261114-16/assets/index-AqRS8YPA.js",
+      "http://127.0.0.1:6802/daily-app2/20261114-16/assets/index-B1x21LWK.css",
+      "http://127.0.0.1:6802/daily-app2/20261114-16/assets/ai.worker-CqExnun0.js",
+      "blob:http://127.0.0.1:6802/dea3d83b-f9bd-4420-bd04-acb7f8aba555",
+      "http://127.0.0.1:6802/daily-app2/20261114-16/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "http://127.0.0.1:6802/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "blob:http://127.0.0.1:6802/0e2e25c3-1bf0-4265-8904-036589583ba9",
+      "blob:http://127.0.0.1:6802/2a1d101d-3bd8-4b63-9bbf-62ff9079208a",
+      "blob:http://127.0.0.1:6802/3be7dd7c-8240-4913-87eb-f55e7b36df2c",
+      "blob:http://127.0.0.1:6802/8829f519-915d-4857-86de-9bfbf494367e",
+      "blob:http://127.0.0.1:6802/6b3d2180-c26d-4272-bb75-302f887699fc",
+      "blob:http://127.0.0.1:6802/48c27188-9a67-4c28-9c72-9f82ed018fc8",
+      "blob:http://127.0.0.1:6802/5782c40f-f522-4e07-88d5-2e0e7f2107eb",
+      "blob:http://127.0.0.1:6802/ad0b5bc7-4194-462a-adf7-5af857d65531",
+      "blob:http://127.0.0.1:6802/4e7a4139-33cc-455b-bdd6-75a82b0a38b1",
+      "blob:http://127.0.0.1:6802/35ee7af4-c8f4-49e3-8d4e-3264b6805227",
+      "blob:http://127.0.0.1:6802/5dda3f57-c11f-4120-8aa9-0424cd7fde5b",
+      "blob:http://127.0.0.1:6802/02ce9c11-c0b5-45f7-b52f-699961928b89",
+      "blob:http://127.0.0.1:6802/d3eb8537-e01f-40bb-9f5b-dfd47c958319",
+      "blob:http://127.0.0.1:6802/50c02144-f5fe-48d1-9b9a-fad1949c75d7",
+      "blob:http://127.0.0.1:6802/abc173af-8609-4ac6-8d61-ac40c256ae8c",
+      "blob:http://127.0.0.1:6802/8a994a72-6315-4500-a2a6-80cf918cd5b7",
+      "blob:http://127.0.0.1:6802/1ac49490-49ef-4b31-b492-65612995895e",
+      "blob:http://127.0.0.1:6802/3155e219-e958-42e3-b245-6f3527f23ab8",
+      "blob:http://127.0.0.1:6802/7f4155df-16fd-4338-bfaa-b7c6908b63bc",
+      "blob:http://127.0.0.1:6802/f1930a18-4f29-4926-9f82-0627cb7b97ba",
+      "blob:http://127.0.0.1:6802/bdac4964-cae6-4cfc-84bc-3440c0708b5a",
+      "blob:http://127.0.0.1:6802/12be4cec-5c93-449e-b6b5-2ab2ea94d2c6",
+      "blob:http://127.0.0.1:6802/91764b68-7737-49c8-a96a-e790cf1b4672",
+      "blob:http://127.0.0.1:6802/e4736675-7fbb-4ec5-9eab-956af5614fec",
+      "blob:http://127.0.0.1:6802/5f05e02e-8cc0-49fc-acf1-feb6091f13b8",
+      "blob:http://127.0.0.1:6802/022ef829-8e7a-4036-b6c2-50bd1ec8f9fc",
+      "blob:http://127.0.0.1:6802/b844ccdf-f1db-41e9-ae50-1649fd7c83e5",
+      "blob:http://127.0.0.1:6802/e65d324e-9258-4d67-b04f-289199b7db4b",
+      "blob:http://127.0.0.1:6802/8bbf2471-ea08-4139-97f6-176d8f037596",
+      "blob:http://127.0.0.1:6802/dd596f10-337a-46fd-93b5-cb240884647e"
+    ]
+  }
+}

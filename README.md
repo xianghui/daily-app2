@@ -896,3 +896,10 @@ Local MiniLM inference reconciles rough process readings before mandatory sequen
 Local real MiniLM service reconciliation plus mandatory window/count review supports request-weighted SLO error budgets and a window-average baseline. Both synthetic fixtures matched 12/12 links; negation still mislinked and requires human correction. Complete JSON/CSV/Markdown preserves held reports; gaps mark partial coverage. Offline fresh-worker inference tested only in an already-open warmed page. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261114-15/README.md) and [observed validation](20261114-15/VALIDATION.md).
 
 Budget Beacon public release verified on the first combined deployment: matching Pages commit built, public assets byte-matched, real-AI workflow and offline fresh-worker checks passed, and all 663 prior gallery entries preserved.
+
+
+## Alert Orchard — 20261114-16
+
+Real local MiniLM rule inference assists mandatory detector-tally review. Precision/recall and explicit base-rate workload scenarios expose false-alert burden beyond accuracy and an all-negative baseline. Both synthetic batches matched 16/16 links; 2,000 independent arithmetic cases, maximum-batch conservation, reviewed artifact round-trips and warmed-page offline fresh-worker inference passed. No verified labels or forecast guarantees. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow/privacy](20261114-16/README.md) and [observed validation](20261114-16/VALIDATION.md).
+
+Alert Orchard public release: matching Pages gh-pages `b8885aa67264994c1b26771ca6c1c3f31794c9f7` built on the first deployment; byte-matched public assets, both real-AI fixtures, all eight workflow groups, reviewed artifact round-trips, warmed-page offline inference and all 664 prior gallery entries preserved.

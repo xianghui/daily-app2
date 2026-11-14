@@ -1,0 +1,315 @@
+{
+  "version": 1,
+  "originalInput": {
+    "project": "Finance checks",
+    "volume": 10000,
+    "prevalencePpm": 10000,
+    "rules": [
+      {
+        "id": "duplicate",
+        "label": "Repeated invoices",
+        "description": "Detect duplicate invoices submitted twice for the same purchase."
+      },
+      {
+        "id": "late",
+        "label": "Overdue accounts",
+        "description": "Detect unpaid bills past their due date and overdue customer balances."
+      }
+    ],
+    "records": [
+      {
+        "id": "R0-0",
+        "description": "The same supplier bill was submitted for payment a second time.",
+        "actual": true,
+        "alerted": true,
+        "count": 90,
+        "owner": "QA reviewer"
+      },
+      {
+        "id": "R0-1",
+        "description": "The same supplier bill was submitted for payment a second time.",
+        "actual": true,
+        "alerted": false,
+        "count": 10,
+        "owner": "QA reviewer"
+      },
+      {
+        "id": "R0-2",
+        "description": "The same supplier bill was submitted for payment a second time.",
+        "actual": false,
+        "alerted": true,
+        "count": 50,
+        "owner": "QA reviewer"
+      },
+      {
+        "id": "R0-3",
+        "description": "The same supplier bill was submitted for payment a second time.",
+        "actual": false,
+        "alerted": false,
+        "count": 850,
+        "owner": "QA reviewer"
+      },
+      {
+        "id": "R1-0",
+        "description": "Customer bills remained unpaid after the payment deadline.",
+        "actual": true,
+        "alerted": true,
+        "count": 90,
+        "owner": "QA reviewer"
+      },
+      {
+        "id": "R1-1",
+        "description": "Customer bills remained unpaid after the payment deadline.",
+        "actual": true,
+        "alerted": false,
+        "count": 10,
+        "owner": "QA reviewer"
+      },
+      {
+        "id": "R1-2",
+        "description": "Customer bills remained unpaid after the payment deadline.",
+        "actual": false,
+        "alerted": true,
+        "count": 50,
+        "owner": "QA reviewer"
+      },
+      {
+        "id": "R1-3",
+        "description": "Customer bills remained unpaid after the payment deadline.",
+        "actual": false,
+        "alerted": false,
+        "count": 850,
+        "owner": "QA reviewer"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "R0-0",
+      "description": "The same supplier bill was submitted for payment a second time.",
+      "actual": true,
+      "alerted": true,
+      "count": 90,
+      "owner": "=Owner\n\"second\", line",
+      "kind": "duplicate",
+      "proposed": "duplicate",
+      "evidence": [
+        {
+          "id": "duplicate",
+          "score": 0.5611225910280824
+        },
+        {
+          "id": "late",
+          "score": 0.2799271479642222
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", investigate"
+    },
+    {
+      "id": "R0-1",
+      "description": "The same supplier bill was submitted for payment a second time.",
+      "actual": true,
+      "alerted": false,
+      "count": 10,
+      "owner": "QA reviewer",
+      "kind": "duplicate",
+      "proposed": "duplicate",
+      "evidence": [
+        {
+          "id": "duplicate",
+          "score": 0.5611225910280824
+        },
+        {
+          "id": "late",
+          "score": 0.2799271479642222
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "R0-2",
+      "description": "The same supplier bill was submitted for payment a second time.",
+      "actual": false,
+      "alerted": true,
+      "count": 50,
+      "owner": "QA reviewer",
+      "kind": "duplicate",
+      "proposed": "duplicate",
+      "evidence": [
+        {
+          "id": "duplicate",
+          "score": 0.5545369022829749
+        },
+        {
+          "id": "late",
+          "score": 0.28765731800042127
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "R0-3",
+      "description": "The same supplier bill was submitted for payment a second time.",
+      "actual": false,
+      "alerted": false,
+      "count": 850,
+      "owner": "QA reviewer",
+      "kind": "duplicate",
+      "proposed": "duplicate",
+      "evidence": [
+        {
+          "id": "duplicate",
+          "score": 0.5545369022829749
+        },
+        {
+          "id": "late",
+          "score": 0.28765731800042127
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "R1-0",
+      "description": "Customer bills remained unpaid after the payment deadline.",
+      "actual": true,
+      "alerted": true,
+      "count": 90,
+      "owner": "QA reviewer",
+      "kind": "late",
+      "proposed": "late",
+      "evidence": [
+        {
+          "id": "late",
+          "score": 0.6089885569819861
+        },
+        {
+          "id": "duplicate",
+          "score": 0.1726394867821888
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "R1-1",
+      "description": "Customer bills remained unpaid after the payment deadline.",
+      "actual": true,
+      "alerted": false,
+      "count": 10,
+      "owner": "QA reviewer",
+      "kind": "late",
+      "proposed": "late",
+      "evidence": [
+        {
+          "id": "late",
+          "score": 0.6089885569819861
+        },
+        {
+          "id": "duplicate",
+          "score": 0.1726394867821888
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "R1-2",
+      "description": "Customer bills remained unpaid after the payment deadline.",
+      "actual": false,
+      "alerted": true,
+      "count": 50,
+      "owner": "QA reviewer",
+      "kind": "late",
+      "proposed": "late",
+      "evidence": [
+        {
+          "id": "late",
+          "score": 0.6145583468362543
+        },
+        {
+          "id": "duplicate",
+          "score": 0.19879645418549527
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "R1-3",
+      "description": "Customer bills remained unpaid after the payment deadline.",
+      "actual": false,
+      "alerted": false,
+      "count": 850,
+      "owner": "QA reviewer",
+      "kind": "late",
+      "proposed": "late",
+      "evidence": [
+        {
+          "id": "late",
+          "score": 0.6145583468362543
+        },
+        {
+          "id": "duplicate",
+          "score": 0.19879645418549527
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 8,
+  "approved": 8,
+  "held": 0,
+  "partial": false,
+  "rules": [
+    {
+      "id": "duplicate",
+      "label": "Repeated invoices",
+      "description": "Detect duplicate invoices submitted twice for the same purchase.",
+      "tp": 90,
+      "fp": 50,
+      "tn": 850,
+      "fn": 10,
+      "total": 1000,
+      "accuracy": 0.94,
+      "precision": 0.6428571428571429,
+      "recall": 0.9,
+      "falsePositiveRate": 0.05555555555555555,
+      "allNegativeAccuracy": 0.9,
+      "projected": {
+        "trueAlerts": 90,
+        "falseAlerts": 550,
+        "missed": 9.999999999999998,
+        "alerts": 640,
+        "precision": 0.140625
+      }
+    },
+    {
+      "id": "late",
+      "label": "Overdue accounts",
+      "description": "Detect unpaid bills past their due date and overdue customer balances.",
+      "tp": 90,
+      "fp": 50,
+      "tn": 850,
+      "fn": 10,
+      "total": 1000,
+      "accuracy": 0.94,
+      "precision": 0.6428571428571429,
+      "recall": 0.9,
+      "falsePositiveRate": 0.05555555555555555,
+      "allNegativeAccuracy": 0.9,
+      "projected": {
+        "trueAlerts": 90,
+        "falseAlerts": 550,
+        "missed": 9.999999999999998,
+        "alerts": 640,
+        "precision": 0.140625
+      }
+    }
+  ],
+  "literalLabelMatches": 0
+}

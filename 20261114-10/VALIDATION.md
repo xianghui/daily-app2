@@ -1,0 +1,25 @@
+# Observed validation — Tender Prism
+
+## Local and combined production builds
+
+- Per-app `npm run predeploy` passed. Root `npm run predeploy` passed: 659 apps copied/built, zero failures/skips, combined deploy 985,559,605 bytes after existing runtime deduplication. Root `npm run deploy` lifecycle repeated assembly and published combined gh-pages.
+- Real desktop Chrome browser testing uses built assets, actual module workers, actual Transformers.js MiniLM q8 on WASM CPU, GPU disabled. No mocked successful inference.
+- Two known-answer synthetic fixtures: laptop purchase `[battery,cost,mass,battery,cost,mass]` and courier contract `[time,success,fee,time,success,fee]`. All 12 expected criterion links matched. Laptop weighted points North 62.5 / South 52.5; courier River 58.6666666667 / Hill 55.3333333333. Independent Python oracle checks weighted points, equal-weight baseline and every renormalized omit-one sensitivity score. Scores are priorities, not model accuracy or confidence.
+- Core checks: finite normalized 384-d vector schema, anchors/directions/clamping, exact ties, duplicate approved pairs, incomplete evidence blocking, all-row conservation. Missing evidence yields NO ranking. Duplicate approved pair produces an error, not a silently averaged value.
+- Browser checks: mandatory reviews; multiline owner/notes; measurement edits and stale-export invalidation; proposal rejection by remapping; holds; undo; clipboard; audit original reimport/reset; 32-row batching and audit roundtrip; cancel/retry and input changes during inference. Source identity/order preserved.
+- Empty/null/malformed/oversized JSON, absent rows, duplicate IDs, invalid weights/ranges/numbers and unsupported file formats rejected without fake results. Defensive fault-injection tests cover model network failure and real retry, worker download failure, unavailable module workers, malformed vector results and envelopes, timeout and worker crash. These tests use injection only for failure paths; successful paths use real AI.
+- Unrelated instruction-like text still receives a nearest suggestion but remains pending; holding it exports an incomplete audit without ranking. MiniLM does not establish truth, eligibility, unit compatibility or relevance. This is a known nearest-neighbor limitation, not an adversarial safety classifier.
+- Warming the actual production bundle, terminating worker, switching entire browser context offline, and running a fresh worker succeeds. This was repeated from the assembled combined site. Offline reload/navigation is NOT claimed/tested.
+- Network capture from startup through all flows: only GET requests, no request bodies, only local/site static files and documented Hugging Face/CDN model files; no model download before explicit invocation. No user-content submission path exists. Built HTML/JS/CSS/MJS scanned for common credential patterns: zero hits. Inspection confirms no provider credentials or remote inference integration.
+- CPU runtime factory matches installed ONNX file. Shared immutable WASM hash and production worker paths validated. Worker/runtime cache names are app-specific.
+- Browser downloads independently parsed using Python csv/json: both fixture CSVs and maximum 32-row audit retain every source row; reviewed numeric edits, multiline quoted/comma fields and formula-safe text survive. Markdown reopens and preserves serialized multiline notes. JSON retains all original inputs and full review/evidence layer.
+- Desktop 1440 and narrow 390/320 CSS-pixel views: no horizontal overflow, all form controls labeled, focus usable, buttons ≥44 px. Screenshots captured and overview/review/results inspected. Physical phones, other browser engines and assistive technology are untested.
+- Root inline script compiled with Node `new Function`; 658 prior entries preserved unchanged, one new ai-utility entry first; all 659 cards render, legacy categories/search preserved. Existing AI Utilities ordering/tagline already meets current focus.
+
+Scripts and detailed observed reports live alongside this file: browser-test.cjs, defensive-test.cjs, core-test.mjs, artifact-test.py, oracle-test.py, asset-test.py, gallery-test.cjs, gallery-ui-test.cjs and their JSON/log artifacts. Network/unsupported/malformed tests are intentionally separate from normal inference.
+
+## Public verification
+
+See publication-status.json and public-browser-validation.json / public-asset-validation.json for final published commit and live inference/asset observations.
+
+GitHub Pages commit `4ea84351a6ed9f25658ab715a08ac8f3ef61d2e1` reached built; workflow 43538587505 succeeded. Full public browser suite passed, including both actual CPU inference fixtures (12/12 expected links), reviewed downloads and offline fresh-worker inference. Every public app asset, module worker, runtime factory and shared WASM byte-matched local production files; complete public gallery byte-matched source. Public gallery search/category/mobile checks passed. No rebuild fallback or deployment retry was needed. Prior unrelated worktree edits/untracked drafts were preserved and excluded from this run’s source commit.

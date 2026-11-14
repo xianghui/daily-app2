@@ -1,0 +1,37 @@
+# Tender Prism — Synthetic courier comparison
+
+6 records retained; 0 held. Complete scorecard.
+
+## Weighted points / 100
+- River: 58.667
+- Hill: 55.333
+
+## Equal-weight baseline
+- River: 62.222
+- Hill: 61.111
+
+## Omit-one-criterion sensitivity (renormalized supplied weights)
+- Without fee: River 71.111, Hill 52.222
+- Without time: Hill 70.000, River 53.333
+- Without success: River 53.333, Hill 46.667
+
+## Supplied criteria
+{"id":"fee","label":"Shipment fee","description":"Money charged for shipping and delivery of one parcel.","unit":"currency","low":0,"high":20,"direction":"lower","weight":40}
+{"id":"time","label":"Transit duration","description":"Elapsed hours taken for a parcel to reach its destination.","unit":"hours","low":0,"high":72,"direction":"lower","weight":40}
+{"id":"success","label":"Intact deliveries","description":"Percentage of parcels delivered without damage.","unit":"percent","low":90,"high":100,"direction":"higher","weight":20}
+
+## Complete reviewed register
+- Original: {"id":"D1","vendor":"River","description":"A parcel reaches the destination in twenty four hours.","value":24,"owner":"Procurement reviewer"}
+  Reviewed: {"id":"D1","vendor":"River","description":"A parcel reaches the destination in twenty four hours.","value":24,"owner":"=Owner\n\"second\", line","kind":"time","proposed":"time","evidence":[{"id":"time","score":0.7757910792651231},{"id":"fee","score":0.4056786574770288},{"id":"success","score":0.34789790720375785}],"decision":"approve","reviewNote":"=SUM(1,2)\n\"quoted\", verify evidence"}
+- Original: {"id":"D2","vendor":"Hill","description":"Parcels arrive without damage in 99 percent of deliveries.","value":99,"owner":"Procurement reviewer"}
+  Reviewed: {"id":"D2","vendor":"Hill","description":"Parcels arrive without damage in 99 percent of deliveries.","value":99,"owner":"Procurement reviewer","kind":"success","proposed":"success","evidence":[{"id":"success","score":0.8647104283159971},{"id":"fee","score":0.4451939682113441},{"id":"time","score":0.34613681868668494}],"decision":"approve","reviewNote":""}
+- Original: {"id":"D3","vendor":"River","description":"Shipping charge per package.","value":12,"owner":"Procurement reviewer"}
+  Reviewed: {"id":"D3","vendor":"River","description":"Shipping charge per package.","value":12,"owner":"Procurement reviewer","kind":"fee","proposed":"fee","evidence":[{"id":"fee","score":0.7941940541538992},{"id":"success","score":0.460513642985349},{"id":"time","score":0.31547143324209165}],"decision":"approve","reviewNote":""}
+- Original: {"id":"D4","vendor":"Hill","description":"Elapsed journey from collection to arrival.","value":48,"owner":"Procurement reviewer"}
+  Reviewed: {"id":"D4","vendor":"Hill","description":"Elapsed journey from collection to arrival.","value":48,"owner":"Procurement reviewer","kind":"time","proposed":"time","evidence":[{"id":"time","score":0.5217573759472757},{"id":"fee","score":0.3189856054568973},{"id":"success","score":0.19707638389119206}],"decision":"approve","reviewNote":""}
+- Original: {"id":"D5","vendor":"River","description":"Packages reach customers undamaged 98 percent of the time.","value":98,"owner":"Procurement reviewer"}
+  Reviewed: {"id":"D5","vendor":"River","description":"Packages reach customers undamaged 98 percent of the time.","value":98,"owner":"Procurement reviewer","kind":"success","proposed":"success","evidence":[{"id":"success","score":0.5555838700420934},{"id":"fee","score":0.34795478650048395},{"id":"time","score":0.28199899845110765}],"decision":"approve","reviewNote":""}
+- Original: {"id":"D6","vendor":"Hill","description":"Shipping charge per package.","value":8,"owner":"Procurement reviewer"}
+  Reviewed: {"id":"D6","vendor":"Hill","description":"Shipping charge per package.","value":8,"owner":"Procurement reviewer","kind":"fee","proposed":"fee","evidence":[{"id":"fee","score":0.794174354243414},{"id":"success","score":0.44952846711362165},{"id":"time","score":0.31393548395949245}],"decision":"approve","reviewNote":""}
+
+AI retrieves criterion meaning, not facts, eligibility or confidence. Weighted additive scores assume compensable independent criteria. Verify evidence and units. No award or external action.

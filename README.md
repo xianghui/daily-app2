@@ -860,3 +860,7 @@ Contingency Lens public release: matching Pages gh-pages `86efbfac06b7c90700e6eb
 Real local MiniLM reconciles material consumption notes before mandatory unit/allowance/cost review. Exact-cent price, usage and activity-volume bridges expose offsets beyond a net-budget baseline. Both synthetic batches matched 8/8 links; 2,000 independent Fraction cases and reviewed artifact conservation passed. No unit conversion, cause inference or ledger posting. Offline fresh-worker inference is limited to an already-open warmed page. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261114-9/README.md) and [observed validation](20261114-9/VALIDATION.md).
 
 Variance Loom public release: matching Pages gh-pages `a4d348bc27f2398f7a71bec8a79fdb4d9b9b7dc4`, byte-matched public assets, both real-AI fixtures, all nine reviewed workflow groups, artifact round-trips, warmed-page offline inference and preserved 658-entry gallery passed on the first deployment.
+
+## Tender Prism — 20261114-10
+
+Local MiniLM criterion inference reconciles vendor evidence into reviewed weighted scorecards. Fixed performance anchors, complete-pair guards, equal-weight baseline and omit-one sensitivity make priorities explicit. Six expected links in each of two synthetic workflows matched; nearest-neighbor retrieval still requires human review. See [workflow](20261114-10/README.md) and [validation](20261114-10/VALIDATION.md). Preserves the shared immutable WASM at `20261107-2`.

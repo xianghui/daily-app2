@@ -1,0 +1,232 @@
+{
+  "app": "Circuit Cove",
+  "originalInput": {
+    "rules": [
+      {
+        "id": "library",
+        "label": "Library enquiry lines",
+        "description": "Public library books borrowing membership reading catalogue phone enquiries",
+        "channels": 2,
+        "maxChannels": 30,
+        "target": 0.05
+      },
+      {
+        "id": "sports",
+        "label": "Sports centre lines",
+        "description": "Sports recreation swimming pool gym exercise court bookings telephone enquiries",
+        "channels": 2,
+        "maxChannels": 30,
+        "target": 0.05
+      },
+      {
+        "id": "waste",
+        "label": "Waste collection lines",
+        "description": "Waste rubbish recycling bins garbage collection telephone service enquiries",
+        "channels": 2,
+        "maxChannels": 30,
+        "target": 0.05
+      }
+    ],
+    "records": [
+      {
+        "id": "C1",
+        "description": "Readers calling about borrowing books and renewing memberships",
+        "arrivals": 36,
+        "minutes": 4,
+        "owner": "Library operations"
+      },
+      {
+        "id": "C2",
+        "description": "Parents phoning about swimming classes and gym access",
+        "arrivals": 24,
+        "minutes": 5,
+        "owner": "Recreation desk"
+      },
+      {
+        "id": "C3",
+        "description": "Residents calling about missed rubbish pickups and recycling bins",
+        "arrivals": 18,
+        "minutes": 3,
+        "owner": "Collection desk"
+      },
+      {
+        "id": "C4",
+        "description": "Book catalogue and library card questions over the telephone",
+        "arrivals": 12,
+        "minutes": 3,
+        "owner": "Library operations"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "C1",
+      "description": "Readers calling about borrowing books and renewing memberships",
+      "arrivals": 36,
+      "minutes": 4,
+      "owner": "Library operations",
+      "procedure": "library",
+      "proposed": "library",
+      "evidence": [
+        {
+          "id": "library",
+          "score": 0.7215787368065373
+        },
+        {
+          "id": "sports",
+          "score": 0.1254835639502195
+        },
+        {
+          "id": "waste",
+          "score": 0.11355496899399367
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "C2",
+      "description": "Parents phoning about swimming classes and gym access",
+      "arrivals": 24,
+      "minutes": 5,
+      "owner": "Recreation desk",
+      "procedure": "sports",
+      "proposed": "sports",
+      "evidence": [
+        {
+          "id": "sports",
+          "score": 0.5002504124654901
+        },
+        {
+          "id": "library",
+          "score": 0.2374865351566525
+        },
+        {
+          "id": "waste",
+          "score": 0.058116392903056716
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "C3",
+      "description": "Residents calling about missed rubbish pickups and recycling bins",
+      "arrivals": 18,
+      "minutes": 3,
+      "owner": "Collection desk",
+      "procedure": "waste",
+      "proposed": "waste",
+      "evidence": [
+        {
+          "id": "waste",
+          "score": 0.7458482407280117
+        },
+        {
+          "id": "library",
+          "score": 0.23530097171466405
+        },
+        {
+          "id": "sports",
+          "score": 0.10603281035997633
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "C4",
+      "description": "Book catalogue and library card questions over the telephone",
+      "arrivals": 12,
+      "minutes": 3,
+      "owner": "Library operations",
+      "procedure": "library",
+      "proposed": "library",
+      "evidence": [
+        {
+          "id": "library",
+          "score": 0.7163834065695367
+        },
+        {
+          "id": "waste",
+          "score": 0.3372498805458294
+        },
+        {
+          "id": "sports",
+          "score": 0.2068107563960893
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "calculations": [
+    {
+      "pool": "library",
+      "records": [
+        "C1",
+        "C4"
+      ],
+      "arrivals": 48,
+      "load": 3,
+      "currentChannels": 2,
+      "currentBlocking": 0.5294117647058824,
+      "currentLostPerHour": 25.411764705882355,
+      "target": 0.05,
+      "maxChannels": 30,
+      "baselineChannels": 4,
+      "baselineBlocking": 0.20610687022900764,
+      "baselineMeets": false,
+      "bestChannels": 7,
+      "bestBlocking": 0.021864315278027714,
+      "bestLostPerHour": 1.0494871333453304,
+      "previousBlocking": 0.05215711526078558,
+      "complete": true
+    },
+    {
+      "pool": "sports",
+      "records": [
+        "C2"
+      ],
+      "arrivals": 24,
+      "load": 2,
+      "currentChannels": 2,
+      "currentBlocking": 0.4,
+      "currentLostPerHour": 9.600000000000001,
+      "target": 0.05,
+      "maxChannels": 30,
+      "baselineChannels": 3,
+      "baselineBlocking": 0.2105263157894737,
+      "baselineMeets": false,
+      "bestChannels": 5,
+      "bestBlocking": 0.03669724770642201,
+      "bestLostPerHour": 0.8807339449541283,
+      "previousBlocking": 0.09523809523809523,
+      "complete": true
+    },
+    {
+      "pool": "waste",
+      "records": [
+        "C3"
+      ],
+      "arrivals": 18,
+      "load": 0.9,
+      "currentChannels": 2,
+      "currentBlocking": 0.17570498915401303,
+      "currentLostPerHour": 3.1626898047722345,
+      "target": 0.05,
+      "maxChannels": 30,
+      "baselineChannels": 2,
+      "baselineBlocking": 0.17570498915401303,
+      "baselineMeets": false,
+      "bestChannels": 4,
+      "bestBlocking": 0.011140713270540531,
+      "bestLostPerHour": 0.20053283886972956,
+      "previousBlocking": 0.0500721203379353,
+      "complete": true
+    }
+  ]
+}

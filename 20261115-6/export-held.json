@@ -1,0 +1,231 @@
+{
+  "app": "Circuit Cove",
+  "originalInput": {
+    "rules": [
+      {
+        "id": "charge",
+        "label": "Battery charging bays",
+        "description": "Electric vehicle battery charging electricity car recharge station bay",
+        "channels": 3,
+        "maxChannels": 40,
+        "target": 0.02
+      },
+      {
+        "id": "wash",
+        "label": "Vehicle washing bays",
+        "description": "Vehicle car washing cleaning exterior water shampoo wash bay",
+        "channels": 2,
+        "maxChannels": 40,
+        "target": 0.1
+      },
+      {
+        "id": "inflate",
+        "label": "Tyre inflation stations",
+        "description": "Tyre tire air pressure inflation pump wheel service station",
+        "channels": 1,
+        "maxChannels": 40,
+        "target": 0.05
+      }
+    ],
+    "records": [
+      {
+        "id": "W1",
+        "description": "Drivers arriving to recharge electric car batteries",
+        "arrivals": 6,
+        "minutes": 25,
+        "owner": "Energy operations"
+      },
+      {
+        "id": "W2",
+        "description": "Motorists requesting an exterior shampoo and rinse",
+        "arrivals": 10,
+        "minutes": 10,
+        "owner": "Wash operations"
+      },
+      {
+        "id": "W3",
+        "description": "Vehicles stopping to top up air in their tires",
+        "arrivals": 12,
+        "minutes": 3,
+        "owner": "Forecourt"
+      },
+      {
+        "id": "W4",
+        "description": "Electric vans stopping for battery recharging",
+        "arrivals": 2,
+        "minutes": 30,
+        "owner": "Energy operations"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "W1",
+      "description": "Drivers arriving to recharge electric car batteries",
+      "arrivals": 6,
+      "minutes": 25,
+      "owner": "=Owner\nline, \"two\"",
+      "procedure": "charge",
+      "proposed": "charge",
+      "evidence": [
+        {
+          "id": "charge",
+          "score": 0.5323434205995894
+        },
+        {
+          "id": "inflate",
+          "score": 0.030376101531575557
+        },
+        {
+          "id": "wash",
+          "score": -0.02320165008756939
+        }
+      ],
+      "decision": "hold",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", recheck"
+    },
+    {
+      "id": "W2",
+      "description": "Motorists requesting an exterior shampoo and rinse",
+      "arrivals": 10,
+      "minutes": 10,
+      "owner": "Wash operations",
+      "procedure": "wash",
+      "proposed": "wash",
+      "evidence": [
+        {
+          "id": "wash",
+          "score": 0.6465282312719082
+        },
+        {
+          "id": "charge",
+          "score": -0.00038341915714920193
+        },
+        {
+          "id": "inflate",
+          "score": -0.014179993945821775
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "W3",
+      "description": "Vehicles stopping to top up air in their tires",
+      "arrivals": 12,
+      "minutes": 3,
+      "owner": "Forecourt",
+      "procedure": "inflate",
+      "proposed": "inflate",
+      "evidence": [
+        {
+          "id": "inflate",
+          "score": 0.3943110150720401
+        },
+        {
+          "id": "wash",
+          "score": 0.14464799391722305
+        },
+        {
+          "id": "charge",
+          "score": 0.03884039376575967
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "W4",
+      "description": "Electric vans stopping for battery recharging",
+      "arrivals": 2,
+      "minutes": 30,
+      "owner": "Energy operations",
+      "procedure": "charge",
+      "proposed": "charge",
+      "evidence": [
+        {
+          "id": "charge",
+          "score": 0.43028159157949897
+        },
+        {
+          "id": "inflate",
+          "score": 0.1297129756926515
+        },
+        {
+          "id": "wash",
+          "score": 0.003217163949356506
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 3,
+  "held": 1,
+  "calculations": [
+    {
+      "pool": "charge",
+      "records": [
+        "W4"
+      ],
+      "arrivals": 2,
+      "load": 1,
+      "currentChannels": 3,
+      "currentBlocking": 0.0625,
+      "currentLostPerHour": 0.125,
+      "target": 0.02,
+      "maxChannels": 40,
+      "baselineChannels": 2,
+      "baselineBlocking": 0.2,
+      "baselineMeets": false,
+      "bestChannels": 4,
+      "bestBlocking": 0.015384615384615385,
+      "bestLostPerHour": 0.03076923076923077,
+      "previousBlocking": 0.0625,
+      "complete": false
+    },
+    {
+      "pool": "wash",
+      "records": [
+        "W2"
+      ],
+      "arrivals": 10,
+      "load": 1.6666666666666667,
+      "currentChannels": 2,
+      "currentBlocking": 0.3424657534246575,
+      "currentLostPerHour": 3.4246575342465753,
+      "target": 0.1,
+      "maxChannels": 40,
+      "baselineChannels": 3,
+      "baselineBlocking": 0.159846547314578,
+      "baselineMeets": false,
+      "bestChannels": 4,
+      "bestBlocking": 0.06244380057947847,
+      "bestLostPerHour": 0.6244380057947847,
+      "previousBlocking": 0.159846547314578,
+      "complete": true
+    },
+    {
+      "pool": "inflate",
+      "records": [
+        "W3"
+      ],
+      "arrivals": 12,
+      "load": 0.6,
+      "currentChannels": 1,
+      "currentBlocking": 0.37499999999999994,
+      "currentLostPerHour": 4.499999999999999,
+      "target": 0.05,
+      "maxChannels": 40,
+      "baselineChannels": 1,
+      "baselineBlocking": 0.37499999999999994,
+      "baselineMeets": false,
+      "bestChannels": 3,
+      "bestBlocking": 0.019823788546255498,
+      "bestLostPerHour": 0.23788546255506599,
+      "previousBlocking": 0.10112359550561795,
+      "complete": true
+    }
+  ]
+}

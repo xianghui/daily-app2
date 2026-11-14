@@ -878,3 +878,10 @@ Forecast Folio public release: matching Pages gh-pages `d194029d2db3892572acbe02
 Real local MiniLM resource inference assists mandatory shared-usage/team/unit review. Exact factorial-weighted Shapley tier-cost allocations compare equal splits and stand-alone costs, flag non-subadditive pooling and retain every held note in complete JSON/CSV/Markdown. Both tiny fixtures matched 12/12 links; 1,000 independent permutation/Fraction cases and actual maximum 6-team/6-pool/32-record inference passed. Offline fresh-worker inference is limited to an already-open warmed page. Not an invoice or fairness guarantee. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow](20261114-12/README.md) and [observed validation](20261114-12/VALIDATION.md).
 
 Capacity Commons public release: matching Pages gh-pages `6a6e40f747cbb7fec41819dca5162e807837ec1c`, byte-matched public assets, both real-AI fixtures, all eight public workflow groups, reviewed artifact round-trips, warmed-page offline inference and preserved 661-card working-tree gallery passed on the first deployment.
+
+
+## Agreement Grove — 20261114-13
+
+Real local MiniLM feature inference supports reviewed paired-method comparisons. Verify sample independence, same-unit readings and tolerance before inspecting bias ±1.96 sample SD against an average-bias-only baseline. Both tiny fixtures matched 12/12 notes; 1,500 independent arithmetic cases, maximum 6-feature/32-pair inference, complete reviewed artifacts and warmed-page offline fresh-worker inference passed. No calibration, clinical interpretation or certification. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow](20261114-13/README.md) and [observed validation](20261114-13/VALIDATION.md).
+
+Agreement Grove public release: matching Pages gh-pages `029db140da4295ea64c9ea466ba684b86842bb48` built successfully after one documented status-reconciliation rebuild. Byte-matched public app/worker/runtime, both real-AI fixtures, all eight workflow groups, reviewed artifact round-trips, warmed-page offline inference and preserved 662-card gallery passed.

@@ -1,0 +1,267 @@
+{
+  "version": 1,
+  "originalInput": {
+    "project": "Synthetic room process readings",
+    "features": [
+      {
+        "id": "temperature",
+        "label": "Room temperature",
+        "description": "Air temperature in a room measured with a thermometer.",
+        "unit": "°C",
+        "tolerance": 3,
+        "center": 20
+      },
+      {
+        "id": "humidity",
+        "label": "Relative humidity",
+        "description": "Relative moisture content of indoor air from a humidity sensor.",
+        "unit": "% RH",
+        "tolerance": 10,
+        "center": 50
+      }
+    ],
+    "records": [
+      {
+        "id": "R1",
+        "sample": "D",
+        "description": "Air warmth measured by the room thermometer.",
+        "a": 1,
+        "b": 20,
+        "owner": "Measurement reviewer"
+      },
+      {
+        "id": "R2",
+        "sample": "D",
+        "description": "Moisture percentage in the indoor air.",
+        "a": 1,
+        "b": 49,
+        "owner": "Measurement reviewer"
+      },
+      {
+        "id": "R3",
+        "sample": "E",
+        "description": "Thermometer reading for ambient air heat.",
+        "a": 2,
+        "b": 20.2,
+        "owner": "Measurement reviewer"
+      },
+      {
+        "id": "R4",
+        "sample": "E",
+        "description": "Relative dampness measured by the humidity probe.",
+        "a": 2,
+        "b": 51,
+        "owner": "Measurement reviewer"
+      },
+      {
+        "id": "R5",
+        "sample": "F",
+        "description": "Ambient air temperature in the office.",
+        "a": 3,
+        "b": 24,
+        "owner": "Measurement reviewer"
+      },
+      {
+        "id": "R6",
+        "sample": "F",
+        "description": "Water vapor saturation percentage indoors.",
+        "a": 3,
+        "b": 50,
+        "owner": "Measurement reviewer"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "R1",
+      "sample": "D",
+      "description": "Air warmth measured by the room thermometer.",
+      "a": 1,
+      "b": 20,
+      "owner": "=Owner\n\"second\", line",
+      "kind": "temperature",
+      "proposed": "temperature",
+      "evidence": [
+        {
+          "id": "temperature",
+          "score": 0.8974088804993378
+        },
+        {
+          "id": "humidity",
+          "score": 0.49454898709320877
+        }
+      ],
+      "decision": "hold",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", verify units"
+    },
+    {
+      "id": "R2",
+      "sample": "D",
+      "description": "Moisture percentage in the indoor air.",
+      "a": 1,
+      "b": 49,
+      "owner": "Measurement reviewer",
+      "kind": "humidity",
+      "proposed": "humidity",
+      "evidence": [
+        {
+          "id": "humidity",
+          "score": 0.8499973124777676
+        },
+        {
+          "id": "temperature",
+          "score": 0.4434567739754275
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "R3",
+      "sample": "E",
+      "description": "Thermometer reading for ambient air heat.",
+      "a": 2,
+      "b": 20.2,
+      "owner": "Measurement reviewer",
+      "kind": "temperature",
+      "proposed": "temperature",
+      "evidence": [
+        {
+          "id": "temperature",
+          "score": 0.8136021837590812
+        },
+        {
+          "id": "humidity",
+          "score": 0.4957396647666747
+        }
+      ],
+      "decision": "hold",
+      "reviewNote": ""
+    },
+    {
+      "id": "R4",
+      "sample": "E",
+      "description": "Relative dampness measured by the humidity probe.",
+      "a": 2,
+      "b": 51,
+      "owner": "Measurement reviewer",
+      "kind": "humidity",
+      "proposed": "humidity",
+      "evidence": [
+        {
+          "id": "humidity",
+          "score": 0.6700616469414356
+        },
+        {
+          "id": "temperature",
+          "score": 0.37090087536590466
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "R5",
+      "sample": "F",
+      "description": "Ambient air temperature in the office.",
+      "a": 3,
+      "b": 24,
+      "owner": "Measurement reviewer",
+      "kind": "temperature",
+      "proposed": "temperature",
+      "evidence": [
+        {
+          "id": "temperature",
+          "score": 0.6139257215962808
+        },
+        {
+          "id": "humidity",
+          "score": 0.45801517451504214
+        }
+      ],
+      "decision": "hold",
+      "reviewNote": ""
+    },
+    {
+      "id": "R6",
+      "sample": "F",
+      "description": "Water vapor saturation percentage indoors.",
+      "a": 3,
+      "b": 50,
+      "owner": "Measurement reviewer",
+      "kind": "humidity",
+      "proposed": "humidity",
+      "evidence": [
+        {
+          "id": "humidity",
+          "score": 0.6353777371753889
+        },
+        {
+          "id": "temperature",
+          "score": 0.3658964796682343
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 6,
+  "approved": 3,
+  "held": 3,
+  "partial": true,
+  "features": [
+    {
+      "id": "temperature",
+      "label": "Room temperature",
+      "description": "Air temperature in a room measured with a thermometer.",
+      "unit": "°C",
+      "tolerance": 3,
+      "center": 20,
+      "n": 0,
+      "points": []
+    },
+    {
+      "id": "humidity",
+      "label": "Relative humidity",
+      "description": "Relative moisture content of indoor air from a humidity sensor.",
+      "unit": "% RH",
+      "tolerance": 10,
+      "center": 50,
+      "n": 3,
+      "bias": 50,
+      "sd": 1.5,
+      "lower": 46.01,
+      "upper": 53.99,
+      "rangeUpper": 4.9005,
+      "biasOnlyWithin": true,
+      "envelopeWithin": true,
+      "observedWithin": 3,
+      "individualSignals": [],
+      "rangeSignals": [],
+      "points": [
+        {
+          "id": "R2",
+          "sample": "D",
+          "mean": 1,
+          "difference": 49,
+          "movingRange": null
+        },
+        {
+          "id": "R4",
+          "sample": "E",
+          "mean": 2,
+          "difference": 51,
+          "movingRange": 2
+        },
+        {
+          "id": "R6",
+          "sample": "F",
+          "mean": 3,
+          "difference": 50,
+          "movingRange": 1
+        }
+      ]
+    }
+  ],
+  "literalLabelMatches": 0
+}

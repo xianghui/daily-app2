@@ -853,3 +853,10 @@ Tax Weave public release: Pages built matching gh-pages head `00a33cd42d7d2e1fb4
 Real local MiniLM scenario matching assists recurring stock, venue and production decision worksheets. Review supplied likelihood weights, options and signed payoffs; incomplete/duplicate matrices block recommendations. Exact weighted expected value, minimax regret and a perfect-information ceiling expose different choices beyond an optimistic baseline. Both tiny fixtures matched 8/8 scenario links; 1,500 independent rational-arithmetic cases, reviewed artifact conservation and warmed-page fresh-worker offline inference passed locally. No forecasts or real-study valuation. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261114-8/README.md) and [observed validation](20261114-8/VALIDATION.md).
 
 Contingency Lens public release: matching Pages gh-pages `86efbfac06b7c90700e6eb5f35a6bee844242632`, byte-matched public assets, both real-AI fixtures, all nine workflow groups, reviewed artifact round-trips, warmed-page offline fresh-worker inference and preserved 657-entry gallery passed.
+
+
+## Variance Loom — 20261114-9
+
+Real local MiniLM reconciles material consumption notes before mandatory unit/allowance/cost review. Exact-cent price, usage and activity-volume bridges expose offsets beyond a net-budget baseline. Both synthetic batches matched 8/8 links; 2,000 independent Fraction cases and reviewed artifact conservation passed. No unit conversion, cause inference or ledger posting. Offline fresh-worker inference is limited to an already-open warmed page. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261114-9/README.md) and [observed validation](20261114-9/VALIDATION.md).
+
+Variance Loom public release: matching Pages gh-pages `a4d348bc27f2398f7a71bec8a79fdb4d9b9b7dc4`, byte-matched public assets, both real-AI fixtures, all nine reviewed workflow groups, artifact round-trips, warmed-page offline inference and preserved 658-entry gallery passed on the first deployment.

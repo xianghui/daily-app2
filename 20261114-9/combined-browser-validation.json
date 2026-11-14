@@ -1,0 +1,544 @@
+{
+  "checks": [
+    "real CPU inference Print workshop",
+    "real CPU inference Sewing studio",
+    "review multiline edit reject hold undo copy roundtrip",
+    "offline fresh worker real inference warmed page",
+    "invalid empty oversized duplicate unsupported formats",
+    "cancel retry stale input maximum 32-row batch audit roundtrip",
+    "invalid reviewed quantity and allowance sensitivity",
+    "instruction-like unrelated text remains pending data",
+    "desktop phone labels touch focus screenshots"
+  ],
+  "fixtures": [
+    {
+      "name": "Print workshop",
+      "actual": [
+        "paper",
+        "ink",
+        "paper",
+        "ink"
+      ],
+      "expected": [
+        "paper",
+        "ink",
+        "paper",
+        "ink"
+      ],
+      "correct": 4,
+      "computed": {
+        "version": 1,
+        "originalInput": {
+          "project": "Synthetic weekly print materials",
+          "materials": [
+            {
+              "id": "paper",
+              "label": "Paper stock",
+              "description": "Paper sheets and cardstock used to print book pages and covers.",
+              "unit": "sheet",
+              "standardCents": 10
+            },
+            {
+              "id": "ink",
+              "label": "Printer ink",
+              "description": "Printer ink cartridges and toner for laser or inkjet printing.",
+              "unit": "cartridge",
+              "standardCents": 2000
+            }
+          ],
+          "records": [
+            {
+              "id": "W1",
+              "description": "White A4 paper sheets for booklet pages.",
+              "plannedQty": 1000,
+              "allowedQty": 1200,
+              "actualQty": 1300,
+              "actualCostCents": 11700,
+              "owner": "Cost reviewer"
+            },
+            {
+              "id": "W2",
+              "description": "Black toner cartridges for the laser printer.",
+              "plannedQty": 10,
+              "allowedQty": 12,
+              "actualQty": 11,
+              "actualCostCents": 24200,
+              "owner": "Cost reviewer"
+            },
+            {
+              "id": "W3",
+              "description": "Heavy cardstock sheets for printed covers.",
+              "plannedQty": 500,
+              "allowedQty": 400,
+              "actualQty": 380,
+              "actualCostCents": 4560,
+              "owner": "Cost reviewer"
+            },
+            {
+              "id": "W4",
+              "description": "Colour ink cartridges used for printing.",
+              "plannedQty": 5,
+              "allowedQty": 4,
+              "actualQty": 5,
+              "actualCostCents": 9000,
+              "owner": "Cost reviewer"
+            }
+          ]
+        },
+        "reviews": [
+          {
+            "id": "W1",
+            "description": "White A4 paper sheets for booklet pages.",
+            "plannedQty": 1000,
+            "allowedQty": 1200,
+            "actualQty": 1300,
+            "actualCostCents": 11700,
+            "owner": "Cost reviewer",
+            "kind": "paper",
+            "proposed": "paper",
+            "evidence": [
+              {
+                "id": "paper",
+                "score": 0.7138571618298164
+              },
+              {
+                "id": "ink",
+                "score": 0.37580302949840966
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": ""
+          },
+          {
+            "id": "W2",
+            "description": "Black toner cartridges for the laser printer.",
+            "plannedQty": 10,
+            "allowedQty": 12,
+            "actualQty": 11,
+            "actualCostCents": 24200,
+            "owner": "Cost reviewer",
+            "kind": "ink",
+            "proposed": "ink",
+            "evidence": [
+              {
+                "id": "ink",
+                "score": 0.8044058167875425
+              },
+              {
+                "id": "paper",
+                "score": 0.40935590108096775
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": ""
+          },
+          {
+            "id": "W3",
+            "description": "Heavy cardstock sheets for printed covers.",
+            "plannedQty": 500,
+            "allowedQty": 400,
+            "actualQty": 380,
+            "actualCostCents": 4560,
+            "owner": "Cost reviewer",
+            "kind": "paper",
+            "proposed": "paper",
+            "evidence": [
+              {
+                "id": "paper",
+                "score": 0.7824587431707992
+              },
+              {
+                "id": "ink",
+                "score": 0.2988428869160825
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": ""
+          },
+          {
+            "id": "W4",
+            "description": "Colour ink cartridges used for printing.",
+            "plannedQty": 5,
+            "allowedQty": 4,
+            "actualQty": 5,
+            "actualCostCents": 9000,
+            "owner": "Cost reviewer",
+            "kind": "ink",
+            "proposed": "ink",
+            "evidence": [
+              {
+                "id": "ink",
+                "score": 0.7542330357149616
+              },
+              {
+                "id": "paper",
+                "score": 0.5078675284470404
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": ""
+          }
+        ],
+        "total": 4,
+        "approved": 4,
+        "held": 0,
+        "lines": [
+          {
+            "id": "W1",
+            "kind": "paper",
+            "planned": 10000,
+            "flexible": 12000,
+            "actual": 11700,
+            "price": -1300,
+            "usage": 1000,
+            "volume": 2000,
+            "controllable": -300,
+            "total": 1700
+          },
+          {
+            "id": "W2",
+            "kind": "ink",
+            "planned": 20000,
+            "flexible": 24000,
+            "actual": 24200,
+            "price": 2200,
+            "usage": -2000,
+            "volume": 4000,
+            "controllable": 200,
+            "total": 4200
+          },
+          {
+            "id": "W3",
+            "kind": "paper",
+            "planned": 5000,
+            "flexible": 4000,
+            "actual": 4560,
+            "price": 760,
+            "usage": -200,
+            "volume": -1000,
+            "controllable": 560,
+            "total": -440
+          },
+          {
+            "id": "W4",
+            "kind": "ink",
+            "planned": 10000,
+            "flexible": 8000,
+            "actual": 9000,
+            "price": -1000,
+            "usage": 2000,
+            "volume": -2000,
+            "controllable": 1000,
+            "total": -1000
+          }
+        ],
+        "totals": {
+          "planned": 45000,
+          "flexible": 48000,
+          "actual": 49460,
+          "price": 660,
+          "usage": 800,
+          "volume": 3000,
+          "controllable": 1460,
+          "total": 4460
+        },
+        "absoluteDrivers": 10460,
+        "literalLabelMatches": 0
+      }
+    },
+    {
+      "name": "Sewing studio",
+      "actual": [
+        "cloth",
+        "zip",
+        "cloth",
+        "zip"
+      ],
+      "expected": [
+        "cloth",
+        "zip",
+        "cloth",
+        "zip"
+      ],
+      "correct": 4,
+      "computed": {
+        "version": 1,
+        "originalInput": {
+          "project": "Synthetic sewing material review",
+          "materials": [
+            {
+              "id": "cloth",
+              "label": "Cotton fabric",
+              "description": "Cotton textile fabric cloth measured in metres for sewing garments.",
+              "unit": "metre",
+              "standardCents": 500
+            },
+            {
+              "id": "zip",
+              "label": "Garment zipper",
+              "description": "Zipper fasteners with sliding teeth for clothing and bags.",
+              "unit": "piece",
+              "standardCents": 100
+            }
+          ],
+          "records": [
+            {
+              "id": "S1",
+              "description": "Woven cotton cloth cut into dress panels.",
+              "plannedQty": 100,
+              "allowedQty": 80,
+              "actualQty": 90,
+              "actualCostCents": 40500,
+              "owner": "Cost reviewer"
+            },
+            {
+              "id": "S2",
+              "description": "Metal zip fasteners sewn into jackets.",
+              "plannedQty": 50,
+              "allowedQty": 60,
+              "actualQty": 58,
+              "actualCostCents": 6960,
+              "owner": "Cost reviewer"
+            },
+            {
+              "id": "S3",
+              "description": "Cotton textile rolls for sewing shirts.",
+              "plannedQty": 60,
+              "allowedQty": 70,
+              "actualQty": 65,
+              "actualCostCents": 35750,
+              "owner": "Cost reviewer"
+            },
+            {
+              "id": "S4",
+              "description": "Sliding tooth fasteners for bags.",
+              "plannedQty": 30,
+              "allowedQty": 25,
+              "actualQty": 28,
+              "actualCostCents": 2520,
+              "owner": "Cost reviewer"
+            }
+          ]
+        },
+        "reviews": [
+          {
+            "id": "S1",
+            "description": "Woven cotton cloth cut into dress panels.",
+            "plannedQty": 100,
+            "allowedQty": 80,
+            "actualQty": 90,
+            "actualCostCents": 40500,
+            "owner": "Cost reviewer",
+            "kind": "cloth",
+            "proposed": "cloth",
+            "evidence": [
+              {
+                "id": "cloth",
+                "score": 0.5062859948320064
+              },
+              {
+                "id": "zip",
+                "score": 0.3459859518631547
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": ""
+          },
+          {
+            "id": "S2",
+            "description": "Metal zip fasteners sewn into jackets.",
+            "plannedQty": 50,
+            "allowedQty": 60,
+            "actualQty": 58,
+            "actualCostCents": 6960,
+            "owner": "Cost reviewer",
+            "kind": "zip",
+            "proposed": "zip",
+            "evidence": [
+              {
+                "id": "zip",
+                "score": 0.6372389357724103
+              },
+              {
+                "id": "cloth",
+                "score": 0.20546285000477188
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": ""
+          },
+          {
+            "id": "S3",
+            "description": "Cotton textile rolls for sewing shirts.",
+            "plannedQty": 60,
+            "allowedQty": 70,
+            "actualQty": 65,
+            "actualCostCents": 35750,
+            "owner": "Cost reviewer",
+            "kind": "cloth",
+            "proposed": "cloth",
+            "evidence": [
+              {
+                "id": "cloth",
+                "score": 0.6071587227561507
+              },
+              {
+                "id": "zip",
+                "score": 0.3973121160515184
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": ""
+          },
+          {
+            "id": "S4",
+            "description": "Sliding tooth fasteners for bags.",
+            "plannedQty": 30,
+            "allowedQty": 25,
+            "actualQty": 28,
+            "actualCostCents": 2520,
+            "owner": "Cost reviewer",
+            "kind": "zip",
+            "proposed": "zip",
+            "evidence": [
+              {
+                "id": "zip",
+                "score": 0.7765510428462432
+              },
+              {
+                "id": "cloth",
+                "score": -0.0008348517076523622
+              }
+            ],
+            "decision": "approve",
+            "reviewNote": ""
+          }
+        ],
+        "total": 4,
+        "approved": 4,
+        "held": 0,
+        "lines": [
+          {
+            "id": "S1",
+            "kind": "cloth",
+            "planned": 50000,
+            "flexible": 40000,
+            "actual": 40500,
+            "price": -4500,
+            "usage": 5000,
+            "volume": -10000,
+            "controllable": 500,
+            "total": -9500
+          },
+          {
+            "id": "S2",
+            "kind": "zip",
+            "planned": 5000,
+            "flexible": 6000,
+            "actual": 6960,
+            "price": 1160,
+            "usage": -200,
+            "volume": 1000,
+            "controllable": 960,
+            "total": 1960
+          },
+          {
+            "id": "S3",
+            "kind": "cloth",
+            "planned": 30000,
+            "flexible": 35000,
+            "actual": 35750,
+            "price": 3250,
+            "usage": -2500,
+            "volume": 5000,
+            "controllable": 750,
+            "total": 5750
+          },
+          {
+            "id": "S4",
+            "kind": "zip",
+            "planned": 3000,
+            "flexible": 2500,
+            "actual": 2520,
+            "price": -280,
+            "usage": 300,
+            "volume": -500,
+            "controllable": 20,
+            "total": -480
+          }
+        ],
+        "totals": {
+          "planned": 88000,
+          "flexible": 83500,
+          "actual": 85730,
+          "price": -370,
+          "usage": 2600,
+          "volume": -4500,
+          "controllable": 2230,
+          "total": -2270
+        },
+        "absoluteDrivers": 17190,
+        "literalLabelMatches": 0
+      }
+    }
+  ],
+  "challenge": {
+    "proposal": "ink",
+    "decision": "pending"
+  },
+  "privacy": {
+    "requests": 55,
+    "allGetNoBody": true,
+    "urls": [
+      "http://127.0.0.1:6790/daily-app2/20261114-9/",
+      "http://127.0.0.1:6790/daily-app2/20261114-9/assets/index-C2IaP9th.js",
+      "http://127.0.0.1:6790/daily-app2/20261114-9/assets/index-tZcutd4m.css",
+      "http://127.0.0.1:6790/daily-app2/20261114-9/favicon.svg",
+      "http://127.0.0.1:6790/daily-app2/20261114-9/assets/ai.worker-Bk6awT3B.js",
+      "blob:http://127.0.0.1:6790/a6c6bfc8-54f7-4c94-b3cc-cf149840ab8a",
+      "http://127.0.0.1:6790/daily-app2/20261114-9/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "http://127.0.0.1:6790/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "blob:http://127.0.0.1:6790/4633d14b-f4aa-4462-a635-acdc0fb22ae6",
+      "blob:http://127.0.0.1:6790/a41806f0-f6d9-4b82-985b-c442fa58df9a",
+      "blob:http://127.0.0.1:6790/4ad1d705-b834-4cf4-9628-bb68d345e0fb",
+      "blob:http://127.0.0.1:6790/c3fc380f-a42a-401b-901f-0f25d766aa04",
+      "blob:http://127.0.0.1:6790/033cef29-3cb8-4652-aea5-a880231a3f53",
+      "blob:http://127.0.0.1:6790/ea5f9c54-21a6-4d03-bbdb-a90b00e3d96d",
+      "blob:http://127.0.0.1:6790/93da69e4-1264-480e-a729-5de98e797c8b",
+      "blob:http://127.0.0.1:6790/7d67c243-abdb-4e64-988a-b935daf23354",
+      "blob:http://127.0.0.1:6790/0da0ca38-7ed4-4a23-b861-34ad30191c38",
+      "blob:http://127.0.0.1:6790/83bb7f09-961f-479a-96b2-620bca22de83",
+      "blob:http://127.0.0.1:6790/b1341890-8a14-4bac-acd8-a5cf4861d640",
+      "blob:http://127.0.0.1:6790/e7dd2c37-5151-40f5-8ee3-1cbbba76c2b1",
+      "blob:http://127.0.0.1:6790/36101c8d-d736-4fa9-9601-21458d127d7b",
+      "blob:http://127.0.0.1:6790/c909ae0f-620d-4835-82a7-631a94c8b22d",
+      "blob:http://127.0.0.1:6790/ec9dd548-6399-427b-8cb7-8c0628cbe3dc",
+      "blob:http://127.0.0.1:6790/0c16826b-eb06-41f0-8343-61942bfdacfb",
+      "blob:http://127.0.0.1:6790/2ae6416d-ca2f-4b57-a79f-c6fc50a5f4b6",
+      "blob:http://127.0.0.1:6790/952fcee7-9f84-4e9a-8d3b-971621bf02de",
+      "blob:http://127.0.0.1:6790/7c7a1c08-692e-4e11-81fb-a30d38ee649a",
+      "blob:http://127.0.0.1:6790/78c8deb3-4cca-4bcc-aefb-e7d95908de47",
+      "blob:http://127.0.0.1:6790/a7728091-b878-4b63-89dd-081a5a59c96c",
+      "blob:http://127.0.0.1:6790/e30df939-f250-49ae-a08c-a6181bae806d",
+      "blob:http://127.0.0.1:6790/31d3ddf7-ba2b-4085-a97a-44b023de7e56",
+      "blob:http://127.0.0.1:6790/93903b59-4df7-469e-885a-98865ae3efc2",
+      "blob:http://127.0.0.1:6790/46b56753-39bc-4bc4-b3ba-7a797cf8319c",
+      "blob:http://127.0.0.1:6790/ed539eaa-91dd-4dc7-8df4-caa3e296bec7",
+      "blob:http://127.0.0.1:6790/917c552f-e011-4b1d-8ca6-4b2755f85e15",
+      "blob:http://127.0.0.1:6790/9535b1c8-48e2-4d5f-9b75-5510eb1880b8",
+      "blob:http://127.0.0.1:6790/58273caa-2493-40ad-ac34-406f903e3bdc",
+      "blob:http://127.0.0.1:6790/0d7bd817-3729-4d1d-8473-f98358f5e4bd",
+      "blob:http://127.0.0.1:6790/24003d56-7b7d-44ac-8e47-dbc1eb0f9c68",
+      "blob:http://127.0.0.1:6790/3f2483ff-88e7-40f6-bc71-a98d3228b6a7",
+      "blob:http://127.0.0.1:6790/ee05d275-ade5-4db7-9336-18829af5f297"
+    ]
+  }
+}

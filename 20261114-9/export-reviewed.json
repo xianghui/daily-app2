@@ -1,0 +1,219 @@
+{
+  "version": 1,
+  "originalInput": {
+    "project": "Synthetic sewing material review",
+    "materials": [
+      {
+        "id": "cloth",
+        "label": "Cotton fabric",
+        "description": "Cotton textile fabric cloth measured in metres for sewing garments.",
+        "unit": "metre",
+        "standardCents": 500
+      },
+      {
+        "id": "zip",
+        "label": "Garment zipper",
+        "description": "Zipper fasteners with sliding teeth for clothing and bags.",
+        "unit": "piece",
+        "standardCents": 100
+      }
+    ],
+    "records": [
+      {
+        "id": "S1",
+        "description": "Woven cotton cloth cut into dress panels.",
+        "plannedQty": 100,
+        "allowedQty": 80,
+        "actualQty": 90,
+        "actualCostCents": 40500,
+        "owner": "Cost reviewer"
+      },
+      {
+        "id": "S2",
+        "description": "Metal zip fasteners sewn into jackets.",
+        "plannedQty": 50,
+        "allowedQty": 60,
+        "actualQty": 58,
+        "actualCostCents": 6960,
+        "owner": "Cost reviewer"
+      },
+      {
+        "id": "S3",
+        "description": "Cotton textile rolls for sewing shirts.",
+        "plannedQty": 60,
+        "allowedQty": 70,
+        "actualQty": 65,
+        "actualCostCents": 35750,
+        "owner": "Cost reviewer"
+      },
+      {
+        "id": "S4",
+        "description": "Sliding tooth fasteners for bags.",
+        "plannedQty": 30,
+        "allowedQty": 25,
+        "actualQty": 28,
+        "actualCostCents": 2520,
+        "owner": "Cost reviewer"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "S1",
+      "description": "Woven cotton cloth cut into dress panels.",
+      "plannedQty": 100,
+      "allowedQty": 80,
+      "actualQty": 90,
+      "actualCostCents": 40500,
+      "owner": "=Owner\n\"second\", line",
+      "kind": "cloth",
+      "proposed": "cloth",
+      "evidence": [
+        {
+          "id": "cloth",
+          "score": 0.5062859948320064
+        },
+        {
+          "id": "zip",
+          "score": 0.3459859518631547
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", verify units"
+    },
+    {
+      "id": "S2",
+      "description": "Metal zip fasteners sewn into jackets.",
+      "plannedQty": 50,
+      "allowedQty": 60,
+      "actualQty": 58,
+      "actualCostCents": 6960,
+      "owner": "Cost reviewer",
+      "kind": "zip",
+      "proposed": "zip",
+      "evidence": [
+        {
+          "id": "zip",
+          "score": 0.6372389357724103
+        },
+        {
+          "id": "cloth",
+          "score": 0.20546285000477188
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "S3",
+      "description": "Cotton textile rolls for sewing shirts.",
+      "plannedQty": 60,
+      "allowedQty": 70,
+      "actualQty": 65,
+      "actualCostCents": 35750,
+      "owner": "Cost reviewer",
+      "kind": "cloth",
+      "proposed": "cloth",
+      "evidence": [
+        {
+          "id": "cloth",
+          "score": 0.6071587227561507
+        },
+        {
+          "id": "zip",
+          "score": 0.3973121160515184
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "S4",
+      "description": "Sliding tooth fasteners for bags.",
+      "plannedQty": 30,
+      "allowedQty": 25,
+      "actualQty": 28,
+      "actualCostCents": 2520,
+      "owner": "Cost reviewer",
+      "kind": "zip",
+      "proposed": "zip",
+      "evidence": [
+        {
+          "id": "zip",
+          "score": 0.7765510428462432
+        },
+        {
+          "id": "cloth",
+          "score": -0.0008348517076523622
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "lines": [
+    {
+      "id": "S1",
+      "kind": "cloth",
+      "planned": 50000,
+      "flexible": 40000,
+      "actual": 40500,
+      "price": -4500,
+      "usage": 5000,
+      "volume": -10000,
+      "controllable": 500,
+      "total": -9500
+    },
+    {
+      "id": "S2",
+      "kind": "zip",
+      "planned": 5000,
+      "flexible": 6000,
+      "actual": 6960,
+      "price": 1160,
+      "usage": -200,
+      "volume": 1000,
+      "controllable": 960,
+      "total": 1960
+    },
+    {
+      "id": "S3",
+      "kind": "cloth",
+      "planned": 30000,
+      "flexible": 35000,
+      "actual": 35750,
+      "price": 3250,
+      "usage": -2500,
+      "volume": 5000,
+      "controllable": 750,
+      "total": 5750
+    },
+    {
+      "id": "S4",
+      "kind": "zip",
+      "planned": 3000,
+      "flexible": 2500,
+      "actual": 2520,
+      "price": -280,
+      "usage": 300,
+      "volume": -500,
+      "controllable": 20,
+      "total": -480
+    }
+  ],
+  "totals": {
+    "planned": 88000,
+    "flexible": 83500,
+    "actual": 85730,
+    "price": -370,
+    "usage": 2600,
+    "volume": -4500,
+    "controllable": 2230,
+    "total": -2270
+  },
+  "absoluteDrivers": 17190,
+  "literalLabelMatches": 0
+}

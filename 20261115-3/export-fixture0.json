@@ -1,0 +1,393 @@
+{
+  "app": "Handoff Harbor",
+  "originalInput": {
+    "rules": [
+      {
+        "id": "desk",
+        "label": "Help desk",
+        "description": "Help desk customer support intake initial ticket triage",
+        "terminal": false
+      },
+      {
+        "id": "expert",
+        "label": "Technical specialist",
+        "description": "Technical specialist engineer investigation escalated support",
+        "terminal": false
+      },
+      {
+        "id": "done",
+        "label": "Issue resolved",
+        "description": "Customer problem solved ticket resolved successfully closed",
+        "terminal": true
+      },
+      {
+        "id": "lost",
+        "label": "Request abandoned",
+        "description": "Customer abandoned unresolved request cancelled gave up",
+        "terminal": true
+      }
+    ],
+    "records": [
+      {
+        "id": "T1",
+        "fromDescription": "Initial customer ticket triage",
+        "toDescription": "Escalated to specialist engineer",
+        "count": 6,
+        "owner": "Operations analyst"
+      },
+      {
+        "id": "T2",
+        "fromDescription": "Help desk incoming support",
+        "toDescription": "Customer issue successfully solved",
+        "count": 4,
+        "owner": "Operations analyst"
+      },
+      {
+        "id": "T3",
+        "fromDescription": "Specialist engineer investigating ticket",
+        "toDescription": "Back to initial help desk support",
+        "count": 5,
+        "owner": "Operations analyst"
+      },
+      {
+        "id": "T4",
+        "fromDescription": "Technical specialist investigation",
+        "toDescription": "Customer problem successfully resolved",
+        "count": 3,
+        "owner": "Operations analyst"
+      },
+      {
+        "id": "T5",
+        "fromDescription": "Technical engineer escalation",
+        "toDescription": "Unresolved customer gave up",
+        "count": 2,
+        "owner": "Operations analyst"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "T1",
+      "fromDescription": "Initial customer ticket triage",
+      "toDescription": "Escalated to specialist engineer",
+      "count": 6,
+      "owner": "Operations analyst",
+      "from": "desk",
+      "to": "expert",
+      "proposedFrom": "desk",
+      "proposedTo": "expert",
+      "fromEvidence": [
+        {
+          "id": "desk",
+          "score": 0.6976531964755187
+        },
+        {
+          "id": "done",
+          "score": 0.5841104882554337
+        },
+        {
+          "id": "lost",
+          "score": 0.24840211291668032
+        },
+        {
+          "id": "expert",
+          "score": 0.24838806132380323
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "expert",
+          "score": 0.6889573316915375
+        },
+        {
+          "id": "desk",
+          "score": 0.17659636210278035
+        },
+        {
+          "id": "done",
+          "score": 0.11820067603082948
+        },
+        {
+          "id": "lost",
+          "score": 0.0679050209410614
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "T2",
+      "fromDescription": "Help desk incoming support",
+      "toDescription": "Customer issue successfully solved",
+      "count": 4,
+      "owner": "Operations analyst",
+      "from": "desk",
+      "to": "done",
+      "proposedFrom": "desk",
+      "proposedTo": "done",
+      "fromEvidence": [
+        {
+          "id": "desk",
+          "score": 0.5943424718363151
+        },
+        {
+          "id": "expert",
+          "score": 0.4503901965583146
+        },
+        {
+          "id": "done",
+          "score": 0.2382596208278217
+        },
+        {
+          "id": "lost",
+          "score": 0.22677038173531885
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "done",
+          "score": 0.72092114405637
+        },
+        {
+          "id": "desk",
+          "score": 0.4507184453694525
+        },
+        {
+          "id": "lost",
+          "score": 0.4472115013326122
+        },
+        {
+          "id": "expert",
+          "score": 0.2624391404176787
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "T3",
+      "fromDescription": "Specialist engineer investigating ticket",
+      "toDescription": "Back to initial help desk support",
+      "count": 5,
+      "owner": "Operations analyst",
+      "from": "expert",
+      "to": "desk",
+      "proposedFrom": "expert",
+      "proposedTo": "desk",
+      "fromEvidence": [
+        {
+          "id": "expert",
+          "score": 0.6516515778560752
+        },
+        {
+          "id": "desk",
+          "score": 0.4447705524145761
+        },
+        {
+          "id": "done",
+          "score": 0.3905669954554139
+        },
+        {
+          "id": "lost",
+          "score": 0.042073362932628366
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "desk",
+          "score": 0.5248074396143678
+        },
+        {
+          "id": "expert",
+          "score": 0.3733152098130036
+        },
+        {
+          "id": "lost",
+          "score": 0.23187497810589425
+        },
+        {
+          "id": "done",
+          "score": 0.19591781028444955
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "T4",
+      "fromDescription": "Technical specialist investigation",
+      "toDescription": "Customer problem successfully resolved",
+      "count": 3,
+      "owner": "Operations analyst",
+      "from": "expert",
+      "to": "done",
+      "proposedFrom": "expert",
+      "proposedTo": "done",
+      "fromEvidence": [
+        {
+          "id": "expert",
+          "score": 0.7659478504999151
+        },
+        {
+          "id": "desk",
+          "score": 0.31770428120351585
+        },
+        {
+          "id": "done",
+          "score": 0.23405725127403737
+        },
+        {
+          "id": "lost",
+          "score": 0.11024804271702723
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "done",
+          "score": 0.7242797376207449
+        },
+        {
+          "id": "lost",
+          "score": 0.4672071160291988
+        },
+        {
+          "id": "desk",
+          "score": 0.4310161512576098
+        },
+        {
+          "id": "expert",
+          "score": 0.26322784338666655
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "T5",
+      "fromDescription": "Technical engineer escalation",
+      "toDescription": "Unresolved customer gave up",
+      "count": 2,
+      "owner": "Operations analyst",
+      "from": "expert",
+      "to": "lost",
+      "proposedFrom": "expert",
+      "proposedTo": "lost",
+      "fromEvidence": [
+        {
+          "id": "expert",
+          "score": 0.6476906714231785
+        },
+        {
+          "id": "desk",
+          "score": 0.21050702185426803
+        },
+        {
+          "id": "done",
+          "score": 0.14243396871225297
+        },
+        {
+          "id": "lost",
+          "score": 0.07460880833903258
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "lost",
+          "score": 0.7000552909086147
+        },
+        {
+          "id": "done",
+          "score": 0.4877159049907555
+        },
+        {
+          "id": "desk",
+          "score": 0.40493798121007474
+        },
+        {
+          "id": "expert",
+          "score": 0.26159941298716066
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 5,
+  "approved": 5,
+  "held": 0,
+  "model": {
+    "counts": [
+      [
+        0,
+        6,
+        4,
+        0
+      ],
+      [
+        5,
+        0,
+        3,
+        2
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "observedTransitions": 20,
+    "stages": [
+      {
+        "id": "desk",
+        "label": "Help desk",
+        "description": "Help desk customer support intake initial ticket triage",
+        "terminal": false,
+        "outgoing": 10,
+        "expectedTransitions": 2.2857142857142856,
+        "outcomes": [
+          {
+            "id": "done",
+            "label": "Issue resolved",
+            "immediate": 0.4,
+            "eventual": 0.8285714285714285
+          },
+          {
+            "id": "lost",
+            "label": "Request abandoned",
+            "immediate": 0,
+            "eventual": 0.17142857142857146
+          }
+        ]
+      },
+      {
+        "id": "expert",
+        "label": "Technical specialist",
+        "description": "Technical specialist engineer investigation escalated support",
+        "terminal": false,
+        "outgoing": 10,
+        "expectedTransitions": 2.142857142857143,
+        "outcomes": [
+          {
+            "id": "done",
+            "label": "Issue resolved",
+            "immediate": 0.3,
+            "eventual": 0.7142857142857143
+          },
+          {
+            "id": "lost",
+            "label": "Request abandoned",
+            "immediate": 0.2,
+            "eventual": 0.28571428571428575
+          }
+        ]
+      }
+    ]
+  }
+}

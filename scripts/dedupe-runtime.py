@@ -41,7 +41,43 @@ for wasm in list(deploy.glob('*/assets/'+name)):
   if f.suffix in ['.js','.mjs','.html','.css'] and oldURL in f.read_text():raise SystemExit('Dangling duplicate URL: '+str(f))
  wasm.unlink()
  changed.append({'folder':folder.name,'workers':[new for _,new in workers],'shells':[new for _,new in mains],'compatibilityAliasesRetained':True,'duplicateBytesRemoved':len(sharedBytes)})
-report={'beforeBytes':before,'afterBytes':size(),'sharedWasmSHA256':sha,'sharedURL':sharedURL,'apps':changed,'sourceBuildsUnmodified':True}
+# Two older byte-identical geometry runtimes share an existing immutable copy.
+# Preserve JS URLs; query-version their rewritten worker and HTML entry references.
+# Source dist/ trees are never changed. Keep the shared older app published.
+geometryName='manifold-BE4c7gO-.wasm'
+geometryShared=deploy/'20261028-24/assets'/geometryName
+geometryBytes=geometryShared.read_bytes()
+geometryChanges=[]
+for appName in ['20261025-7','20261025-8']:
+ folder=deploy/appName;duplicate=folder/'assets'/geometryName
+ if not duplicate.exists():continue
+ if duplicate.read_bytes()!=geometryBytes:raise SystemExit('Geometry runtime mismatch: '+appName)
+ old='/daily-app2/'+appName+'/assets/'+geometryName
+ new='/daily-app2/20261028-24/assets/'+geometryName
+ workers=[]
+ for f in folder.glob('assets/*.js'):
+  text=f.read_text()
+  if old not in text:continue
+  text=text.replace(old,new);f.write_text(text)
+  workers.append((f.name,f.name+'?shared='+hashlib.sha256(text.encode()).hexdigest()[:12]))
+ if not workers:raise SystemExit('Missing geometry runtime reference: '+appName)
+ mains=[]
+ for f in folder.glob('assets/*.js'):
+  text=f.read_text();revised=text
+  for oldWorker,newWorker in workers:revised=revised.replace(oldWorker,newWorker)
+  if text!=revised:
+   f.write_text(revised);mains.append((f.name,f.name+'?shared='+hashlib.sha256(revised.encode()).hexdigest()[:12]))
+ if not mains:raise SystemExit('Missing geometry worker entry: '+appName)
+ html=folder/'index.html';text=html.read_text()
+ for oldMain,newMain in mains:
+  if oldMain not in text:raise SystemExit('Unlinked geometry entry: '+appName)
+  text=text.replace(oldMain,newMain)
+ html.write_text(text)
+ for f in folder.rglob('*'):
+  if f.suffix in ['.js','.mjs','.html','.css'] and old in f.read_text():raise SystemExit('Dangling geometry runtime URL: '+str(f))
+ duplicate.unlink()
+ geometryChanges.append({'folder':appName,'bytesRemoved':len(geometryBytes),'legacyJsURLsRetained':True,'queryVersionedEntries':True})
+report={'beforeBytes':before,'afterBytes':size(),'sharedWasmSHA256':sha,'sharedURL':sharedURL,'apps':changed,'sourceBuildsUnmodified':True,'geometryReuse':geometryChanges,'geometrySharedURL':'/daily-app2/20261028-24/assets/'+geometryName,'geometrySHA256':hashlib.sha256(geometryBytes).hexdigest()}
 reportPath=deploy/'runtime-deduplication.json'
 for _ in range(4):
  reportPath.write_text(json.dumps(report,indent=2))

@@ -1,0 +1,567 @@
+{
+  "fixtures": [
+    {
+      "name": "Support escalations",
+      "expected": [
+        "desk",
+        "expert",
+        "desk",
+        "done",
+        "expert",
+        "desk",
+        "expert",
+        "done",
+        "expert",
+        "lost"
+      ],
+      "actual": [
+        "desk",
+        "expert",
+        "desk",
+        "done",
+        "expert",
+        "desk",
+        "expert",
+        "done",
+        "expert",
+        "lost"
+      ],
+      "model": {
+        "counts": [
+          [
+            0,
+            6,
+            4,
+            0
+          ],
+          [
+            5,
+            0,
+            3,
+            2
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "observedTransitions": 20,
+        "stages": [
+          {
+            "id": "desk",
+            "label": "Help desk",
+            "description": "Help desk customer support intake initial ticket triage",
+            "terminal": false,
+            "outgoing": 10,
+            "expectedTransitions": 2.2857142857142856,
+            "outcomes": [
+              {
+                "id": "done",
+                "label": "Issue resolved",
+                "immediate": 0.4,
+                "eventual": 0.8285714285714285
+              },
+              {
+                "id": "lost",
+                "label": "Request abandoned",
+                "immediate": 0,
+                "eventual": 0.17142857142857146
+              }
+            ]
+          },
+          {
+            "id": "expert",
+            "label": "Technical specialist",
+            "description": "Technical specialist engineer investigation escalated support",
+            "terminal": false,
+            "outgoing": 10,
+            "expectedTransitions": 2.142857142857143,
+            "outcomes": [
+              {
+                "id": "done",
+                "label": "Issue resolved",
+                "immediate": 0.3,
+                "eventual": 0.7142857142857143
+              },
+              {
+                "id": "lost",
+                "label": "Request abandoned",
+                "immediate": 0.2,
+                "eventual": 0.28571428571428575
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Repair loop",
+      "expected": [
+        "repair",
+        "parts",
+        "repair",
+        "done",
+        "parts",
+        "repair",
+        "parts",
+        "lost"
+      ],
+      "actual": [
+        "repair",
+        "parts",
+        "repair",
+        "done",
+        "parts",
+        "repair",
+        "parts",
+        "lost"
+      ],
+      "model": {
+        "counts": [
+          [
+            0,
+            6,
+            4,
+            0
+          ],
+          [
+            8,
+            0,
+            0,
+            2
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "observedTransitions": 20,
+        "stages": [
+          {
+            "id": "repair",
+            "label": "Workshop repair",
+            "description": "Workshop technician fixing broken equipment repair maintenance",
+            "terminal": false,
+            "outgoing": 10,
+            "expectedTransitions": 3.076923076923077,
+            "outcomes": [
+              {
+                "id": "done",
+                "label": "Repair completed",
+                "immediate": 0.4,
+                "eventual": 0.7692307692307694
+              },
+              {
+                "id": "lost",
+                "label": "Repair abandoned",
+                "immediate": 0,
+                "eventual": 0.23076923076923078
+              }
+            ]
+          },
+          {
+            "id": "parts",
+            "label": "Waiting for parts",
+            "description": "Waiting for replacement spare parts supplier backorder",
+            "terminal": false,
+            "outgoing": 10,
+            "expectedTransitions": 3.4615384615384617,
+            "outcomes": [
+              {
+                "id": "done",
+                "label": "Repair completed",
+                "immediate": 0,
+                "eventual": 0.6153846153846155
+              },
+              {
+                "id": "lost",
+                "label": "Repair abandoned",
+                "immediate": 0.2,
+                "eventual": 0.38461538461538464
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "checks": [
+    "approve hold endpoint reassignment multiline edit undo stale exports copy downloads reimport changed loop results",
+    "warmed page offline fresh worker real inference",
+    "empty invalid oversized duplicate format integer count terminal outgoing missing outgoing closed loop guards",
+    "cancel retry stale run maximum 70 texts chunking 32 records 6 stages conserved audit roundtrip",
+    "instruction-like data inert human hold all-held no model",
+    "desktop phone overflow labels touch focus screenshots"
+  ],
+  "challenge": {
+    "proposed": "parts",
+    "expected": "unrelated / human hold",
+    "limitation": "Nearest stage always returned; no relevance guarantee"
+  },
+  "requests": [
+    {
+      "url": "http://127.0.0.1:6853/daily-app2/20261115-3/",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "http://127.0.0.1:6853/daily-app2/20261115-3/assets/index-CYYbZof6.js",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "http://127.0.0.1:6853/daily-app2/20261115-3/assets/index-DYGLOPso.css",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "http://127.0.0.1:6853/daily-app2/20261115-3/favicon.svg",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "http://127.0.0.1:6853/daily-app2/20261115-3/assets/ai.worker-BpSLoFPV.js",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6853/3917c3e8-1f52-4d68-b096-443f57a76a5a",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "http://127.0.0.1:6853/daily-app2/20261115-3/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "http://127.0.0.1:6853/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "method": "GET",
+      "body": null,
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "method": "GET",
+      "body": null,
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "method": "GET",
+      "body": null,
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ]
+    },
+    {
+      "url": "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "method": "GET",
+      "body": null,
+      "queryKeys": [
+        "response-content-disposition",
+        "X-Xet-Cas-Uid",
+        "xip",
+        "user_id",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "method": "GET",
+      "body": null,
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "method": "GET",
+      "body": null,
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ]
+    },
+    {
+      "url": "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "method": "GET",
+      "body": null,
+      "queryKeys": [
+        "response-content-disposition",
+        "user_id",
+        "xip",
+        "X-Xet-Cas-Uid",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ]
+    },
+    {
+      "url": "blob:http://127.0.0.1:6853/bd09b7f6-2658-431b-9037-1ac1db818a8b",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6853/e1e0c626-4085-4c2b-9ec9-e25f0033910f",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6853/fcbcdb71-cb84-479c-9cc5-1d6074108d0e",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6853/4169a27f-a97d-41e6-bbef-0573b47e4d5c",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6853/c1752e2a-6775-4f51-a87d-7480a4da2b11",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6853/53f81c4d-b9e9-4b32-b4c1-d39c99e6682d",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6853/19085bd2-4417-41fc-9d02-a82d37efdd01",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6853/47ff7123-1b42-47ef-b6ff-3f840c3bde2f",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6853/f2feae36-3b9b-448b-acfc-f97177bcde65",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6853/fddb53db-32e3-4a58-bff5-8186a24e80c6",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6853/c7bf7ce7-c4a7-490d-a98e-5a2e1e8805c1",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6853/146fd0d0-40dc-4170-a47e-b02ac9904715",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6853/ba171469-bd93-4e35-8473-7bbdc78cd608",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6853/e5896b51-d24d-4ea9-8dcd-aedca8b1654f",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6853/561c1447-67e6-49bf-afdd-423087afd35a",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6853/27ad53dc-5bb4-4f04-87b2-732dcf1d3fcf",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6853/be068aa3-acb1-436c-925f-7f53317c6758",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6853/2dd707a1-79b8-4ace-bd42-2f59bd6e9e71",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6853/e6fac534-ba4e-4e3c-b08c-9ff0d5c38267",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6853/f642c639-f592-4a12-8f6c-f752cfb890ef",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6853/6c510e59-ef42-41a8-9d2b-3d11b36beb9f",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6853/672f5c11-69e4-4342-9014-52880a60a1f5",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6853/c01d257d-a612-4e50-a60c-b1a7e784478d",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6853/7de915c9-8273-4610-8f94-2ff7b7f7467b",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6853/06e258fe-cbfe-4861-b730-68b2d9d4572a",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6853/1efcc591-ae44-493f-a553-24df61151f86",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6853/901b3b95-18e4-4237-b0ea-80e8d9dd18ae",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6853/ad33959f-e11f-4acb-ab41-685a7c8cace3",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6853/a2858496-0e91-4914-82b0-515d1a2a1869",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    },
+    {
+      "url": "blob:http://127.0.0.1:6853/fc357e6a-d80f-431c-898c-3a91cd8e842a",
+      "method": "GET",
+      "body": null,
+      "queryKeys": []
+    }
+  ],
+  "signedDownloadQueryValuesOmitted": true
+}

@@ -1,0 +1,179 @@
+{
+  "app": "Lot Accord",
+  "originalInput": {
+    "goals": {
+      "maxGoodReject": 0.15,
+      "maxBadAccept": 0.15
+    },
+    "rules": [
+      {
+        "id": "thread",
+        "label": "Fastener thread fit",
+        "description": "Bolt screw fastener threaded fitting gauge inspection",
+        "n": 12,
+        "c": 0
+      },
+      {
+        "id": "cable",
+        "label": "Cable electrical continuity",
+        "description": "Electrical cable wire conductor continuity circuit inspection",
+        "n": 18,
+        "c": 1
+      },
+      {
+        "id": "coat",
+        "label": "Paint coating appearance",
+        "description": "Paint coating color cosmetic surface finish inspection",
+        "n": 10,
+        "c": 1
+      }
+    ],
+    "records": [
+      {
+        "id": "W1",
+        "description": "Screws that will not engage the mating nut",
+        "N": 60,
+        "goodD": 1,
+        "badD": 12,
+        "owner": "Workshop QA"
+      },
+      {
+        "id": "W2",
+        "description": "Broken conductors in wiring harnesses",
+        "N": 90,
+        "goodD": 2,
+        "badD": 18,
+        "owner": "Workshop QA"
+      },
+      {
+        "id": "W3",
+        "description": "Uneven paint and visible blemishes on panels",
+        "N": 50,
+        "goodD": 1,
+        "badD": 10,
+        "owner": "Workshop QA"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "W1",
+      "description": "Screws that will not engage the mating nut",
+      "N": 60,
+      "goodD": 1,
+      "badD": 12,
+      "owner": "=Owner\nline, \"two\"",
+      "procedure": "thread",
+      "proposed": "thread",
+      "n": 15,
+      "c": 0,
+      "evidence": [
+        {
+          "id": "thread",
+          "score": 0.36317182064023795
+        },
+        {
+          "id": "cable",
+          "score": -0.01485810878196054
+        },
+        {
+          "id": "coat",
+          "score": -0.06560354865154203
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", recheck"
+    },
+    {
+      "id": "W2",
+      "description": "Broken conductors in wiring harnesses",
+      "N": 90,
+      "goodD": 2,
+      "badD": 18,
+      "owner": "Workshop QA",
+      "procedure": "cable",
+      "proposed": "cable",
+      "n": 18,
+      "c": 1,
+      "evidence": [
+        {
+          "id": "cable",
+          "score": 0.46323668266246754
+        },
+        {
+          "id": "thread",
+          "score": 0.22606218894271346
+        },
+        {
+          "id": "coat",
+          "score": 0.04217867689736049
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "W3",
+      "description": "Uneven paint and visible blemishes on panels",
+      "N": 50,
+      "goodD": 1,
+      "badD": 10,
+      "owner": "Workshop QA",
+      "procedure": "coat",
+      "proposed": "coat",
+      "n": 10,
+      "c": 1,
+      "evidence": [
+        {
+          "id": "coat",
+          "score": 0.4571633946392862
+        },
+        {
+          "id": "cable",
+          "score": 0.04137763493088853
+        },
+        {
+          "id": "thread",
+          "score": 0.01830971271401006
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 3,
+  "approved": 3,
+  "held": 0,
+  "calculations": [
+    {
+      "id": "W1",
+      "goodReject": 0.24999999999999978,
+      "badAccept": 0.020552284961270106,
+      "baselineGoodReject": 0.22283824760985582,
+      "baselineBadAccept": 0.03518437208883198,
+      "goodTargetMet": false,
+      "badTargetMet": true,
+      "samplingFraction": 0.25
+    },
+    {
+      "id": "W2",
+      "goodReject": 0.038202247191011285,
+      "badAccept": 0.07533806656175715,
+      "baselineGoodReject": 0.05970973065465568,
+      "baselineBadAccept": 0.09907919180215094,
+      "goodTargetMet": true,
+      "badTargetMet": true,
+      "samplingFraction": 0.2
+    },
+    {
+      "id": "W3",
+      "goodReject": 0,
+      "badAccept": 0.34871031223252036,
+      "baselineGoodReject": 0.016177640686423023,
+      "baselineBadAccept": 0.3758096384,
+      "goodTargetMet": true,
+      "badTargetMet": false,
+      "samplingFraction": 0.2
+    }
+  ]
+}

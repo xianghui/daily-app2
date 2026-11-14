@@ -41,14 +41,14 @@ for wasm in list(deploy.glob('*/assets/'+name)):
   if f.suffix in ['.js','.mjs','.html','.css'] and oldURL in f.read_text():raise SystemExit('Dangling duplicate URL: '+str(f))
  wasm.unlink()
  changed.append({'folder':folder.name,'workers':[new for _,new in workers],'shells':[new for _,new in mains],'compatibilityAliasesRetained':True,'duplicateBytesRemoved':len(sharedBytes)})
-# Two older byte-identical geometry runtimes share an existing immutable copy.
+# Older byte-identical geometry runtimes share an existing immutable copy.
 # Preserve JS URLs; query-version their rewritten worker and HTML entry references.
 # Source dist/ trees are never changed. Keep the shared older app published.
 geometryName='manifold-BE4c7gO-.wasm'
 geometryShared=deploy/'20261028-24/assets'/geometryName
 geometryBytes=geometryShared.read_bytes()
 geometryChanges=[]
-for appName in ['20261025-7','20261025-8']:
+for appName in ['20261025-7','20261025-8','20261030-10']:
  folder=deploy/appName;duplicate=folder/'assets'/geometryName
  if not duplicate.exists():continue
  if duplicate.read_bytes()!=geometryBytes:raise SystemExit('Geometry runtime mismatch: '+appName)

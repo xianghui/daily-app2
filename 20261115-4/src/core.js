@@ -1,0 +1,37 @@
+import Papa from 'papaparse';
+export const examples=[{name:'Packaging checks',data:{goals:{maxGoodReject:0.1,maxBadAccept:0.2},rules:[
+{id:'print',label:'Printed-label legibility',description:'Printed labels packaging text barcode legibility print quality inspection',n:20,c:1},
+{id:'seal',label:'Container seal integrity',description:'Container bottle lid seal closure leak integrity inspection',n:30,c:0},
+{id:'surface',label:'Exterior surface finish',description:'Exterior surface cosmetic scratches dents appearance finish inspection',n:15,c:2}],records:[
+{id:'P1',description:'Barcode stickers with smudged ink and unreadable text',N:100,goodD:2,badD:15,owner:'Packaging QA'},
+{id:'P2',description:'Bottle caps leaking around the closure',N:120,goodD:1,badD:20,owner:'Packaging QA'},
+{id:'P3',description:'Scuffed outer coating and cosmetic dents',N:80,goodD:3,badD:20,owner:'Packaging QA'}]}},
+{name:'Workshop checks',data:{goals:{maxGoodReject:0.15,maxBadAccept:0.15},rules:[
+{id:'thread',label:'Fastener thread fit',description:'Bolt screw fastener threaded fitting gauge inspection',n:12,c:0},
+{id:'cable',label:'Cable electrical continuity',description:'Electrical cable wire conductor continuity circuit inspection',n:18,c:1},
+{id:'coat',label:'Paint coating appearance',description:'Paint coating color cosmetic surface finish inspection',n:10,c:1}],records:[
+{id:'W1',description:'Screws that will not engage the mating nut',N:60,goodD:1,badD:12,owner:'Workshop QA'},
+{id:'W2',description:'Broken conductors in wiring harnesses',N:90,goodD:2,badD:18,owner:'Workshop QA'},
+{id:'W3',description:'Uneven paint and visible blemishes on panels',N:50,goodD:1,badD:10,owner:'Workshop QA'}]}}];
+const err=m=>{throw Error(m)},txt=(s,n)=>typeof s==='string'&&s.trim().length>0&&s.length<=n,int=(n,a,b)=>typeof n==='number'&&Number.isInteger(n)&&n>=a&&n<=b;
+const prob=n=>typeof n==='number'&&Number.isFinite(n)&&n>=0&&n<=1;
+function lot(r){return int(r.N,2,100000)&&int(r.goodD,0,r.N)&&int(r.badD,0,r.N)&&r.goodD<r.badD}
+export function parse(s){if(typeof s!=='string'||!s.trim()||s.length>30000)err('Enter source JSON; limit 30,000 characters.');let d;try{d=JSON.parse(s)}catch{err('Invalid JSON. Use an example or repair the source.')}
+if(!d||!Array.isArray(d.rules)||d.rules.length<2||d.rules.length>6||!Array.isArray(d.records)||!d.records.length||d.records.length>32)err('Require 2–6 procedures and 1–32 lot rows.');
+for(const a of[d.rules,d.records])if(a.some(x=>!x||!txt(x.id,50))||new Set(a.map(x=>x.id)).size!==a.length)err('IDs must be unique nonempty strings in each list.');
+if(!d.goals||!prob(d.goals.maxGoodReject)||!prob(d.goals.maxBadAccept))err('Risk goals must be numbers between 0 and 1.');
+for(const z of d.rules)if(!txt(z.label,100)||!txt(z.description,300)||!int(z.n,1,500)||!int(z.c,0,z.n))err('Procedure needs label ≤100, description ≤300, sample n 1–500 and acceptance c 0–n.');
+for(const r of d.records)if(!txt(r.description,300)||!lot(r)||!txt(r.owner,150))err('Lot needs description ≤300, N 2–100000, integers 0 ≤ goodD < badD ≤ N, owner ≤150.');return d;}
+export const texts=d=>[...d.rules.map(x=>x.description),...d.records.map(x=>x.description)];
+export function suggest(d,v){if(!Array.isArray(v)||v.length!==texts(d).length||v.some(x=>!Array.isArray(x)||x.length!==384||x.some(y=>!Number.isFinite(y))||Math.abs(Math.hypot(...x)-1)>.02))err('Malformed AI embeddings. No suggestions applied; retry.');return d.records.map((r,i)=>{const evidence=d.rules.map((z,j)=>({id:z.id,score:v[j].reduce((s,x,k)=>s+x*v[d.rules.length+i][k],0)})).sort((a,b)=>b.score-a.score),z=d.rules.find(z=>z.id===evidence[0].id);return {...r,procedure:z.id,proposed:z.id,n:z.n,c:z.c,evidence,decision:'pending',reviewNote:''}})}
+function logChoose(n,k){if(k<0||k>n)return -Infinity;let s=0;for(let j=1,m=Math.min(k,n-k);j<=m;j++)s+=Math.log(n-j+1)-Math.log(j);return s;}
+function cumulative(logs,c){const max=Math.max(...logs.map(x=>x[1]));let all=0,accepted=0;for(const[k,l]of logs){const w=Math.exp(l-max);all+=w;if(k<=c)accepted+=w}const p=accepted/all;if(!prob(p))err('Numerical probability failure. Recheck lot assumptions.');return p;}
+export function acceptance(N,D,n,c,replacement=false){if(!int(N,2,100000)||!int(D,0,N)||!int(n,1,Math.min(N,500))||!int(c,0,n))err('Invalid sampling parameters: require n ≤ lot size and c ≤ n.');
+if(D===0)return 1;if(D===N)return c===n?1:0;
+const logs=[];if(replacement){const p=D/N;for(let k=0;k<=n;k++)logs.push([k,logChoose(n,k)+k*Math.log(p)+(n-k)*Math.log1p(-p)])}else for(let k=Math.max(0,n-(N-D));k<=Math.min(n,D);k++)logs.push([k,logChoose(D,k)+logChoose(N-D,n-k)]);
+return cumulative(logs,c);}
+export function analyze(d,rows){if(!Array.isArray(rows)||rows.length!==d.records.length||rows.some((r,i)=>!r||r.id!==d.records[i].id||!d.rules.some(z=>z.id===r.procedure)||!lot(r)||!int(r.n,1,500)||!int(r.c,0,r.n)||!txt(r.owner,150)||typeof r.reviewNote!=='string'||r.reviewNote.length>1000||!['approve','hold'].includes(r.decision)))err('Review every lot: approve or hold; verify procedure, integer lot/scenario counts, n, c and owner.');
+const calculations=rows.filter(r=>r.decision==='approve').map(r=>{if(r.n>r.N)err('Sample n exceeds lot size for '+r.id+'. Reduce n or hold this lot.');const goodAccept=acceptance(r.N,r.goodD,r.n,r.c),badAccept=acceptance(r.N,r.badD,r.n,r.c),baselineGoodReject=1-acceptance(r.N,r.goodD,r.n,r.c,true),baselineBadAccept=acceptance(r.N,r.badD,r.n,r.c,true),goodReject=1-goodAccept;return {id:r.id,goodReject,badAccept,baselineGoodReject,baselineBadAccept,goodTargetMet:goodReject<=d.goals.maxGoodReject+1e-12,badTargetMet:badAccept<=d.goals.maxBadAccept+1e-12,samplingFraction:r.n/r.N}});
+return {app:'Lot Accord',originalInput:structuredClone(d),reviews:structuredClone(rows),total:rows.length,approved:calculations.length,held:rows.length-calculations.length,calculations};}
+export const csv=r=>Papa.unparse(r.reviews.map(x=>({id:x.id,originalDescription:r.originalInput.records.find(y=>y.id===x.id).description,originalN:r.originalInput.records.find(y=>y.id===x.id).N,procedure:x.procedure,N:x.N,goodD:x.goodD,badD:x.badD,n:x.n,c:x.c,decision:x.decision,owner:x.owner,reviewNote:x.reviewNote,...(r.calculations.find(y=>y.id===x.id)||{})})),{escapeFormulae:/^[=+\-@\t\r]/});
+export const markdown=r=>['# Lot Accord sampling-plan review',`${r.total} lots retained; ${r.approved} approved for calculation; ${r.held} held.`, `Goals: good-lot rejection ≤ ${r.originalInput.goals.maxGoodReject}; poor-lot acceptance ≤ ${r.originalInput.goals.maxBadAccept}.`,'',...r.reviews.map(x=>{const z=r.calculations.find(y=>y.id===x.id);return `- ${x.id}: ${x.procedure}; ${x.decision}; N=${x.N}, goodD=${x.goodD}, badD=${x.badD}, n=${x.n}, c=${x.c}.\n  Owner: ${x.owner}\n  ${x.reviewNote.replaceAll('\n','\n  ')}\n  ${z?`Finite-lot good rejection ${z.goodReject}; poor acceptance ${z.badAccept}. With-replacement baseline ${z.baselineGoodReject} / ${z.baselineBadAccept}. Targets ${z.goodTargetMet&&z.badTargetMet?'met under assumptions':'missed: revise plan and reassess'}.`:'Held: no calculation.'}`}), '', 'Scenario probabilities, not measured quality or AI confidence. Defective counts are supplied assumptions. Uniform random sampling without replacement, binary defective-unit classification, complete lot and error-free inspection required. Not an AQL standard, certification, release decision or safety assurance.'].join('\n');

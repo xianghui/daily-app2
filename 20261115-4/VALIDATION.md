@@ -1,0 +1,23 @@
+# Observed validation — Lot Accord
+
+## Production-bundle local checks
+
+- `npm run predeploy` passed. Tested the emitted production bundle with actual module worker, local runtime factory and immutable collection WASM, not a development-server mock.
+- Real q8 MiniLM WASM CPU inference: Packaging checks proposed print/seal/surface; Workshop checks proposed thread/cable/coat. **6/6 intended simple links**, only six synthetic examples, not a general accuracy estimate. Both produced different procedures and numeric risk worksheets. See `browser-validation.json` and actual `export-fixture*.json`.
+- Unrelated instruction-like text still produced a nearest candidate. Manual hold retained it without calculation; no prompt authority, upload or credential request. Semantic similarity does not establish procedure suitability. This limitation is shown in the app and README.
+- Independent Python exact-integer combination and binomial references: **187 scenarios**, including census, zero/all defectives, population 100000, sample 500. Maximum absolute errors about 7.22e-15 (hypergeometric) and 2.27e-14 (binomial). `arithmetic-validation.json`.
+- Mandatory review, hold, procedure reassignment/default reset, numeric edits, risk-goal flags, multiline owner/notes, undo, invalidated export snapshots, copied Markdown, downloaded JSON/CSV/Markdown and audit-original reimport passed. Independently parsed downloads retained every record, current numeric edits, quoted commas/newlines and formula-safe strings. `artifact-validation.json`.
+- Maximum 32 lots / 6 procedures / 38 texts executed in four-text chunks; every record retained/calculated and maximum audit reimport succeeded. No rows lost; holds excluded only from calculation.
+- Actual online load followed by offline **fresh-worker** inference in the same open warmed page passed. Offline reload/navigation is not claimed. Request inspection found GET downloads only and no request body/content upload. No model-host request before load click. Asset/factory integrity and credential-pattern scans passed (`asset-audit.json`); scan is not a general security certification.
+- Empty, invalid, oversized source, duplicates, unsupported files, string-valued numeric fields, invalid risk goals, reversed quality scenarios, n/c bounds, missing numeric review and sample > lot errors passed.
+- Cancellation/retry, input changes mid-run, delayed file read and delayed worker download cannot overwrite newer state. `import-stale-validation.json`, `download-stale-validation.json`.
+- Eight injected defensive modes passed: model network abort with successful real-inference retry, unavailable WASM, worker-download failure, unavailable module workers, malformed tensor, malformed message envelope, timeout and worker error. Only defensive tests use fault injection; successful AI tests use real model weights. `defensive-validation.json`.
+- Desktop 1440 and phone viewports 390/320: no horizontal overflow, every input has an associated label, buttons ≥44px, keyboard focus and input/review/export actions passed; normal viewport screenshots captured and visually inspected. Physical devices and non-Chrome inference untested.
+
+## Publication
+
+Root predeploy and full combined-browser suite passed for all 677 gallery entries. The original assembly exceeded the conservative 1,000,000,000-byte guard. Adding byte-verified deploy-only geometry reuse for legacy `20261030-10` reduced the site to 999,850,934 bytes; all source dist trees remain unchanged. The original two geometry users and newly deduplicated app passed real worker execution, image import and independently parsed finite-coordinate binary STL export (`legacy-runtime-validation.json`). New app files and gallery byte-match source (`combined-asset-validation.json`).
+
+**Published and verified.** Root deployment succeeded on the first Pages attempt: gh-pages `1d1d59b91528a04407c76b02971aca325a1a654c` reached `built`. Public URL: https://xianghui.github.io/daily-app2/20261115-4/ . Public app files, worker, factory and shared WASM byte-match production; the gallery byte-matches all 677 working-tree entries. Both real-MiniLM fixtures and the complete workflow suite, warmed-page offline fresh-worker inference, exports and mobile layout passed publicly (`public-browser-validation.json`). All three rewritten legacy geometry apps passed public worker/import/STL checks. No fallback rebuild or app/model simplification was necessary.
+
+Source commit deliberately excludes unrelated pre-existing root edits and untracked older app directories; their working-tree gallery entries and files are preserved.

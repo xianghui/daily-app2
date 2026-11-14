@@ -979,3 +979,12 @@ Real local MiniLM endpoint inference reconciles recurring transition tallies bef
 Combined-site size guard recovery: deploy-only byte-verified geometry runtime reuse for `20261025-7` and `20261025-8` now uses the preserved immutable WASM in `20261028-24`. Source builds and legacy JS filenames are retained; changed references are query-versioned. Both older apps passed actual browser worker/import/STL-export checks. Combined site is 999,506,265 bytes, below the existing 1 GB guard.
 
 Handoff Harbor public release: first combined Pages deployment built matching gh-pages `a71ce0b1578b0fcecd10b2d2b5d14c54b6fc690b` and completed successfully; byte-matched public app/runtime/worker/WASM, both real-AI fixtures, six workflow groups, reviewed artifacts, warmed-page offline inference and all 675 earlier working-tree gallery entries passed. Two older geometry apps affected by byte-identical runtime reuse also passed public worker/import/export checks. Source commit excludes unrelated pre-existing edits.
+
+
+## Lot Accord — 20261115-4
+
+Real local MiniLM maps rough incoming-inspection notes to supplied procedures. Mandatory human review of lot/scenario assumptions and sample limits precedes finite-population acceptance-risk calculations, explicit goals and binomial baselines. Six simple semantic links matched; 187 independent arithmetic cases and complete reviewed JSON/CSV/Markdown exports passed. Unrelated text can still match and must be held. No quality certification or lot release. Offline inference verified only in an already-open warmed page. Reuses immutable WASM from `20261107-2`; preserve that asset. See [workflow/privacy](20261115-4/README.md) and [observed validation](20261115-4/VALIDATION.md).
+
+Lot Accord deployment extends byte-verified, deploy-only geometry runtime reuse to `20261030-10`, preserving its source build and existing JavaScript URLs with query-versioned worker/shell references. The earlier `20261028-24` shared geometry asset remains required. All three rewritten legacy apps passed real geometry worker/import/STL checks; see [combined checks](20261115-4/VALIDATION.md).
+
+Lot Accord public release: first Pages deployment `1d1d59b91528a04407c76b02971aca325a1a654c` reached built. Public byte-matched app/worker/runtime/WASM and 677-entry gallery, both real-AI fixtures, full reviewed workflow/export/offline checks and all three deduplicated legacy geometry users passed. Source commit preserves and excludes unrelated pre-existing edits.

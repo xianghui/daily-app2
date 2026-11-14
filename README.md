@@ -988,3 +988,10 @@ Real local MiniLM maps rough incoming-inspection notes to supplied procedures. M
 Lot Accord deployment extends byte-verified, deploy-only geometry runtime reuse to `20261030-10`, preserving its source build and existing JavaScript URLs with query-versioned worker/shell references. The earlier `20261028-24` shared geometry asset remains required. All three rewritten legacy apps passed real geometry worker/import/STL checks; see [combined checks](20261115-4/VALIDATION.md).
 
 Lot Accord public release: first Pages deployment `1d1d59b91528a04407c76b02971aca325a1a654c` reached built. Public byte-matched app/worker/runtime/WASM and 677-entry gallery, both real-AI fixtures, full reviewed workflow/export/offline checks and all three deduplicated legacy geometry users passed. Source commit preserves and excludes unrelated pre-existing edits.
+
+
+## Interval Orchard — 20261115-5
+
+Real local MiniLM reconciles rough maintenance notes to supplied lifetime profiles before mandatory human review. Deterministic Weibull age-replacement renewal calculations compare explicit feasible interval grids with current practice; complete JSON/CSV/Markdown preserves every held asset. Six simple synthetic links matched, 248 independent incomplete-gamma reference cases and six fixture grid optima passed. Nearest-profile matching is not identity or suitability verification. Offline scope is fresh-worker inference in an already-open warmed page only. See [workflow/privacy](20261115-5/README.md) and [observed validation](20261115-5/VALIDATION.md).
+
+Root predeploy initially exceeded the conservative 1 GB budget; byte-identical geometry-runtime reuse now also covers 20261030-11 through -14, preserving source builds and legacy JS URLs. All seven affected real geometry workers, image imports and binary STL exports were retested. Combined site is 998,571,969 bytes; retain the guard and shared runtime hosts. New/public AI and runtime verification are recorded in the app publication reports.

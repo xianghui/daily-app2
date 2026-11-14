@@ -1,0 +1,223 @@
+{
+  "app": "Interval Orchard",
+  "originalInput": {
+    "rules": [
+      {
+        "id": "pump",
+        "label": "Water circulation pumps",
+        "description": "Water circulation pump impeller motor fluid cooling loop",
+        "shape": 2,
+        "scale": 180,
+        "minAge": 10,
+        "maxAge": 360,
+        "step": 10
+      },
+      {
+        "id": "belt",
+        "label": "Conveyor drive belts",
+        "description": "Conveyor drive rubber belt pulley transport wear",
+        "shape": 3,
+        "scale": 120,
+        "minAge": 10,
+        "maxAge": 300,
+        "step": 10
+      },
+      {
+        "id": "fan",
+        "label": "Ventilation fans",
+        "description": "Ventilation fan air exhaust blower bearings",
+        "shape": 1,
+        "scale": 200,
+        "minAge": 10,
+        "maxAge": 400,
+        "step": 10
+      }
+    ],
+    "records": [
+      {
+        "id": "W1",
+        "description": "Coolant impeller unit circulating water around the workshop",
+        "currentAge": 180,
+        "plannedCost": 80,
+        "failureCost": 600,
+        "owner": "Maintenance planner"
+      },
+      {
+        "id": "W2",
+        "description": "Rubber loop moving boxes along the packing conveyor",
+        "currentAge": 120,
+        "plannedCost": 40,
+        "failureCost": 500,
+        "owner": "Maintenance planner"
+      },
+      {
+        "id": "W3",
+        "description": "Exhaust air blower above the workbench",
+        "currentAge": 200,
+        "plannedCost": 50,
+        "failureCost": 300,
+        "owner": "Maintenance planner"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "W1",
+      "description": "Coolant impeller unit circulating water around the workshop",
+      "currentAge": 180,
+      "plannedCost": 80,
+      "failureCost": 600,
+      "owner": "Maintenance planner",
+      "procedure": "pump",
+      "proposed": "pump",
+      "shape": 2,
+      "scale": 180,
+      "minAge": 10,
+      "maxAge": 360,
+      "step": 10,
+      "evidence": [
+        {
+          "id": "pump",
+          "score": 0.5787391868373336
+        },
+        {
+          "id": "fan",
+          "score": 0.19151210315465078
+        },
+        {
+          "id": "belt",
+          "score": 0.08546554303935228
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "W2",
+      "description": "Rubber loop moving boxes along the packing conveyor",
+      "currentAge": 120,
+      "plannedCost": 40,
+      "failureCost": 500,
+      "owner": "Maintenance planner",
+      "procedure": "belt",
+      "proposed": "belt",
+      "shape": 3,
+      "scale": 120,
+      "minAge": 10,
+      "maxAge": 300,
+      "step": 10,
+      "evidence": [
+        {
+          "id": "belt",
+          "score": 0.4768650006504974
+        },
+        {
+          "id": "pump",
+          "score": 0.1670016568137158
+        },
+        {
+          "id": "fan",
+          "score": 0.0703705279033411
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "W3",
+      "description": "Exhaust air blower above the workbench",
+      "currentAge": 200,
+      "plannedCost": 50,
+      "failureCost": 300,
+      "owner": "Maintenance planner",
+      "procedure": "fan",
+      "proposed": "fan",
+      "shape": 1,
+      "scale": 200,
+      "minAge": 10,
+      "maxAge": 400,
+      "step": 10,
+      "evidence": [
+        {
+          "id": "fan",
+          "score": 0.4474074069714042
+        },
+        {
+          "id": "pump",
+          "score": 0.060639090741824025
+        },
+        {
+          "id": "belt",
+          "score": 0.008482480516971223
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 3,
+  "approved": 3,
+  "held": 0,
+  "calculations": [
+    {
+      "id": "W1",
+      "baseline": {
+        "age": 180,
+        "survival": 0.36787944117144233,
+        "duration": 134.4283439062401,
+        "cost": 408.70269059084995,
+        "rate": 3.040301462583727
+      },
+      "best": {
+        "age": 70,
+        "survival": 0.8596460296426133,
+        "duration": 66.62569706534907,
+        "cost": 152.9840645858411,
+        "rate": 2.2961720676001094
+      },
+      "gridPoints": 36,
+      "rateDifference": 0.7441293949836174,
+      "boundary": false
+    },
+    {
+      "id": "W2",
+      "baseline": {
+        "age": 120,
+        "survival": 0.36787944117144233,
+        "duration": 96.90134185676688,
+        "cost": 330.77545706113654,
+        "rate": 3.413528138238445
+      },
+      "best": {
+        "age": 40,
+        "survival": 0.9636404443012863,
+        "duration": 39.633515262428524,
+        "cost": 56.725395621408325,
+        "rate": 1.4312481556533148
+      },
+      "gridPoints": 30,
+      "rateDifference": 1.9822799825851303,
+      "boundary": false
+    },
+    {
+      "id": "W3",
+      "baseline": {
+        "age": 200,
+        "survival": 0.36787944117144233,
+        "duration": 126.42411176571267,
+        "cost": 208.03013970713943,
+        "rate": 1.645494176717317
+      },
+      "best": {
+        "age": 400,
+        "survival": 0.1353352832366127,
+        "duration": 172.93294335268115,
+        "cost": 266.16617919084683,
+        "rate": 1.5391294106873836
+      },
+      "gridPoints": 40,
+      "rateDifference": 0.10636476602993339,
+      "boundary": true
+    }
+  ]
+}

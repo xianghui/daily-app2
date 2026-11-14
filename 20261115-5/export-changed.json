@@ -1,0 +1,223 @@
+{
+  "app": "Interval Orchard",
+  "originalInput": {
+    "rules": [
+      {
+        "id": "roller",
+        "label": "Printer feed rollers",
+        "description": "Printer paper feed pickup rollers document sheets",
+        "shape": 2.5,
+        "scale": 100,
+        "minAge": 5,
+        "maxAge": 200,
+        "step": 5
+      },
+      {
+        "id": "battery",
+        "label": "Backup power batteries",
+        "description": "Backup power UPS battery rechargeable electricity outage",
+        "shape": 3,
+        "scale": 180,
+        "minAge": 5,
+        "maxAge": 300,
+        "step": 5
+      },
+      {
+        "id": "filter",
+        "label": "Air filtration cartridges",
+        "description": "Air purifier filtration cartridge dust particulate filter",
+        "shape": 1.5,
+        "scale": 90,
+        "minAge": 5,
+        "maxAge": 200,
+        "step": 5
+      }
+    ],
+    "records": [
+      {
+        "id": "O1",
+        "description": "Paper pickup wheels in the shared laser printer",
+        "currentAge": 100,
+        "plannedCost": 20,
+        "failureCost": 180,
+        "owner": "Office operations"
+      },
+      {
+        "id": "O2",
+        "description": "Rechargeable cells keeping computers on during a power outage",
+        "currentAge": 180,
+        "plannedCost": 100,
+        "failureCost": 800,
+        "owner": "Office operations"
+      },
+      {
+        "id": "O3",
+        "description": "Dust-trapping insert in the room air purifier",
+        "currentAge": 90,
+        "plannedCost": 15,
+        "failureCost": 100,
+        "owner": "Office operations"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "O1",
+      "description": "Paper pickup wheels in the shared laser printer",
+      "currentAge": 100,
+      "plannedCost": 25,
+      "failureCost": 180,
+      "owner": "=Owner\nline, \"two\"",
+      "procedure": "roller",
+      "proposed": "roller",
+      "shape": 2.5,
+      "scale": 100,
+      "minAge": 5,
+      "maxAge": 200,
+      "step": 5,
+      "evidence": [
+        {
+          "id": "roller",
+          "score": 0.7103684934248534
+        },
+        {
+          "id": "filter",
+          "score": 0.1638506128293884
+        },
+        {
+          "id": "battery",
+          "score": 0.06507722286325188
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", recheck"
+    },
+    {
+      "id": "O2",
+      "description": "Rechargeable cells keeping computers on during a power outage",
+      "currentAge": 180,
+      "plannedCost": 100,
+      "failureCost": 800,
+      "owner": "Office operations",
+      "procedure": "battery",
+      "proposed": "battery",
+      "shape": 3,
+      "scale": 180,
+      "minAge": 5,
+      "maxAge": 300,
+      "step": 5,
+      "evidence": [
+        {
+          "id": "battery",
+          "score": 0.6344959575515983
+        },
+        {
+          "id": "roller",
+          "score": 0.08194570853097852
+        },
+        {
+          "id": "filter",
+          "score": 0.055193051420475245
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "O3",
+      "description": "Dust-trapping insert in the room air purifier",
+      "currentAge": 90,
+      "plannedCost": 15,
+      "failureCost": 100,
+      "owner": "Office operations",
+      "procedure": "filter",
+      "proposed": "filter",
+      "shape": 1.5,
+      "scale": 90,
+      "minAge": 5,
+      "maxAge": 200,
+      "step": 5,
+      "evidence": [
+        {
+          "id": "filter",
+          "score": 0.6442914467782823
+        },
+        {
+          "id": "roller",
+          "score": 0.09341546996550415
+        },
+        {
+          "id": "battery",
+          "score": 0.06211497059967433
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 3,
+  "approved": 3,
+  "held": 0,
+  "calculations": [
+    {
+      "id": "O1",
+      "baseline": {
+        "age": 100,
+        "survival": 0.36787944117144233,
+        "duration": 78.12589534094927,
+        "cost": 122.97868661842645,
+        "rate": 1.5741091488517998
+      },
+      "best": {
+        "age": 40,
+        "survival": 0.9037586944636581,
+        "duration": 38.87684612905587,
+        "cost": 39.917402358132996,
+        "rate": 1.0267654486586408
+      },
+      "gridPoints": 40,
+      "rateDifference": 0.5473437001931589,
+      "boundary": false
+    },
+    {
+      "id": "O2",
+      "baseline": {
+        "age": 180,
+        "survival": 0.36787944117144233,
+        "duration": 145.35201278515004,
+        "cost": 542.4843911799903,
+        "rate": 3.7322110701133235
+      },
+      "best": {
+        "age": 75,
+        "survival": 0.9302164639686802,
+        "duration": 73.67122929391674,
+        "cost": 148.84847522192388,
+        "rate": 2.020442398593378
+      },
+      "gridPoints": 60,
+      "rateDifference": 1.7117686715199456,
+      "boundary": false
+    },
+    {
+      "id": "O3",
+      "baseline": {
+        "age": 90,
+        "survival": 0.36787944117144233,
+        "duration": 62.981309498535104,
+        "cost": 68.7302475004274,
+        "rate": 1.0912800646360967
+      },
+      "best": {
+        "age": 45,
+        "survival": 0.7021885013265596,
+        "duration": 39.282852427967434,
+        "cost": 40.31397738724243,
+        "rate": 1.0262487292939269
+      },
+      "gridPoints": 40,
+      "rateDifference": 0.06503133534216987,
+      "boundary": false
+    }
+  ]
+}

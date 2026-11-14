@@ -48,7 +48,7 @@ geometryName='manifold-BE4c7gO-.wasm'
 geometryShared=deploy/'20261028-24/assets'/geometryName
 geometryBytes=geometryShared.read_bytes()
 geometryChanges=[]
-for appName in ['20261025-7','20261025-8','20261030-10']:
+for appName in ['20261025-7','20261025-8','20261030-10','20261030-11','20261030-12','20261030-13','20261030-14']:
  folder=deploy/appName;duplicate=folder/'assets'/geometryName
  if not duplicate.exists():continue
  if duplicate.read_bytes()!=geometryBytes:raise SystemExit('Geometry runtime mismatch: '+appName)

@@ -1,0 +1,213 @@
+{
+  "version": 1,
+  "originalInput": {
+    "project": "Synthetic repair outcomes",
+    "rules": [
+      {
+        "id": "simple",
+        "label": "Routine repair",
+        "description": "Simple routine fixes such as replacing worn batteries and loose cables.",
+        "weight": 3
+      },
+      {
+        "id": "complex",
+        "label": "Complex repair",
+        "description": "Complex technical repairs involving circuit boards and difficult internal faults.",
+        "weight": 1
+      }
+    ],
+    "records": [
+      {
+        "id": "A1",
+        "description": "Quick battery swaps and straightforward cable replacements.",
+        "group": "A",
+        "successes": 19,
+        "total": 20,
+        "owner": "Analysis reviewer"
+      },
+      {
+        "id": "A2",
+        "description": "Difficult motherboard faults and intricate internal circuitry.",
+        "group": "A",
+        "successes": 40,
+        "total": 80,
+        "owner": "Analysis reviewer"
+      },
+      {
+        "id": "B1",
+        "description": "Easy worn battery changes and loose connector fixes.",
+        "group": "B",
+        "successes": 72,
+        "total": 80,
+        "owner": "Analysis reviewer"
+      },
+      {
+        "id": "B2",
+        "description": "Challenging board-level electronics and complicated internal failures.",
+        "group": "B",
+        "successes": 8,
+        "total": 20,
+        "owner": "Analysis reviewer"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "A1",
+      "description": "Quick battery swaps and straightforward cable replacements.",
+      "group": "A",
+      "successes": 19,
+      "total": 20,
+      "owner": "=Owner\n\"second\", line",
+      "kind": "simple",
+      "proposed": "simple",
+      "evidence": [
+        {
+          "id": "simple",
+          "score": 0.6485486237896747
+        },
+        {
+          "id": "complex",
+          "score": 0.31020161807829333
+        }
+      ],
+      "decision": "hold",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", investigate"
+    },
+    {
+      "id": "A2",
+      "description": "Difficult motherboard faults and intricate internal circuitry.",
+      "group": "A",
+      "successes": 40,
+      "total": 80,
+      "owner": "Analysis reviewer",
+      "kind": "complex",
+      "proposed": "complex",
+      "evidence": [
+        {
+          "id": "complex",
+          "score": 0.7444458700942643
+        },
+        {
+          "id": "simple",
+          "score": 0.35590021025803525
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "B1",
+      "description": "Easy worn battery changes and loose connector fixes.",
+      "group": "B",
+      "successes": 72,
+      "total": 80,
+      "owner": "Analysis reviewer",
+      "kind": "simple",
+      "proposed": "simple",
+      "evidence": [
+        {
+          "id": "simple",
+          "score": 0.7297674750172363
+        },
+        {
+          "id": "complex",
+          "score": 0.3983390010643311
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "B2",
+      "description": "Challenging board-level electronics and complicated internal failures.",
+      "group": "B",
+      "successes": 8,
+      "total": 20,
+      "owner": "Analysis reviewer",
+      "kind": "complex",
+      "proposed": "complex",
+      "evidence": [
+        {
+          "id": "complex",
+          "score": 0.7063665800640822
+        },
+        {
+          "id": "simple",
+          "score": 0.4151854931900305
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 3,
+  "held": 1,
+  "partial": true,
+  "strata": [
+    {
+      "id": "simple",
+      "label": "Routine repair",
+      "description": "Simple routine fixes such as replacing worn batteries and loose cables.",
+      "weight": 3,
+      "share": 0.75,
+      "A": {
+        "count": 0,
+        "total": 0,
+        "successes": 0,
+        "rate": null
+      },
+      "B": {
+        "count": 1,
+        "total": 80,
+        "successes": 72,
+        "rate": 0.9
+      }
+    },
+    {
+      "id": "complex",
+      "label": "Complex repair",
+      "description": "Complex technical repairs involving circuit boards and difficult internal faults.",
+      "weight": 1,
+      "share": 0.25,
+      "A": {
+        "count": 1,
+        "total": 80,
+        "successes": 40,
+        "rate": 0.5
+      },
+      "B": {
+        "count": 1,
+        "total": 20,
+        "successes": 8,
+        "rate": 0.4
+      }
+    }
+  ],
+  "groups": {
+    "A": {
+      "total": 80,
+      "successes": 40,
+      "pooled": 0.5,
+      "standardized": null
+    },
+    "B": {
+      "total": 100,
+      "successes": 80,
+      "pooled": 0.8,
+      "standardized": null
+    }
+  },
+  "complete": false,
+  "pooledDifference": -0.30000000000000004,
+  "adjustedDifference": null,
+  "reversal": false,
+  "sensitivity": {
+    "gaps": [],
+    "minGap": null,
+    "maxGap": null,
+    "crossover": null,
+    "dominance": "unavailable"
+  }
+}

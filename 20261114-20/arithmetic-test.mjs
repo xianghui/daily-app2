@@ -1,0 +1,5 @@
+import {summarize,parse,analyze,suggest,examples} from './src/core.js';import fs from 'node:fs';import assert from 'node:assert/strict';
+let state=421;const rand=n=>{state=(Math.imul(state,1664525)+1013904223)>>>0;return state%n};const cases=[];
+for(let i=0;i<2000;i++){const rules=Array.from({length:2+rand(5)},(_,j)=>({id:'s'+j,weight:1+rand(1000)})),rows=rules.flatMap(s=>['A','B'].flatMap(group=>Array.from({length:1+rand(3)},()=>{let total=1+rand(10000);return{kind:s.id,group,total,successes:rand(total+1)}})));cases.push({rules,rows,result:summarize(rules,rows)})}
+assert.throws(()=>suggest(examples[0].data,[[0]]));for(const d of examples){const x=parse(JSON.stringify(d.data));assert.throws(()=>analyze(x,[]));const r=x.records.map((r,i)=>({...r,kind:x.rules[i%2].id,decision:'approve',reviewNote:''}));assert.equal(analyze(x,r).total,4);r[0].successes=r[0].total+1;assert.throws(()=>analyze(x,r))}
+fs.writeFileSync('arithmetic-cases.json',JSON.stringify(cases));console.log('2000 cases generated; schema guards passed');

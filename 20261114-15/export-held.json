@@ -1,0 +1,386 @@
+{
+  "version": 1,
+  "originalInput": {
+    "project": "Synthetic media review",
+    "periodMinutes": 180,
+    "burnThreshold": 2,
+    "services": [
+      {
+        "id": "signin",
+        "label": "Account sign-in",
+        "description": "Account authentication: users log in using passwords or identity tokens.",
+        "targetPpm": 999000
+      },
+      {
+        "id": "images",
+        "label": "Image delivery",
+        "description": "Deliver photos and thumbnail image files to readers from the media cache.",
+        "targetPpm": 990000
+      }
+    ],
+    "records": [
+      {
+        "id": "A1",
+        "description": "Authenticating members with their passwords.",
+        "start": 0,
+        "end": 60,
+        "calls": 10000,
+        "errors": 1,
+        "owner": "Service reviewer"
+      },
+      {
+        "id": "I1",
+        "description": "Serving picture thumbnails from cached media.",
+        "start": 0,
+        "end": 60,
+        "calls": 100,
+        "errors": 4,
+        "owner": "Service reviewer"
+      },
+      {
+        "id": "A2",
+        "description": "Verifying user credentials to enter an account.",
+        "start": 60,
+        "end": 120,
+        "calls": 1000,
+        "errors": 1,
+        "owner": "Service reviewer"
+      },
+      {
+        "id": "I2",
+        "description": "Delivering photo files to article readers.",
+        "start": 60,
+        "end": 120,
+        "calls": 10000,
+        "errors": 10,
+        "owner": "Service reviewer"
+      },
+      {
+        "id": "A3",
+        "description": "Logging members into their profiles.",
+        "start": 120,
+        "end": 180,
+        "calls": 1000,
+        "errors": 10,
+        "owner": "Service reviewer"
+      },
+      {
+        "id": "I3",
+        "description": "Fetching small preview pictures.",
+        "start": 120,
+        "end": 180,
+        "calls": 100,
+        "errors": 4,
+        "owner": "Service reviewer"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "A1",
+      "description": "Authenticating members with their passwords.",
+      "start": 0,
+      "end": 60,
+      "calls": 10000,
+      "errors": 1,
+      "owner": "=Owner\n\"second\", line",
+      "kind": "signin",
+      "proposed": "signin",
+      "evidence": [
+        {
+          "id": "signin",
+          "score": 0.6878215161472514
+        },
+        {
+          "id": "images",
+          "score": 0.15341250507483759
+        }
+      ],
+      "decision": "hold",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", investigate"
+    },
+    {
+      "id": "I1",
+      "description": "Serving picture thumbnails from cached media.",
+      "start": 0,
+      "end": 60,
+      "calls": 100,
+      "errors": 4,
+      "owner": "Service reviewer",
+      "kind": "images",
+      "proposed": "images",
+      "evidence": [
+        {
+          "id": "images",
+          "score": 0.7946998257468592
+        },
+        {
+          "id": "signin",
+          "score": -0.002592455560854987
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "A2",
+      "description": "Verifying user credentials to enter an account.",
+      "start": 60,
+      "end": 120,
+      "calls": 1000,
+      "errors": 1,
+      "owner": "Service reviewer",
+      "kind": "signin",
+      "proposed": "signin",
+      "evidence": [
+        {
+          "id": "signin",
+          "score": 0.6245068258559512
+        },
+        {
+          "id": "images",
+          "score": 0.019784730055468425
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "I2",
+      "description": "Delivering photo files to article readers.",
+      "start": 60,
+      "end": 120,
+      "calls": 10000,
+      "errors": 10,
+      "owner": "Service reviewer",
+      "kind": "images",
+      "proposed": "images",
+      "evidence": [
+        {
+          "id": "images",
+          "score": 0.7099372939383872
+        },
+        {
+          "id": "signin",
+          "score": 0.07041389708046582
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "A3",
+      "description": "Logging members into their profiles.",
+      "start": 120,
+      "end": 180,
+      "calls": 1000,
+      "errors": 10,
+      "owner": "Service reviewer",
+      "kind": "signin",
+      "proposed": "signin",
+      "evidence": [
+        {
+          "id": "signin",
+          "score": 0.4989831740518683
+        },
+        {
+          "id": "images",
+          "score": 0.1689268446930302
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "I3",
+      "description": "Fetching small preview pictures.",
+      "start": 120,
+      "end": 180,
+      "calls": 100,
+      "errors": 4,
+      "owner": "Service reviewer",
+      "kind": "images",
+      "proposed": "images",
+      "evidence": [
+        {
+          "id": "images",
+          "score": 0.5826483638950056
+        },
+        {
+          "id": "signin",
+          "score": 0.003663100737982346
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 6,
+  "approved": 5,
+  "held": 1,
+  "partial": true,
+  "services": [
+    {
+      "id": "signin",
+      "label": "Account sign-in",
+      "description": "Account authentication: users log in using passwords or identity tokens.",
+      "targetPpm": 999000,
+      "n": 2,
+      "calls": 2000,
+      "errors": 11,
+      "coveredMinutes": 120,
+      "complete": false,
+      "budgetRequests": 2,
+      "remainingRequests": -9,
+      "goodRate": 0.9945,
+      "naiveGoodRate": 0.9945,
+      "burn": 5.5,
+      "naiveBurn": 5.5,
+      "latestBurn": 10,
+      "latestWindow": "A3",
+      "action": "Collect and review missing windows",
+      "points": [
+        {
+          "id": "A2",
+          "description": "Verifying user credentials to enter an account.",
+          "start": 60,
+          "end": 120,
+          "calls": 1000,
+          "errors": 1,
+          "owner": "Service reviewer",
+          "kind": "signin",
+          "proposed": "signin",
+          "evidence": [
+            {
+              "id": "signin",
+              "score": 0.6245068258559512
+            },
+            {
+              "id": "images",
+              "score": 0.019784730055468425
+            }
+          ],
+          "decision": "approve",
+          "reviewNote": ""
+        },
+        {
+          "id": "A3",
+          "description": "Logging members into their profiles.",
+          "start": 120,
+          "end": 180,
+          "calls": 1000,
+          "errors": 10,
+          "owner": "Service reviewer",
+          "kind": "signin",
+          "proposed": "signin",
+          "evidence": [
+            {
+              "id": "signin",
+              "score": 0.4989831740518683
+            },
+            {
+              "id": "images",
+              "score": 0.1689268446930302
+            }
+          ],
+          "decision": "approve",
+          "reviewNote": ""
+        }
+      ]
+    },
+    {
+      "id": "images",
+      "label": "Image delivery",
+      "description": "Deliver photos and thumbnail image files to readers from the media cache.",
+      "targetPpm": 990000,
+      "n": 3,
+      "calls": 10200,
+      "errors": 18,
+      "coveredMinutes": 180,
+      "complete": true,
+      "budgetRequests": 102,
+      "remainingRequests": 84,
+      "goodRate": 0.9982352941176471,
+      "naiveGoodRate": 0.973,
+      "burn": 0.17647058823529413,
+      "naiveBurn": 2.7,
+      "latestBurn": 4,
+      "latestWindow": "I3",
+      "action": "Investigate latest-window burn",
+      "points": [
+        {
+          "id": "I1",
+          "description": "Serving picture thumbnails from cached media.",
+          "start": 0,
+          "end": 60,
+          "calls": 100,
+          "errors": 4,
+          "owner": "Service reviewer",
+          "kind": "images",
+          "proposed": "images",
+          "evidence": [
+            {
+              "id": "images",
+              "score": 0.7946998257468592
+            },
+            {
+              "id": "signin",
+              "score": -0.002592455560854987
+            }
+          ],
+          "decision": "approve",
+          "reviewNote": ""
+        },
+        {
+          "id": "I2",
+          "description": "Delivering photo files to article readers.",
+          "start": 60,
+          "end": 120,
+          "calls": 10000,
+          "errors": 10,
+          "owner": "Service reviewer",
+          "kind": "images",
+          "proposed": "images",
+          "evidence": [
+            {
+              "id": "images",
+              "score": 0.7099372939383872
+            },
+            {
+              "id": "signin",
+              "score": 0.07041389708046582
+            }
+          ],
+          "decision": "approve",
+          "reviewNote": ""
+        },
+        {
+          "id": "I3",
+          "description": "Fetching small preview pictures.",
+          "start": 120,
+          "end": 180,
+          "calls": 100,
+          "errors": 4,
+          "owner": "Service reviewer",
+          "kind": "images",
+          "proposed": "images",
+          "evidence": [
+            {
+              "id": "images",
+              "score": 0.5826483638950056
+            },
+            {
+              "id": "signin",
+              "score": 0.003663100737982346
+            }
+          ],
+          "decision": "approve",
+          "reviewNote": ""
+        }
+      ]
+    }
+  ],
+  "totalRequests": 12200,
+  "totalErrors": 29,
+  "literalLabelMatches": 0
+}

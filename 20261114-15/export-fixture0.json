@@ -1,0 +1,409 @@
+{
+  "version": 1,
+  "originalInput": {
+    "project": "Synthetic shop review",
+    "periodMinutes": 180,
+    "burnThreshold": 2,
+    "services": [
+      {
+        "id": "checkout",
+        "label": "Checkout API",
+        "description": "Buying products: submit shopping cart, complete payment and place an order.",
+        "targetPpm": 990000
+      },
+      {
+        "id": "search",
+        "label": "Product search",
+        "description": "Search the catalog for products and retrieve matching product results.",
+        "targetPpm": 995000
+      }
+    ],
+    "records": [
+      {
+        "id": "C1",
+        "description": "Taking customer payments to place store orders.",
+        "start": 0,
+        "end": 60,
+        "calls": 10000,
+        "errors": 10,
+        "owner": "Service reviewer"
+      },
+      {
+        "id": "S1",
+        "description": "Looking up matching merchandise in the catalog.",
+        "start": 0,
+        "end": 60,
+        "calls": 1000,
+        "errors": 20,
+        "owner": "Service reviewer"
+      },
+      {
+        "id": "C2",
+        "description": "Submitting shopping baskets to buy goods.",
+        "start": 60,
+        "end": 120,
+        "calls": 1000,
+        "errors": 30,
+        "owner": "Service reviewer"
+      },
+      {
+        "id": "S2",
+        "description": "Finding items with a product query.",
+        "start": 60,
+        "end": 120,
+        "calls": 10000,
+        "errors": 5,
+        "owner": "Service reviewer"
+      },
+      {
+        "id": "C3",
+        "description": "Completing purchases at the payment endpoint.",
+        "start": 120,
+        "end": 180,
+        "calls": 1000,
+        "errors": 50,
+        "owner": "Service reviewer"
+      },
+      {
+        "id": "S3",
+        "description": "Retrieving catalog results for shoppers.",
+        "start": 120,
+        "end": 180,
+        "calls": 1000,
+        "errors": 5,
+        "owner": "Service reviewer"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "C1",
+      "description": "Taking customer payments to place store orders.",
+      "start": 0,
+      "end": 60,
+      "calls": 10000,
+      "errors": 10,
+      "owner": "Service reviewer",
+      "kind": "checkout",
+      "proposed": "checkout",
+      "evidence": [
+        {
+          "id": "checkout",
+          "score": 0.6145136927596618
+        },
+        {
+          "id": "search",
+          "score": 0.04043610882029098
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "S1",
+      "description": "Looking up matching merchandise in the catalog.",
+      "start": 0,
+      "end": 60,
+      "calls": 1000,
+      "errors": 20,
+      "owner": "Service reviewer",
+      "kind": "search",
+      "proposed": "search",
+      "evidence": [
+        {
+          "id": "search",
+          "score": 0.5862274701032737
+        },
+        {
+          "id": "checkout",
+          "score": 0.3481700504674938
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "C2",
+      "description": "Submitting shopping baskets to buy goods.",
+      "start": 60,
+      "end": 120,
+      "calls": 1000,
+      "errors": 30,
+      "owner": "Service reviewer",
+      "kind": "checkout",
+      "proposed": "checkout",
+      "evidence": [
+        {
+          "id": "checkout",
+          "score": 0.6294185300641191
+        },
+        {
+          "id": "search",
+          "score": 0.24677824341182947
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "S2",
+      "description": "Finding items with a product query.",
+      "start": 60,
+      "end": 120,
+      "calls": 10000,
+      "errors": 5,
+      "owner": "Service reviewer",
+      "kind": "search",
+      "proposed": "search",
+      "evidence": [
+        {
+          "id": "search",
+          "score": 0.5797777707353442
+        },
+        {
+          "id": "checkout",
+          "score": 0.27838737266466285
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "C3",
+      "description": "Completing purchases at the payment endpoint.",
+      "start": 120,
+      "end": 180,
+      "calls": 1000,
+      "errors": 50,
+      "owner": "Service reviewer",
+      "kind": "checkout",
+      "proposed": "checkout",
+      "evidence": [
+        {
+          "id": "checkout",
+          "score": 0.7149398146599029
+        },
+        {
+          "id": "search",
+          "score": 0.12339762636985492
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "S3",
+      "description": "Retrieving catalog results for shoppers.",
+      "start": 120,
+      "end": 180,
+      "calls": 1000,
+      "errors": 5,
+      "owner": "Service reviewer",
+      "kind": "search",
+      "proposed": "search",
+      "evidence": [
+        {
+          "id": "search",
+          "score": 0.5657067733323736
+        },
+        {
+          "id": "checkout",
+          "score": 0.45572346987250056
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 6,
+  "approved": 6,
+  "held": 0,
+  "partial": false,
+  "services": [
+    {
+      "id": "checkout",
+      "label": "Checkout API",
+      "description": "Buying products: submit shopping cart, complete payment and place an order.",
+      "targetPpm": 990000,
+      "n": 3,
+      "calls": 12000,
+      "errors": 90,
+      "coveredMinutes": 180,
+      "complete": true,
+      "budgetRequests": 120,
+      "remainingRequests": 30,
+      "goodRate": 0.9925,
+      "naiveGoodRate": 0.973,
+      "burn": 0.75,
+      "naiveBurn": 2.7,
+      "latestBurn": 5,
+      "latestWindow": "C3",
+      "action": "Investigate latest-window burn",
+      "points": [
+        {
+          "id": "C1",
+          "description": "Taking customer payments to place store orders.",
+          "start": 0,
+          "end": 60,
+          "calls": 10000,
+          "errors": 10,
+          "owner": "Service reviewer",
+          "kind": "checkout",
+          "proposed": "checkout",
+          "evidence": [
+            {
+              "id": "checkout",
+              "score": 0.6145136927596618
+            },
+            {
+              "id": "search",
+              "score": 0.04043610882029098
+            }
+          ],
+          "decision": "approve",
+          "reviewNote": ""
+        },
+        {
+          "id": "C2",
+          "description": "Submitting shopping baskets to buy goods.",
+          "start": 60,
+          "end": 120,
+          "calls": 1000,
+          "errors": 30,
+          "owner": "Service reviewer",
+          "kind": "checkout",
+          "proposed": "checkout",
+          "evidence": [
+            {
+              "id": "checkout",
+              "score": 0.6294185300641191
+            },
+            {
+              "id": "search",
+              "score": 0.24677824341182947
+            }
+          ],
+          "decision": "approve",
+          "reviewNote": ""
+        },
+        {
+          "id": "C3",
+          "description": "Completing purchases at the payment endpoint.",
+          "start": 120,
+          "end": 180,
+          "calls": 1000,
+          "errors": 50,
+          "owner": "Service reviewer",
+          "kind": "checkout",
+          "proposed": "checkout",
+          "evidence": [
+            {
+              "id": "checkout",
+              "score": 0.7149398146599029
+            },
+            {
+              "id": "search",
+              "score": 0.12339762636985492
+            }
+          ],
+          "decision": "approve",
+          "reviewNote": ""
+        }
+      ]
+    },
+    {
+      "id": "search",
+      "label": "Product search",
+      "description": "Search the catalog for products and retrieve matching product results.",
+      "targetPpm": 995000,
+      "n": 3,
+      "calls": 12000,
+      "errors": 30,
+      "coveredMinutes": 180,
+      "complete": true,
+      "budgetRequests": 60,
+      "remainingRequests": 30,
+      "goodRate": 0.9975,
+      "naiveGoodRate": 0.9915,
+      "burn": 0.5,
+      "naiveBurn": 1.7,
+      "latestBurn": 1,
+      "latestWindow": "S3",
+      "action": "Continue review; no configured threshold crossed",
+      "points": [
+        {
+          "id": "S1",
+          "description": "Looking up matching merchandise in the catalog.",
+          "start": 0,
+          "end": 60,
+          "calls": 1000,
+          "errors": 20,
+          "owner": "Service reviewer",
+          "kind": "search",
+          "proposed": "search",
+          "evidence": [
+            {
+              "id": "search",
+              "score": 0.5862274701032737
+            },
+            {
+              "id": "checkout",
+              "score": 0.3481700504674938
+            }
+          ],
+          "decision": "approve",
+          "reviewNote": ""
+        },
+        {
+          "id": "S2",
+          "description": "Finding items with a product query.",
+          "start": 60,
+          "end": 120,
+          "calls": 10000,
+          "errors": 5,
+          "owner": "Service reviewer",
+          "kind": "search",
+          "proposed": "search",
+          "evidence": [
+            {
+              "id": "search",
+              "score": 0.5797777707353442
+            },
+            {
+              "id": "checkout",
+              "score": 0.27838737266466285
+            }
+          ],
+          "decision": "approve",
+          "reviewNote": ""
+        },
+        {
+          "id": "S3",
+          "description": "Retrieving catalog results for shoppers.",
+          "start": 120,
+          "end": 180,
+          "calls": 1000,
+          "errors": 5,
+          "owner": "Service reviewer",
+          "kind": "search",
+          "proposed": "search",
+          "evidence": [
+            {
+              "id": "search",
+              "score": 0.5657067733323736
+            },
+            {
+              "id": "checkout",
+              "score": 0.45572346987250056
+            }
+          ],
+          "decision": "approve",
+          "reviewNote": ""
+        }
+      ]
+    }
+  ],
+  "totalRequests": 24000,
+  "totalErrors": 120,
+  "literalLabelMatches": 0
+}

@@ -889,3 +889,10 @@ Agreement Grove public release: matching Pages gh-pages `029db140da4295ea64c9ea4
 ## Drift Orchard — 20261114-14
 
 Local MiniLM inference reconciles rough process readings before mandatory sequence/unit/specification review. Exploratory individuals/moving-range checks expose a seeded spike missed by specification-only checks; complete JSON/CSV/Markdown retains holds and originals. Twelve small-fixture identities matched, 32-row conservation/export round-trips and warmed-page offline fresh-worker inference passed. Same-series limits and tiny samples are not validated stability/capability evidence. Shared immutable WASM from `20261107-2` must remain available. See [workflow/privacy](20261114-14/README.md) and [observed validation](20261114-14/VALIDATION.md).
+
+
+## Budget Beacon — 20261114-15
+
+Local real MiniLM service reconciliation plus mandatory window/count review supports request-weighted SLO error budgets and a window-average baseline. Both synthetic fixtures matched 12/12 links; negation still mislinked and requires human correction. Complete JSON/CSV/Markdown preserves held reports; gaps mark partial coverage. Offline fresh-worker inference tested only in an already-open warmed page. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261114-15/README.md) and [observed validation](20261114-15/VALIDATION.md).
+
+Budget Beacon public release verified on the first combined deployment: matching Pages commit built, public assets byte-matched, real-AI workflow and offline fresh-worker checks passed, and all 663 prior gallery entries preserved.

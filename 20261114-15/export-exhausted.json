@@ -1,0 +1,235 @@
+{
+  "version": 1,
+  "originalInput": {
+    "project": "Synthetic shop review",
+    "periodMinutes": 180,
+    "burnThreshold": 2,
+    "services": [
+      {
+        "id": "checkout",
+        "label": "Checkout API",
+        "description": "Buying products: submit shopping cart, complete payment and place an order.",
+        "targetPpm": 990000
+      },
+      {
+        "id": "search",
+        "label": "Product search",
+        "description": "Search the catalog for products and retrieve matching product results.",
+        "targetPpm": 995000
+      }
+    ],
+    "records": [
+      {
+        "id": "p0",
+        "description": "Taking customer payments to place store orders.",
+        "start": 0,
+        "end": 60,
+        "calls": 1000,
+        "errors": 0,
+        "owner": "Service reviewer"
+      },
+      {
+        "id": "p1",
+        "description": "Taking customer payments to place store orders.",
+        "start": 60,
+        "end": 120,
+        "calls": 1000,
+        "errors": 0,
+        "owner": "Service reviewer"
+      },
+      {
+        "id": "p2",
+        "description": "Taking customer payments to place store orders.",
+        "start": 120,
+        "end": 180,
+        "calls": 1000,
+        "errors": 40,
+        "owner": "Service reviewer"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "p0",
+      "description": "Taking customer payments to place store orders.",
+      "start": 0,
+      "end": 60,
+      "calls": 1000,
+      "errors": 0,
+      "owner": "Service reviewer",
+      "kind": "checkout",
+      "proposed": "checkout",
+      "evidence": [
+        {
+          "id": "checkout",
+          "score": 0.6331475705203775
+        },
+        {
+          "id": "search",
+          "score": 0.034671641289698726
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "p1",
+      "description": "Taking customer payments to place store orders.",
+      "start": 60,
+      "end": 120,
+      "calls": 1000,
+      "errors": 0,
+      "owner": "Service reviewer",
+      "kind": "checkout",
+      "proposed": "checkout",
+      "evidence": [
+        {
+          "id": "checkout",
+          "score": 0.6331475705203775
+        },
+        {
+          "id": "search",
+          "score": 0.034671641289698726
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "p2",
+      "description": "Taking customer payments to place store orders.",
+      "start": 120,
+      "end": 180,
+      "calls": 1000,
+      "errors": 40,
+      "owner": "Service reviewer",
+      "kind": "checkout",
+      "proposed": "checkout",
+      "evidence": [
+        {
+          "id": "checkout",
+          "score": 0.6401809922930383
+        },
+        {
+          "id": "search",
+          "score": 0.029448958867424727
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 3,
+  "approved": 3,
+  "held": 0,
+  "partial": true,
+  "services": [
+    {
+      "id": "checkout",
+      "label": "Checkout API",
+      "description": "Buying products: submit shopping cart, complete payment and place an order.",
+      "targetPpm": 990000,
+      "n": 3,
+      "calls": 3000,
+      "errors": 40,
+      "coveredMinutes": 180,
+      "complete": true,
+      "budgetRequests": 30,
+      "remainingRequests": -10,
+      "goodRate": 0.9866666666666667,
+      "naiveGoodRate": 0.9866666666666667,
+      "burn": 1.3333333333333333,
+      "naiveBurn": 1.3333333333333335,
+      "latestBurn": 4,
+      "latestWindow": "p2",
+      "action": "Investigate exhausted observed-request budget",
+      "points": [
+        {
+          "id": "p0",
+          "description": "Taking customer payments to place store orders.",
+          "start": 0,
+          "end": 60,
+          "calls": 1000,
+          "errors": 0,
+          "owner": "Service reviewer",
+          "kind": "checkout",
+          "proposed": "checkout",
+          "evidence": [
+            {
+              "id": "checkout",
+              "score": 0.6331475705203775
+            },
+            {
+              "id": "search",
+              "score": 0.034671641289698726
+            }
+          ],
+          "decision": "approve",
+          "reviewNote": ""
+        },
+        {
+          "id": "p1",
+          "description": "Taking customer payments to place store orders.",
+          "start": 60,
+          "end": 120,
+          "calls": 1000,
+          "errors": 0,
+          "owner": "Service reviewer",
+          "kind": "checkout",
+          "proposed": "checkout",
+          "evidence": [
+            {
+              "id": "checkout",
+              "score": 0.6331475705203775
+            },
+            {
+              "id": "search",
+              "score": 0.034671641289698726
+            }
+          ],
+          "decision": "approve",
+          "reviewNote": ""
+        },
+        {
+          "id": "p2",
+          "description": "Taking customer payments to place store orders.",
+          "start": 120,
+          "end": 180,
+          "calls": 1000,
+          "errors": 40,
+          "owner": "Service reviewer",
+          "kind": "checkout",
+          "proposed": "checkout",
+          "evidence": [
+            {
+              "id": "checkout",
+              "score": 0.6401809922930383
+            },
+            {
+              "id": "search",
+              "score": 0.029448958867424727
+            }
+          ],
+          "decision": "approve",
+          "reviewNote": ""
+        }
+      ]
+    },
+    {
+      "id": "search",
+      "label": "Product search",
+      "description": "Search the catalog for products and retrieve matching product results.",
+      "targetPpm": 995000,
+      "n": 0,
+      "calls": 0,
+      "errors": 0,
+      "coveredMinutes": 0,
+      "complete": false,
+      "points": [],
+      "action": "Collect and review missing windows"
+    }
+  ],
+  "totalRequests": 3000,
+  "totalErrors": 40,
+  "literalLabelMatches": 0
+}

@@ -1,0 +1,471 @@
+{
+  "checks": [
+    "real CPU inference Shop reliability",
+    "real CPU inference Media reliability",
+    "review edit undo hold comparison clipboard and artifact reimport",
+    "fully offline fresh-worker real inference on warmed page",
+    "empty invalid oversized unsupported numeric and overlap guards",
+    "cancel retry changed-input stale guard 32-window batching and maximum audit",
+    "instruction-like text has no authority and can be held",
+    "desktop phone labels focus touch and no horizontal overflow"
+  ],
+  "fixtures": [
+    {
+      "name": "Shop reliability",
+      "actual": [
+        "checkout",
+        "search",
+        "checkout",
+        "search",
+        "checkout",
+        "search"
+      ],
+      "expected": [
+        "checkout",
+        "search",
+        "checkout",
+        "search",
+        "checkout",
+        "search"
+      ],
+      "services": [
+        {
+          "id": "checkout",
+          "label": "Checkout API",
+          "description": "Buying products: submit shopping cart, complete payment and place an order.",
+          "targetPpm": 990000,
+          "n": 3,
+          "calls": 12000,
+          "errors": 90,
+          "coveredMinutes": 180,
+          "complete": true,
+          "budgetRequests": 120,
+          "remainingRequests": 30,
+          "goodRate": 0.9925,
+          "naiveGoodRate": 0.973,
+          "burn": 0.75,
+          "naiveBurn": 2.7,
+          "latestBurn": 5,
+          "latestWindow": "C3",
+          "action": "Investigate latest-window burn",
+          "points": [
+            {
+              "id": "C1",
+              "description": "Taking customer payments to place store orders.",
+              "start": 0,
+              "end": 60,
+              "calls": 10000,
+              "errors": 10,
+              "owner": "Service reviewer",
+              "kind": "checkout",
+              "proposed": "checkout",
+              "evidence": [
+                {
+                  "id": "checkout",
+                  "score": 0.6145136927596618
+                },
+                {
+                  "id": "search",
+                  "score": 0.04043610882029098
+                }
+              ],
+              "decision": "approve",
+              "reviewNote": ""
+            },
+            {
+              "id": "C2",
+              "description": "Submitting shopping baskets to buy goods.",
+              "start": 60,
+              "end": 120,
+              "calls": 1000,
+              "errors": 30,
+              "owner": "Service reviewer",
+              "kind": "checkout",
+              "proposed": "checkout",
+              "evidence": [
+                {
+                  "id": "checkout",
+                  "score": 0.6294185300641191
+                },
+                {
+                  "id": "search",
+                  "score": 0.24677824341182947
+                }
+              ],
+              "decision": "approve",
+              "reviewNote": ""
+            },
+            {
+              "id": "C3",
+              "description": "Completing purchases at the payment endpoint.",
+              "start": 120,
+              "end": 180,
+              "calls": 1000,
+              "errors": 50,
+              "owner": "Service reviewer",
+              "kind": "checkout",
+              "proposed": "checkout",
+              "evidence": [
+                {
+                  "id": "checkout",
+                  "score": 0.7149398146599029
+                },
+                {
+                  "id": "search",
+                  "score": 0.12339762636985492
+                }
+              ],
+              "decision": "approve",
+              "reviewNote": ""
+            }
+          ]
+        },
+        {
+          "id": "search",
+          "label": "Product search",
+          "description": "Search the catalog for products and retrieve matching product results.",
+          "targetPpm": 995000,
+          "n": 3,
+          "calls": 12000,
+          "errors": 30,
+          "coveredMinutes": 180,
+          "complete": true,
+          "budgetRequests": 60,
+          "remainingRequests": 30,
+          "goodRate": 0.9975,
+          "naiveGoodRate": 0.9915,
+          "burn": 0.5,
+          "naiveBurn": 1.7,
+          "latestBurn": 1,
+          "latestWindow": "S3",
+          "action": "Continue review; no configured threshold crossed",
+          "points": [
+            {
+              "id": "S1",
+              "description": "Looking up matching merchandise in the catalog.",
+              "start": 0,
+              "end": 60,
+              "calls": 1000,
+              "errors": 20,
+              "owner": "Service reviewer",
+              "kind": "search",
+              "proposed": "search",
+              "evidence": [
+                {
+                  "id": "search",
+                  "score": 0.5862274701032737
+                },
+                {
+                  "id": "checkout",
+                  "score": 0.3481700504674938
+                }
+              ],
+              "decision": "approve",
+              "reviewNote": ""
+            },
+            {
+              "id": "S2",
+              "description": "Finding items with a product query.",
+              "start": 60,
+              "end": 120,
+              "calls": 10000,
+              "errors": 5,
+              "owner": "Service reviewer",
+              "kind": "search",
+              "proposed": "search",
+              "evidence": [
+                {
+                  "id": "search",
+                  "score": 0.5797777707353442
+                },
+                {
+                  "id": "checkout",
+                  "score": 0.27838737266466285
+                }
+              ],
+              "decision": "approve",
+              "reviewNote": ""
+            },
+            {
+              "id": "S3",
+              "description": "Retrieving catalog results for shoppers.",
+              "start": 120,
+              "end": 180,
+              "calls": 1000,
+              "errors": 5,
+              "owner": "Service reviewer",
+              "kind": "search",
+              "proposed": "search",
+              "evidence": [
+                {
+                  "id": "search",
+                  "score": 0.5657067733323736
+                },
+                {
+                  "id": "checkout",
+                  "score": 0.45572346987250056
+                }
+              ],
+              "decision": "approve",
+              "reviewNote": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Media reliability",
+      "actual": [
+        "signin",
+        "images",
+        "signin",
+        "images",
+        "signin",
+        "images"
+      ],
+      "expected": [
+        "signin",
+        "images",
+        "signin",
+        "images",
+        "signin",
+        "images"
+      ],
+      "services": [
+        {
+          "id": "signin",
+          "label": "Account sign-in",
+          "description": "Account authentication: users log in using passwords or identity tokens.",
+          "targetPpm": 999000,
+          "n": 3,
+          "calls": 12000,
+          "errors": 12,
+          "coveredMinutes": 180,
+          "complete": true,
+          "budgetRequests": 12,
+          "remainingRequests": 0,
+          "goodRate": 0.999,
+          "naiveGoodRate": 0.9963,
+          "burn": 1,
+          "naiveBurn": 3.7,
+          "latestBurn": 10,
+          "latestWindow": "A3",
+          "action": "Investigate exhausted observed-request budget",
+          "points": [
+            {
+              "id": "A1",
+              "description": "Authenticating members with their passwords.",
+              "start": 0,
+              "end": 60,
+              "calls": 10000,
+              "errors": 1,
+              "owner": "Service reviewer",
+              "kind": "signin",
+              "proposed": "signin",
+              "evidence": [
+                {
+                  "id": "signin",
+                  "score": 0.6878215161472514
+                },
+                {
+                  "id": "images",
+                  "score": 0.15341250507483759
+                }
+              ],
+              "decision": "approve",
+              "reviewNote": ""
+            },
+            {
+              "id": "A2",
+              "description": "Verifying user credentials to enter an account.",
+              "start": 60,
+              "end": 120,
+              "calls": 1000,
+              "errors": 1,
+              "owner": "Service reviewer",
+              "kind": "signin",
+              "proposed": "signin",
+              "evidence": [
+                {
+                  "id": "signin",
+                  "score": 0.6245068258559512
+                },
+                {
+                  "id": "images",
+                  "score": 0.019784730055468425
+                }
+              ],
+              "decision": "approve",
+              "reviewNote": ""
+            },
+            {
+              "id": "A3",
+              "description": "Logging members into their profiles.",
+              "start": 120,
+              "end": 180,
+              "calls": 1000,
+              "errors": 10,
+              "owner": "Service reviewer",
+              "kind": "signin",
+              "proposed": "signin",
+              "evidence": [
+                {
+                  "id": "signin",
+                  "score": 0.4989831740518683
+                },
+                {
+                  "id": "images",
+                  "score": 0.1689268446930302
+                }
+              ],
+              "decision": "approve",
+              "reviewNote": ""
+            }
+          ]
+        },
+        {
+          "id": "images",
+          "label": "Image delivery",
+          "description": "Deliver photos and thumbnail image files to readers from the media cache.",
+          "targetPpm": 990000,
+          "n": 3,
+          "calls": 10200,
+          "errors": 18,
+          "coveredMinutes": 180,
+          "complete": true,
+          "budgetRequests": 102,
+          "remainingRequests": 84,
+          "goodRate": 0.9982352941176471,
+          "naiveGoodRate": 0.973,
+          "burn": 0.17647058823529413,
+          "naiveBurn": 2.7,
+          "latestBurn": 4,
+          "latestWindow": "I3",
+          "action": "Investigate latest-window burn",
+          "points": [
+            {
+              "id": "I1",
+              "description": "Serving picture thumbnails from cached media.",
+              "start": 0,
+              "end": 60,
+              "calls": 100,
+              "errors": 4,
+              "owner": "Service reviewer",
+              "kind": "images",
+              "proposed": "images",
+              "evidence": [
+                {
+                  "id": "images",
+                  "score": 0.7946998257468592
+                },
+                {
+                  "id": "signin",
+                  "score": -0.002592455560854987
+                }
+              ],
+              "decision": "approve",
+              "reviewNote": ""
+            },
+            {
+              "id": "I2",
+              "description": "Delivering photo files to article readers.",
+              "start": 60,
+              "end": 120,
+              "calls": 10000,
+              "errors": 10,
+              "owner": "Service reviewer",
+              "kind": "images",
+              "proposed": "images",
+              "evidence": [
+                {
+                  "id": "images",
+                  "score": 0.7099372939383872
+                },
+                {
+                  "id": "signin",
+                  "score": 0.07041389708046582
+                }
+              ],
+              "decision": "approve",
+              "reviewNote": ""
+            },
+            {
+              "id": "I3",
+              "description": "Fetching small preview pictures.",
+              "start": 120,
+              "end": 180,
+              "calls": 100,
+              "errors": 4,
+              "owner": "Service reviewer",
+              "kind": "images",
+              "proposed": "images",
+              "evidence": [
+                {
+                  "id": "images",
+                  "score": 0.5826483638950056
+                },
+                {
+                  "id": "signin",
+                  "score": 0.003663100737982346
+                }
+              ],
+              "decision": "approve",
+              "reviewNote": ""
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "privacy": {
+    "requests": 51,
+    "allGetNoBody": true,
+    "urls": [
+      "http://127.0.0.1:6802/daily-app2/20261114-15/",
+      "http://127.0.0.1:6802/daily-app2/20261114-15/assets/index-Byk1GJ3m.js",
+      "http://127.0.0.1:6802/daily-app2/20261114-15/assets/index-BDYUxB2q.css",
+      "http://127.0.0.1:6802/daily-app2/20261114-15/assets/ai.worker-CSZ33tuX.js",
+      "blob:http://127.0.0.1:6802/752ada86-d8fb-44b4-ab17-839b6deba106",
+      "http://127.0.0.1:6802/daily-app2/20261114-15/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "http://127.0.0.1:6802/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "blob:http://127.0.0.1:6802/5ece8d3e-e27a-4cb0-82be-45818658e86d",
+      "blob:http://127.0.0.1:6802/3df47061-755a-4be5-bf8e-dc8ea7476384",
+      "blob:http://127.0.0.1:6802/337422db-dccf-4a19-a9c7-fbbec7bb976e",
+      "blob:http://127.0.0.1:6802/d97e356c-5330-4a6a-96d9-3bd710c27ec4",
+      "blob:http://127.0.0.1:6802/76eb4c16-14a2-43f6-b614-fb5f0806ff09",
+      "blob:http://127.0.0.1:6802/88f57115-0039-44bc-9a7c-eebf71f831e7",
+      "blob:http://127.0.0.1:6802/93b91f26-3967-4978-915d-507a19fedd24",
+      "blob:http://127.0.0.1:6802/4af053f4-8036-4109-af73-67e8a9fb737e",
+      "blob:http://127.0.0.1:6802/5b376d21-9ba0-457b-9811-5072871c7d2c",
+      "blob:http://127.0.0.1:6802/3326eaa4-eb3e-48cd-9033-f42d3ee7a020",
+      "blob:http://127.0.0.1:6802/c07c563f-4011-4652-810f-284e4ef55b2b",
+      "blob:http://127.0.0.1:6802/43c7328e-7aad-41f0-b339-b9b7b3738f6c",
+      "blob:http://127.0.0.1:6802/ba44324e-ea22-47e8-bee1-4469a10451b4",
+      "blob:http://127.0.0.1:6802/7c4e424c-4f64-4129-b2b9-6b4ab766373c",
+      "blob:http://127.0.0.1:6802/00c1658f-3ba9-47ac-a213-e645b06ce7cd",
+      "blob:http://127.0.0.1:6802/a10f0f98-e478-4295-90a8-502833bd8e29",
+      "blob:http://127.0.0.1:6802/b872e95a-cb81-4b04-9020-4579401daf4b",
+      "blob:http://127.0.0.1:6802/74d1b142-72b6-4993-b554-2cf53c46dcdd",
+      "blob:http://127.0.0.1:6802/12def791-7777-4b5a-a5cb-76c734e7b00e",
+      "blob:http://127.0.0.1:6802/36715a40-7af6-403f-bcdd-d667cb4417d2",
+      "blob:http://127.0.0.1:6802/6a3ea0b9-be32-4b40-bcf1-9114008ad314",
+      "blob:http://127.0.0.1:6802/c4d781fd-60f4-42fe-b98d-a81c698ed524",
+      "blob:http://127.0.0.1:6802/ffd7873c-a208-4018-9519-c3b16efda7e6",
+      "blob:http://127.0.0.1:6802/b5b7a840-afa1-431a-a614-713d2cf3d116",
+      "blob:http://127.0.0.1:6802/21355581-f6a9-4581-b46f-4fa45eee707d",
+      "blob:http://127.0.0.1:6802/457ffb49-092a-4ff2-94cf-8f11ef70385c",
+      "blob:http://127.0.0.1:6802/8037f479-ffde-4f58-8b1a-901b419c3918",
+      "blob:http://127.0.0.1:6802/9b6f6f47-a377-4b55-8227-0ec6ba6552e1",
+      "blob:http://127.0.0.1:6802/7c6001a3-6fe8-461f-9650-4f1f3597643e",
+      "blob:http://127.0.0.1:6802/7c1012cc-b887-4fe6-a253-20c3753bddce"
+    ]
+  }
+}

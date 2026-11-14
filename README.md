@@ -871,3 +871,10 @@ Local MiniLM criterion inference reconciles vendor evidence into reviewed weight
 Real local MiniLM event inference assists reviewed probability-forecast retrospectives. A mandatory common-event panel prevents unequal-subset comparisons; Brier scores and fixed-bin calibration worksheets expose misses beyond a constant 50/50 baseline. Both synthetic workflows matched 16/16 notes; 2,000 independent rational scoring cases, complete reviewed artifacts and warmed-page offline fresh-worker inference passed. No generated probabilities or verified outcomes. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow](20261114-11/README.md) and [observed validation](20261114-11/VALIDATION.md).
 
 Forecast Folio public release: matching Pages gh-pages `d194029d2db3892572acbe02d0e1f01849d38db4`, byte-matched app/worker/runtime, both real-AI fixtures, all eight public workflow groups, reviewed artifact round-trips, warmed-page offline inference and preserved 660-card gallery passed.
+
+
+## Capacity Commons — 20261114-12
+
+Real local MiniLM resource inference assists mandatory shared-usage/team/unit review. Exact factorial-weighted Shapley tier-cost allocations compare equal splits and stand-alone costs, flag non-subadditive pooling and retain every held note in complete JSON/CSV/Markdown. Both tiny fixtures matched 12/12 links; 1,000 independent permutation/Fraction cases and actual maximum 6-team/6-pool/32-record inference passed. Offline fresh-worker inference is limited to an already-open warmed page. Not an invoice or fairness guarantee. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow](20261114-12/README.md) and [observed validation](20261114-12/VALIDATION.md).
+
+Capacity Commons public release: matching Pages gh-pages `6a6e40f747cbb7fec41819dca5162e807837ec1c`, byte-matched public assets, both real-AI fixtures, all eight public workflow groups, reviewed artifact round-trips, warmed-page offline inference and preserved 661-card working-tree gallery passed on the first deployment.

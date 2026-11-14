@@ -1,0 +1,309 @@
+{
+  "version": 1,
+  "originalInput": {
+    "project": "Synthetic monthly studio subscriptions",
+    "teams": [
+      "Cedar",
+      "Birch",
+      "Reed"
+    ],
+    "pools": [
+      {
+        "id": "archive",
+        "label": "Archive storage",
+        "description": "Long term cloud file storage for photographs, documents and backups. Capacity in GB.",
+        "unit": "GB",
+        "tiers": [
+          {
+            "upTo": 100,
+            "cents": 1200
+          },
+          {
+            "upTo": 250,
+            "cents": 2200
+          },
+          {
+            "upTo": 500,
+            "cents": 3400
+          }
+        ]
+      },
+      {
+        "id": "render",
+        "label": "Render compute",
+        "description": "Computer rendering and video processing on shared servers. Capacity in CPU hours.",
+        "unit": "CPU hours",
+        "tiers": [
+          {
+            "upTo": 50,
+            "cents": 2000
+          },
+          {
+            "upTo": 150,
+            "cents": 4500
+          },
+          {
+            "upTo": 300,
+            "cents": 7000
+          }
+        ]
+      }
+    ],
+    "records": [
+      {
+        "id": "S1",
+        "team": "Cedar",
+        "description": "Space for retaining photo collections and backup files.",
+        "quantity": 80,
+        "owner": "Cost reviewer"
+      },
+      {
+        "id": "S2",
+        "team": "Birch",
+        "description": "Processor time to generate animation frames.",
+        "quantity": 60,
+        "owner": "Cost reviewer"
+      },
+      {
+        "id": "S3",
+        "team": "Birch",
+        "description": "Disk capacity for archived project documents.",
+        "quantity": 40,
+        "owner": "Cost reviewer"
+      },
+      {
+        "id": "S4",
+        "team": "Cedar",
+        "description": "Server hours spent producing final video frames.",
+        "quantity": 20,
+        "owner": "Cost reviewer"
+      },
+      {
+        "id": "S5",
+        "team": "Reed",
+        "description": "Cloud disk space for keeping old image assets.",
+        "quantity": 120,
+        "owner": "Cost reviewer"
+      },
+      {
+        "id": "S6",
+        "team": "Reed",
+        "description": "Compute time for rendering three dimensional scenes.",
+        "quantity": 40,
+        "owner": "Cost reviewer"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "S1",
+      "team": "Cedar",
+      "description": "Space for retaining photo collections and backup files.",
+      "quantity": 80,
+      "owner": "Cost reviewer",
+      "kind": "archive",
+      "proposed": "archive",
+      "evidence": [
+        {
+          "id": "archive",
+          "score": 0.6476647209756682
+        },
+        {
+          "id": "render",
+          "score": 0.16283352961367842
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "S2",
+      "team": "Birch",
+      "description": "Processor time to generate animation frames.",
+      "quantity": 60,
+      "owner": "Cost reviewer",
+      "kind": "render",
+      "proposed": "render",
+      "evidence": [
+        {
+          "id": "render",
+          "score": 0.5318161120942829
+        },
+        {
+          "id": "archive",
+          "score": 0.019491481733949566
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "S3",
+      "team": "Birch",
+      "description": "Disk capacity for archived project documents.",
+      "quantity": 40,
+      "owner": "Cost reviewer",
+      "kind": "archive",
+      "proposed": "archive",
+      "evidence": [
+        {
+          "id": "archive",
+          "score": 0.5569176031881402
+        },
+        {
+          "id": "render",
+          "score": 0.2624795800124572
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "S4",
+      "team": "Cedar",
+      "description": "Server hours spent producing final video frames.",
+      "quantity": 20,
+      "owner": "Cost reviewer",
+      "kind": "render",
+      "proposed": "render",
+      "evidence": [
+        {
+          "id": "render",
+          "score": 0.7025706841386311
+        },
+        {
+          "id": "archive",
+          "score": 0.23285561387184905
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "S5",
+      "team": "Reed",
+      "description": "Cloud disk space for keeping old image assets.",
+      "quantity": 120,
+      "owner": "Cost reviewer",
+      "kind": "archive",
+      "proposed": "archive",
+      "evidence": [
+        {
+          "id": "archive",
+          "score": 0.7115152614455539
+        },
+        {
+          "id": "render",
+          "score": 0.23592630578678375
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "S6",
+      "team": "Reed",
+      "description": "Compute time for rendering three dimensional scenes.",
+      "quantity": 40,
+      "owner": "Cost reviewer",
+      "kind": "render",
+      "proposed": "render",
+      "evidence": [
+        {
+          "id": "render",
+          "score": 0.47258800099219794
+        },
+        {
+          "id": "archive",
+          "score": 0.09366627888955559
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 6,
+  "approved": 6,
+  "held": 0,
+  "partial": false,
+  "pools": [
+    {
+      "id": "archive",
+      "label": "Archive storage",
+      "unit": "GB",
+      "totalCents": 2200,
+      "totalUnits": 240,
+      "coalitions": 8,
+      "denominator": "6",
+      "allocations": [
+        {
+          "team": "Cedar",
+          "quantity": 80,
+          "exactNumerator": "3400",
+          "cents": 567,
+          "equalCents": 734,
+          "standaloneCents": 1200,
+          "aboveStandalone": false
+        },
+        {
+          "team": "Birch",
+          "quantity": 40,
+          "exactNumerator": "3400",
+          "cents": 567,
+          "equalCents": 733,
+          "standaloneCents": 1200,
+          "aboveStandalone": false
+        },
+        {
+          "team": "Reed",
+          "quantity": 120,
+          "exactNumerator": "6400",
+          "cents": 1066,
+          "equalCents": 733,
+          "standaloneCents": 2200,
+          "aboveStandalone": false
+        }
+      ]
+    },
+    {
+      "id": "render",
+      "label": "Render compute",
+      "unit": "CPU hours",
+      "totalCents": 4500,
+      "totalUnits": 120,
+      "coalitions": 8,
+      "denominator": "6",
+      "allocations": [
+        {
+          "team": "Cedar",
+          "quantity": 20,
+          "exactNumerator": "6500",
+          "cents": 1084,
+          "equalCents": 1500,
+          "standaloneCents": 2000,
+          "aboveStandalone": false
+        },
+        {
+          "team": "Birch",
+          "quantity": 60,
+          "exactNumerator": "14000",
+          "cents": 2333,
+          "equalCents": 1500,
+          "standaloneCents": 4500,
+          "aboveStandalone": false
+        },
+        {
+          "team": "Reed",
+          "quantity": 40,
+          "exactNumerator": "6500",
+          "cents": 1083,
+          "equalCents": 1500,
+          "standaloneCents": 2000,
+          "aboveStandalone": false
+        }
+      ]
+    }
+  ],
+  "totalCents": 6700,
+  "literalLabelMatches": 0
+}

@@ -903,3 +903,10 @@ Budget Beacon public release verified on the first combined deployment: matching
 Real local MiniLM rule inference assists mandatory detector-tally review. Precision/recall and explicit base-rate workload scenarios expose false-alert burden beyond accuracy and an all-negative baseline. Both synthetic batches matched 16/16 links; 2,000 independent arithmetic cases, maximum-batch conservation, reviewed artifact round-trips and warmed-page offline fresh-worker inference passed. No verified labels or forecast guarantees. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow/privacy](20261114-16/README.md) and [observed validation](20261114-16/VALIDATION.md).
 
 Alert Orchard public release: matching Pages gh-pages `b8885aa67264994c1b26771ca6c1c3f31794c9f7` built on the first deployment; byte-matched public assets, both real-AI fixtures, all eight workflow groups, reviewed artifact round-trips, warmed-page offline inference and all 664 prior gallery entries preserved.
+
+
+## Audit Estuary — 20261114-17
+
+Real local MiniLM category inference reconciles two inspection logs before mandatory pass/shared-ID review. Duplicate/conflicting detections block applying; A-only/B-only lists support cross-checks and exploratory Chapman totals expose assumptions beyond the observed union. Both tiny synthetic fixtures matched 16/16 links; 3,311 independent Fraction cases, reviewed artifact conservation and warmed-page fresh-worker offline inference passed locally. Independence, equal detectability and correct IDs are unverified user assumptions—not audit certification. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261114-17/README.md) and [observed validation](20261114-17/VALIDATION.md).
+
+Audit Estuary public release: matching Pages `0f780ca29e7c44110e10328e3885b74ea60fef2d` built on the first deployment; byte-matched public app/worker/runtime/WASM, both real-AI fixtures, all eight workflow groups, reviewed artifacts, warmed-page offline inference and all 665 prior gallery entries passed.

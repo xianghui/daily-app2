@@ -1,0 +1,22 @@
+# Observed validation — Audit Estuary
+
+## Local production bundle
+
+- React/Vite `npm run predeploy` passed with required base/scripts; real bundled module worker and locally served WASM factory plus preserved shared WASM.
+- Headless desktop Chrome, WASM CPU (GPU disabled for successful inference). No mocked successful-AI checks. Workshop inspections and publication checks each matched all eight intended category assignments: 16/16 on tiny synthetic fixtures, not a general accuracy estimate. Every category had pass A=2, pass B=2, overlap=1, union=3, Chapman total=3.5, unseen=0.5; appropriate A-only/B-only lists preserved.
+- 3,311 enumerated overlap configurations checked against independent Python Fraction arithmetic. No-overlap returns null, not zero. Source schema, malformed embeddings, pending review, duplicate pass+issue, conflicting categories, record conservation and order guards passed.
+- Real 6-category/32-detection run, four-text chunking, actual cancellation/retry, input mutation during run, late cancelled worker callbacks and delayed file import tests passed. Defensive late-callback test deliberately uses a nonterminating synthetic worker; it does not count as AI validation.
+- Review corrections, hold, undo, blank invalid issue IDs, approved-only metrics, current export invalidation, audit reimport resetting approvals, copy and actual JSON/CSV/Markdown downloads passed. Independent Python csv/json parsing preserved every original/row, multiline review/owner text and leading spreadsheet-formula escaping. Maximum-batch audit round-trip passed.
+- Explicit network abort and successful real retry, missing WebAssembly, worker download/construction/runtime errors, malformed vectors/envelope and timeout all failed visibly without fake output. Defensive injections only for these failure paths. Prompt-like source text remained pending and holdable.
+- Before explicit load, no Hugging Face model requests; observed request traffic was GET-only with no request bodies to documented hosts. No user text transmitted. Static credential-pattern audit of built text assets performed; no embedded provider credentials. This is not a general security audit.
+- After online inference, network disabled and a fresh terminated/recreated worker performed real inference in the already-open warmed page. No offline reload/navigation claim. Cache eviction/private mode not tested.
+- Desktop 1440 px and narrow 390/320 px viewport checks passed labels, touch targets, focus and no horizontal overflow. Normal viewport overview/review/result screenshots inspected. Physical mobile devices, assistive technology, Firefox and Safari not tested.
+- Known limitations: the real negation challenge intended exit access but matched electrical safety; nearest-category retrieval can assign unrelated/negated text incorrectly; no AI identity resolution; manual issue-ID reconciliation required. Independence and equal detectability are not established by the app; small-overlap estimates unstable; no confidence intervals, universal accuracy or measured time savings claimed.
+
+Machine-readable browser, defensive, arithmetic, artifact, stale and gallery reports are included. Public verification is recorded separately after deployment.
+
+Combined root predeploy and root deploy assembled 666 apps, zero failed/skipped. Production assembly passed the same eight real-AI workflow groups and gallery preservation checks (665 prior entries). The browser harness required a bounded Chrome close timeout after assertions/report completion; this was a harness shutdown issue, not failed inference.
+
+## Public release
+
+Combined publication succeeded on the first attempt. GitHub Pages built matching gh-pages head `0f780ca29e7c44110e10328e3885b74ea60fef2d`. `public-assets.py` byte-matched the public HTML, bundled JS/CSS, real AI worker, local runtime factory and immutable shared WASM against production files; root gallery byte-matched too. Both actual CPU inference fixtures, all eight workflow test groups, network-offline fresh-worker inference, real reviewed downloads/reimports and desktop/narrow layouts passed at the public URL. Public negation challenge reproduced the documented electrical-vs-exit misclassification; holding retained the original. Public gallery preserved all 665 prior entries/categories and correctly rendered 666 cards. Independent artifact parsing reran against the downloaded public outputs. No physical-phone or offline-navigation claim.

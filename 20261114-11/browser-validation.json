@@ -1,0 +1,287 @@
+{
+  "checks": [
+    "real CPU inference Release forecasts",
+    "real CPU inference Market-day forecasts",
+    "multiline edit undo hold duplicate missing copy and artifact roundtrip",
+    "fully offline fresh-worker inference on warmed page",
+    "empty invalid oversized unsupported inputs",
+    "cancel retry stale input 32-row batching and maximum audit",
+    "instruction-like data remains pending and cannot act",
+    "desktop narrow-phone labels focus and touch"
+  ],
+  "fixtures": [
+    {
+      "name": "Release forecasts",
+      "actual": [
+        "launch",
+        "incident",
+        "training",
+        "budget",
+        "incident",
+        "launch",
+        "budget",
+        "training"
+      ],
+      "expected": [
+        "launch",
+        "incident",
+        "training",
+        "budget",
+        "incident",
+        "launch",
+        "budget",
+        "training"
+      ],
+      "scores": [
+        {
+          "vendor": "Cedar",
+          "brier": 0.065,
+          "baseline": 0.25,
+          "skill": 0.74,
+          "bins": [
+            {
+              "lower": 0,
+              "upper": 0.2,
+              "count": 0,
+              "meanProbability": null,
+              "observedRate": null
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.4,
+              "count": 2,
+              "meanProbability": 0.25,
+              "observedRate": 0
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.6,
+              "count": 0,
+              "meanProbability": null,
+              "observedRate": null
+            },
+            {
+              "lower": 0.6,
+              "upper": 0.8,
+              "count": 1,
+              "meanProbability": 0.7,
+              "observedRate": 1
+            },
+            {
+              "lower": 0.8,
+              "upper": 1,
+              "count": 1,
+              "meanProbability": 0.8,
+              "observedRate": 1
+            }
+          ]
+        },
+        {
+          "vendor": "Birch",
+          "brier": 0.2325,
+          "baseline": 0.25,
+          "skill": 0.06999999999999995,
+          "bins": [
+            {
+              "lower": 0,
+              "upper": 0.2,
+              "count": 0,
+              "meanProbability": null,
+              "observedRate": null
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.4,
+              "count": 0,
+              "meanProbability": null,
+              "observedRate": null
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.6,
+              "count": 2,
+              "meanProbability": 0.45,
+              "observedRate": 0.5
+            },
+            {
+              "lower": 0.6,
+              "upper": 0.8,
+              "count": 2,
+              "meanProbability": 0.6,
+              "observedRate": 0.5
+            },
+            {
+              "lower": 0.8,
+              "upper": 1,
+              "count": 0,
+              "meanProbability": null,
+              "observedRate": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Market-day forecasts",
+      "actual": [
+        "rain",
+        "sellout",
+        "delivery",
+        "power",
+        "sellout",
+        "rain",
+        "power",
+        "delivery"
+      ],
+      "expected": [
+        "rain",
+        "sellout",
+        "delivery",
+        "power",
+        "sellout",
+        "rain",
+        "power",
+        "delivery"
+      ],
+      "scores": [
+        {
+          "vendor": "Reed",
+          "brier": 0.024999999999999994,
+          "baseline": 0.25,
+          "skill": 0.9,
+          "bins": [
+            {
+              "lower": 0,
+              "upper": 0.2,
+              "count": 1,
+              "meanProbability": 0.1,
+              "observedRate": 0
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.4,
+              "count": 1,
+              "meanProbability": 0.2,
+              "observedRate": 0
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.6,
+              "count": 0,
+              "meanProbability": null,
+              "observedRate": null
+            },
+            {
+              "lower": 0.6,
+              "upper": 0.8,
+              "count": 0,
+              "meanProbability": null,
+              "observedRate": null
+            },
+            {
+              "lower": 0.8,
+              "upper": 1,
+              "count": 2,
+              "meanProbability": 0.8500000000000001,
+              "observedRate": 1
+            }
+          ]
+        },
+        {
+          "vendor": "Fern",
+          "brier": 0.365,
+          "baseline": 0.25,
+          "skill": -0.45999999999999996,
+          "bins": [
+            {
+              "lower": 0,
+              "upper": 0.2,
+              "count": 0,
+              "meanProbability": null,
+              "observedRate": null
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.4,
+              "count": 0,
+              "meanProbability": null,
+              "observedRate": null
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.6,
+              "count": 2,
+              "meanProbability": 0.45,
+              "observedRate": 1
+            },
+            {
+              "lower": 0.6,
+              "upper": 0.8,
+              "count": 2,
+              "meanProbability": 0.6499999999999999,
+              "observedRate": 0
+            },
+            {
+              "lower": 0.8,
+              "upper": 1,
+              "count": 0,
+              "meanProbability": null,
+              "observedRate": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "privacy": {
+    "requests": 51,
+    "allGetNoBody": true,
+    "urls": [
+      "http://127.0.0.1:6791/daily-app2/20261114-11/",
+      "http://127.0.0.1:6791/daily-app2/20261114-11/assets/index-SUvqfkMS.js",
+      "http://127.0.0.1:6791/daily-app2/20261114-11/assets/index-eFsDhEvI.css",
+      "http://127.0.0.1:6791/daily-app2/20261114-11/assets/ai.worker-peV1jc9t.js",
+      "blob:http://127.0.0.1:6791/b9333170-5564-4d2b-9c76-35e88e607973",
+      "http://127.0.0.1:6791/daily-app2/20261114-11/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "http://127.0.0.1:6791/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "blob:http://127.0.0.1:6791/731ce39b-b7f6-40b8-9cc2-4fab79deb969",
+      "blob:http://127.0.0.1:6791/e518b590-f672-4a7c-b7ba-44452c91c8d5",
+      "blob:http://127.0.0.1:6791/1bb2e133-3e2b-4dd8-a206-af6651677c3f",
+      "blob:http://127.0.0.1:6791/3a3bd20a-c82b-4f9d-9741-64dc5cf16893",
+      "blob:http://127.0.0.1:6791/ebdbc4be-db13-4492-acbb-0d7f2c2b3672",
+      "blob:http://127.0.0.1:6791/6090c66e-809e-40b4-beba-db4403138e06",
+      "blob:http://127.0.0.1:6791/e1d48eae-24a5-4fca-b96f-90f81d61af43",
+      "blob:http://127.0.0.1:6791/cbde7a99-5629-48b3-98e6-a91708f11d99",
+      "blob:http://127.0.0.1:6791/42d386e3-1e86-46d0-8e84-45d6cd1d019b",
+      "blob:http://127.0.0.1:6791/cdc8dfae-a8ea-4346-a2e0-4e4a178f5568",
+      "blob:http://127.0.0.1:6791/1d6bc871-2a38-4e76-9809-2b4ca8257650",
+      "blob:http://127.0.0.1:6791/d3007691-15f2-459d-bf43-9b3fc9349835",
+      "blob:http://127.0.0.1:6791/a0704218-cac2-4a3b-8d29-28e95272b588",
+      "blob:http://127.0.0.1:6791/c587ddd1-1187-4537-9793-04fbff02703c",
+      "blob:http://127.0.0.1:6791/4ea88143-cf53-4be4-9918-514304ebda0f",
+      "blob:http://127.0.0.1:6791/a2766197-7563-44bc-8a06-e903a7d026ac",
+      "blob:http://127.0.0.1:6791/3c4572f7-44d5-4b09-9b2c-2d661ad9f21d",
+      "blob:http://127.0.0.1:6791/7cbb7862-c7d6-42b6-997e-b4da931ae8e6",
+      "blob:http://127.0.0.1:6791/be935459-8ed3-422f-a957-9531c45e6371",
+      "blob:http://127.0.0.1:6791/dff1bc67-4a91-4cdf-8345-27bf56c2996c",
+      "blob:http://127.0.0.1:6791/2421b21d-a78b-49d8-a7a3-ff1e9b118d55",
+      "blob:http://127.0.0.1:6791/be9e1006-9a63-4703-9fcc-e94ed51bef58",
+      "blob:http://127.0.0.1:6791/cee3ab28-8b6c-45a1-94ea-d6ef7f14e7de",
+      "blob:http://127.0.0.1:6791/fa4e27d9-9d75-47ee-897e-d20e99383073",
+      "blob:http://127.0.0.1:6791/70401585-7f1d-4829-a46d-1daa18ec913e",
+      "blob:http://127.0.0.1:6791/746ac390-69d6-483b-8414-44efccf5c493",
+      "blob:http://127.0.0.1:6791/2597fdec-931d-494e-926e-c53c93e42906",
+      "blob:http://127.0.0.1:6791/cc368df1-188a-44d6-8d41-37e4e1c77429",
+      "blob:http://127.0.0.1:6791/31f3992d-1cf6-4d7f-9015-3245395ae16d",
+      "blob:http://127.0.0.1:6791/558dab9c-ce78-4dda-9d2d-2348b60c2013"
+    ]
+  }
+}

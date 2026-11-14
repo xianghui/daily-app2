@@ -864,3 +864,10 @@ Variance Loom public release: matching Pages gh-pages `a4d348bc27f2398f7a71bec8a
 ## Tender Prism — 20261114-10
 
 Local MiniLM criterion inference reconciles vendor evidence into reviewed weighted scorecards. Fixed performance anchors, complete-pair guards, equal-weight baseline and omit-one sensitivity make priorities explicit. Six expected links in each of two synthetic workflows matched; nearest-neighbor retrieval still requires human review. See [workflow](20261114-10/README.md) and [validation](20261114-10/VALIDATION.md). Preserves the shared immutable WASM at `20261107-2`.
+
+
+## Forecast Folio — 20261114-11
+
+Real local MiniLM event inference assists reviewed probability-forecast retrospectives. A mandatory common-event panel prevents unequal-subset comparisons; Brier scores and fixed-bin calibration worksheets expose misses beyond a constant 50/50 baseline. Both synthetic workflows matched 16/16 notes; 2,000 independent rational scoring cases, complete reviewed artifacts and warmed-page offline fresh-worker inference passed. No generated probabilities or verified outcomes. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow](20261114-11/README.md) and [observed validation](20261114-11/VALIDATION.md).
+
+Forecast Folio public release: matching Pages gh-pages `d194029d2db3892572acbe02d0e1f01849d38db4`, byte-matched app/worker/runtime, both real-AI fixtures, all eight public workflow groups, reviewed artifact round-trips, warmed-page offline inference and preserved 660-card gallery passed.

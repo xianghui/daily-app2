@@ -1,0 +1,301 @@
+{
+  "app": "Order Canopy",
+  "schemaVersion": 1,
+  "originalInput": {
+    "conditions": [
+      {
+        "id": "search",
+        "label": "Catalogue search",
+        "description": "Search the library catalogue by book title author and find a book"
+      },
+      {
+        "id": "renew",
+        "label": "Loan renewal",
+        "description": "Extend the due date of a borrowed library book renew a loan"
+      },
+      {
+        "id": "reserve",
+        "label": "Book reservation",
+        "description": "Place a hold reservation on a library book currently unavailable"
+      }
+    ],
+    "participants": [
+      "P01",
+      "P02",
+      "P03",
+      "P04",
+      "P05",
+      "P06"
+    ],
+    "records": [
+      {
+        "id": "T1",
+        "description": "Locate a novel by its writer in the online collection",
+        "instructions": "Find the title The Glass Garden by the fictional author Mira Cole."
+      },
+      {
+        "id": "T2",
+        "description": "Keep a borrowed title for another fortnight",
+        "instructions": "Extend the due date of your current loan. Stop before final confirmation."
+      },
+      {
+        "id": "T3",
+        "description": "Join the waiting list for a title that is checked out",
+        "instructions": "Request a hold on an unavailable book. Stop before final confirmation."
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "T1",
+      "description": "Locate a novel by its writer in the online collection",
+      "instructions": "Find the title The Glass Garden by the fictional author Mira Cole.",
+      "condition": "search",
+      "proposed": "search",
+      "evidence": [
+        {
+          "id": "search",
+          "score": 0.5613039978519728
+        },
+        {
+          "id": "reserve",
+          "score": 0.3375715935394201
+        },
+        {
+          "id": "renew",
+          "score": 0.30926136888846256
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "T2",
+      "description": "Keep a borrowed title for another fortnight",
+      "instructions": "Extend the due date of your current loan. Stop before final confirmation.",
+      "condition": "renew",
+      "proposed": "renew",
+      "evidence": [
+        {
+          "id": "renew",
+          "score": 0.3426480531505447
+        },
+        {
+          "id": "search",
+          "score": 0.20752179583716893
+        },
+        {
+          "id": "reserve",
+          "score": 0.18122924652180633
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "T3",
+      "description": "Join the waiting list for a title that is checked out",
+      "instructions": "Request a hold on an unavailable book. Stop before final confirmation.",
+      "condition": "reserve",
+      "proposed": "reserve",
+      "evidence": [
+        {
+          "id": "reserve",
+          "score": 0.32459730453973157
+        },
+        {
+          "id": "search",
+          "score": 0.24521157209087632
+        },
+        {
+          "id": "renew",
+          "score": 0.1661256198103316
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 3,
+  "approved": 3,
+  "held": 0,
+  "ready": true,
+  "problems": [],
+  "blockSize": 6,
+  "completeBlocks": 1,
+  "remainder": 0,
+  "schedule": [
+    {
+      "participant": "P01",
+      "sequence": 1,
+      "block": 1,
+      "order": [
+        "search",
+        "renew",
+        "reserve"
+      ]
+    },
+    {
+      "participant": "P02",
+      "sequence": 2,
+      "block": 1,
+      "order": [
+        "renew",
+        "reserve",
+        "search"
+      ]
+    },
+    {
+      "participant": "P03",
+      "sequence": 3,
+      "block": 1,
+      "order": [
+        "reserve",
+        "search",
+        "renew"
+      ]
+    },
+    {
+      "participant": "P04",
+      "sequence": 4,
+      "block": 1,
+      "order": [
+        "reserve",
+        "renew",
+        "search"
+      ]
+    },
+    {
+      "participant": "P05",
+      "sequence": 5,
+      "block": 1,
+      "order": [
+        "search",
+        "reserve",
+        "renew"
+      ]
+    },
+    {
+      "participant": "P06",
+      "sequence": 6,
+      "block": 1,
+      "order": [
+        "renew",
+        "search",
+        "reserve"
+      ]
+    }
+  ],
+  "baseline": [
+    {
+      "participant": "P01",
+      "order": [
+        "search",
+        "renew",
+        "reserve"
+      ]
+    },
+    {
+      "participant": "P02",
+      "order": [
+        "search",
+        "renew",
+        "reserve"
+      ]
+    },
+    {
+      "participant": "P03",
+      "order": [
+        "search",
+        "renew",
+        "reserve"
+      ]
+    },
+    {
+      "participant": "P04",
+      "order": [
+        "search",
+        "renew",
+        "reserve"
+      ]
+    },
+    {
+      "participant": "P05",
+      "order": [
+        "search",
+        "renew",
+        "reserve"
+      ]
+    },
+    {
+      "participant": "P06",
+      "order": [
+        "search",
+        "renew",
+        "reserve"
+      ]
+    }
+  ],
+  "balancedMetrics": {
+    "positions": {
+      "search": [
+        2,
+        2,
+        2
+      ],
+      "renew": [
+        2,
+        2,
+        2
+      ],
+      "reserve": [
+        2,
+        2,
+        2
+      ]
+    },
+    "pairs": {
+      "[\"search\",\"renew\"]": 2,
+      "[\"search\",\"reserve\"]": 2,
+      "[\"renew\",\"search\"]": 2,
+      "[\"renew\",\"reserve\"]": 2,
+      "[\"reserve\",\"search\"]": 2,
+      "[\"reserve\",\"renew\"]": 2
+    },
+    "maxPositionSpread": 0,
+    "pairSpread": 0,
+    "distinctPairs": 6,
+    "totalPossiblePairs": 6
+  },
+  "baselineMetrics": {
+    "positions": {
+      "search": [
+        6,
+        0,
+        0
+      ],
+      "renew": [
+        0,
+        6,
+        0
+      ],
+      "reserve": [
+        0,
+        0,
+        6
+      ]
+    },
+    "pairs": {
+      "[\"search\",\"renew\"]": 6,
+      "[\"search\",\"reserve\"]": 0,
+      "[\"renew\",\"search\"]": 0,
+      "[\"renew\",\"reserve\"]": 6,
+      "[\"reserve\",\"search\"]": 0,
+      "[\"reserve\",\"renew\"]": 0
+    },
+    "maxPositionSpread": 6,
+    "pairSpread": 6,
+    "distinctPairs": 2,
+    "totalPossiblePairs": 6
+  }
+}

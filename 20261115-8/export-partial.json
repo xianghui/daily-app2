@@ -1,0 +1,329 @@
+{
+  "app": "Order Canopy",
+  "schemaVersion": 1,
+  "originalInput": {
+    "conditions": [
+      {
+        "id": "flight",
+        "label": "Flight booking",
+        "description": "Search airline flights compare plane tickets and reserve a flight"
+      },
+      {
+        "id": "hotel",
+        "label": "Hotel booking",
+        "description": "Find accommodation hotel room lodging and reserve a stay"
+      },
+      {
+        "id": "rail",
+        "label": "Train booking",
+        "description": "Search railway timetables train tickets and book a rail journey"
+      },
+      {
+        "id": "car",
+        "label": "Car rental",
+        "description": "Hire a rental vehicle car and choose pickup and return locations"
+      }
+    ],
+    "participants": [
+      "one",
+      "two",
+      "three"
+    ],
+    "records": [
+      {
+        "id": "V1",
+        "description": "Arrange an airplane journey between two airports",
+        "instructions": "Compare two fictional airfares; do not purchase."
+      },
+      {
+        "id": "V2",
+        "description": "Find somewhere to sleep for two nights",
+        "instructions": "Choose a fictional hotel room; do not reserve."
+      },
+      {
+        "id": "V3",
+        "description": "Get a seat on the intercity railway service",
+        "instructions": "Find the next fictional train departure; do not purchase."
+      },
+      {
+        "id": "V4",
+        "description": "Hire a vehicle to drive after arrival",
+        "instructions": "Compare fictional rental-car pickup options; do not reserve."
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "V1",
+      "description": "Arrange an airplane journey between two airports",
+      "instructions": "Compare two fictional airfares; do not purchase.",
+      "condition": "flight",
+      "proposed": "flight",
+      "evidence": [
+        {
+          "id": "flight",
+          "score": 0.46742864445830923
+        },
+        {
+          "id": "rail",
+          "score": 0.25489350598676513
+        },
+        {
+          "id": "car",
+          "score": 0.2194452532566161
+        },
+        {
+          "id": "hotel",
+          "score": 0.1523516953475505
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "V2",
+      "description": "Find somewhere to sleep for two nights",
+      "instructions": "Choose a fictional hotel room; do not reserve.",
+      "condition": "hotel",
+      "proposed": "hotel",
+      "evidence": [
+        {
+          "id": "hotel",
+          "score": 0.47384761479202187
+        },
+        {
+          "id": "car",
+          "score": 0.31278600602320256
+        },
+        {
+          "id": "rail",
+          "score": 0.08725875627416782
+        },
+        {
+          "id": "flight",
+          "score": 0.0814039638665551
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "V3",
+      "description": "Get a seat on the intercity railway service",
+      "instructions": "Find the next fictional train departure; do not purchase.",
+      "condition": "rail",
+      "proposed": "rail",
+      "evidence": [
+        {
+          "id": "rail",
+          "score": 0.5864420196617968
+        },
+        {
+          "id": "flight",
+          "score": 0.1658177497353022
+        },
+        {
+          "id": "car",
+          "score": 0.15382613321041796
+        },
+        {
+          "id": "hotel",
+          "score": 0.1400539748420701
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "V4",
+      "description": "Hire a vehicle to drive after arrival",
+      "instructions": "Compare fictional rental-car pickup options; do not reserve.",
+      "condition": "car",
+      "proposed": "car",
+      "evidence": [
+        {
+          "id": "car",
+          "score": 0.5647013773188818
+        },
+        {
+          "id": "hotel",
+          "score": 0.17510790036935764
+        },
+        {
+          "id": "rail",
+          "score": 0.168590370526084
+        },
+        {
+          "id": "flight",
+          "score": 0.11740829733782909
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "ready": true,
+  "problems": [],
+  "blockSize": 4,
+  "completeBlocks": 0,
+  "remainder": 3,
+  "schedule": [
+    {
+      "participant": "one",
+      "sequence": 1,
+      "block": 1,
+      "order": [
+        "flight",
+        "hotel",
+        "car",
+        "rail"
+      ]
+    },
+    {
+      "participant": "two",
+      "sequence": 2,
+      "block": 1,
+      "order": [
+        "hotel",
+        "rail",
+        "flight",
+        "car"
+      ]
+    },
+    {
+      "participant": "three",
+      "sequence": 3,
+      "block": 1,
+      "order": [
+        "rail",
+        "car",
+        "hotel",
+        "flight"
+      ]
+    }
+  ],
+  "baseline": [
+    {
+      "participant": "one",
+      "order": [
+        "flight",
+        "hotel",
+        "rail",
+        "car"
+      ]
+    },
+    {
+      "participant": "two",
+      "order": [
+        "flight",
+        "hotel",
+        "rail",
+        "car"
+      ]
+    },
+    {
+      "participant": "three",
+      "order": [
+        "flight",
+        "hotel",
+        "rail",
+        "car"
+      ]
+    }
+  ],
+  "balancedMetrics": {
+    "positions": {
+      "flight": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "hotel": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "rail": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "car": [
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    "pairs": {
+      "[\"flight\",\"hotel\"]": 1,
+      "[\"flight\",\"rail\"]": 0,
+      "[\"flight\",\"car\"]": 1,
+      "[\"hotel\",\"flight\"]": 1,
+      "[\"hotel\",\"rail\"]": 1,
+      "[\"hotel\",\"car\"]": 1,
+      "[\"rail\",\"flight\"]": 1,
+      "[\"rail\",\"hotel\"]": 0,
+      "[\"rail\",\"car\"]": 1,
+      "[\"car\",\"flight\"]": 0,
+      "[\"car\",\"hotel\"]": 1,
+      "[\"car\",\"rail\"]": 1
+    },
+    "maxPositionSpread": 1,
+    "pairSpread": 1,
+    "distinctPairs": 9,
+    "totalPossiblePairs": 12
+  },
+  "baselineMetrics": {
+    "positions": {
+      "flight": [
+        3,
+        0,
+        0,
+        0
+      ],
+      "hotel": [
+        0,
+        3,
+        0,
+        0
+      ],
+      "rail": [
+        0,
+        0,
+        3,
+        0
+      ],
+      "car": [
+        0,
+        0,
+        0,
+        3
+      ]
+    },
+    "pairs": {
+      "[\"flight\",\"hotel\"]": 3,
+      "[\"flight\",\"rail\"]": 0,
+      "[\"flight\",\"car\"]": 0,
+      "[\"hotel\",\"flight\"]": 0,
+      "[\"hotel\",\"rail\"]": 3,
+      "[\"hotel\",\"car\"]": 0,
+      "[\"rail\",\"flight\"]": 0,
+      "[\"rail\",\"hotel\"]": 0,
+      "[\"rail\",\"car\"]": 3,
+      "[\"car\",\"flight\"]": 0,
+      "[\"car\",\"hotel\"]": 0,
+      "[\"car\",\"rail\"]": 0
+    },
+    "maxPositionSpread": 3,
+    "pairSpread": 3,
+    "distinctPairs": 3,
+    "totalPossiblePairs": 12
+  }
+}

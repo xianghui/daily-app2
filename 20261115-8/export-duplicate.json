@@ -1,0 +1,185 @@
+{
+  "app": "Order Canopy",
+  "schemaVersion": 1,
+  "originalInput": {
+    "conditions": [
+      {
+        "id": "flight",
+        "label": "Flight booking",
+        "description": "Search airline flights compare plane tickets and reserve a flight"
+      },
+      {
+        "id": "hotel",
+        "label": "Hotel booking",
+        "description": "Find accommodation hotel room lodging and reserve a stay"
+      },
+      {
+        "id": "rail",
+        "label": "Train booking",
+        "description": "Search railway timetables train tickets and book a rail journey"
+      },
+      {
+        "id": "car",
+        "label": "Car rental",
+        "description": "Hire a rental vehicle car and choose pickup and return locations"
+      }
+    ],
+    "participants": [
+      "A01",
+      "A02",
+      "A03",
+      "A04",
+      "A05",
+      "A06",
+      "A07",
+      "A08"
+    ],
+    "records": [
+      {
+        "id": "V1",
+        "description": "Arrange an airplane journey between two airports",
+        "instructions": "Compare two fictional airfares; do not purchase."
+      },
+      {
+        "id": "V2",
+        "description": "Find somewhere to sleep for two nights",
+        "instructions": "Choose a fictional hotel room; do not reserve."
+      },
+      {
+        "id": "V3",
+        "description": "Get a seat on the intercity railway service",
+        "instructions": "Find the next fictional train departure; do not purchase."
+      },
+      {
+        "id": "V4",
+        "description": "Hire a vehicle to drive after arrival",
+        "instructions": "Compare fictional rental-car pickup options; do not reserve."
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "V1",
+      "description": "Arrange an airplane journey between two airports",
+      "instructions": "=Review, \"fare\"\nDo not buy.",
+      "condition": "hotel",
+      "proposed": "flight",
+      "evidence": [
+        {
+          "id": "flight",
+          "score": 0.46742864445830923
+        },
+        {
+          "id": "rail",
+          "score": 0.25489350598676513
+        },
+        {
+          "id": "car",
+          "score": 0.2194452532566161
+        },
+        {
+          "id": "hotel",
+          "score": 0.1523516953475505
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", recheck"
+    },
+    {
+      "id": "V2",
+      "description": "Find somewhere to sleep for two nights",
+      "instructions": "Choose a fictional hotel room; do not reserve.",
+      "condition": "hotel",
+      "proposed": "hotel",
+      "evidence": [
+        {
+          "id": "hotel",
+          "score": 0.47384761479202187
+        },
+        {
+          "id": "car",
+          "score": 0.31278600602320256
+        },
+        {
+          "id": "rail",
+          "score": 0.08725875627416782
+        },
+        {
+          "id": "flight",
+          "score": 0.0814039638665551
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "V3",
+      "description": "Get a seat on the intercity railway service",
+      "instructions": "Find the next fictional train departure; do not purchase.",
+      "condition": "rail",
+      "proposed": "rail",
+      "evidence": [
+        {
+          "id": "rail",
+          "score": 0.5864420196617968
+        },
+        {
+          "id": "flight",
+          "score": 0.1658177497353022
+        },
+        {
+          "id": "car",
+          "score": 0.15382613321041796
+        },
+        {
+          "id": "hotel",
+          "score": 0.1400539748420701
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "V4",
+      "description": "Hire a vehicle to drive after arrival",
+      "instructions": "Compare fictional rental-car pickup options; do not reserve.",
+      "condition": "car",
+      "proposed": "car",
+      "evidence": [
+        {
+          "id": "car",
+          "score": 0.5647013773188818
+        },
+        {
+          "id": "hotel",
+          "score": 0.17510790036935764
+        },
+        {
+          "id": "rail",
+          "score": 0.168590370526084
+        },
+        {
+          "id": "flight",
+          "score": 0.11740829733782909
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "ready": false,
+  "problems": [
+    "flight: 0 approved cards (need exactly 1)",
+    "hotel: 2 approved cards (need exactly 1)"
+  ],
+  "blockSize": 4,
+  "completeBlocks": 2,
+  "remainder": 0,
+  "schedule": [],
+  "baseline": [],
+  "balancedMetrics": null,
+  "baselineMetrics": null
+}

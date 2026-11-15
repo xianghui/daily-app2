@@ -1,0 +1,469 @@
+{
+  "schema": "reach-quilt/v1",
+  "originalInput": {
+    "context": "Synthetic same-month person counts, deduplicated within each channel. Intersections include people also in other channels.",
+    "universe": 200,
+    "target": 125,
+    "channels": [
+      {
+        "id": "mail",
+        "label": "Email newsletter",
+        "description": "People reading an email newsletter delivered to their inbox"
+      },
+      {
+        "id": "video",
+        "label": "Live webinar",
+        "description": "People attending a live online video seminar"
+      },
+      {
+        "id": "audio",
+        "label": "Podcast",
+        "description": "People listening to an audio podcast episode"
+      }
+    ],
+    "observations": [
+      {
+        "id": "m",
+        "parts": [
+          "Readers of the electronic bulletin in their inbox"
+        ],
+        "count": 100
+      },
+      {
+        "id": "v",
+        "parts": [
+          "Attendees joining the live online seminar"
+        ],
+        "count": 80
+      },
+      {
+        "id": "a",
+        "parts": [
+          "Listeners tuning in to the audio episode"
+        ],
+        "count": 60
+      },
+      {
+        "id": "mv",
+        "parts": [
+          "Readers of the electronic bulletin in their inbox",
+          "Attendees joining the live online seminar"
+        ],
+        "count": 50
+      },
+      {
+        "id": "ma",
+        "parts": [
+          "Readers of the electronic bulletin in their inbox",
+          "Listeners tuning in to the audio episode"
+        ],
+        "count": 30
+      },
+      {
+        "id": "va",
+        "parts": [
+          "Attendees joining the live online seminar",
+          "Listeners tuning in to the audio episode"
+        ],
+        "count": 20
+      },
+      {
+        "id": "all",
+        "parts": [
+          "Readers of the electronic bulletin in their inbox",
+          "Attendees joining the live online seminar",
+          "Listeners tuning in to the audio episode"
+        ],
+        "count": 10
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "m",
+      "parts": [
+        "Readers of the electronic bulletin in their inbox"
+      ],
+      "count": 100,
+      "mask": 1,
+      "evidence": [
+        {
+          "part": "Readers of the electronic bulletin in their inbox",
+          "rank": [
+            {
+              "id": "mail",
+              "index": 0,
+              "score": 0.7428554629277068
+            },
+            {
+              "id": "audio",
+              "index": 2,
+              "score": 0.4450683380320931
+            },
+            {
+              "id": "video",
+              "index": 1,
+              "score": 0.2594987518990952
+            }
+          ]
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "v",
+      "parts": [
+        "Attendees joining the live online seminar"
+      ],
+      "count": 80,
+      "mask": 2,
+      "evidence": [
+        {
+          "part": "Attendees joining the live online seminar",
+          "rank": [
+            {
+              "id": "video",
+              "index": 1,
+              "score": 0.8116458178405203
+            },
+            {
+              "id": "audio",
+              "index": 2,
+              "score": 0.3884765726948075
+            },
+            {
+              "id": "mail",
+              "index": 0,
+              "score": 0.2445698701125486
+            }
+          ]
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "a",
+      "parts": [
+        "Listeners tuning in to the audio episode"
+      ],
+      "count": 60,
+      "mask": 4,
+      "evidence": [
+        {
+          "part": "Listeners tuning in to the audio episode",
+          "rank": [
+            {
+              "id": "audio",
+              "index": 2,
+              "score": 0.747596008253428
+            },
+            {
+              "id": "mail",
+              "index": 0,
+              "score": 0.2357146138346923
+            },
+            {
+              "id": "video",
+              "index": 1,
+              "score": 0.23104104522042343
+            }
+          ]
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "mv",
+      "parts": [
+        "Readers of the electronic bulletin in their inbox",
+        "Attendees joining the live online seminar"
+      ],
+      "count": 50,
+      "mask": 3,
+      "evidence": [
+        {
+          "part": "Readers of the electronic bulletin in their inbox",
+          "rank": [
+            {
+              "id": "mail",
+              "index": 0,
+              "score": 0.7363010616670569
+            },
+            {
+              "id": "audio",
+              "index": 2,
+              "score": 0.44355496478567513
+            },
+            {
+              "id": "video",
+              "index": 1,
+              "score": 0.25215094262900484
+            }
+          ]
+        },
+        {
+          "part": "Attendees joining the live online seminar",
+          "rank": [
+            {
+              "id": "video",
+              "index": 1,
+              "score": 0.8116458178405203
+            },
+            {
+              "id": "audio",
+              "index": 2,
+              "score": 0.3884765726948075
+            },
+            {
+              "id": "mail",
+              "index": 0,
+              "score": 0.2445698701125486
+            }
+          ]
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "ma",
+      "parts": [
+        "Readers of the electronic bulletin in their inbox",
+        "Listeners tuning in to the audio episode"
+      ],
+      "count": 30,
+      "mask": 5,
+      "evidence": [
+        {
+          "part": "Readers of the electronic bulletin in their inbox",
+          "rank": [
+            {
+              "id": "mail",
+              "index": 0,
+              "score": 0.7363010616670569
+            },
+            {
+              "id": "audio",
+              "index": 2,
+              "score": 0.44355496478567513
+            },
+            {
+              "id": "video",
+              "index": 1,
+              "score": 0.25215094262900484
+            }
+          ]
+        },
+        {
+          "part": "Listeners tuning in to the audio episode",
+          "rank": [
+            {
+              "id": "audio",
+              "index": 2,
+              "score": 0.747596008253428
+            },
+            {
+              "id": "mail",
+              "index": 0,
+              "score": 0.2357146138346923
+            },
+            {
+              "id": "video",
+              "index": 1,
+              "score": 0.23104104522042343
+            }
+          ]
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "va",
+      "parts": [
+        "Attendees joining the live online seminar",
+        "Listeners tuning in to the audio episode"
+      ],
+      "count": 20,
+      "mask": 6,
+      "evidence": [
+        {
+          "part": "Attendees joining the live online seminar",
+          "rank": [
+            {
+              "id": "video",
+              "index": 1,
+              "score": 0.8116458178405203
+            },
+            {
+              "id": "audio",
+              "index": 2,
+              "score": 0.3884765726948075
+            },
+            {
+              "id": "mail",
+              "index": 0,
+              "score": 0.2445698701125486
+            }
+          ]
+        },
+        {
+          "part": "Listeners tuning in to the audio episode",
+          "rank": [
+            {
+              "id": "audio",
+              "index": 2,
+              "score": 0.747596008253428
+            },
+            {
+              "id": "mail",
+              "index": 0,
+              "score": 0.2357146138346923
+            },
+            {
+              "id": "video",
+              "index": 1,
+              "score": 0.23104104522042343
+            }
+          ]
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "all",
+      "parts": [
+        "Readers of the electronic bulletin in their inbox",
+        "Attendees joining the live online seminar",
+        "Listeners tuning in to the audio episode"
+      ],
+      "count": 10,
+      "mask": 7,
+      "evidence": [
+        {
+          "part": "Readers of the electronic bulletin in their inbox",
+          "rank": [
+            {
+              "id": "mail",
+              "index": 0,
+              "score": 0.7363010616670569
+            },
+            {
+              "id": "audio",
+              "index": 2,
+              "score": 0.44355496478567513
+            },
+            {
+              "id": "video",
+              "index": 1,
+              "score": 0.25215094262900484
+            }
+          ]
+        },
+        {
+          "part": "Attendees joining the live online seminar",
+          "rank": [
+            {
+              "id": "video",
+              "index": 1,
+              "score": 0.8116458178405203
+            },
+            {
+              "id": "audio",
+              "index": 2,
+              "score": 0.3884765726948075
+            },
+            {
+              "id": "mail",
+              "index": 0,
+              "score": 0.2445698701125486
+            }
+          ]
+        },
+        {
+          "part": "Listeners tuning in to the audio episode",
+          "rank": [
+            {
+              "id": "audio",
+              "index": 2,
+              "score": 0.747596008253428
+            },
+            {
+              "id": "mail",
+              "index": 0,
+              "score": 0.2357146138346923
+            },
+            {
+              "id": "video",
+              "index": 1,
+              "score": 0.23104104522042343
+            }
+          ]
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 7,
+  "approved": 7,
+  "held": 0,
+  "status": "ready",
+  "issues": [],
+  "cells": [
+    {
+      "mask": 1,
+      "label": "Email newsletter",
+      "inclusive": 100,
+      "exclusive": 30
+    },
+    {
+      "mask": 2,
+      "label": "Live webinar",
+      "inclusive": 80,
+      "exclusive": 20
+    },
+    {
+      "mask": 3,
+      "label": "Email newsletter + Live webinar",
+      "inclusive": 50,
+      "exclusive": 40
+    },
+    {
+      "mask": 4,
+      "label": "Podcast",
+      "inclusive": 60,
+      "exclusive": 20
+    },
+    {
+      "mask": 5,
+      "label": "Email newsletter + Podcast",
+      "inclusive": 30,
+      "exclusive": 20
+    },
+    {
+      "mask": 6,
+      "label": "Live webinar + Podcast",
+      "inclusive": 20,
+      "exclusive": 10
+    },
+    {
+      "mask": 7,
+      "label": "Email newsletter + Live webinar + Podcast",
+      "inclusive": 10,
+      "exclusive": 10
+    }
+  ],
+  "unique": 150,
+  "outside": 50,
+  "baseline": 240,
+  "overcount": 90,
+  "target": 125,
+  "targetMet": true,
+  "targetGap": 0,
+  "allIntersectionsReconstructed": true
+}

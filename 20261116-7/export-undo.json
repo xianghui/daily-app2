@@ -1,0 +1,176 @@
+{
+  "schema": "reach-quilt/v1",
+  "originalInput": {
+    "context": "Synthetic quarterly resident counts. Same population, window and person identity across both services; inclusive intersection.",
+    "universe": 100,
+    "target": 80,
+    "channels": [
+      {
+        "id": "books",
+        "label": "Library borrowing",
+        "description": "Residents borrowing books from a public lending library"
+      },
+      {
+        "id": "bikes",
+        "label": "Bicycle repair",
+        "description": "Residents bringing bicycles for puncture and brake repairs"
+      }
+    ],
+    "observations": [
+      {
+        "id": "l",
+        "parts": [
+          "Neighbours checking out reading material from the lending shelves"
+        ],
+        "count": 60
+      },
+      {
+        "id": "b",
+        "parts": [
+          "Cyclists getting flat tyres and brakes fixed"
+        ],
+        "count": 40
+      },
+      {
+        "id": "both",
+        "parts": [
+          "Neighbours checking out reading material from the lending shelves",
+          "Cyclists getting flat tyres and brakes fixed"
+        ],
+        "count": 25
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "l",
+      "parts": [
+        "Neighbours checking out reading material from the lending shelves"
+      ],
+      "count": 60,
+      "mask": 1,
+      "evidence": [
+        {
+          "part": "Neighbours checking out reading material from the lending shelves",
+          "rank": [
+            {
+              "id": "books",
+              "index": 0,
+              "score": 0.6079614465926262
+            },
+            {
+              "id": "bikes",
+              "index": 1,
+              "score": 0.24579480419650673
+            }
+          ]
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", verify"
+    },
+    {
+      "id": "b",
+      "parts": [
+        "Cyclists getting flat tyres and brakes fixed"
+      ],
+      "count": 40,
+      "mask": 2,
+      "evidence": [
+        {
+          "part": "Cyclists getting flat tyres and brakes fixed",
+          "rank": [
+            {
+              "id": "bikes",
+              "index": 1,
+              "score": 0.3831894876358938
+            },
+            {
+              "id": "books",
+              "index": 0,
+              "score": 0.08627024998696642
+            }
+          ]
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "both",
+      "parts": [
+        "Neighbours checking out reading material from the lending shelves",
+        "Cyclists getting flat tyres and brakes fixed"
+      ],
+      "count": 25,
+      "mask": 3,
+      "evidence": [
+        {
+          "part": "Neighbours checking out reading material from the lending shelves",
+          "rank": [
+            {
+              "id": "books",
+              "index": 0,
+              "score": 0.58785918241092
+            },
+            {
+              "id": "bikes",
+              "index": 1,
+              "score": 0.2491909820817213
+            }
+          ]
+        },
+        {
+          "part": "Cyclists getting flat tyres and brakes fixed",
+          "rank": [
+            {
+              "id": "bikes",
+              "index": 1,
+              "score": 0.39314198777132203
+            },
+            {
+              "id": "books",
+              "index": 0,
+              "score": 0.08059723901147325
+            }
+          ]
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 3,
+  "approved": 3,
+  "held": 0,
+  "status": "ready",
+  "issues": [],
+  "cells": [
+    {
+      "mask": 1,
+      "label": "Library borrowing",
+      "inclusive": 60,
+      "exclusive": 35
+    },
+    {
+      "mask": 2,
+      "label": "Bicycle repair",
+      "inclusive": 40,
+      "exclusive": 15
+    },
+    {
+      "mask": 3,
+      "label": "Library borrowing + Bicycle repair",
+      "inclusive": 25,
+      "exclusive": 25
+    }
+  ],
+  "unique": 75,
+  "outside": 25,
+  "baseline": 100,
+  "overcount": 25,
+  "target": 80,
+  "targetMet": false,
+  "targetGap": 5,
+  "allIntersectionsReconstructed": true
+}

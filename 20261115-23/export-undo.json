@@ -1,0 +1,190 @@
+{
+  "schema": "tariff-loom/v1",
+  "originalInput": {
+    "rates": [
+      45,
+      45,
+      15,
+      15,
+      35,
+      35,
+      8,
+      8
+    ],
+    "profiles": [
+      {
+        "id": "blend",
+        "label": "Food blending",
+        "description": "Electric blender purees fruit and vegetables into smooth mixtures",
+        "watts": 600
+      },
+      {
+        "id": "bake",
+        "label": "Bread baking",
+        "description": "Electric oven bakes bread dough into loaves",
+        "watts": 1800
+      },
+      {
+        "id": "dish",
+        "label": "Dish washing",
+        "description": "Dishwasher cleans plates cups and kitchen utensils",
+        "watts": 1200
+      }
+    ],
+    "records": [
+      {
+        "id": "k1",
+        "text": "Puree the vegetables into a smooth soup",
+        "hours": 2,
+        "earliest": 0,
+        "latest": 8
+      },
+      {
+        "id": "k2",
+        "text": "Cook the risen dough into crusty loaves",
+        "hours": 2,
+        "earliest": 0,
+        "latest": 6
+      },
+      {
+        "id": "k3",
+        "text": "Clean the dirty cups and plates",
+        "hours": 2,
+        "earliest": 0,
+        "latest": 8
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "k1",
+      "text": "Puree the vegetables into a smooth soup",
+      "hours": 2,
+      "earliest": 0,
+      "latest": 8,
+      "item": "blend",
+      "watts": 600,
+      "evidence": [
+        {
+          "id": "blend",
+          "score": 0.5996405306363601
+        },
+        {
+          "id": "dish",
+          "score": 0.09403518127243878
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", discuss"
+    },
+    {
+      "id": "k2",
+      "text": "Cook the risen dough into crusty loaves",
+      "hours": 2,
+      "earliest": 0,
+      "latest": 6,
+      "item": "bake",
+      "watts": 1800,
+      "evidence": [
+        {
+          "id": "bake",
+          "score": 0.6251179239664136
+        },
+        {
+          "id": "dish",
+          "score": 0.21304879160089973
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "k3",
+      "text": "Clean the dirty cups and plates",
+      "hours": 2,
+      "earliest": 0,
+      "latest": 8,
+      "item": "dish",
+      "watts": 1200,
+      "evidence": [
+        {
+          "id": "dish",
+          "score": 0.696743422421147
+        },
+        {
+          "id": "bake",
+          "score": 0.20520751450587316
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 3,
+  "approved": 3,
+  "held": 0,
+  "literalMatches": 0,
+  "energyWh": 7200,
+  "optimal": {
+    "feasible": true,
+    "costMilliCents": 115200,
+    "slots": [
+      {
+        "id": "k2",
+        "item": "bake",
+        "start": 2,
+        "end": 4,
+        "watts": 1800,
+        "costMilliCents": 54000
+      },
+      {
+        "id": "k1",
+        "item": "blend",
+        "start": 4,
+        "end": 6,
+        "watts": 600,
+        "costMilliCents": 42000
+      },
+      {
+        "id": "k3",
+        "item": "dish",
+        "start": 6,
+        "end": 8,
+        "watts": 1200,
+        "costMilliCents": 19200
+      }
+    ]
+  },
+  "baseline": {
+    "feasible": true,
+    "costMilliCents": 192000,
+    "slots": [
+      {
+        "id": "k1",
+        "item": "blend",
+        "start": 0,
+        "end": 2,
+        "watts": 600,
+        "costMilliCents": 54000
+      },
+      {
+        "id": "k2",
+        "item": "bake",
+        "start": 2,
+        "end": 4,
+        "watts": 1800,
+        "costMilliCents": 54000
+      },
+      {
+        "id": "k3",
+        "item": "dish",
+        "start": 4,
+        "end": 6,
+        "watts": 1200,
+        "costMilliCents": 84000
+      }
+    ]
+  },
+  "savingMilliCents": 76800,
+  "warning": null
+}

@@ -1,0 +1,28 @@
+# Observed validation — Tariff Loom
+
+## Local production bundle
+
+- `npm run predeploy`: passed after repairing an initial missing closing brace in the scheduler source. React/Vite production bundle, no development-server inference substitution.
+- Real MiniLM WASM CPU inference, GPU disabled: Print workshop `print/wash/dry`, Community kitchen `blend/bake/dish`: **6/6** simple expected identities. Zero literal full-label matches in either fixture. No claim of general accuracy.
+- Workshop: FIFO 86,000 milli-cents → exact 32,000; 3,400 Wh unchanged. Kitchen: FIFO 192,000 → exact 115,200; 7,200 Wh unchanged. All starts obey windows, each job is whole and nonoverlapping. Costs model supplied constant watts/tariffs, not measured savings.
+- 500 independent exhaustive Python fixed-job/start assignment oracles matched JS subset/time dynamic programming feasibility and cost exactly. Cases include impossible windows; no partial plan returned. Energy and sum-of-slots costs conserved.
+- Every row requires approve/hold. Profile selection renews review and supplied watts. Numeric invalidity blocks apply. Holds, undo, copy, multiline edits and original-only reimport passed. All-held zero plan clearly distinguished; >8 approved blocked; impossible complete plan reported without costs/savings.
+- 32-row/35-text batching and maximum 32-row/40-text inference tested, including eight approved jobs and 24 held originals, audit reimport and last-row preservation.
+- CSV/JSON independently parsed with Python; every original, held row, reviewed identity/watts/window and applied schedule matched. Quotes, commas, newlines and formula-like multiline notes survived with documented CSV escaping; JSON exact. Markdown and clipboard contain reviewed content. Exports invalidate on edits.
+- Empty/malformed/null/oversized source, duplicate IDs, bad tariffs/windows, invalid text lengths and unsupported/oversized/malformed imports failed safely.
+- Cancel then real retry passed. Changed source prevents old results; injected delayed old result cannot replace a newer completed run; delayed worker fetch and delayed file read cannot revive old inputs. Fault injection is only for defensive tests, not successful AI fixtures.
+- Fresh browser network download abort then unblocked real retry passed. Missing WASM, worker download/construction/error, malformed vectors/envelope, and accelerated timeout all showed errors with no fake output.
+- Fully offline fresh-worker real inference passed in already-open warmed page. No offline navigation/reload claim.
+- Production requests captured from startup to inference: no model request before button; all requests GET without bodies; full URLs checked for fixture content before sanitizing reports; documented app/model hosts only. Reports remove query values. Built asset credential-pattern scan passed; source has no provider/key integration. This is a scoped audit, not a universal secret-detection guarantee.
+- 1440/390/320px: no horizontal overflow, explicit form labels, button height ≥44px, keyboard focus; overview/review/results screenshots inspected. Physical devices and non-Chrome browsers untested.
+- Unrelated instruction-like challenge still received a nearest equipment suggestion: model does not abstain. Human hold retained original and excluded it; no tool authority or remote uploads.
+
+Machine-readable evidence: `browser-validation.json`, `arithmetic-validation.json`, `artifact-validation.json`, `defensive-validation.json`, `max-batch-validation.json`, stale-run reports and `asset-audit.json`. Combined-site and public evidence are recorded separately after deployment; publication is not established merely by a branch push.
+
+## Assembled combined deployment
+
+Root predeploy initially exceeded the unchanged 1,000,000,000-byte guard. Extended existing deploy-only byte-verified geometry WASM reuse to `20261030-22` (shared host `20261028-24`); source builds and legacy compatibility JS URLs preserved, worker/entry query versions updated. Retested real legacy worker geometry, image import and actual binary STL finite coordinates/triangle count. Root predeploy then passed: **696 built, zero failed/skipped, 999,619,030 bytes**. Combined app files, worker/factory/WASM hashes and root gallery byte-matched source. Full production workflow suite (both real-AI fixtures, offline fresh-worker, reviewed exports, 32-row batch, privacy, desktop/phone checks) and 696-card gallery UI/search/categories passed from the assembled `deploy/` tree. A further browser case with infeasible FIFO but feasible exact plan returned no invented baseline saving.
+
+## Public GitHub Pages verification
+
+Matching Pages commit `b237175405aa12531792753f6196fca6d8fe8f26` reached **built**. Public HTML/JS/CSS, immutable worker, factory and WASM matched local build bytes; root gallery byte-matched. Full real-model workflow suite passed at https://xianghui.github.io/daily-app2/20261115-23/ : both fixture links/costs, review/edit/hold/undo, original-only reimport, actual artifact downloads/copy, fresh-worker offline inference, invalid input, cancellation/stale-source, 32-row batching, and phone layouts. Separate public maximum 40-text inference matched 32/32 identity links and scheduled eight jobs retaining 24 holds. Public request audit found GET-only documented downloads and no fixture content in complete URLs or bodies. The affected older geometry app passed actual public worker/image import/STL export; rewritten legacy public assets byte-matched. All 696 gallery cards and old categories/search/layouts passed. These observations do not establish physical-device performance, general AI accuracy, real-world power usage or offline page startup.

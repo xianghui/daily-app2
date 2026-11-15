@@ -1,0 +1,165 @@
+{
+  "schema": "tariff-loom/v1",
+  "originalInput": {
+    "rates": [
+      40,
+      40,
+      10,
+      10,
+      30,
+      30,
+      5,
+      5
+    ],
+    "profiles": [
+      {
+        "id": "print",
+        "label": "Filament printing",
+        "description": "3D printer builds plastic parts from filament",
+        "watts": 200
+      },
+      {
+        "id": "wash",
+        "label": "Parts washing",
+        "description": "Ultrasonic cleaning bath removes dirt from metal parts",
+        "watts": 500
+      },
+      {
+        "id": "dry",
+        "label": "Drying cabinet",
+        "description": "Heated drying oven removes moisture from wet components",
+        "watts": 1000
+      }
+    ],
+    "records": [
+      {
+        "id": "p1",
+        "text": "Build the plastic prototype layer by layer",
+        "hours": 2,
+        "earliest": 0,
+        "latest": 8
+      },
+      {
+        "id": "p2",
+        "text": "Clean metal fittings in the ultrasonic bath",
+        "hours": 2,
+        "earliest": 0,
+        "latest": 6
+      },
+      {
+        "id": "p3",
+        "text": "Remove moisture from the damp components with heat",
+        "hours": 2,
+        "earliest": 0,
+        "latest": 2
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "p1",
+      "text": "Build the plastic prototype layer by layer",
+      "hours": 2,
+      "earliest": 0,
+      "latest": 8,
+      "item": "print",
+      "watts": 200,
+      "evidence": [
+        {
+          "id": "print",
+          "score": 0.545985467441644
+        },
+        {
+          "id": "wash",
+          "score": 0.17199903694792085
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "p2",
+      "text": "Clean metal fittings in the ultrasonic bath",
+      "hours": 2,
+      "earliest": 0,
+      "latest": 6,
+      "item": "wash",
+      "watts": 500,
+      "evidence": [
+        {
+          "id": "wash",
+          "score": 0.7212840345072692
+        },
+        {
+          "id": "print",
+          "score": 0.30850995086822497
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "p3",
+      "text": "Remove moisture from the damp components with heat",
+      "hours": 2,
+      "earliest": 0,
+      "latest": 2,
+      "item": "dry",
+      "watts": 1000,
+      "evidence": [
+        {
+          "id": "dry",
+          "score": 0.662349800119777
+        },
+        {
+          "id": "wash",
+          "score": 0.3651328930344954
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 3,
+  "approved": 3,
+  "held": 0,
+  "literalMatches": 0,
+  "energyWh": 3400,
+  "optimal": {
+    "feasible": true,
+    "costMilliCents": 92000,
+    "slots": [
+      {
+        "id": "p3",
+        "item": "dry",
+        "start": 0,
+        "end": 2,
+        "watts": 1000,
+        "costMilliCents": 80000
+      },
+      {
+        "id": "p2",
+        "item": "wash",
+        "start": 2,
+        "end": 4,
+        "watts": 500,
+        "costMilliCents": 10000
+      },
+      {
+        "id": "p1",
+        "item": "print",
+        "start": 6,
+        "end": 8,
+        "watts": 200,
+        "costMilliCents": 2000
+      }
+    ]
+  },
+  "baseline": {
+    "feasible": false,
+    "costMilliCents": null,
+    "slots": []
+  },
+  "savingMilliCents": null,
+  "warning": null
+}

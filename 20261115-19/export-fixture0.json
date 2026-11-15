@@ -1,0 +1,325 @@
+{
+  "schema": "offer-orchard/v1",
+  "originalInput": {
+    "cards": [
+      {
+        "id": "garden",
+        "label": "Urban gardens",
+        "description": "Growing vegetables, planting seeds and caring for community gardens",
+        "capacity": 1,
+        "priority": [
+          "p1",
+          "p0",
+          "p2"
+        ]
+      },
+      {
+        "id": "repair",
+        "label": "Repair workshop",
+        "description": "Repairing broken bicycles, fixing mechanical parts and maintaining tools",
+        "capacity": 1,
+        "priority": [
+          "p0",
+          "p1",
+          "p2"
+        ]
+      },
+      {
+        "id": "archive",
+        "label": "Community archive",
+        "description": "Cataloguing historical photographs, preserving old documents and local history",
+        "capacity": 1,
+        "priority": [
+          "p2",
+          "p0",
+          "p1"
+        ]
+      }
+    ],
+    "people": [
+      {
+        "id": "p0",
+        "name": "Ari"
+      },
+      {
+        "id": "p1",
+        "name": "Bo"
+      },
+      {
+        "id": "p2",
+        "name": "Cy"
+      }
+    ],
+    "records": [
+      {
+        "id": "r00",
+        "person": "p0",
+        "rank": 1,
+        "text": "The placement tending vegetable plots"
+      },
+      {
+        "id": "r01",
+        "person": "p0",
+        "rank": 2,
+        "text": "The placement mending broken bikes"
+      },
+      {
+        "id": "r10",
+        "person": "p1",
+        "rank": 1,
+        "text": "The placement tending vegetable plots"
+      },
+      {
+        "id": "r11",
+        "person": "p1",
+        "rank": 2,
+        "text": "The placement mending broken bikes"
+      },
+      {
+        "id": "r20",
+        "person": "p2",
+        "rank": 1,
+        "text": "The placement preserving historical pictures"
+      },
+      {
+        "id": "r21",
+        "person": "p2",
+        "rank": 2,
+        "text": "The placement mending broken bikes"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "r00",
+      "item": "garden",
+      "proposed": "garden",
+      "person": "p0",
+      "rank": 1,
+      "evidence": [
+        {
+          "id": "garden",
+          "score": 0.5141380818253737
+        },
+        {
+          "id": "repair",
+          "score": 0.1428959713722543
+        },
+        {
+          "id": "archive",
+          "score": 0.09497790396737364
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "r01",
+      "item": "repair",
+      "proposed": "repair",
+      "person": "p0",
+      "rank": 2,
+      "evidence": [
+        {
+          "id": "repair",
+          "score": 0.5944420019752759
+        },
+        {
+          "id": "archive",
+          "score": 0.10831350224072009
+        },
+        {
+          "id": "garden",
+          "score": 0.09105314710398252
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "r10",
+      "item": "garden",
+      "proposed": "garden",
+      "person": "p1",
+      "rank": 1,
+      "evidence": [
+        {
+          "id": "garden",
+          "score": 0.500566005328758
+        },
+        {
+          "id": "repair",
+          "score": 0.13737184326747612
+        },
+        {
+          "id": "archive",
+          "score": 0.08293779285292133
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "r11",
+      "item": "repair",
+      "proposed": "repair",
+      "person": "p1",
+      "rank": 2,
+      "evidence": [
+        {
+          "id": "repair",
+          "score": 0.5944420019752759
+        },
+        {
+          "id": "archive",
+          "score": 0.10831350224072009
+        },
+        {
+          "id": "garden",
+          "score": 0.09105314710398252
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "r20",
+      "item": "archive",
+      "proposed": "archive",
+      "person": "p2",
+      "rank": 1,
+      "evidence": [
+        {
+          "id": "archive",
+          "score": 0.7131890136214772
+        },
+        {
+          "id": "repair",
+          "score": 0.11572480684366816
+        },
+        {
+          "id": "garden",
+          "score": 0.09066225273827874
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "r21",
+      "item": "repair",
+      "proposed": "repair",
+      "person": "p2",
+      "rank": 2,
+      "evidence": [
+        {
+          "id": "repair",
+          "score": 0.6039062133077956
+        },
+        {
+          "id": "archive",
+          "score": 0.10493359180175636
+        },
+        {
+          "id": "garden",
+          "score": 0.09988427142210765
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 6,
+  "approved": 6,
+  "held": 0,
+  "literalMatches": 0,
+  "prefs": {
+    "p0": [
+      "garden",
+      "repair"
+    ],
+    "p1": [
+      "garden",
+      "repair"
+    ],
+    "p2": [
+      "archive",
+      "repair"
+    ]
+  },
+  "optimized": {
+    "assignment": {
+      "p0": "repair",
+      "p1": "garden",
+      "p2": "archive"
+    },
+    "allocations": [
+      {
+        "program": "garden",
+        "capacity": 1,
+        "people": [
+          "p1"
+        ]
+      },
+      {
+        "program": "repair",
+        "capacity": 1,
+        "people": [
+          "p0"
+        ]
+      },
+      {
+        "program": "archive",
+        "capacity": 1,
+        "people": [
+          "p2"
+        ]
+      }
+    ],
+    "blocking": [],
+    "matched": 3,
+    "firstChoices": 2,
+    "unmatched": [],
+    "proposals": 4
+  },
+  "baseline": {
+    "assignment": {
+      "p0": "garden",
+      "p1": "repair",
+      "p2": "archive"
+    },
+    "allocations": [
+      {
+        "program": "garden",
+        "capacity": 1,
+        "people": [
+          "p0"
+        ]
+      },
+      {
+        "program": "repair",
+        "capacity": 1,
+        "people": [
+          "p1"
+        ]
+      },
+      {
+        "program": "archive",
+        "capacity": 1,
+        "people": [
+          "p2"
+        ]
+      }
+    ],
+    "blocking": [
+      {
+        "person": "p1",
+        "program": "garden",
+        "reason": "higher priority than p0"
+      }
+    ],
+    "matched": 3,
+    "firstChoices": 2,
+    "unmatched": []
+  }
+}

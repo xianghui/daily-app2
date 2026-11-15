@@ -1083,3 +1083,12 @@ Ratio Compass public release: matching Pages `a23bc55bb1925410bdc9f2181550410a1c
 ## Bundle Accord — 20261115-18
 
 Real local MiniLM item inference supports reviewed subjective preference matrices and exact indivisible maximin bundles, round-robin comparisons and directed envy/EF1 audits. Two synthetic fixtures matched 18/18 notes; 240 independent exhaustive cases verified allocation objectives and invariants. Unrelated text still mislinks, so review is mandatory. Complete JSON/CSV/Markdown retains all originals and holds. Fresh-worker offline inference tested inside an already-open warmed page only. Reuses immutable worker/runtime from `20261115-6` and WASM from `20261107-2`; preserve these builds. See [workflow](20261115-18/README.md) and [observed validation](20261115-18/VALIDATION.md).
+
+
+## Offer Orchard — 20261115-19
+
+Real local MiniLM reconciles ranked informal program wishes before mandatory applicant/program/rank review. Capacity-safe two-sided deferred acceptance exposes blocking pairs versus FIFO and retains every held note and unmatched applicant in JSON/audit CSV/placement CSV/Markdown. Both tiny fixtures matched 15/15 program links; 360 independent exhaustive cases verified stability and applicant optimality. Nearest text can still mislink; priorities and eligibility require human judgment. Offline scope is fresh-worker inference inside an already-open warmed page only. Preserve immutable worker/runtime host `20261115-6` and WASM host `20261107-2`. See [workflow/privacy](20261115-19/README.md) and [observed validation](20261115-19/VALIDATION.md).
+
+Combined-site size guard: deploy-only byte-identical geometry WASM reuse now also includes `20261030-20`, retaining source builds and query-versioning legacy worker/shell URLs. Preserve shared host `20261028-24`. Real geometry generation, image import and actual STL export are retested before publication.
+
+Offer Orchard public release: matching Pages `2d52042f0ce8aac228586e27988bad136596d7cf` reached built. Public app/worker/factory/WASM and rewritten legacy assets byte-matched; both real-AI fixtures, full reviewed workflow/export/offline suite, GET-only privacy audit, preserved 692-entry gallery and affected legacy geometry/import/STL-export all passed. Source staging excludes unrelated pre-existing edits.

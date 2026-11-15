@@ -1,0 +1,240 @@
+{
+  "schema": "quote-crossings/v1",
+  "originalInput": {
+    "maxHops": 3,
+    "currencies": [
+      {
+        "id": "JPY",
+        "label": "Japanese yen",
+        "description": "Japanese yen currency used in Japan and Tokyo"
+      },
+      {
+        "id": "SGD",
+        "label": "Singapore dollar",
+        "description": "Singapore dollar currency used in Singapore"
+      },
+      {
+        "id": "AUD",
+        "label": "Australian dollar",
+        "description": "Australian dollar currency used in Australia and Sydney"
+      }
+    ],
+    "quotes": [
+      {
+        "id": "p1",
+        "fromText": "Money used in Tokyo",
+        "toText": "Currency used in Singapore",
+        "rate": 0.009
+      },
+      {
+        "id": "p2",
+        "fromText": "Singaporean dollars",
+        "toText": "Money used in Sydney",
+        "rate": 1.1
+      },
+      {
+        "id": "p3",
+        "fromText": "Japanese money",
+        "toText": "Australian money",
+        "rate": 0.0095
+      },
+      {
+        "id": "p4",
+        "fromText": "Australian currency",
+        "toText": "Money used in Japan",
+        "rate": 102
+      }
+    ],
+    "requests": [
+      {
+        "id": "workshop",
+        "from": "JPY",
+        "to": "AUD",
+        "amount": 100000
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "p1",
+      "fromText": "Money used in Tokyo",
+      "toText": "Currency used in Singapore",
+      "rate": 0.008,
+      "from": "JPY",
+      "to": "SGD",
+      "fromEvidence": [
+        {
+          "id": "JPY",
+          "score": 0.7446810651660045
+        },
+        {
+          "id": "SGD",
+          "score": 0.40384690542208784
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "SGD",
+          "score": 0.9587016699895481
+        },
+        {
+          "id": "JPY",
+          "score": 0.50966871794052
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", verify"
+    },
+    {
+      "id": "p2",
+      "fromText": "Singaporean dollars",
+      "toText": "Money used in Sydney",
+      "rate": 1.1,
+      "from": "SGD",
+      "to": "AUD",
+      "fromEvidence": [
+        {
+          "id": "SGD",
+          "score": 0.8258929454872714
+        },
+        {
+          "id": "AUD",
+          "score": 0.4806675196047279
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "AUD",
+          "score": 0.8047618316406017
+        },
+        {
+          "id": "SGD",
+          "score": 0.41107523330692575
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "p3",
+      "fromText": "Japanese money",
+      "toText": "Australian money",
+      "rate": 0.0095,
+      "from": "JPY",
+      "to": "AUD",
+      "fromEvidence": [
+        {
+          "id": "JPY",
+          "score": 0.6923896506887454
+        },
+        {
+          "id": "SGD",
+          "score": 0.429397698505205
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "AUD",
+          "score": 0.7302745197218742
+        },
+        {
+          "id": "SGD",
+          "score": 0.3381756368731512
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "p4",
+      "fromText": "Australian currency",
+      "toText": "Money used in Japan",
+      "rate": 102,
+      "from": "AUD",
+      "to": "JPY",
+      "fromEvidence": [
+        {
+          "id": "AUD",
+          "score": 0.8750642033770055
+        },
+        {
+          "id": "SGD",
+          "score": 0.45779277583545286
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "JPY",
+          "score": 0.766850765276175
+        },
+        {
+          "id": "SGD",
+          "score": 0.47266357195829317
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "conversions": [
+    {
+      "id": "workshop",
+      "from": "JPY",
+      "to": "AUD",
+      "amount": 100000,
+      "pathCount": 2,
+      "best": {
+        "currencies": [
+          "JPY",
+          "AUD"
+        ],
+        "quoteIds": [
+          "p3"
+        ],
+        "rate": 0.0095,
+        "output": 950
+      },
+      "direct": {
+        "quoteId": "p3",
+        "rate": 0.0095,
+        "output": 950
+      },
+      "delta": 0
+    }
+  ],
+  "cycles": [
+    {
+      "quoteIds": [
+        "p3",
+        "p4"
+      ],
+      "currencies": [
+        "JPY",
+        "AUD",
+        "JPY"
+      ],
+      "product": 0.969,
+      "inconsistent": false
+    },
+    {
+      "quoteIds": [
+        "p1",
+        "p2",
+        "p4"
+      ],
+      "currencies": [
+        "JPY",
+        "SGD",
+        "AUD",
+        "JPY"
+      ],
+      "product": 0.8976000000000001,
+      "inconsistent": false
+    }
+  ],
+  "routable": 1,
+  "improved": 0
+}

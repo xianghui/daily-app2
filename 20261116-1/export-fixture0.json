@@ -1,0 +1,242 @@
+{
+  "schema": "quote-crossings/v1",
+  "originalInput": {
+    "maxHops": 3,
+    "currencies": [
+      {
+        "id": "USD",
+        "label": "US dollar",
+        "description": "United States dollar, money used in America"
+      },
+      {
+        "id": "EUR",
+        "label": "Euro",
+        "description": "European euro currency used in France and Germany"
+      },
+      {
+        "id": "GBP",
+        "label": "Pound sterling",
+        "description": "British pound sterling, money used in the United Kingdom"
+      }
+    ],
+    "quotes": [
+      {
+        "id": "q1",
+        "fromText": "Money used in the United States",
+        "toText": "Currency used in France",
+        "rate": 0.9
+      },
+      {
+        "id": "q2",
+        "fromText": "Money used in Germany",
+        "toText": "British pounds",
+        "rate": 0.85
+      },
+      {
+        "id": "q3",
+        "fromText": "American dollars",
+        "toText": "United Kingdom currency",
+        "rate": 0.74
+      },
+      {
+        "id": "q4",
+        "fromText": "British sterling",
+        "toText": "United States currency",
+        "rate": 1.3
+      }
+    ],
+    "requests": [
+      {
+        "id": "trip",
+        "from": "USD",
+        "to": "GBP",
+        "amount": 1000
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "q1",
+      "fromText": "Money used in the United States",
+      "toText": "Currency used in France",
+      "rate": 0.9,
+      "from": "USD",
+      "to": "EUR",
+      "fromEvidence": [
+        {
+          "id": "USD",
+          "score": 0.9103061734272889
+        },
+        {
+          "id": "GBP",
+          "score": 0.5828657854139655
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "EUR",
+          "score": 0.7793389131529043
+        },
+        {
+          "id": "USD",
+          "score": 0.5335223129097594
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "q2",
+      "fromText": "Money used in Germany",
+      "toText": "British pounds",
+      "rate": 0.85,
+      "from": "EUR",
+      "to": "GBP",
+      "fromEvidence": [
+        {
+          "id": "USD",
+          "score": 0.615774024294296
+        },
+        {
+          "id": "EUR",
+          "score": 0.6144079378982772
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "GBP",
+          "score": 0.7661518326027483
+        },
+        {
+          "id": "USD",
+          "score": 0.37486009339565884
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "q3",
+      "fromText": "American dollars",
+      "toText": "United Kingdom currency",
+      "rate": 0.74,
+      "from": "USD",
+      "to": "GBP",
+      "fromEvidence": [
+        {
+          "id": "USD",
+          "score": 0.8025340533374898
+        },
+        {
+          "id": "GBP",
+          "score": 0.5341739870052815
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "GBP",
+          "score": 0.8155755199112011
+        },
+        {
+          "id": "USD",
+          "score": 0.5215525410136168
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "q4",
+      "fromText": "British sterling",
+      "toText": "United States currency",
+      "rate": 1.3,
+      "from": "GBP",
+      "to": "USD",
+      "fromEvidence": [
+        {
+          "id": "GBP",
+          "score": 0.8083019359155286
+        },
+        {
+          "id": "USD",
+          "score": 0.4125510097899583
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "USD",
+          "score": 0.8037506614174633
+        },
+        {
+          "id": "GBP",
+          "score": 0.5346534833454513
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "conversions": [
+    {
+      "id": "trip",
+      "from": "USD",
+      "to": "GBP",
+      "amount": 1000,
+      "pathCount": 2,
+      "best": {
+        "currencies": [
+          "USD",
+          "EUR",
+          "GBP"
+        ],
+        "quoteIds": [
+          "q1",
+          "q2"
+        ],
+        "rate": 0.765,
+        "output": 765
+      },
+      "direct": {
+        "quoteId": "q3",
+        "rate": 0.74,
+        "output": 740
+      },
+      "delta": 25.00000000000002
+    }
+  ],
+  "cycles": [
+    {
+      "quoteIds": [
+        "q1",
+        "q2",
+        "q4"
+      ],
+      "currencies": [
+        "USD",
+        "EUR",
+        "GBP",
+        "USD"
+      ],
+      "product": 0.9945,
+      "inconsistent": false
+    },
+    {
+      "quoteIds": [
+        "q3",
+        "q4"
+      ],
+      "currencies": [
+        "USD",
+        "GBP",
+        "USD"
+      ],
+      "product": 0.962,
+      "inconsistent": false
+    }
+  ],
+  "routable": 1,
+  "improved": 1
+}

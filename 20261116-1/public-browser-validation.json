@@ -1,0 +1,427 @@
+{
+  "fixtures": [
+    {
+      "name": "European trip",
+      "expected": [
+        "USD",
+        "EUR",
+        "EUR",
+        "GBP",
+        "USD",
+        "GBP",
+        "GBP",
+        "USD"
+      ],
+      "actual": [
+        "USD",
+        "EUR",
+        "USD",
+        "GBP",
+        "USD",
+        "GBP",
+        "GBP",
+        "USD"
+      ],
+      "correctEndpoints": 7,
+      "totalEndpoints": 8,
+      "humanCorrection": "q2 source USD → EUR",
+      "conversion": {
+        "id": "trip",
+        "from": "USD",
+        "to": "GBP",
+        "amount": 1000,
+        "pathCount": 2,
+        "best": {
+          "currencies": [
+            "USD",
+            "EUR",
+            "GBP"
+          ],
+          "quoteIds": [
+            "q1",
+            "q2"
+          ],
+          "rate": 0.765,
+          "output": 765
+        },
+        "direct": {
+          "quoteId": "q3",
+          "rate": 0.74,
+          "output": 740
+        },
+        "delta": 25.00000000000002
+      },
+      "cycleProducts": [
+        0.9945,
+        0.962
+      ]
+    },
+    {
+      "name": "Pacific workshop",
+      "expected": [
+        "JPY",
+        "SGD",
+        "SGD",
+        "AUD",
+        "JPY",
+        "AUD",
+        "AUD",
+        "JPY"
+      ],
+      "actual": [
+        "JPY",
+        "SGD",
+        "SGD",
+        "AUD",
+        "JPY",
+        "AUD",
+        "AUD",
+        "JPY"
+      ],
+      "correctEndpoints": 8,
+      "totalEndpoints": 8,
+      "humanCorrection": null,
+      "conversion": {
+        "id": "workshop",
+        "from": "JPY",
+        "to": "AUD",
+        "amount": 100000,
+        "pathCount": 2,
+        "best": {
+          "currencies": [
+            "JPY",
+            "SGD",
+            "AUD"
+          ],
+          "quoteIds": [
+            "p1",
+            "p2"
+          ],
+          "rate": 0.0099,
+          "output": 990.0000000000001
+        },
+        "direct": {
+          "quoteId": "p3",
+          "rate": 0.0095,
+          "output": 950
+        },
+        "delta": 40.00000000000011
+      },
+      "cycleProducts": [
+        1.0098,
+        0.969
+      ]
+    }
+  ],
+  "checks": [
+    "mandatory review; hold undo; source/target/rate editing; self and duplicate-direction blocking; multiline CSV/Markdown/clipboard; audit reimport",
+    "already-open warmed page fully offline fresh-worker real CPU inference",
+    "empty malformed oversized duplicate IDs hop cap zero rate negative amount unknown ID input guards and unsupported/malformed files",
+    "56-text max batching; eight currencies; 24 distinct directions; eight requests; full audit round trip",
+    "all held; missing paths preserved; instruction-like data cannot invoke uploads or credentials",
+    "desktop/390/320px no overflow; labels; touch targets; keyboard focus screenshots"
+  ],
+  "challenge": {
+    "from": "JPY",
+    "to": "AUD",
+    "expected": "unrelated / human hold",
+    "limitation": "Nearest candidate always returned; similarity is not currency validity"
+  },
+  "privacy": {
+    "allRequestsGetWithoutBody": true,
+    "noFixtureTextInFullURLs": true,
+    "noModelRequestsBeforeExplicitLoad": true
+  },
+  "requests": [
+    {
+      "method": "GET",
+      "url": "https://xianghui.github.io/daily-app2/20261116-1/",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://xianghui.github.io/daily-app2/20261116-1/assets/index-D-fwQafM.js",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://xianghui.github.io/daily-app2/20261116-1/assets/index-BL_wkhGm.css",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://xianghui.github.io/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/a879f8e7-e1c0-4340-9eaa-1c16bd2b1c64",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://xianghui.github.io/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://xianghui.github.io/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "X-Xet-Cas-Uid",
+        "response-content-disposition",
+        "xip",
+        "user_id",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "xip",
+        "response-content-disposition",
+        "user_id",
+        "X-Xet-Cas-Uid",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/b19e11c1-278e-47f7-806c-ed852fcaaf0b",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/d099a91c-185c-4c59-8dc5-98d0c2d50cff",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/d1b158a0-a0ce-4996-bbce-b469240c87af",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/d283b1fa-bc84-41e9-9ca5-66418f9e4c08",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/7508b88b-a412-4e5a-acc4-8969f2dac86d",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/0e9de0ec-21ed-424e-8f0d-997145a7291d",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/49794e99-804d-4f86-a33f-e13f19722996",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/7584e09f-b89d-4367-856b-8ac754fee47a",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/086a1d58-50e3-42ef-81a9-5ae8d350b43b",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/ca94a36f-3e28-4d5a-8536-b91107b293e9",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/91ba3043-03b3-4a4e-af1c-b8f15708543c",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/0ca9f71f-2a42-4ed7-8ca2-16cda14e13cb",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/bc00f68d-2a41-46ac-b89d-3785d986f622",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/486a035c-fde6-466a-8f66-e9aa91b28f65",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/b8ae7f91-b176-4d97-9e1e-e83795862b4a",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/ab7c9a47-0431-4bac-adbe-f4afc7a08c8c",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/468f5b3d-0efc-40cd-b9ac-3bfd857b851d",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/d4d0c666-9d85-4e88-9615-5454a1384056",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/216a82ae-82fc-4ee9-820e-f6449384c7ba",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/cc62ae9f-6709-4baa-8d1f-fbd13f743bb2",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/b3fb8571-951e-46b7-9e74-a86a31758ab9",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/e5063082-5de7-4ee3-93e1-aa99d6859f96",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/cc819415-daf2-45f4-b352-285908f50134",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/87b69927-0e20-4d80-9c26-1f2ceb6a3d38",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/709e6817-92e4-4df5-ad93-0d1a85b5dca7",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/6e1fbbfb-8713-4eb5-88e7-0cc03001b064",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/727ee33b-4398-40d6-bb47-da504947ba0f",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/828965e7-a99f-42a9-888c-ed7c65f86a7e",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/b2f4b925-48a2-49b8-b799-89ff924ce3b6",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/a4d3b846-c712-475a-91cf-6b1f7427160d",
+      "queryKeys": []
+    }
+  ]
+}

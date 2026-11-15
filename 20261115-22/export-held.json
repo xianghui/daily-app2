@@ -1,0 +1,126 @@
+{
+  "schema": "deadline-prism/v1",
+  "originalInput": {
+    "deadline": 8,
+    "tasks": [
+      {
+        "id": "record",
+        "label": "Audio recording",
+        "description": "Record the interview voices and microphone audio",
+        "after": []
+      },
+      {
+        "id": "edit",
+        "label": "Audio editing",
+        "description": "Edit the recorded sound and remove background noise",
+        "after": [
+          "record"
+        ]
+      },
+      {
+        "id": "cover",
+        "label": "Cover illustration",
+        "description": "Draw the podcast cover image and artwork",
+        "after": []
+      }
+    ],
+    "records": [
+      {
+        "id": "a",
+        "text": "Capture the guest conversation through microphones",
+        "low": 2,
+        "high": 6,
+        "pHigh": 0.5
+      },
+      {
+        "id": "b",
+        "text": "Clean up the sound track and cut unwanted pauses",
+        "low": 2,
+        "high": 4,
+        "pHigh": 0.5
+      },
+      {
+        "id": "c",
+        "text": "Paint an illustration for the episode thumbnail",
+        "low": 3,
+        "high": 9,
+        "pHigh": 0.5
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "a",
+      "text": "Capture the guest conversation through microphones",
+      "low": 2,
+      "high": 6,
+      "pHigh": 0.5,
+      "item": "record",
+      "evidence": [
+        {
+          "id": "record",
+          "score": 0.6573879353383082
+        },
+        {
+          "id": "cover",
+          "score": 0.3088614721379216
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", discuss"
+    },
+    {
+      "id": "b",
+      "text": "Clean up the sound track and cut unwanted pauses",
+      "low": 2,
+      "high": 4,
+      "pHigh": 0.5,
+      "item": "edit",
+      "evidence": [
+        {
+          "id": "edit",
+          "score": 0.6030757695091026
+        },
+        {
+          "id": "record",
+          "score": 0.4744887052331961
+        }
+      ],
+      "decision": "hold",
+      "reviewNote": ""
+    },
+    {
+      "id": "c",
+      "text": "Paint an illustration for the episode thumbnail",
+      "low": 3,
+      "high": 9,
+      "pHigh": 0.5,
+      "item": "cover",
+      "evidence": [
+        {
+          "id": "cover",
+          "score": 0.5594192864125057
+        },
+        {
+          "id": "record",
+          "score": 0.1357470270416536
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 3,
+  "approved": 2,
+  "held": 1,
+  "missing": [
+    "edit"
+  ],
+  "literalMatches": 0,
+  "distribution": [],
+  "scenarioCount": 0,
+  "warning": "Incomplete task coverage: no project probability is computed. Reconcile missing estimates.",
+  "onTime": null,
+  "expected": null,
+  "meanBaseline": null
+}

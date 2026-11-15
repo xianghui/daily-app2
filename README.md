@@ -1124,3 +1124,10 @@ Real local MiniLM reconciles informal job notes with supplied equipment before m
 Combined-site size guard: deploy-only byte-verified geometry reuse now also covers `20261030-22`, retaining source builds and query-versioned legacy shell/worker references. Preserve shared host `20261028-24`; real geometry/import/STL export retested before release.
 
 Tariff Loom public release: matching Pages `b237175405aa12531792753f6196fca6d8fe8f26` reached built. Public app/worker/factory/WASM and rewritten legacy assets byte-matched; both real-AI fixtures, full reviewed workflow/artifact/offline suite, maximum 40-text inference, GET-only privacy audit, preserved 696-entry working gallery and affected legacy geometry/import/STL export all passed. Source staging excludes unrelated pre-existing edits.
+
+
+## Signal Accumulator — 20261115-24
+
+Real local MiniLM reconciles informal sample descriptions before mandatory stream/value/order review. Fixed-reference, nonresetting two-sided CUSUM compares persistent shifts with single-reading 3-SD cues and exports complete JSON/CSV/Markdown investigation worksheets. Both tiny fixtures matched 28/28 links; 500 independent Decimal cases verified traces. No baseline estimation, probability, causality or instrument action. Fresh-worker offline inference tested inside an already-open warmed page only. Preserve shared worker/factory `20261115-6` and WASM `20261107-2`. The inspected tokenizer ceiling is 512 (the feature-extraction pipeline does not forward its unused max_length option); source descriptions remain capped at 300 characters. See [workflow/privacy](20261115-24/README.md) and [observed validation](20261115-24/VALIDATION.md).
+
+Signal Accumulator public release: matching Pages `58c217b6f015a56a97ebb0b9a17603f615e44c9b` reached built. Public real inference, complete reviewed workflow/export/privacy checks, fresh-worker offline processing, byte-matched app/worker/factory/WASM and the preserved 697-card gallery all passed. Source staging excludes unrelated pre-existing changes.

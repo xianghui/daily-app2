@@ -1,0 +1,166 @@
+{
+  "app": "Cutset Lantern",
+  "schemaVersion": 1,
+  "originalInput": {
+    "title": "Both archive rooms inaccessible this month",
+    "events": [
+      {
+        "id": "lock",
+        "label": "Shared access controller",
+        "description": "The shared electronic door access control system fails and locks staff out"
+      },
+      {
+        "id": "water",
+        "label": "Flooded room",
+        "description": "Water flooding makes the first archive room inaccessible"
+      },
+      {
+        "id": "heat",
+        "label": "Overheated room",
+        "description": "Excessive temperature heat makes the second archive room inaccessible"
+      }
+    ],
+    "tree": {
+      "op": "AND",
+      "children": [
+        {
+          "op": "OR",
+          "children": [
+            "lock",
+            "water"
+          ]
+        },
+        {
+          "op": "OR",
+          "children": [
+            "lock",
+            "heat"
+          ]
+        }
+      ]
+    },
+    "records": [
+      {
+        "id": "entry1",
+        "description": "Staff keycard door controller outage",
+        "probability": 0.05
+      },
+      {
+        "id": "entry2",
+        "description": "Flood water prevents entering first archive",
+        "probability": 0.1
+      },
+      {
+        "id": "entry3",
+        "description": "Second archive too hot to enter",
+        "probability": 0.2
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "entry1",
+      "description": "Staff keycard door controller outage",
+      "probability": 0.2,
+      "event": "lock",
+      "proposed": "lock",
+      "evidence": [
+        {
+          "id": "lock",
+          "score": 0.629386986738274
+        },
+        {
+          "id": "heat",
+          "score": 0.20225758095116367
+        },
+        {
+          "id": "water",
+          "score": 0.1525538985651841
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", recheck"
+    },
+    {
+      "id": "entry2",
+      "description": "Flood water prevents entering first archive",
+      "probability": 0.1,
+      "event": "water",
+      "proposed": "water",
+      "evidence": [
+        {
+          "id": "water",
+          "score": 0.7401495475420036
+        },
+        {
+          "id": "heat",
+          "score": 0.3837026239745035
+        },
+        {
+          "id": "lock",
+          "score": 0.10996197147535652
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "entry3",
+      "description": "Second archive too hot to enter",
+      "probability": 0.2,
+      "event": "heat",
+      "proposed": "heat",
+      "evidence": [
+        {
+          "id": "heat",
+          "score": 0.6215951584897453
+        },
+        {
+          "id": "water",
+          "score": 0.4103315992877815
+        },
+        {
+          "id": "lock",
+          "score": 0.09518755607885418
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 3,
+  "approved": 3,
+  "held": 0,
+  "issues": [],
+  "calculation": {
+    "probability": 0.21600000000000005,
+    "baseline": 0.10079999999999993,
+    "difference": 0.11520000000000012,
+    "states": 8,
+    "leafOccurrences": 4,
+    "uniqueEvents": 3,
+    "cutsets": [
+      [
+        "lock"
+      ],
+      [
+        "water",
+        "heat"
+      ]
+    ],
+    "importance": [
+      {
+        "event": "lock",
+        "pivotal": 0.98
+      },
+      {
+        "event": "water",
+        "pivotal": 0.16000000000000006
+      },
+      {
+        "event": "heat",
+        "pivotal": 0.08000000000000002
+      }
+    ]
+  }
+}

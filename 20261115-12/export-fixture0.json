@@ -1,0 +1,166 @@
+{
+  "app": "Cutset Lantern",
+  "schemaVersion": 1,
+  "originalInput": {
+    "title": "Both cooling paths unavailable in one shift",
+    "events": [
+      {
+        "id": "power",
+        "label": "Shared power loss",
+        "description": "The common mains electricity supply fails or loses power"
+      },
+      {
+        "id": "fan",
+        "label": "Fan failure",
+        "description": "Ventilation fan motor fails and stops moving air"
+      },
+      {
+        "id": "pump",
+        "label": "Pump failure",
+        "description": "Coolant water pump fails and stops circulating liquid"
+      }
+    ],
+    "tree": {
+      "op": "AND",
+      "children": [
+        {
+          "op": "OR",
+          "children": [
+            "power",
+            "fan"
+          ]
+        },
+        {
+          "op": "OR",
+          "children": [
+            "power",
+            "pump"
+          ]
+        }
+      ]
+    },
+    "records": [
+      {
+        "id": "log1",
+        "description": "Common electricity feed blackout",
+        "probability": 0.1
+      },
+      {
+        "id": "log2",
+        "description": "Air blower motor breakdown",
+        "probability": 0.2
+      },
+      {
+        "id": "log3",
+        "description": "Water circulation pump breakdown",
+        "probability": 0.3
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "log1",
+      "description": "Common electricity feed blackout",
+      "probability": 0.1,
+      "event": "power",
+      "proposed": "power",
+      "evidence": [
+        {
+          "id": "power",
+          "score": 0.5468659473499626
+        },
+        {
+          "id": "pump",
+          "score": 0.029105475778962622
+        },
+        {
+          "id": "fan",
+          "score": 0.0015495597155313198
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "log2",
+      "description": "Air blower motor breakdown",
+      "probability": 0.2,
+      "event": "fan",
+      "proposed": "fan",
+      "evidence": [
+        {
+          "id": "fan",
+          "score": 0.5613082646668129
+        },
+        {
+          "id": "pump",
+          "score": 0.2296138704843325
+        },
+        {
+          "id": "power",
+          "score": 0.20916694369272795
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "log3",
+      "description": "Water circulation pump breakdown",
+      "probability": 0.3,
+      "event": "pump",
+      "proposed": "pump",
+      "evidence": [
+        {
+          "id": "pump",
+          "score": 0.5828017621265151
+        },
+        {
+          "id": "power",
+          "score": 0.2950088000647603
+        },
+        {
+          "id": "fan",
+          "score": 0.23798907545168144
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 3,
+  "approved": 3,
+  "held": 0,
+  "issues": [],
+  "calculation": {
+    "probability": 0.15400000000000003,
+    "baseline": 0.10359999999999997,
+    "difference": 0.050400000000000056,
+    "states": 8,
+    "leafOccurrences": 4,
+    "uniqueEvents": 3,
+    "cutsets": [
+      [
+        "power"
+      ],
+      [
+        "fan",
+        "pump"
+      ]
+    ],
+    "importance": [
+      {
+        "event": "power",
+        "pivotal": 0.94
+      },
+      {
+        "event": "fan",
+        "pivotal": 0.27
+      },
+      {
+        "event": "pump",
+        "pivotal": 0.18
+      }
+    ]
+  }
+}

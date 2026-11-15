@@ -1,0 +1,300 @@
+{
+  "app": "Cost Current",
+  "schemaVersion": 1,
+  "originalInput": {
+    "currency": "USD",
+    "products": [
+      {
+        "id": "paper",
+        "label": "Paper sheets",
+        "description": "Blank paper sheets for printing documents and book pages"
+      },
+      {
+        "id": "ink",
+        "label": "Printer ink",
+        "description": "Ink cartridges for printing machines, colored liquid printer supplies"
+      }
+    ],
+    "records": [
+      {
+        "id": "P1",
+        "description": "Blank sheets for the book printing press",
+        "kind": "receipt",
+        "quantity": 10,
+        "costCents": 1000
+      },
+      {
+        "id": "P2",
+        "description": "Cartridges of colored liquid for the printer",
+        "kind": "receipt",
+        "quantity": 4,
+        "costCents": 1200
+      },
+      {
+        "id": "P3",
+        "description": "More blank sheets for printed pages",
+        "kind": "receipt",
+        "quantity": 10,
+        "costCents": 2000
+      },
+      {
+        "id": "P4",
+        "description": "Sheets used to print book pages",
+        "kind": "issue",
+        "quantity": 12,
+        "costCents": 0
+      },
+      {
+        "id": "P5",
+        "description": "Printer cartridges used for color printing",
+        "kind": "issue",
+        "quantity": 1,
+        "costCents": 0
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "P1",
+      "product": "paper",
+      "proposedProduct": "paper",
+      "evidence": [
+        {
+          "id": "paper",
+          "score": 0.864207094719871
+        },
+        {
+          "id": "ink",
+          "score": 0.34042769027778086
+        }
+      ],
+      "kind": "receipt",
+      "quantity": 10,
+      "costCents": 1000,
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "P2",
+      "product": "ink",
+      "proposedProduct": "ink",
+      "evidence": [
+        {
+          "id": "ink",
+          "score": 0.8482084406539947
+        },
+        {
+          "id": "paper",
+          "score": 0.3116205762710502
+        }
+      ],
+      "kind": "receipt",
+      "quantity": 4,
+      "costCents": 1200,
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "P3",
+      "product": "paper",
+      "proposedProduct": "paper",
+      "evidence": [
+        {
+          "id": "paper",
+          "score": 0.8496477944863261
+        },
+        {
+          "id": "ink",
+          "score": 0.35786340406082795
+        }
+      ],
+      "kind": "receipt",
+      "quantity": 10,
+      "costCents": 2000,
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "P4",
+      "product": "paper",
+      "proposedProduct": "paper",
+      "evidence": [
+        {
+          "id": "paper",
+          "score": 0.773334766287901
+        },
+        {
+          "id": "ink",
+          "score": 0.36283399131623073
+        }
+      ],
+      "kind": "issue",
+      "quantity": 12,
+      "costCents": 0,
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "P5",
+      "product": "ink",
+      "proposedProduct": "ink",
+      "evidence": [
+        {
+          "id": "ink",
+          "score": 0.8450941481721671
+        },
+        {
+          "id": "paper",
+          "score": 0.31671784176846784
+        }
+      ],
+      "kind": "issue",
+      "quantity": 1,
+      "costCents": 0,
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 5,
+  "approved": 5,
+  "held": 0,
+  "literalMatches": 0,
+  "products": [
+    {
+      "product": "paper",
+      "label": "Paper sheets",
+      "receivedUnits": 20,
+      "issuedUnits": 12,
+      "receivedCents": 3000,
+      "fifoIssuedCents": 1400,
+      "averageIssuedCents": 1800,
+      "units": 8,
+      "averageBalanceCents": 1200,
+      "layers": [
+        {
+          "receiptId": "P3",
+          "units": 8,
+          "cents": 1600
+        }
+      ],
+      "fifoBalanceCents": 1600,
+      "differenceCents": -400
+    },
+    {
+      "product": "ink",
+      "label": "Printer ink",
+      "receivedUnits": 4,
+      "issuedUnits": 1,
+      "receivedCents": 1200,
+      "fifoIssuedCents": 300,
+      "averageIssuedCents": 300,
+      "units": 3,
+      "averageBalanceCents": 900,
+      "layers": [
+        {
+          "receiptId": "P2",
+          "units": 3,
+          "cents": 900
+        }
+      ],
+      "fifoBalanceCents": 900,
+      "differenceCents": 0
+    }
+  ],
+  "ledger": [
+    {
+      "id": "P1",
+      "product": "paper",
+      "status": "approved",
+      "kind": "receipt",
+      "quantity": 10,
+      "receiptCents": 1000,
+      "fifoIssuedCents": 0,
+      "averageIssuedCents": 0,
+      "unitsAfter": 10,
+      "fifoBalanceCents": 1000,
+      "averageBalanceCents": 1000,
+      "consumedLayers": []
+    },
+    {
+      "id": "P2",
+      "product": "ink",
+      "status": "approved",
+      "kind": "receipt",
+      "quantity": 4,
+      "receiptCents": 1200,
+      "fifoIssuedCents": 0,
+      "averageIssuedCents": 0,
+      "unitsAfter": 4,
+      "fifoBalanceCents": 1200,
+      "averageBalanceCents": 1200,
+      "consumedLayers": []
+    },
+    {
+      "id": "P3",
+      "product": "paper",
+      "status": "approved",
+      "kind": "receipt",
+      "quantity": 10,
+      "receiptCents": 2000,
+      "fifoIssuedCents": 0,
+      "averageIssuedCents": 0,
+      "unitsAfter": 20,
+      "fifoBalanceCents": 3000,
+      "averageBalanceCents": 3000,
+      "consumedLayers": []
+    },
+    {
+      "id": "P4",
+      "product": "paper",
+      "status": "approved",
+      "kind": "issue",
+      "quantity": 12,
+      "receiptCents": 0,
+      "fifoIssuedCents": 1400,
+      "averageIssuedCents": 1800,
+      "unitsAfter": 8,
+      "fifoBalanceCents": 1600,
+      "averageBalanceCents": 1200,
+      "consumedLayers": [
+        {
+          "receiptId": "P1",
+          "quantity": 10,
+          "cents": 1000
+        },
+        {
+          "receiptId": "P3",
+          "quantity": 2,
+          "cents": 400
+        }
+      ]
+    },
+    {
+      "id": "P5",
+      "product": "ink",
+      "status": "approved",
+      "kind": "issue",
+      "quantity": 1,
+      "receiptCents": 0,
+      "fifoIssuedCents": 300,
+      "averageIssuedCents": 300,
+      "unitsAfter": 3,
+      "fifoBalanceCents": 900,
+      "averageBalanceCents": 900,
+      "consumedLayers": [
+        {
+          "receiptId": "P2",
+          "quantity": 1,
+          "cents": 300
+        }
+      ]
+    }
+  ],
+  "receivedCents": 4200,
+  "fifoIssuedCents": 1700,
+  "averageIssuedCents": 2100,
+  "fifoBalanceCents": 2500,
+  "averageBalanceCents": 2100,
+  "differenceCents": -400,
+  "scope": "Approved movements only, zero opening stock, source-array sequence. Held movements retained but excluded. FIFO compared with perpetual moving-average cent allocations; neither is a recommendation or accounting posting."
+}

@@ -1,0 +1,340 @@
+{
+  "app": "Cost Current",
+  "schemaVersion": 1,
+  "originalInput": {
+    "currency": "EUR",
+    "products": [
+      {
+        "id": "soil",
+        "label": "Potting soil",
+        "description": "Bags of potting soil compost growing medium for garden plants"
+      },
+      {
+        "id": "seeds",
+        "label": "Vegetable seeds",
+        "description": "Packets of vegetable seeds for growing carrots lettuce and tomatoes"
+      }
+    ],
+    "records": [
+      {
+        "id": "G1",
+        "description": "Bags of growing medium for potted plants",
+        "kind": "receipt",
+        "quantity": 6,
+        "costCents": 3000
+      },
+      {
+        "id": "G2",
+        "description": "Packets for sowing carrots and lettuce",
+        "kind": "receipt",
+        "quantity": 10,
+        "costCents": 1000
+      },
+      {
+        "id": "G3",
+        "description": "Extra bags of compost for garden pots",
+        "kind": "receipt",
+        "quantity": 4,
+        "costCents": 2800
+      },
+      {
+        "id": "G4",
+        "description": "Bags of potting mix sold to gardeners",
+        "kind": "issue",
+        "quantity": 7,
+        "costCents": 0
+      },
+      {
+        "id": "G5",
+        "description": "More seed packets for tomato planting",
+        "kind": "receipt",
+        "quantity": 10,
+        "costCents": 2000
+      },
+      {
+        "id": "G6",
+        "description": "Vegetable seed packets sold for sowing",
+        "kind": "issue",
+        "quantity": 12,
+        "costCents": 0
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "G1",
+      "product": "soil",
+      "proposedProduct": "soil",
+      "evidence": [
+        {
+          "id": "soil",
+          "score": 0.7813728406934208
+        },
+        {
+          "id": "seeds",
+          "score": 0.4212169307237395
+        }
+      ],
+      "kind": "receipt",
+      "quantity": 6,
+      "costCents": 3000,
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", verify receipt"
+    },
+    {
+      "id": "G2",
+      "product": "seeds",
+      "proposedProduct": "seeds",
+      "evidence": [
+        {
+          "id": "seeds",
+          "score": 0.822421399433889
+        },
+        {
+          "id": "soil",
+          "score": 0.35996710363408074
+        }
+      ],
+      "kind": "receipt",
+      "quantity": 10,
+      "costCents": 1000,
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "G3",
+      "product": "soil",
+      "proposedProduct": "soil",
+      "evidence": [
+        {
+          "id": "soil",
+          "score": 0.841457507574538
+        },
+        {
+          "id": "seeds",
+          "score": 0.26404183322681823
+        }
+      ],
+      "kind": "receipt",
+      "quantity": 4,
+      "costCents": 2800,
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "G4",
+      "product": "soil",
+      "proposedProduct": "soil",
+      "evidence": [
+        {
+          "id": "soil",
+          "score": 0.6717421312756953
+        },
+        {
+          "id": "seeds",
+          "score": 0.39416406072042787
+        }
+      ],
+      "kind": "issue",
+      "quantity": 7,
+      "costCents": 0,
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "G5",
+      "product": "seeds",
+      "proposedProduct": "seeds",
+      "evidence": [
+        {
+          "id": "seeds",
+          "score": 0.6491247229053267
+        },
+        {
+          "id": "soil",
+          "score": 0.31383793572462265
+        }
+      ],
+      "kind": "receipt",
+      "quantity": 10,
+      "costCents": 2000,
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "G6",
+      "product": "seeds",
+      "proposedProduct": "seeds",
+      "evidence": [
+        {
+          "id": "seeds",
+          "score": 0.6713299705006692
+        },
+        {
+          "id": "soil",
+          "score": 0.3807704101453555
+        }
+      ],
+      "kind": "issue",
+      "quantity": 12,
+      "costCents": 0,
+      "decision": "hold",
+      "reviewNote": ""
+    }
+  ],
+  "total": 6,
+  "approved": 5,
+  "held": 1,
+  "literalMatches": 0,
+  "products": [
+    {
+      "product": "soil",
+      "label": "Potting soil",
+      "receivedUnits": 10,
+      "issuedUnits": 7,
+      "receivedCents": 5800,
+      "fifoIssuedCents": 3700,
+      "averageIssuedCents": 4060,
+      "units": 3,
+      "averageBalanceCents": 1740,
+      "layers": [
+        {
+          "receiptId": "G3",
+          "units": 3,
+          "cents": 2100
+        }
+      ],
+      "fifoBalanceCents": 2100,
+      "differenceCents": -360
+    },
+    {
+      "product": "seeds",
+      "label": "Vegetable seeds",
+      "receivedUnits": 20,
+      "issuedUnits": 0,
+      "receivedCents": 3000,
+      "fifoIssuedCents": 0,
+      "averageIssuedCents": 0,
+      "units": 20,
+      "averageBalanceCents": 3000,
+      "layers": [
+        {
+          "receiptId": "G2",
+          "units": 10,
+          "cents": 1000
+        },
+        {
+          "receiptId": "G5",
+          "units": 10,
+          "cents": 2000
+        }
+      ],
+      "fifoBalanceCents": 3000,
+      "differenceCents": 0
+    }
+  ],
+  "ledger": [
+    {
+      "id": "G1",
+      "product": "soil",
+      "status": "approved",
+      "kind": "receipt",
+      "quantity": 6,
+      "receiptCents": 3000,
+      "fifoIssuedCents": 0,
+      "averageIssuedCents": 0,
+      "unitsAfter": 6,
+      "fifoBalanceCents": 3000,
+      "averageBalanceCents": 3000,
+      "consumedLayers": []
+    },
+    {
+      "id": "G2",
+      "product": "seeds",
+      "status": "approved",
+      "kind": "receipt",
+      "quantity": 10,
+      "receiptCents": 1000,
+      "fifoIssuedCents": 0,
+      "averageIssuedCents": 0,
+      "unitsAfter": 10,
+      "fifoBalanceCents": 1000,
+      "averageBalanceCents": 1000,
+      "consumedLayers": []
+    },
+    {
+      "id": "G3",
+      "product": "soil",
+      "status": "approved",
+      "kind": "receipt",
+      "quantity": 4,
+      "receiptCents": 2800,
+      "fifoIssuedCents": 0,
+      "averageIssuedCents": 0,
+      "unitsAfter": 10,
+      "fifoBalanceCents": 5800,
+      "averageBalanceCents": 5800,
+      "consumedLayers": []
+    },
+    {
+      "id": "G4",
+      "product": "soil",
+      "status": "approved",
+      "kind": "issue",
+      "quantity": 7,
+      "receiptCents": 0,
+      "fifoIssuedCents": 3700,
+      "averageIssuedCents": 4060,
+      "unitsAfter": 3,
+      "fifoBalanceCents": 2100,
+      "averageBalanceCents": 1740,
+      "consumedLayers": [
+        {
+          "receiptId": "G1",
+          "quantity": 6,
+          "cents": 3000
+        },
+        {
+          "receiptId": "G3",
+          "quantity": 1,
+          "cents": 700
+        }
+      ]
+    },
+    {
+      "id": "G5",
+      "product": "seeds",
+      "status": "approved",
+      "kind": "receipt",
+      "quantity": 10,
+      "receiptCents": 2000,
+      "fifoIssuedCents": 0,
+      "averageIssuedCents": 0,
+      "unitsAfter": 20,
+      "fifoBalanceCents": 3000,
+      "averageBalanceCents": 3000,
+      "consumedLayers": []
+    },
+    {
+      "id": "G6",
+      "product": "seeds",
+      "status": "held",
+      "kind": "issue",
+      "quantity": 12,
+      "receiptCents": 0,
+      "fifoIssuedCents": null,
+      "averageIssuedCents": null,
+      "unitsAfter": null,
+      "fifoBalanceCents": null,
+      "averageBalanceCents": null,
+      "consumedLayers": []
+    }
+  ],
+  "receivedCents": 8800,
+  "fifoIssuedCents": 3700,
+  "averageIssuedCents": 4060,
+  "fifoBalanceCents": 5100,
+  "averageBalanceCents": 4740,
+  "differenceCents": -360,
+  "scope": "Approved movements only, zero opening stock, source-array sequence. Held movements retained but excluded. FIFO compared with perpetual moving-average cent allocations; neither is a recommendation or accounting posting."
+}

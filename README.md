@@ -1046,3 +1046,10 @@ Real local MiniLM reconciles both proxy endpoints to a supplied membership regis
 Combined-site size guard: deploy-only byte-identical geometry WASM reuse now also covers `20261030-17`, preserving its source build and existing JS URLs with query-versioned worker/shell references. Preserve shared host `20261028-24`; real worker/image-import/STL-export checks are required before release.
 
 Quorum Canopy public release: first matching Pages build `8fe00083cf0f33996299e1b4ad4909640b9c34b4` reached built. Byte-matched public app/worker/factory/WASM, both real-AI fixtures, full reviewed workflow/artifact/offline checks, privacy traffic audit, all 686 preserved gallery cards and the newly deduplicated older geometry app passed. Source commit excludes unrelated pre-existing edits.
+
+
+## Cost Current — 20261115-14
+
+Real local MiniLM reconciles informal receipt/issue descriptions to supplied inventory products before mandatory identity, quantity and cost review. Deterministic FIFO layers and perpetual moving-average cent allocations conserve stock and money, block negative inventory and retain every held movement in JSON/CSV/Markdown. Two synthetic fixtures matched 11/11 expected product links; 500 generated movement sequences conserved units and cents. This is a cost-flow comparison, not accounting-policy advice or ledger posting. Offline scope is fresh-worker inference in an already-open warmed page only. Reuses immutable worker/runtime from `20261115-6` and shared WASM from `20261107-2`; preserve both. See [workflow/privacy](20261115-14/README.md) and [observed validation](20261115-14/VALIDATION.md).
+
+Cost Current passed combined and public real-model workflow suites, byte-matched runtime/assets, reviewed artifact round trips and preserved 687-entry working gallery on its first Pages deployment.

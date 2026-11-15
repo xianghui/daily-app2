@@ -1,0 +1,234 @@
+{
+  "app": "Ratio Compass",
+  "schemaVersion": 1,
+  "originalInput": {
+    "cards": [
+      {
+        "id": "safety",
+        "label": "Workshop safety",
+        "description": "Preventing injury and protecting participants from hazards and accidents"
+      },
+      {
+        "id": "learning",
+        "label": "Learning outcomes",
+        "description": "Participants gain new skills knowledge and educational learning outcomes"
+      },
+      {
+        "id": "access",
+        "label": "Physical accessibility",
+        "description": "Wheelchair access step-free entry and accessible facilities for disabled visitors"
+      }
+    ],
+    "records": [
+      {
+        "id": "W1",
+        "fromText": "Keeping everyone protected from injury",
+        "toText": "Teaching people useful new skills",
+        "ratio": 9
+      },
+      {
+        "id": "W2",
+        "fromText": "Preventing accidents and harmful hazards",
+        "toText": "Making entry easy for wheelchair users",
+        "ratio": 0.1111111111111111
+      },
+      {
+        "id": "W3",
+        "fromText": "How much knowledge participants gain",
+        "toText": "Step free access for disabled guests",
+        "ratio": 9
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "W1",
+      "from": "safety",
+      "to": "learning",
+      "proposedFrom": "safety",
+      "proposedTo": "learning",
+      "fromEvidence": [
+        {
+          "id": "safety",
+          "score": 0.7365201076899813
+        },
+        {
+          "id": "access",
+          "score": 0.24427623471078425
+        },
+        {
+          "id": "learning",
+          "score": 0.10818611124122998
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "learning",
+          "score": 0.6902210207442225
+        },
+        {
+          "id": "safety",
+          "score": 0.22370185926758643
+        },
+        {
+          "id": "access",
+          "score": 0.09828338224273606
+        }
+      ],
+      "ratio": 2,
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", verify direction"
+    },
+    {
+      "id": "W2",
+      "from": "safety",
+      "to": "access",
+      "proposedFrom": "safety",
+      "proposedTo": "access",
+      "fromEvidence": [
+        {
+          "id": "safety",
+          "score": 0.8111650110360579
+        },
+        {
+          "id": "access",
+          "score": 0.27008545947165213
+        },
+        {
+          "id": "learning",
+          "score": 0.049947681228434224
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "access",
+          "score": 0.7518145757673047
+        },
+        {
+          "id": "safety",
+          "score": 0.2667389529321055
+        },
+        {
+          "id": "learning",
+          "score": 0.10084596260626055
+        }
+      ],
+      "ratio": 0.1111111111111111,
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "W3",
+      "from": "learning",
+      "to": "access",
+      "proposedFrom": "learning",
+      "proposedTo": "access",
+      "fromEvidence": [
+        {
+          "id": "learning",
+          "score": 0.7035429645580265
+        },
+        {
+          "id": "safety",
+          "score": 0.12482144620739327
+        },
+        {
+          "id": "access",
+          "score": 0.06780559920175638
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "access",
+          "score": 0.609135593418564
+        },
+        {
+          "id": "safety",
+          "score": 0.269562810499508
+        },
+        {
+          "id": "learning",
+          "score": 0.0122139756907657
+        }
+      ],
+      "ratio": 9,
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 3,
+  "approved": 3,
+  "held": 0,
+  "complete": true,
+  "missing": [],
+  "matrix": [
+    [
+      1,
+      2,
+      0.1111111111111111
+    ],
+    [
+      0.5,
+      1,
+      9
+    ],
+    [
+      9,
+      0.1111111111111111,
+      1
+    ]
+  ],
+  "stats": {
+    "weights": [
+      0.1859896069849645,
+      0.5069483173576856,
+      0.3070620756573499
+    ],
+    "lambda": 6.634802181212787,
+    "ci": 1.8174010906063933,
+    "ri": 0.58,
+    "cr": 3.13345015621792,
+    "residual": 6.079581282847357e-13,
+    "iterations": 96
+  },
+  "priorities": [
+    {
+      "id": "safety",
+      "label": "Workshop safety",
+      "description": "Preventing injury and protecting participants from hazards and accidents",
+      "weight": 0.1859896069849645,
+      "equalBaseline": 0.3333333333333333,
+      "delta": -0.14734372634836881
+    },
+    {
+      "id": "learning",
+      "label": "Learning outcomes",
+      "description": "Participants gain new skills knowledge and educational learning outcomes",
+      "weight": 0.5069483173576856,
+      "equalBaseline": 0.3333333333333333,
+      "delta": 0.17361498402435233
+    },
+    {
+      "id": "access",
+      "label": "Physical accessibility",
+      "description": "Wheelchair access step-free entry and accessible facilities for disabled visitors",
+      "weight": 0.3070620756573499,
+      "equalBaseline": 0.3333333333333333,
+      "delta": -0.026271257675983428
+    }
+  ],
+  "triads": [
+    {
+      "ids": [
+        "safety",
+        "learning",
+        "access"
+      ],
+      "direct": 0.1111111111111111,
+      "implied": 18,
+      "fold": 161.99999999999994
+    }
+  ],
+  "literalMatches": 0,
+  "scope": "Subjective importance ratios, not measured performance or a decision. Weights require one approved comparison per unordered pair. Equal weights are a no-elicitation baseline, not ground truth. CR uses Saaty random indices (n=3–6); 0.10 is only a discussion cue, not a quality certificate. No automatic repairs, rankings of vendors, messages or external changes."
+}

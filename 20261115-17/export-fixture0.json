@@ -1,0 +1,234 @@
+{
+  "app": "Ratio Compass",
+  "schemaVersion": 1,
+  "originalInput": {
+    "cards": [
+      {
+        "id": "cost",
+        "label": "Purchase cost",
+        "description": "Total purchasing price and budget affordability of buying the product"
+      },
+      {
+        "id": "quality",
+        "label": "Product quality",
+        "description": "Reliability durability and quality of the manufactured product"
+      },
+      {
+        "id": "speed",
+        "label": "Delivery speed",
+        "description": "Fast shipping lead time and delivery turnaround"
+      }
+    ],
+    "records": [
+      {
+        "id": "D1",
+        "fromText": "How much money we spend buying it",
+        "toText": "How durable and reliable the item is",
+        "ratio": 1.5
+      },
+      {
+        "id": "D2",
+        "fromText": "The price we pay for the purchase",
+        "toText": "How quickly the shipment reaches us",
+        "ratio": 3
+      },
+      {
+        "id": "D3",
+        "fromText": "The reliability and durability of the goods",
+        "toText": "The time it takes to deliver the parcel",
+        "ratio": 2
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "D1",
+      "from": "cost",
+      "to": "quality",
+      "proposedFrom": "cost",
+      "proposedTo": "quality",
+      "fromEvidence": [
+        {
+          "id": "cost",
+          "score": 0.5731684636383974
+        },
+        {
+          "id": "quality",
+          "score": 0.17127519915146422
+        },
+        {
+          "id": "speed",
+          "score": 0.04850143122533641
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "quality",
+          "score": 0.7239244663573148
+        },
+        {
+          "id": "cost",
+          "score": 0.33354994392019316
+        },
+        {
+          "id": "speed",
+          "score": 0.0923397062732369
+        }
+      ],
+      "ratio": 1.5,
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "D2",
+      "from": "cost",
+      "to": "speed",
+      "proposedFrom": "cost",
+      "proposedTo": "speed",
+      "fromEvidence": [
+        {
+          "id": "cost",
+          "score": 0.5694240738061409
+        },
+        {
+          "id": "speed",
+          "score": 0.16552209655884714
+        },
+        {
+          "id": "quality",
+          "score": 0.1267030610944208
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "speed",
+          "score": 0.5756924382679228
+        },
+        {
+          "id": "cost",
+          "score": 0.11655177600455251
+        },
+        {
+          "id": "quality",
+          "score": 0.032652727915118834
+        }
+      ],
+      "ratio": 3,
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "D3",
+      "from": "quality",
+      "to": "speed",
+      "proposedFrom": "quality",
+      "proposedTo": "speed",
+      "fromEvidence": [
+        {
+          "id": "quality",
+          "score": 0.7819647763893358
+        },
+        {
+          "id": "cost",
+          "score": 0.46409059947468656
+        },
+        {
+          "id": "speed",
+          "score": 0.21417176338829372
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "speed",
+          "score": 0.6359230039137785
+        },
+        {
+          "id": "cost",
+          "score": 0.17481965545224057
+        },
+        {
+          "id": "quality",
+          "score": 0.10085238242831472
+        }
+      ],
+      "ratio": 2,
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 3,
+  "approved": 3,
+  "held": 0,
+  "complete": true,
+  "missing": [],
+  "matrix": [
+    [
+      1,
+      1.5,
+      3
+    ],
+    [
+      0.6666666666666666,
+      1,
+      2
+    ],
+    [
+      0.3333333333333333,
+      0.5,
+      1
+    ]
+  ],
+  "stats": {
+    "weights": [
+      0.5,
+      0.3333333333333333,
+      0.16666666666666666
+    ],
+    "lambda": 3,
+    "ci": 0,
+    "ri": 0.58,
+    "cr": 0,
+    "residual": 0,
+    "iterations": 2
+  },
+  "priorities": [
+    {
+      "id": "cost",
+      "label": "Purchase cost",
+      "description": "Total purchasing price and budget affordability of buying the product",
+      "weight": 0.5,
+      "equalBaseline": 0.3333333333333333,
+      "delta": 0.16666666666666669
+    },
+    {
+      "id": "quality",
+      "label": "Product quality",
+      "description": "Reliability durability and quality of the manufactured product",
+      "weight": 0.3333333333333333,
+      "equalBaseline": 0.3333333333333333,
+      "delta": 0
+    },
+    {
+      "id": "speed",
+      "label": "Delivery speed",
+      "description": "Fast shipping lead time and delivery turnaround",
+      "weight": 0.16666666666666666,
+      "equalBaseline": 0.3333333333333333,
+      "delta": -0.16666666666666666
+    }
+  ],
+  "triads": [
+    {
+      "ids": [
+        "cost",
+        "quality",
+        "speed"
+      ],
+      "direct": 3,
+      "implied": 3,
+      "fold": 1
+    }
+  ],
+  "literalMatches": 0,
+  "scope": "Subjective importance ratios, not measured performance or a decision. Weights require one approved comparison per unordered pair. Equal weights are a no-elicitation baseline, not ground truth. CR uses Saaty random indices (n=3–6); 0.10 is only a discussion cue, not a quality certificate. No automatic repairs, rankings of vendors, messages or external changes."
+}

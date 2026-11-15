@@ -1,0 +1,287 @@
+{
+  "app": "Bench Reserve",
+  "schemaVersion": 1,
+  "originalInput": {
+    "budget": 6,
+    "procedures": [
+      {
+        "id": "press",
+        "label": "Printing press",
+        "description": "Operate the printing press to print paper posters and books",
+        "weight": 5
+      },
+      {
+        "id": "bind",
+        "label": "Book binding",
+        "description": "Bind books with glue stitching covers and folded pages",
+        "weight": 4
+      },
+      {
+        "id": "ship",
+        "label": "Parcel shipping",
+        "description": "Pack parcels weigh packages and prepare shipping labels",
+        "weight": 2
+      }
+    ],
+    "people": [
+      {
+        "id": "A",
+        "capacity": 4
+      },
+      {
+        "id": "B",
+        "capacity": 4
+      },
+      {
+        "id": "C",
+        "capacity": 4
+      }
+    ],
+    "records": [
+      {
+        "id": "E1",
+        "person": "A",
+        "description": "Ran the machine that puts ink onto sheets of paper."
+      },
+      {
+        "id": "E2",
+        "person": "B",
+        "description": "Stitched page signatures and attached the book cover."
+      },
+      {
+        "id": "E3",
+        "person": "C",
+        "description": "Weighed outgoing boxes and printed courier labels."
+      }
+    ],
+    "options": [
+      {
+        "person": "B",
+        "procedure": "press",
+        "hours": 4
+      },
+      {
+        "person": "C",
+        "procedure": "bind",
+        "hours": 2
+      },
+      {
+        "person": "A",
+        "procedure": "ship",
+        "hours": 1
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "E1",
+      "person": "A",
+      "description": "Ran the machine that puts ink onto sheets of paper.",
+      "procedure": "press",
+      "proposed": "press",
+      "evidence": [
+        {
+          "id": "press",
+          "score": 0.5865894171541756
+        },
+        {
+          "id": "bind",
+          "score": 0.2541902288243383
+        },
+        {
+          "id": "ship",
+          "score": 0.11311953328736088
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "E2",
+      "person": "B",
+      "description": "Stitched page signatures and attached the book cover.",
+      "procedure": "bind",
+      "proposed": "bind",
+      "evidence": [
+        {
+          "id": "bind",
+          "score": 0.5683502892604213
+        },
+        {
+          "id": "press",
+          "score": 0.38998365370620497
+        },
+        {
+          "id": "ship",
+          "score": 0.08535736311313433
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "E3",
+      "person": "C",
+      "description": "Weighed outgoing boxes and printed courier labels.",
+      "procedure": "ship",
+      "proposed": "ship",
+      "evidence": [
+        {
+          "id": "ship",
+          "score": 0.6727195907037858
+        },
+        {
+          "id": "press",
+          "score": 0.347803596991533
+        },
+        {
+          "id": "bind",
+          "score": 0.17826295040206744
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 3,
+  "approved": 3,
+  "held": 0,
+  "current": {
+    "hours": 0,
+    "loads": [
+      0,
+      0,
+      0
+    ],
+    "indices": [],
+    "coverage": [
+      {
+        "procedure": "press",
+        "people": [
+          "A"
+        ],
+        "count": 1,
+        "weight": 5,
+        "resilient": false
+      },
+      {
+        "procedure": "bind",
+        "people": [
+          "B"
+        ],
+        "count": 1,
+        "weight": 4,
+        "resilient": false
+      },
+      {
+        "procedure": "ship",
+        "people": [
+          "C"
+        ],
+        "count": 1,
+        "weight": 2,
+        "resilient": false
+      }
+    ],
+    "resilientWeight": 0,
+    "resilientCount": 0,
+    "valid": true
+  },
+  "optimized": {
+    "hours": 6,
+    "loads": [
+      0,
+      4,
+      2
+    ],
+    "indices": [
+      0,
+      1
+    ],
+    "coverage": [
+      {
+        "procedure": "press",
+        "people": [
+          "A",
+          "B"
+        ],
+        "count": 2,
+        "weight": 5,
+        "resilient": true
+      },
+      {
+        "procedure": "bind",
+        "people": [
+          "B",
+          "C"
+        ],
+        "count": 2,
+        "weight": 4,
+        "resilient": true
+      },
+      {
+        "procedure": "ship",
+        "people": [
+          "C"
+        ],
+        "count": 1,
+        "weight": 2,
+        "resilient": false
+      }
+    ],
+    "resilientWeight": 9,
+    "resilientCount": 2,
+    "valid": true
+  },
+  "baseline": {
+    "hours": 3,
+    "loads": [
+      1,
+      0,
+      2
+    ],
+    "indices": [
+      2,
+      1
+    ],
+    "coverage": [
+      {
+        "procedure": "press",
+        "people": [
+          "A"
+        ],
+        "count": 1,
+        "weight": 5,
+        "resilient": false
+      },
+      {
+        "procedure": "bind",
+        "people": [
+          "B",
+          "C"
+        ],
+        "count": 2,
+        "weight": 4,
+        "resilient": true
+      },
+      {
+        "procedure": "ship",
+        "people": [
+          "C",
+          "A"
+        ],
+        "count": 2,
+        "weight": 2,
+        "resilient": true
+      }
+    ],
+    "resilientWeight": 6,
+    "resilientCount": 2,
+    "valid": true
+  },
+  "eligible": [
+    0,
+    1,
+    2
+  ]
+}

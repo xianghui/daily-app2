@@ -1,0 +1,315 @@
+{
+  "app": "Bench Reserve",
+  "schemaVersion": 1,
+  "originalInput": {
+    "budget": 5,
+    "procedures": [
+      {
+        "id": "backup",
+        "label": "Database recovery",
+        "description": "Restore a database backup and verify recovered data after a system failure",
+        "weight": 6
+      },
+      {
+        "id": "access",
+        "label": "Account onboarding",
+        "description": "Create employee accounts and assign approved user access permissions",
+        "weight": 3
+      },
+      {
+        "id": "invoice",
+        "label": "Invoice reconciliation",
+        "description": "Reconcile supplier invoices against purchase orders and received goods",
+        "weight": 2
+      }
+    ],
+    "people": [
+      {
+        "id": "D",
+        "capacity": 5
+      },
+      {
+        "id": "E",
+        "capacity": 5
+      },
+      {
+        "id": "F",
+        "capacity": 5
+      }
+    ],
+    "records": [
+      {
+        "id": "N1",
+        "person": "D",
+        "description": "Recovered the data store from its saved copy after the server crashed."
+      },
+      {
+        "id": "N2",
+        "person": "E",
+        "description": "Set up new staff logins with the correct permissions."
+      },
+      {
+        "id": "N3",
+        "person": "F",
+        "description": "Checked vendor bills against ordered and delivered items."
+      },
+      {
+        "id": "N4",
+        "person": "E",
+        "description": "Tested restoring the database from the backup archive."
+      }
+    ],
+    "options": [
+      {
+        "person": "D",
+        "procedure": "access",
+        "hours": 3
+      },
+      {
+        "person": "E",
+        "procedure": "invoice",
+        "hours": 2
+      },
+      {
+        "person": "F",
+        "procedure": "backup",
+        "hours": 1
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "N1",
+      "person": "D",
+      "description": "Recovered the data store from its saved copy after the server crashed.",
+      "procedure": "backup",
+      "proposed": "backup",
+      "evidence": [
+        {
+          "id": "backup",
+          "score": 0.5175881928038933
+        },
+        {
+          "id": "invoice",
+          "score": 0.0387111197296981
+        },
+        {
+          "id": "access",
+          "score": -0.11039106243823646
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", recheck"
+    },
+    {
+      "id": "N2",
+      "person": "E",
+      "description": "Set up new staff logins with the correct permissions.",
+      "procedure": "access",
+      "proposed": "access",
+      "evidence": [
+        {
+          "id": "access",
+          "score": 0.5239489623418297
+        },
+        {
+          "id": "invoice",
+          "score": 0.022975227855346933
+        },
+        {
+          "id": "backup",
+          "score": -0.031882265303592575
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "N3",
+      "person": "F",
+      "description": "Checked vendor bills against ordered and delivered items.",
+      "procedure": "invoice",
+      "proposed": "invoice",
+      "evidence": [
+        {
+          "id": "invoice",
+          "score": 0.5647545979660967
+        },
+        {
+          "id": "backup",
+          "score": 0.13096082635262601
+        },
+        {
+          "id": "access",
+          "score": 0.022540854436389715
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "N4",
+      "person": "D",
+      "description": "Tested restoring the database from the backup archive.",
+      "procedure": "backup",
+      "proposed": "backup",
+      "evidence": [
+        {
+          "id": "backup",
+          "score": 0.638716224762624
+        },
+        {
+          "id": "invoice",
+          "score": 0.002107097389440449
+        },
+        {
+          "id": "access",
+          "score": -0.03901236929945266
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "current": {
+    "hours": 0,
+    "loads": [
+      0,
+      0,
+      0
+    ],
+    "indices": [],
+    "coverage": [
+      {
+        "procedure": "backup",
+        "people": [
+          "D"
+        ],
+        "count": 1,
+        "weight": 6,
+        "resilient": false
+      },
+      {
+        "procedure": "access",
+        "people": [
+          "E"
+        ],
+        "count": 1,
+        "weight": 3,
+        "resilient": false
+      },
+      {
+        "procedure": "invoice",
+        "people": [
+          "F"
+        ],
+        "count": 1,
+        "weight": 2,
+        "resilient": false
+      }
+    ],
+    "resilientWeight": 0,
+    "resilientCount": 0,
+    "valid": true
+  },
+  "optimized": {
+    "hours": 4,
+    "loads": [
+      3,
+      0,
+      1
+    ],
+    "indices": [
+      0,
+      2
+    ],
+    "coverage": [
+      {
+        "procedure": "backup",
+        "people": [
+          "D",
+          "F"
+        ],
+        "count": 2,
+        "weight": 6,
+        "resilient": true
+      },
+      {
+        "procedure": "access",
+        "people": [
+          "E",
+          "D"
+        ],
+        "count": 2,
+        "weight": 3,
+        "resilient": true
+      },
+      {
+        "procedure": "invoice",
+        "people": [
+          "F"
+        ],
+        "count": 1,
+        "weight": 2,
+        "resilient": false
+      }
+    ],
+    "resilientWeight": 9,
+    "resilientCount": 2,
+    "valid": true
+  },
+  "baseline": {
+    "hours": 3,
+    "loads": [
+      0,
+      2,
+      1
+    ],
+    "indices": [
+      2,
+      1
+    ],
+    "coverage": [
+      {
+        "procedure": "backup",
+        "people": [
+          "D",
+          "F"
+        ],
+        "count": 2,
+        "weight": 6,
+        "resilient": true
+      },
+      {
+        "procedure": "access",
+        "people": [
+          "E"
+        ],
+        "count": 1,
+        "weight": 3,
+        "resilient": false
+      },
+      {
+        "procedure": "invoice",
+        "people": [
+          "F",
+          "E"
+        ],
+        "count": 2,
+        "weight": 2,
+        "resilient": true
+      }
+    ],
+    "resilientWeight": 8,
+    "resilientCount": 2,
+    "valid": true
+  },
+  "eligible": [
+    0,
+    1,
+    2
+  ]
+}

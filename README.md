@@ -1078,3 +1078,8 @@ Real local MiniLM reconciles both endpoints of informal criterion-comparison not
 Combined-site size guard: deploy-only byte-verified geometry WASM reuse now also includes `20261030-19`, retaining source builds and query-versioning legacy worker/shell URLs. Preserve shared host `20261028-24`. The affected older geometry worker, image import and actual STL export are retested before publication.
 
 Ratio Compass public release: matching Pages `a23bc55bb1925410bdc9f2181550410a1ca94c03` reached built. Public app/worker/runtime/WASM byte hashes, both real-AI fixtures, full reviewed workflow/artifact/offline suite, GET-only privacy audit, preserved 690-entry working gallery and affected older geometry app all passed. Source staging excludes unrelated pre-existing edits.
+
+
+## Bundle Accord — 20261115-18
+
+Real local MiniLM item inference supports reviewed subjective preference matrices and exact indivisible maximin bundles, round-robin comparisons and directed envy/EF1 audits. Two synthetic fixtures matched 18/18 notes; 240 independent exhaustive cases verified allocation objectives and invariants. Unrelated text still mislinks, so review is mandatory. Complete JSON/CSV/Markdown retains all originals and holds. Fresh-worker offline inference tested inside an already-open warmed page only. Reuses immutable worker/runtime from `20261115-6` and WASM from `20261107-2`; preserve these builds. See [workflow](20261115-18/README.md) and [observed validation](20261115-18/VALIDATION.md).

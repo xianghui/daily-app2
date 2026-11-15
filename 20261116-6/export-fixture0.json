@@ -1,0 +1,225 @@
+{
+  "schema": "prefix-press/v1",
+  "originalInput": {
+    "context": "Synthetic shop telemetry; counts from one complete observation window. Only event identities are coded.",
+    "events": [
+      {
+        "id": "view",
+        "label": "Product view",
+        "description": "A visitor views a product detail page"
+      },
+      {
+        "id": "cart",
+        "label": "Add to cart",
+        "description": "A shopper adds an item to the shopping basket"
+      },
+      {
+        "id": "purchase",
+        "label": "Purchase",
+        "description": "A customer completes a paid checkout"
+      },
+      {
+        "id": "refund",
+        "label": "Refund",
+        "description": "A customer payment is returned as a refund"
+      }
+    ],
+    "observations": [
+      {
+        "id": "a",
+        "description": "Looking at merchandise details on the item page",
+        "count": 70
+      },
+      {
+        "id": "b",
+        "description": "Putting goods into the shopping basket",
+        "count": 20
+      },
+      {
+        "id": "c",
+        "description": "Finishing checkout and paying for an order",
+        "count": 8
+      },
+      {
+        "id": "d",
+        "description": "Money reimbursed to the buyer after a return",
+        "count": 2
+      }
+    ],
+    "sample": [
+      "view",
+      "view",
+      "cart",
+      "purchase",
+      "view",
+      "refund"
+    ]
+  },
+  "reviews": [
+    {
+      "id": "a",
+      "description": "Looking at merchandise details on the item page",
+      "count": 70,
+      "event": "view",
+      "evidence": [
+        {
+          "id": "view",
+          "score": 0.47656382545008974
+        },
+        {
+          "id": "cart",
+          "score": 0.3910828339100063
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "b",
+      "description": "Putting goods into the shopping basket",
+      "count": 20,
+      "event": "cart",
+      "evidence": [
+        {
+          "id": "cart",
+          "score": 0.8012535402959406
+        },
+        {
+          "id": "purchase",
+          "score": 0.30309819904160495
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "c",
+      "description": "Finishing checkout and paying for an order",
+      "count": 8,
+      "event": "purchase",
+      "evidence": [
+        {
+          "id": "purchase",
+          "score": 0.7675244224794364
+        },
+        {
+          "id": "refund",
+          "score": 0.4254792656971339
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "d",
+      "description": "Money reimbursed to the buyer after a return",
+      "count": 2,
+      "event": "refund",
+      "evidence": [
+        {
+          "id": "refund",
+          "score": 0.6533614217707349
+        },
+        {
+          "id": "purchase",
+          "score": 0.4384955642590144
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "status": "ready",
+  "issues": [],
+  "codebook": [
+    {
+      "id": "view",
+      "label": "Product view",
+      "description": "A visitor views a product detail page",
+      "count": 70,
+      "source": "a",
+      "code": "1"
+    },
+    {
+      "id": "cart",
+      "label": "Add to cart",
+      "description": "A shopper adds an item to the shopping basket",
+      "count": 20,
+      "source": "b",
+      "code": "01"
+    },
+    {
+      "id": "purchase",
+      "label": "Purchase",
+      "description": "A customer completes a paid checkout",
+      "count": 8,
+      "source": "c",
+      "code": "001"
+    },
+    {
+      "id": "refund",
+      "label": "Refund",
+      "description": "A customer payment is returned as a refund",
+      "count": 2,
+      "source": "d",
+      "code": "000"
+    }
+  ],
+  "merges": [
+    {
+      "left": [
+        "refund"
+      ],
+      "right": [
+        "purchase"
+      ],
+      "leftWeight": 2,
+      "rightWeight": 8,
+      "weight": 10
+    },
+    {
+      "left": [
+        "refund",
+        "purchase"
+      ],
+      "right": [
+        "cart"
+      ],
+      "leftWeight": 10,
+      "rightWeight": 20,
+      "weight": 30
+    },
+    {
+      "left": [
+        "refund",
+        "purchase",
+        "cart"
+      ],
+      "right": [
+        "view"
+      ],
+      "leftWeight": 30,
+      "rightWeight": 70,
+      "weight": 100
+    }
+  ],
+  "frequency": 100,
+  "weightedBits": 140,
+  "fixedWidth": 2,
+  "baselineBits": 200,
+  "averageBits": 1.4,
+  "sampleBits": "11010011000",
+  "sampleBaselineBits": 12,
+  "decoded": [
+    "view",
+    "view",
+    "cart",
+    "purchase",
+    "view",
+    "refund"
+  ],
+  "roundTrip": true
+}

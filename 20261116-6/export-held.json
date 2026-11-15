@@ -1,0 +1,110 @@
+{
+  "schema": "prefix-press/v1",
+  "originalInput": {
+    "context": "Synthetic workshop instrumentation; this codebook is not used to control equipment.",
+    "events": [
+      {
+        "id": "temperature",
+        "label": "Temperature",
+        "description": "Temperature reading from a heat sensor"
+      },
+      {
+        "id": "vibration",
+        "label": "Vibration",
+        "description": "Mechanical vibration measurement from a moving motor"
+      },
+      {
+        "id": "pressure",
+        "label": "Pressure",
+        "description": "Air pressure reading inside a compressed gas line"
+      }
+    ],
+    "observations": [
+      {
+        "id": "t",
+        "description": "How hot the probe reports the enclosure is",
+        "count": 80
+      },
+      {
+        "id": "v",
+        "description": "Oscillation intensity picked up on the rotating machine",
+        "count": 15
+      },
+      {
+        "id": "p",
+        "description": "Pneumatic line compression measured in the pipe",
+        "count": 5
+      }
+    ],
+    "sample": [
+      "temperature",
+      "pressure",
+      "temperature",
+      "vibration",
+      "temperature"
+    ]
+  },
+  "reviews": [
+    {
+      "id": "t",
+      "description": "How hot the probe reports the enclosure is",
+      "count": 80,
+      "event": "temperature",
+      "evidence": [
+        {
+          "id": "temperature",
+          "score": 0.4888983921042949
+        },
+        {
+          "id": "pressure",
+          "score": 0.16179107272158216
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", verify"
+    },
+    {
+      "id": "v",
+      "description": "Oscillation intensity picked up on the rotating machine",
+      "count": 15,
+      "event": "vibration",
+      "evidence": [
+        {
+          "id": "vibration",
+          "score": 0.3986032566539763
+        },
+        {
+          "id": "temperature",
+          "score": 0.08161892284058593
+        }
+      ],
+      "decision": "hold",
+      "reviewNote": ""
+    },
+    {
+      "id": "p",
+      "description": "Pneumatic line compression measured in the pipe",
+      "count": 5,
+      "event": "pressure",
+      "evidence": [
+        {
+          "id": "pressure",
+          "score": 0.5735504334241102
+        },
+        {
+          "id": "vibration",
+          "score": 0.22586706366380166
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 3,
+  "approved": 2,
+  "held": 1,
+  "status": "blocked",
+  "issues": [
+    "Vibration: held"
+  ]
+}

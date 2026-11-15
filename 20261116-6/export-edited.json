@@ -1,0 +1,174 @@
+{
+  "schema": "prefix-press/v1",
+  "originalInput": {
+    "context": "Synthetic workshop instrumentation; this codebook is not used to control equipment.",
+    "events": [
+      {
+        "id": "temperature",
+        "label": "Temperature",
+        "description": "Temperature reading from a heat sensor"
+      },
+      {
+        "id": "vibration",
+        "label": "Vibration",
+        "description": "Mechanical vibration measurement from a moving motor"
+      },
+      {
+        "id": "pressure",
+        "label": "Pressure",
+        "description": "Air pressure reading inside a compressed gas line"
+      }
+    ],
+    "observations": [
+      {
+        "id": "t",
+        "description": "How hot the probe reports the enclosure is",
+        "count": 80
+      },
+      {
+        "id": "v",
+        "description": "Oscillation intensity picked up on the rotating machine",
+        "count": 15
+      },
+      {
+        "id": "p",
+        "description": "Pneumatic line compression measured in the pipe",
+        "count": 5
+      }
+    ],
+    "sample": [
+      "temperature",
+      "pressure",
+      "temperature",
+      "vibration",
+      "temperature"
+    ]
+  },
+  "reviews": [
+    {
+      "id": "t",
+      "description": "How hot the probe reports the enclosure is",
+      "count": 10,
+      "event": "temperature",
+      "evidence": [
+        {
+          "id": "temperature",
+          "score": 0.4888983921042949
+        },
+        {
+          "id": "pressure",
+          "score": 0.16179107272158216
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", verify"
+    },
+    {
+      "id": "v",
+      "description": "Oscillation intensity picked up on the rotating machine",
+      "count": 15,
+      "event": "vibration",
+      "evidence": [
+        {
+          "id": "vibration",
+          "score": 0.3986032566539763
+        },
+        {
+          "id": "temperature",
+          "score": 0.08161892284058593
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "p",
+      "description": "Pneumatic line compression measured in the pipe",
+      "count": 5,
+      "event": "pressure",
+      "evidence": [
+        {
+          "id": "pressure",
+          "score": 0.5735504334241102
+        },
+        {
+          "id": "vibration",
+          "score": 0.22586706366380166
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 3,
+  "approved": 3,
+  "held": 0,
+  "status": "ready",
+  "issues": [],
+  "codebook": [
+    {
+      "id": "temperature",
+      "label": "Temperature",
+      "description": "Temperature reading from a heat sensor",
+      "count": 10,
+      "source": "t",
+      "code": "11"
+    },
+    {
+      "id": "vibration",
+      "label": "Vibration",
+      "description": "Mechanical vibration measurement from a moving motor",
+      "count": 15,
+      "source": "v",
+      "code": "0"
+    },
+    {
+      "id": "pressure",
+      "label": "Pressure",
+      "description": "Air pressure reading inside a compressed gas line",
+      "count": 5,
+      "source": "p",
+      "code": "10"
+    }
+  ],
+  "merges": [
+    {
+      "left": [
+        "pressure"
+      ],
+      "right": [
+        "temperature"
+      ],
+      "leftWeight": 5,
+      "rightWeight": 10,
+      "weight": 15
+    },
+    {
+      "left": [
+        "vibration"
+      ],
+      "right": [
+        "pressure",
+        "temperature"
+      ],
+      "leftWeight": 15,
+      "rightWeight": 15,
+      "weight": 30
+    }
+  ],
+  "frequency": 30,
+  "weightedBits": 45,
+  "fixedWidth": 2,
+  "baselineBits": 60,
+  "averageBits": 1.5,
+  "sampleBits": "111011011",
+  "sampleBaselineBits": 10,
+  "decoded": [
+    "temperature",
+    "pressure",
+    "temperature",
+    "vibration",
+    "temperature"
+  ],
+  "roundTrip": true
+}

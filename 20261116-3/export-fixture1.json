@@ -1,0 +1,323 @@
+{
+  "schema": "discovery-ledger/v1",
+  "originalInput": {
+    "alpha": 0.05,
+    "families": [
+      {
+        "id": "training",
+        "label": "Predefined training endpoints"
+      },
+      {
+        "id": "equipment",
+        "label": "Predefined equipment endpoints"
+      }
+    ],
+    "hypotheses": [
+      {
+        "id": "safety",
+        "family": "training",
+        "label": "Safety quiz",
+        "description": "Correct answers on a workplace safety knowledge quiz"
+      },
+      {
+        "id": "assembly",
+        "family": "training",
+        "label": "Assembly time",
+        "description": "Time required to assemble a mechanical product"
+      },
+      {
+        "id": "inspection",
+        "family": "training",
+        "label": "Inspection accuracy",
+        "description": "Correct identification of defective parts during visual inspection"
+      },
+      {
+        "id": "energy",
+        "family": "equipment",
+        "label": "Energy consumption",
+        "description": "Electricity consumed by production machinery"
+      },
+      {
+        "id": "noise",
+        "family": "equipment",
+        "label": "Noise level",
+        "description": "Sound loudness emitted by workshop machines"
+      }
+    ],
+    "observations": [
+      {
+        "id": "w1",
+        "description": "Workers answering occupational safety questions",
+        "p": 0.001
+      },
+      {
+        "id": "w2",
+        "description": "Minutes spent putting mechanical products together",
+        "p": 0.012
+      },
+      {
+        "id": "w3",
+        "description": "Inspectors correctly spotting faulty components",
+        "p": 0.049
+      },
+      {
+        "id": "w4",
+        "description": "Electrical power used by factory equipment",
+        "p": 0.02
+      },
+      {
+        "id": "w5",
+        "description": "Loudness of sound from industrial machines",
+        "p": 0.08
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "w1",
+      "description": "Workers answering occupational safety questions",
+      "p": 0.001,
+      "hypothesis": "safety",
+      "evidence": [
+        {
+          "id": "safety",
+          "score": 0.7342093232410163
+        },
+        {
+          "id": "noise",
+          "score": 0.2325716241562444
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "w2",
+      "description": "Minutes spent putting mechanical products together",
+      "p": 0.012,
+      "hypothesis": "assembly",
+      "evidence": [
+        {
+          "id": "assembly",
+          "score": 0.7766375111945347
+        },
+        {
+          "id": "energy",
+          "score": 0.2990091166520641
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "w3",
+      "description": "Inspectors correctly spotting faulty components",
+      "p": 0.049,
+      "hypothesis": "inspection",
+      "evidence": [
+        {
+          "id": "inspection",
+          "score": 0.6146391367405718
+        },
+        {
+          "id": "noise",
+          "score": 0.22910118259743853
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "w4",
+      "description": "Electrical power used by factory equipment",
+      "p": 0.02,
+      "hypothesis": "energy",
+      "evidence": [
+        {
+          "id": "energy",
+          "score": 0.6996920587835089
+        },
+        {
+          "id": "noise",
+          "score": 0.2528732246853726
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "w5",
+      "description": "Loudness of sound from industrial machines",
+      "p": 0.08,
+      "hypothesis": "noise",
+      "evidence": [
+        {
+          "id": "noise",
+          "score": 0.8187209143701951
+        },
+        {
+          "id": "energy",
+          "score": 0.33153337044649756
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 5,
+  "approved": 5,
+  "held": 0,
+  "alpha": 0.05,
+  "families": [
+    {
+      "id": "training",
+      "label": "Predefined training endpoints",
+      "expected": 3,
+      "status": "ready",
+      "issues": [],
+      "tests": [
+        {
+          "id": "w1",
+          "description": "Workers answering occupational safety questions",
+          "p": 0.001,
+          "hypothesis": "safety",
+          "evidence": [
+            {
+              "id": "safety",
+              "score": 0.7342093232410163
+            },
+            {
+              "id": "noise",
+              "score": 0.2325716241562444
+            }
+          ],
+          "decision": "approve",
+          "reviewNote": "",
+          "bh": 0.003,
+          "holm": 0.003,
+          "rawPass": true,
+          "bhPass": true,
+          "holmPass": true,
+          "rank": 1
+        },
+        {
+          "id": "w2",
+          "description": "Minutes spent putting mechanical products together",
+          "p": 0.012,
+          "hypothesis": "assembly",
+          "evidence": [
+            {
+              "id": "assembly",
+              "score": 0.7766375111945347
+            },
+            {
+              "id": "energy",
+              "score": 0.2990091166520641
+            }
+          ],
+          "decision": "approve",
+          "reviewNote": "",
+          "bh": 0.018000000000000002,
+          "holm": 0.024,
+          "rawPass": true,
+          "bhPass": true,
+          "holmPass": true,
+          "rank": 2
+        },
+        {
+          "id": "w3",
+          "description": "Inspectors correctly spotting faulty components",
+          "p": 0.049,
+          "hypothesis": "inspection",
+          "evidence": [
+            {
+              "id": "inspection",
+              "score": 0.6146391367405718
+            },
+            {
+              "id": "noise",
+              "score": 0.22910118259743853
+            }
+          ],
+          "decision": "approve",
+          "reviewNote": "",
+          "bh": 0.04900000000000001,
+          "holm": 0.049,
+          "rawPass": true,
+          "bhPass": true,
+          "holmPass": true,
+          "rank": 3
+        }
+      ],
+      "raw": 3,
+      "bh": 3,
+      "holm": 3
+    },
+    {
+      "id": "equipment",
+      "label": "Predefined equipment endpoints",
+      "expected": 2,
+      "status": "ready",
+      "issues": [],
+      "tests": [
+        {
+          "id": "w4",
+          "description": "Electrical power used by factory equipment",
+          "p": 0.02,
+          "hypothesis": "energy",
+          "evidence": [
+            {
+              "id": "energy",
+              "score": 0.6996920587835089
+            },
+            {
+              "id": "noise",
+              "score": 0.2528732246853726
+            }
+          ],
+          "decision": "approve",
+          "reviewNote": "",
+          "bh": 0.04,
+          "holm": 0.04,
+          "rawPass": true,
+          "bhPass": true,
+          "holmPass": true,
+          "rank": 1
+        },
+        {
+          "id": "w5",
+          "description": "Loudness of sound from industrial machines",
+          "p": 0.08,
+          "hypothesis": "noise",
+          "evidence": [
+            {
+              "id": "noise",
+              "score": 0.8187209143701951
+            },
+            {
+              "id": "energy",
+              "score": 0.33153337044649756
+            }
+          ],
+          "decision": "approve",
+          "reviewNote": "",
+          "bh": 0.08,
+          "holm": 0.08,
+          "rawPass": false,
+          "bhPass": false,
+          "holmPass": false,
+          "rank": 2
+        }
+      ],
+      "raw": 1,
+      "bh": 1,
+      "holm": 1
+    }
+  ],
+  "ready": 2,
+  "blocked": 0,
+  "tested": 5,
+  "raw": 4,
+  "bh": 4,
+  "holm": 4
+}

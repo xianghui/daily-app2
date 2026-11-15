@@ -1,0 +1,254 @@
+{
+  "schema": "discovery-ledger/v1",
+  "originalInput": {
+    "alpha": 0.05,
+    "families": [
+      {
+        "id": "journey",
+        "label": "Predefined customer journey endpoints"
+      }
+    ],
+    "hypotheses": [
+      {
+        "id": "checkout",
+        "family": "journey",
+        "label": "Checkout completion",
+        "description": "Complete an online purchase through checkout"
+      },
+      {
+        "id": "search",
+        "family": "journey",
+        "label": "Search success",
+        "description": "Find a relevant product using site search"
+      },
+      {
+        "id": "newsletter",
+        "family": "journey",
+        "label": "Newsletter signup",
+        "description": "Subscribe to an email newsletter"
+      },
+      {
+        "id": "returns",
+        "family": "journey",
+        "label": "Return completion",
+        "description": "Complete a product return and refund request"
+      }
+    ],
+    "observations": [
+      {
+        "id": "a",
+        "description": "Customers finishing their online purchases",
+        "p": 0.01
+      },
+      {
+        "id": "b",
+        "description": "Shoppers locating products through search",
+        "p": 0.04
+      },
+      {
+        "id": "c",
+        "description": "Readers joining the email mailing list",
+        "p": 0.03
+      },
+      {
+        "id": "d",
+        "description": "Buyers sending back items for refunds",
+        "p": 0.2
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "a",
+      "description": "Customers finishing their online purchases",
+      "p": 0.01,
+      "hypothesis": "checkout",
+      "evidence": [
+        {
+          "id": "checkout",
+          "score": 0.6674420932569656
+        },
+        {
+          "id": "returns",
+          "score": 0.3968155251701043
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "b",
+      "description": "Shoppers locating products through search",
+      "p": 0.04,
+      "hypothesis": "search",
+      "evidence": [
+        {
+          "id": "search",
+          "score": 0.6444606203285886
+        },
+        {
+          "id": "checkout",
+          "score": 0.31903806027678877
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "c",
+      "description": "Readers joining the email mailing list",
+      "p": 0.03,
+      "hypothesis": "newsletter",
+      "evidence": [
+        {
+          "id": "newsletter",
+          "score": 0.5088530972105472
+        },
+        {
+          "id": "returns",
+          "score": 0.04937428498065139
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "d",
+      "description": "Buyers sending back items for refunds",
+      "p": 0.2,
+      "hypothesis": "returns",
+      "evidence": [
+        {
+          "id": "returns",
+          "score": 0.7111687979420803
+        },
+        {
+          "id": "checkout",
+          "score": 0.3657871569518443
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "alpha": 0.05,
+  "families": [
+    {
+      "id": "journey",
+      "label": "Predefined customer journey endpoints",
+      "expected": 4,
+      "status": "ready",
+      "issues": [],
+      "tests": [
+        {
+          "id": "a",
+          "description": "Customers finishing their online purchases",
+          "p": 0.01,
+          "hypothesis": "checkout",
+          "evidence": [
+            {
+              "id": "checkout",
+              "score": 0.6674420932569656
+            },
+            {
+              "id": "returns",
+              "score": 0.3968155251701043
+            }
+          ],
+          "decision": "approve",
+          "reviewNote": "",
+          "bh": 0.04,
+          "holm": 0.04,
+          "rawPass": true,
+          "bhPass": true,
+          "holmPass": true,
+          "rank": 1
+        },
+        {
+          "id": "c",
+          "description": "Readers joining the email mailing list",
+          "p": 0.03,
+          "hypothesis": "newsletter",
+          "evidence": [
+            {
+              "id": "newsletter",
+              "score": 0.5088530972105472
+            },
+            {
+              "id": "returns",
+              "score": 0.04937428498065139
+            }
+          ],
+          "decision": "approve",
+          "reviewNote": "",
+          "bh": 0.05333333333333334,
+          "holm": 0.09,
+          "rawPass": true,
+          "bhPass": false,
+          "holmPass": false,
+          "rank": 2
+        },
+        {
+          "id": "b",
+          "description": "Shoppers locating products through search",
+          "p": 0.04,
+          "hypothesis": "search",
+          "evidence": [
+            {
+              "id": "search",
+              "score": 0.6444606203285886
+            },
+            {
+              "id": "checkout",
+              "score": 0.31903806027678877
+            }
+          ],
+          "decision": "approve",
+          "reviewNote": "",
+          "bh": 0.05333333333333334,
+          "holm": 0.09,
+          "rawPass": true,
+          "bhPass": false,
+          "holmPass": false,
+          "rank": 3
+        },
+        {
+          "id": "d",
+          "description": "Buyers sending back items for refunds",
+          "p": 0.2,
+          "hypothesis": "returns",
+          "evidence": [
+            {
+              "id": "returns",
+              "score": 0.7111687979420803
+            },
+            {
+              "id": "checkout",
+              "score": 0.3657871569518443
+            }
+          ],
+          "decision": "approve",
+          "reviewNote": "",
+          "bh": 0.2,
+          "holm": 0.2,
+          "rawPass": false,
+          "bhPass": false,
+          "holmPass": false,
+          "rank": 4
+        }
+      ],
+      "raw": 3,
+      "bh": 1,
+      "holm": 1
+    }
+  ],
+  "ready": 1,
+  "blocked": 0,
+  "tested": 4,
+  "raw": 3,
+  "bh": 1,
+  "holm": 1
+}

@@ -1,0 +1,451 @@
+{
+  "fixtures": [
+    {
+      "name": "Storefront services",
+      "expected": [
+        "image",
+        "image",
+        "image",
+        "mail",
+        "mail",
+        "mail",
+        "stock",
+        "stock",
+        "stock"
+      ],
+      "actual": [
+        "image",
+        "image",
+        "image",
+        "mail",
+        "mail",
+        "mail",
+        "stock",
+        "stock",
+        "stock"
+      ],
+      "correct": 9,
+      "total": 9,
+      "best": {
+        "calls": 70,
+        "recovered": 43,
+        "choices": [
+          {
+            "operation": "image",
+            "cap": 1,
+            "calls": 40,
+            "recovered": 25
+          },
+          {
+            "operation": "mail",
+            "cap": 2,
+            "calls": 30,
+            "recovered": 18
+          },
+          {
+            "operation": "stock",
+            "cap": 0,
+            "calls": 0,
+            "recovered": 0
+          }
+        ],
+        "examined": 19
+      },
+      "baseline": {
+        "calls": 65,
+        "recovered": 36,
+        "choices": [
+          {
+            "operation": "image",
+            "cap": 1,
+            "calls": 40,
+            "recovered": 25
+          },
+          {
+            "operation": "mail",
+            "cap": 1,
+            "calls": 20,
+            "recovered": 10
+          },
+          {
+            "operation": "stock",
+            "cap": 1,
+            "calls": 5,
+            "recovered": 1
+          }
+        ],
+        "withinBudget": true
+      }
+    },
+    {
+      "name": "Publishing pipeline",
+      "expected": [
+        "report",
+        "report",
+        "report",
+        "archive",
+        "archive",
+        "archive"
+      ],
+      "actual": [
+        "report",
+        "report",
+        "report",
+        "archive",
+        "archive",
+        "archive"
+      ],
+      "correct": 6,
+      "total": 6,
+      "best": {
+        "calls": 90,
+        "recovered": 45,
+        "choices": [
+          {
+            "operation": "report",
+            "cap": 0,
+            "calls": 0,
+            "recovered": 0
+          },
+          {
+            "operation": "archive",
+            "cap": 2,
+            "calls": 90,
+            "recovered": 45
+          }
+        ],
+        "examined": 7
+      },
+      "baseline": {
+        "calls": 80,
+        "recovered": 28,
+        "choices": [
+          {
+            "operation": "report",
+            "cap": 1,
+            "calls": 30,
+            "recovered": 18
+          },
+          {
+            "operation": "archive",
+            "cap": 1,
+            "calls": 50,
+            "recovered": 10
+          }
+        ],
+        "withinBudget": true
+      }
+    }
+  ],
+  "checks": [
+    "mandatory review; hold suffix; undo; operation/count/attempt edits; duplicate/gap/incomplete chain blocking; multiline CSV/Markdown/clipboard; audit reimport",
+    "already-open warmed page fully offline fresh-worker real CPU inference",
+    "empty malformed oversized duplicate IDs invalid budgets attempts counts descriptions; unsupported/malformed files",
+    "cancel then real retry; source changes invalidate in-flight results",
+    "30-text max batching; six operations; 24 rows; cap three; full audit round trip",
+    "all held and excluded operations; instruction-like data cannot upload or request credentials",
+    "desktop/390/320px no overflow; labels; touch targets; keyboard focus screenshots"
+  ],
+  "challenge": {
+    "operation": "archive",
+    "expected": "unrelated / human hold",
+    "limitation": "Nearest candidate always returned; similarity is not identity or retry safety"
+  },
+  "privacy": {
+    "allRequestsGetWithoutBody": true,
+    "noFixtureTextInFullURLs": true,
+    "noModelRequestsBeforeExplicitLoad": true
+  },
+  "requests": [
+    {
+      "method": "GET",
+      "url": "https://xianghui.github.io/daily-app2/20261116-2/",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://xianghui.github.io/daily-app2/20261116-2/assets/index-rXV1e7NW.js",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://xianghui.github.io/daily-app2/20261116-2/assets/index-2JJnh_on.css",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://xianghui.github.io/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/6c514fc6-50c3-4ac4-b1f5-c3a9d868d7de",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://xianghui.github.io/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://xianghui.github.io/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "user_id",
+        "X-Xet-Cas-Uid",
+        "xip",
+        "response-content-disposition",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "response-content-disposition",
+        "X-Xet-Cas-Uid",
+        "user_id",
+        "xip",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/f085dfcc-c21a-452e-94b9-1679c2b92146",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/455c118f-846e-403c-ae23-72039abff854",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/72af2dcd-9bc6-4e75-8a19-55c905683cb9",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/2e80e4c9-16c4-490d-bfb5-a07a7c779871",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/9ba7a7dc-6bd2-4aac-8945-2bff902a500c",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/44ad9f43-1871-43cc-85c8-fbb730c9b88b",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/f19897de-0e85-4d67-a3dc-ab6f6d69e029",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/183f98ff-4e3c-41b1-aa0e-5c503e5313d6",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/90425539-b3a4-4d33-a39a-08a38a9bccdc",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/f4b2726d-88bc-4269-913e-ec764f0dba0f",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/157e2493-fade-43d0-acee-1b87e8815cd0",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/4da9ee29-ca48-4835-a074-70edea3b27f7",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/bfadb127-a266-44fb-b74b-a3392e4a8012",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/c1c4fdb0-1b8b-4a1c-9a47-66ead63cf6ce",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/c3080393-b527-497c-b710-278eaba53606",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/8f7fb4b7-42cb-453d-aad8-72fecce76a82",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/4306a5b7-ebee-402f-ac48-06b55570d972",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/d2d6f8c4-d1d5-42ba-bc7f-b52009a45126",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/2515c2eb-a61a-4875-9af9-d45e18596592",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/b65a6343-cbe0-49e2-8fc3-1f11ab4f565a",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/d8a7aef9-48d9-4ef0-883d-06b3a8d50f21",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/8ed7f6c9-1a85-4203-9a62-eba88b2df3ac",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/b48fcc72-da95-49ee-9f11-c1f83deee75a",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/172050a8-9bc8-42e9-87c6-51311d84270c",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/0dcbd7e0-e126-4c7b-b7de-e844b533481a",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/ce674e61-06a4-41fb-a086-3ef153e17d33",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/a7398200-fe31-41ce-a59b-fbc1af2c0a63",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/6514e6fb-4c23-453a-88c4-87a6e100defd",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/fed19693-b2d2-4acf-aba9-b8f2f794d358",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://xianghui.github.io/481ca4ff-02aa-4bc6-8148-cf12e3eea1e8",
+      "queryKeys": []
+    }
+  ]
+}

@@ -1,0 +1,286 @@
+{
+  "schema": "retry-ledger/v1",
+  "originalInput": {
+    "extraCallBudget": 95,
+    "operations": [
+      {
+        "id": "report",
+        "label": "Report rendering",
+        "description": "Generate and render PDF analytics reports"
+      },
+      {
+        "id": "archive",
+        "label": "Archive upload",
+        "description": "Upload backup archive files to cloud storage"
+      }
+    ],
+    "observations": [
+      {
+        "id": "r0",
+        "description": "Creating PDF business reports",
+        "attempt": 0,
+        "reached": 120,
+        "succeeded": 90
+      },
+      {
+        "id": "r1",
+        "description": "Creating PDF business reports",
+        "attempt": 1,
+        "reached": 30,
+        "succeeded": 18
+      },
+      {
+        "id": "r2",
+        "description": "Creating PDF business reports",
+        "attempt": 2,
+        "reached": 12,
+        "succeeded": 9
+      },
+      {
+        "id": "a0",
+        "description": "Transferring compressed backups to remote storage",
+        "attempt": 0,
+        "reached": 100,
+        "succeeded": 50
+      },
+      {
+        "id": "a1",
+        "description": "Transferring compressed backups to remote storage",
+        "attempt": 1,
+        "reached": 50,
+        "succeeded": 10
+      },
+      {
+        "id": "a2",
+        "description": "Transferring compressed backups to remote storage",
+        "attempt": 2,
+        "reached": 40,
+        "succeeded": 35
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "r0",
+      "description": "Creating PDF business reports",
+      "attempt": 0,
+      "reached": 120,
+      "succeeded": 90,
+      "operation": "report",
+      "evidence": [
+        {
+          "id": "report",
+          "score": 0.652131224084973
+        },
+        {
+          "id": "archive",
+          "score": 0.02642284333332954
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", verify"
+    },
+    {
+      "id": "r1",
+      "description": "Creating PDF business reports",
+      "attempt": 1,
+      "reached": 30,
+      "succeeded": 18,
+      "operation": "report",
+      "evidence": [
+        {
+          "id": "report",
+          "score": 0.652131224084973
+        },
+        {
+          "id": "archive",
+          "score": 0.02642284333332954
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "r2",
+      "description": "Creating PDF business reports",
+      "attempt": 2,
+      "reached": 12,
+      "succeeded": 9,
+      "operation": "report",
+      "evidence": [
+        {
+          "id": "report",
+          "score": 0.6724005407246345
+        },
+        {
+          "id": "archive",
+          "score": 0.019785493885211704
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "a0",
+      "description": "Transferring compressed backups to remote storage",
+      "attempt": 0,
+      "reached": 100,
+      "succeeded": 50,
+      "operation": "archive",
+      "evidence": [
+        {
+          "id": "archive",
+          "score": 0.6820352519292542
+        },
+        {
+          "id": "report",
+          "score": 0.0305085734594457
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "a1",
+      "description": "Transferring compressed backups to remote storage",
+      "attempt": 1,
+      "reached": 50,
+      "succeeded": 10,
+      "operation": "archive",
+      "evidence": [
+        {
+          "id": "archive",
+          "score": 0.6820352519292542
+        },
+        {
+          "id": "report",
+          "score": 0.0305085734594457
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "a2",
+      "description": "Transferring compressed backups to remote storage",
+      "attempt": 2,
+      "reached": 40,
+      "succeeded": 35,
+      "operation": "archive",
+      "evidence": [
+        {
+          "id": "archive",
+          "score": 0.6820352519292542
+        },
+        {
+          "id": "report",
+          "score": 0.0305085734594457
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 6,
+  "approved": 6,
+  "held": 0,
+  "excludedOperations": [],
+  "groups": [
+    {
+      "id": "report",
+      "label": "Report rendering",
+      "attemptRowIds": [
+        "r0",
+        "r1",
+        "r2"
+      ],
+      "options": [
+        {
+          "cap": 0,
+          "calls": 0,
+          "recovered": 0
+        },
+        {
+          "cap": 1,
+          "calls": 30,
+          "recovered": 18
+        },
+        {
+          "cap": 2,
+          "calls": 42,
+          "recovered": 27
+        }
+      ]
+    },
+    {
+      "id": "archive",
+      "label": "Archive upload",
+      "attemptRowIds": [
+        "a0",
+        "a1",
+        "a2"
+      ],
+      "options": [
+        {
+          "cap": 0,
+          "calls": 0,
+          "recovered": 0
+        },
+        {
+          "cap": 1,
+          "calls": 50,
+          "recovered": 10
+        },
+        {
+          "cap": 2,
+          "calls": 90,
+          "recovered": 45
+        }
+      ]
+    }
+  ],
+  "initial": 220,
+  "initialSuccess": 140,
+  "budget": 95,
+  "best": {
+    "calls": 90,
+    "recovered": 45,
+    "choices": [
+      {
+        "operation": "report",
+        "cap": 0,
+        "calls": 0,
+        "recovered": 0
+      },
+      {
+        "operation": "archive",
+        "cap": 2,
+        "calls": 90,
+        "recovered": 45
+      }
+    ],
+    "examined": 7
+  },
+  "baseline": {
+    "calls": 80,
+    "recovered": 28,
+    "choices": [
+      {
+        "operation": "report",
+        "cap": 1,
+        "calls": 30,
+        "recovered": 18
+      },
+      {
+        "operation": "archive",
+        "cap": 1,
+        "calls": 50,
+        "recovered": 10
+      }
+    ],
+    "withinBudget": true
+  },
+  "finalSuccess": 185,
+  "remainingFailures": 35,
+  "deltaRecovered": 17
+}

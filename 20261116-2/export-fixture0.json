@@ -1,0 +1,410 @@
+{
+  "schema": "retry-ledger/v1",
+  "originalInput": {
+    "extraCallBudget": 70,
+    "operations": [
+      {
+        "id": "image",
+        "label": "Image resizing",
+        "description": "Resize product photographs into thumbnail images"
+      },
+      {
+        "id": "mail",
+        "label": "Receipt emails",
+        "description": "Send order confirmation receipt email messages"
+      },
+      {
+        "id": "stock",
+        "label": "Inventory lookup",
+        "description": "Look up warehouse product stock availability"
+      }
+    ],
+    "observations": [
+      {
+        "id": "i0",
+        "description": "Making smaller product photos",
+        "attempt": 0,
+        "reached": 100,
+        "succeeded": 60
+      },
+      {
+        "id": "i1",
+        "description": "Making smaller product photos",
+        "attempt": 1,
+        "reached": 40,
+        "succeeded": 25
+      },
+      {
+        "id": "i2",
+        "description": "Making smaller product photos",
+        "attempt": 2,
+        "reached": 15,
+        "succeeded": 3
+      },
+      {
+        "id": "m0",
+        "description": "Delivering purchase confirmation emails",
+        "attempt": 0,
+        "reached": 80,
+        "succeeded": 60
+      },
+      {
+        "id": "m1",
+        "description": "Delivering purchase confirmation emails",
+        "attempt": 1,
+        "reached": 20,
+        "succeeded": 10
+      },
+      {
+        "id": "m2",
+        "description": "Delivering purchase confirmation emails",
+        "attempt": 2,
+        "reached": 10,
+        "succeeded": 8
+      },
+      {
+        "id": "s0",
+        "description": "Checking warehouse inventory levels",
+        "attempt": 0,
+        "reached": 60,
+        "succeeded": 55
+      },
+      {
+        "id": "s1",
+        "description": "Checking warehouse inventory levels",
+        "attempt": 1,
+        "reached": 5,
+        "succeeded": 1
+      },
+      {
+        "id": "s2",
+        "description": "Checking warehouse inventory levels",
+        "attempt": 2,
+        "reached": 4,
+        "succeeded": 1
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "i0",
+      "description": "Making smaller product photos",
+      "attempt": 0,
+      "reached": 100,
+      "succeeded": 60,
+      "operation": "image",
+      "evidence": [
+        {
+          "id": "image",
+          "score": 0.6774442259491086
+        },
+        {
+          "id": "stock",
+          "score": 0.11750089048620924
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "i1",
+      "description": "Making smaller product photos",
+      "attempt": 1,
+      "reached": 40,
+      "succeeded": 25,
+      "operation": "image",
+      "evidence": [
+        {
+          "id": "image",
+          "score": 0.6661208208440699
+        },
+        {
+          "id": "stock",
+          "score": 0.12135799698043132
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "i2",
+      "description": "Making smaller product photos",
+      "attempt": 2,
+      "reached": 15,
+      "succeeded": 3,
+      "operation": "image",
+      "evidence": [
+        {
+          "id": "image",
+          "score": 0.6661208208440699
+        },
+        {
+          "id": "stock",
+          "score": 0.12135799698043132
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "m0",
+      "description": "Delivering purchase confirmation emails",
+      "attempt": 0,
+      "reached": 80,
+      "succeeded": 60,
+      "operation": "mail",
+      "evidence": [
+        {
+          "id": "mail",
+          "score": 0.662780685245038
+        },
+        {
+          "id": "stock",
+          "score": 0.15508498860970363
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "m1",
+      "description": "Delivering purchase confirmation emails",
+      "attempt": 1,
+      "reached": 20,
+      "succeeded": 10,
+      "operation": "mail",
+      "evidence": [
+        {
+          "id": "mail",
+          "score": 0.662780685245038
+        },
+        {
+          "id": "stock",
+          "score": 0.15508498860970363
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "m2",
+      "description": "Delivering purchase confirmation emails",
+      "attempt": 2,
+      "reached": 10,
+      "succeeded": 8,
+      "operation": "mail",
+      "evidence": [
+        {
+          "id": "mail",
+          "score": 0.6739825882401015
+        },
+        {
+          "id": "stock",
+          "score": 0.14655571860976332
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "s0",
+      "description": "Checking warehouse inventory levels",
+      "attempt": 0,
+      "reached": 60,
+      "succeeded": 55,
+      "operation": "stock",
+      "evidence": [
+        {
+          "id": "stock",
+          "score": 0.6167397029347683
+        },
+        {
+          "id": "mail",
+          "score": 0.11894044678335505
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "s1",
+      "description": "Checking warehouse inventory levels",
+      "attempt": 1,
+      "reached": 5,
+      "succeeded": 1,
+      "operation": "stock",
+      "evidence": [
+        {
+          "id": "stock",
+          "score": 0.6167397029347683
+        },
+        {
+          "id": "mail",
+          "score": 0.11894044678335505
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "s2",
+      "description": "Checking warehouse inventory levels",
+      "attempt": 2,
+      "reached": 4,
+      "succeeded": 1,
+      "operation": "stock",
+      "evidence": [
+        {
+          "id": "stock",
+          "score": 0.6167397029347683
+        },
+        {
+          "id": "mail",
+          "score": 0.11894044678335505
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 9,
+  "approved": 9,
+  "held": 0,
+  "excludedOperations": [],
+  "groups": [
+    {
+      "id": "image",
+      "label": "Image resizing",
+      "attemptRowIds": [
+        "i0",
+        "i1",
+        "i2"
+      ],
+      "options": [
+        {
+          "cap": 0,
+          "calls": 0,
+          "recovered": 0
+        },
+        {
+          "cap": 1,
+          "calls": 40,
+          "recovered": 25
+        },
+        {
+          "cap": 2,
+          "calls": 55,
+          "recovered": 28
+        }
+      ]
+    },
+    {
+      "id": "mail",
+      "label": "Receipt emails",
+      "attemptRowIds": [
+        "m0",
+        "m1",
+        "m2"
+      ],
+      "options": [
+        {
+          "cap": 0,
+          "calls": 0,
+          "recovered": 0
+        },
+        {
+          "cap": 1,
+          "calls": 20,
+          "recovered": 10
+        },
+        {
+          "cap": 2,
+          "calls": 30,
+          "recovered": 18
+        }
+      ]
+    },
+    {
+      "id": "stock",
+      "label": "Inventory lookup",
+      "attemptRowIds": [
+        "s0",
+        "s1",
+        "s2"
+      ],
+      "options": [
+        {
+          "cap": 0,
+          "calls": 0,
+          "recovered": 0
+        },
+        {
+          "cap": 1,
+          "calls": 5,
+          "recovered": 1
+        },
+        {
+          "cap": 2,
+          "calls": 9,
+          "recovered": 2
+        }
+      ]
+    }
+  ],
+  "initial": 240,
+  "initialSuccess": 175,
+  "budget": 70,
+  "best": {
+    "calls": 70,
+    "recovered": 43,
+    "choices": [
+      {
+        "operation": "image",
+        "cap": 1,
+        "calls": 40,
+        "recovered": 25
+      },
+      {
+        "operation": "mail",
+        "cap": 2,
+        "calls": 30,
+        "recovered": 18
+      },
+      {
+        "operation": "stock",
+        "cap": 0,
+        "calls": 0,
+        "recovered": 0
+      }
+    ],
+    "examined": 19
+  },
+  "baseline": {
+    "calls": 65,
+    "recovered": 36,
+    "choices": [
+      {
+        "operation": "image",
+        "cap": 1,
+        "calls": 40,
+        "recovered": 25
+      },
+      {
+        "operation": "mail",
+        "cap": 1,
+        "calls": 20,
+        "recovered": 10
+      },
+      {
+        "operation": "stock",
+        "cap": 1,
+        "calls": 5,
+        "recovered": 1
+      }
+    ],
+    "withinBudget": true
+  },
+  "finalSuccess": 218,
+  "remainingFailures": 22,
+  "deltaRecovered": 7
+}

@@ -1,0 +1,451 @@
+{
+  "fixtures": [
+    {
+      "name": "Storefront services",
+      "expected": [
+        "image",
+        "image",
+        "image",
+        "mail",
+        "mail",
+        "mail",
+        "stock",
+        "stock",
+        "stock"
+      ],
+      "actual": [
+        "image",
+        "image",
+        "image",
+        "mail",
+        "mail",
+        "mail",
+        "stock",
+        "stock",
+        "stock"
+      ],
+      "correct": 9,
+      "total": 9,
+      "best": {
+        "calls": 70,
+        "recovered": 43,
+        "choices": [
+          {
+            "operation": "image",
+            "cap": 1,
+            "calls": 40,
+            "recovered": 25
+          },
+          {
+            "operation": "mail",
+            "cap": 2,
+            "calls": 30,
+            "recovered": 18
+          },
+          {
+            "operation": "stock",
+            "cap": 0,
+            "calls": 0,
+            "recovered": 0
+          }
+        ],
+        "examined": 19
+      },
+      "baseline": {
+        "calls": 65,
+        "recovered": 36,
+        "choices": [
+          {
+            "operation": "image",
+            "cap": 1,
+            "calls": 40,
+            "recovered": 25
+          },
+          {
+            "operation": "mail",
+            "cap": 1,
+            "calls": 20,
+            "recovered": 10
+          },
+          {
+            "operation": "stock",
+            "cap": 1,
+            "calls": 5,
+            "recovered": 1
+          }
+        ],
+        "withinBudget": true
+      }
+    },
+    {
+      "name": "Publishing pipeline",
+      "expected": [
+        "report",
+        "report",
+        "report",
+        "archive",
+        "archive",
+        "archive"
+      ],
+      "actual": [
+        "report",
+        "report",
+        "report",
+        "archive",
+        "archive",
+        "archive"
+      ],
+      "correct": 6,
+      "total": 6,
+      "best": {
+        "calls": 90,
+        "recovered": 45,
+        "choices": [
+          {
+            "operation": "report",
+            "cap": 0,
+            "calls": 0,
+            "recovered": 0
+          },
+          {
+            "operation": "archive",
+            "cap": 2,
+            "calls": 90,
+            "recovered": 45
+          }
+        ],
+        "examined": 7
+      },
+      "baseline": {
+        "calls": 80,
+        "recovered": 28,
+        "choices": [
+          {
+            "operation": "report",
+            "cap": 1,
+            "calls": 30,
+            "recovered": 18
+          },
+          {
+            "operation": "archive",
+            "cap": 1,
+            "calls": 50,
+            "recovered": 10
+          }
+        ],
+        "withinBudget": true
+      }
+    }
+  ],
+  "checks": [
+    "mandatory review; hold suffix; undo; operation/count/attempt edits; duplicate/gap/incomplete chain blocking; multiline CSV/Markdown/clipboard; audit reimport",
+    "already-open warmed page fully offline fresh-worker real CPU inference",
+    "empty malformed oversized duplicate IDs invalid budgets attempts counts descriptions; unsupported/malformed files",
+    "cancel then real retry; source changes invalidate in-flight results",
+    "30-text max batching; six operations; 24 rows; cap three; full audit round trip",
+    "all held and excluded operations; instruction-like data cannot upload or request credentials",
+    "desktop/390/320px no overflow; labels; touch targets; keyboard focus screenshots"
+  ],
+  "challenge": {
+    "operation": "archive",
+    "expected": "unrelated / human hold",
+    "limitation": "Nearest candidate always returned; similarity is not identity or retry safety"
+  },
+  "privacy": {
+    "allRequestsGetWithoutBody": true,
+    "noFixtureTextInFullURLs": true,
+    "noModelRequestsBeforeExplicitLoad": true
+  },
+  "requests": [
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:6913/daily-app2/20261116-2/",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:6913/daily-app2/20261116-2/assets/index-rXV1e7NW.js",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:6913/daily-app2/20261116-2/assets/index-2JJnh_on.css",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:6913/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6913/6ae62939-dd09-45ef-a6ac-aa362cc614f6",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:6913/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:6913/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "xip",
+        "X-Xet-Cas-Uid",
+        "response-content-disposition",
+        "user_id",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "X-Xet-Cas-Uid",
+        "xip",
+        "user_id",
+        "response-content-disposition",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6913/904430cd-ef79-4455-a693-685cefa0c1e9",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6913/b77e230c-e18b-49bb-b0ac-8012ba73bac6",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6913/6e024dc7-e1f6-433b-bf90-1f92f54cc9ad",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6913/2e5d0f93-9e28-4fa1-b3d4-d16eb07ad573",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6913/8802ce46-018e-4a76-baa2-8dca54f34880",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6913/7fe79df4-52d4-43cc-8158-f92c04843c91",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6913/da25f82e-294d-4521-9433-05c841af88e6",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6913/89b7c7f4-ecdb-42d1-ab74-c180fe8af15a",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6913/bdf385f4-1432-4237-ba18-20e2aa9a993f",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6913/86fa627b-3298-4f38-8ecf-fc643682110a",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6913/215a9536-4987-4dd4-bc32-fefb369dbc05",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6913/7828d008-40a6-4b06-a05c-bdacfd7c6dd9",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6913/28949aba-805d-4cb7-8230-b6e4c0571245",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6913/30a27d59-2f9c-4eeb-8894-b99269dffc96",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6913/5e3364a7-047a-404b-a75d-f614feb2220f",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6913/77b574a9-4496-4811-9384-8631640aac8a",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6913/3a8a40e0-c822-488d-a480-34562df7b753",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6913/d8306f19-199b-4d81-ab96-d8029361f946",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6913/db2a64c3-8818-4f74-8605-0accace3b603",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6913/47b84f6c-440b-4655-a2b9-ecd373e3bfee",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6913/dd9344c5-209e-4210-9275-583f416f3194",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6913/96a290a6-e2d4-4943-bded-8d6bf5cf7113",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6913/aeae5e7a-5cf2-4d44-90a1-c27e9e588110",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6913/789f33e0-ba05-4f7e-a13b-f8896c13e769",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6913/91da9c21-e05a-43ec-9312-7d97b9b6e2a3",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6913/1f2bba73-fe44-414c-b976-8dc89adc83b7",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6913/b1c913db-8c72-4180-a10c-9aef66dfc847",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6913/c43279f4-4a53-4583-9e81-b35ee07af4b0",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6913/3d916767-bbb9-48c1-925e-44e0ae9ffbe1",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6913/8722a789-248c-48e9-99de-b96be69db20b",
+      "queryKeys": []
+    }
+  ]
+}

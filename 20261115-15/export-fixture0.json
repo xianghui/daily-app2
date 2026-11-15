@@ -1,0 +1,313 @@
+{
+  "app": "Station Loom",
+  "schemaVersion": 1,
+  "originalInput": {
+    "cycleSeconds": 10,
+    "cards": [
+      {
+        "id": "frame",
+        "label": "Build lamp frame",
+        "description": "Assemble the metal frame housing of a desk lamp",
+        "seconds": 6,
+        "after": []
+      },
+      {
+        "id": "wire",
+        "label": "Connect wiring",
+        "description": "Connect electrical wires and cable inside the desk lamp",
+        "seconds": 6,
+        "after": []
+      },
+      {
+        "id": "inspect",
+        "label": "Inspect lamp frame",
+        "description": "Inspect the assembled lamp metal frame for scratches",
+        "seconds": 4,
+        "after": [
+          "frame"
+        ]
+      },
+      {
+        "id": "label",
+        "label": "Label cable",
+        "description": "Attach identification label to the connected electrical cable",
+        "seconds": 4,
+        "after": [
+          "wire"
+        ]
+      }
+    ],
+    "records": [
+      {
+        "id": "L1",
+        "description": "Put together the metal housing for the desk light"
+      },
+      {
+        "id": "L2",
+        "description": "Hook up the electrical wires inside the light"
+      },
+      {
+        "id": "L3",
+        "description": "Check the assembled metal lamp housing for scratches"
+      },
+      {
+        "id": "L4",
+        "description": "Add an ID tag to the connected power cable"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "L1",
+      "card": "frame",
+      "proposedCard": "frame",
+      "evidence": [
+        {
+          "id": "frame",
+          "score": 0.7100659363145588
+        },
+        {
+          "id": "wire",
+          "score": 0.6075516467933857
+        },
+        {
+          "id": "inspect",
+          "score": 0.32802465492381344
+        },
+        {
+          "id": "label",
+          "score": 0.24247572063174047
+        }
+      ],
+      "seconds": 6,
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "L2",
+      "card": "wire",
+      "proposedCard": "wire",
+      "evidence": [
+        {
+          "id": "wire",
+          "score": 0.6300618384249242
+        },
+        {
+          "id": "frame",
+          "score": 0.40293756415591797
+        },
+        {
+          "id": "label",
+          "score": 0.37997457357109066
+        },
+        {
+          "id": "inspect",
+          "score": 0.24774099531093352
+        }
+      ],
+      "seconds": 6,
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "L3",
+      "card": "inspect",
+      "proposedCard": "inspect",
+      "evidence": [
+        {
+          "id": "inspect",
+          "score": 0.8744439200388029
+        },
+        {
+          "id": "frame",
+          "score": 0.5869924375112008
+        },
+        {
+          "id": "wire",
+          "score": 0.4306141495239949
+        },
+        {
+          "id": "label",
+          "score": 0.13870231233680183
+        }
+      ],
+      "seconds": 4,
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "L4",
+      "card": "label",
+      "proposedCard": "label",
+      "evidence": [
+        {
+          "id": "label",
+          "score": 0.7059071028740065
+        },
+        {
+          "id": "wire",
+          "score": 0.3025265335315051
+        },
+        {
+          "id": "frame",
+          "score": 0.09803940688249296
+        },
+        {
+          "id": "inspect",
+          "score": 0.04581492482963434
+        }
+      ],
+      "seconds": 4,
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "missingCards": [],
+  "totalSeconds": 20,
+  "lowerBound": 2,
+  "optimized": {
+    "stationCount": 2,
+    "stations": [
+      {
+        "station": 1,
+        "loadSeconds": 10,
+        "idleSeconds": 0,
+        "tasks": [
+          {
+            "id": "L1",
+            "card": "frame",
+            "startSeconds": 0,
+            "endSeconds": 6,
+            "seconds": 6
+          },
+          {
+            "id": "L3",
+            "card": "inspect",
+            "startSeconds": 6,
+            "endSeconds": 10,
+            "seconds": 4
+          }
+        ]
+      },
+      {
+        "station": 2,
+        "loadSeconds": 10,
+        "idleSeconds": 0,
+        "tasks": [
+          {
+            "id": "L2",
+            "card": "wire",
+            "startSeconds": 0,
+            "endSeconds": 6,
+            "seconds": 6
+          },
+          {
+            "id": "L4",
+            "card": "label",
+            "startSeconds": 6,
+            "endSeconds": 10,
+            "seconds": 4
+          }
+        ]
+      }
+    ],
+    "idleSeconds": 0,
+    "squaredIdle": 0
+  },
+  "baseline": {
+    "stationCount": 3,
+    "stations": [
+      {
+        "station": 1,
+        "loadSeconds": 6,
+        "idleSeconds": 4,
+        "tasks": [
+          {
+            "id": "L1",
+            "card": "frame",
+            "startSeconds": 0,
+            "endSeconds": 6,
+            "seconds": 6
+          }
+        ]
+      },
+      {
+        "station": 2,
+        "loadSeconds": 10,
+        "idleSeconds": 0,
+        "tasks": [
+          {
+            "id": "L2",
+            "card": "wire",
+            "startSeconds": 0,
+            "endSeconds": 6,
+            "seconds": 6
+          },
+          {
+            "id": "L3",
+            "card": "inspect",
+            "startSeconds": 6,
+            "endSeconds": 10,
+            "seconds": 4
+          }
+        ]
+      },
+      {
+        "station": 3,
+        "loadSeconds": 4,
+        "idleSeconds": 6,
+        "tasks": [
+          {
+            "id": "L4",
+            "card": "label",
+            "startSeconds": 0,
+            "endSeconds": 4,
+            "seconds": 4
+          }
+        ]
+      }
+    ],
+    "idleSeconds": 10,
+    "squaredIdle": 52
+  },
+  "stationsAvoided": 1,
+  "assignments": [
+    {
+      "id": "L1",
+      "station": 1,
+      "card": "frame",
+      "startSeconds": 0,
+      "endSeconds": 6,
+      "seconds": 6
+    },
+    {
+      "id": "L2",
+      "station": 2,
+      "card": "wire",
+      "startSeconds": 0,
+      "endSeconds": 6,
+      "seconds": 6
+    },
+    {
+      "id": "L3",
+      "station": 1,
+      "card": "inspect",
+      "startSeconds": 6,
+      "endSeconds": 10,
+      "seconds": 4
+    },
+    {
+      "id": "L4",
+      "station": 2,
+      "card": "label",
+      "startSeconds": 6,
+      "endSeconds": 10,
+      "seconds": 4
+    }
+  ],
+  "literalMatches": 0,
+  "scope": "Approved tasks only. One repetitive cycle, indivisible tasks, whole seconds, identical stations, no travel/setup/tool/ergonomic constraints. Prerequisites may execute earlier within the same station. Source-order topological next-fit baseline. Exact minimum stations; squared idle seconds breaks ties. This is a planning worksheet, not a production or safety release."
+}

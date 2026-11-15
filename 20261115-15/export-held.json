@@ -1,0 +1,290 @@
+{
+  "app": "Station Loom",
+  "schemaVersion": 1,
+  "originalInput": {
+    "cycleSeconds": 12,
+    "cards": [
+      {
+        "id": "fill",
+        "label": "Fill seed packet",
+        "description": "Fill a paper packet with measured vegetable seeds",
+        "seconds": 7,
+        "after": []
+      },
+      {
+        "id": "print",
+        "label": "Print growing guide",
+        "description": "Print paper growing instructions for vegetable gardeners",
+        "seconds": 7,
+        "after": []
+      },
+      {
+        "id": "seal",
+        "label": "Seal seed packet",
+        "description": "Seal the filled paper seed packet closed with adhesive",
+        "seconds": 5,
+        "after": [
+          "fill"
+        ]
+      },
+      {
+        "id": "fold",
+        "label": "Fold growing guide",
+        "description": "Fold printed vegetable gardening instructions into a leaflet",
+        "seconds": 5,
+        "after": [
+          "print"
+        ]
+      }
+    ],
+    "records": [
+      {
+        "id": "S1",
+        "description": "Measure vegetable seeds into the paper envelope"
+      },
+      {
+        "id": "S2",
+        "description": "Print out the gardening instruction sheet"
+      },
+      {
+        "id": "S3",
+        "description": "Glue the filled seed envelope shut"
+      },
+      {
+        "id": "S4",
+        "description": "Fold the printed growing instructions into a small leaflet"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "S1",
+      "card": "fill",
+      "proposedCard": "fill",
+      "evidence": [
+        {
+          "id": "fill",
+          "score": 0.8497680638605426
+        },
+        {
+          "id": "print",
+          "score": 0.7093330963789519
+        },
+        {
+          "id": "fold",
+          "score": 0.5281923771398435
+        },
+        {
+          "id": "seal",
+          "score": 0.46182552825519374
+        }
+      ],
+      "seconds": 7,
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", verify method"
+    },
+    {
+      "id": "S2",
+      "card": "print",
+      "proposedCard": "print",
+      "evidence": [
+        {
+          "id": "print",
+          "score": 0.7639587551887238
+        },
+        {
+          "id": "fold",
+          "score": 0.6052025024870642
+        },
+        {
+          "id": "fill",
+          "score": 0.43268240901545596
+        },
+        {
+          "id": "seal",
+          "score": 0.20478850180431588
+        }
+      ],
+      "seconds": 7,
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "S3",
+      "card": "seal",
+      "proposedCard": "seal",
+      "evidence": [
+        {
+          "id": "seal",
+          "score": 0.7603988044430762
+        },
+        {
+          "id": "fill",
+          "score": 0.504001344391282
+        },
+        {
+          "id": "print",
+          "score": 0.35900860455261546
+        },
+        {
+          "id": "fold",
+          "score": 0.33330946428763064
+        }
+      ],
+      "seconds": 5,
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "S4",
+      "card": "fold",
+      "proposedCard": "fold",
+      "evidence": [
+        {
+          "id": "fold",
+          "score": 0.8132254541811428
+        },
+        {
+          "id": "print",
+          "score": 0.654486634750882
+        },
+        {
+          "id": "fill",
+          "score": 0.41321300568706293
+        },
+        {
+          "id": "seal",
+          "score": 0.2998870138731852
+        }
+      ],
+      "seconds": 5,
+      "decision": "hold",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 3,
+  "held": 1,
+  "missingCards": [
+    "fold"
+  ],
+  "totalSeconds": 19,
+  "lowerBound": 2,
+  "optimized": {
+    "stationCount": 2,
+    "stations": [
+      {
+        "station": 1,
+        "loadSeconds": 7,
+        "idleSeconds": 5,
+        "tasks": [
+          {
+            "id": "S1",
+            "card": "fill",
+            "startSeconds": 0,
+            "endSeconds": 7,
+            "seconds": 7
+          }
+        ]
+      },
+      {
+        "station": 2,
+        "loadSeconds": 12,
+        "idleSeconds": 0,
+        "tasks": [
+          {
+            "id": "S2",
+            "card": "print",
+            "startSeconds": 0,
+            "endSeconds": 7,
+            "seconds": 7
+          },
+          {
+            "id": "S3",
+            "card": "seal",
+            "startSeconds": 7,
+            "endSeconds": 12,
+            "seconds": 5
+          }
+        ]
+      }
+    ],
+    "idleSeconds": 5,
+    "squaredIdle": 25
+  },
+  "baseline": {
+    "stationCount": 2,
+    "stations": [
+      {
+        "station": 1,
+        "loadSeconds": 7,
+        "idleSeconds": 5,
+        "tasks": [
+          {
+            "id": "S1",
+            "card": "fill",
+            "startSeconds": 0,
+            "endSeconds": 7,
+            "seconds": 7
+          }
+        ]
+      },
+      {
+        "station": 2,
+        "loadSeconds": 12,
+        "idleSeconds": 0,
+        "tasks": [
+          {
+            "id": "S2",
+            "card": "print",
+            "startSeconds": 0,
+            "endSeconds": 7,
+            "seconds": 7
+          },
+          {
+            "id": "S3",
+            "card": "seal",
+            "startSeconds": 7,
+            "endSeconds": 12,
+            "seconds": 5
+          }
+        ]
+      }
+    ],
+    "idleSeconds": 5,
+    "squaredIdle": 25
+  },
+  "stationsAvoided": 0,
+  "assignments": [
+    {
+      "id": "S1",
+      "station": 1,
+      "card": "fill",
+      "startSeconds": 0,
+      "endSeconds": 7,
+      "seconds": 7
+    },
+    {
+      "id": "S2",
+      "station": 2,
+      "card": "print",
+      "startSeconds": 0,
+      "endSeconds": 7,
+      "seconds": 7
+    },
+    {
+      "id": "S3",
+      "station": 2,
+      "card": "seal",
+      "startSeconds": 7,
+      "endSeconds": 12,
+      "seconds": 5
+    },
+    {
+      "id": "S4",
+      "station": null
+    }
+  ],
+  "literalMatches": 0,
+  "scope": "Approved tasks only. One repetitive cycle, indivisible tasks, whole seconds, identical stations, no travel/setup/tool/ergonomic constraints. Prerequisites may execute earlier within the same station. Source-order topological next-fit baseline. Exact minimum stations; squared idle seconds breaks ties. This is a planning worksheet, not a production or safety release."
+}

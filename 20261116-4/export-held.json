@@ -1,0 +1,313 @@
+{
+  "schema": "pilot-bridge/v1",
+  "originalInput": {
+    "context": "Comparable four-week windows. Training trial in pilot workshop versus unchanged reference. Measurements are supplied aggregates, not raw readings.",
+    "metrics": [
+      {
+        "id": "energy",
+        "label": "Energy per item",
+        "description": "Electricity consumed per manufactured product",
+        "unit": "kWh/item",
+        "direction": "decrease",
+        "minimum": 0.5
+      },
+      {
+        "id": "output",
+        "label": "Production throughput",
+        "description": "Number of finished products produced per hour",
+        "unit": "items/hour",
+        "direction": "increase",
+        "minimum": 3
+      }
+    ],
+    "observations": [
+      {
+        "id": "w1",
+        "description": "Electrical energy used to manufacture one product",
+        "arm": "pilot",
+        "period": "before",
+        "value": 5
+      },
+      {
+        "id": "w2",
+        "description": "Electricity consumed for each manufactured unit",
+        "arm": "pilot",
+        "period": "after",
+        "value": 4
+      },
+      {
+        "id": "w3",
+        "description": "Power consumption per manufactured item",
+        "arm": "reference",
+        "period": "before",
+        "value": 6
+      },
+      {
+        "id": "w4",
+        "description": "Electrical energy required for each finished product",
+        "arm": "reference",
+        "period": "after",
+        "value": 4.5
+      },
+      {
+        "id": "w5",
+        "description": "Completed products coming off the line each hour",
+        "arm": "pilot",
+        "period": "before",
+        "value": 20
+      },
+      {
+        "id": "w6",
+        "description": "Finished units manufactured hourly",
+        "arm": "pilot",
+        "period": "after",
+        "value": 28
+      },
+      {
+        "id": "w7",
+        "description": "Factory production output in units per hour",
+        "arm": "reference",
+        "period": "before",
+        "value": 24
+      },
+      {
+        "id": "w8",
+        "description": "Number of products completed every hour",
+        "arm": "reference",
+        "period": "after",
+        "value": 26
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "w1",
+      "description": "Electrical energy used to manufacture one product",
+      "arm": "pilot",
+      "period": "before",
+      "value": 5,
+      "metric": "energy",
+      "evidence": [
+        {
+          "id": "energy",
+          "score": 0.7274136133003638
+        },
+        {
+          "id": "output",
+          "score": 0.4102229882756866
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", verify"
+    },
+    {
+      "id": "w2",
+      "description": "Electricity consumed for each manufactured unit",
+      "arm": "pilot",
+      "period": "after",
+      "value": 4,
+      "metric": "energy",
+      "evidence": [
+        {
+          "id": "energy",
+          "score": 0.8764968147079785
+        },
+        {
+          "id": "output",
+          "score": 0.4475753786199755
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "w3",
+      "description": "Power consumption per manufactured item",
+      "arm": "reference",
+      "period": "before",
+      "value": 6,
+      "metric": "energy",
+      "evidence": [
+        {
+          "id": "energy",
+          "score": 0.8095954081824953
+        },
+        {
+          "id": "output",
+          "score": 0.453616512213183
+        }
+      ],
+      "decision": "hold",
+      "reviewNote": ""
+    },
+    {
+      "id": "w4",
+      "description": "Electrical energy required for each finished product",
+      "arm": "reference",
+      "period": "after",
+      "value": 4.5,
+      "metric": "energy",
+      "evidence": [
+        {
+          "id": "energy",
+          "score": 0.6878536444210598
+        },
+        {
+          "id": "output",
+          "score": 0.5444238136496592
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "w5",
+      "description": "Completed products coming off the line each hour",
+      "arm": "pilot",
+      "period": "before",
+      "value": 20,
+      "metric": "output",
+      "evidence": [
+        {
+          "id": "output",
+          "score": 0.604630865991108
+        },
+        {
+          "id": "energy",
+          "score": 0.2576433402477789
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "w6",
+      "description": "Finished units manufactured hourly",
+      "arm": "pilot",
+      "period": "after",
+      "value": 28,
+      "metric": "output",
+      "evidence": [
+        {
+          "id": "output",
+          "score": 0.7116244782201616
+        },
+        {
+          "id": "energy",
+          "score": 0.44096504103189127
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "w7",
+      "description": "Factory production output in units per hour",
+      "arm": "reference",
+      "period": "before",
+      "value": 24,
+      "metric": "output",
+      "evidence": [
+        {
+          "id": "output",
+          "score": 0.7121506883012096
+        },
+        {
+          "id": "energy",
+          "score": 0.5150543034713425
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "w8",
+      "description": "Number of products completed every hour",
+      "arm": "reference",
+      "period": "after",
+      "value": 26,
+      "metric": "output",
+      "evidence": [
+        {
+          "id": "output",
+          "score": 0.85069523187929
+        },
+        {
+          "id": "energy",
+          "score": 0.38436765990615257
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 8,
+  "approved": 7,
+  "held": 1,
+  "metrics": [
+    {
+      "id": "energy",
+      "label": "Energy per item",
+      "description": "Electricity consumed per manufactured product",
+      "unit": "kWh/item",
+      "direction": "decrease",
+      "minimum": 0.5,
+      "status": "blocked",
+      "issues": [
+        "reference_before: held"
+      ],
+      "cells": {
+        "pilot_before": {
+          "id": "w1",
+          "value": 5
+        },
+        "pilot_after": {
+          "id": "w2",
+          "value": 4
+        },
+        "reference_after": {
+          "id": "w4",
+          "value": 4.5
+        }
+      }
+    },
+    {
+      "id": "output",
+      "label": "Production throughput",
+      "description": "Number of finished products produced per hour",
+      "unit": "items/hour",
+      "direction": "increase",
+      "minimum": 3,
+      "status": "ready",
+      "issues": [],
+      "cells": {
+        "pilot_before": {
+          "id": "w5",
+          "value": 20
+        },
+        "pilot_after": {
+          "id": "w6",
+          "value": 28
+        },
+        "reference_before": {
+          "id": "w7",
+          "value": 24
+        },
+        "reference_after": {
+          "id": "w8",
+          "value": 26
+        }
+      },
+      "pilotChange": 8,
+      "referenceChange": 2,
+      "netChange": 6,
+      "baselineMeets": true,
+      "netMeets": true
+    }
+  ],
+  "ready": 1,
+  "blocked": 1,
+  "baselineMeets": 1,
+  "netMeets": 1,
+  "changedGoal": 0
+}

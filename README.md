@@ -1023,3 +1023,10 @@ Real local MiniLM links rough skill evidence to supplied procedures before manda
 Combined-site size guard: deploy-only byte-identical geometry-runtime reuse now also includes `20261030-15`, preserving its source build and legacy JS URLs. The shared asset in `20261028-24` remains required. The affected older app is checked with actual worker/import/STL export before release.
 
 Bench Reserve public release: first matching Pages build `a4db640ca4b2dafed97194da611698ec9f50b7ce` reached built; byte-matched public assets, both real-AI fixtures, full reviewed workflow/artifact/offline suite, 682-entry preserved gallery and the newly deduplicated older geometry app passed. Source commit excludes unrelated pre-existing changes.
+
+
+## Lot Calendar — 20261115-10
+
+Real local MiniLM reconciles paraphrased period-demand notes to supplied items before mandatory identity/period/quantity review. Exact finite-horizon dynamic lot sizing compares setup plus end-period storage with order-each-period, blocks incomplete/duplicate demand frames, and exports every original/held record plus reviewed inventory schedules as JSON/CSV/Markdown. Fourteen tiny fixture links and 1,260 exhaustive partition checks passed; no purchase or forecast. Offline scope is fresh-worker inference in an already-open warmed page only. Reuses immutable worker/runtime from `20261115-6` and WASM from `20261107-2`; preserve those assets. See [workflow/privacy](20261115-10/README.md), [observed validation](20261115-10/VALIDATION.md) and [publication status](20261115-10/publication-status.json).
+
+Lot Calendar public release: first matching Pages build `0d1902c5d951eec4cc5f3083d202413349fc8397` reached built. Byte-matched public app/worker/factory/WASM, both real-AI fixtures, all seven workflow groups, reviewed artifacts, warmed-page offline inference, privacy traffic audit and preserved 683-entry gallery passed. Combined site remains below the unchanged size guard; only unused new-app scaffold assets were removed. Source commit preserves and excludes unrelated pre-existing changes.

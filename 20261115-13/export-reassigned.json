@@ -1,0 +1,206 @@
+{
+  "app": "Quorum Canopy",
+  "schemaVersion": 1,
+  "originalInput": {
+    "quorumPercent": 75,
+    "maxProxies": 2,
+    "allowChains": false,
+    "members": [
+      {
+        "id": "music",
+        "label": "Music rehearsal",
+        "description": "Musicians rehearsing instruments songs and orchestral music",
+        "weight": 5,
+        "present": false
+      },
+      {
+        "id": "dance",
+        "label": "Dance studio",
+        "description": "Dancers practising ballet choreography and movement",
+        "weight": 2,
+        "present": true
+      },
+      {
+        "id": "kitchen",
+        "label": "Community kitchen",
+        "description": "Cooking baking meals and preparing food",
+        "weight": 4,
+        "present": false
+      },
+      {
+        "id": "repair",
+        "label": "Bicycle workshop",
+        "description": "Bicycle repair mechanics fixing bikes and punctures",
+        "weight": 1,
+        "present": true
+      }
+    ],
+    "records": [
+      {
+        "id": "V1",
+        "fromText": "Instrument players rehearsing songs",
+        "toText": "Ballet and choreography dancers"
+      },
+      {
+        "id": "V2",
+        "fromText": "Volunteers preparing meals and baking",
+        "toText": "Mechanics fixing bicycle punctures"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "V1",
+      "from": "music",
+      "to": "repair",
+      "proposedFrom": "music",
+      "proposedTo": "dance",
+      "fromEvidence": [
+        {
+          "id": "music",
+          "score": 0.8702109867446455
+        },
+        {
+          "id": "dance",
+          "score": 0.27227785606970706
+        },
+        {
+          "id": "kitchen",
+          "score": 0.0992831665889823
+        },
+        {
+          "id": "repair",
+          "score": 0.07314377828323072
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "dance",
+          "score": 0.8878125102793317
+        },
+        {
+          "id": "music",
+          "score": 0.287693232126613
+        },
+        {
+          "id": "kitchen",
+          "score": 0.10988213352225903
+        },
+        {
+          "id": "repair",
+          "score": 0.01777717884171369
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", verify signed evidence"
+    },
+    {
+      "id": "V2",
+      "from": "kitchen",
+      "to": "repair",
+      "proposedFrom": "kitchen",
+      "proposedTo": "repair",
+      "fromEvidence": [
+        {
+          "id": "kitchen",
+          "score": 0.7534102657548171
+        },
+        {
+          "id": "music",
+          "score": 0.1430824072723126
+        },
+        {
+          "id": "repair",
+          "score": 0.12418501690585033
+        },
+        {
+          "id": "dance",
+          "score": 0.05520812477338249
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "repair",
+          "score": 0.9066217968622812
+        },
+        {
+          "id": "music",
+          "score": 0.12039057184657939
+        },
+        {
+          "id": "kitchen",
+          "score": 0.1124266676562802
+        },
+        {
+          "id": "dance",
+          "score": 0.03483943051457222
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 2,
+  "approved": 2,
+  "held": 0,
+  "totalWeight": 12,
+  "directWeight": 3,
+  "representedWeight": 12,
+  "requiredWeight": 9,
+  "quorumMet": true,
+  "baselineMet": false,
+  "roster": [
+    {
+      "member": "music",
+      "label": "Music rehearsal",
+      "weight": 5,
+      "present": false,
+      "path": "music → repair",
+      "representative": "repair",
+      "status": "proxy"
+    },
+    {
+      "member": "dance",
+      "label": "Dance studio",
+      "weight": 2,
+      "present": true,
+      "path": "dance",
+      "representative": "dance",
+      "status": "direct"
+    },
+    {
+      "member": "kitchen",
+      "label": "Community kitchen",
+      "weight": 4,
+      "present": false,
+      "path": "kitchen → repair",
+      "representative": "repair",
+      "status": "proxy"
+    },
+    {
+      "member": "repair",
+      "label": "Bicycle workshop",
+      "weight": 1,
+      "present": true,
+      "path": "repair",
+      "representative": "repair",
+      "status": "direct"
+    }
+  ],
+  "delegates": [
+    {
+      "id": "dance",
+      "label": "Dance studio",
+      "proxies": 0,
+      "weight": 2
+    },
+    {
+      "id": "repair",
+      "label": "Bicycle workshop",
+      "proxies": 2,
+      "weight": 10
+    }
+  ],
+  "unrepresentedWeight": 0,
+  "scope": "Supplied membership and approved proxies only; holds do not carry weight. Not legal validation."
+}

@@ -1,0 +1,250 @@
+{
+  "app": "Quorum Canopy",
+  "schemaVersion": 1,
+  "originalInput": {
+    "quorumPercent": 81,
+    "maxProxies": 3,
+    "allowChains": true,
+    "members": [
+      {
+        "id": "clay",
+        "label": "Ceramics Studio",
+        "description": "Pottery ceramics clay wheel throwing and kiln firing",
+        "weight": 4,
+        "present": false
+      },
+      {
+        "id": "fiber",
+        "label": "Textile Room",
+        "description": "Fabric sewing weaving knitting and textile arts",
+        "weight": 3,
+        "present": false
+      },
+      {
+        "id": "books",
+        "label": "Bookbinding Guild",
+        "description": "Book binding paper notebooks and printed publications",
+        "weight": 2,
+        "present": true
+      },
+      {
+        "id": "garden",
+        "label": "Garden Collective",
+        "description": "Vegetable growing plants gardening and compost",
+        "weight": 1,
+        "present": false
+      }
+    ],
+    "records": [
+      {
+        "id": "P1",
+        "fromText": "Potters using the clay wheel",
+        "toText": "The sewing and weaving group"
+      },
+      {
+        "id": "P2",
+        "fromText": "People working with fabric and knitting",
+        "toText": "The notebook binding group"
+      },
+      {
+        "id": "P3",
+        "fromText": "Vegetable growers at the allotment",
+        "toText": "The paper book makers"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "P1",
+      "from": "clay",
+      "to": "fiber",
+      "proposedFrom": "clay",
+      "proposedTo": "fiber",
+      "fromEvidence": [
+        {
+          "id": "clay",
+          "score": 0.5972571727940181
+        },
+        {
+          "id": "fiber",
+          "score": 0.24953594738608367
+        },
+        {
+          "id": "garden",
+          "score": 0.22265907869286974
+        },
+        {
+          "id": "books",
+          "score": 0.11603355758313656
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "fiber",
+          "score": 0.7609341170867526
+        },
+        {
+          "id": "books",
+          "score": 0.233640420223125
+        },
+        {
+          "id": "clay",
+          "score": 0.13308006723236024
+        },
+        {
+          "id": "garden",
+          "score": 0.07510578569829032
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "P2",
+      "from": "fiber",
+      "to": "books",
+      "proposedFrom": "fiber",
+      "proposedTo": "books",
+      "fromEvidence": [
+        {
+          "id": "fiber",
+          "score": 0.7376332288751114
+        },
+        {
+          "id": "books",
+          "score": 0.160742094390122
+        },
+        {
+          "id": "clay",
+          "score": 0.14467947613142979
+        },
+        {
+          "id": "garden",
+          "score": 0.03839418205312342
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "books",
+          "score": 0.6926807268422404
+        },
+        {
+          "id": "fiber",
+          "score": 0.16452020204724635
+        },
+        {
+          "id": "clay",
+          "score": -0.023076694418471853
+        },
+        {
+          "id": "garden",
+          "score": -0.026095505926686233
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "P3",
+      "from": "garden",
+      "to": "books",
+      "proposedFrom": "garden",
+      "proposedTo": "books",
+      "fromEvidence": [
+        {
+          "id": "garden",
+          "score": 0.6096819201310955
+        },
+        {
+          "id": "clay",
+          "score": 0.08188642329414908
+        },
+        {
+          "id": "fiber",
+          "score": 0.06558362184530571
+        },
+        {
+          "id": "books",
+          "score": 0.06345188856232545
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "books",
+          "score": 0.6712656897289468
+        },
+        {
+          "id": "fiber",
+          "score": 0.27403216402428593
+        },
+        {
+          "id": "garden",
+          "score": 0.08192563839052958
+        },
+        {
+          "id": "clay",
+          "score": 0.03873383908709268
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 3,
+  "approved": 3,
+  "held": 0,
+  "totalWeight": 10,
+  "directWeight": 2,
+  "representedWeight": 10,
+  "requiredWeight": 9,
+  "quorumMet": true,
+  "baselineMet": false,
+  "roster": [
+    {
+      "member": "clay",
+      "label": "Ceramics Studio",
+      "weight": 4,
+      "present": false,
+      "path": "clay → fiber → books",
+      "representative": "books",
+      "status": "proxy"
+    },
+    {
+      "member": "fiber",
+      "label": "Textile Room",
+      "weight": 3,
+      "present": false,
+      "path": "fiber → books",
+      "representative": "books",
+      "status": "proxy"
+    },
+    {
+      "member": "books",
+      "label": "Bookbinding Guild",
+      "weight": 2,
+      "present": true,
+      "path": "books",
+      "representative": "books",
+      "status": "direct"
+    },
+    {
+      "member": "garden",
+      "label": "Garden Collective",
+      "weight": 1,
+      "present": false,
+      "path": "garden → books",
+      "representative": "books",
+      "status": "proxy"
+    }
+  ],
+  "delegates": [
+    {
+      "id": "books",
+      "label": "Bookbinding Guild",
+      "proxies": 3,
+      "weight": 10
+    }
+  ],
+  "unrepresentedWeight": 0,
+  "scope": "Supplied membership and approved proxies only; holds do not carry weight. Not legal validation."
+}

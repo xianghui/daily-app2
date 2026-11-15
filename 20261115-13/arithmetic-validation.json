@@ -1,0 +1,141 @@
+{
+  "cases": 5000,
+  "passed": 5000,
+  "method": "Independent transitive-closure oracle for all 625 four-member outgoing graphs × four attendance masks × two chain modes, cap 2; plus schema/threshold/hold/duplicate checks",
+  "knownFixture": {
+    "app": "Quorum Canopy",
+    "schemaVersion": 1,
+    "originalInput": {
+      "quorumPercent": 80,
+      "maxProxies": 3,
+      "allowChains": true,
+      "members": [
+        {
+          "id": "clay",
+          "label": "Ceramics Studio",
+          "description": "Pottery ceramics clay wheel throwing and kiln firing",
+          "weight": 4,
+          "present": false
+        },
+        {
+          "id": "fiber",
+          "label": "Textile Room",
+          "description": "Fabric sewing weaving knitting and textile arts",
+          "weight": 3,
+          "present": false
+        },
+        {
+          "id": "books",
+          "label": "Bookbinding Guild",
+          "description": "Book binding paper notebooks and printed publications",
+          "weight": 2,
+          "present": true
+        },
+        {
+          "id": "garden",
+          "label": "Garden Collective",
+          "description": "Vegetable growing plants gardening and compost",
+          "weight": 1,
+          "present": false
+        }
+      ],
+      "records": [
+        {
+          "id": "P1",
+          "fromText": "Potters using the clay wheel",
+          "toText": "The sewing and weaving group"
+        },
+        {
+          "id": "P2",
+          "fromText": "People working with fabric and knitting",
+          "toText": "The notebook binding group"
+        },
+        {
+          "id": "P3",
+          "fromText": "Vegetable growers at the allotment",
+          "toText": "The paper book makers"
+        }
+      ]
+    },
+    "reviews": [
+      {
+        "id": "P1",
+        "from": "clay",
+        "to": "fiber",
+        "decision": "approve",
+        "reviewNote": ""
+      },
+      {
+        "id": "P2",
+        "from": "fiber",
+        "to": "books",
+        "decision": "approve",
+        "reviewNote": ""
+      },
+      {
+        "id": "P3",
+        "from": "garden",
+        "to": "books",
+        "decision": "approve",
+        "reviewNote": ""
+      }
+    ],
+    "total": 3,
+    "approved": 3,
+    "held": 0,
+    "totalWeight": 10,
+    "directWeight": 2,
+    "representedWeight": 10,
+    "requiredWeight": 8,
+    "quorumMet": true,
+    "baselineMet": false,
+    "roster": [
+      {
+        "member": "clay",
+        "label": "Ceramics Studio",
+        "weight": 4,
+        "present": false,
+        "path": "clay → fiber → books",
+        "representative": "books",
+        "status": "proxy"
+      },
+      {
+        "member": "fiber",
+        "label": "Textile Room",
+        "weight": 3,
+        "present": false,
+        "path": "fiber → books",
+        "representative": "books",
+        "status": "proxy"
+      },
+      {
+        "member": "books",
+        "label": "Bookbinding Guild",
+        "weight": 2,
+        "present": true,
+        "path": "books",
+        "representative": "books",
+        "status": "direct"
+      },
+      {
+        "member": "garden",
+        "label": "Garden Collective",
+        "weight": 1,
+        "present": false,
+        "path": "garden → books",
+        "representative": "books",
+        "status": "proxy"
+      }
+    ],
+    "delegates": [
+      {
+        "id": "books",
+        "label": "Bookbinding Guild",
+        "proxies": 3,
+        "weight": 10
+      }
+    ],
+    "unrepresentedWeight": 0,
+    "scope": "Supplied membership and approved proxies only; holds do not carry weight. Not legal validation."
+  }
+}

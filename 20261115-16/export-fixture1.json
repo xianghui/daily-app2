@@ -1,0 +1,334 @@
+{
+  "app": "Branch Atlas",
+  "schemaVersion": 1,
+  "originalInput": {
+    "maxDepth": 3,
+    "cards": [
+      {
+        "id": "delivery",
+        "label": "Delivery tracking",
+        "description": "Track a shipped order and check parcel delivery status"
+      },
+      {
+        "id": "refund",
+        "label": "Returns and refunds",
+        "description": "Return an unwanted purchased item and request money back"
+      },
+      {
+        "id": "seeds",
+        "label": "Seed germination",
+        "description": "Help vegetable seeds germinate and sprout successfully"
+      },
+      {
+        "id": "tools",
+        "label": "Garden tool care",
+        "description": "Clean and sharpen garden hand tools and pruning shears"
+      }
+    ],
+    "records": [
+      {
+        "id": "G1",
+        "description": "Find out where the parcel I ordered is now",
+        "count": 5
+      },
+      {
+        "id": "G2",
+        "description": "Send an unwanted purchase back for my money",
+        "count": 5
+      },
+      {
+        "id": "G3",
+        "description": "Get vegetable seedlings to sprout from seed",
+        "count": 10
+      },
+      {
+        "id": "G4",
+        "description": "Sharpen the blades on my pruning scissors",
+        "count": 80
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "G1",
+      "card": "delivery",
+      "proposedCard": "delivery",
+      "evidence": [
+        {
+          "id": "delivery",
+          "score": 0.6394419158375506
+        },
+        {
+          "id": "refund",
+          "score": 0.3132744502218769
+        },
+        {
+          "id": "tools",
+          "score": 0.0795405747968003
+        },
+        {
+          "id": "seeds",
+          "score": 0.04209831122273182
+        }
+      ],
+      "count": 5,
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "G2",
+      "card": "refund",
+      "proposedCard": "refund",
+      "evidence": [
+        {
+          "id": "refund",
+          "score": 0.8385805357197915
+        },
+        {
+          "id": "delivery",
+          "score": 0.18943796126005039
+        },
+        {
+          "id": "tools",
+          "score": 0.041066502442505315
+        },
+        {
+          "id": "seeds",
+          "score": -0.019719190358859356
+        }
+      ],
+      "count": 5,
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "G3",
+      "card": "seeds",
+      "proposedCard": "seeds",
+      "evidence": [
+        {
+          "id": "seeds",
+          "score": 0.8190649479143085
+        },
+        {
+          "id": "tools",
+          "score": 0.1278446461913838
+        },
+        {
+          "id": "delivery",
+          "score": 0.07500496309048178
+        },
+        {
+          "id": "refund",
+          "score": -0.03882655135118858
+        }
+      ],
+      "count": 10,
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "G4",
+      "card": "tools",
+      "proposedCard": "tools",
+      "evidence": [
+        {
+          "id": "tools",
+          "score": 0.6116104917100315
+        },
+        {
+          "id": "seeds",
+          "score": 0.14967928914160356
+        },
+        {
+          "id": "refund",
+          "score": 0.073137120711607
+        },
+        {
+          "id": "delivery",
+          "score": 0.0011659749249125165
+        }
+      ],
+      "count": 80,
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "zeroCountTopics": [],
+  "optimized": {
+    "weightedSteps": 130,
+    "totalCount": 100,
+    "meanSteps": 1.3,
+    "maxDepth": 3,
+    "tree": {
+      "cost": 130,
+      "left": {
+        "cost": 30,
+        "left": {
+          "cost": 10,
+          "left": {
+            "cost": 0,
+            "leaf": 0
+          },
+          "right": {
+            "cost": 0,
+            "leaf": 1
+          },
+          "lo": 0,
+          "hi": 2,
+          "split": 1
+        },
+        "right": {
+          "cost": 0,
+          "leaf": 2
+        },
+        "lo": 0,
+        "hi": 3,
+        "split": 2
+      },
+      "right": {
+        "cost": 0,
+        "leaf": 3
+      },
+      "lo": 0,
+      "hi": 4,
+      "split": 3
+    },
+    "routes": [
+      {
+        "index": 0,
+        "path": "LLL",
+        "depth": 3
+      },
+      {
+        "index": 1,
+        "path": "LLR",
+        "depth": 3
+      },
+      {
+        "index": 2,
+        "path": "LR",
+        "depth": 2
+      },
+      {
+        "index": 3,
+        "path": "R",
+        "depth": 1
+      }
+    ]
+  },
+  "baseline": {
+    "weightedSteps": 200,
+    "totalCount": 100,
+    "meanSteps": 2,
+    "maxDepth": 2,
+    "tree": {
+      "cost": 200,
+      "left": {
+        "cost": 10,
+        "left": {
+          "cost": 0,
+          "leaf": 0
+        },
+        "right": {
+          "cost": 0,
+          "leaf": 1
+        },
+        "lo": 0,
+        "hi": 2,
+        "split": 1
+      },
+      "right": {
+        "cost": 90,
+        "left": {
+          "cost": 0,
+          "leaf": 2
+        },
+        "right": {
+          "cost": 0,
+          "leaf": 3
+        },
+        "lo": 2,
+        "hi": 4,
+        "split": 3
+      },
+      "lo": 0,
+      "hi": 4,
+      "split": 2
+    },
+    "routes": [
+      {
+        "index": 0,
+        "path": "LL",
+        "depth": 2
+      },
+      {
+        "index": 1,
+        "path": "LR",
+        "depth": 2
+      },
+      {
+        "index": 2,
+        "path": "RL",
+        "depth": 2
+      },
+      {
+        "index": 3,
+        "path": "RR",
+        "depth": 2
+      }
+    ]
+  },
+  "routes": [
+    {
+      "index": 0,
+      "path": "LLL",
+      "depth": 3,
+      "id": "delivery",
+      "label": "Delivery tracking",
+      "description": "Track a shipped order and check parcel delivery status",
+      "count": 5,
+      "baselinePath": "LL",
+      "baselineDepth": 2
+    },
+    {
+      "index": 1,
+      "path": "LLR",
+      "depth": 3,
+      "id": "refund",
+      "label": "Returns and refunds",
+      "description": "Return an unwanted purchased item and request money back",
+      "count": 5,
+      "baselinePath": "LR",
+      "baselineDepth": 2
+    },
+    {
+      "index": 2,
+      "path": "LR",
+      "depth": 2,
+      "id": "seeds",
+      "label": "Seed germination",
+      "description": "Help vegetable seeds germinate and sprout successfully",
+      "count": 10,
+      "baselinePath": "RL",
+      "baselineDepth": 2
+    },
+    {
+      "index": 3,
+      "path": "R",
+      "depth": 1,
+      "id": "tools",
+      "label": "Garden tool care",
+      "description": "Clean and sharpen garden hand tools and pruning shears",
+      "count": 80,
+      "baselinePath": "RR",
+      "baselineDepth": 2
+    }
+  ],
+  "weightedStepsAvoided": 70,
+  "literalMatches": 0,
+  "scope": "Hypothetical ordered binary menu, equal one-step branch costs, supplied frequencies only. All topics retained, including zero-count topics. Counts are not unique people or forecasts. No live navigation changes, usability guarantee or measured time savings. Branch group names require human writing and testing. Held notes make the frequency frame incomplete."
+}

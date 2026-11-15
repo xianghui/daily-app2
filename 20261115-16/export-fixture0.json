@@ -1,0 +1,334 @@
+{
+  "app": "Branch Atlas",
+  "schemaVersion": 1,
+  "originalInput": {
+    "maxDepth": 3,
+    "cards": [
+      {
+        "id": "renew",
+        "label": "Borrowing renewals",
+        "description": "Renew borrowed library books and extend the return date"
+      },
+      {
+        "id": "wifi",
+        "label": "Wireless internet",
+        "description": "Connect a laptop or phone to the library wireless internet WiFi"
+      },
+      {
+        "id": "print",
+        "label": "Document printing",
+        "description": "Print paper documents from a computer using the library printer"
+      },
+      {
+        "id": "card",
+        "label": "Membership card",
+        "description": "Apply for a new library membership card and join the library"
+      }
+    ],
+    "records": [
+      {
+        "id": "L1",
+        "description": "Keep my checked out books for another week",
+        "count": 80
+      },
+      {
+        "id": "L2",
+        "description": "Get my laptop online using the wireless network",
+        "count": 10
+      },
+      {
+        "id": "L3",
+        "description": "Make paper copies of a PDF using the printer",
+        "count": 5
+      },
+      {
+        "id": "L4",
+        "description": "Sign up to become a member and get a borrowing card",
+        "count": 5
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "L1",
+      "card": "renew",
+      "proposedCard": "renew",
+      "evidence": [
+        {
+          "id": "renew",
+          "score": 0.4072424069434652
+        },
+        {
+          "id": "card",
+          "score": 0.16567448359281614
+        },
+        {
+          "id": "wifi",
+          "score": 0.08353421769852287
+        },
+        {
+          "id": "print",
+          "score": 0.06790261167058188
+        }
+      ],
+      "count": 80,
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "L2",
+      "card": "wifi",
+      "proposedCard": "wifi",
+      "evidence": [
+        {
+          "id": "wifi",
+          "score": 0.62082050193444
+        },
+        {
+          "id": "print",
+          "score": 0.18902796774585126
+        },
+        {
+          "id": "card",
+          "score": 0.0908044452455058
+        },
+        {
+          "id": "renew",
+          "score": 0.04548665026205701
+        }
+      ],
+      "count": 10,
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "L3",
+      "card": "print",
+      "proposedCard": "print",
+      "evidence": [
+        {
+          "id": "print",
+          "score": 0.677877711167197
+        },
+        {
+          "id": "renew",
+          "score": 0.1500832075418874
+        },
+        {
+          "id": "card",
+          "score": 0.10621412581003731
+        },
+        {
+          "id": "wifi",
+          "score": 0.03352205155024028
+        }
+      ],
+      "count": 5,
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "L4",
+      "card": "card",
+      "proposedCard": "card",
+      "evidence": [
+        {
+          "id": "card",
+          "score": 0.5861567424157959
+        },
+        {
+          "id": "renew",
+          "score": 0.24312401558426025
+        },
+        {
+          "id": "print",
+          "score": 0.09496344494164538
+        },
+        {
+          "id": "wifi",
+          "score": 0.08362622897782294
+        }
+      ],
+      "count": 5,
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "zeroCountTopics": [],
+  "optimized": {
+    "weightedSteps": 130,
+    "totalCount": 100,
+    "meanSteps": 1.3,
+    "maxDepth": 3,
+    "tree": {
+      "cost": 130,
+      "left": {
+        "cost": 0,
+        "leaf": 0
+      },
+      "right": {
+        "cost": 30,
+        "left": {
+          "cost": 0,
+          "leaf": 1
+        },
+        "right": {
+          "cost": 10,
+          "left": {
+            "cost": 0,
+            "leaf": 2
+          },
+          "right": {
+            "cost": 0,
+            "leaf": 3
+          },
+          "lo": 2,
+          "hi": 4,
+          "split": 3
+        },
+        "lo": 1,
+        "hi": 4,
+        "split": 2
+      },
+      "lo": 0,
+      "hi": 4,
+      "split": 1
+    },
+    "routes": [
+      {
+        "index": 0,
+        "path": "L",
+        "depth": 1
+      },
+      {
+        "index": 1,
+        "path": "RL",
+        "depth": 2
+      },
+      {
+        "index": 2,
+        "path": "RRL",
+        "depth": 3
+      },
+      {
+        "index": 3,
+        "path": "RRR",
+        "depth": 3
+      }
+    ]
+  },
+  "baseline": {
+    "weightedSteps": 200,
+    "totalCount": 100,
+    "meanSteps": 2,
+    "maxDepth": 2,
+    "tree": {
+      "cost": 200,
+      "left": {
+        "cost": 90,
+        "left": {
+          "cost": 0,
+          "leaf": 0
+        },
+        "right": {
+          "cost": 0,
+          "leaf": 1
+        },
+        "lo": 0,
+        "hi": 2,
+        "split": 1
+      },
+      "right": {
+        "cost": 10,
+        "left": {
+          "cost": 0,
+          "leaf": 2
+        },
+        "right": {
+          "cost": 0,
+          "leaf": 3
+        },
+        "lo": 2,
+        "hi": 4,
+        "split": 3
+      },
+      "lo": 0,
+      "hi": 4,
+      "split": 2
+    },
+    "routes": [
+      {
+        "index": 0,
+        "path": "LL",
+        "depth": 2
+      },
+      {
+        "index": 1,
+        "path": "LR",
+        "depth": 2
+      },
+      {
+        "index": 2,
+        "path": "RL",
+        "depth": 2
+      },
+      {
+        "index": 3,
+        "path": "RR",
+        "depth": 2
+      }
+    ]
+  },
+  "routes": [
+    {
+      "index": 0,
+      "path": "L",
+      "depth": 1,
+      "id": "renew",
+      "label": "Borrowing renewals",
+      "description": "Renew borrowed library books and extend the return date",
+      "count": 80,
+      "baselinePath": "LL",
+      "baselineDepth": 2
+    },
+    {
+      "index": 1,
+      "path": "RL",
+      "depth": 2,
+      "id": "wifi",
+      "label": "Wireless internet",
+      "description": "Connect a laptop or phone to the library wireless internet WiFi",
+      "count": 10,
+      "baselinePath": "LR",
+      "baselineDepth": 2
+    },
+    {
+      "index": 2,
+      "path": "RRL",
+      "depth": 3,
+      "id": "print",
+      "label": "Document printing",
+      "description": "Print paper documents from a computer using the library printer",
+      "count": 5,
+      "baselinePath": "RL",
+      "baselineDepth": 2
+    },
+    {
+      "index": 3,
+      "path": "RRR",
+      "depth": 3,
+      "id": "card",
+      "label": "Membership card",
+      "description": "Apply for a new library membership card and join the library",
+      "count": 5,
+      "baselinePath": "RR",
+      "baselineDepth": 2
+    }
+  ],
+  "weightedStepsAvoided": 70,
+  "literalMatches": 0,
+  "scope": "Hypothetical ordered binary menu, equal one-step branch costs, supplied frequencies only. All topics retained, including zero-count topics. Counts are not unique people or forecasts. No live navigation changes, usability guarantee or measured time savings. Branch group names require human writing and testing. Held notes make the frequency frame incomplete."
+}

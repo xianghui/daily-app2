@@ -1,0 +1,194 @@
+{
+  "schema": "uncertainty-weave/v1",
+  "originalInput": {
+    "context": "Synthetic rectangular package: all lengths in cm, independent measurements. Output in cubic cm. Input uncertainty under 20% supports a local linear approximation only.",
+    "coefficient": 1,
+    "outputUnit": "cm³",
+    "coverage": 2,
+    "targetPercent": 3.2,
+    "inputs": [
+      {
+        "id": "length",
+        "label": "Length",
+        "description": "Long edge length of the rectangular box",
+        "unit": "cm",
+        "power": 1
+      },
+      {
+        "id": "width",
+        "label": "Width",
+        "description": "Short edge width of the rectangular box",
+        "unit": "cm",
+        "power": 1
+      },
+      {
+        "id": "height",
+        "label": "Height",
+        "description": "Vertical height of the rectangular box",
+        "unit": "cm",
+        "power": 1
+      }
+    ],
+    "observations": [
+      {
+        "id": "a",
+        "description": "Length along the longest horizontal side of the carton",
+        "value": 10,
+        "uncertainty": 0.1,
+        "kind": "rectangular",
+        "divisor": 2
+      },
+      {
+        "id": "b",
+        "description": "Width across the short side of the rectangular package",
+        "value": 5,
+        "uncertainty": 0.05,
+        "kind": "standard",
+        "divisor": 2
+      },
+      {
+        "id": "c",
+        "description": "Vertical height from the base to top of the box",
+        "value": 2,
+        "uncertainty": 0.04,
+        "kind": "expanded",
+        "divisor": 2
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "a",
+      "description": "Length along the longest horizontal side of the carton",
+      "value": 10,
+      "uncertainty": 0.1,
+      "kind": "rectangular",
+      "divisor": 2,
+      "input": "length",
+      "evidence": [
+        {
+          "id": "length",
+          "score": 0.5453272869482407
+        },
+        {
+          "id": "width",
+          "score": 0.4700182609504724
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "b",
+      "description": "Width across the short side of the rectangular package",
+      "value": 5,
+      "uncertainty": 0.05,
+      "kind": "standard",
+      "divisor": 2,
+      "input": "width",
+      "evidence": [
+        {
+          "id": "width",
+          "score": 0.7601481418658297
+        },
+        {
+          "id": "length",
+          "score": 0.6911188122112842
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "c",
+      "description": "Vertical height from the base to top of the box",
+      "value": 2,
+      "uncertainty": 0.04,
+      "kind": "expanded",
+      "divisor": 2,
+      "input": "height",
+      "evidence": [
+        {
+          "id": "height",
+          "score": 0.7981481625663571
+        },
+        {
+          "id": "length",
+          "score": 0.4308737927316365
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 3,
+  "approved": 3,
+  "held": 0,
+  "budget": [
+    {
+      "id": "length",
+      "label": "Length",
+      "description": "Long edge length of the rectangular box",
+      "unit": "cm",
+      "power": 1,
+      "status": "ready",
+      "source": "a",
+      "value": 10,
+      "suppliedUncertainty": 0.1,
+      "kind": "rectangular",
+      "divisor": 2,
+      "standard": 0.05773502691896258,
+      "relative": 0.005773502691896258,
+      "varianceShare": 0.14285714285714288,
+      "sensitivity": 10,
+      "absoluteContribution": 0.5773502691896258
+    },
+    {
+      "id": "width",
+      "label": "Width",
+      "description": "Short edge width of the rectangular box",
+      "unit": "cm",
+      "power": 1,
+      "status": "ready",
+      "source": "b",
+      "value": 5,
+      "suppliedUncertainty": 0.05,
+      "kind": "standard",
+      "divisor": 2,
+      "standard": 0.05,
+      "relative": 0.01,
+      "varianceShare": 0.4285714285714286,
+      "sensitivity": 20,
+      "absoluteContribution": 1
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "description": "Vertical height of the rectangular box",
+      "unit": "cm",
+      "power": 1,
+      "status": "ready",
+      "source": "c",
+      "value": 2,
+      "suppliedUncertainty": 0.04,
+      "kind": "expanded",
+      "divisor": 2,
+      "standard": 0.02,
+      "relative": 0.01,
+      "varianceShare": 0.4285714285714286,
+      "sensitivity": 50,
+      "absoluteContribution": 1
+    }
+  ],
+  "issues": [],
+  "status": "ready",
+  "output": 100,
+  "relativeStandard": 0.015275252316519466,
+  "combinedStandard": 1.5275252316519468,
+  "expanded": 3.0550504633038935,
+  "expandedPercent": 3.0550504633038935,
+  "worstExpanded": 5.1547005383792515,
+  "worstPercent": 5.1547005383792515,
+  "meetsTarget": true,
+  "baselineMeets": false
+}

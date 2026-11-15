@@ -1,0 +1,140 @@
+{
+  "schema": "uncertainty-weave/v1",
+  "originalInput": {
+    "context": "Synthetic density worksheet. Mass in grams, displacement volume in mL. Independent inputs; no covariance or systematic-bias correction. Output in g/mL.",
+    "coefficient": 1,
+    "outputUnit": "g/mL",
+    "coverage": 2,
+    "targetPercent": 1,
+    "inputs": [
+      {
+        "id": "mass",
+        "label": "Mass",
+        "description": "Mass of the sample measured on a weighing balance",
+        "unit": "g",
+        "power": 1
+      },
+      {
+        "id": "volume",
+        "label": "Volume",
+        "description": "Volume of the sample determined by water displacement",
+        "unit": "mL",
+        "power": -1
+      }
+    ],
+    "observations": [
+      {
+        "id": "m",
+        "description": "Weight of the specimen on the laboratory balance",
+        "value": 100,
+        "uncertainty": 0.2,
+        "kind": "expanded",
+        "divisor": 2
+      },
+      {
+        "id": "v",
+        "description": "Amount of water displaced by the immersed specimen",
+        "value": 20,
+        "uncertainty": 0.2,
+        "kind": "rectangular",
+        "divisor": 2
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "m",
+      "description": "Weight of the specimen on the laboratory balance",
+      "value": 100,
+      "uncertainty": 0.1,
+      "kind": "expanded",
+      "divisor": 2,
+      "input": "mass",
+      "evidence": [
+        {
+          "id": "mass",
+          "score": 0.7100930704164998
+        },
+        {
+          "id": "volume",
+          "score": 0.3637961047523973
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", verify"
+    },
+    {
+      "id": "v",
+      "description": "Amount of water displaced by the immersed specimen",
+      "value": 20,
+      "uncertainty": 0.2,
+      "kind": "rectangular",
+      "divisor": 2,
+      "input": "volume",
+      "evidence": [
+        {
+          "id": "volume",
+          "score": 0.7349402683522644
+        },
+        {
+          "id": "mass",
+          "score": 0.3646792416641793
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 2,
+  "approved": 2,
+  "held": 0,
+  "budget": [
+    {
+      "id": "mass",
+      "label": "Mass",
+      "description": "Mass of the sample measured on a weighing balance",
+      "unit": "g",
+      "power": 1,
+      "status": "ready",
+      "source": "m",
+      "value": 100,
+      "suppliedUncertainty": 0.1,
+      "kind": "expanded",
+      "divisor": 2,
+      "standard": 0.05,
+      "relative": 0.0005,
+      "varianceShare": 0.007444168734491312,
+      "sensitivity": 0.05,
+      "absoluteContribution": 0.0025
+    },
+    {
+      "id": "volume",
+      "label": "Volume",
+      "description": "Volume of the sample determined by water displacement",
+      "unit": "mL",
+      "power": -1,
+      "status": "ready",
+      "source": "v",
+      "value": 20,
+      "suppliedUncertainty": 0.2,
+      "kind": "rectangular",
+      "divisor": 2,
+      "standard": 0.11547005383792516,
+      "relative": 0.005773502691896258,
+      "varianceShare": 0.9925558312655083,
+      "sensitivity": -0.25,
+      "absoluteContribution": 0.02886751345948129
+    }
+  ],
+  "issues": [],
+  "status": "ready",
+  "output": 5,
+  "relativeStandard": 0.005795112883571238,
+  "combinedStandard": 0.02897556441785619,
+  "expanded": 0.05795112883571238,
+  "expandedPercent": 1.1590225767142475,
+  "worstExpanded": 0.06273502691896257,
+  "worstPercent": 1.2547005383792516,
+  "meetsTarget": false,
+  "baselineMeets": false
+}

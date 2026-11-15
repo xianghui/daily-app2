@@ -1,0 +1,356 @@
+{
+  "schema": "return-mosaic/v1",
+  "originalInput": {
+    "cards": [
+      {
+        "id": "start",
+        "label": "First loan",
+        "description": "A new member borrows their first library book; initial checkout activates borrowing."
+      },
+      {
+        "id": "return",
+        "label": "Repeat borrowing",
+        "description": "An existing reader returns to borrow another library book on a later visit."
+      },
+      {
+        "id": "other",
+        "label": "Administrative only",
+        "description": "Library membership address update, password reset or receipt email; no book borrowed."
+      }
+    ],
+    "asOf": "2026-12-01T00:00:00Z",
+    "windowStartDays": 7,
+    "windowEndDays": 14,
+    "records": [
+      {
+        "id": "e1",
+        "account": "a",
+        "at": "2026-11-10T00:00:00Z",
+        "text": "New reader checked out a first library book"
+      },
+      {
+        "id": "e2",
+        "account": "a",
+        "at": "2026-11-18T00:00:00Z",
+        "text": "Reader came back to borrow another novel"
+      },
+      {
+        "id": "e3",
+        "account": "b",
+        "at": "2026-11-11T00:00:00Z",
+        "text": "Member borrowed their first library volume"
+      },
+      {
+        "id": "e4",
+        "account": "b",
+        "at": "2026-11-20T00:00:00Z",
+        "text": "Changed the postal address on the membership account"
+      },
+      {
+        "id": "e5",
+        "account": "c",
+        "at": "2026-11-25T00:00:00Z",
+        "text": "New member checked out their first book"
+      },
+      {
+        "id": "e6",
+        "account": "c",
+        "at": "2026-11-29T00:00:00Z",
+        "text": "Reader returned to borrow a second book"
+      },
+      {
+        "id": "e7",
+        "account": "orphan",
+        "at": "2026-11-19T00:00:00Z",
+        "text": "Borrowed another novel on a repeat library visit"
+      },
+      {
+        "id": "e8",
+        "account": "a",
+        "at": "2026-11-11T00:00:00Z",
+        "text": "First library book checkout by a new member"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "e1",
+      "item": "start",
+      "proposed": "start",
+      "evidence": [
+        {
+          "id": "start",
+          "score": 0.6638698921196174
+        },
+        {
+          "id": "return",
+          "score": 0.6557846341858876
+        },
+        {
+          "id": "other",
+          "score": 0.45343343898081434
+        }
+      ],
+      "account": "a",
+      "at": "2026-11-10T00:00:00Z",
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", discuss"
+    },
+    {
+      "id": "e2",
+      "item": "return",
+      "proposed": "return",
+      "evidence": [
+        {
+          "id": "return",
+          "score": 0.7781422663592911
+        },
+        {
+          "id": "start",
+          "score": 0.5815326106515514
+        },
+        {
+          "id": "other",
+          "score": 0.3942133547510175
+        }
+      ],
+      "account": "b",
+      "at": "2026-11-18T00:00:00Z",
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "e3",
+      "item": "start",
+      "proposed": "start",
+      "evidence": [
+        {
+          "id": "start",
+          "score": 0.6709119579855081
+        },
+        {
+          "id": "other",
+          "score": 0.591011830516335
+        },
+        {
+          "id": "return",
+          "score": 0.5571761362296039
+        }
+      ],
+      "account": "b",
+      "at": "2026-11-11T00:00:00Z",
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "e4",
+      "item": "other",
+      "proposed": "other",
+      "evidence": [
+        {
+          "id": "other",
+          "score": 0.4639281677144932
+        },
+        {
+          "id": "start",
+          "score": 0.207608388870055
+        },
+        {
+          "id": "return",
+          "score": 0.12738298417983443
+        }
+      ],
+      "account": "b",
+      "at": "2026-11-20T00:00:00Z",
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "e5",
+      "item": "start",
+      "proposed": "start",
+      "evidence": [
+        {
+          "id": "start",
+          "score": 0.6404085980734049
+        },
+        {
+          "id": "other",
+          "score": 0.4827424568001867
+        },
+        {
+          "id": "return",
+          "score": 0.46170286741496813
+        }
+      ],
+      "account": "c",
+      "at": "2026-11-25T00:00:00Z",
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "e6",
+      "item": "return",
+      "proposed": "return",
+      "evidence": [
+        {
+          "id": "return",
+          "score": 0.8426681988394178
+        },
+        {
+          "id": "start",
+          "score": 0.6215679503131544
+        },
+        {
+          "id": "other",
+          "score": 0.4406262494559284
+        }
+      ],
+      "account": "c",
+      "at": "2026-11-29T00:00:00Z",
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "e7",
+      "item": "return",
+      "proposed": "return",
+      "evidence": [
+        {
+          "id": "return",
+          "score": 0.7912286410130064
+        },
+        {
+          "id": "start",
+          "score": 0.5910980921126076
+        },
+        {
+          "id": "other",
+          "score": 0.515139957530464
+        }
+      ],
+      "account": "orphan",
+      "at": "2026-11-19T00:00:00Z",
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "e8",
+      "item": "start",
+      "proposed": "start",
+      "evidence": [
+        {
+          "id": "start",
+          "score": 0.7827665145584707
+        },
+        {
+          "id": "return",
+          "score": 0.5617384859125739
+        },
+        {
+          "id": "other",
+          "score": 0.5599737186990648
+        }
+      ],
+      "account": "a",
+      "at": "2026-11-11T00:00:00Z",
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 8,
+  "approved": 8,
+  "held": 0,
+  "literalMatches": 0,
+  "accounts": [
+    {
+      "account": "a",
+      "status": "no-return",
+      "activation": "2026-11-10T00:00:00.000Z",
+      "cohort": "2026-11-09",
+      "windowStart": "2026-11-17T00:00:00.000Z",
+      "windowEnd": "2026-11-24T00:00:00.000Z",
+      "mature": true,
+      "returned": false,
+      "qualifyingEvents": [],
+      "ignoredReturnEvents": [],
+      "repeatedStarts": 1,
+      "action": "Check tracking completeness before investigating non-return"
+    },
+    {
+      "account": "b",
+      "status": "returned",
+      "activation": "2026-11-11T00:00:00.000Z",
+      "cohort": "2026-11-09",
+      "windowStart": "2026-11-18T00:00:00.000Z",
+      "windowEnd": "2026-11-25T00:00:00.000Z",
+      "mature": true,
+      "returned": true,
+      "qualifyingEvents": [
+        "e2"
+      ],
+      "ignoredReturnEvents": [],
+      "repeatedStarts": 0,
+      "action": "Observed qualifying return; no follow-up suggested"
+    },
+    {
+      "account": "c",
+      "status": "immature",
+      "activation": "2026-11-25T00:00:00.000Z",
+      "cohort": "2026-11-23",
+      "windowStart": "2026-12-02T00:00:00.000Z",
+      "windowEnd": "2026-12-09T00:00:00.000Z",
+      "mature": false,
+      "returned": false,
+      "qualifyingEvents": [],
+      "ignoredReturnEvents": [
+        "e6"
+      ],
+      "repeatedStarts": 0,
+      "action": "Wait until complete window; do not classify as churn"
+    },
+    {
+      "account": "orphan",
+      "status": "no-start",
+      "activation": null,
+      "cohort": null,
+      "windowStart": null,
+      "windowEnd": null,
+      "mature": false,
+      "returned": false,
+      "qualifyingEvents": [],
+      "ignoredReturnEvents": [
+        "e7"
+      ],
+      "repeatedStarts": 0,
+      "action": "Reconcile missing activation / account identity"
+    }
+  ],
+  "cohorts": [
+    {
+      "cohort": "2026-11-09",
+      "activated": 2,
+      "eligible": 2,
+      "returned": 1,
+      "immature": 0,
+      "rate": 0.5
+    },
+    {
+      "cohort": "2026-11-23",
+      "activated": 1,
+      "eligible": 0,
+      "returned": 0,
+      "immature": 1,
+      "rate": null
+    }
+  ],
+  "activated": 3,
+  "eligible": 2,
+  "returned": 1,
+  "immature": 1,
+  "noStart": 1,
+  "rate": 0.5,
+  "naiveReturned": 1,
+  "naiveRate": 0.3333333333333333,
+  "warning": null
+}

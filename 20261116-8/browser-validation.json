@@ -1,0 +1,381 @@
+{
+  "fixtures": [
+    {
+      "name": "Product priorities",
+      "expected": [
+        "login",
+        "search",
+        "billing",
+        "export",
+        "login",
+        "billing",
+        "search",
+        "export"
+      ],
+      "actual": [
+        "login",
+        "search",
+        "billing",
+        "export",
+        "login",
+        "billing",
+        "search",
+        "export"
+      ],
+      "correct": 8,
+      "total": 8,
+      "tauB": 0.6666666666666666,
+      "reversals": 1,
+      "overlap": 4
+    },
+    {
+      "name": "Library priorities",
+      "expected": [
+        "books",
+        "wifi",
+        "rooms",
+        "rooms",
+        "wifi",
+        "books"
+      ],
+      "actual": [
+        "books",
+        "wifi",
+        "rooms",
+        "rooms",
+        "wifi",
+        "books"
+      ],
+      "correct": 6,
+      "total": 6,
+      "tauB": -0.8164965809277261,
+      "reversals": 2,
+      "overlap": 3
+    }
+  ],
+  "checks": [
+    "mandatory review; holds; undo; editable item/list/rank; invalid ranks; duplicate/missing blocking; multiline export and clipboard; audit reimport",
+    "already-open warmed page fully offline fresh-worker real CPU inference",
+    "empty/malformed/oversized/duplicate/invalid limit/list/rank inputs; unsupported files",
+    "cancel then real retry; source change invalidates in-flight results",
+    "32-text max batch; 8 items; 24 sources; full audit round trip",
+    "1440/390/320px no overflow; labels; touch targets; focus; all held; instruction-like data; all tied undefined tau-b"
+  ],
+  "challenge": {
+    "item": "wifi",
+    "expected": "unrelated / human hold",
+    "limitation": "Nearest candidate is always returned; similarity does not establish relevance"
+  },
+  "privacy": {
+    "allRequestsGetWithoutBody": true,
+    "noFixtureTextInFullURLs": true,
+    "noModelRequestsBeforeExplicitLoad": true
+  },
+  "requests": [
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:6928/daily-app2/20261116-8/",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:6928/daily-app2/20261116-8/assets/index-ZLU98Etl.js",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:6928/daily-app2/20261116-8/assets/index-CailBUP0.css",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:6928/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6928/e00acfbd-08f6-41c9-8680-f1b87a14e6a6",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:6928/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:6928/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "X-Xet-Cas-Uid",
+        "xip",
+        "response-content-disposition",
+        "user_id",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "xip",
+        "user_id",
+        "response-content-disposition",
+        "X-Xet-Cas-Uid",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6928/afe2881a-8b80-4a69-8c04-400c39d6c00f",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6928/d91122cd-f44a-4e6a-a2ec-eb7a93ff738f",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6928/3eb67721-6aca-4014-9eaf-650c42313a0f",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6928/6c28eb5d-51a0-4f2a-a604-b1d3be02e341",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6928/33632b1a-40b9-4355-9875-680d10ccc6a0",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6928/72fdb889-b81d-4580-b51f-7ee6b2569ed4",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6928/bc3c0695-6e68-4ec2-89f7-d9114dd119e4",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6928/1c27122c-6a44-4d78-8810-616854fca4a3",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6928/303509a1-4a75-4dee-ad5f-d41f3a93ec71",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6928/098eb0ec-f678-4459-a8ec-e0ab88e601ad",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6928/6f41d92e-971d-443b-8a87-9a327e2c188b",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6928/f95a8b0a-fcfa-40d7-9708-2674bad7c8ca",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6928/a43bc8f1-5e83-4522-93a7-1df3bbd2e2c9",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6928/ec79e4cd-9bf1-4633-851a-a36a00dab6ba",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6928/cae9feec-2e89-41ef-ade3-8fa1cf897a8c",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6928/ff128cec-3b80-4e4f-bb49-2c08b49cf546",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6928/36c5e646-55ae-4057-a3f5-a3022d0513ca",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6928/1dd0fb3d-0109-433d-84b0-6f3dbe7799ea",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6928/f781b3d4-3040-4a7f-9c06-6afbc346e947",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6928/42a006c6-3925-4298-b339-4b2009fd31cb",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6928/b00960d4-88cf-43e5-b178-ef382ef557da",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6928/a6f939d6-9dd7-4138-9c5a-f92abd091dee",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6928/474eaac0-7b93-42a1-95ed-b64d82c70f32",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6928/1299150c-1efc-41e4-a520-b6dbebe156bb",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6928/b00601af-b875-4d44-ba3f-3c6eac7e99be",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6928/28f59543-a71c-45e4-8bcb-2f6ec8321210",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6928/a3430eb2-0a59-44d0-8afb-80a07e271d4a",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6928/cfa3eca6-1768-4107-b0c4-959978c3cefb",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6928/ba9740ff-2ffc-4c0e-bbff-1a69502aae88",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6928/aeca9e70-44a5-4679-b5b2-e46a557a61ce",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6928/14429313-f263-4568-ba28-09608c689ae3",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6928/bd65eb5a-b2c9-4149-bd30-b1959183ae6d",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6928/dd7ce1a2-e644-4cd0-8d18-55ef8532a5d0",
+      "queryKeys": []
+    }
+  ]
+}

@@ -1,0 +1,273 @@
+{
+  "schema": "rank-mirror/v1",
+  "originalInput": {
+    "context": "Synthetic committee priorities for one library improvement round. Rank ties are intentional; no voting outcome or consensus inferred.",
+    "maxReversals": 1,
+    "items": [
+      {
+        "id": "books",
+        "label": "Book lending",
+        "description": "Borrowing library books and returning printed reading material"
+      },
+      {
+        "id": "wifi",
+        "label": "Wireless internet",
+        "description": "Wireless internet access for visitors using laptops and phones"
+      },
+      {
+        "id": "rooms",
+        "label": "Quiet study rooms",
+        "description": "Quiet private rooms for focused study and silent reading"
+      }
+    ],
+    "observations": [
+      {
+        "id": "c1",
+        "description": "Checking out printed books to read at home",
+        "list": "A",
+        "rank": 1
+      },
+      {
+        "id": "c2",
+        "description": "Connecting visitor laptops to wireless internet",
+        "list": "A",
+        "rank": 1
+      },
+      {
+        "id": "c3",
+        "description": "Silent individual rooms for concentrated studying",
+        "list": "A",
+        "rank": 3
+      },
+      {
+        "id": "d1",
+        "description": "Private silent spaces for focused reading",
+        "list": "B",
+        "rank": 1
+      },
+      {
+        "id": "d2",
+        "description": "Wireless connectivity for guests with laptops",
+        "list": "B",
+        "rank": 2
+      },
+      {
+        "id": "d3",
+        "description": "Taking library books home on loan",
+        "list": "B",
+        "rank": 3
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "c1",
+      "description": "Checking out printed books to read at home",
+      "list": "A",
+      "rank": 5,
+      "item": "books",
+      "evidence": [
+        {
+          "id": "books",
+          "score": 0.6391899494064596
+        },
+        {
+          "id": "rooms",
+          "score": 0.32140537349648357
+        },
+        {
+          "id": "wifi",
+          "score": 0.23226656158304299
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", verify"
+    },
+    {
+      "id": "c2",
+      "description": "Connecting visitor laptops to wireless internet",
+      "list": "A",
+      "rank": 1,
+      "item": "wifi",
+      "evidence": [
+        {
+          "id": "wifi",
+          "score": 0.8386533048446416
+        },
+        {
+          "id": "rooms",
+          "score": 0.10587798347854221
+        },
+        {
+          "id": "books",
+          "score": 0.0664484034730904
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "c3",
+      "description": "Silent individual rooms for concentrated studying",
+      "list": "A",
+      "rank": 3,
+      "item": "rooms",
+      "evidence": [
+        {
+          "id": "rooms",
+          "score": 0.8646254343816845
+        },
+        {
+          "id": "books",
+          "score": 0.1728519275205954
+        },
+        {
+          "id": "wifi",
+          "score": 0.11364739758934767
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "d1",
+      "description": "Private silent spaces for focused reading",
+      "list": "B",
+      "rank": 1,
+      "item": "rooms",
+      "evidence": [
+        {
+          "id": "rooms",
+          "score": 0.7862637951993976
+        },
+        {
+          "id": "books",
+          "score": 0.22276387050867535
+        },
+        {
+          "id": "wifi",
+          "score": 0.08567052836986185
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "d2",
+      "description": "Wireless connectivity for guests with laptops",
+      "list": "B",
+      "rank": 2,
+      "item": "wifi",
+      "evidence": [
+        {
+          "id": "wifi",
+          "score": 0.6877046255214222
+        },
+        {
+          "id": "rooms",
+          "score": 0.19934360814845625
+        },
+        {
+          "id": "books",
+          "score": 0.07349864522175191
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "d3",
+      "description": "Taking library books home on loan",
+      "list": "B",
+      "rank": 3,
+      "item": "books",
+      "evidence": [
+        {
+          "id": "books",
+          "score": 0.6644925335723562
+        },
+        {
+          "id": "rooms",
+          "score": 0.24075474383839907
+        },
+        {
+          "id": "wifi",
+          "score": 0.11071098423372046
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 6,
+  "approved": 6,
+  "held": 0,
+  "status": "ready",
+  "issues": [],
+  "pairs": [
+    {
+      "left": "books",
+      "right": "wifi",
+      "label": "Book lending ↔ Wireless internet",
+      "rankA": [
+        5,
+        1
+      ],
+      "rankB": [
+        3,
+        2
+      ],
+      "kind": "Concordant"
+    },
+    {
+      "left": "books",
+      "right": "rooms",
+      "label": "Book lending ↔ Quiet study rooms",
+      "rankA": [
+        5,
+        3
+      ],
+      "rankB": [
+        3,
+        1
+      ],
+      "kind": "Concordant"
+    },
+    {
+      "left": "wifi",
+      "right": "rooms",
+      "label": "Wireless internet ↔ Quiet study rooms",
+      "rankA": [
+        1,
+        3
+      ],
+      "rankB": [
+        2,
+        1
+      ],
+      "kind": "Reversed"
+    }
+  ],
+  "concordant": 2,
+  "discordant": 1,
+  "tieA": 0,
+  "tieB": 0,
+  "tieBoth": 0,
+  "tauB": 0.3333333333333333,
+  "ranks": {
+    "A": {
+      "books": 5,
+      "wifi": 1,
+      "rooms": 3
+    },
+    "B": {
+      "books": 3,
+      "wifi": 2,
+      "rooms": 1
+    }
+  },
+  "baselineOverlap": 3,
+  "itemCount": 3,
+  "limit": 1,
+  "withinLimit": true
+}

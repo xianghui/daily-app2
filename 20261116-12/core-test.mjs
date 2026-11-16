@@ -1,0 +1,11 @@
+import {examples,parse,suggest,analyze,allocate} from './src/core.js';
+import a from 'node:assert/strict';
+const d=examples[0].data;
+for(const v of[[],Array.from({length:6},()=>[NaN]),Array.from({length:6},()=>Array(384).fill(0))])a.throws(()=>suggest(d,v));
+for(const s of['{}','null',JSON.stringify({...d,availableCents:-1}),JSON.stringify({...d,items:[{...d.items[0],tier:5},d.items[1]]})])a.throws(()=>parse(s));
+const rows=d.observations.map((x,i)=>({...x,item:d.items[i].id,decision:'approve',reviewNote:''}));
+a.equal(analyze(d,rows).paidCents,10001);
+a.throws(()=>analyze(d,rows.map((x,i)=>i?x:{...x,decision:'pending'})));
+const claims=[{id:'x',amountCents:9,tier:1},{id:'z',amountCents:3,tier:1},{id:'a',amountCents:8,tier:2}];
+a.deepEqual(allocate(claims,7).payouts.map(x=>[x.id,x.paidCents]),[['x',5],['z',2],['a',0]]);
+console.log('PASS schema, vector validation, mandatory review and hand calculation');

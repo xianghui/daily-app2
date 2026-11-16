@@ -1194,3 +1194,8 @@ Real local MiniLM reconciles informal purchasing lines before mandatory product/
 Combined-site size guard extends deploy-only byte-verified Manifold reuse to `20261028-22` → `20261028-24`, retaining original source builds and legacy JS URLs with query-versioned references. The affected older app’s actual shared geometry load and parsed STL download passed before publishing.
 
 Basket Deflator public release: matching Pages `56201376095ae2b5bc8b36aec750ab59a639cf47` reached built. Byte-matched public app/runtime and affected legacy assets, both real-AI fixtures, complete reviewed artifact/privacy/offline suite, maximum complete basket, the preserved 706-card gallery and older geometry/STL regression passed. Source staging excludes unrelated pre-existing edits. No digest sent.
+
+
+## Practice Curve — 20261116-10
+
+Local MiniLM procedure inference reconciles informal individual-unit time studies for reviewed learning-curve effort scenarios. Verify repetitions and timings, compare next-batch power-curve sums with last-observation flat-time planning, and export all original/review records plus per-unit forecasts. Two synthetic workflows matched 12/12 descriptions; a maximum complete 8-procedure/24-observation workflow exported 800 forecasts. These small fixtures are not general accuracy or future-savings claims. Uses the immutable 20261115-6 worker/factory and 20261107-2 WASM; preserve those paths. See [workflow](20261116-10/README.md) and [validation](20261116-10/VALIDATION.md). No digest sent by the builder.

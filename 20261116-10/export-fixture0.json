@@ -1,0 +1,255 @@
+{
+  "schema": "practice-curve/v1",
+  "originalInput": {
+    "context": "Synthetic continuous individual-unit time study. Same trained operator, equipment and method; sequence counts all repetitions, not batch totals.",
+    "nextUnits": 4,
+    "items": [
+      {
+        "id": "binding",
+        "label": "Book binding",
+        "description": "Bind printed paper pages into books with stitched spines"
+      },
+      {
+        "id": "packing",
+        "label": "Parcel packing",
+        "description": "Pack finished orders in shipping boxes with protective wrapping"
+      }
+    ],
+    "observations": [
+      {
+        "id": "w1",
+        "description": "Stitching printed pages into book spines",
+        "unit": 1,
+        "minutes": 100
+      },
+      {
+        "id": "w2",
+        "description": "Putting completed orders in protective shipping boxes",
+        "unit": 1,
+        "minutes": 40
+      },
+      {
+        "id": "w3",
+        "description": "Stitched book spine assembly",
+        "unit": 4,
+        "minutes": 50
+      },
+      {
+        "id": "w4",
+        "description": "Wrapping orders and sealing dispatch cartons",
+        "unit": 4,
+        "minutes": 40
+      },
+      {
+        "id": "w5",
+        "description": "Binding pages into sewn books",
+        "unit": 16,
+        "minutes": 25
+      },
+      {
+        "id": "w6",
+        "description": "Boxing finished customer parcels for shipping",
+        "unit": 16,
+        "minutes": 40
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "w1",
+      "description": "Stitching printed pages into book spines",
+      "unit": 1,
+      "minutes": 100,
+      "item": "binding",
+      "evidence": [
+        {
+          "id": "binding",
+          "score": 0.91239712571898
+        },
+        {
+          "id": "packing",
+          "score": 0.2955661910041986
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "w2",
+      "description": "Putting completed orders in protective shipping boxes",
+      "unit": 1,
+      "minutes": 40,
+      "item": "packing",
+      "evidence": [
+        {
+          "id": "packing",
+          "score": 0.7993050991646572
+        },
+        {
+          "id": "binding",
+          "score": 0.19936587122441926
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "w3",
+      "description": "Stitched book spine assembly",
+      "unit": 4,
+      "minutes": 50,
+      "item": "binding",
+      "evidence": [
+        {
+          "id": "binding",
+          "score": 0.7003670753326395
+        },
+        {
+          "id": "packing",
+          "score": 0.2755506682189632
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "w4",
+      "description": "Wrapping orders and sealing dispatch cartons",
+      "unit": 4,
+      "minutes": 40,
+      "item": "packing",
+      "evidence": [
+        {
+          "id": "packing",
+          "score": 0.561483957089901
+        },
+        {
+          "id": "binding",
+          "score": 0.219187989120268
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "w5",
+      "description": "Binding pages into sewn books",
+      "unit": 16,
+      "minutes": 25,
+      "item": "binding",
+      "evidence": [
+        {
+          "id": "binding",
+          "score": 0.7227549039708309
+        },
+        {
+          "id": "packing",
+          "score": 0.1628870574791323
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "w6",
+      "description": "Boxing finished customer parcels for shipping",
+      "unit": 16,
+      "minutes": 40,
+      "item": "packing",
+      "evidence": [
+        {
+          "id": "packing",
+          "score": 0.5303003401949129
+        },
+        {
+          "id": "binding",
+          "score": 0.11687987463553848
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 6,
+  "approved": 6,
+  "held": 0,
+  "status": "ready",
+  "issues": [],
+  "curves": [
+    {
+      "id": "binding",
+      "label": "Book binding",
+      "a": 100.00000000000004,
+      "b": -0.5000000000000002,
+      "doublingRatio": 0.7071067811865475,
+      "logRMSE": 1.2819751242557092e-16,
+      "lastUnit": 16,
+      "forecastMinutes": 93.12604170523893,
+      "baselineMinutes": 100,
+      "differenceMinutes": 6.873958294761067,
+      "predictions": [
+        {
+          "unit": 17,
+          "minutes": 24.253562503633294,
+          "baselineMinutes": 25
+        },
+        {
+          "unit": 18,
+          "minutes": 23.57022603955158,
+          "baselineMinutes": 25
+        },
+        {
+          "unit": 19,
+          "minutes": 22.94157338705617,
+          "baselineMinutes": 25
+        },
+        {
+          "unit": 20,
+          "minutes": 22.36067977499789,
+          "baselineMinutes": 25
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "packing",
+      "label": "Parcel packing",
+      "a": 40,
+      "b": 0,
+      "doublingRatio": 1,
+      "logRMSE": 0,
+      "lastUnit": 16,
+      "forecastMinutes": 160,
+      "baselineMinutes": 160,
+      "differenceMinutes": 0,
+      "predictions": [
+        {
+          "unit": 17,
+          "minutes": 40,
+          "baselineMinutes": 40
+        },
+        {
+          "unit": 18,
+          "minutes": 40,
+          "baselineMinutes": 40
+        },
+        {
+          "unit": 19,
+          "minutes": 40,
+          "baselineMinutes": 40
+        },
+        {
+          "unit": 20,
+          "minutes": 40,
+          "baselineMinutes": 40
+        }
+      ],
+      "warnings": [
+        "No decreasing learning trend: observed time is flat or increasing."
+      ]
+    }
+  ],
+  "nextUnits": 4,
+  "forecastMinutes": 253.12604170523895,
+  "baselineMinutes": 260
+}

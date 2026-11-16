@@ -1,0 +1,262 @@
+{
+  "schema": "rate-terrace/v1",
+  "originalInput": {
+    "context": "Synthetic quoted unit prices in USD. Same specification within each service. Quantity is the quoted batch size, weight is explicit review importance, not AI confidence.",
+    "items": [
+      {
+        "id": "books",
+        "label": "Book binding",
+        "description": "Bind printed paper pages into books with stitched spines"
+      },
+      {
+        "id": "parcels",
+        "label": "Parcel packing",
+        "description": "Pack finished orders in shipping boxes with protective wrapping"
+      }
+    ],
+    "observations": [
+      {
+        "id": "p1",
+        "description": "Stitching printed pages into book spines",
+        "quantity": 10,
+        "rate": 12,
+        "weight": 1
+      },
+      {
+        "id": "p2",
+        "description": "Putting completed orders in protective shipping boxes",
+        "quantity": 10,
+        "rate": 8,
+        "weight": 1
+      },
+      {
+        "id": "p3",
+        "description": "Stitched book spine assembly",
+        "quantity": 50,
+        "rate": 14,
+        "weight": 3
+      },
+      {
+        "id": "p4",
+        "description": "Wrapping orders and sealing dispatch cartons",
+        "quantity": 50,
+        "rate": 7,
+        "weight": 1
+      },
+      {
+        "id": "p5",
+        "description": "Binding pages into sewn books",
+        "quantity": 100,
+        "rate": 9,
+        "weight": 1
+      },
+      {
+        "id": "p6",
+        "description": "Boxing finished customer parcels for shipping",
+        "quantity": 100,
+        "rate": 9,
+        "weight": 1
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "p1",
+      "description": "Stitching printed pages into book spines",
+      "quantity": 10,
+      "rate": 12,
+      "weight": 1,
+      "item": "books",
+      "evidence": [
+        {
+          "id": "books",
+          "score": 0.91239712571898
+        },
+        {
+          "id": "parcels",
+          "score": 0.2955661910041986
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "p2",
+      "description": "Putting completed orders in protective shipping boxes",
+      "quantity": 10,
+      "rate": 8,
+      "weight": 1,
+      "item": "parcels",
+      "evidence": [
+        {
+          "id": "parcels",
+          "score": 0.7993050991646572
+        },
+        {
+          "id": "books",
+          "score": 0.19936587122441926
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "p3",
+      "description": "Stitched book spine assembly",
+      "quantity": 50,
+      "rate": 14,
+      "weight": 3,
+      "item": "books",
+      "evidence": [
+        {
+          "id": "books",
+          "score": 0.7003670753326395
+        },
+        {
+          "id": "parcels",
+          "score": 0.2755506682189632
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "p4",
+      "description": "Wrapping orders and sealing dispatch cartons",
+      "quantity": 50,
+      "rate": 7,
+      "weight": 1,
+      "item": "parcels",
+      "evidence": [
+        {
+          "id": "parcels",
+          "score": 0.561483957089901
+        },
+        {
+          "id": "books",
+          "score": 0.219187989120268
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "p5",
+      "description": "Binding pages into sewn books",
+      "quantity": 100,
+      "rate": 9,
+      "weight": 1,
+      "item": "books",
+      "evidence": [
+        {
+          "id": "books",
+          "score": 0.7227549039708309
+        },
+        {
+          "id": "parcels",
+          "score": 0.1628870574791323
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "p6",
+      "description": "Boxing finished customer parcels for shipping",
+      "quantity": 100,
+      "rate": 9,
+      "weight": 1,
+      "item": "parcels",
+      "evidence": [
+        {
+          "id": "parcels",
+          "score": 0.5303003401949129
+        },
+        {
+          "id": "books",
+          "score": 0.11687987463553848
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 6,
+  "approved": 6,
+  "held": 0,
+  "status": "ready",
+  "issues": [],
+  "services": [
+    {
+      "id": "books",
+      "label": "Book binding",
+      "tiers": [
+        {
+          "id": "p1",
+          "quantity": 10,
+          "rate": 12,
+          "weight": 1,
+          "fittedRate": 13.5,
+          "baselineRate": 12
+        },
+        {
+          "id": "p3",
+          "quantity": 50,
+          "rate": 14,
+          "weight": 3,
+          "fittedRate": 13.5,
+          "baselineRate": 12
+        },
+        {
+          "id": "p5",
+          "quantity": 100,
+          "rate": 9,
+          "weight": 1,
+          "fittedRate": 9,
+          "baselineRate": 9
+        }
+      ],
+      "blocks": 2,
+      "violations": 1,
+      "sse": 3,
+      "baselineSSE": 12
+    },
+    {
+      "id": "parcels",
+      "label": "Parcel packing",
+      "tiers": [
+        {
+          "id": "p2",
+          "quantity": 10,
+          "rate": 8,
+          "weight": 1,
+          "fittedRate": 8,
+          "baselineRate": 8
+        },
+        {
+          "id": "p4",
+          "quantity": 50,
+          "rate": 7,
+          "weight": 1,
+          "fittedRate": 8,
+          "baselineRate": 7
+        },
+        {
+          "id": "p6",
+          "quantity": 100,
+          "rate": 9,
+          "weight": 1,
+          "fittedRate": 8,
+          "baselineRate": 7
+        }
+      ],
+      "blocks": 2,
+      "violations": 1,
+      "sse": 2,
+      "baselineSSE": 4
+    }
+  ],
+  "sse": 5,
+  "baselineSSE": 16,
+  "violations": 2
+}

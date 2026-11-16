@@ -1199,3 +1199,10 @@ Basket Deflator public release: matching Pages `56201376095ae2b5bc8b36aec750ab59
 ## Practice Curve — 20261116-10
 
 Local MiniLM procedure inference reconciles informal individual-unit time studies for reviewed learning-curve effort scenarios. Verify repetitions and timings, compare next-batch power-curve sums with last-observation flat-time planning, and export all original/review records plus per-unit forecasts. Two synthetic workflows matched 12/12 descriptions; a maximum complete 8-procedure/24-observation workflow exported 800 forecasts. These small fixtures are not general accuracy or future-savings claims. Uses the immutable 20261115-6 worker/factory and 20261107-2 WASM; preserve those paths. See [workflow](20261116-10/README.md) and [validation](20261116-10/VALIDATION.md). No digest sent by the builder.
+
+
+## Rate Terrace — 20261116-11
+
+Local MiniLM reconciles quote descriptions before mandatory service/quantity/rate/weight review. Weighted PAVA produces non-increasing unit-rate proposals with minimum squared adjustment against a running-minimum baseline; complete JSON/CSV/rates/Markdown exports retain originals. Chrome CPU inference matched 12/12 simple fixture links; 420 independent optimality comparisons and full 24-quote artifact round trips passed. Not a profit optimizer or live catalog editor. Preserve shared worker/factory `20261115-6`, inference WASM `20261107-2`, and geometry WASM `20261028-24`. See [workflow/privacy](20261116-11/README.md) and [observed validation](20261116-11/VALIDATION.md).
+
+Combined-site size guard extends existing deploy-only byte-identical Manifold reuse to `20261030-25`. Source builds and legacy JS URLs remain intact, with query-versioned worker/shell references. Actual default/image/mesh geometry and parsed binary STL regressions passed; assembled site is 999,533,995 bytes.

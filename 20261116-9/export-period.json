@@ -1,0 +1,139 @@
+{
+  "schema": "basket-deflator/v1",
+  "originalInput": {
+    "context": "Synthetic garden purchasing review. All prices are cents in one common currency, per unchanged pack; quantities are whole packs. Not an official inflation statistic.",
+    "maxInflationPct": 10,
+    "items": [
+      {
+        "id": "seeds",
+        "label": "Vegetable seeds",
+        "description": "Packets of vegetable seeds for growing garden crops"
+      },
+      {
+        "id": "compost",
+        "label": "Compost bags",
+        "description": "Bags of compost organic soil amendment for garden beds"
+      }
+    ],
+    "observations": [
+      {
+        "id": "c1",
+        "description": "Packets for sowing vegetables in spring",
+        "period": "base",
+        "priceCents": 200,
+        "quantity": 20
+      },
+      {
+        "id": "c2",
+        "description": "Bagged organic compost to enrich soil",
+        "period": "base",
+        "priceCents": 1000,
+        "quantity": 10
+      },
+      {
+        "id": "d1",
+        "description": "Vegetable garden seed packets",
+        "period": "current",
+        "priceCents": 300,
+        "quantity": 10
+      },
+      {
+        "id": "d2",
+        "description": "Organic soil enriching compost bags",
+        "period": "current",
+        "priceCents": 900,
+        "quantity": 20
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "c1",
+      "description": "Packets for sowing vegetables in spring",
+      "period": "current",
+      "priceCents": 200,
+      "quantity": 20,
+      "item": "seeds",
+      "evidence": [
+        {
+          "id": "seeds",
+          "score": 0.6438428345549093
+        },
+        {
+          "id": "compost",
+          "score": 0.37834332166724227
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "c2",
+      "description": "Bagged organic compost to enrich soil",
+      "period": "base",
+      "priceCents": 1000,
+      "quantity": 10,
+      "item": "compost",
+      "evidence": [
+        {
+          "id": "compost",
+          "score": 0.7800044604907319
+        },
+        {
+          "id": "seeds",
+          "score": 0.313713558051878
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "d1",
+      "description": "Vegetable garden seed packets",
+      "period": "current",
+      "priceCents": 300,
+      "quantity": 10,
+      "item": "seeds",
+      "evidence": [
+        {
+          "id": "seeds",
+          "score": 0.8882132017192004
+        },
+        {
+          "id": "compost",
+          "score": 0.35100900438136406
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "d2",
+      "description": "Organic soil enriching compost bags",
+      "period": "current",
+      "priceCents": 900,
+      "quantity": 20,
+      "item": "compost",
+      "evidence": [
+        {
+          "id": "compost",
+          "score": 0.8213356275802243
+        },
+        {
+          "id": "seeds",
+          "score": 0.30491532236203134
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "status": "blocked",
+  "issues": [
+    "base / Vegetable seeds: expected exactly one observation; found 0",
+    "current / Vegetable seeds: expected exactly one observation; found 2"
+  ]
+}

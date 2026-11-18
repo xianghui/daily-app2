@@ -1,0 +1,200 @@
+{
+  "schema": "burst-ledger/v1",
+  "originalInput": {
+    "context": "Synthetic complete 30-second observation. Each whole job batch is accepted or rejected; rates are jobs/second, not durations or bandwidth.",
+    "horizon": 30,
+    "goalLossShare": 0,
+    "items": [
+      {
+        "id": "index",
+        "label": "Search indexing jobs",
+        "description": "Text document ingestion and search index building jobs",
+        "rate": 1,
+        "capacity": 6
+      },
+      {
+        "id": "video",
+        "label": "Video transcoding jobs",
+        "description": "Video clip encoding and format conversion jobs",
+        "rate": 0.5,
+        "capacity": 4
+      }
+    ],
+    "observations": [
+      {
+        "id": "e",
+        "description": "Searchable document ingestion and index generation work arriving",
+        "time": 2,
+        "amount": 5
+      },
+      {
+        "id": "f",
+        "description": "Full text search index building task batch",
+        "time": 3,
+        "amount": 4
+      },
+      {
+        "id": "g",
+        "description": "Movie clip encoding and video format conversion job batch",
+        "time": 0,
+        "amount": 5
+      },
+      {
+        "id": "h",
+        "description": "Video reencoding and transcoding jobs arriving together",
+        "time": 10,
+        "amount": 3
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "e",
+      "description": "Searchable document ingestion and index generation work arriving",
+      "time": 2,
+      "amount": 5,
+      "item": "index",
+      "evidence": [
+        {
+          "id": "index",
+          "score": 0.7528983389974031
+        },
+        {
+          "id": "video",
+          "score": 0.06889487761179196
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "f",
+      "description": "Full text search index building task batch",
+      "time": 3,
+      "amount": 4,
+      "item": "index",
+      "evidence": [
+        {
+          "id": "index",
+          "score": 0.6501507394820538
+        },
+        {
+          "id": "video",
+          "score": 0.0743767983756435
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "g",
+      "description": "Movie clip encoding and video format conversion job batch",
+      "time": 0,
+      "amount": 5,
+      "item": "video",
+      "evidence": [
+        {
+          "id": "video",
+          "score": 0.8652825217715965
+        },
+        {
+          "id": "index",
+          "score": 0.1275977161372257
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "h",
+      "description": "Video reencoding and transcoding jobs arriving together",
+      "time": 10,
+      "amount": 3,
+      "item": "video",
+      "evidence": [
+        {
+          "id": "video",
+          "score": 0.5432723961346497
+        },
+        {
+          "id": "index",
+          "score": 0.24484985554774713
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "status": "ready",
+  "issues": [],
+  "groups": [
+    {
+      "item": "index",
+      "rate": 1,
+      "capacity": 6,
+      "trace": [
+        {
+          "id": "e",
+          "time": 2,
+          "amount": 5,
+          "before": 6,
+          "after": 1,
+          "outcome": "accept"
+        },
+        {
+          "id": "f",
+          "time": 3,
+          "amount": 4,
+          "before": 2,
+          "after": 2,
+          "outcome": "reject"
+        }
+      ],
+      "minCapacity": 8,
+      "accepted": 5,
+      "rejected": 4,
+      "total": 9,
+      "averageRate": 0.3,
+      "baselineWithinRate": true,
+      "lossShare": 0.4444444444444444,
+      "meetsGoal": false,
+      "proposedRejected": 0
+    },
+    {
+      "item": "video",
+      "rate": 0.5,
+      "capacity": 4,
+      "trace": [
+        {
+          "id": "g",
+          "time": 0,
+          "amount": 5,
+          "before": 4,
+          "after": 4,
+          "outcome": "reject"
+        },
+        {
+          "id": "h",
+          "time": 10,
+          "amount": 3,
+          "before": 4,
+          "after": 1,
+          "outcome": "accept"
+        }
+      ],
+      "minCapacity": 5,
+      "accepted": 3,
+      "rejected": 5,
+      "total": 8,
+      "averageRate": 0.26666666666666666,
+      "baselineWithinRate": true,
+      "lossShare": 0.625,
+      "meetsGoal": false,
+      "proposedRejected": 0
+    }
+  ],
+  "units": 17
+}

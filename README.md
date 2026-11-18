@@ -1229,3 +1229,10 @@ Real local MiniLM reconciles differently worded latency histograms before mandat
 Collection size guard: deploy-only byte-identical geometry runtime reuse now includes `20261030-26` → `20261028-24`. Source builds and legacy JS URLs remain intact; real model generation/image import/STL export were revalidated.
 
 Tail Atlas public release: matching Pages `fefc924839c14ea6ae90500283853c3a12425452` reached built. Byte-matched public app/runtime assets, both real-AI fixtures, full reviewed artifact/privacy/offline suite, maximum batch, 711 preserved gallery cards and deduplicated legacy model/image/STL workflow passed. Combined site: 999,623,171 bytes. Unrelated pre-existing edits excluded from source staging; no digest sent.
+
+
+## Burst Ledger — 20261119-3
+
+Local MiniLM reconciles informal arrival notes before mandatory stream/time/batch review. Replay independent full token buckets, expose rejections hidden by average-rate checks, compute verified observed burst-capacity bounds and export complete JSON/CSV/Markdown without uploads or service changes. Two tiny fixtures matched 8/8 identities; 1,200 independent interval-demand oracle cases, reviewed artifacts, defensive handling and fresh-worker offline inference passed. Preserve immutable worker/runtime `20261115-6` and WASM `20261107-2`. See [workflow](20261119-3/README.md) and [observed validation](20261119-3/VALIDATION.md). No digest sent.
+
+Burst Ledger public release: matching Pages `526595b3a20ef75d9aad7c52e681f7380e598313` reached built. Public app/runtime bytes, both real-AI fixtures, offline fresh-worker inference, reviewed artifacts and the 712-card preserved gallery passed. Source staging excludes unrelated pre-existing edits.

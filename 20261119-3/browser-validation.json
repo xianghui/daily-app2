@@ -1,0 +1,473 @@
+{
+  "fixtures": [
+    {
+      "name": "Storefront bursts",
+      "expected": [
+        "checkout",
+        "checkout",
+        "image",
+        "image"
+      ],
+      "actual": [
+        "checkout",
+        "checkout",
+        "image",
+        "image"
+      ],
+      "groups": [
+        {
+          "item": "checkout",
+          "rate": 5,
+          "capacity": 10,
+          "trace": [
+            {
+              "id": "a",
+              "time": 0,
+              "amount": 8,
+              "before": 10,
+              "after": 2,
+              "outcome": "accept"
+            },
+            {
+              "id": "b",
+              "time": 0,
+              "amount": 8,
+              "before": 2,
+              "after": 2,
+              "outcome": "reject"
+            }
+          ],
+          "minCapacity": 16,
+          "accepted": 8,
+          "rejected": 8,
+          "total": 16,
+          "averageRate": 0.8,
+          "baselineWithinRate": true,
+          "lossShare": 0.5,
+          "meetsGoal": false,
+          "proposedRejected": 0
+        },
+        {
+          "item": "image",
+          "rate": 2,
+          "capacity": 10,
+          "trace": [
+            {
+              "id": "c",
+              "time": 1,
+              "amount": 4,
+              "before": 10,
+              "after": 6,
+              "outcome": "accept"
+            },
+            {
+              "id": "d",
+              "time": 5,
+              "amount": 6,
+              "before": 10,
+              "after": 4,
+              "outcome": "accept"
+            }
+          ],
+          "minCapacity": 6,
+          "accepted": 10,
+          "rejected": 0,
+          "total": 10,
+          "averageRate": 0.5,
+          "baselineWithinRate": true,
+          "lossShare": 0,
+          "meetsGoal": true,
+          "proposedRejected": 0
+        }
+      ]
+    },
+    {
+      "name": "Media intake bursts",
+      "expected": [
+        "index",
+        "index",
+        "video",
+        "video"
+      ],
+      "actual": [
+        "index",
+        "index",
+        "video",
+        "video"
+      ],
+      "groups": [
+        {
+          "item": "index",
+          "rate": 1,
+          "capacity": 6,
+          "trace": [
+            {
+              "id": "e",
+              "time": 2,
+              "amount": 5,
+              "before": 6,
+              "after": 1,
+              "outcome": "accept"
+            },
+            {
+              "id": "f",
+              "time": 3,
+              "amount": 4,
+              "before": 2,
+              "after": 2,
+              "outcome": "reject"
+            }
+          ],
+          "minCapacity": 8,
+          "accepted": 5,
+          "rejected": 4,
+          "total": 9,
+          "averageRate": 0.3,
+          "baselineWithinRate": true,
+          "lossShare": 0.4444444444444444,
+          "meetsGoal": false,
+          "proposedRejected": 0
+        },
+        {
+          "item": "video",
+          "rate": 0.5,
+          "capacity": 4,
+          "trace": [
+            {
+              "id": "g",
+              "time": 0,
+              "amount": 5,
+              "before": 4,
+              "after": 4,
+              "outcome": "reject"
+            },
+            {
+              "id": "h",
+              "time": 10,
+              "amount": 3,
+              "before": 4,
+              "after": 1,
+              "outcome": "accept"
+            }
+          ],
+          "minCapacity": 5,
+          "accepted": 3,
+          "rejected": 5,
+          "total": 8,
+          "averageRate": 0.26666666666666666,
+          "baselineWithinRate": true,
+          "lossShare": 0.625,
+          "meetsGoal": false,
+          "proposedRejected": 0
+        }
+      ]
+    }
+  ],
+  "checks": [
+    "review/hold/undo/edit/remap/copy/multiline; audit import resets approvals; offline fresh-worker real inference",
+    "invalid/empty/oversized/duplicates/time/amount/formats; cancellation and real retry; changed input invalidates stale run",
+    "maximum 32 texts, four-text chunks; all 24 originals round-trip",
+    "desktop/390/320px no overflow; touch/labels/focus; inert source instructions"
+  ],
+  "challenge": {
+    "suggested": "video",
+    "limitation": "Nearest candidate returned for irrelevant text. Human hold required; similarity is not identity."
+  },
+  "privacy": {
+    "allRequestsGetWithoutBody": true,
+    "noFixtureTextInURLs": true,
+    "noModelRequestsBeforeExplicitLoad": true
+  },
+  "requests": [
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:6951/daily-app2/20261119-3/",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:6951/daily-app2/20261119-3/assets/index-CEynwX-O.js",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:6951/daily-app2/20261119-3/assets/index-DXi-T0OV.css",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:6951/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6951/90e02640-7b91-4054-80bb-10d24021c61d",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:6951/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:6951/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "X-Xet-Cas-Uid",
+        "response-content-disposition",
+        "user_id",
+        "xip",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "X-Xet-Cas-Uid",
+        "user_id",
+        "response-content-disposition",
+        "xip",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6951/4ccca7b4-e36f-41a8-9244-945250f823fa",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6951/90c63043-70b2-4c3c-a98e-20f39b20f10a",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6951/c508d98c-79f2-47cf-b1d2-cb7637ab3c9b",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6951/0b71ec63-d0c6-4e15-9754-f7bf077324fb",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6951/f1ab174e-527b-4fb8-8650-d018d6ee601b",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6951/27982fcb-f3fd-42f2-a2f3-1e13abb47853",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6951/8c8479db-7131-4189-894a-204145b2662d",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6951/2aff7de5-5dfc-4c90-a207-30ced06c1f92",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6951/6371fea7-362a-4783-aa9b-e606744cf83a",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6951/ecc2d309-b363-4962-bcac-517c1cf4ab8e",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6951/8c5a1762-0a6a-48ba-829c-6d430b746f73",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6951/4714f763-61dc-4462-a9f1-18d29efae348",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6951/e00c9520-7146-4b9a-a14c-432be6ef42c2",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6951/dedfd4b2-0410-488b-91d2-44130a4032e7",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6951/001406be-b740-47a9-b042-6a4e06252bca",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6951/5b03af4c-457c-4cf8-806b-6a8541659c88",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6951/5bc7d63a-c419-4d17-8499-ee8adc33e4bf",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6951/33f1c33b-f940-4a59-9db9-59073bef1863",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6951/afdbf403-add7-4273-a36d-b324b2f3e591",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6951/a6e4aa96-f4fe-4874-a65b-5a32c8c1b0ab",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6951/7da1ee14-08fb-436b-bf44-1b9f778d0060",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6951/6da55be4-19e8-4144-b8d9-3bc74c70675d",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6951/5b0a4d8c-494e-4b65-8743-fa6f2aed1c67",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6951/a6765fd0-fb0f-4f4e-acea-7250ddc7ce89",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6951/0c1f4683-56ff-4122-a759-43dd0ee4c08e",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6951/0fa7d93b-bc4f-4f17-a568-6eb07a52abef",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6951/fc7c0d4b-57cd-46db-b5ea-e66d84cf1968",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6951/914e04ae-70a3-40d2-8086-6efb9a258c64",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6951/821fec70-f9a6-4d94-a8db-309dac9a95c9",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6951/3843dabd-ff36-4fdc-9da4-03a42307b291",
+      "queryKeys": []
+    }
+  ]
+}

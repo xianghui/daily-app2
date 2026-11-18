@@ -1,0 +1,200 @@
+{
+  "schema": "burst-ledger/v1",
+  "originalInput": {
+    "context": "Synthetic complete 20-second observation. Counts are indivisible batches of requests; each independent stream starts with a full bucket at time zero.",
+    "horizon": 20,
+    "goalLossShare": 0,
+    "items": [
+      {
+        "id": "checkout",
+        "label": "Checkout payment requests",
+        "description": "Store checkout payment transaction request arrivals",
+        "rate": 5,
+        "capacity": 10
+      },
+      {
+        "id": "image",
+        "label": "Product image requests",
+        "description": "Product photograph and thumbnail image download requests",
+        "rate": 2,
+        "capacity": 10
+      }
+    ],
+    "observations": [
+      {
+        "id": "a",
+        "description": "Online store payment checkout requests arriving together",
+        "time": 0,
+        "amount": 8
+      },
+      {
+        "id": "b",
+        "description": "Store payment transaction request batch",
+        "time": 0,
+        "amount": 8
+      },
+      {
+        "id": "c",
+        "description": "Catalog photo thumbnail download request batch",
+        "time": 1,
+        "amount": 4
+      },
+      {
+        "id": "d",
+        "description": "Product photograph image retrieval requests",
+        "time": 5,
+        "amount": 6
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "a",
+      "description": "Online store payment checkout requests arriving together",
+      "time": 0,
+      "amount": 8,
+      "item": "checkout",
+      "evidence": [
+        {
+          "id": "checkout",
+          "score": 0.7561672610131499
+        },
+        {
+          "id": "image",
+          "score": 0.1666686655780671
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "b",
+      "description": "Store payment transaction request batch",
+      "time": 0,
+      "amount": 8,
+      "item": "checkout",
+      "evidence": [
+        {
+          "id": "checkout",
+          "score": 0.6916934407007046
+        },
+        {
+          "id": "image",
+          "score": 0.16248257537188576
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "c",
+      "description": "Catalog photo thumbnail download request batch",
+      "time": 1,
+      "amount": 4,
+      "item": "image",
+      "evidence": [
+        {
+          "id": "image",
+          "score": 0.7562086452215064
+        },
+        {
+          "id": "checkout",
+          "score": 0.18928331293162112
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "d",
+      "description": "Product photograph image retrieval requests",
+      "time": 5,
+      "amount": 6,
+      "item": "image",
+      "evidence": [
+        {
+          "id": "image",
+          "score": 0.7241199553301719
+        },
+        {
+          "id": "checkout",
+          "score": 0.08830111705852314
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "status": "ready",
+  "issues": [],
+  "groups": [
+    {
+      "item": "checkout",
+      "rate": 5,
+      "capacity": 10,
+      "trace": [
+        {
+          "id": "a",
+          "time": 0,
+          "amount": 8,
+          "before": 10,
+          "after": 2,
+          "outcome": "accept"
+        },
+        {
+          "id": "b",
+          "time": 0,
+          "amount": 8,
+          "before": 2,
+          "after": 2,
+          "outcome": "reject"
+        }
+      ],
+      "minCapacity": 16,
+      "accepted": 8,
+      "rejected": 8,
+      "total": 16,
+      "averageRate": 0.8,
+      "baselineWithinRate": true,
+      "lossShare": 0.5,
+      "meetsGoal": false,
+      "proposedRejected": 0
+    },
+    {
+      "item": "image",
+      "rate": 2,
+      "capacity": 10,
+      "trace": [
+        {
+          "id": "c",
+          "time": 1,
+          "amount": 4,
+          "before": 10,
+          "after": 6,
+          "outcome": "accept"
+        },
+        {
+          "id": "d",
+          "time": 5,
+          "amount": 6,
+          "before": 10,
+          "after": 4,
+          "outcome": "accept"
+        }
+      ],
+      "minCapacity": 6,
+      "accepted": 10,
+      "rejected": 0,
+      "total": 10,
+      "averageRate": 0.5,
+      "baselineWithinRate": true,
+      "lossShare": 0,
+      "meetsGoal": true,
+      "proposedRejected": 0
+    }
+  ],
+  "units": 26
+}

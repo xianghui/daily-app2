@@ -1,0 +1,237 @@
+{
+  "schema": "phase-folio/v1",
+  "originalInput": {
+    "context": "Synthetic repeat service arrivals over three days, equal weight per event. These observations are not a future arrival guarantee.",
+    "referenceClock": "UTC",
+    "coverage": 1,
+    "items": [
+      {
+        "id": "waste",
+        "label": "Recycling collection",
+        "description": "Paper cardboard and recyclable waste collection truck arrival"
+      },
+      {
+        "id": "garden",
+        "label": "Garden maintenance",
+        "description": "Gardener lawn mowing hedge trimming landscape maintenance visit arrival"
+      }
+    ],
+    "observations": [
+      {
+        "id": "i",
+        "description": "Cardboard and paper recycling pickup lorry arrives",
+        "minute": 480
+      },
+      {
+        "id": "j",
+        "description": "Recyclable waste collection truck at loading bay",
+        "minute": 500
+      },
+      {
+        "id": "k",
+        "description": "Paper recycling collection vehicle arrives",
+        "minute": 520
+      },
+      {
+        "id": "l",
+        "description": "Landscape crew arrives to mow grass and trim hedges",
+        "minute": 780
+      },
+      {
+        "id": "m",
+        "description": "Gardener arrives for lawn and hedge maintenance",
+        "minute": 810
+      },
+      {
+        "id": "n",
+        "description": "Garden maintenance team visits for grass cutting",
+        "minute": 840
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "i",
+      "description": "Cardboard and paper recycling pickup lorry arrives",
+      "minute": 490,
+      "item": "garden",
+      "evidence": [
+        {
+          "id": "waste",
+          "score": 0.7939891372376768
+        },
+        {
+          "id": "garden",
+          "score": 0.2358926195090677
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", verify"
+    },
+    {
+      "id": "j",
+      "description": "Recyclable waste collection truck at loading bay",
+      "minute": 500,
+      "item": "waste",
+      "evidence": [
+        {
+          "id": "waste",
+          "score": 0.686735531303488
+        },
+        {
+          "id": "garden",
+          "score": 0.102597978141122
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "k",
+      "description": "Paper recycling collection vehicle arrives",
+      "minute": 520,
+      "item": "waste",
+      "evidence": [
+        {
+          "id": "waste",
+          "score": 0.7952384435362881
+        },
+        {
+          "id": "garden",
+          "score": 0.2002068543891645
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "l",
+      "description": "Landscape crew arrives to mow grass and trim hedges",
+      "minute": 780,
+      "item": "garden",
+      "evidence": [
+        {
+          "id": "garden",
+          "score": 0.8095721646191798
+        },
+        {
+          "id": "waste",
+          "score": 0.23427162507781832
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "m",
+      "description": "Gardener arrives for lawn and hedge maintenance",
+      "minute": 810,
+      "item": "garden",
+      "evidence": [
+        {
+          "id": "garden",
+          "score": 0.7721900028524333
+        },
+        {
+          "id": "waste",
+          "score": 0.11970151527121399
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "n",
+      "description": "Garden maintenance team visits for grass cutting",
+      "minute": 840,
+      "item": "garden",
+      "evidence": [
+        {
+          "id": "garden",
+          "score": 0.6852713109722173
+        },
+        {
+          "id": "waste",
+          "score": 0.16767285210654564
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 6,
+  "approved": 6,
+  "held": 0,
+  "status": "ready",
+  "issues": [],
+  "groups": [
+    {
+      "item": "waste",
+      "count": 2,
+      "mean": 510,
+      "resultant": 0.9990482215818578,
+      "linearMean": 510,
+      "meanDistance": 10,
+      "linearDistance": 10,
+      "arc": {
+        "start": 500,
+        "end": 520,
+        "width": 20,
+        "required": 2,
+        "wraps": false,
+        "covered": 2
+      },
+      "events": [
+        {
+          "id": "j",
+          "minute": 500,
+          "inArc": true
+        },
+        {
+          "id": "k",
+          "minute": 520,
+          "inArc": true
+        }
+      ]
+    },
+    {
+      "item": "garden",
+      "count": 4,
+      "mean": 740.690434938031,
+      "resultant": 0.8266490272156942,
+      "linearMean": 730,
+      "meanDistance": 114.6547825309845,
+      "linearDistance": 120,
+      "arc": {
+        "start": 490,
+        "end": 840,
+        "width": 350,
+        "required": 4,
+        "wraps": false,
+        "covered": 4
+      },
+      "events": [
+        {
+          "id": "i",
+          "minute": 490,
+          "inArc": true
+        },
+        {
+          "id": "l",
+          "minute": 780,
+          "inArc": true
+        },
+        {
+          "id": "m",
+          "minute": 810,
+          "inArc": true
+        },
+        {
+          "id": "n",
+          "minute": 840,
+          "inArc": true
+        }
+      ]
+    }
+  ]
+}

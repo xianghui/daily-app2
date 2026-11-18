@@ -48,7 +48,7 @@ geometryName='manifold-BE4c7gO-.wasm'
 geometryShared=deploy/'20261028-24/assets'/geometryName
 geometryBytes=geometryShared.read_bytes()
 geometryChanges=[]
-for appName in ['20261028-22','20261028-23','20261030-28','20261025-7','20261025-8','20261030-10','20261030-11','20261030-12','20261030-13','20261030-14','20261030-15','20261030-16','20261030-17','20261030-18','20261030-19','20261030-20','20261030-21','20261030-22','20261030-23','20261030-24','20261030-25','20261030-26']:
+for appName in ['20261028-22','20261028-23','20261030-28','20261025-7','20261025-8','20261030-10','20261030-11','20261030-12','20261030-13','20261030-14','20261030-15','20261030-16','20261030-17','20261030-18','20261030-19','20261030-20','20261030-21','20261030-22','20261030-23','20261030-24','20261030-25','20261030-26','20261030-27']:
  folder=deploy/appName;duplicate=folder/'assets'/geometryName
  if not duplicate.exists():continue
  if duplicate.read_bytes()!=geometryBytes:raise SystemExit('Geometry runtime mismatch: '+appName)
@@ -63,6 +63,8 @@ for appName in ['20261028-22','20261028-23','20261030-28','20261025-7','20261025
  if not workers:raise SystemExit('Missing geometry runtime reference: '+appName)
  mains=[]
  for f in folder.glob('assets/*.js'):
+  # Vite browser-external warning strings mention worker names but are not entry references.
+  if f.name.startswith('__vite-browser-external-'):continue
   text=f.read_text();revised=text
   for oldWorker,newWorker in workers:revised=revised.replace(oldWorker,newWorker)
   if text!=revised:

@@ -1,0 +1,181 @@
+{
+  "schema": "phase-folio/v1",
+  "originalInput": {
+    "context": "Synthetic repeat service arrivals over three days, equal weight per event. These observations are not a future arrival guarantee.",
+    "referenceClock": "UTC",
+    "coverage": 1,
+    "items": [
+      {
+        "id": "waste",
+        "label": "Recycling collection",
+        "description": "Paper cardboard and recyclable waste collection truck arrival"
+      },
+      {
+        "id": "garden",
+        "label": "Garden maintenance",
+        "description": "Gardener lawn mowing hedge trimming landscape maintenance visit arrival"
+      }
+    ],
+    "observations": [
+      {
+        "id": "o1",
+        "description": "Paper cardboard and recyclable waste collection truck arrival",
+        "minute": 0
+      },
+      {
+        "id": "o2",
+        "description": "Paper cardboard and recyclable waste collection truck arrival",
+        "minute": 720
+      },
+      {
+        "id": "o3",
+        "description": "Gardener lawn mowing hedge trimming landscape maintenance visit arrival",
+        "minute": 60
+      },
+      {
+        "id": "o4",
+        "description": "Gardener lawn mowing hedge trimming landscape maintenance visit arrival",
+        "minute": 780
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "o1",
+      "description": "Paper cardboard and recyclable waste collection truck arrival",
+      "minute": 0,
+      "item": "waste",
+      "evidence": [
+        {
+          "id": "waste",
+          "score": 1.0000001681839816
+        },
+        {
+          "id": "garden",
+          "score": 0.16125283778055247
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "o2",
+      "description": "Paper cardboard and recyclable waste collection truck arrival",
+      "minute": 720,
+      "item": "waste",
+      "evidence": [
+        {
+          "id": "waste",
+          "score": 1.0000001681839816
+        },
+        {
+          "id": "garden",
+          "score": 0.16125283778055247
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "o3",
+      "description": "Gardener lawn mowing hedge trimming landscape maintenance visit arrival",
+      "minute": 60,
+      "item": "garden",
+      "evidence": [
+        {
+          "id": "garden",
+          "score": 0.9934343144682382
+        },
+        {
+          "id": "waste",
+          "score": 0.15024857331211014
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "o4",
+      "description": "Gardener lawn mowing hedge trimming landscape maintenance visit arrival",
+      "minute": 780,
+      "item": "garden",
+      "evidence": [
+        {
+          "id": "garden",
+          "score": 0.9934343144682382
+        },
+        {
+          "id": "waste",
+          "score": 0.15024857331211014
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "status": "ready",
+  "issues": [],
+  "groups": [
+    {
+      "item": "waste",
+      "count": 2,
+      "mean": null,
+      "resultant": 6.123233995736766e-17,
+      "linearMean": 360,
+      "meanDistance": null,
+      "linearDistance": 360,
+      "arc": {
+        "start": 0,
+        "end": 720,
+        "width": 720,
+        "required": 2,
+        "wraps": false,
+        "covered": 2
+      },
+      "events": [
+        {
+          "id": "o1",
+          "minute": 0,
+          "inArc": true
+        },
+        {
+          "id": "o2",
+          "minute": 720,
+          "inArc": true
+        }
+      ]
+    },
+    {
+      "item": "garden",
+      "count": 2,
+      "mean": null,
+      "resultant": 2.0206364052201328e-16,
+      "linearMean": 420,
+      "meanDistance": null,
+      "linearDistance": 360,
+      "arc": {
+        "start": 60,
+        "end": 780,
+        "width": 720,
+        "required": 2,
+        "wraps": false,
+        "covered": 2
+      },
+      "events": [
+        {
+          "id": "o3",
+          "minute": 60,
+          "inArc": true
+        },
+        {
+          "id": "o4",
+          "minute": 780,
+          "inArc": true
+        }
+      ]
+    }
+  ]
+}

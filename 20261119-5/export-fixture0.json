@@ -1,0 +1,150 @@
+{
+  "schema": "link-commons/v1",
+  "originalInput": {
+    "context": "Synthetic concurrent transfers. Fixed routes and steady Mbps planning; each transfer is ready now. No network changes.",
+    "links": [
+      {
+        "id": "uplink",
+        "label": "Shared office uplink",
+        "capacity": 10
+      }
+    ],
+    "items": [
+      {
+        "id": "photos",
+        "label": "Photo backup route",
+        "description": "Camera photographs and image archive backup transfer",
+        "links": [
+          "uplink"
+        ]
+      },
+      {
+        "id": "video",
+        "label": "Video rendering route",
+        "description": "Rendered video clips and movie footage delivery transfer",
+        "links": [
+          "uplink"
+        ]
+      }
+    ],
+    "observations": [
+      {
+        "id": "a",
+        "description": "Camera snapshots copied to the picture archive",
+        "demand": 2,
+        "weight": 1
+      },
+      {
+        "id": "b",
+        "description": "Finished film footage delivered to the editing server",
+        "demand": 10,
+        "weight": 1
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "a",
+      "description": "Camera snapshots copied to the picture archive",
+      "demand": 2,
+      "weight": 1,
+      "item": "photos",
+      "evidence": [
+        {
+          "id": "photos",
+          "score": 0.7361849624379524
+        },
+        {
+          "id": "video",
+          "score": 0.379717055878263
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "b",
+      "description": "Finished film footage delivered to the editing server",
+      "demand": 10,
+      "weight": 1,
+      "item": "video",
+      "evidence": [
+        {
+          "id": "video",
+          "score": 0.6600340248088169
+        },
+        {
+          "id": "photos",
+          "score": 0.34945267650419387
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 2,
+  "approved": 2,
+  "held": 0,
+  "status": "ready",
+  "issues": [],
+  "flows": [
+    {
+      "id": "a",
+      "item": "photos",
+      "demand": 2,
+      "weight": 1,
+      "rate": 2,
+      "baseline": 2,
+      "stop": {
+        "demand": true,
+        "links": []
+      }
+    },
+    {
+      "id": "b",
+      "item": "video",
+      "demand": 10,
+      "weight": 1,
+      "rate": 8,
+      "baseline": 5,
+      "stop": {
+        "demand": false,
+        "links": [
+          "uplink"
+        ]
+      }
+    }
+  ],
+  "links": [
+    {
+      "id": "uplink",
+      "label": "Shared office uplink",
+      "capacity": 10,
+      "load": 10,
+      "baselineLoad": 7,
+      "spare": 0
+    }
+  ],
+  "trace": [
+    {
+      "step": 1,
+      "weightedIncrement": 2,
+      "frozen": [
+        "a"
+      ],
+      "saturated": []
+    },
+    {
+      "step": 2,
+      "weightedIncrement": 6,
+      "frozen": [
+        "b"
+      ],
+      "saturated": [
+        "uplink"
+      ]
+    }
+  ],
+  "totalRate": 10,
+  "baselineRate": 7
+}

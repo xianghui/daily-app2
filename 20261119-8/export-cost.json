@@ -1,0 +1,205 @@
+{
+  "schema": "search-ladder/v1",
+  "originalInput": {
+    "context": "Synthetic closed retrieval cohort. A unique authoritative home per request; misses searched every repository. Lookup effort excludes reading the found document.",
+    "misses": 1,
+    "items": [
+      {
+        "id": "engineering",
+        "label": "Engineering runbooks",
+        "description": "Software deployment operational runbooks troubleshooting technical servers",
+        "cost": 3
+      },
+      {
+        "id": "people",
+        "label": "People handbook",
+        "description": "Employee vacation leave benefits human resources policies",
+        "cost": 1
+      },
+      {
+        "id": "brand",
+        "label": "Brand kit",
+        "description": "Corporate brand logos typography visual identity design assets",
+        "cost": 2
+      }
+    ],
+    "observations": [
+      {
+        "id": "t1",
+        "description": "Server deployment troubleshooting procedure",
+        "count": 9
+      },
+      {
+        "id": "t2",
+        "description": "Staff annual leave and benefits policy",
+        "count": 8
+      },
+      {
+        "id": "t3",
+        "description": "Company logo and typography design files",
+        "count": 3
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "t1",
+      "description": "Server deployment troubleshooting procedure",
+      "count": 1,
+      "item": "engineering",
+      "evidence": [
+        {
+          "id": "engineering",
+          "score": 0.6825944744986144
+        },
+        {
+          "id": "brand",
+          "score": 0.07692080890831712
+        },
+        {
+          "id": "people",
+          "score": 0.007056859272190703
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", verify"
+    },
+    {
+      "id": "t2",
+      "description": "Staff annual leave and benefits policy",
+      "count": 8,
+      "item": "people",
+      "evidence": [
+        {
+          "id": "people",
+          "score": 0.7273726541902439
+        },
+        {
+          "id": "brand",
+          "score": 0.07217418944436568
+        },
+        {
+          "id": "engineering",
+          "score": 0.02932576593295133
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "t3",
+      "description": "Company logo and typography design files",
+      "count": 3,
+      "item": "brand",
+      "evidence": [
+        {
+          "id": "brand",
+          "score": 0.7165927631808235
+        },
+        {
+          "id": "engineering",
+          "score": 0.1780352514120715
+        },
+        {
+          "id": "people",
+          "score": 0.1283393689162639
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "costs": [
+    0.5,
+    1,
+    2
+  ],
+  "total": 3,
+  "approved": 3,
+  "held": 0,
+  "status": "ready",
+  "issues": [],
+  "hits": {
+    "engineering": 1,
+    "people": 8,
+    "brand": 3
+  },
+  "cohort": 13,
+  "resolved": 12,
+  "misses": 1,
+  "baseline": {
+    "ladder": [
+      {
+        "id": "engineering",
+        "label": "Engineering runbooks",
+        "description": "Software deployment operational runbooks troubleshooting technical servers",
+        "cost": 0.5,
+        "hits": 1,
+        "cumulative": 0.5,
+        "costContribution": 0.5,
+        "priority": 2
+      },
+      {
+        "id": "people",
+        "label": "People handbook",
+        "description": "Employee vacation leave benefits human resources policies",
+        "cost": 1,
+        "hits": 8,
+        "cumulative": 1.5,
+        "costContribution": 12,
+        "priority": 8
+      },
+      {
+        "id": "brand",
+        "label": "Brand kit",
+        "description": "Corporate brand logos typography visual identity design assets",
+        "cost": 2,
+        "hits": 3,
+        "cumulative": 3.5,
+        "costContribution": 10.5,
+        "priority": 1.5
+      }
+    ],
+    "totalCost": 26.5,
+    "mean": 2.0384615384615383,
+    "exhaustiveCost": 3.5
+  },
+  "optimized": {
+    "ladder": [
+      {
+        "id": "people",
+        "label": "People handbook",
+        "description": "Employee vacation leave benefits human resources policies",
+        "cost": 1,
+        "hits": 8,
+        "cumulative": 1,
+        "costContribution": 8,
+        "priority": 8
+      },
+      {
+        "id": "engineering",
+        "label": "Engineering runbooks",
+        "description": "Software deployment operational runbooks troubleshooting technical servers",
+        "cost": 0.5,
+        "hits": 1,
+        "cumulative": 1.5,
+        "costContribution": 1.5,
+        "priority": 2
+      },
+      {
+        "id": "brand",
+        "label": "Brand kit",
+        "description": "Corporate brand logos typography visual identity design assets",
+        "cost": 2,
+        "hits": 3,
+        "cumulative": 3.5,
+        "costContribution": 10.5,
+        "priority": 1.5
+      }
+    ],
+    "totalCost": 23.5,
+    "mean": 1.8076923076923077,
+    "exhaustiveCost": 3.5
+  },
+  "saved": 3
+}

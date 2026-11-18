@@ -1,0 +1,205 @@
+{
+  "schema": "search-ladder/v1",
+  "originalInput": {
+    "context": "Synthetic resolved requests. Each requested document has exactly one authoritative repository. Costs are assumed minutes per attempted repository lookup, independent of order.",
+    "misses": 2,
+    "items": [
+      {
+        "id": "contracts",
+        "label": "Signed agreements",
+        "description": "Signed client contracts and legal service agreements",
+        "cost": 4
+      },
+      {
+        "id": "photos",
+        "label": "Shoot library",
+        "description": "Photography image library of product photographs and studio shoots",
+        "cost": 1
+      },
+      {
+        "id": "invoices",
+        "label": "Billing archive",
+        "description": "Paid invoices billing receipts and customer payment records",
+        "cost": 2
+      }
+    ],
+    "observations": [
+      {
+        "id": "s1",
+        "description": "Signed customer service contract",
+        "count": 2
+      },
+      {
+        "id": "s2",
+        "description": "Studio product photography shots",
+        "count": 12
+      },
+      {
+        "id": "s3",
+        "description": "Customer billing invoice receipts",
+        "count": 6
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "s1",
+      "description": "Signed customer service contract",
+      "count": 2,
+      "item": "contracts",
+      "evidence": [
+        {
+          "id": "contracts",
+          "score": 0.7407649171770514
+        },
+        {
+          "id": "invoices",
+          "score": 0.3154742611841028
+        },
+        {
+          "id": "photos",
+          "score": 0.1364467424192469
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "s2",
+      "description": "Studio product photography shots",
+      "count": 12,
+      "item": "photos",
+      "evidence": [
+        {
+          "id": "photos",
+          "score": 0.8070524655614391
+        },
+        {
+          "id": "contracts",
+          "score": 0.14060552715558422
+        },
+        {
+          "id": "invoices",
+          "score": 0.10897466721474888
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "s3",
+      "description": "Customer billing invoice receipts",
+      "count": 6,
+      "item": "invoices",
+      "evidence": [
+        {
+          "id": "invoices",
+          "score": 0.8820743288642854
+        },
+        {
+          "id": "contracts",
+          "score": 0.20786581104680604
+        },
+        {
+          "id": "photos",
+          "score": 0.08122739632325894
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "costs": [
+    4,
+    1,
+    2
+  ],
+  "total": 3,
+  "approved": 3,
+  "held": 0,
+  "status": "ready",
+  "issues": [],
+  "hits": {
+    "contracts": 2,
+    "photos": 12,
+    "invoices": 6
+  },
+  "cohort": 22,
+  "resolved": 20,
+  "misses": 2,
+  "baseline": {
+    "ladder": [
+      {
+        "id": "contracts",
+        "label": "Signed agreements",
+        "description": "Signed client contracts and legal service agreements",
+        "cost": 4,
+        "hits": 2,
+        "cumulative": 4,
+        "costContribution": 8,
+        "priority": 0.5
+      },
+      {
+        "id": "photos",
+        "label": "Shoot library",
+        "description": "Photography image library of product photographs and studio shoots",
+        "cost": 1,
+        "hits": 12,
+        "cumulative": 5,
+        "costContribution": 60,
+        "priority": 12
+      },
+      {
+        "id": "invoices",
+        "label": "Billing archive",
+        "description": "Paid invoices billing receipts and customer payment records",
+        "cost": 2,
+        "hits": 6,
+        "cumulative": 7,
+        "costContribution": 42,
+        "priority": 3
+      }
+    ],
+    "totalCost": 124,
+    "mean": 5.636363636363637,
+    "exhaustiveCost": 7
+  },
+  "optimized": {
+    "ladder": [
+      {
+        "id": "photos",
+        "label": "Shoot library",
+        "description": "Photography image library of product photographs and studio shoots",
+        "cost": 1,
+        "hits": 12,
+        "cumulative": 1,
+        "costContribution": 12,
+        "priority": 12
+      },
+      {
+        "id": "invoices",
+        "label": "Billing archive",
+        "description": "Paid invoices billing receipts and customer payment records",
+        "cost": 2,
+        "hits": 6,
+        "cumulative": 3,
+        "costContribution": 18,
+        "priority": 3
+      },
+      {
+        "id": "contracts",
+        "label": "Signed agreements",
+        "description": "Signed client contracts and legal service agreements",
+        "cost": 4,
+        "hits": 2,
+        "cumulative": 7,
+        "costContribution": 14,
+        "priority": 0.5
+      }
+    ],
+    "totalCost": 58,
+    "mean": 2.6363636363636362,
+    "exhaustiveCost": 7
+  },
+  "saved": 66
+}

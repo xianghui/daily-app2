@@ -1,0 +1,524 @@
+{
+  "fixtures": [
+    {
+      "name": "Print suppliers",
+      "expected": [
+        "price",
+        "lead",
+        "price",
+        "lead",
+        "price",
+        "lead",
+        "price",
+        "lead"
+      ],
+      "actual": [
+        "price",
+        "lead",
+        "price",
+        "lead",
+        "price",
+        "lead",
+        "price",
+        "lead"
+      ],
+      "shortlist": [
+        "fern",
+        "moss",
+        "pine"
+      ],
+      "baseline": [
+        "fern",
+        "pine"
+      ],
+      "options": [
+        {
+          "id": "fern",
+          "label": "Fern Press",
+          "values": [
+            100,
+            8
+          ],
+          "dominators": [],
+          "equivalents": [
+            "pine"
+          ],
+          "frontier": true,
+          "tier": 1
+        },
+        {
+          "id": "moss",
+          "label": "Moss Print",
+          "values": [
+            120,
+            4
+          ],
+          "dominators": [],
+          "equivalents": [],
+          "frontier": true,
+          "tier": 1
+        },
+        {
+          "id": "reed",
+          "label": "Reed Studio",
+          "values": [
+            130,
+            9
+          ],
+          "dominators": [
+            {
+              "id": "fern",
+              "strictlyBetterOn": [
+                "price",
+                "lead"
+              ]
+            },
+            {
+              "id": "moss",
+              "strictlyBetterOn": [
+                "price",
+                "lead"
+              ]
+            },
+            {
+              "id": "pine",
+              "strictlyBetterOn": [
+                "price",
+                "lead"
+              ]
+            }
+          ],
+          "equivalents": [],
+          "frontier": false,
+          "tier": 2
+        },
+        {
+          "id": "pine",
+          "label": "Pine Press",
+          "values": [
+            100,
+            8
+          ],
+          "dominators": [],
+          "equivalents": [
+            "fern"
+          ],
+          "frontier": true,
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "name": "Workshop venues",
+      "expected": [
+        "rent",
+        "seats",
+        "area",
+        "rent",
+        "seats",
+        "area",
+        "rent",
+        "seats",
+        "area"
+      ],
+      "actual": [
+        "rent",
+        "seats",
+        "area",
+        "rent",
+        "seats",
+        "area",
+        "rent",
+        "seats",
+        "area"
+      ],
+      "shortlist": [
+        "cove",
+        "loft"
+      ],
+      "baseline": [
+        "cove"
+      ],
+      "options": [
+        {
+          "id": "cove",
+          "label": "Cove room",
+          "values": [
+            200,
+            30,
+            50
+          ],
+          "dominators": [],
+          "equivalents": [],
+          "frontier": true,
+          "tier": 1
+        },
+        {
+          "id": "loft",
+          "label": "Loft hall",
+          "values": [
+            250,
+            50,
+            70
+          ],
+          "dominators": [],
+          "equivalents": [],
+          "frontier": true,
+          "tier": 1
+        },
+        {
+          "id": "yard",
+          "label": "Yard studio",
+          "values": [
+            300,
+            25,
+            40
+          ],
+          "dominators": [
+            {
+              "id": "cove",
+              "strictlyBetterOn": [
+                "rent",
+                "seats",
+                "area"
+              ]
+            },
+            {
+              "id": "loft",
+              "strictlyBetterOn": [
+                "rent",
+                "seats",
+                "area"
+              ]
+            }
+          ],
+          "equivalents": [],
+          "frontier": false,
+          "tier": 2
+        }
+      ]
+    }
+  ],
+  "checks": [
+    "review/hold/undo/value/remap/option/copy/multiline; audit import resets approvals; offline fresh-worker real inference",
+    "invalid/empty/oversized/duplicates/unknown option/formats; cancellation and real retry; changed input invalidates stale run",
+    "maximum 32 texts, 24 rows, four-text chunks; maximum audit originals round-trip",
+    "desktop/390/320px no overflow; touch/labels/focus; inert source instructions; incomplete grid blocked"
+  ],
+  "challenge": {
+    "suggested": "rent",
+    "limitation": "Nearest criterion returned for irrelevant/negated text. Human hold required; similarity is not validity or permission."
+  },
+  "privacy": {
+    "allRequestsGetWithoutBody": true,
+    "noFixtureTextInURLs": true,
+    "noModelRequestsBeforeExplicitLoad": true
+  },
+  "requests": [
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:6958/daily-app2/20261119-6/",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:6958/daily-app2/20261119-6/assets/index-B39mx98B.js",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:6958/daily-app2/20261119-6/assets/index-Bz0HUXJm.css",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:6958/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6958/a47f5812-729b-414e-8f40-fc3e78cc808a",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:6958/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:6958/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "X-Xet-Cas-Uid",
+        "response-content-disposition",
+        "user_id",
+        "xip",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "X-Xet-Cas-Uid",
+        "response-content-disposition",
+        "xip",
+        "user_id",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6958/2d127778-cf74-40f7-9707-d1a15167850b",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6958/c154065c-bb16-4fed-ab15-ca15ff8038a5",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6958/fbac6d82-7e53-4ee3-ae0d-45a30ec324c6",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6958/ddc36d4f-d3cf-4c04-aa41-d813857d2170",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6958/e47c2fe9-2c34-44bd-b2b2-5329221ae237",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6958/58ee505b-2ad4-4e32-bfda-3f608114662e",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6958/4df43f51-c587-45be-9cb3-d839c2c37c43",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6958/c311ac83-77bf-470a-8533-c631a5ce66fe",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6958/2bb20eb5-ff18-449c-870d-8da13d45745d",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6958/2ba70fe1-3604-4d2c-83a7-84775ea0e222",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6958/96a54e9a-6c3c-4594-ab37-bafd985bc8a3",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6958/57a73b90-3dad-46de-8a06-619c3678222c",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6958/1f0bd298-7ccb-4258-af3f-0b03039940c7",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6958/20402e25-a6c2-4ca1-93c5-2e9083d5bcd1",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6958/ee19a173-1fb8-43fc-9766-9336f9c8ba8d",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6958/e6f0915c-70b6-4dc0-9f57-5392577b92f1",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6958/67b70f89-6d1c-4889-885f-5defc25e9d29",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6958/b4021ffe-4db9-4875-be29-42a9860ed062",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6958/ed6e633f-b7c3-4a14-8124-7699945a2f87",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6958/a9af6e0d-7533-4d0f-be06-29a5c80e2ecb",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6958/933a252d-06d8-491f-983a-6993e0ca4c7f",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6958/b2c60738-4343-4138-8da3-30194ffe0c0f",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6958/e2307018-69fe-4f18-8db6-b60e9bac6c00",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6958/f2bd8d1f-9743-46ad-96ea-bfefcac6931e",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6958/908b25c7-d2e3-4b2c-8a30-de97daa9cbb8",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6958/818ea3be-8189-49f6-b43c-0fb314e2df36",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6958/6e51e7a4-2726-48cd-acee-ab6194340404",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6958/70a6766e-26ab-4bb1-8566-1e24cefca8ad",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6958/27ccba9f-8f69-4eca-9f51-728cb4b91021",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6958/0631b791-c9f1-48a7-a4bf-910fd74862fd",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6958/681e6469-8609-4711-83af-9de07bc60001",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6958/4d16dff3-36f4-488e-830e-ca3fddd23cfc",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6958/03fab782-bdc8-4aea-b572-129ecb0f8fe4",
+      "queryKeys": []
+    }
+  ]
+}

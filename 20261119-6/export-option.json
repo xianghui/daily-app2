@@ -1,0 +1,316 @@
+{
+  "schema": "frontier-folio/v1",
+  "originalInput": {
+    "context": "Synthetic workshop venue comparison. Minimize rental expense, maximize seats and usable floor area. Same event duration.",
+    "items": [
+      {
+        "id": "rent",
+        "label": "Rental cost",
+        "description": "Monetary expense paid to rent the event room",
+        "unit": "USD",
+        "direction": "min"
+      },
+      {
+        "id": "seats",
+        "label": "Seating capacity",
+        "description": "Number of attendees who can sit in chairs at the venue",
+        "unit": "people",
+        "direction": "max"
+      },
+      {
+        "id": "area",
+        "label": "Usable floor area",
+        "description": "Usable indoor floor space in square meters",
+        "unit": "m2",
+        "direction": "max"
+      }
+    ],
+    "options": [
+      {
+        "id": "cove",
+        "label": "Cove room"
+      },
+      {
+        "id": "loft",
+        "label": "Loft hall"
+      },
+      {
+        "id": "yard",
+        "label": "Yard studio"
+      }
+    ],
+    "observations": [
+      {
+        "id": "r00",
+        "option": "cove",
+        "description": "Room hire fee for our event",
+        "value": 200
+      },
+      {
+        "id": "r01",
+        "option": "cove",
+        "description": "How many guests can be seated on chairs",
+        "value": 30
+      },
+      {
+        "id": "r02",
+        "option": "cove",
+        "description": "Interior floor space available for activities",
+        "value": 50
+      },
+      {
+        "id": "r10",
+        "option": "loft",
+        "description": "Room hire fee for our event",
+        "value": 250
+      },
+      {
+        "id": "r11",
+        "option": "loft",
+        "description": "How many guests can be seated on chairs",
+        "value": 50
+      },
+      {
+        "id": "r12",
+        "option": "loft",
+        "description": "Interior floor space available for activities",
+        "value": 70
+      },
+      {
+        "id": "r20",
+        "option": "yard",
+        "description": "Room hire fee for our event",
+        "value": 300
+      },
+      {
+        "id": "r21",
+        "option": "yard",
+        "description": "How many guests can be seated on chairs",
+        "value": 25
+      },
+      {
+        "id": "r22",
+        "option": "yard",
+        "description": "Interior floor space available for activities",
+        "value": 40
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "r00",
+      "option": "loft",
+      "description": "Room hire fee for our event",
+      "value": 500,
+      "item": "rent",
+      "evidence": [
+        {
+          "id": "rent",
+          "score": 0.7168353930261344
+        },
+        {
+          "id": "seats",
+          "score": 0.400784691031718
+        },
+        {
+          "id": "area",
+          "score": 0.2183702470376537
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", verify"
+    },
+    {
+      "id": "r01",
+      "option": "cove",
+      "description": "How many guests can be seated on chairs",
+      "value": 30,
+      "item": "seats",
+      "evidence": [
+        {
+          "id": "seats",
+          "score": 0.8024219050217839
+        },
+        {
+          "id": "rent",
+          "score": 0.2323868835434672
+        },
+        {
+          "id": "area",
+          "score": 0.1369942640654571
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "r02",
+      "option": "cove",
+      "description": "Interior floor space available for activities",
+      "value": 50,
+      "item": "area",
+      "evidence": [
+        {
+          "id": "area",
+          "score": 0.6117177312030684
+        },
+        {
+          "id": "rent",
+          "score": 0.310608531601876
+        },
+        {
+          "id": "seats",
+          "score": 0.2529360373445296
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "r10",
+      "option": "loft",
+      "description": "Room hire fee for our event",
+      "value": 250,
+      "item": "rent",
+      "evidence": [
+        {
+          "id": "rent",
+          "score": 0.7189129522698908
+        },
+        {
+          "id": "seats",
+          "score": 0.40330175038415317
+        },
+        {
+          "id": "area",
+          "score": 0.22177132346846606
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "r11",
+      "option": "loft",
+      "description": "How many guests can be seated on chairs",
+      "value": 50,
+      "item": "seats",
+      "evidence": [
+        {
+          "id": "seats",
+          "score": 0.8024219050217839
+        },
+        {
+          "id": "rent",
+          "score": 0.2323868835434672
+        },
+        {
+          "id": "area",
+          "score": 0.1369942640654571
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "r12",
+      "option": "loft",
+      "description": "Interior floor space available for activities",
+      "value": 70,
+      "item": "area",
+      "evidence": [
+        {
+          "id": "area",
+          "score": 0.6117177312030684
+        },
+        {
+          "id": "rent",
+          "score": 0.310608531601876
+        },
+        {
+          "id": "seats",
+          "score": 0.2529360373445296
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "r20",
+      "option": "yard",
+      "description": "Room hire fee for our event",
+      "value": 300,
+      "item": "rent",
+      "evidence": [
+        {
+          "id": "rent",
+          "score": 0.7189129522698908
+        },
+        {
+          "id": "seats",
+          "score": 0.40330175038415317
+        },
+        {
+          "id": "area",
+          "score": 0.22177132346846606
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "r21",
+      "option": "yard",
+      "description": "How many guests can be seated on chairs",
+      "value": 25,
+      "item": "seats",
+      "evidence": [
+        {
+          "id": "seats",
+          "score": 0.8024219050217839
+        },
+        {
+          "id": "rent",
+          "score": 0.2323868835434672
+        },
+        {
+          "id": "area",
+          "score": 0.1369942640654571
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "r22",
+      "option": "yard",
+      "description": "Interior floor space available for activities",
+      "value": 40,
+      "item": "area",
+      "evidence": [
+        {
+          "id": "area",
+          "score": 0.6117177312030684
+        },
+        {
+          "id": "rent",
+          "score": 0.310608531601876
+        },
+        {
+          "id": "seats",
+          "score": 0.2529360373445296
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 9,
+  "approved": 9,
+  "held": 0,
+  "status": "blocked",
+  "issues": [
+    "cove / rent: 0 measurements; exactly one required.",
+    "loft / rent: 2 measurements; exactly one required."
+  ]
+}

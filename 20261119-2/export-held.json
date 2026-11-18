@@ -1,0 +1,169 @@
+{
+  "schema": "tail-atlas/v1",
+  "originalInput": {
+    "context": "Synthetic independent batches. Noncumulative elapsed milliseconds, no overlapping samples.",
+    "edges": [
+      1000,
+      5000,
+      10000
+    ],
+    "quantile": 0.9,
+    "targetMs": 5000,
+    "targetShare": 0.9,
+    "items": [
+      {
+        "id": "index",
+        "label": "Document search indexing duration",
+        "description": "Text documents ingested and indexed into a searchable catalog"
+      },
+      {
+        "id": "video",
+        "label": "Video transcoding duration",
+        "description": "Video clips encoded and converted to another video format"
+      }
+    ],
+    "observations": [
+      {
+        "id": "e",
+        "description": "Searchable text document ingestion and index building job timings",
+        "counts": [
+          80,
+          15,
+          5,
+          0
+        ]
+      },
+      {
+        "id": "f",
+        "description": "Document full text search index generation elapsed times",
+        "counts": [
+          0,
+          1,
+          0,
+          9
+        ]
+      },
+      {
+        "id": "g",
+        "description": "Movie clip encoding and video format conversion timings",
+        "counts": [
+          5,
+          25,
+          60,
+          10
+        ]
+      },
+      {
+        "id": "h",
+        "description": "Video reencoding and transcoding job elapsed durations",
+        "counts": [
+          0,
+          0,
+          5,
+          5
+        ]
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "e",
+      "description": "Searchable text document ingestion and index building job timings",
+      "counts": [
+        80,
+        15,
+        5,
+        0
+      ],
+      "item": "index",
+      "evidence": [
+        {
+          "id": "index",
+          "score": 0.6725247776960688
+        },
+        {
+          "id": "video",
+          "score": -0.05902528821648035
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", verify"
+    },
+    {
+      "id": "f",
+      "description": "Document full text search index generation elapsed times",
+      "counts": [
+        0,
+        1,
+        0,
+        9
+      ],
+      "item": "index",
+      "evidence": [
+        {
+          "id": "index",
+          "score": 0.552635106873034
+        },
+        {
+          "id": "video",
+          "score": -0.06354061513404674
+        }
+      ],
+      "decision": "hold",
+      "reviewNote": ""
+    },
+    {
+      "id": "g",
+      "description": "Movie clip encoding and video format conversion timings",
+      "counts": [
+        5,
+        25,
+        60,
+        10
+      ],
+      "item": "video",
+      "evidence": [
+        {
+          "id": "video",
+          "score": 0.7296766977278395
+        },
+        {
+          "id": "index",
+          "score": 0.027361297086048002
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "h",
+      "description": "Video reencoding and transcoding job elapsed durations",
+      "counts": [
+        0,
+        0,
+        5,
+        5
+      ],
+      "item": "video",
+      "evidence": [
+        {
+          "id": "video",
+          "score": 0.46550095947088577
+        },
+        {
+          "id": "index",
+          "score": 0.06487990739972709
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 3,
+  "held": 1,
+  "status": "blocked",
+  "issues": [
+    "Held windows block the full worksheet. No windows silently omitted."
+  ]
+}

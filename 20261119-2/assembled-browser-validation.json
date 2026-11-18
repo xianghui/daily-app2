@@ -1,0 +1,433 @@
+{
+  "fixtures": [
+    {
+      "name": "Storefront windows",
+      "expected": [
+        "checkout",
+        "checkout",
+        "image",
+        "image"
+      ],
+      "actual": [
+        "checkout",
+        "checkout",
+        "image",
+        "image"
+      ],
+      "groups": [
+        {
+          "item": "checkout",
+          "windows": 2,
+          "counts": [
+            900,
+            90,
+            110,
+            0
+          ],
+          "total": 1100,
+          "quantile": {
+            "rank": 1045,
+            "bin": 2,
+            "lower": 300,
+            "upper": 1000,
+            "lowerInclusive": false
+          },
+          "baselineUpperMean": 650,
+          "within": 990,
+          "share": 0.9,
+          "meetsGoal": false
+        },
+        {
+          "item": "image",
+          "windows": 2,
+          "counts": [
+            120,
+            65,
+            15,
+            0
+          ],
+          "total": 200,
+          "quantile": {
+            "rank": 190,
+            "bin": 2,
+            "lower": 300,
+            "upper": 1000,
+            "lowerInclusive": false
+          },
+          "baselineUpperMean": 650,
+          "within": 185,
+          "share": 0.925,
+          "meetsGoal": false
+        }
+      ]
+    },
+    {
+      "name": "Media pipeline windows",
+      "expected": [
+        "index",
+        "index",
+        "video",
+        "video"
+      ],
+      "actual": [
+        "index",
+        "index",
+        "video",
+        "video"
+      ],
+      "groups": [
+        {
+          "item": "index",
+          "windows": 2,
+          "counts": [
+            80,
+            16,
+            5,
+            9
+          ],
+          "total": 110,
+          "quantile": {
+            "rank": 99,
+            "bin": 2,
+            "lower": 5000,
+            "upper": 10000,
+            "lowerInclusive": false
+          },
+          "baselineUpperMean": null,
+          "within": 96,
+          "share": 0.8727272727272727,
+          "meetsGoal": false
+        },
+        {
+          "item": "video",
+          "windows": 2,
+          "counts": [
+            5,
+            25,
+            65,
+            15
+          ],
+          "total": 110,
+          "quantile": {
+            "rank": 99,
+            "bin": 3,
+            "lower": 10000,
+            "upper": null,
+            "lowerInclusive": false
+          },
+          "baselineUpperMean": null,
+          "within": 30,
+          "share": 0.2727272727272727,
+          "meetsGoal": false
+        }
+      ]
+    }
+  ],
+  "checks": [
+    "review/hold/undo/edit/remap/copy/multiline; audit import resets approvals; fresh-worker offline inference",
+    "invalid/empty/oversized/duplicates/edges/counts/formats; cancellation and real retry; changed input invalidates stale run",
+    "maximum 32 texts in four-text chunks; all 24 originals round-trip",
+    "desktop/390/320px no overflow; touch/labels/focus; inert source instructions"
+  ],
+  "challenge": {
+    "suggested": "video",
+    "limitation": "Nearest candidate returned for irrelevant text. Human hold required; similarity is not identity."
+  },
+  "privacy": {
+    "allRequestsGetWithoutBody": true,
+    "noFixtureTextInURLs": true,
+    "noModelRequestsBeforeExplicitLoad": true
+  },
+  "requests": [
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:6952/daily-app2/20261119-2/",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:6952/daily-app2/20261119-2/assets/index-DBddWAHk.js",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:6952/daily-app2/20261119-2/assets/index-DvoDNLTJ.css",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:6952/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6952/21b32e36-58e8-4e3d-a2bc-d37615736b68",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:6952/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:6952/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "X-Xet-Cas-Uid",
+        "response-content-disposition",
+        "user_id",
+        "xip",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "X-Xet-Cas-Uid",
+        "response-content-disposition",
+        "user_id",
+        "xip",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6952/ef37922c-a6ef-47b8-a7e2-089ae0adbfd5",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6952/c78cdc56-9c42-4aba-9f8d-f0ddf82224dc",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6952/e9f24715-c66a-4dcb-9672-5355bd307e49",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6952/ff530f45-0287-4ab6-8759-9c45089f0fe5",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6952/fedc3af0-8b15-4e94-9dd1-9b3bb5c181eb",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6952/236276f4-2f80-453f-8940-5c0bdde1e0a8",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6952/2648339c-978f-4e5a-8661-6dca0fcab320",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6952/8f5fa37a-4132-403c-9c22-baaf3c59419f",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6952/31ac1923-cad9-40ac-a558-d164ee16e8c8",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6952/ea955ca2-774e-4d1e-b0c2-cf59d71f2745",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6952/e0ff37c0-bd9f-4076-89dc-a1c41fb7e8ce",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6952/cfc61bd0-4dcc-4f10-8025-9470b6ed1889",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6952/06356a22-97d0-4da6-9485-c911ef8e8086",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6952/f08f2067-8ca7-42f8-97f2-86537b473c93",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6952/728f205d-bbbb-4f2e-9729-b6735d89fc1b",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6952/511272c3-b90e-41e6-a327-43b84ab2253f",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6952/422beaa4-93c2-43fe-8e58-c7bf781566a6",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6952/16f6a2e5-4288-483f-90a2-9d915463215c",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6952/e1a10446-c65d-45e0-905c-adfa75229d21",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6952/262daf3f-9981-49af-ade3-32d236e077e6",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6952/742fca5e-7b80-4384-ac77-6724b0a95183",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6952/8b55addb-7da0-4e20-af15-39d48c6677ec",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6952/056b97aa-3e70-44d6-997d-856be1f9921c",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6952/5158d759-ca33-4ad0-9dd6-05d759d9a72e",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6952/5a666f24-95c4-4549-bbee-46e36ec277f4",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6952/d44e04d0-34dc-44a1-af47-a1e39f29d29d",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6952/2be77e9e-5f13-4e5c-84ef-1a501794fae0",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6952/62d1723e-8c28-44d6-b066-0fe5827af92b",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6952/bb2ba94f-6ac5-4c31-8e18-a839658bd965",
+      "queryKeys": []
+    },
+    {
+      "method": "GET",
+      "url": "blob:http://127.0.0.1:6952/caf7324a-8ea0-492e-add6-e664e7541eb4",
+      "queryKeys": []
+    }
+  ]
+}

@@ -1,0 +1,214 @@
+{
+  "schema": "tail-atlas/v1",
+  "originalInput": {
+    "context": "Synthetic disjoint request windows; durations in ms, same noncumulative buckets and sampling definition.",
+    "edges": [
+      100,
+      300,
+      1000
+    ],
+    "quantile": 0.95,
+    "targetMs": 300,
+    "targetShare": 0.95,
+    "items": [
+      {
+        "id": "checkout",
+        "label": "Checkout response latency",
+        "description": "Online store checkout payment request response duration"
+      },
+      {
+        "id": "image",
+        "label": "Product image rendering latency",
+        "description": "Product image thumbnail rendering response duration"
+      }
+    ],
+    "observations": [
+      {
+        "id": "a",
+        "description": "Payment checkout endpoint response times during morning traffic",
+        "counts": [
+          900,
+          90,
+          10,
+          0
+        ]
+      },
+      {
+        "id": "b",
+        "description": "Evening store payment checkout response durations",
+        "counts": [
+          0,
+          0,
+          100,
+          0
+        ]
+      },
+      {
+        "id": "c",
+        "description": "Catalog photo thumbnail rendering time morning batch",
+        "counts": [
+          70,
+          25,
+          5,
+          0
+        ]
+      },
+      {
+        "id": "d",
+        "description": "Product photograph thumbnail rendering time evening batch",
+        "counts": [
+          50,
+          40,
+          10,
+          0
+        ]
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "a",
+      "description": "Payment checkout endpoint response times during morning traffic",
+      "counts": [
+        900,
+        90,
+        10,
+        0
+      ],
+      "item": "checkout",
+      "evidence": [
+        {
+          "id": "checkout",
+          "score": 0.6335713450959698
+        },
+        {
+          "id": "image",
+          "score": 0.20973667369716087
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "b",
+      "description": "Evening store payment checkout response durations",
+      "counts": [
+        0,
+        0,
+        100,
+        0
+      ],
+      "item": "checkout",
+      "evidence": [
+        {
+          "id": "checkout",
+          "score": 0.8573258139247377
+        },
+        {
+          "id": "image",
+          "score": 0.36562700712550483
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "c",
+      "description": "Catalog photo thumbnail rendering time morning batch",
+      "counts": [
+        70,
+        25,
+        5,
+        0
+      ],
+      "item": "image",
+      "evidence": [
+        {
+          "id": "image",
+          "score": 0.6388400952417641
+        },
+        {
+          "id": "checkout",
+          "score": 0.18420528099878689
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "d",
+      "description": "Product photograph thumbnail rendering time evening batch",
+      "counts": [
+        50,
+        40,
+        10,
+        0
+      ],
+      "item": "image",
+      "evidence": [
+        {
+          "id": "image",
+          "score": 0.7330239471303146
+        },
+        {
+          "id": "checkout",
+          "score": 0.20546445172095648
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "status": "ready",
+  "issues": [],
+  "groups": [
+    {
+      "item": "checkout",
+      "windows": 2,
+      "counts": [
+        900,
+        90,
+        110,
+        0
+      ],
+      "total": 1100,
+      "quantile": {
+        "rank": 1045,
+        "bin": 2,
+        "lower": 300,
+        "upper": 1000,
+        "lowerInclusive": false
+      },
+      "baselineUpperMean": 650,
+      "within": 990,
+      "share": 0.9,
+      "meetsGoal": false
+    },
+    {
+      "item": "image",
+      "windows": 2,
+      "counts": [
+        120,
+        65,
+        15,
+        0
+      ],
+      "total": 200,
+      "quantile": {
+        "rank": 190,
+        "bin": 2,
+        "lower": 300,
+        "upper": 1000,
+        "lowerInclusive": false
+      },
+      "baselineUpperMean": 650,
+      "within": 185,
+      "share": 0.925,
+      "meetsGoal": false
+    }
+  ],
+  "observations": 1300
+}

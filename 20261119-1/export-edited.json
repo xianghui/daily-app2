@@ -1,0 +1,108 @@
+{
+  "schema": "pool-bench/v1",
+  "originalInput": {
+    "context": "Synthetic teaching exercise. Fixed positivity assumptions, independent samples and perfect detection. No actual assay authorization.",
+    "items": [
+      {
+        "id": "flour",
+        "label": "Flour pigment screen",
+        "description": "Flour powder specimens checked for unwanted pigment",
+        "maxPool": 6
+      },
+      {
+        "id": "resin",
+        "label": "Resin bubble screen",
+        "description": "Polymer resin samples checked for trapped air bubbles",
+        "maxPool": 5
+      }
+    ],
+    "observations": [
+      {
+        "id": "c",
+        "description": "Wheat flour powder aliquots examined for pigment contamination",
+        "samples": 61,
+        "positiveRate": 0.02
+      },
+      {
+        "id": "d",
+        "description": "Polymer casting resin specimens with air bubble defects",
+        "samples": 17,
+        "positiveRate": 0.5
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "c",
+      "description": "Wheat flour powder aliquots examined for pigment contamination",
+      "samples": 67,
+      "positiveRate": 0.02,
+      "item": "flour",
+      "evidence": [
+        {
+          "id": "flour",
+          "score": 0.8310044086983935
+        },
+        {
+          "id": "resin",
+          "score": 0.18662195143435628
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", verify"
+    },
+    {
+      "id": "d",
+      "description": "Polymer casting resin specimens with air bubble defects",
+      "samples": 17,
+      "positiveRate": 0.5,
+      "item": "resin",
+      "evidence": [
+        {
+          "id": "resin",
+          "score": 0.7833370383785105
+        },
+        {
+          "id": "flour",
+          "score": 0.2138372113673232
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 2,
+  "approved": 2,
+  "held": 0,
+  "status": "ready",
+  "issues": [],
+  "plans": [
+    {
+      "id": "c",
+      "item": "flour",
+      "samples": 67,
+      "positiveRate": 0.02,
+      "poolSize": 6,
+      "fullPools": 11,
+      "remainder": 1,
+      "firstStage": 12,
+      "expectedAssays": 19.534402862976002,
+      "worstAssays": 78
+    },
+    {
+      "id": "d",
+      "item": "resin",
+      "samples": 17,
+      "positiveRate": 0.5,
+      "poolSize": 1,
+      "fullPools": 17,
+      "remainder": 0,
+      "firstStage": 17,
+      "expectedAssays": 17,
+      "worstAssays": 17
+    }
+  ],
+  "individualAssays": 84,
+  "expectedAssays": 36.534402862976,
+  "worstAssays": 95
+}

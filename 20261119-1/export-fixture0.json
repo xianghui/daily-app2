@@ -1,0 +1,108 @@
+{
+  "schema": "pool-bench/v1",
+  "originalInput": {
+    "context": "Synthetic nonclinical workshop. Independent aliquots; hypothetical perfect detection up to supplied cap. Not a release protocol.",
+    "items": [
+      {
+        "id": "water",
+        "label": "Water dye screen",
+        "description": "Water samples checked for colored dye contamination",
+        "maxPool": 8
+      },
+      {
+        "id": "oil",
+        "label": "Lubricant particle screen",
+        "description": "Lubricating oil samples checked for metal particles",
+        "maxPool": 4
+      }
+    ],
+    "observations": [
+      {
+        "id": "a",
+        "description": "River water aliquots for dye contamination checks",
+        "samples": 100,
+        "positiveRate": 0.01
+      },
+      {
+        "id": "b",
+        "description": "Machine lubricant specimens for metallic debris",
+        "samples": 40,
+        "positiveRate": 0.2
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "a",
+      "description": "River water aliquots for dye contamination checks",
+      "samples": 100,
+      "positiveRate": 0.01,
+      "item": "water",
+      "evidence": [
+        {
+          "id": "water",
+          "score": 0.8323105015828351
+        },
+        {
+          "id": "oil",
+          "score": 0.22628874021720824
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "b",
+      "description": "Machine lubricant specimens for metallic debris",
+      "samples": 40,
+      "positiveRate": 0.2,
+      "item": "oil",
+      "evidence": [
+        {
+          "id": "oil",
+          "score": 0.6919074227220817
+        },
+        {
+          "id": "water",
+          "score": 0.2030719077962988
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 2,
+  "approved": 2,
+  "held": 0,
+  "status": "ready",
+  "issues": [],
+  "plans": [
+    {
+      "id": "a",
+      "item": "water",
+      "samples": 100,
+      "positiveRate": 0.01,
+      "poolSize": 8,
+      "fullPools": 12,
+      "remainder": 4,
+      "firstStage": 13,
+      "expectedAssays": 20.57412529491967,
+      "worstAssays": 113
+    },
+    {
+      "id": "b",
+      "item": "oil",
+      "samples": 40,
+      "positiveRate": 0.2,
+      "poolSize": 3,
+      "fullPools": 13,
+      "remainder": 1,
+      "firstStage": 14,
+      "expectedAssays": 33.032000000000004,
+      "worstAssays": 53
+    }
+  ],
+  "individualAssays": 140,
+  "expectedAssays": 53.60612529491968,
+  "worstAssays": 166
+}

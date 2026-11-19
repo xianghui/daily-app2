@@ -1447,3 +1447,8 @@ Real local MiniLM reconciles informal binary questionnaire answer labels before 
 Collection size guard: deploy-only byte-identical geometry runtime reuse additionally covers `20261028-11` → immutable `20261028-24`. Source builds and legacy JS URLs remain intact; query-versioned entries use the shared binary. Actual old-app generation, PNG/STL imports and three distinct valid STL exports passed. The conservative 1 GB limit is unchanged. No digest sent.
 
 Skip Ledger public release: matching Pages `80348b813ad490b6555756b5048a7eee40472bb5` built successfully with a successful workflow. Thirteen public byte matches, both real-AI fixtures, the full reviewed-artifact/privacy/offline/max-batch suite, all 740 gallery cards and affected older-app imports/exports passed. Combined site 999,623,778 bytes. Source staging excludes unrelated pre-existing changes; no digest sent.
+
+
+## Session Harbor — 20261120-8
+
+Real local MiniLM project retrieval assists mandatory human-reviewed activity-session reconstruction. Explicit idle thresholds, project switches and held-event barriers conserve approved events; observed spans are not labor hours or saved time. Two tiny synthetic fixtures matched 12/12 intended project links and exposed one mixed-project idle-only group each. An unrelated/instruction-like challenge still requires human hold. 1,500 independent session-oracle cases, reviewed export round-trips, maximum batches and fresh-worker offline inference passed. Offline scope is an already-open warmed page only. Reuses immutable worker/factory from `20261115-6` and WASM from `20261107-2`; preserve these assets. See [workflow/privacy](20261120-8/README.md) and [observed validation](20261120-8/VALIDATION.md).

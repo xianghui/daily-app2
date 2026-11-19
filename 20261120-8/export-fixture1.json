@@ -1,0 +1,294 @@
+{
+  "schema": "session-harbor/v1",
+  "originalInput": {
+    "context": "Synthetic repair studio observations. Session spans are not labor hours.",
+    "minSimilarity": 0.15,
+    "idleMinutes": 20,
+    "first": [
+      {
+        "id": "bike",
+        "text": "Bicycle maintenance and punctured tyre repair"
+      },
+      {
+        "id": "bread",
+        "text": "Baking sourdough bread and kneading dough"
+      },
+      {
+        "id": "backup",
+        "text": "Computer data backup and archive restoration"
+      }
+    ],
+    "records": [
+      {
+        "id": "r1",
+        "actor": "B",
+        "text": "Fixing a flat bicycle tire",
+        "at": "2026-11-02T23:50:00Z"
+      },
+      {
+        "id": "r2",
+        "actor": "B",
+        "text": "Patching the inner tube of a bicycle",
+        "at": "2026-11-03T00:05:00Z"
+      },
+      {
+        "id": "r3",
+        "actor": "B",
+        "text": "Mixing sourdough for fresh loaves",
+        "at": "2026-11-03T00:10:00Z"
+      },
+      {
+        "id": "r4",
+        "actor": "B",
+        "text": "Kneading bread dough",
+        "at": "2026-11-03T00:20:00Z"
+      },
+      {
+        "id": "r5",
+        "actor": "C",
+        "text": "Recovering files from the backup archive",
+        "at": "2026-11-03T08:00:00Z"
+      },
+      {
+        "id": "r6",
+        "actor": "C",
+        "text": "Restoring saved computer documents",
+        "at": "2026-11-03T08:15:00Z"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "r1",
+      "proposed": "bike",
+      "target": "bike",
+      "decision": "approve",
+      "at": "2026-11-02T23:50:00Z",
+      "actor": "B",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "bike",
+          "score": 0.6273698345999114
+        },
+        {
+          "id": "bread",
+          "score": 0.15147871522166562
+        },
+        {
+          "id": "backup",
+          "score": 0.05471327753667213
+        }
+      ]
+    },
+    {
+      "id": "r2",
+      "proposed": "bike",
+      "target": "bike",
+      "decision": "approve",
+      "at": "2026-11-03T00:05:00Z",
+      "actor": "B",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "bike",
+          "score": 0.4523696678143866
+        },
+        {
+          "id": "backup",
+          "score": -0.014500671148871203
+        },
+        {
+          "id": "bread",
+          "score": -0.029567827861239633
+        }
+      ]
+    },
+    {
+      "id": "r3",
+      "proposed": "bread",
+      "target": "bread",
+      "decision": "approve",
+      "at": "2026-11-03T00:10:00Z",
+      "actor": "B",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "bread",
+          "score": 0.6459699876731576
+        },
+        {
+          "id": "backup",
+          "score": -0.02275203093805373
+        },
+        {
+          "id": "bike",
+          "score": -0.0388486061397311
+        }
+      ]
+    },
+    {
+      "id": "r4",
+      "proposed": "bread",
+      "target": "bread",
+      "decision": "approve",
+      "at": "2026-11-03T00:20:00Z",
+      "actor": "B",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "bread",
+          "score": 0.8119055673167378
+        },
+        {
+          "id": "bike",
+          "score": 0.11097776425373697
+        },
+        {
+          "id": "backup",
+          "score": 0.03785683570731655
+        }
+      ]
+    },
+    {
+      "id": "r5",
+      "proposed": "backup",
+      "target": "backup",
+      "decision": "approve",
+      "at": "2026-11-03T08:00:00Z",
+      "actor": "C",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "backup",
+          "score": 0.6763761837369493
+        },
+        {
+          "id": "bike",
+          "score": 0.07225698295951069
+        },
+        {
+          "id": "bread",
+          "score": 0.03499023300828437
+        }
+      ]
+    },
+    {
+      "id": "r6",
+      "proposed": "backup",
+      "target": "backup",
+      "decision": "approve",
+      "at": "2026-11-03T08:15:00Z",
+      "actor": "C",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "backup",
+          "score": 0.639523161463347
+        },
+        {
+          "id": "bike",
+          "score": 0.060036981978396534
+        },
+        {
+          "id": "bread",
+          "score": 0.05550121774909836
+        }
+      ]
+    }
+  ],
+  "total": 6,
+  "approved": 6,
+  "held": 0,
+  "plan": [
+    {
+      "id": "s1",
+      "actor": "B",
+      "project": "bike",
+      "start": "2026-11-02T23:50:00Z",
+      "end": "2026-11-03T00:05:00Z",
+      "eventIds": [
+        "r1",
+        "r2"
+      ],
+      "projects": [
+        "bike"
+      ],
+      "spanMinutes": 15
+    },
+    {
+      "id": "s2",
+      "actor": "B",
+      "project": "bread",
+      "start": "2026-11-03T00:10:00Z",
+      "end": "2026-11-03T00:20:00Z",
+      "eventIds": [
+        "r3",
+        "r4"
+      ],
+      "projects": [
+        "bread"
+      ],
+      "spanMinutes": 10
+    },
+    {
+      "id": "s3",
+      "actor": "C",
+      "project": "backup",
+      "start": "2026-11-03T08:00:00Z",
+      "end": "2026-11-03T08:15:00Z",
+      "eventIds": [
+        "r5",
+        "r6"
+      ],
+      "projects": [
+        "backup"
+      ],
+      "spanMinutes": 15
+    }
+  ],
+  "baseline": [
+    {
+      "id": "s1",
+      "actor": "B",
+      "project": null,
+      "start": "2026-11-02T23:50:00Z",
+      "end": "2026-11-03T00:20:00Z",
+      "eventIds": [
+        "r1",
+        "r2",
+        "r3",
+        "r4"
+      ],
+      "projects": [
+        "bike",
+        "bread"
+      ],
+      "spanMinutes": 30
+    },
+    {
+      "id": "s2",
+      "actor": "C",
+      "project": null,
+      "start": "2026-11-03T08:00:00Z",
+      "end": "2026-11-03T08:15:00Z",
+      "eventIds": [
+        "r5",
+        "r6"
+      ],
+      "projects": [
+        "backup"
+      ],
+      "spanMinutes": 15
+    }
+  ],
+  "metrics": {
+    "sessions": 3,
+    "idleOnlySessions": 2,
+    "mixedBaselineSessions": 1,
+    "observedMinutes": 40,
+    "idleOnlyMinutes": 45,
+    "singleEventSessions": 0
+  },
+  "warning": "Observed first-to-last spans only: not measured labor, focus, productivity or billing time. Single events have zero span. Splitting on every project switch may fragment genuine multitasking. Equality at the idle threshold stays together. Held events form barriers for the same reviewed actor; both comparisons use identical approved records. UTC times may cross midnight. Human review is mandatory: semantic similarity does not prove project identity."
+}

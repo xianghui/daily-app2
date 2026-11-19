@@ -1,0 +1,339 @@
+{
+  "schema": "field-loom/v1",
+  "originalInput": {
+    "context": "Synthetic same-session moisture readings on a flat open garden plot, same instrument scale, no soil-barrier model. Values are illustrative.",
+    "unit": "sensor units",
+    "power": 2,
+    "radius": 100,
+    "minSimilarity": 0.3,
+    "first": [
+      {
+        "id": "tomato",
+        "text": "Tomato vegetable growing bed with red tomatoes on vines",
+        "x": 0,
+        "y": 0
+      },
+      {
+        "id": "rose",
+        "text": "Rose flower garden bed with fragrant pink blossoms",
+        "x": 10,
+        "y": 0
+      },
+      {
+        "id": "herb",
+        "text": "Culinary herb bed growing basil rosemary and thyme",
+        "x": 20,
+        "y": 0
+      }
+    ],
+    "records": [
+      {
+        "id": "g1",
+        "text": "Basil and rosemary kitchen herbs patch",
+        "value": 60
+      },
+      {
+        "id": "g2",
+        "text": "Vegetable tomato vine growing area",
+        "value": 20
+      },
+      {
+        "id": "g3",
+        "text": "Pink fragrant rose flowering border",
+        "value": 40
+      },
+      {
+        "id": "g4",
+        "text": "Red tomato plants on climbing vines",
+        "value": 20
+      }
+    ],
+    "queries": [
+      {
+        "id": "middle",
+        "text": "Next to flowering bed",
+        "x": 10,
+        "y": 5
+      },
+      {
+        "id": "near",
+        "text": "Near tomato plot",
+        "x": 2,
+        "y": 0
+      },
+      {
+        "id": "far",
+        "text": "Unsupported far plot: remeasure",
+        "x": 500,
+        "y": 500
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "g1",
+      "proposed": "herb",
+      "target": "herb",
+      "decision": "approve",
+      "value": "60",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", verify",
+      "evidence": [
+        {
+          "id": "herb",
+          "score": 0.7102673082905004
+        },
+        {
+          "id": "tomato",
+          "score": 0.16307137593684012
+        },
+        {
+          "id": "rose",
+          "score": 0.15207056930119875
+        }
+      ]
+    },
+    {
+      "id": "g2",
+      "proposed": "tomato",
+      "target": "tomato",
+      "decision": "approve",
+      "value": "20",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "tomato",
+          "score": 0.69434350730705
+        },
+        {
+          "id": "herb",
+          "score": 0.24482013512777456
+        },
+        {
+          "id": "rose",
+          "score": 0.15134935301646446
+        }
+      ]
+    },
+    {
+      "id": "g3",
+      "proposed": "rose",
+      "target": "rose",
+      "decision": "approve",
+      "value": "40",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "rose",
+          "score": 0.7546442434743561
+        },
+        {
+          "id": "tomato",
+          "score": 0.21867025890166233
+        },
+        {
+          "id": "herb",
+          "score": 0.15249859475236152
+        }
+      ]
+    },
+    {
+      "id": "g4",
+      "proposed": "tomato",
+      "target": "tomato",
+      "decision": "approve",
+      "value": "20",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "tomato",
+          "score": 0.7576351579267935
+        },
+        {
+          "id": "rose",
+          "score": 0.22952997956571378
+        },
+        {
+          "id": "herb",
+          "score": 0.12124469239863749
+        }
+      ]
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "stations": [
+    {
+      "id": "tomato",
+      "text": "Tomato vegetable growing bed with red tomatoes on vines",
+      "x": 0,
+      "y": 0,
+      "value": 20,
+      "recordIds": [
+        "g2",
+        "g4"
+      ]
+    },
+    {
+      "id": "rose",
+      "text": "Rose flower garden bed with fragrant pink blossoms",
+      "x": 10,
+      "y": 0,
+      "value": 40,
+      "recordIds": [
+        "g3"
+      ]
+    },
+    {
+      "id": "herb",
+      "text": "Culinary herb bed growing basil rosemary and thyme",
+      "x": 20,
+      "y": 0,
+      "value": 60,
+      "recordIds": [
+        "g1"
+      ]
+    }
+  ],
+  "plan": [
+    {
+      "id": "middle",
+      "text": "Next to flowering bed",
+      "x": 10,
+      "y": 5,
+      "status": "IDW estimate — recheck on site",
+      "estimate": 40,
+      "baseline": 40,
+      "contributors": [
+        {
+          "id": "rose",
+          "text": "Rose flower garden bed with fragrant pink blossoms",
+          "x": 10,
+          "y": 0,
+          "value": 40,
+          "recordIds": [
+            "g3"
+          ],
+          "distance": 5,
+          "weight": 0.7142857142857143
+        },
+        {
+          "id": "tomato",
+          "text": "Tomato vegetable growing bed with red tomatoes on vines",
+          "x": 0,
+          "y": 0,
+          "value": 20,
+          "recordIds": [
+            "g2",
+            "g4"
+          ],
+          "distance": 11.180339887498949,
+          "weight": 0.14285714285714285
+        },
+        {
+          "id": "herb",
+          "text": "Culinary herb bed growing basil rosemary and thyme",
+          "x": 20,
+          "y": 0,
+          "value": 60,
+          "recordIds": [
+            "g1"
+          ],
+          "distance": 11.180339887498949,
+          "weight": 0.14285714285714285
+        }
+      ]
+    },
+    {
+      "id": "near",
+      "text": "Near tomato plot",
+      "x": 2,
+      "y": 0,
+      "status": "IDW estimate — recheck on site",
+      "estimate": 21.622397702799713,
+      "baseline": 20,
+      "contributors": [
+        {
+          "id": "tomato",
+          "text": "Tomato vegetable growing bed with red tomatoes on vines",
+          "x": 0,
+          "y": 0,
+          "value": 20,
+          "recordIds": [
+            "g2",
+            "g4"
+          ],
+          "distance": 2,
+          "weight": 0.9303661162957645
+        },
+        {
+          "id": "rose",
+          "text": "Rose flower garden bed with fragrant pink blossoms",
+          "x": 10,
+          "y": 0,
+          "value": 40,
+          "recordIds": [
+            "g3"
+          ],
+          "distance": 8,
+          "weight": 0.05814788226848528
+        },
+        {
+          "id": "herb",
+          "text": "Culinary herb bed growing basil rosemary and thyme",
+          "x": 20,
+          "y": 0,
+          "value": 60,
+          "recordIds": [
+            "g1"
+          ],
+          "distance": 18,
+          "weight": 0.011486001435750178
+        }
+      ]
+    },
+    {
+      "id": "far",
+      "text": "Unsupported far plot: remeasure",
+      "x": 500,
+      "y": 500,
+      "status": "unsupported — take measurements",
+      "estimate": null,
+      "baseline": null,
+      "contributors": []
+    }
+  ],
+  "validation": [
+    {
+      "id": "tomato",
+      "observed": 20,
+      "predicted": 44,
+      "baseline": 40,
+      "error": 24,
+      "baselineError": 20
+    },
+    {
+      "id": "rose",
+      "observed": 40,
+      "predicted": 40,
+      "baseline": 20,
+      "error": 0,
+      "baselineError": 20
+    },
+    {
+      "id": "herb",
+      "observed": 60,
+      "predicted": 36,
+      "baseline": 40,
+      "error": 24,
+      "baselineError": 20
+    }
+  ],
+  "metrics": {
+    "supported": 2,
+    "folds": 3,
+    "mae": 16,
+    "baselineMae": 20
+  },
+  "warning": "IDW is a spatial heuristic, not a physical model or measured value. Same unit/session and local planar meters required. No walls, elevation, time or uncertainty model. Extrapolation may be misleading; remeasure query points. Nearest baseline uses input-order ties. Leave-one-station-out MAE uses identical supported folds and excludes all readings of each held-out station; tiny retrospective samples do not establish future accuracy. Holds reduce coverage. No external actions."
+}

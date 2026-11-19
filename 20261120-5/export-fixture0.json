@@ -1,0 +1,352 @@
+{
+  "schema": "field-loom/v1",
+  "originalInput": {
+    "context": "Synthetic same-session flat open workshop temperature sweep. All station positions in local meters; no wall/elevation model.",
+    "unit": "°C",
+    "power": 2,
+    "radius": 100,
+    "minSimilarity": 0.3,
+    "first": [
+      {
+        "id": "bike",
+        "text": "Bicycle repair bench with puncture tools and inner tubes",
+        "x": 0,
+        "y": 0
+      },
+      {
+        "id": "sew",
+        "text": "Sewing table for mending clothing and jacket zippers",
+        "x": 10,
+        "y": 0
+      },
+      {
+        "id": "bread",
+        "text": "Bread baking counter for kneading sourdough loaves",
+        "x": 20,
+        "y": 0
+      }
+    ],
+    "records": [
+      {
+        "id": "r1",
+        "text": "Cycle tyre patching workbench",
+        "value": 20
+      },
+      {
+        "id": "r2",
+        "text": "Clothing mending and broken zip table",
+        "value": 25
+      },
+      {
+        "id": "r3",
+        "text": "Sourdough dough kneading bread counter",
+        "value": 30
+      },
+      {
+        "id": "r4",
+        "text": "Bicycle puncture repair bench",
+        "value": 20
+      }
+    ],
+    "queries": [
+      {
+        "id": "center",
+        "text": "Between bicycle and bread benches",
+        "x": 10,
+        "y": 5
+      },
+      {
+        "id": "near",
+        "text": "Near bicycle bench",
+        "x": 2,
+        "y": 0
+      },
+      {
+        "id": "exact",
+        "text": "Sewing station check",
+        "x": 10,
+        "y": 0
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "r1",
+      "proposed": "bike",
+      "target": "bike",
+      "decision": "approve",
+      "value": "20",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "bike",
+          "score": 0.3699399726568994
+        },
+        {
+          "id": "sew",
+          "score": 0.09349780513000525
+        },
+        {
+          "id": "bread",
+          "score": 0.09335330480900661
+        }
+      ]
+    },
+    {
+      "id": "r2",
+      "proposed": "sew",
+      "target": "sew",
+      "decision": "approve",
+      "value": "25",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "sew",
+          "score": 0.7606597666862356
+        },
+        {
+          "id": "bike",
+          "score": 0.230892267334211
+        },
+        {
+          "id": "bread",
+          "score": 0.06774576587008506
+        }
+      ]
+    },
+    {
+      "id": "r3",
+      "proposed": "bread",
+      "target": "bread",
+      "decision": "approve",
+      "value": "30",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "bread",
+          "score": 0.9009693139978007
+        },
+        {
+          "id": "bike",
+          "score": 0.09094628350735046
+        },
+        {
+          "id": "sew",
+          "score": 0.08170562757202303
+        }
+      ]
+    },
+    {
+      "id": "r4",
+      "proposed": "bike",
+      "target": "bike",
+      "decision": "approve",
+      "value": "20",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "bike",
+          "score": 0.8428637954355696
+        },
+        {
+          "id": "sew",
+          "score": 0.21406100048096427
+        },
+        {
+          "id": "bread",
+          "score": 0.09619193029159005
+        }
+      ]
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "stations": [
+    {
+      "id": "bike",
+      "text": "Bicycle repair bench with puncture tools and inner tubes",
+      "x": 0,
+      "y": 0,
+      "value": 20,
+      "recordIds": [
+        "r1",
+        "r4"
+      ]
+    },
+    {
+      "id": "sew",
+      "text": "Sewing table for mending clothing and jacket zippers",
+      "x": 10,
+      "y": 0,
+      "value": 25,
+      "recordIds": [
+        "r2"
+      ]
+    },
+    {
+      "id": "bread",
+      "text": "Bread baking counter for kneading sourdough loaves",
+      "x": 20,
+      "y": 0,
+      "value": 30,
+      "recordIds": [
+        "r3"
+      ]
+    }
+  ],
+  "plan": [
+    {
+      "id": "center",
+      "text": "Between bicycle and bread benches",
+      "x": 10,
+      "y": 5,
+      "status": "IDW estimate — recheck on site",
+      "estimate": 25,
+      "baseline": 25,
+      "contributors": [
+        {
+          "id": "sew",
+          "text": "Sewing table for mending clothing and jacket zippers",
+          "x": 10,
+          "y": 0,
+          "value": 25,
+          "recordIds": [
+            "r2"
+          ],
+          "distance": 5,
+          "weight": 0.7142857142857143
+        },
+        {
+          "id": "bike",
+          "text": "Bicycle repair bench with puncture tools and inner tubes",
+          "x": 0,
+          "y": 0,
+          "value": 20,
+          "recordIds": [
+            "r1",
+            "r4"
+          ],
+          "distance": 11.180339887498949,
+          "weight": 0.14285714285714285
+        },
+        {
+          "id": "bread",
+          "text": "Bread baking counter for kneading sourdough loaves",
+          "x": 20,
+          "y": 0,
+          "value": 30,
+          "recordIds": [
+            "r3"
+          ],
+          "distance": 11.180339887498949,
+          "weight": 0.14285714285714285
+        }
+      ]
+    },
+    {
+      "id": "near",
+      "text": "Near bicycle bench",
+      "x": 2,
+      "y": 0,
+      "status": "IDW estimate — recheck on site",
+      "estimate": 20.40559942569993,
+      "baseline": 20,
+      "contributors": [
+        {
+          "id": "bike",
+          "text": "Bicycle repair bench with puncture tools and inner tubes",
+          "x": 0,
+          "y": 0,
+          "value": 20,
+          "recordIds": [
+            "r1",
+            "r4"
+          ],
+          "distance": 2,
+          "weight": 0.9303661162957645
+        },
+        {
+          "id": "sew",
+          "text": "Sewing table for mending clothing and jacket zippers",
+          "x": 10,
+          "y": 0,
+          "value": 25,
+          "recordIds": [
+            "r2"
+          ],
+          "distance": 8,
+          "weight": 0.05814788226848528
+        },
+        {
+          "id": "bread",
+          "text": "Bread baking counter for kneading sourdough loaves",
+          "x": 20,
+          "y": 0,
+          "value": 30,
+          "recordIds": [
+            "r3"
+          ],
+          "distance": 18,
+          "weight": 0.011486001435750178
+        }
+      ]
+    },
+    {
+      "id": "exact",
+      "text": "Sewing station check",
+      "x": 10,
+      "y": 0,
+      "status": "measured coordinate",
+      "estimate": 25,
+      "baseline": 25,
+      "contributors": [
+        {
+          "id": "sew",
+          "text": "Sewing table for mending clothing and jacket zippers",
+          "x": 10,
+          "y": 0,
+          "value": 25,
+          "recordIds": [
+            "r2"
+          ],
+          "distance": 0,
+          "weight": 1
+        }
+      ]
+    }
+  ],
+  "validation": [
+    {
+      "id": "bike",
+      "observed": 20,
+      "predicted": 26,
+      "baseline": 25,
+      "error": 6,
+      "baselineError": 5
+    },
+    {
+      "id": "sew",
+      "observed": 25,
+      "predicted": 25,
+      "baseline": 20,
+      "error": 0,
+      "baselineError": 5
+    },
+    {
+      "id": "bread",
+      "observed": 30,
+      "predicted": 24,
+      "baseline": 25,
+      "error": 6,
+      "baselineError": 5
+    }
+  ],
+  "metrics": {
+    "supported": 3,
+    "folds": 3,
+    "mae": 4,
+    "baselineMae": 5
+  },
+  "warning": "IDW is a spatial heuristic, not a physical model or measured value. Same unit/session and local planar meters required. No walls, elevation, time or uncertainty model. Extrapolation may be misleading; remeasure query points. Nearest baseline uses input-order ties. Leave-one-station-out MAE uses identical supported folds and excludes all readings of each held-out station; tiny retrospective samples do not establish future accuracy. Holds reduce coverage. No external actions."
+}

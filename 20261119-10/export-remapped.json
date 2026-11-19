@@ -1,0 +1,285 @@
+{
+  "schema": "pairwise-foundry/v1",
+  "originalInput": {
+    "context": "Synthetic document viewer regression planning. Review catalog identities and explicit forbidden combinations.",
+    "budget": 4,
+    "factors": [
+      {
+        "id": "format",
+        "label": "File format",
+        "levels": [
+          {
+            "id": "pdf",
+            "description": "PDF portable document format file containing text pages"
+          },
+          {
+            "id": "image",
+            "description": "Photograph image file picture in JPEG PNG format"
+          }
+        ]
+      },
+      {
+        "id": "appearance",
+        "label": "Appearance",
+        "levels": [
+          {
+            "id": "light",
+            "description": "Light theme white bright background dark text"
+          },
+          {
+            "id": "dark",
+            "description": "Dark theme black dim background light text"
+          }
+        ]
+      },
+      {
+        "id": "locale",
+        "label": "Language",
+        "levels": [
+          {
+            "id": "english",
+            "description": "English language interface labels and menus in English"
+          },
+          {
+            "id": "french",
+            "description": "French language interface labels and menus in French"
+          }
+        ]
+      }
+    ],
+    "observations": [
+      {
+        "id": "n1",
+        "description": "Open a portable document PDF with several pages"
+      },
+      {
+        "id": "n2",
+        "description": "Load a JPEG photograph picture"
+      },
+      {
+        "id": "n3",
+        "description": "Choose the bright white background theme"
+      },
+      {
+        "id": "n4",
+        "description": "Switch to the black background night theme"
+      },
+      {
+        "id": "n5",
+        "description": "Show menus in the English language"
+      },
+      {
+        "id": "n6",
+        "description": "Display the interface in French"
+      }
+    ],
+    "forbidden": []
+  },
+  "reviews": [
+    {
+      "id": "n1",
+      "description": "Open a portable document PDF with several pages",
+      "item": "image",
+      "evidence": [
+        {
+          "id": "pdf",
+          "score": 0.7336026178995138
+        },
+        {
+          "id": "english",
+          "score": 0.06486352471613574
+        },
+        {
+          "id": "image",
+          "score": 0.06365443380295262
+        },
+        {
+          "id": "french",
+          "score": 0.05163683843116041
+        },
+        {
+          "id": "light",
+          "score": 0.03196168025900622
+        },
+        {
+          "id": "dark",
+          "score": -0.029744739129272096
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", verify"
+    },
+    {
+      "id": "n2",
+      "description": "Load a JPEG photograph picture",
+      "item": "image",
+      "evidence": [
+        {
+          "id": "image",
+          "score": 0.7581584079972292
+        },
+        {
+          "id": "pdf",
+          "score": 0.02798597441942294
+        },
+        {
+          "id": "light",
+          "score": 0.008879686914421082
+        },
+        {
+          "id": "dark",
+          "score": -0.0008930382580451517
+        },
+        {
+          "id": "english",
+          "score": -0.07494703479277612
+        },
+        {
+          "id": "french",
+          "score": -0.12568830217303692
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "n3",
+      "description": "Choose the bright white background theme",
+      "item": "light",
+      "evidence": [
+        {
+          "id": "light",
+          "score": 0.6817063447337645
+        },
+        {
+          "id": "dark",
+          "score": 0.5130707574263362
+        },
+        {
+          "id": "image",
+          "score": 0.08224813981755358
+        },
+        {
+          "id": "french",
+          "score": 0.027809955560377124
+        },
+        {
+          "id": "english",
+          "score": 0.021542945784419607
+        },
+        {
+          "id": "pdf",
+          "score": -0.004109560838291896
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "n4",
+      "description": "Switch to the black background night theme",
+      "item": "dark",
+      "evidence": [
+        {
+          "id": "dark",
+          "score": 0.6498367680933228
+        },
+        {
+          "id": "light",
+          "score": 0.5476588841523032
+        },
+        {
+          "id": "french",
+          "score": 0.04595285868256201
+        },
+        {
+          "id": "english",
+          "score": 0.041559606940244666
+        },
+        {
+          "id": "image",
+          "score": 0.02062302573314907
+        },
+        {
+          "id": "pdf",
+          "score": -0.03620997089236766
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "n5",
+      "description": "Show menus in the English language",
+      "item": "english",
+      "evidence": [
+        {
+          "id": "english",
+          "score": 0.8124003581122322
+        },
+        {
+          "id": "french",
+          "score": 0.6332379677954194
+        },
+        {
+          "id": "pdf",
+          "score": 0.10934856831230547
+        },
+        {
+          "id": "light",
+          "score": 0.07016480480504202
+        },
+        {
+          "id": "dark",
+          "score": 0.029195065169420546
+        },
+        {
+          "id": "image",
+          "score": 0.007028833531923471
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "n6",
+      "description": "Display the interface in French",
+      "item": "french",
+      "evidence": [
+        {
+          "id": "french",
+          "score": 0.793977796157636
+        },
+        {
+          "id": "english",
+          "score": 0.5416403134015957
+        },
+        {
+          "id": "light",
+          "score": 0.15659459942772305
+        },
+        {
+          "id": "dark",
+          "score": 0.12644882498071075
+        },
+        {
+          "id": "pdf",
+          "score": 0.043201250392486526
+        },
+        {
+          "id": "image",
+          "score": -0.052880030351758624
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 6,
+  "approved": 6,
+  "held": 0,
+  "status": "infeasible",
+  "issues": [
+    "Every factor needs at least two approved active levels. No silent factor omission."
+  ]
+}

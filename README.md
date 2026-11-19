@@ -1273,3 +1273,12 @@ Search Ladder public release: matching Pages `9bb66615ed1aa37c2e41c045dd6eed21e6
 ## Replica Compass — 20261119-9
 
 Local MiniLM read/write workload inference feeds mandatory human review and exhaustive replica-quorum planning. Review counts, node latencies and offline tolerance, compare intersecting pairs with all-node acknowledgements and export complete JSON/CSV/Markdown. Both fixtures matched all six operation groups; latency values are modeled assumptions, not measurements or consistency certification. Reuses immutable worker/runtime from `20261115-6` and WASM from `20261107-2`; preserve those dependencies. See [workflow/privacy](20261119-9/README.md) and [observed validation](20261119-9/VALIDATION.md). No content uploads or configuration actions.
+
+
+## Pairwise Foundry — 20261119-10
+
+Local MiniLM reconciles informal QA conditions with canonical factor levels before human review and forbidden-combination-aware pairwise test construction. Two revised simple fixtures matched all 12 intended links; suites covered 11/11 and 12/12 feasible pairs in 5 and 4 tests. Initial online/offline confusion and irrelevant-text nearest matches require human review; no universal accuracy or minimum-suite claim. Exports complete JSON/audit CSV/Matrix CSV/Markdown, with explicit inactive/impossible/uncovered conditions. Reuses immutable worker/runtime from `20261115-6` and WASM from `20261107-2`; preserve those paths. See [workflow/privacy](20261119-10/README.md) and [observed validation](20261119-10/VALIDATION.md). No uploads or test execution.
+
+Pairwise Foundry assembly size guard: deploy-only byte-identical geometry WASM reuse additionally covers `20261028-25` → `20261028-24`, retaining legacy JS URLs and query-versioning revised entry/worker references. Older source `dist/` is unchanged; real geometry/import/export checks accompany release.
+
+Pairwise Foundry public release: matching Pages commit `a49dfb3a069baa4fa6e7cf2a94d5639d84427c78` reached built. Public real-AI workflow, offline fresh-worker inference, 52 asset byte matches, reviewed artifacts, all 719 gallery cards and the affected older app geometry/import/export checks passed. Source commit excludes unrelated pre-existing changes.

@@ -1,0 +1,361 @@
+{
+  "schema": "pairwise-foundry/v1",
+  "originalInput": {
+    "context": "Synthetic checkout QA preparation. Pairwise interaction coverage, not proof of a bug-free release.",
+    "budget": 5,
+    "factors": [
+      {
+        "id": "device",
+        "label": "Device",
+        "levels": [
+          {
+            "id": "desktop",
+            "description": "Desktop computer browser with keyboard mouse large monitor"
+          },
+          {
+            "id": "mobile",
+            "description": "Mobile smartphone browser with touch small screen"
+          }
+        ]
+      },
+      {
+        "id": "account",
+        "label": "Account",
+        "levels": [
+          {
+            "id": "guest",
+            "description": "Guest anonymous shopper without signing in or a registered account"
+          },
+          {
+            "id": "member",
+            "description": "Registered member signed in authenticated customer account"
+          }
+        ]
+      },
+      {
+        "id": "network",
+        "label": "Connectivity",
+        "levels": [
+          {
+            "id": "online",
+            "description": "Online browsing websites over active Wi-Fi or Ethernet internet access"
+          },
+          {
+            "id": "offline",
+            "description": "Offline airplane mode network disconnected connection unavailable"
+          }
+        ]
+      }
+    ],
+    "observations": [
+      {
+        "id": "n1",
+        "description": "Use a laptop computer with a mouse and keyboard"
+      },
+      {
+        "id": "n2",
+        "description": "Use a smartphone touchscreen"
+      },
+      {
+        "id": "n3",
+        "description": "Shop anonymously without registering an account"
+      },
+      {
+        "id": "n4",
+        "description": "Log in as a registered customer"
+      },
+      {
+        "id": "n5",
+        "description": "Browse websites using active Wi-Fi internet access"
+      },
+      {
+        "id": "n6",
+        "description": "Enable airplane mode with network disconnected"
+      }
+    ],
+    "forbidden": [
+      [
+        "guest",
+        "offline"
+      ]
+    ]
+  },
+  "reviews": [
+    {
+      "id": "n1",
+      "description": "Use a laptop computer with a mouse and keyboard",
+      "item": "desktop",
+      "evidence": [
+        {
+          "id": "desktop",
+          "score": 0.5473459855914573
+        },
+        {
+          "id": "online",
+          "score": 0.26226996860483714
+        },
+        {
+          "id": "mobile",
+          "score": 0.2217082255795623
+        },
+        {
+          "id": "guest",
+          "score": 0.06614889142228113
+        },
+        {
+          "id": "offline",
+          "score": 0.02316376670316447
+        },
+        {
+          "id": "member",
+          "score": 0.004715552734313538
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "n2",
+      "description": "Use a smartphone touchscreen",
+      "item": "mobile",
+      "evidence": [
+        {
+          "id": "mobile",
+          "score": 0.6909547822758235
+        },
+        {
+          "id": "desktop",
+          "score": 0.3547771349496842
+        },
+        {
+          "id": "online",
+          "score": 0.20808086746357754
+        },
+        {
+          "id": "offline",
+          "score": 0.011592430412651223
+        },
+        {
+          "id": "guest",
+          "score": -0.006257669602404208
+        },
+        {
+          "id": "member",
+          "score": -0.05359091907603938
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "n3",
+      "description": "Shop anonymously without registering an account",
+      "item": "guest",
+      "evidence": [
+        {
+          "id": "guest",
+          "score": 0.8214887658595198
+        },
+        {
+          "id": "member",
+          "score": 0.36476582576350647
+        },
+        {
+          "id": "online",
+          "score": 0.07183161838135409
+        },
+        {
+          "id": "mobile",
+          "score": 0.01406077613703429
+        },
+        {
+          "id": "offline",
+          "score": -0.007647062889758145
+        },
+        {
+          "id": "desktop",
+          "score": -0.016618416320011868
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "n4",
+      "description": "Log in as a registered customer",
+      "item": "member",
+      "evidence": [
+        {
+          "id": "member",
+          "score": 0.7396070327393363
+        },
+        {
+          "id": "guest",
+          "score": 0.5275760284293589
+        },
+        {
+          "id": "online",
+          "score": 0.12924583259439731
+        },
+        {
+          "id": "offline",
+          "score": 0.03068843413070581
+        },
+        {
+          "id": "desktop",
+          "score": 0.0006406941816818595
+        },
+        {
+          "id": "mobile",
+          "score": -0.020905009707418855
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "n5",
+      "description": "Browse websites using active Wi-Fi internet access",
+      "item": "online",
+      "evidence": [
+        {
+          "id": "online",
+          "score": 0.8841168250830387
+        },
+        {
+          "id": "mobile",
+          "score": 0.29207829744841585
+        },
+        {
+          "id": "offline",
+          "score": 0.21640772903935845
+        },
+        {
+          "id": "desktop",
+          "score": 0.15111373846496054
+        },
+        {
+          "id": "member",
+          "score": 0.10580968310792604
+        },
+        {
+          "id": "guest",
+          "score": 0.10151018171154007
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "n6",
+      "description": "Enable airplane mode with network disconnected",
+      "item": "offline",
+      "evidence": [
+        {
+          "id": "offline",
+          "score": 0.8282528194830441
+        },
+        {
+          "id": "online",
+          "score": 0.22707514568875412
+        },
+        {
+          "id": "mobile",
+          "score": 0.07004115093212314
+        },
+        {
+          "id": "member",
+          "score": 0.05158532066088237
+        },
+        {
+          "id": "guest",
+          "score": 0.037032972624285655
+        },
+        {
+          "id": "desktop",
+          "score": -0.06935592094301479
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 6,
+  "approved": 6,
+  "held": 0,
+  "status": "ready",
+  "issues": [],
+  "plan": {
+    "cartesian": 8,
+    "feasible": 6,
+    "excludedConfigurations": 2,
+    "pairTotal": 11,
+    "covered": 11,
+    "uncovered": [],
+    "selected": [
+      {
+        "id": "T001",
+        "levels": [
+          "desktop",
+          "guest",
+          "online"
+        ],
+        "newPairs": 3
+      },
+      {
+        "id": "T002",
+        "levels": [
+          "desktop",
+          "member",
+          "offline"
+        ],
+        "newPairs": 3
+      },
+      {
+        "id": "T003",
+        "levels": [
+          "mobile",
+          "member",
+          "online"
+        ],
+        "newPairs": 3
+      },
+      {
+        "id": "T004",
+        "levels": [
+          "mobile",
+          "guest",
+          "online"
+        ],
+        "newPairs": 1
+      },
+      {
+        "id": "T005",
+        "levels": [
+          "mobile",
+          "member",
+          "offline"
+        ],
+        "newPairs": 1
+      }
+    ],
+    "baselineTests": 5,
+    "baselineCovered": 10,
+    "activeLevels": [
+      "desktop",
+      "mobile",
+      "guest",
+      "member",
+      "online",
+      "offline"
+    ],
+    "inactiveLevels": [],
+    "complete": true,
+    "excludedPairs": [
+      [
+        "guest",
+        "offline"
+      ]
+    ]
+  }
+}

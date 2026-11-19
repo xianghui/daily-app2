@@ -1,0 +1,211 @@
+{
+  "fixtures": [
+    {
+      "name": "Repair handoffs",
+      "expected": [
+        [
+          "intake",
+          "wood"
+        ],
+        [
+          "intake",
+          "fabric"
+        ],
+        [
+          "wood",
+          "complete"
+        ],
+        [
+          "fabric",
+          "complete"
+        ],
+        [
+          "wood",
+          "fabric"
+        ]
+      ],
+      "actual": [
+        [
+          "intake",
+          "wood"
+        ],
+        [
+          "intake",
+          "fabric"
+        ],
+        [
+          "wood",
+          "complete"
+        ],
+        [
+          "fabric",
+          "complete"
+        ],
+        [
+          "wood",
+          "fabric"
+        ]
+      ],
+      "summary": {
+        "baseline": 14,
+        "throughput": 8,
+        "overstatement": 6,
+        "cutCapacity": 8,
+        "bestGain": 3
+      },
+      "expansions": [
+        {
+          "id": "c",
+          "added": 3,
+          "throughput": 11,
+          "gain": 3
+        },
+        {
+          "id": "d",
+          "added": 3,
+          "throughput": 11,
+          "gain": 3
+        },
+        {
+          "id": "a",
+          "added": 3,
+          "throughput": 8,
+          "gain": 0
+        },
+        {
+          "id": "b",
+          "added": 3,
+          "throughput": 8,
+          "gain": 0
+        },
+        {
+          "id": "e",
+          "added": 3,
+          "throughput": 8,
+          "gain": 0
+        }
+      ]
+    },
+    {
+      "name": "Library processing",
+      "expected": [
+        [
+          "arrival",
+          "catalog"
+        ],
+        [
+          "arrival",
+          "binding"
+        ],
+        [
+          "catalog",
+          "shelf"
+        ],
+        [
+          "binding",
+          "catalog"
+        ],
+        [
+          "binding",
+          "shelf"
+        ]
+      ],
+      "actual": [
+        [
+          "arrival",
+          "catalog"
+        ],
+        [
+          "arrival",
+          "binding"
+        ],
+        [
+          "catalog",
+          "shelf"
+        ],
+        [
+          "binding",
+          "catalog"
+        ],
+        [
+          "binding",
+          "shelf"
+        ]
+      ],
+      "summary": {
+        "baseline": 10,
+        "throughput": 5,
+        "overstatement": 5,
+        "cutCapacity": 5,
+        "bestGain": 2
+      },
+      "expansions": [
+        {
+          "id": "l3",
+          "added": 2,
+          "throughput": 7,
+          "gain": 2
+        },
+        {
+          "id": "l5",
+          "added": 2,
+          "throughput": 7,
+          "gain": 2
+        },
+        {
+          "id": "l1",
+          "added": 2,
+          "throughput": 5,
+          "gain": 0
+        },
+        {
+          "id": "l2",
+          "added": 2,
+          "throughput": 5,
+          "gain": 0
+        },
+        {
+          "id": "l4",
+          "added": 2,
+          "throughput": 5,
+          "gain": 0
+        }
+      ]
+    }
+  ],
+  "checks": [
+    "endpoint/capacity/edit/hold/undo/clipboard/multiline; invalid capacity blocked; self-links and reversed terminal lanes block; stale exports disabled; audit import resets approvals; offline fresh-worker real inference",
+    "empty/invalid/oversized/duplicates/limits/formats; cancel and real retry; changed source invalidates run",
+    "56 real texts / four-text chunks; maximum 24 lanes retained; complete audit reimport",
+    "desktop/390px/320px no overflow, touch controls, labels and focus"
+  ],
+  "challenge": {
+    "suggested": "catalog",
+    "limitation": "Nearest endpoint for irrelevant text; mandatory human hold. Imported text never changes authority."
+  },
+  "network": {
+    "requests": 52,
+    "onlyGetHead": true,
+    "noBodies": true,
+    "noSourceTextInUrls": true,
+    "paths": [
+      "http://127.0.0.1:6996/daily-app2/20261119-18/",
+      "http://127.0.0.1:6996/daily-app2/20261119-18/assets/index-CaHLP3Np.js",
+      "http://127.0.0.1:6996/daily-app2/20261119-18/assets/index-DIoh_DAS.css",
+      "http://127.0.0.1:6996/daily-app2/20261119-18/favicon.svg",
+      "http://127.0.0.1:6996/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "blob:local-worker",
+      "http://127.0.0.1:6996/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "http://127.0.0.1:6996/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194"
+    ]
+  },
+  "pageErrors": []
+}

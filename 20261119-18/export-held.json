@@ -1,0 +1,290 @@
+{
+  "schema": "cutline-desk/v1",
+  "originalInput": {
+    "context": "Synthetic library preparation network. Weekly capacities are supplied assumptions, not measured promises.",
+    "source": "arrival",
+    "sink": "shelf",
+    "extra": 2,
+    "nodes": [
+      {
+        "id": "arrival",
+        "description": "Library incoming book donations receiving desk"
+      },
+      {
+        "id": "catalog",
+        "description": "Book catalog metadata indexing classification desk"
+      },
+      {
+        "id": "binding",
+        "description": "Book binding cover repair restoration workshop"
+      },
+      {
+        "id": "shelf",
+        "description": "Library ready books shelving circulation collection"
+      }
+    ],
+    "logs": [
+      {
+        "id": "l1",
+        "fromText": "Incoming donated books reception",
+        "toText": "Catalog indexing metadata team",
+        "capacity": 7
+      },
+      {
+        "id": "l2",
+        "fromText": "Book donations receiving",
+        "toText": "Cover binding restoration workshop",
+        "capacity": 3
+      },
+      {
+        "id": "l3",
+        "fromText": "Catalog metadata classification desk",
+        "toText": "Library books ready for shelving circulation",
+        "capacity": 4
+      },
+      {
+        "id": "l4",
+        "fromText": "Book cover binding repair workshop",
+        "toText": "Catalog metadata indexing desk",
+        "capacity": 2
+      },
+      {
+        "id": "l5",
+        "fromText": "Book binding restoration workshop",
+        "toText": "Ready library shelving circulation",
+        "capacity": 1
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "l1",
+      "from": "arrival",
+      "to": "catalog",
+      "capacity": 7,
+      "fromEvidence": [
+        {
+          "id": "arrival",
+          "score": 0.7535669580333397
+        },
+        {
+          "id": "shelf",
+          "score": 0.5225477617008603
+        },
+        {
+          "id": "binding",
+          "score": 0.4214116210177986
+        },
+        {
+          "id": "catalog",
+          "score": 0.1975289336157227
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "catalog",
+          "score": 0.7018386610582352
+        },
+        {
+          "id": "shelf",
+          "score": 0.18470035066372492
+        },
+        {
+          "id": "binding",
+          "score": 0.10092821841076896
+        },
+        {
+          "id": "arrival",
+          "score": -0.016195405172339437
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", verify"
+    },
+    {
+      "id": "l2",
+      "from": "arrival",
+      "to": "binding",
+      "capacity": 3,
+      "fromEvidence": [
+        {
+          "id": "arrival",
+          "score": 0.8168903745907026
+        },
+        {
+          "id": "shelf",
+          "score": 0.40232462685618325
+        },
+        {
+          "id": "binding",
+          "score": 0.36268870902231753
+        },
+        {
+          "id": "catalog",
+          "score": 0.21818423467332243
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "binding",
+          "score": 0.8656947276475386
+        },
+        {
+          "id": "shelf",
+          "score": 0.31870792461867425
+        },
+        {
+          "id": "arrival",
+          "score": 0.24585526048719886
+        },
+        {
+          "id": "catalog",
+          "score": 0.21839632059333736
+        }
+      ],
+      "decision": "hold",
+      "reviewNote": ""
+    },
+    {
+      "id": "l3",
+      "from": "catalog",
+      "to": "shelf",
+      "capacity": 4,
+      "fromEvidence": [
+        {
+          "id": "catalog",
+          "score": 0.8056926060188678
+        },
+        {
+          "id": "shelf",
+          "score": 0.2634569931343114
+        },
+        {
+          "id": "arrival",
+          "score": 0.1701448815897
+        },
+        {
+          "id": "binding",
+          "score": 0.1439994022836126
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "shelf",
+          "score": 0.9339462887881337
+        },
+        {
+          "id": "arrival",
+          "score": 0.5252248764055665
+        },
+        {
+          "id": "binding",
+          "score": 0.41326107679752416
+        },
+        {
+          "id": "catalog",
+          "score": 0.4076815948071478
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "l4",
+      "from": "binding",
+      "to": "catalog",
+      "capacity": 2,
+      "fromEvidence": [
+        {
+          "id": "binding",
+          "score": 0.9543057927001678
+        },
+        {
+          "id": "shelf",
+          "score": 0.46702882321212025
+        },
+        {
+          "id": "arrival",
+          "score": 0.4270001388738387
+        },
+        {
+          "id": "catalog",
+          "score": 0.3893746732592942
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "catalog",
+          "score": 0.8180410533872631
+        },
+        {
+          "id": "shelf",
+          "score": 0.2580127103663155
+        },
+        {
+          "id": "arrival",
+          "score": 0.12009963597268786
+        },
+        {
+          "id": "binding",
+          "score": 0.10924090771874641
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "l5",
+      "from": "binding",
+      "to": "shelf",
+      "capacity": 1,
+      "fromEvidence": [
+        {
+          "id": "binding",
+          "score": 0.8775282535094275
+        },
+        {
+          "id": "shelf",
+          "score": 0.491799666738896
+        },
+        {
+          "id": "arrival",
+          "score": 0.4079742616697636
+        },
+        {
+          "id": "catalog",
+          "score": 0.39107278908868914
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "shelf",
+          "score": 0.849821101545167
+        },
+        {
+          "id": "arrival",
+          "score": 0.4706105685730702
+        },
+        {
+          "id": "binding",
+          "score": 0.3779783657611929
+        },
+        {
+          "id": "catalog",
+          "score": 0.3391886790668319
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 5,
+  "approved": 4,
+  "held": 1,
+  "status": "blocked",
+  "issues": [
+    "Held lanes block planning. Resolve every endpoint and capacity; no silent exclusion."
+  ],
+  "plan": [],
+  "expansions": []
+}

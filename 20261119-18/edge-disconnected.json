@@ -1,0 +1,115 @@
+{
+  "schema": "cutline-desk/v1",
+  "originalInput": {
+    "context": "Synthetic repair intake network. Each lane capacity is available cases per week; all cases interchangeable.",
+    "source": "intake",
+    "sink": "complete",
+    "extra": 3,
+    "nodes": [
+      {
+        "id": "intake",
+        "description": "Customer repair request intake reception desk"
+      },
+      {
+        "id": "wood",
+        "description": "Woodworking timber carpentry repair workshop"
+      },
+      {
+        "id": "fabric",
+        "description": "Textile sewing fabric mending workshop"
+      },
+      {
+        "id": "complete",
+        "description": "Completed repair collection dispatch pickup desk"
+      }
+    ],
+    "logs": [
+      {
+        "id": "x",
+        "fromText": "Customer repair request intake reception desk",
+        "toText": "Woodworking timber carpentry repair workshop",
+        "capacity": 7
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "x",
+      "from": "intake",
+      "to": "wood",
+      "capacity": 7,
+      "fromEvidence": [
+        {
+          "id": "intake",
+          "score": 0.9936692210807763
+        },
+        {
+          "id": "complete",
+          "score": 0.4959863364739791
+        },
+        {
+          "id": "wood",
+          "score": 0.2167518936881086
+        },
+        {
+          "id": "fabric",
+          "score": 0.10322366815847969
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "wood",
+          "score": 0.9940950955466
+        },
+        {
+          "id": "fabric",
+          "score": 0.4882388755363444
+        },
+        {
+          "id": "complete",
+          "score": 0.30756435693698153
+        },
+        {
+          "id": "intake",
+          "score": 0.20814740568449797
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 1,
+  "approved": 1,
+  "held": 0,
+  "status": "ready",
+  "issues": [],
+  "plan": [
+    {
+      "id": "x",
+      "from": "intake",
+      "to": "wood",
+      "capacity": 7,
+      "flow": 0,
+      "cut": false
+    }
+  ],
+  "expansions": [
+    {
+      "id": "x",
+      "added": 3,
+      "throughput": 0,
+      "gain": 0
+    }
+  ],
+  "reachable": [
+    "intake",
+    "wood"
+  ],
+  "summary": {
+    "baseline": 7,
+    "throughput": 0,
+    "overstatement": 7,
+    "cutCapacity": 0,
+    "bestGain": 0
+  }
+}

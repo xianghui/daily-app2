@@ -1336,3 +1336,10 @@ Local MiniLM reconciles rough submeter labels before mandatory identity/period/k
 Collection size guard: deploy-only byte-identical geometry runtime reuse additionally covers `20261028-21` → `20261028-24`, retaining legacy JS URLs and query-versioned entries; source builds unchanged. Actual model generation, PNG import and binary-STL import/export passed. Combined assembly: 999,708,707 bytes; all 725 prior gallery entries preserved.
 
 Charge Terrace public release: matching Pages `d7fd904a746c9b4d29602236a493aea3dec63963` reached built with a successful workflow. Thirteen public app/runtime/legacy asset byte matches, both real-AI fixtures, full reviewed-artifact/privacy/offline suite, maximum batch and all 726 preserved gallery cards passed. The newly shared older geometry app passed actual model/image/STL import/export checks. Source staging excludes unrelated pre-existing edits; no digest sent.
+
+
+## Cutline Desk — 20261119-18
+
+Local MiniLM reconciles both endpoints of rough handoff lanes before mandatory identity/direction/capacity review. Compare maximum network throughput and a verified minimum cut with intake-only counts, test separate single-lane expansions and export complete JSON/CSV/Markdown without uploads or dispatch. Both tiny fixtures matched 20/20 endpoint links; 1,500 independent exhaustive-cut oracle cases and fresh-worker offline inference passed. Static capacity bounds are not service promises; separate expansion gains are not additive. Preserve immutable worker/runtime `20261115-6` and WASM `20261107-2`. See [workflow/privacy](20261119-18/README.md) and [observed validation](20261119-18/VALIDATION.md). No digest sent.
+
+Cutline Desk public release: matching Pages `e42370e77acee447f4df0c120b979a3b39580e91` reached built with a successful workflow. Nine public asset byte matches, both real-AI fixtures, full reviewed-artifact/privacy/offline suite, maximum batch and all 727 preserved gallery cards passed. Combined site: 999,975,062 bytes; older-runtime sharing unchanged. Source staging excludes unrelated pre-existing edits; no digest sent.

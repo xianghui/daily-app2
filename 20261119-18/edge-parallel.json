@@ -1,0 +1,436 @@
+{
+  "schema": "cutline-desk/v1",
+  "originalInput": {
+    "context": "Synthetic repair intake network. Each lane capacity is available cases per week; all cases interchangeable.",
+    "source": "intake",
+    "sink": "complete",
+    "extra": 3,
+    "nodes": [
+      {
+        "id": "intake",
+        "description": "Customer repair request intake reception desk"
+      },
+      {
+        "id": "wood",
+        "description": "Woodworking timber carpentry repair workshop"
+      },
+      {
+        "id": "fabric",
+        "description": "Textile sewing fabric mending workshop"
+      },
+      {
+        "id": "complete",
+        "description": "Completed repair collection dispatch pickup desk"
+      }
+    ],
+    "logs": [
+      {
+        "id": "a",
+        "fromText": "Customer repair request intake reception desk",
+        "toText": "Woodworking timber carpentry repair workshop",
+        "capacity": 2
+      },
+      {
+        "id": "b",
+        "fromText": "Customer repair request intake reception desk",
+        "toText": "Woodworking timber carpentry repair workshop",
+        "capacity": 3
+      },
+      {
+        "id": "c",
+        "fromText": "Woodworking timber carpentry repair workshop",
+        "toText": "Textile sewing fabric mending workshop",
+        "capacity": 4
+      },
+      {
+        "id": "d",
+        "fromText": "Textile sewing fabric mending workshop",
+        "toText": "Woodworking timber carpentry repair workshop",
+        "capacity": 3
+      },
+      {
+        "id": "e",
+        "fromText": "Textile sewing fabric mending workshop",
+        "toText": "Completed repair collection dispatch pickup desk",
+        "capacity": 2
+      },
+      {
+        "id": "f",
+        "fromText": "Woodworking timber carpentry repair workshop",
+        "toText": "Completed repair collection dispatch pickup desk",
+        "capacity": 2
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "a",
+      "from": "intake",
+      "to": "wood",
+      "capacity": 2,
+      "fromEvidence": [
+        {
+          "id": "intake",
+          "score": 0.9936692210807763
+        },
+        {
+          "id": "complete",
+          "score": 0.4959863364739791
+        },
+        {
+          "id": "wood",
+          "score": 0.2167518936881086
+        },
+        {
+          "id": "fabric",
+          "score": 0.10322366815847969
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "wood",
+          "score": 0.9940950955466
+        },
+        {
+          "id": "fabric",
+          "score": 0.4882388755363444
+        },
+        {
+          "id": "complete",
+          "score": 0.30756435693698153
+        },
+        {
+          "id": "intake",
+          "score": 0.20814740568449797
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "b",
+      "from": "intake",
+      "to": "wood",
+      "capacity": 3,
+      "fromEvidence": [
+        {
+          "id": "intake",
+          "score": 0.9936692210807763
+        },
+        {
+          "id": "complete",
+          "score": 0.4959863364739791
+        },
+        {
+          "id": "wood",
+          "score": 0.2167518936881086
+        },
+        {
+          "id": "fabric",
+          "score": 0.10322366815847969
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "wood",
+          "score": 0.9940950955466
+        },
+        {
+          "id": "fabric",
+          "score": 0.4882388755363444
+        },
+        {
+          "id": "complete",
+          "score": 0.30756435693698153
+        },
+        {
+          "id": "intake",
+          "score": 0.20814740568449797
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "c",
+      "from": "wood",
+      "to": "fabric",
+      "capacity": 4,
+      "fromEvidence": [
+        {
+          "id": "wood",
+          "score": 0.9939305313064377
+        },
+        {
+          "id": "fabric",
+          "score": 0.49340345347410985
+        },
+        {
+          "id": "complete",
+          "score": 0.3134840679466255
+        },
+        {
+          "id": "intake",
+          "score": 0.20566327341777205
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "fabric",
+          "score": 0.9942279163195601
+        },
+        {
+          "id": "wood",
+          "score": 0.4862304903721182
+        },
+        {
+          "id": "complete",
+          "score": 0.16499319436940169
+        },
+        {
+          "id": "intake",
+          "score": 0.09473498146676831
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "d",
+      "from": "fabric",
+      "to": "wood",
+      "capacity": 3,
+      "fromEvidence": [
+        {
+          "id": "fabric",
+          "score": 0.9942279163195601
+        },
+        {
+          "id": "wood",
+          "score": 0.4862304903721182
+        },
+        {
+          "id": "complete",
+          "score": 0.16499319436940169
+        },
+        {
+          "id": "intake",
+          "score": 0.09473498146676831
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "wood",
+          "score": 0.9939305313064377
+        },
+        {
+          "id": "fabric",
+          "score": 0.49340345347410985
+        },
+        {
+          "id": "complete",
+          "score": 0.3134840679466255
+        },
+        {
+          "id": "intake",
+          "score": 0.20566327341777205
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "e",
+      "from": "fabric",
+      "to": "complete",
+      "capacity": 2,
+      "fromEvidence": [
+        {
+          "id": "fabric",
+          "score": 0.9960793711547353
+        },
+        {
+          "id": "wood",
+          "score": 0.4752534505844249
+        },
+        {
+          "id": "complete",
+          "score": 0.16869734232642813
+        },
+        {
+          "id": "intake",
+          "score": 0.10665626957678223
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "complete",
+          "score": 0.9940268305923007
+        },
+        {
+          "id": "intake",
+          "score": 0.5000670776687646
+        },
+        {
+          "id": "wood",
+          "score": 0.31446206158598733
+        },
+        {
+          "id": "fabric",
+          "score": 0.1658684004159592
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "f",
+      "from": "wood",
+      "to": "complete",
+      "capacity": 2,
+      "fromEvidence": [
+        {
+          "id": "wood",
+          "score": 0.996227835069928
+        },
+        {
+          "id": "fabric",
+          "score": 0.4801002313075691
+        },
+        {
+          "id": "complete",
+          "score": 0.3184375721569981
+        },
+        {
+          "id": "intake",
+          "score": 0.21698054118051707
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "complete",
+          "score": 0.9940268305923007
+        },
+        {
+          "id": "intake",
+          "score": 0.5000670776687646
+        },
+        {
+          "id": "wood",
+          "score": 0.31446206158598733
+        },
+        {
+          "id": "fabric",
+          "score": 0.1658684004159592
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 6,
+  "approved": 6,
+  "held": 0,
+  "status": "ready",
+  "issues": [],
+  "plan": [
+    {
+      "id": "a",
+      "from": "intake",
+      "to": "wood",
+      "capacity": 2,
+      "flow": 2,
+      "cut": false
+    },
+    {
+      "id": "b",
+      "from": "intake",
+      "to": "wood",
+      "capacity": 3,
+      "flow": 2,
+      "cut": false
+    },
+    {
+      "id": "c",
+      "from": "wood",
+      "to": "fabric",
+      "capacity": 4,
+      "flow": 2,
+      "cut": false
+    },
+    {
+      "id": "d",
+      "from": "fabric",
+      "to": "wood",
+      "capacity": 3,
+      "flow": 0,
+      "cut": false
+    },
+    {
+      "id": "e",
+      "from": "fabric",
+      "to": "complete",
+      "capacity": 2,
+      "flow": 2,
+      "cut": true
+    },
+    {
+      "id": "f",
+      "from": "wood",
+      "to": "complete",
+      "capacity": 2,
+      "flow": 2,
+      "cut": true
+    }
+  ],
+  "expansions": [
+    {
+      "id": "e",
+      "added": 3,
+      "throughput": 5,
+      "gain": 1
+    },
+    {
+      "id": "f",
+      "added": 3,
+      "throughput": 5,
+      "gain": 1
+    },
+    {
+      "id": "a",
+      "added": 3,
+      "throughput": 4,
+      "gain": 0
+    },
+    {
+      "id": "b",
+      "added": 3,
+      "throughput": 4,
+      "gain": 0
+    },
+    {
+      "id": "c",
+      "added": 3,
+      "throughput": 4,
+      "gain": 0
+    },
+    {
+      "id": "d",
+      "added": 3,
+      "throughput": 4,
+      "gain": 0
+    }
+  ],
+  "reachable": [
+    "intake",
+    "wood",
+    "fabric"
+  ],
+  "summary": {
+    "baseline": 5,
+    "throughput": 4,
+    "overstatement": 1,
+    "cutCapacity": 4,
+    "bestGain": 1
+  }
+}

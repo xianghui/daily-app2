@@ -1,0 +1,429 @@
+{
+  "schema": "replica-compass/v1",
+  "originalInput": {
+    "context": "Synthetic replica planning scenario. Each supplied value is an assumed round-trip acknowledgement latency in milliseconds.",
+    "failures": 3,
+    "nodes": [
+      {
+        "id": "east",
+        "latency": 3
+      },
+      {
+        "id": "west",
+        "latency": 8
+      },
+      {
+        "id": "north",
+        "latency": 14
+      },
+      {
+        "id": "south",
+        "latency": 30
+      },
+      {
+        "id": "central",
+        "latency": 55
+      }
+    ],
+    "observations": [
+      {
+        "id": "w1",
+        "description": "Insert and save new journal records into storage",
+        "count": 650
+      },
+      {
+        "id": "w2",
+        "description": "Modify existing records and persist updated data",
+        "count": 300
+      },
+      {
+        "id": "r1",
+        "description": "Retrieve existing saved journal entries without modifications",
+        "count": 50
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "w1",
+      "description": "Insert and save new journal records into storage",
+      "count": 650,
+      "item": "write",
+      "evidence": [
+        {
+          "id": "write",
+          "score": 0.41565213831781156
+        },
+        {
+          "id": "read",
+          "score": 0.11825225078637722
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "w2",
+      "description": "Modify existing records and persist updated data",
+      "count": 300,
+      "item": "write",
+      "evidence": [
+        {
+          "id": "write",
+          "score": 0.6439809614393096
+        },
+        {
+          "id": "read",
+          "score": 0.4461331227113454
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "r1",
+      "description": "Retrieve existing saved journal entries without modifications",
+      "count": 50,
+      "item": "read",
+      "evidence": [
+        {
+          "id": "read",
+          "score": 0.3986438447985302
+        },
+        {
+          "id": "write",
+          "score": 0.3046582296301358
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 3,
+  "approved": 3,
+  "held": 0,
+  "status": "infeasible",
+  "issues": [
+    "No intersecting read/write and write/write quorum pair remains available with the requested offline-node tolerance. Reduce tolerance or reconsider the replica count; no unsafe substitute offered."
+  ],
+  "plan": {
+    "all": [
+      {
+        "R": 1,
+        "W": 1,
+        "readWriteOverlap": -3,
+        "writeWriteOverlap": -3,
+        "offlineTolerance": 4,
+        "safe": false,
+        "feasible": false,
+        "readMs": 3,
+        "writeMs": 3,
+        "weightedMs": 3
+      },
+      {
+        "R": 1,
+        "W": 2,
+        "readWriteOverlap": -2,
+        "writeWriteOverlap": -1,
+        "offlineTolerance": 3,
+        "safe": false,
+        "feasible": false,
+        "readMs": 3,
+        "writeMs": 8,
+        "weightedMs": 7.75
+      },
+      {
+        "R": 1,
+        "W": 3,
+        "readWriteOverlap": -1,
+        "writeWriteOverlap": 1,
+        "offlineTolerance": 2,
+        "safe": false,
+        "feasible": false,
+        "readMs": 3,
+        "writeMs": 14,
+        "weightedMs": 13.45
+      },
+      {
+        "R": 1,
+        "W": 4,
+        "readWriteOverlap": 0,
+        "writeWriteOverlap": 3,
+        "offlineTolerance": 1,
+        "safe": false,
+        "feasible": false,
+        "readMs": 3,
+        "writeMs": 30,
+        "weightedMs": 28.65
+      },
+      {
+        "R": 1,
+        "W": 5,
+        "readWriteOverlap": 1,
+        "writeWriteOverlap": 5,
+        "offlineTolerance": 0,
+        "safe": true,
+        "feasible": false,
+        "readMs": 3,
+        "writeMs": 55,
+        "weightedMs": 52.4
+      },
+      {
+        "R": 2,
+        "W": 1,
+        "readWriteOverlap": -2,
+        "writeWriteOverlap": -3,
+        "offlineTolerance": 3,
+        "safe": false,
+        "feasible": false,
+        "readMs": 8,
+        "writeMs": 3,
+        "weightedMs": 3.25
+      },
+      {
+        "R": 2,
+        "W": 2,
+        "readWriteOverlap": -1,
+        "writeWriteOverlap": -1,
+        "offlineTolerance": 3,
+        "safe": false,
+        "feasible": false,
+        "readMs": 8,
+        "writeMs": 8,
+        "weightedMs": 8
+      },
+      {
+        "R": 2,
+        "W": 3,
+        "readWriteOverlap": 0,
+        "writeWriteOverlap": 1,
+        "offlineTolerance": 2,
+        "safe": false,
+        "feasible": false,
+        "readMs": 8,
+        "writeMs": 14,
+        "weightedMs": 13.7
+      },
+      {
+        "R": 2,
+        "W": 4,
+        "readWriteOverlap": 1,
+        "writeWriteOverlap": 3,
+        "offlineTolerance": 1,
+        "safe": true,
+        "feasible": false,
+        "readMs": 8,
+        "writeMs": 30,
+        "weightedMs": 28.9
+      },
+      {
+        "R": 2,
+        "W": 5,
+        "readWriteOverlap": 2,
+        "writeWriteOverlap": 5,
+        "offlineTolerance": 0,
+        "safe": true,
+        "feasible": false,
+        "readMs": 8,
+        "writeMs": 55,
+        "weightedMs": 52.65
+      },
+      {
+        "R": 3,
+        "W": 1,
+        "readWriteOverlap": -1,
+        "writeWriteOverlap": -3,
+        "offlineTolerance": 2,
+        "safe": false,
+        "feasible": false,
+        "readMs": 14,
+        "writeMs": 3,
+        "weightedMs": 3.55
+      },
+      {
+        "R": 3,
+        "W": 2,
+        "readWriteOverlap": 0,
+        "writeWriteOverlap": -1,
+        "offlineTolerance": 2,
+        "safe": false,
+        "feasible": false,
+        "readMs": 14,
+        "writeMs": 8,
+        "weightedMs": 8.3
+      },
+      {
+        "R": 3,
+        "W": 3,
+        "readWriteOverlap": 1,
+        "writeWriteOverlap": 1,
+        "offlineTolerance": 2,
+        "safe": true,
+        "feasible": false,
+        "readMs": 14,
+        "writeMs": 14,
+        "weightedMs": 14
+      },
+      {
+        "R": 3,
+        "W": 4,
+        "readWriteOverlap": 2,
+        "writeWriteOverlap": 3,
+        "offlineTolerance": 1,
+        "safe": true,
+        "feasible": false,
+        "readMs": 14,
+        "writeMs": 30,
+        "weightedMs": 29.2
+      },
+      {
+        "R": 3,
+        "W": 5,
+        "readWriteOverlap": 3,
+        "writeWriteOverlap": 5,
+        "offlineTolerance": 0,
+        "safe": true,
+        "feasible": false,
+        "readMs": 14,
+        "writeMs": 55,
+        "weightedMs": 52.95
+      },
+      {
+        "R": 4,
+        "W": 1,
+        "readWriteOverlap": 0,
+        "writeWriteOverlap": -3,
+        "offlineTolerance": 1,
+        "safe": false,
+        "feasible": false,
+        "readMs": 30,
+        "writeMs": 3,
+        "weightedMs": 4.35
+      },
+      {
+        "R": 4,
+        "W": 2,
+        "readWriteOverlap": 1,
+        "writeWriteOverlap": -1,
+        "offlineTolerance": 1,
+        "safe": false,
+        "feasible": false,
+        "readMs": 30,
+        "writeMs": 8,
+        "weightedMs": 9.1
+      },
+      {
+        "R": 4,
+        "W": 3,
+        "readWriteOverlap": 2,
+        "writeWriteOverlap": 1,
+        "offlineTolerance": 1,
+        "safe": true,
+        "feasible": false,
+        "readMs": 30,
+        "writeMs": 14,
+        "weightedMs": 14.8
+      },
+      {
+        "R": 4,
+        "W": 4,
+        "readWriteOverlap": 3,
+        "writeWriteOverlap": 3,
+        "offlineTolerance": 1,
+        "safe": true,
+        "feasible": false,
+        "readMs": 30,
+        "writeMs": 30,
+        "weightedMs": 30
+      },
+      {
+        "R": 4,
+        "W": 5,
+        "readWriteOverlap": 4,
+        "writeWriteOverlap": 5,
+        "offlineTolerance": 0,
+        "safe": true,
+        "feasible": false,
+        "readMs": 30,
+        "writeMs": 55,
+        "weightedMs": 53.75
+      },
+      {
+        "R": 5,
+        "W": 1,
+        "readWriteOverlap": 1,
+        "writeWriteOverlap": -3,
+        "offlineTolerance": 0,
+        "safe": false,
+        "feasible": false,
+        "readMs": 55,
+        "writeMs": 3,
+        "weightedMs": 5.6
+      },
+      {
+        "R": 5,
+        "W": 2,
+        "readWriteOverlap": 2,
+        "writeWriteOverlap": -1,
+        "offlineTolerance": 0,
+        "safe": false,
+        "feasible": false,
+        "readMs": 55,
+        "writeMs": 8,
+        "weightedMs": 10.35
+      },
+      {
+        "R": 5,
+        "W": 3,
+        "readWriteOverlap": 3,
+        "writeWriteOverlap": 1,
+        "offlineTolerance": 0,
+        "safe": true,
+        "feasible": false,
+        "readMs": 55,
+        "writeMs": 14,
+        "weightedMs": 16.05
+      },
+      {
+        "R": 5,
+        "W": 4,
+        "readWriteOverlap": 4,
+        "writeWriteOverlap": 3,
+        "offlineTolerance": 0,
+        "safe": true,
+        "feasible": false,
+        "readMs": 55,
+        "writeMs": 30,
+        "weightedMs": 31.25
+      },
+      {
+        "R": 5,
+        "W": 5,
+        "readWriteOverlap": 5,
+        "writeWriteOverlap": 5,
+        "offlineTolerance": 0,
+        "safe": true,
+        "feasible": false,
+        "readMs": 55,
+        "writeMs": 55,
+        "weightedMs": 55
+      }
+    ],
+    "best": null,
+    "baseline": {
+      "R": 5,
+      "W": 5,
+      "readWriteOverlap": 5,
+      "writeWriteOverlap": 5,
+      "offlineTolerance": 0,
+      "safe": true,
+      "feasible": false,
+      "readMs": 55,
+      "writeMs": 55,
+      "weightedMs": 55
+    },
+    "total": 1000,
+    "reads": 50,
+    "writes": 950
+  }
+}

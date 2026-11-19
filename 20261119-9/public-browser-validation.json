@@ -1,0 +1,148 @@
+{
+  "fixtures": [
+    {
+      "name": "Read-heavy catalog",
+      "expected": [
+        "read",
+        "read",
+        "write"
+      ],
+      "actual": [
+        "read",
+        "read",
+        "write"
+      ],
+      "best": {
+        "R": 2,
+        "W": 4,
+        "readWriteOverlap": 1,
+        "writeWriteOverlap": 3,
+        "offlineTolerance": 1,
+        "safe": true,
+        "feasible": true,
+        "readMs": 4,
+        "writeMs": 25,
+        "weightedMs": 4.21
+      },
+      "baseline": {
+        "R": 5,
+        "W": 5,
+        "readWriteOverlap": 5,
+        "writeWriteOverlap": 5,
+        "offlineTolerance": 0,
+        "safe": true,
+        "feasible": false,
+        "readMs": 40,
+        "writeMs": 40,
+        "weightedMs": 40
+      },
+      "total": 1000
+    },
+    {
+      "name": "Write-heavy journal",
+      "expected": [
+        "write",
+        "write",
+        "read"
+      ],
+      "actual": [
+        "write",
+        "write",
+        "read"
+      ],
+      "best": {
+        "R": 3,
+        "W": 3,
+        "readWriteOverlap": 1,
+        "writeWriteOverlap": 1,
+        "offlineTolerance": 2,
+        "safe": true,
+        "feasible": true,
+        "readMs": 14,
+        "writeMs": 14,
+        "weightedMs": 14
+      },
+      "baseline": {
+        "R": 5,
+        "W": 5,
+        "readWriteOverlap": 5,
+        "writeWriteOverlap": 5,
+        "offlineTolerance": 0,
+        "safe": true,
+        "feasible": false,
+        "readMs": 55,
+        "writeMs": 55,
+        "weightedMs": 55
+      },
+      "total": 1000
+    }
+  ],
+  "checks": [
+    "review/hold/undo/remap/count/copy/multiline; audit import resets approvals; offline fresh-worker real inference",
+    "empty/invalid/oversized/duplicates/negative/fractional/formats; cancellation and real retry; changed input invalidates stale run",
+    "maximum 26 texts, 24 groups, 9 nodes, four-text chunks; maximum audit originals round-trip",
+    "desktop,390px,320px; touch heights; all form labels and focus outline; no overflow"
+  ],
+  "challenge": {
+    "suggested": "write",
+    "limitation": "Nearest class still returned for irrelevant text. Human hold required; identity is not authority."
+  },
+  "network": {
+    "requests": 55,
+    "onlyGetHead": true,
+    "noBodies": true,
+    "noSourceTextInUrls": true,
+    "paths": [
+      "https://xianghui.github.io/daily-app2/20261119-9/",
+      "https://xianghui.github.io/daily-app2/20261119-9/assets/index-BAQEJDXK.js",
+      "https://xianghui.github.io/daily-app2/20261119-9/assets/index-Br4SPvo_.css",
+      "https://xianghui.github.io/daily-app2/20261119-9/favicon.svg",
+      "https://xianghui.github.io/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "https://xianghui.github.iohttps://xianghui.github.io/d40fac45-bb84-47f5-b9f7-563c6af42291",
+      "https://xianghui.github.io/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "https://xianghui.github.io/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "https://xianghui.github.iohttps://xianghui.github.io/ee133382-aafa-46c1-ab8a-d722941e890f",
+      "https://xianghui.github.iohttps://xianghui.github.io/a07659d7-40e4-4477-9b0b-f2f7fdc94be6",
+      "https://xianghui.github.iohttps://xianghui.github.io/0a69ef92-2787-4071-8e0e-0ff9e0ec11b0",
+      "https://xianghui.github.iohttps://xianghui.github.io/fcfd67b3-1f0b-41f2-b67b-c822a3062f87",
+      "https://xianghui.github.iohttps://xianghui.github.io/752a5858-4712-4ff3-943c-8e32f201798f",
+      "https://xianghui.github.iohttps://xianghui.github.io/d779ceb1-b116-461f-809e-0fac91b59cb5",
+      "https://xianghui.github.iohttps://xianghui.github.io/de9d8d07-f6d8-40cb-889e-f41ec3ed9a1a",
+      "https://xianghui.github.iohttps://xianghui.github.io/b7f47aac-f6a5-46e8-a2ec-55d4c9399d2a",
+      "https://xianghui.github.iohttps://xianghui.github.io/68ba699d-94ba-4ee3-9349-267b33a1f0b5",
+      "https://xianghui.github.iohttps://xianghui.github.io/d8ed6abe-d502-4fd2-b5a4-1c6504de0949",
+      "https://xianghui.github.iohttps://xianghui.github.io/092e1edd-a698-44bf-b5ee-3811e44e9cb8",
+      "https://xianghui.github.iohttps://xianghui.github.io/b3b8325d-21ed-40e8-badd-82804de63611",
+      "https://xianghui.github.iohttps://xianghui.github.io/a2a22de0-6379-4714-b2b6-58f365f13c51",
+      "https://xianghui.github.iohttps://xianghui.github.io/0470f431-fa8b-4f92-82fa-e82f4868321d",
+      "https://xianghui.github.iohttps://xianghui.github.io/71c576af-5e03-484f-827d-fe0941b01642",
+      "https://xianghui.github.iohttps://xianghui.github.io/bca4cd64-65de-4029-a558-38d5580b6b66",
+      "https://xianghui.github.iohttps://xianghui.github.io/09211bad-ec54-4e7e-a7f9-00c2e1da64c2",
+      "https://xianghui.github.iohttps://xianghui.github.io/84242fa4-ba1c-4de0-96a2-5a8a09d6520e",
+      "https://xianghui.github.iohttps://xianghui.github.io/0d91c40b-b32b-4d29-81b9-f43dbe2704e3",
+      "https://xianghui.github.iohttps://xianghui.github.io/1402cfbb-7d8e-4f23-b39b-ec78bc2b32ac",
+      "https://xianghui.github.iohttps://xianghui.github.io/8061c075-4042-4533-a727-c1b073a59bd6",
+      "https://xianghui.github.iohttps://xianghui.github.io/6cb9f7ce-14cb-4d2a-ad5d-4c5e1330a918",
+      "https://xianghui.github.iohttps://xianghui.github.io/acddfb5c-38cc-4445-bdc7-62865b32b118",
+      "https://xianghui.github.iohttps://xianghui.github.io/a289463e-7f32-41cf-b5cb-f0874e32afc9",
+      "https://xianghui.github.iohttps://xianghui.github.io/756cd7eb-afb6-484b-8108-62fbb3786354",
+      "https://xianghui.github.iohttps://xianghui.github.io/0e5f3edf-6c9e-4332-bb8f-7caf755d61f9",
+      "https://xianghui.github.iohttps://xianghui.github.io/10ee27d4-5842-4961-9e8a-02bf02f9f944",
+      "https://xianghui.github.iohttps://xianghui.github.io/a007850a-ffbb-4fd1-ab98-0ca0679b1acf",
+      "https://xianghui.github.iohttps://xianghui.github.io/bacb13ff-2f75-4fb0-aefd-595963559d1a",
+      "https://xianghui.github.iohttps://xianghui.github.io/e38ed38d-8e0d-4978-835f-0bad8646dbf0",
+      "https://xianghui.github.iohttps://xianghui.github.io/20229421-5d5a-4cb5-a4c9-2eeb801af341",
+      "https://xianghui.github.iohttps://xianghui.github.io/66eece0d-7c7a-43e4-a71a-fe9cc2a42925",
+      "https://xianghui.github.iohttps://xianghui.github.io/b017c2eb-4861-421f-98e1-dc45af2c44bc"
+    ]
+  },
+  "pageErrors": []
+}

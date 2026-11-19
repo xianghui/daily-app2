@@ -1,0 +1,438 @@
+{
+  "schema": "replica-compass/v1",
+  "originalInput": {
+    "context": "Synthetic replica planning scenario. Quorum counts only; not a database configuration or consistency certification.",
+    "failures": 1,
+    "nodes": [
+      {
+        "id": "n1",
+        "latency": 2
+      },
+      {
+        "id": "n2",
+        "latency": 4
+      },
+      {
+        "id": "n3",
+        "latency": 12
+      },
+      {
+        "id": "n4",
+        "latency": 25
+      },
+      {
+        "id": "n5",
+        "latency": 40
+      }
+    ],
+    "observations": [
+      {
+        "id": "r1",
+        "description": "Fetch existing catalog records without changing anything",
+        "count": 900
+      },
+      {
+        "id": "r2",
+        "description": "Look up saved product information",
+        "count": 90
+      },
+      {
+        "id": "w1",
+        "description": "Update stored catalog records and save modifications",
+        "count": 10
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "r1",
+      "description": "Fetch existing catalog records without changing anything",
+      "count": 900,
+      "item": "read",
+      "evidence": [
+        {
+          "id": "read",
+          "score": 0.6400220573835794
+        },
+        {
+          "id": "write",
+          "score": 0.24739661886951675
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "r2",
+      "description": "Look up saved product information",
+      "count": 90,
+      "item": "read",
+      "evidence": [
+        {
+          "id": "read",
+          "score": 0.21612420078587002
+        },
+        {
+          "id": "write",
+          "score": 0.1511401970345715
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "w1",
+      "description": "Update stored catalog records and save modifications",
+      "count": 10,
+      "item": "write",
+      "evidence": [
+        {
+          "id": "write",
+          "score": 0.5883040907483064
+        },
+        {
+          "id": "read",
+          "score": 0.30871639830884773
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 3,
+  "approved": 3,
+  "held": 0,
+  "status": "ready",
+  "issues": [],
+  "plan": {
+    "all": [
+      {
+        "R": 1,
+        "W": 1,
+        "readWriteOverlap": -3,
+        "writeWriteOverlap": -3,
+        "offlineTolerance": 4,
+        "safe": false,
+        "feasible": false,
+        "readMs": 2,
+        "writeMs": 2,
+        "weightedMs": 2
+      },
+      {
+        "R": 1,
+        "W": 2,
+        "readWriteOverlap": -2,
+        "writeWriteOverlap": -1,
+        "offlineTolerance": 3,
+        "safe": false,
+        "feasible": false,
+        "readMs": 2,
+        "writeMs": 4,
+        "weightedMs": 2.02
+      },
+      {
+        "R": 1,
+        "W": 3,
+        "readWriteOverlap": -1,
+        "writeWriteOverlap": 1,
+        "offlineTolerance": 2,
+        "safe": false,
+        "feasible": false,
+        "readMs": 2,
+        "writeMs": 12,
+        "weightedMs": 2.1
+      },
+      {
+        "R": 1,
+        "W": 4,
+        "readWriteOverlap": 0,
+        "writeWriteOverlap": 3,
+        "offlineTolerance": 1,
+        "safe": false,
+        "feasible": false,
+        "readMs": 2,
+        "writeMs": 25,
+        "weightedMs": 2.23
+      },
+      {
+        "R": 1,
+        "W": 5,
+        "readWriteOverlap": 1,
+        "writeWriteOverlap": 5,
+        "offlineTolerance": 0,
+        "safe": true,
+        "feasible": false,
+        "readMs": 2,
+        "writeMs": 40,
+        "weightedMs": 2.38
+      },
+      {
+        "R": 2,
+        "W": 1,
+        "readWriteOverlap": -2,
+        "writeWriteOverlap": -3,
+        "offlineTolerance": 3,
+        "safe": false,
+        "feasible": false,
+        "readMs": 4,
+        "writeMs": 2,
+        "weightedMs": 3.98
+      },
+      {
+        "R": 2,
+        "W": 2,
+        "readWriteOverlap": -1,
+        "writeWriteOverlap": -1,
+        "offlineTolerance": 3,
+        "safe": false,
+        "feasible": false,
+        "readMs": 4,
+        "writeMs": 4,
+        "weightedMs": 4
+      },
+      {
+        "R": 2,
+        "W": 3,
+        "readWriteOverlap": 0,
+        "writeWriteOverlap": 1,
+        "offlineTolerance": 2,
+        "safe": false,
+        "feasible": false,
+        "readMs": 4,
+        "writeMs": 12,
+        "weightedMs": 4.08
+      },
+      {
+        "R": 2,
+        "W": 4,
+        "readWriteOverlap": 1,
+        "writeWriteOverlap": 3,
+        "offlineTolerance": 1,
+        "safe": true,
+        "feasible": true,
+        "readMs": 4,
+        "writeMs": 25,
+        "weightedMs": 4.21
+      },
+      {
+        "R": 2,
+        "W": 5,
+        "readWriteOverlap": 2,
+        "writeWriteOverlap": 5,
+        "offlineTolerance": 0,
+        "safe": true,
+        "feasible": false,
+        "readMs": 4,
+        "writeMs": 40,
+        "weightedMs": 4.36
+      },
+      {
+        "R": 3,
+        "W": 1,
+        "readWriteOverlap": -1,
+        "writeWriteOverlap": -3,
+        "offlineTolerance": 2,
+        "safe": false,
+        "feasible": false,
+        "readMs": 12,
+        "writeMs": 2,
+        "weightedMs": 11.9
+      },
+      {
+        "R": 3,
+        "W": 2,
+        "readWriteOverlap": 0,
+        "writeWriteOverlap": -1,
+        "offlineTolerance": 2,
+        "safe": false,
+        "feasible": false,
+        "readMs": 12,
+        "writeMs": 4,
+        "weightedMs": 11.92
+      },
+      {
+        "R": 3,
+        "W": 3,
+        "readWriteOverlap": 1,
+        "writeWriteOverlap": 1,
+        "offlineTolerance": 2,
+        "safe": true,
+        "feasible": true,
+        "readMs": 12,
+        "writeMs": 12,
+        "weightedMs": 12
+      },
+      {
+        "R": 3,
+        "W": 4,
+        "readWriteOverlap": 2,
+        "writeWriteOverlap": 3,
+        "offlineTolerance": 1,
+        "safe": true,
+        "feasible": true,
+        "readMs": 12,
+        "writeMs": 25,
+        "weightedMs": 12.13
+      },
+      {
+        "R": 3,
+        "W": 5,
+        "readWriteOverlap": 3,
+        "writeWriteOverlap": 5,
+        "offlineTolerance": 0,
+        "safe": true,
+        "feasible": false,
+        "readMs": 12,
+        "writeMs": 40,
+        "weightedMs": 12.28
+      },
+      {
+        "R": 4,
+        "W": 1,
+        "readWriteOverlap": 0,
+        "writeWriteOverlap": -3,
+        "offlineTolerance": 1,
+        "safe": false,
+        "feasible": false,
+        "readMs": 25,
+        "writeMs": 2,
+        "weightedMs": 24.77
+      },
+      {
+        "R": 4,
+        "W": 2,
+        "readWriteOverlap": 1,
+        "writeWriteOverlap": -1,
+        "offlineTolerance": 1,
+        "safe": false,
+        "feasible": false,
+        "readMs": 25,
+        "writeMs": 4,
+        "weightedMs": 24.79
+      },
+      {
+        "R": 4,
+        "W": 3,
+        "readWriteOverlap": 2,
+        "writeWriteOverlap": 1,
+        "offlineTolerance": 1,
+        "safe": true,
+        "feasible": true,
+        "readMs": 25,
+        "writeMs": 12,
+        "weightedMs": 24.87
+      },
+      {
+        "R": 4,
+        "W": 4,
+        "readWriteOverlap": 3,
+        "writeWriteOverlap": 3,
+        "offlineTolerance": 1,
+        "safe": true,
+        "feasible": true,
+        "readMs": 25,
+        "writeMs": 25,
+        "weightedMs": 25
+      },
+      {
+        "R": 4,
+        "W": 5,
+        "readWriteOverlap": 4,
+        "writeWriteOverlap": 5,
+        "offlineTolerance": 0,
+        "safe": true,
+        "feasible": false,
+        "readMs": 25,
+        "writeMs": 40,
+        "weightedMs": 25.15
+      },
+      {
+        "R": 5,
+        "W": 1,
+        "readWriteOverlap": 1,
+        "writeWriteOverlap": -3,
+        "offlineTolerance": 0,
+        "safe": false,
+        "feasible": false,
+        "readMs": 40,
+        "writeMs": 2,
+        "weightedMs": 39.62
+      },
+      {
+        "R": 5,
+        "W": 2,
+        "readWriteOverlap": 2,
+        "writeWriteOverlap": -1,
+        "offlineTolerance": 0,
+        "safe": false,
+        "feasible": false,
+        "readMs": 40,
+        "writeMs": 4,
+        "weightedMs": 39.64
+      },
+      {
+        "R": 5,
+        "W": 3,
+        "readWriteOverlap": 3,
+        "writeWriteOverlap": 1,
+        "offlineTolerance": 0,
+        "safe": true,
+        "feasible": false,
+        "readMs": 40,
+        "writeMs": 12,
+        "weightedMs": 39.72
+      },
+      {
+        "R": 5,
+        "W": 4,
+        "readWriteOverlap": 4,
+        "writeWriteOverlap": 3,
+        "offlineTolerance": 0,
+        "safe": true,
+        "feasible": false,
+        "readMs": 40,
+        "writeMs": 25,
+        "weightedMs": 39.85
+      },
+      {
+        "R": 5,
+        "W": 5,
+        "readWriteOverlap": 5,
+        "writeWriteOverlap": 5,
+        "offlineTolerance": 0,
+        "safe": true,
+        "feasible": false,
+        "readMs": 40,
+        "writeMs": 40,
+        "weightedMs": 40
+      }
+    ],
+    "best": {
+      "R": 2,
+      "W": 4,
+      "readWriteOverlap": 1,
+      "writeWriteOverlap": 3,
+      "offlineTolerance": 1,
+      "safe": true,
+      "feasible": true,
+      "readMs": 4,
+      "writeMs": 25,
+      "weightedMs": 4.21
+    },
+    "baseline": {
+      "R": 5,
+      "W": 5,
+      "readWriteOverlap": 5,
+      "writeWriteOverlap": 5,
+      "offlineTolerance": 0,
+      "safe": true,
+      "feasible": false,
+      "readMs": 40,
+      "writeMs": 40,
+      "weightedMs": 40
+    },
+    "total": 1000,
+    "reads": 990,
+    "writes": 10
+  }
+}

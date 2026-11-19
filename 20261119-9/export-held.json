@@ -1,0 +1,109 @@
+{
+  "schema": "replica-compass/v1",
+  "originalInput": {
+    "context": "Synthetic replica planning scenario. Each supplied value is an assumed round-trip acknowledgement latency in milliseconds.",
+    "failures": 1,
+    "nodes": [
+      {
+        "id": "east",
+        "latency": 3
+      },
+      {
+        "id": "west",
+        "latency": 8
+      },
+      {
+        "id": "north",
+        "latency": 14
+      },
+      {
+        "id": "south",
+        "latency": 30
+      },
+      {
+        "id": "central",
+        "latency": 55
+      }
+    ],
+    "observations": [
+      {
+        "id": "w1",
+        "description": "Insert and save new journal records into storage",
+        "count": 650
+      },
+      {
+        "id": "w2",
+        "description": "Modify existing records and persist updated data",
+        "count": 300
+      },
+      {
+        "id": "r1",
+        "description": "Retrieve existing saved journal entries without modifications",
+        "count": 50
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "w1",
+      "description": "Insert and save new journal records into storage",
+      "count": 650,
+      "item": "write",
+      "evidence": [
+        {
+          "id": "write",
+          "score": 0.41565213831781156
+        },
+        {
+          "id": "read",
+          "score": 0.11825225078637722
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", verify"
+    },
+    {
+      "id": "w2",
+      "description": "Modify existing records and persist updated data",
+      "count": 300,
+      "item": "write",
+      "evidence": [
+        {
+          "id": "write",
+          "score": 0.6439809614393096
+        },
+        {
+          "id": "read",
+          "score": 0.4461331227113454
+        }
+      ],
+      "decision": "hold",
+      "reviewNote": ""
+    },
+    {
+      "id": "r1",
+      "description": "Retrieve existing saved journal entries without modifications",
+      "count": 50,
+      "item": "read",
+      "evidence": [
+        {
+          "id": "read",
+          "score": 0.3986438447985302
+        },
+        {
+          "id": "write",
+          "score": 0.3046582296301358
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 3,
+  "approved": 2,
+  "held": 1,
+  "status": "blocked",
+  "issues": [
+    "Held workload groups block the whole-cohort plan. No operations omitted."
+  ]
+}

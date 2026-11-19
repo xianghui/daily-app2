@@ -1,0 +1,148 @@
+{
+  "fixtures": [
+    {
+      "name": "Read-heavy catalog",
+      "expected": [
+        "read",
+        "read",
+        "write"
+      ],
+      "actual": [
+        "read",
+        "read",
+        "write"
+      ],
+      "best": {
+        "R": 2,
+        "W": 4,
+        "readWriteOverlap": 1,
+        "writeWriteOverlap": 3,
+        "offlineTolerance": 1,
+        "safe": true,
+        "feasible": true,
+        "readMs": 4,
+        "writeMs": 25,
+        "weightedMs": 4.21
+      },
+      "baseline": {
+        "R": 5,
+        "W": 5,
+        "readWriteOverlap": 5,
+        "writeWriteOverlap": 5,
+        "offlineTolerance": 0,
+        "safe": true,
+        "feasible": false,
+        "readMs": 40,
+        "writeMs": 40,
+        "weightedMs": 40
+      },
+      "total": 1000
+    },
+    {
+      "name": "Write-heavy journal",
+      "expected": [
+        "write",
+        "write",
+        "read"
+      ],
+      "actual": [
+        "write",
+        "write",
+        "read"
+      ],
+      "best": {
+        "R": 3,
+        "W": 3,
+        "readWriteOverlap": 1,
+        "writeWriteOverlap": 1,
+        "offlineTolerance": 2,
+        "safe": true,
+        "feasible": true,
+        "readMs": 14,
+        "writeMs": 14,
+        "weightedMs": 14
+      },
+      "baseline": {
+        "R": 5,
+        "W": 5,
+        "readWriteOverlap": 5,
+        "writeWriteOverlap": 5,
+        "offlineTolerance": 0,
+        "safe": true,
+        "feasible": false,
+        "readMs": 55,
+        "writeMs": 55,
+        "weightedMs": 55
+      },
+      "total": 1000
+    }
+  ],
+  "checks": [
+    "review/hold/undo/remap/count/copy/multiline; audit import resets approvals; offline fresh-worker real inference",
+    "empty/invalid/oversized/duplicates/negative/fractional/formats; cancellation and real retry; changed input invalidates stale run",
+    "maximum 26 texts, 24 groups, 9 nodes, four-text chunks; maximum audit originals round-trip",
+    "desktop,390px,320px; touch heights; all form labels and focus outline; no overflow"
+  ],
+  "challenge": {
+    "suggested": "write",
+    "limitation": "Nearest class still returned for irrelevant text. Human hold required; identity is not authority."
+  },
+  "network": {
+    "requests": 55,
+    "onlyGetHead": true,
+    "noBodies": true,
+    "noSourceTextInUrls": true,
+    "paths": [
+      "http://127.0.0.1:6963/daily-app2/20261119-9/",
+      "http://127.0.0.1:6963/daily-app2/20261119-9/assets/index-BAQEJDXK.js",
+      "http://127.0.0.1:6963/daily-app2/20261119-9/assets/index-Br4SPvo_.css",
+      "http://127.0.0.1:6963/daily-app2/20261119-9/favicon.svg",
+      "http://127.0.0.1:6963/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "http://127.0.0.1:6963http://127.0.0.1:6963/b660549b-4b23-4ee6-98a1-1ddd6c759bff",
+      "http://127.0.0.1:6963/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "http://127.0.0.1:6963/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "http://127.0.0.1:6963http://127.0.0.1:6963/f45fcea3-2bb5-466d-891b-f46289b3fa4e",
+      "http://127.0.0.1:6963http://127.0.0.1:6963/57ca0e41-f87b-49fa-8ecd-e8696ab27dbb",
+      "http://127.0.0.1:6963http://127.0.0.1:6963/ce64bbf7-4c78-4ebc-a912-ea65cd2a3ac3",
+      "http://127.0.0.1:6963http://127.0.0.1:6963/c83b8399-7f7e-44a3-826b-f563b41279d9",
+      "http://127.0.0.1:6963http://127.0.0.1:6963/c6ef5f49-0b20-448d-9a5e-1003d7132082",
+      "http://127.0.0.1:6963http://127.0.0.1:6963/24ec325b-e88f-4458-8053-542334b3f27c",
+      "http://127.0.0.1:6963http://127.0.0.1:6963/8fb21bd5-c180-48b2-98f2-f75d2d4b6ac9",
+      "http://127.0.0.1:6963http://127.0.0.1:6963/670dd797-6234-43e7-a4a4-08d95aab3919",
+      "http://127.0.0.1:6963http://127.0.0.1:6963/969ec1cd-5b0b-4e13-bd85-73bd7f6b66c8",
+      "http://127.0.0.1:6963http://127.0.0.1:6963/dbb3a01a-c4a0-41a7-9e7c-a684218fcf28",
+      "http://127.0.0.1:6963http://127.0.0.1:6963/3e54f25c-5ae2-4c78-8d90-9cf9f5d78593",
+      "http://127.0.0.1:6963http://127.0.0.1:6963/7d1a8b26-1753-4867-b73b-ca3e3f2e33f4",
+      "http://127.0.0.1:6963http://127.0.0.1:6963/d04e937b-7b90-42d2-ba6f-75e5995222a1",
+      "http://127.0.0.1:6963http://127.0.0.1:6963/3907865f-ff53-4673-a9a8-6cfcde8ba539",
+      "http://127.0.0.1:6963http://127.0.0.1:6963/86463cf1-30ae-4ce8-a083-d99d85b5572a",
+      "http://127.0.0.1:6963http://127.0.0.1:6963/d9437055-bcad-409c-9585-a600413ea3bd",
+      "http://127.0.0.1:6963http://127.0.0.1:6963/ab475d4b-948c-4e47-810e-2280b0e2e97e",
+      "http://127.0.0.1:6963http://127.0.0.1:6963/7a5a42dd-911a-45ba-b44d-62787d3554a3",
+      "http://127.0.0.1:6963http://127.0.0.1:6963/6f178052-60e8-4bd4-89df-897de8c9b30b",
+      "http://127.0.0.1:6963http://127.0.0.1:6963/a1248b0f-e9dd-498f-9674-7d2e680ef731",
+      "http://127.0.0.1:6963http://127.0.0.1:6963/117734fc-f684-465b-bda6-48f26481fabd",
+      "http://127.0.0.1:6963http://127.0.0.1:6963/59b54a1e-8941-4d6f-b909-47d05a5491f8",
+      "http://127.0.0.1:6963http://127.0.0.1:6963/6df7b201-7c6a-47e3-97df-8a655be2fa20",
+      "http://127.0.0.1:6963http://127.0.0.1:6963/57e31fcc-fb92-4656-8c47-d16f7e393aa3",
+      "http://127.0.0.1:6963http://127.0.0.1:6963/c5a6bb09-cf78-4441-91fa-eeb518d884f6",
+      "http://127.0.0.1:6963http://127.0.0.1:6963/0714dc84-0f93-4b2c-b19d-a7c1bc425b80",
+      "http://127.0.0.1:6963http://127.0.0.1:6963/855848ac-eabd-4dcd-b140-d53b14d04aa6",
+      "http://127.0.0.1:6963http://127.0.0.1:6963/6b644ce1-d457-4aa9-8117-07b7c7407edc",
+      "http://127.0.0.1:6963http://127.0.0.1:6963/b1f3ee23-3e55-4e63-807f-5e4bf5d88e6a",
+      "http://127.0.0.1:6963http://127.0.0.1:6963/6936d77f-397f-4f53-8fc7-133052f858d2",
+      "http://127.0.0.1:6963http://127.0.0.1:6963/224ed424-eac3-40c6-80e7-10780db0c21a",
+      "http://127.0.0.1:6963http://127.0.0.1:6963/293444c9-ad90-4155-9191-b12bea99fcf0",
+      "http://127.0.0.1:6963http://127.0.0.1:6963/28c6c12f-b6d5-4a04-9316-bc0d8fa7d08e"
+    ]
+  },
+  "pageErrors": []
+}

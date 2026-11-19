@@ -1368,3 +1368,10 @@ Collection size guard: deploy-only byte-identical geometry WASM reuse additional
 
 
 Slot Orchard public release: matching Pages `f482858cfebd71baf88da6aa1b0bf8a18cf0ae67` reached built with a successful workflow. Thirteen public app/runtime/legacy asset byte matches, both real-AI fixtures, full reviewed-artifact/privacy/offline suite, maximum batch and all 730 gallery cards passed. The affected older geometry app passed actual generation/image/STL import/export checks. Source staging excludes unrelated pre-existing edits; no digest sent.
+
+
+## Thread Atelier — 20261119-22
+
+Real local MiniLM embeddings suggest a topical thread through unordered workshop activity cards. Review every position, enforce pinned endpoints and prerequisites, preserve all durations and export complete JSON/CSV/Markdown agendas without uploads or invitations. Four known topical pairs across two tiny fixtures were adjacent; similarity does not establish instructional chronology. 210 independent exhaustive sequencing oracle cases, reviewed artifacts, failure/race defenses and fresh-worker offline inference passed. Preserve immutable worker/runtime `20261115-6` and WASM `20261107-2`. See [workflow/privacy](20261119-22/README.md) and [observed validation](20261119-22/VALIDATION.md). No digest sent.
+
+Thread Atelier public release: matching Pages `28132fba015d1cf50d5546dfc03e66571c259886` reached built with a successful workflow. Nine public asset byte matches, both real-AI fixtures, full reviewed-artifact/privacy/offline suite, maximum batch and all 731 gallery cards passed. Combined site: 999,952,349 bytes; older-runtime sharing unchanged. Source staging excludes unrelated pre-existing edits; no digest sent.

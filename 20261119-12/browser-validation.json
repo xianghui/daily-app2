@@ -1,0 +1,186 @@
+{
+  "fixtures": [
+    {
+      "name": "Paper & fabric",
+      "expected": [
+        "print",
+        "print",
+        "textile"
+      ],
+      "actual": [
+        "print",
+        "print",
+        "textile"
+      ],
+      "plan": {
+        "nodes": [
+          {
+            "id": "print",
+            "segments": 2,
+            "duration": 10,
+            "dose": 190,
+            "total": 190,
+            "budget": 1000,
+            "earlierDose": 0,
+            "remaining": 810,
+            "dailyDose": 100,
+            "plannedLux": 20,
+            "plannedHours": 5,
+            "days": 8,
+            "baselineDose": 550,
+            "baselineTotal": 550,
+            "baselineDays": 4,
+            "overBudget": false,
+            "missing": false
+          },
+          {
+            "id": "textile",
+            "segments": 1,
+            "duration": 4,
+            "dose": 120,
+            "total": 220,
+            "budget": 600,
+            "earlierDose": 100,
+            "remaining": 380,
+            "dailyDose": 40,
+            "plannedLux": 10,
+            "plannedHours": 4,
+            "days": 9,
+            "baselineDose": 120,
+            "baselineTotal": 220,
+            "baselineDays": 9,
+            "overBudget": false,
+            "missing": false
+          }
+        ],
+        "totalDose": 410,
+        "baselineTotal": 770,
+        "overBudget": 0,
+        "missing": []
+      }
+    },
+    {
+      "name": "Photo & manuscript",
+      "expected": [
+        "photo",
+        "photo",
+        "book"
+      ],
+      "actual": [
+        "photo",
+        "photo",
+        "book"
+      ],
+      "plan": {
+        "nodes": [
+          {
+            "id": "photo",
+            "segments": 2,
+            "duration": 10,
+            "dose": 140,
+            "total": 140,
+            "budget": 500,
+            "earlierDose": 0,
+            "remaining": 360,
+            "dailyDose": 60,
+            "plannedLux": 10,
+            "plannedHours": 6,
+            "days": 6,
+            "baselineDose": 275,
+            "baselineTotal": 275,
+            "baselineDays": 3,
+            "overBudget": false,
+            "missing": false
+          },
+          {
+            "id": "book",
+            "segments": 1,
+            "duration": 3,
+            "dose": 60,
+            "total": 100,
+            "budget": 400,
+            "earlierDose": 40,
+            "remaining": 300,
+            "dailyDose": 60,
+            "plannedLux": 20,
+            "plannedHours": 3,
+            "days": 5,
+            "baselineDose": 60,
+            "baselineTotal": 100,
+            "baselineDays": 5,
+            "overBudget": false,
+            "missing": false
+          }
+        ],
+        "totalDose": 240,
+        "baselineTotal": 375,
+        "overBudget": 0,
+        "missing": []
+      }
+    }
+  ],
+  "checks": [
+    "review/hold/undo/remap/missing block/over-budget/numeric edit/clipboard/multiline; no stale exports; audit import resets approvals; offline fresh-worker real inference",
+    "empty/invalid/oversized/duplicate IDs/negative and fractional values/bounds/formats; cancellation and real retry; changed source invalidates stale run",
+    "maximum 32 real model texts in four-text chunks; 24 segments; 8 retained objects; max numeric totals; full audit reimport",
+    "desktop,390px,320px; touch heights; form labels and focus; no overflow"
+  ],
+  "challenge": {
+    "suggested": "book",
+    "limitation": "Nearest object still returned for irrelevant text. Human hold required; similarity is not authority."
+  },
+  "network": {
+    "requests": 51,
+    "onlyGetHead": true,
+    "noBodies": true,
+    "noSourceTextInUrls": true,
+    "paths": [
+      "http://127.0.0.1:6981/daily-app2/20261119-12/",
+      "http://127.0.0.1:6981/daily-app2/20261119-12/assets/index-TsViA7eg.js",
+      "http://127.0.0.1:6981/daily-app2/20261119-12/assets/index-D7IFjH_9.css",
+      "http://127.0.0.1:6981/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "http://127.0.0.1:6981http://127.0.0.1:6981/4413ffdc-2795-48c5-b697-4e837214d826",
+      "http://127.0.0.1:6981/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "http://127.0.0.1:6981/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "http://127.0.0.1:6981http://127.0.0.1:6981/6bf7778c-8eee-4fec-91e0-8e9c16552626",
+      "http://127.0.0.1:6981http://127.0.0.1:6981/ffabbe92-6299-4ad8-874c-117bac7ecb5d",
+      "http://127.0.0.1:6981http://127.0.0.1:6981/764d7e41-953f-4777-a97d-b9b154baf04d",
+      "http://127.0.0.1:6981http://127.0.0.1:6981/897b24e9-cba9-4c2a-9bf4-0e3f3611febb",
+      "http://127.0.0.1:6981http://127.0.0.1:6981/f37ff38e-3e94-4820-ac56-b82e04d7105a",
+      "http://127.0.0.1:6981http://127.0.0.1:6981/55c59f7e-50a4-46c4-ae3a-f7ccd9ea664a",
+      "http://127.0.0.1:6981http://127.0.0.1:6981/84ab9521-e133-44ca-aecb-c7ddd59d40d9",
+      "http://127.0.0.1:6981http://127.0.0.1:6981/8da47a65-c6b0-40aa-b3c8-b82df890f638",
+      "http://127.0.0.1:6981http://127.0.0.1:6981/075aa1db-1134-46ee-9fca-a2728c5d69ed",
+      "http://127.0.0.1:6981http://127.0.0.1:6981/a9c05342-74d1-49f7-9024-a7b55016956a",
+      "http://127.0.0.1:6981http://127.0.0.1:6981/3d1bcffb-fdbf-497c-b32f-0d63308e1d58",
+      "http://127.0.0.1:6981http://127.0.0.1:6981/b22332d7-02dd-41ec-86ac-132c5ca9adc9",
+      "http://127.0.0.1:6981http://127.0.0.1:6981/a4334b7d-9894-486a-8ced-55444e4bc09a",
+      "http://127.0.0.1:6981http://127.0.0.1:6981/6e92c0ce-88f4-45f1-bed0-6d93e67cddf3",
+      "http://127.0.0.1:6981http://127.0.0.1:6981/d002621f-402e-4db0-b5ac-f5f2aeee9158",
+      "http://127.0.0.1:6981http://127.0.0.1:6981/86aa5f50-413e-4526-a1bc-264f2b308f39",
+      "http://127.0.0.1:6981http://127.0.0.1:6981/186627a2-7329-4949-bd35-b606fc1948ef",
+      "http://127.0.0.1:6981http://127.0.0.1:6981/c5b29849-878e-469b-8a7a-5906e34704a6",
+      "http://127.0.0.1:6981http://127.0.0.1:6981/62edb17a-d2f2-4ec9-94dc-1b243379198c",
+      "http://127.0.0.1:6981http://127.0.0.1:6981/3c318687-c225-4cf2-afb3-b25940169fea",
+      "http://127.0.0.1:6981http://127.0.0.1:6981/5f40c58e-76c9-414d-96d9-1509716da7f8",
+      "http://127.0.0.1:6981http://127.0.0.1:6981/e4411eed-f097-408b-8043-d0af766b447a",
+      "http://127.0.0.1:6981http://127.0.0.1:6981/a9ebb015-2180-48c7-ab12-58fed8c4f16e",
+      "http://127.0.0.1:6981http://127.0.0.1:6981/3ee0119b-68e0-4940-8743-5efe902c7cc8",
+      "http://127.0.0.1:6981http://127.0.0.1:6981/83c19be9-9f4f-4935-a797-4ed7512463bd",
+      "http://127.0.0.1:6981http://127.0.0.1:6981/f4aee55e-aaa8-429c-bb20-2689cfee9735",
+      "http://127.0.0.1:6981http://127.0.0.1:6981/598f00bd-64e3-4894-a9eb-8a4e7d0c2b1d",
+      "http://127.0.0.1:6981http://127.0.0.1:6981/de5751f2-cd76-4cd5-836c-63dba23c6c99",
+      "http://127.0.0.1:6981http://127.0.0.1:6981/32bbb754-1a01-416f-afcc-8257de19f00d",
+      "http://127.0.0.1:6981http://127.0.0.1:6981/03a65c8e-af0b-43e8-929f-07bde6551084"
+    ]
+  },
+  "pageErrors": []
+}

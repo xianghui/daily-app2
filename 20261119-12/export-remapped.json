@@ -1,0 +1,155 @@
+{
+  "schema": "dose-atelier/v1",
+  "originalInput": {
+    "context": "Synthetic archive display; one budget period and nonoverlapping exposure segments per object. All limits are worksheet assumptions.",
+    "objects": [
+      {
+        "id": "photo",
+        "description": "Black and white photographic print historical portrait photograph",
+        "budget": 500,
+        "earlierDose": 0,
+        "plannedLux": 10,
+        "plannedHours": 6
+      },
+      {
+        "id": "book",
+        "description": "Handwritten medieval manuscript book parchment calligraphy",
+        "budget": 400,
+        "earlierDose": 40,
+        "plannedLux": 20,
+        "plannedHours": 3
+      }
+    ],
+    "logs": [
+      {
+        "id": "f1",
+        "objectText": "Historical black white portrait photograph print",
+        "lux": 50,
+        "hours": 2
+      },
+      {
+        "id": "f2",
+        "objectText": "Old black and white photographic portrait",
+        "lux": 5,
+        "hours": 8
+      },
+      {
+        "id": "b1",
+        "objectText": "Medieval handwritten parchment book calligraphy",
+        "lux": 20,
+        "hours": 3
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "f1",
+      "object": "photo",
+      "lux": 50,
+      "hours": 2,
+      "evidence": [
+        {
+          "id": "photo",
+          "score": 0.9639473795055326
+        },
+        {
+          "id": "book",
+          "score": 0.3941776484204804
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", verify"
+    },
+    {
+      "id": "f2",
+      "object": "photo",
+      "lux": 5,
+      "hours": 8,
+      "evidence": [
+        {
+          "id": "photo",
+          "score": 0.8676387851243288
+        },
+        {
+          "id": "book",
+          "score": 0.31354860217036024
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "b1",
+      "object": "photo",
+      "lux": 20,
+      "hours": 3,
+      "evidence": [
+        {
+          "id": "book",
+          "score": 0.976104478103517
+        },
+        {
+          "id": "photo",
+          "score": 0.3908240963556457
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 3,
+  "approved": 3,
+  "held": 0,
+  "status": "incomplete",
+  "issues": [
+    "No reviewed exposure for: book. All display-day recommendations blocked; a missing log is not proof of zero exposure."
+  ],
+  "plan": {
+    "nodes": [
+      {
+        "id": "photo",
+        "segments": 3,
+        "duration": 13,
+        "dose": 200,
+        "total": 200,
+        "budget": 500,
+        "earlierDose": 0,
+        "remaining": 300,
+        "dailyDose": 60,
+        "plannedLux": 10,
+        "plannedHours": 6,
+        "days": null,
+        "baselineDose": 325,
+        "baselineTotal": 325,
+        "baselineDays": null,
+        "overBudget": false,
+        "missing": false
+      },
+      {
+        "id": "book",
+        "segments": 0,
+        "duration": 0,
+        "dose": 0,
+        "total": 40,
+        "budget": 400,
+        "earlierDose": 40,
+        "remaining": 360,
+        "dailyDose": 60,
+        "plannedLux": 20,
+        "plannedHours": 3,
+        "days": null,
+        "baselineDose": 0,
+        "baselineTotal": 40,
+        "baselineDays": null,
+        "overBudget": false,
+        "missing": true
+      }
+    ],
+    "totalDose": 240,
+    "baselineTotal": 365,
+    "overBudget": 0,
+    "missing": [
+      "book"
+    ]
+  }
+}

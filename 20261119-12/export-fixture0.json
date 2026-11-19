@@ -1,0 +1,151 @@
+{
+  "schema": "dose-atelier/v1",
+  "originalInput": {
+    "context": "Synthetic gallery worksheet. Segments are disjoint measured exposures within one budget period; earlierDose excludes these logs. Budgets are invented for testing, not conservation advice.",
+    "objects": [
+      {
+        "id": "print",
+        "description": "Watercolor painting on paper botanical flower illustration",
+        "budget": 1000,
+        "earlierDose": 0,
+        "plannedLux": 20,
+        "plannedHours": 5
+      },
+      {
+        "id": "textile",
+        "description": "Embroidered silk textile fabric tapestry hanging",
+        "budget": 600,
+        "earlierDose": 100,
+        "plannedLux": 10,
+        "plannedHours": 4
+      }
+    ],
+    "logs": [
+      {
+        "id": "p1",
+        "objectText": "Botanical watercolor flower picture on paper",
+        "lux": 100,
+        "hours": 1
+      },
+      {
+        "id": "p2",
+        "objectText": "Paper painting of flowers in watercolour",
+        "lux": 10,
+        "hours": 9
+      },
+      {
+        "id": "t1",
+        "objectText": "Silk embroidered fabric hanging tapestry",
+        "lux": 30,
+        "hours": 4
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "p1",
+      "object": "print",
+      "lux": 100,
+      "hours": 1,
+      "evidence": [
+        {
+          "id": "print",
+          "score": 0.8673924484290838
+        },
+        {
+          "id": "textile",
+          "score": 0.3144100970452453
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "p2",
+      "object": "print",
+      "lux": 10,
+      "hours": 9,
+      "evidence": [
+        {
+          "id": "print",
+          "score": 0.8575837738858977
+        },
+        {
+          "id": "textile",
+          "score": 0.2684041301987442
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "t1",
+      "object": "textile",
+      "lux": 30,
+      "hours": 4,
+      "evidence": [
+        {
+          "id": "textile",
+          "score": 0.9753928048362932
+        },
+        {
+          "id": "print",
+          "score": 0.3190214353273791
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 3,
+  "approved": 3,
+  "held": 0,
+  "status": "ready",
+  "issues": [],
+  "plan": {
+    "nodes": [
+      {
+        "id": "print",
+        "segments": 2,
+        "duration": 10,
+        "dose": 190,
+        "total": 190,
+        "budget": 1000,
+        "earlierDose": 0,
+        "remaining": 810,
+        "dailyDose": 100,
+        "plannedLux": 20,
+        "plannedHours": 5,
+        "days": 8,
+        "baselineDose": 550,
+        "baselineTotal": 550,
+        "baselineDays": 4,
+        "overBudget": false,
+        "missing": false
+      },
+      {
+        "id": "textile",
+        "segments": 1,
+        "duration": 4,
+        "dose": 120,
+        "total": 220,
+        "budget": 600,
+        "earlierDose": 100,
+        "remaining": 380,
+        "dailyDose": 40,
+        "plannedLux": 10,
+        "plannedHours": 4,
+        "days": 9,
+        "baselineDose": 120,
+        "baselineTotal": 220,
+        "baselineDays": 9,
+        "overBudget": false,
+        "missing": false
+      }
+    ],
+    "totalDose": 410,
+    "baselineTotal": 770,
+    "overBudget": 0,
+    "missing": []
+  }
+}

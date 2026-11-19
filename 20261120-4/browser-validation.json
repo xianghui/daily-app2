@@ -1,0 +1,191 @@
+{
+  "fixtures": [
+    {
+      "name": "Workshop service desk",
+      "expected": [
+        "bike",
+        "sew",
+        "bike",
+        "sew"
+      ],
+      "actual": [
+        "bike",
+        "sew",
+        "bike",
+        "sew"
+      ],
+      "plan": [
+        {
+          "id": "bike",
+          "text": "Bicycle repair desk: patching punctured tyres and replacing inner tubes",
+          "batchIds": [
+            "r1",
+            "r3"
+          ],
+          "status": "within approximate target",
+          "arrival": {
+            "n": 6,
+            "mean": 4,
+            "variance": 0,
+            "cv2": 0
+          },
+          "work": {
+            "n": 6,
+            "mean": 2,
+            "variance": 0,
+            "cv2": 0
+          },
+          "rho": 0.5,
+          "V": 0,
+          "stable": true,
+          "wait": 0,
+          "baselineWait": 2,
+          "ratePerHour": 15,
+          "maxTargetRatePerHour": 30,
+          "baselineMaxRatePerHour": 25,
+          "target": 10
+        },
+        {
+          "id": "sew",
+          "text": "Sewing repair station: stitching jacket zippers and mending clothing",
+          "batchIds": [
+            "r2",
+            "r4"
+          ],
+          "status": "within approximate target",
+          "arrival": {
+            "n": 6,
+            "mean": 4,
+            "variance": 21.6,
+            "cv2": 1.35
+          },
+          "work": {
+            "n": 6,
+            "mean": 2,
+            "variance": 5.4,
+            "cv2": 1.35
+          },
+          "rho": 0.5,
+          "V": 1.35,
+          "stable": true,
+          "wait": 2.7,
+          "baselineWait": 2,
+          "ratePerHour": 15,
+          "maxTargetRatePerHour": 23.62204724409449,
+          "baselineMaxRatePerHour": 25,
+          "target": 10
+        }
+      ]
+    },
+    {
+      "name": "Digital service study",
+      "expected": [
+        "photo",
+        "audio",
+        "photo",
+        "audio"
+      ],
+      "actual": [
+        "photo",
+        "audio",
+        "photo",
+        "audio"
+      ],
+      "plan": [
+        {
+          "id": "audio",
+          "text": "Interview transcription: converting recorded spoken interviews into written text",
+          "batchIds": [
+            "d2",
+            "d4"
+          ],
+          "status": "within approximate target",
+          "arrival": {
+            "n": 6,
+            "mean": 4,
+            "variance": 9.6,
+            "cv2": 0.6
+          },
+          "work": {
+            "n": 6,
+            "mean": 2,
+            "variance": 2.4,
+            "cv2": 0.6
+          },
+          "rho": 0.5,
+          "V": 0.6,
+          "stable": true,
+          "wait": 1.2,
+          "baselineWait": 2,
+          "ratePerHour": 15,
+          "maxTargetRatePerHour": 24.193548387096772,
+          "baselineMaxRatePerHour": 21.428571428571427,
+          "target": 5
+        },
+        {
+          "id": "photo",
+          "text": "Website photograph processing: cropping and resizing thumbnails",
+          "batchIds": [
+            "d1",
+            "d3"
+          ],
+          "status": "within approximate target",
+          "arrival": {
+            "n": 6,
+            "mean": 5,
+            "variance": 0,
+            "cv2": 0
+          },
+          "work": {
+            "n": 6,
+            "mean": 2,
+            "variance": 0,
+            "cv2": 0
+          },
+          "rho": 0.4,
+          "V": 0,
+          "stable": true,
+          "wait": 0,
+          "baselineWait": 1.3333333333333335,
+          "ratePerHour": 12,
+          "maxTargetRatePerHour": 30,
+          "baselineMaxRatePerHour": 21.428571428571427,
+          "target": 5
+        }
+      ]
+    }
+  ],
+  "checks": [
+    "mandatory review; multiline formula-like notes and clipboard; hold/undo; sample edits reset approval; instability/null not finite; invalid samples blocked; audit import originals only; fully offline fresh-worker actual inference",
+    "empty/invalid/oversized/duplicate/bad-format/threshold/timing/list bounds; cancellation/retry; changed input invalidates worker",
+    "8+8 maximum real 16-text inference in four chunks, 256 samples; complete export/reimport",
+    "real semantic label changes alter memberships and variability-dependent outputs, not hard-coded sample answers",
+    "instruction-like input inert; human hold excludes batch",
+    "desktop/390/320 no overflow; touch buttons, labels and focus"
+  ],
+  "network": {
+    "requests": 55,
+    "onlyGetHead": true,
+    "noBodies": true,
+    "noSourceTextInUrls": true,
+    "paths": [
+      "http://127.0.0.1:7031/daily-app2/20261120-4/",
+      "http://127.0.0.1:7031/daily-app2/20261120-4/assets/index-CTEu8p7-.js",
+      "http://127.0.0.1:7031/daily-app2/20261120-4/assets/index-CLgWgOII.css",
+      "http://127.0.0.1:7031/daily-app2/20261120-4/favicon.svg",
+      "http://127.0.0.1:7031/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "blob:local-worker",
+      "http://127.0.0.1:7031/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "http://127.0.0.1:7031/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json"
+    ]
+  },
+  "pageErrors": []
+}

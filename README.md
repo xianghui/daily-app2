@@ -1417,3 +1417,10 @@ Collection size guard: deploy-only byte-identical geometry WASM sharing addition
 
 
 Public release: final matching Pages `ba1fa0d4d144af70ebdf1f5f6bd3bb4e88a59aa4` built successfully with a successful workflow. Eleven public asset byte matches, both real-AI fixtures, full reviewed-artifact/privacy/offline/max-batch suite, all 736 gallery cards and affected older runtime/import/export paths passed. Final combined site 999,657,631 bytes. No digest sent.
+
+
+## Variability Harbor — 20261120-4
+
+Real local MiniLM reconciles informal queue-study labels before mandatory identity and timing review. Compare empirical-variability Kingman G/G/1 mean-wait approximations with same-means M/M/1 assumptions; inspect unstable or uncovered queues and conditional target-rate scenarios. Complete JSON/CSV/queue CSV/Markdown preserves originals and holds. Eight known-answer label links matched in two tiny synthetic studies; these are not universal model/queue accuracy claims. Reuses immutable worker/runtime from `20261115-6` and WASM from `20261107-2`; preserve these builds. Offline fresh-worker inference is tested only in an already-open warmed page. See [workflow/privacy](20261120-4/README.md) and [observed validation](20261120-4/VALIDATION.md). No uploads or queue actions.
+
+Variability Harbor public release: matching Pages `d2811e636301b79131ff5f171b3655a20dd83080` built with a successful workflow. Nine public asset byte matches, both real-AI fixtures, full reviewed workflow/artifact/privacy/offline/max-batch suite and preserved 737-entry gallery passed. Combined site 999,922,466 bytes; source commit excludes unrelated pre-existing changes. No digest sent.

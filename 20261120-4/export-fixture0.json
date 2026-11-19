@@ -1,0 +1,226 @@
+{
+  "schema": "variability-harbor/v1",
+  "originalInput": {
+    "context": "Synthetic workshop queues. One server per queue, steady independent arrivals and service, FIFO, no abandonment. Compare variability-aware waiting estimates; not a forecast guarantee.",
+    "waitTarget": 10,
+    "minSimilarity": 0.3,
+    "first": [
+      {
+        "id": "bike",
+        "text": "Bicycle repair desk: patching punctured tyres and replacing inner tubes"
+      },
+      {
+        "id": "sew",
+        "text": "Sewing repair station: stitching jacket zippers and mending clothing"
+      }
+    ],
+    "records": [
+      {
+        "id": "r1",
+        "text": "Flat bike tyre fixes and fitting new tubes",
+        "gaps": [
+          4,
+          4,
+          4
+        ],
+        "service": [
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "id": "r2",
+        "text": "Mending coats and replacing broken zips",
+        "gaps": [
+          1,
+          1,
+          10
+        ],
+        "service": [
+          0.5,
+          0.5,
+          5
+        ]
+      },
+      {
+        "id": "r3",
+        "text": "Patching bicycle punctures at the cycle repair bench",
+        "gaps": [
+          4,
+          4,
+          4
+        ],
+        "service": [
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "id": "r4",
+        "text": "Stitching new jacket fasteners at the sewing table",
+        "gaps": [
+          1,
+          1,
+          10
+        ],
+        "service": [
+          0.5,
+          0.5,
+          5
+        ]
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "r1",
+      "proposed": "bike",
+      "target": "bike",
+      "decision": "approve",
+      "gaps": "4, 4, 4",
+      "service": "2, 2, 2",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "bike",
+          "score": 0.6738705818160093
+        },
+        {
+          "id": "sew",
+          "score": 0.07624222024726926
+        }
+      ]
+    },
+    {
+      "id": "r2",
+      "proposed": "sew",
+      "target": "sew",
+      "decision": "approve",
+      "gaps": "1, 1, 10",
+      "service": "0.5, 0.5, 5",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "sew",
+          "score": 0.7352839319663519
+        },
+        {
+          "id": "bike",
+          "score": 0.23077631323902847
+        }
+      ]
+    },
+    {
+      "id": "r3",
+      "proposed": "bike",
+      "target": "bike",
+      "decision": "approve",
+      "gaps": "4, 4, 4",
+      "service": "2, 2, 2",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "bike",
+          "score": 0.7404040511390123
+        },
+        {
+          "id": "sew",
+          "score": 0.23071897660443275
+        }
+      ]
+    },
+    {
+      "id": "r4",
+      "proposed": "sew",
+      "target": "sew",
+      "decision": "approve",
+      "gaps": "1, 1, 10",
+      "service": "0.5, 0.5, 5",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "sew",
+          "score": 0.6528942607181943
+        },
+        {
+          "id": "bike",
+          "score": 0.11251057648468177
+        }
+      ]
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "plan": [
+    {
+      "id": "bike",
+      "text": "Bicycle repair desk: patching punctured tyres and replacing inner tubes",
+      "batchIds": [
+        "r1",
+        "r3"
+      ],
+      "status": "within approximate target",
+      "arrival": {
+        "n": 6,
+        "mean": 4,
+        "variance": 0,
+        "cv2": 0
+      },
+      "work": {
+        "n": 6,
+        "mean": 2,
+        "variance": 0,
+        "cv2": 0
+      },
+      "rho": 0.5,
+      "V": 0,
+      "stable": true,
+      "wait": 0,
+      "baselineWait": 2,
+      "ratePerHour": 15,
+      "maxTargetRatePerHour": 30,
+      "baselineMaxRatePerHour": 25,
+      "target": 10
+    },
+    {
+      "id": "sew",
+      "text": "Sewing repair station: stitching jacket zippers and mending clothing",
+      "batchIds": [
+        "r2",
+        "r4"
+      ],
+      "status": "within approximate target",
+      "arrival": {
+        "n": 6,
+        "mean": 4,
+        "variance": 21.6,
+        "cv2": 1.35
+      },
+      "work": {
+        "n": 6,
+        "mean": 2,
+        "variance": 5.4,
+        "cv2": 1.35
+      },
+      "rho": 0.5,
+      "V": 1.35,
+      "stable": true,
+      "wait": 2.7,
+      "baselineWait": 2,
+      "ratePerHour": 15,
+      "maxTargetRatePerHour": 23.62204724409449,
+      "baselineMaxRatePerHour": 25,
+      "target": 10
+    }
+  ],
+  "metrics": {
+    "coveredQueues": 2,
+    "changedLinks": 0,
+    "unstableQueues": 0,
+    "sampleCount": 24
+  },
+  "warning": "Kingman is an approximate steady-state G/G/1 FIFO mean queue wait, not total turnaround, tail latency, staffing advice or a guarantee. Assumes one always-available server, independent representative stationary arrivals/service, unlimited buffer, no abandonment or priority. Sample variance uses n−1. Zero sample variation is not proof of zero future variation. Holds reduce evidence; do not release a partial study as complete. Mean-only baseline sets both squared coefficients of variation to 1 (M/M/1); its result may be larger or smaller. Target-rate ceilings are scenarios conditional on unchanged mean service and CV², not measured throughput or safety limits. No external actions occur."
+}

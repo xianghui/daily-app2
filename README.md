@@ -1438,3 +1438,12 @@ Field Loom public release: matching Pages `33c3ff9b730bbb662bd866be22af40d3247a0
 ## Gap Orchard — 20261120-6
 
 Local MiniLM reconciles scattered survey answer labels with a canonical question register. Mandatory review/holds feed missing-cell and pairwise availability audits, followed by exact permission/budget-bounded follow-up planning versus roster order. Both synthetic fixtures matched all 12 links; the two-answer budget supports two potential complete people versus one under the baseline, conditional on every requested reply. No imputation, response forecasts or outreach. Complete JSON/CSV/matrix CSV/Markdown retains all records and the full roster. Reuses immutable worker/factory from `20261115-6` and WASM from `20261107-2`; preserve them. See [workflow/privacy](20261120-6/README.md) and [observed checks](20261120-6/VALIDATION.md).
+
+
+## Skip Ledger — 20261120-7
+
+Real local MiniLM reconciles informal binary questionnaire answer labels before mandatory human review. Explicit acyclic skip rules separate required gaps, intentional skips, gate-blocked cells and unexpected off-path answers; complete JSON/CSV/cell CSV/Markdown retains originals and the full roster. Both tiny fixtures matched all 12 intended links; 1,500 independent path-gate oracle cases, actual export round trips, defensive/race checks and fresh-worker offline inference passed. Structural completeness is not truth, permission or eligibility. Preserve immutable AI worker/runtime `20261115-6` and WASM `20261107-2`. See [workflow/privacy](20261120-7/README.md) and [observed validation](20261120-7/VALIDATION.md). No uploads or outreach.
+
+Collection size guard: deploy-only byte-identical geometry runtime reuse additionally covers `20261028-11` → immutable `20261028-24`. Source builds and legacy JS URLs remain intact; query-versioned entries use the shared binary. Actual old-app generation, PNG/STL imports and three distinct valid STL exports passed. The conservative 1 GB limit is unchanged. No digest sent.
+
+Skip Ledger public release: matching Pages `80348b813ad490b6555756b5048a7eee40472bb5` built successfully with a successful workflow. Thirteen public byte matches, both real-AI fixtures, the full reviewed-artifact/privacy/offline/max-batch suite, all 740 gallery cards and affected older-app imports/exports passed. Combined site 999,623,778 bytes. Source staging excludes unrelated pre-existing changes; no digest sent.

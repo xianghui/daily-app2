@@ -1,0 +1,271 @@
+{
+  "fixtures": [
+    {
+      "name": "Library access",
+      "expected": [
+        "borrow",
+        "borrow",
+        "reserve",
+        "borrow",
+        "alerts",
+        "alerts"
+      ],
+      "actual": [
+        "borrow",
+        "borrow",
+        "reserve",
+        "borrow",
+        "alerts",
+        "alerts"
+      ],
+      "evidence": [
+        [
+          {
+            "id": "borrow",
+            "score": 0.7264405425994863
+          },
+          {
+            "id": "reserve",
+            "score": 0.5219100252015694
+          },
+          {
+            "id": "alerts",
+            "score": 0.3484138392928482
+          }
+        ],
+        [
+          {
+            "id": "borrow",
+            "score": 0.6367147119034351
+          },
+          {
+            "id": "reserve",
+            "score": 0.4263089796088145
+          },
+          {
+            "id": "alerts",
+            "score": 0.3360036735585414
+          }
+        ],
+        [
+          {
+            "id": "reserve",
+            "score": 0.46823895881956434
+          },
+          {
+            "id": "alerts",
+            "score": 0.37881578420505835
+          },
+          {
+            "id": "borrow",
+            "score": 0.2626503764801543
+          }
+        ],
+        [
+          {
+            "id": "borrow",
+            "score": 0.7210413960052684
+          },
+          {
+            "id": "reserve",
+            "score": 0.47285795209300474
+          },
+          {
+            "id": "alerts",
+            "score": 0.2849657904564995
+          }
+        ],
+        [
+          {
+            "id": "alerts",
+            "score": 0.41059285181436556
+          },
+          {
+            "id": "reserve",
+            "score": 0.11326733545836737
+          },
+          {
+            "id": "borrow",
+            "score": -0.018837308991368373
+          }
+        ],
+        [
+          {
+            "id": "alerts",
+            "score": 0.7924611217254093
+          },
+          {
+            "id": "reserve",
+            "score": 0.55450400446229
+          },
+          {
+            "id": "borrow",
+            "score": 0.40224341620664866
+          }
+        ]
+      ],
+      "metrics": {
+        "people": 3,
+        "questions": 3,
+        "allCells": 9,
+        "answered": 4,
+        "missing": 2,
+        "skipped": 1,
+        "unexpected": 1,
+        "blocked": 1,
+        "rectangularBlanks": 3,
+        "completePeople": 0
+      }
+    },
+    {
+      "name": "Workshop access",
+      "expected": [
+        "tools",
+        "tools",
+        "training",
+        "tools",
+        "refresher",
+        "refresher"
+      ],
+      "actual": [
+        "tools",
+        "tools",
+        "training",
+        "tools",
+        "refresher",
+        "refresher"
+      ],
+      "evidence": [
+        [
+          {
+            "id": "tools",
+            "score": 0.7311395857566456
+          },
+          {
+            "id": "training",
+            "score": 0.4754561534916354
+          },
+          {
+            "id": "refresher",
+            "score": 0.16817272375200198
+          }
+        ],
+        [
+          {
+            "id": "tools",
+            "score": 0.7564034940989279
+          },
+          {
+            "id": "training",
+            "score": 0.394072139581112
+          },
+          {
+            "id": "refresher",
+            "score": 0.12455203188540909
+          }
+        ],
+        [
+          {
+            "id": "training",
+            "score": 0.42114347995491536
+          },
+          {
+            "id": "tools",
+            "score": 0.3163976015258095
+          },
+          {
+            "id": "refresher",
+            "score": 0.28970175269794984
+          }
+        ],
+        [
+          {
+            "id": "tools",
+            "score": 0.6608607436592635
+          },
+          {
+            "id": "training",
+            "score": 0.28224374795043483
+          },
+          {
+            "id": "refresher",
+            "score": 0.04674856817713942
+          }
+        ],
+        [
+          {
+            "id": "refresher",
+            "score": 0.6214726360803113
+          },
+          {
+            "id": "training",
+            "score": 0.35770888264470263
+          },
+          {
+            "id": "tools",
+            "score": 0.12831682259967686
+          }
+        ],
+        [
+          {
+            "id": "refresher",
+            "score": 0.7562636567570048
+          },
+          {
+            "id": "training",
+            "score": 0.41132791856132495
+          },
+          {
+            "id": "tools",
+            "score": 0.08317274500558376
+          }
+        ]
+      ],
+      "metrics": {
+        "people": 3,
+        "questions": 3,
+        "allCells": 9,
+        "answered": 4,
+        "missing": 2,
+        "skipped": 1,
+        "unexpected": 1,
+        "blocked": 1,
+        "rectangularBlanks": 3,
+        "completePeople": 0
+      }
+    }
+  ],
+  "checks": [
+    "mandatory review; multiline formula-like notes and clipboard; hold/undo; value edits reset approval; zero preserved and blank is missing; out-of-range and duplicate cells blocked; audit imports originals only; fully offline fresh-worker real inference",
+    "empty/invalid/oversized/duplicate/bad-format/threshold/person/value/cycle/gate bounds; cancellation/retry; changed input invalidates worker",
+    "maximum 8 questions + 96 records = 104 real embeddings in 26 chunks, 12 people; complete export/reimport",
+    "swapping real semantic labels changes links and path-aware missing/skip output, not canned answers",
+    "instruction-like source remains inert; hold preserves record without filling a cell",
+    "desktop/390/320 no overflow; touch buttons, labels and focus"
+  ],
+  "network": {
+    "requests": 55,
+    "onlyGetHead": true,
+    "noBodies": true,
+    "noSourceTextInUrls": true,
+    "paths": [
+      "http://127.0.0.1:7035/daily-app2/20261120-7/",
+      "http://127.0.0.1:7035/daily-app2/20261120-7/assets/index-XPbftsHt.js",
+      "http://127.0.0.1:7035/daily-app2/20261120-7/assets/index-CjkJmwun.css",
+      "http://127.0.0.1:7035/daily-app2/20261120-7/favicon.svg",
+      "http://127.0.0.1:7035/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "blob:local-worker",
+      "http://127.0.0.1:7035/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "http://127.0.0.1:7035/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json"
+    ]
+  },
+  "pageErrors": []
+}

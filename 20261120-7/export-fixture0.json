@@ -1,0 +1,343 @@
+{
+  "schema": "skip-ledger/v1",
+  "originalInput": {
+    "context": "Synthetic library questionnaire. All answers are binary: 1=yes, 0=no. Gates use reviewed answers only.",
+    "minSimilarity": 0.15,
+    "first": [
+      {
+        "id": "borrow",
+        "text": "Do you borrow printed library books?",
+        "when": null
+      },
+      {
+        "id": "reserve",
+        "text": "Do you reserve books using the online catalog?",
+        "when": {
+          "question": "borrow",
+          "equals": 1
+        }
+      },
+      {
+        "id": "alerts",
+        "text": "Do you receive notifications when reserved books arrive?",
+        "when": {
+          "question": "reserve",
+          "equals": 1
+        }
+      }
+    ],
+    "people": [
+      {
+        "id": "A"
+      },
+      {
+        "id": "B"
+      },
+      {
+        "id": "C"
+      }
+    ],
+    "records": [
+      {
+        "id": "l1",
+        "person": "A",
+        "text": "Borrowing physical books from the library",
+        "value": 0
+      },
+      {
+        "id": "l2",
+        "person": "B",
+        "text": "Taking printed books home on loan",
+        "value": 1
+      },
+      {
+        "id": "l3",
+        "person": "B",
+        "text": "Placing a book reservation on the website",
+        "value": 1
+      },
+      {
+        "id": "l4",
+        "person": "C",
+        "text": "Borrowing paper books",
+        "value": 1
+      },
+      {
+        "id": "l5",
+        "person": "C",
+        "text": "Getting a message that my reserved title is ready",
+        "value": 1
+      },
+      {
+        "id": "l6",
+        "person": "A",
+        "text": "Email notification when reserved books are ready to collect",
+        "value": 1
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "l1",
+      "proposed": "borrow",
+      "target": "borrow",
+      "decision": "approve",
+      "value": "0",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "borrow",
+          "score": 0.7264405425994863
+        },
+        {
+          "id": "reserve",
+          "score": 0.5219100252015694
+        },
+        {
+          "id": "alerts",
+          "score": 0.3484138392928482
+        }
+      ]
+    },
+    {
+      "id": "l2",
+      "proposed": "borrow",
+      "target": "borrow",
+      "decision": "approve",
+      "value": "1",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "borrow",
+          "score": 0.6367147119034351
+        },
+        {
+          "id": "reserve",
+          "score": 0.4263089796088145
+        },
+        {
+          "id": "alerts",
+          "score": 0.3360036735585414
+        }
+      ]
+    },
+    {
+      "id": "l3",
+      "proposed": "reserve",
+      "target": "reserve",
+      "decision": "approve",
+      "value": "1",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "reserve",
+          "score": 0.46823895881956434
+        },
+        {
+          "id": "alerts",
+          "score": 0.37881578420505835
+        },
+        {
+          "id": "borrow",
+          "score": 0.2626503764801543
+        }
+      ]
+    },
+    {
+      "id": "l4",
+      "proposed": "borrow",
+      "target": "borrow",
+      "decision": "approve",
+      "value": "1",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "borrow",
+          "score": 0.7210413960052684
+        },
+        {
+          "id": "reserve",
+          "score": 0.47285795209300474
+        },
+        {
+          "id": "alerts",
+          "score": 0.2849657904564995
+        }
+      ]
+    },
+    {
+      "id": "l5",
+      "proposed": "alerts",
+      "target": "alerts",
+      "decision": "approve",
+      "value": "1",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "alerts",
+          "score": 0.41059285181436556
+        },
+        {
+          "id": "reserve",
+          "score": 0.11326733545836737
+        },
+        {
+          "id": "borrow",
+          "score": -0.018837308991368373
+        }
+      ]
+    },
+    {
+      "id": "l6",
+      "proposed": "alerts",
+      "target": "alerts",
+      "decision": "approve",
+      "value": "1",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "alerts",
+          "score": 0.7924611217254093
+        },
+        {
+          "id": "reserve",
+          "score": 0.55450400446229
+        },
+        {
+          "id": "borrow",
+          "score": 0.40224341620664866
+        }
+      ]
+    }
+  ],
+  "total": 6,
+  "approved": 6,
+  "held": 0,
+  "plan": [
+    {
+      "id": "A",
+      "cells": [
+        {
+          "question": "borrow",
+          "state": "required",
+          "status": "answered",
+          "value": 0,
+          "recordId": "l1",
+          "reason": "Unconditional question"
+        },
+        {
+          "question": "reserve",
+          "state": "skipped",
+          "status": "intentional skip",
+          "value": null,
+          "recordId": null,
+          "reason": "Gate borrow = 0; requires 1"
+        },
+        {
+          "question": "alerts",
+          "state": "skipped",
+          "status": "unexpected answer",
+          "value": 1,
+          "recordId": "l6",
+          "reason": "Ancestor gate reserve is inactive"
+        }
+      ],
+      "complete": false,
+      "tasks": [
+        {
+          "question": "alerts",
+          "action": "Verify off-path answer; do not delete"
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "cells": [
+        {
+          "question": "borrow",
+          "state": "required",
+          "status": "answered",
+          "value": 1,
+          "recordId": "l2",
+          "reason": "Unconditional question"
+        },
+        {
+          "question": "reserve",
+          "state": "required",
+          "status": "answered",
+          "value": 1,
+          "recordId": "l3",
+          "reason": "Gate borrow = 1"
+        },
+        {
+          "question": "alerts",
+          "state": "required",
+          "status": "missing",
+          "value": null,
+          "recordId": null,
+          "reason": "Gate reserve = 1"
+        }
+      ],
+      "complete": false,
+      "tasks": [
+        {
+          "question": "alerts",
+          "action": "Request required answer"
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "cells": [
+        {
+          "question": "borrow",
+          "state": "required",
+          "status": "answered",
+          "value": 1,
+          "recordId": "l4",
+          "reason": "Unconditional question"
+        },
+        {
+          "question": "reserve",
+          "state": "required",
+          "status": "missing",
+          "value": null,
+          "recordId": null,
+          "reason": "Gate borrow = 1"
+        },
+        {
+          "question": "alerts",
+          "state": "blocked",
+          "status": "blocked by gate",
+          "value": 1,
+          "recordId": "l5",
+          "reason": "Resolve gate reserve first"
+        }
+      ],
+      "complete": false,
+      "tasks": [
+        {
+          "question": "reserve",
+          "action": "Request required answer"
+        },
+        {
+          "question": "alerts",
+          "action": "Resolve gate reserve first"
+        }
+      ]
+    }
+  ],
+  "metrics": {
+    "people": 3,
+    "questions": 3,
+    "allCells": 9,
+    "answered": 4,
+    "missing": 2,
+    "skipped": 1,
+    "unexpected": 1,
+    "blocked": 1,
+    "rectangularBlanks": 3,
+    "completePeople": 0
+  },
+  "warning": "Binary answers only. Gates use approved reviewed answers, never model guesses. A skipped ancestor deactivates its descendants even if an off-path answer exists. A missing/held/blank active gate blocks dependent decisions. Unexpected off-path answers are retained for verification, not erased. Rectangular blanks are a naive baseline, not an error count; blocked gates may create additional missing answers when resolved. Completeness is structural only, not truth, consent, access permission or eligibility. No messages or external changes."
+}

@@ -1,0 +1,343 @@
+{
+  "schema": "skip-ledger/v1",
+  "originalInput": {
+    "context": "Synthetic workshop questionnaire. 1=yes, 0=no. No access is granted by this worksheet.",
+    "minSimilarity": 0.15,
+    "first": [
+      {
+        "id": "tools",
+        "text": "Do you use powered workshop tools and machinery?",
+        "when": null
+      },
+      {
+        "id": "training",
+        "text": "Have you completed the workshop machine safety training?",
+        "when": {
+          "question": "tools",
+          "equals": 1
+        }
+      },
+      {
+        "id": "refresher",
+        "text": "Have you attended a refresher safety training course?",
+        "when": {
+          "question": "training",
+          "equals": 1
+        }
+      }
+    ],
+    "people": [
+      {
+        "id": "D"
+      },
+      {
+        "id": "E"
+      },
+      {
+        "id": "F"
+      }
+    ],
+    "records": [
+      {
+        "id": "w1",
+        "person": "D",
+        "text": "Using electric workshop machinery",
+        "value": 0
+      },
+      {
+        "id": "w2",
+        "person": "E",
+        "text": "Operating powered workshop equipment",
+        "value": 1
+      },
+      {
+        "id": "w3",
+        "person": "E",
+        "text": "Finishing the initial machinery safety induction",
+        "value": 1
+      },
+      {
+        "id": "w4",
+        "person": "F",
+        "text": "Working with powered shop tools",
+        "value": 1
+      },
+      {
+        "id": "w5",
+        "person": "F",
+        "text": "Taking a safety refresher class",
+        "value": 0
+      },
+      {
+        "id": "w6",
+        "person": "D",
+        "text": "Attending a refresher course for safety",
+        "value": 1
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "w1",
+      "proposed": "tools",
+      "target": "tools",
+      "decision": "approve",
+      "value": "0",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", verify",
+      "evidence": [
+        {
+          "id": "tools",
+          "score": 0.7311395857566456
+        },
+        {
+          "id": "training",
+          "score": 0.4754561534916354
+        },
+        {
+          "id": "refresher",
+          "score": 0.16817272375200198
+        }
+      ]
+    },
+    {
+      "id": "w2",
+      "proposed": "tools",
+      "target": "tools",
+      "decision": "approve",
+      "value": "0",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "tools",
+          "score": 0.7564034940989279
+        },
+        {
+          "id": "training",
+          "score": 0.394072139581112
+        },
+        {
+          "id": "refresher",
+          "score": 0.12455203188540909
+        }
+      ]
+    },
+    {
+      "id": "w3",
+      "proposed": "training",
+      "target": "training",
+      "decision": "approve",
+      "value": "1",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "training",
+          "score": 0.42114347995491536
+        },
+        {
+          "id": "tools",
+          "score": 0.3163976015258095
+        },
+        {
+          "id": "refresher",
+          "score": 0.28970175269794984
+        }
+      ]
+    },
+    {
+      "id": "w4",
+      "proposed": "tools",
+      "target": "tools",
+      "decision": "approve",
+      "value": "1",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "tools",
+          "score": 0.6608607436592635
+        },
+        {
+          "id": "training",
+          "score": 0.28224374795043483
+        },
+        {
+          "id": "refresher",
+          "score": 0.04674856817713942
+        }
+      ]
+    },
+    {
+      "id": "w5",
+      "proposed": "refresher",
+      "target": "refresher",
+      "decision": "approve",
+      "value": "0",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "refresher",
+          "score": 0.6214726360803113
+        },
+        {
+          "id": "training",
+          "score": 0.35770888264470263
+        },
+        {
+          "id": "tools",
+          "score": 0.12831682259967686
+        }
+      ]
+    },
+    {
+      "id": "w6",
+      "proposed": "refresher",
+      "target": "refresher",
+      "decision": "approve",
+      "value": "1",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "refresher",
+          "score": 0.7562636567570048
+        },
+        {
+          "id": "training",
+          "score": 0.41132791856132495
+        },
+        {
+          "id": "tools",
+          "score": 0.08317274500558376
+        }
+      ]
+    }
+  ],
+  "total": 6,
+  "approved": 6,
+  "held": 0,
+  "plan": [
+    {
+      "id": "D",
+      "cells": [
+        {
+          "question": "tools",
+          "state": "required",
+          "status": "answered",
+          "value": 0,
+          "recordId": "w1",
+          "reason": "Unconditional question"
+        },
+        {
+          "question": "training",
+          "state": "skipped",
+          "status": "intentional skip",
+          "value": null,
+          "recordId": null,
+          "reason": "Gate tools = 0; requires 1"
+        },
+        {
+          "question": "refresher",
+          "state": "skipped",
+          "status": "unexpected answer",
+          "value": 1,
+          "recordId": "w6",
+          "reason": "Ancestor gate training is inactive"
+        }
+      ],
+      "complete": false,
+      "tasks": [
+        {
+          "question": "refresher",
+          "action": "Verify off-path answer; do not delete"
+        }
+      ]
+    },
+    {
+      "id": "E",
+      "cells": [
+        {
+          "question": "tools",
+          "state": "required",
+          "status": "answered",
+          "value": 0,
+          "recordId": "w2",
+          "reason": "Unconditional question"
+        },
+        {
+          "question": "training",
+          "state": "skipped",
+          "status": "unexpected answer",
+          "value": 1,
+          "recordId": "w3",
+          "reason": "Gate tools = 0; requires 1"
+        },
+        {
+          "question": "refresher",
+          "state": "skipped",
+          "status": "intentional skip",
+          "value": null,
+          "recordId": null,
+          "reason": "Ancestor gate training is inactive"
+        }
+      ],
+      "complete": false,
+      "tasks": [
+        {
+          "question": "training",
+          "action": "Verify off-path answer; do not delete"
+        }
+      ]
+    },
+    {
+      "id": "F",
+      "cells": [
+        {
+          "question": "tools",
+          "state": "required",
+          "status": "answered",
+          "value": 1,
+          "recordId": "w4",
+          "reason": "Unconditional question"
+        },
+        {
+          "question": "training",
+          "state": "required",
+          "status": "missing",
+          "value": null,
+          "recordId": null,
+          "reason": "Gate tools = 1"
+        },
+        {
+          "question": "refresher",
+          "state": "blocked",
+          "status": "blocked by gate",
+          "value": 0,
+          "recordId": "w5",
+          "reason": "Resolve gate training first"
+        }
+      ],
+      "complete": false,
+      "tasks": [
+        {
+          "question": "training",
+          "action": "Request required answer"
+        },
+        {
+          "question": "refresher",
+          "action": "Resolve gate training first"
+        }
+      ]
+    }
+  ],
+  "metrics": {
+    "people": 3,
+    "questions": 3,
+    "allCells": 9,
+    "answered": 3,
+    "missing": 1,
+    "skipped": 2,
+    "unexpected": 2,
+    "blocked": 1,
+    "rectangularBlanks": 3,
+    "completePeople": 0
+  },
+  "warning": "Binary answers only. Gates use approved reviewed answers, never model guesses. A skipped ancestor deactivates its descendants even if an off-path answer exists. A missing/held/blank active gate blocks dependent decisions. Unexpected off-path answers are retained for verification, not erased. Rectangular blanks are a naive baseline, not an error count; blocked gates may create additional missing answers when resolved. Completeness is structural only, not truth, consent, access permission or eligibility. No messages or external changes."
+}

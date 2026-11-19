@@ -1314,3 +1314,10 @@ Real local MiniLM reconciles rough interruption logs with workload profiles befo
 Collection size guard: deploy-only byte-identical geometry WASM reuse additionally covers `20261028-27` → `20261028-24`, retaining legacy JS URLs and query-versioned entries; source builds unchanged. Actual generation, PNG import and binary-STL import/export passed. Combined assembly: 999,559,874 bytes; all 722 earlier gallery entries preserved.
 
 Checkpoint Cove public release: matching Pages `712a60e7ad1653e5bc90d06cfc3c3f612a6f6d24` reached built with a successful workflow. Thirteen public asset byte matches, both real-AI fixtures, the full reviewed-artifact/privacy/offline suite, all 723 gallery cards and the affected older-app geometry/image/STL workflow passed. Source staging excludes unrelated pre-existing changes. No digest sent.
+
+
+## Richness Field — 20261119-15
+
+Real local MiniLM reconciles informal organism-group labels before mandatory identity/count review. Compare unequal-sample observed richness with exact finite-population expected richness at a common individual draw; export complete JSON/CSV/Markdown without uploads or field actions. Both tiny fixtures matched all 11 intended links; 9,920 independent combination-oracle cases, reviewed artifacts and fresh-worker offline inference passed. Not species identification, unseen-group estimation or habitat-quality certification. Preserve immutable worker/runtime `20261115-6` and WASM `20261107-2`. See [workflow/privacy](20261119-15/README.md) and [observed validation](20261119-15/VALIDATION.md). No digest sent.
+
+Richness Field public release: matching Pages `f5995eacb51997b0a331c6a688e786328af52ce1` reached built with a successful workflow. Nine public asset byte matches, both real-AI fixtures, full reviewed-artifact/privacy/offline suite, maximum batch and all 724 preserved gallery cards passed. Combined site: 999,813,547 bytes; no older-runtime rewriting changes. Source staging excludes unrelated pre-existing edits. No digest sent.

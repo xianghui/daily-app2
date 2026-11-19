@@ -1,0 +1,194 @@
+{
+  "fixtures": [
+    {
+      "name": "Garden circuit",
+      "from": [
+        "gate",
+        "pond",
+        "oak",
+        "shed"
+      ],
+      "to": [
+        "pond",
+        "oak",
+        "shed",
+        "gate"
+      ],
+      "expected": [
+        "gate",
+        "pond",
+        "oak",
+        "shed"
+      ],
+      "summary": {
+        "closureMm": 6,
+        "totalLengthM": 600,
+        "unadjustedEndMm": 100006,
+        "withinTolerance": true,
+        "adjustedClosureMm": 0
+      },
+      "plan": [
+        {
+          "id": "leg1",
+          "from": "gate",
+          "to": "pond",
+          "lengthM": 100,
+          "riseMm": 1250,
+          "correctionMm": -1,
+          "adjustedRiseMm": 1249,
+          "rawEndMm": 101250,
+          "adjustedEndMm": 101249,
+          "cumulativeCorrectionMm": -1
+        },
+        {
+          "id": "leg2",
+          "from": "pond",
+          "to": "oak",
+          "lengthM": 200,
+          "riseMm": -375,
+          "correctionMm": -2,
+          "adjustedRiseMm": -377,
+          "rawEndMm": 100875,
+          "adjustedEndMm": 100872,
+          "cumulativeCorrectionMm": -3
+        },
+        {
+          "id": "leg3",
+          "from": "oak",
+          "to": "shed",
+          "lengthM": 100,
+          "riseMm": 228,
+          "correctionMm": -1,
+          "adjustedRiseMm": 227,
+          "rawEndMm": 101103,
+          "adjustedEndMm": 101099,
+          "cumulativeCorrectionMm": -4
+        },
+        {
+          "id": "leg4",
+          "from": "shed",
+          "to": "gate",
+          "lengthM": 200,
+          "riseMm": -1097,
+          "correctionMm": -2,
+          "adjustedRiseMm": -1099,
+          "rawEndMm": 100006,
+          "adjustedEndMm": 100000,
+          "cumulativeCorrectionMm": -6
+        }
+      ]
+    },
+    {
+      "name": "Library circuit",
+      "from": [
+        "desk",
+        "stairs",
+        "archive",
+        "cafe"
+      ],
+      "to": [
+        "stairs",
+        "archive",
+        "cafe",
+        "desk"
+      ],
+      "expected": [
+        "desk",
+        "stairs",
+        "archive",
+        "cafe"
+      ],
+      "summary": {
+        "closureMm": -4,
+        "totalLengthM": 200,
+        "unadjustedEndMm": 23996,
+        "withinTolerance": true,
+        "adjustedClosureMm": 0
+      },
+      "plan": [
+        {
+          "id": "leg1",
+          "from": "desk",
+          "to": "stairs",
+          "lengthM": 30,
+          "riseMm": 3200,
+          "correctionMm": 0.6,
+          "adjustedRiseMm": 3200.6,
+          "rawEndMm": 27200,
+          "adjustedEndMm": 27200.6,
+          "cumulativeCorrectionMm": 0.6
+        },
+        {
+          "id": "leg2",
+          "from": "stairs",
+          "to": "archive",
+          "lengthM": 50,
+          "riseMm": -5700,
+          "correctionMm": 1,
+          "adjustedRiseMm": -5699,
+          "rawEndMm": 21500,
+          "adjustedEndMm": 21501.6,
+          "cumulativeCorrectionMm": 1.6
+        },
+        {
+          "id": "leg3",
+          "from": "archive",
+          "to": "cafe",
+          "lengthM": 20,
+          "riseMm": 1800,
+          "correctionMm": 0.4,
+          "adjustedRiseMm": 1800.4,
+          "rawEndMm": 23300,
+          "adjustedEndMm": 23302,
+          "cumulativeCorrectionMm": 2
+        },
+        {
+          "id": "leg4",
+          "from": "cafe",
+          "to": "desk",
+          "lengthM": 100,
+          "riseMm": 696,
+          "correctionMm": 2,
+          "adjustedRiseMm": 698,
+          "rawEndMm": 23996,
+          "adjustedEndMm": 24000,
+          "cumulativeCorrectionMm": 4
+        }
+      ]
+    }
+  ],
+  "checks": [
+    "endpoint/rise/length/edit/hold/undo/clipboard/multiline; invalid numerics blocked; chain and tolerance gates; stale exports disabled; audit import resets approvals; offline fresh-worker real inference",
+    "empty/invalid/oversized/duplicates/limits/formats; cancel and real retry; source change invalidates run",
+    "56 real texts / four-text chunks; 24 legs and eight stations retained; unused-station gate; maximum audit reimport",
+    "desktop/390px/320px no overflow, touch controls, labels and focus"
+  ],
+  "challenge": {
+    "suggested": "archive",
+    "limitation": "Nearest station for irrelevant text; human hold required. Imported text never changes authority."
+  },
+  "network": {
+    "requests": 51,
+    "onlyGetHead": true,
+    "noBodies": true,
+    "noSourceTextInUrls": true,
+    "paths": [
+      "http://127.0.0.1:6999/daily-app2/20261119-20/",
+      "http://127.0.0.1:6999/daily-app2/20261119-20/assets/index-DUbRVKPm.js",
+      "http://127.0.0.1:6999/daily-app2/20261119-20/assets/index-K8IjyYLd.css",
+      "http://127.0.0.1:6999/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "blob:local-worker",
+      "http://127.0.0.1:6999/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "http://127.0.0.1:6999/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194"
+    ]
+  },
+  "pageErrors": []
+}

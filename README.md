@@ -1351,3 +1351,10 @@ Real local MiniLM reconciles paraphrased card-sort observations before mandatory
 Collection size guard: deploy-only byte-identical geometry WASM reuse additionally covers `20261028-19` → `20261028-24`, retaining legacy JS URLs and query-versioned entries; older source builds unchanged. Actual generation, PNG import and binary-STL import/export passed. Combined assembly: 999,700,836 bytes; all 727 prior gallery entries preserved.
 
 Sort Canopy public release: matching Pages `28917e48b14848e006a0600f88136fca0f8914ce` reached built with a successful workflow. Thirteen public app/runtime/legacy asset byte matches, both real-AI fixtures, full reviewed-artifact/privacy/offline suite, maximum batch and all 728 preserved gallery cards passed. The newly shared older geometry app passed actual generation/image/STL import/export checks. Source staging excludes unrelated pre-existing edits; no digest sent.
+
+
+## Level Loop — 20261119-20
+
+Local MiniLM reconciles informal field-station endpoints before mandatory review of signed rises and distances. Closed-chain and supplied-tolerance gates prevent adjustment of incomplete/excessive-closure circuits; distance-proportional corrections expose raw versus enforced adjusted closure, never an accuracy claim. Both synthetic circuits matched 16/16 endpoint identities; real maximum batching, offline fresh-worker inference, complete JSON/CSV/Markdown exports and defensive browser checks passed. Reuses immutable worker/factory from `20261115-6` and WASM from `20261107-2`; preserve those paths. See [workflow/privacy](20261119-20/README.md) and [observed validation](20261119-20/VALIDATION.md). No uploads or equipment actions.
+
+Level Loop public release: matching Pages `64ad4360c219a3734e945e564f44ac343b6676ba` reached built. Nine byte-matched public assets, both real-AI fixtures, full reviewed-artifact/privacy/offline workflow and all 729 gallery cards passed. Source staging excludes unrelated pre-existing edits; no digest sent.

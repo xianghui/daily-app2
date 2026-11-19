@@ -1,0 +1,309 @@
+{
+  "schema": "level-loop/v1",
+  "originalInput": {
+    "context": "Synthetic library training circuit; not a real survey. Independent benchmark and route.",
+    "benchmark": "desk",
+    "elevationMm": 24000,
+    "toleranceMm": 8,
+    "stations": [
+      {
+        "id": "desk",
+        "description": "Library front reception and checkout desk"
+      },
+      {
+        "id": "stairs",
+        "description": "Library staircase to the upper reading floor"
+      },
+      {
+        "id": "archive",
+        "description": "Library basement archive storage room"
+      },
+      {
+        "id": "cafe",
+        "description": "Library coffee shop outdoor terrace"
+      }
+    ],
+    "logs": [
+      {
+        "id": "leg1",
+        "fromText": "Front library checkout reception",
+        "toText": "Staircase to upstairs library reading floor",
+        "riseMm": 3200,
+        "lengthM": 30
+      },
+      {
+        "id": "leg2",
+        "fromText": "Staircase to upstairs library reading floor",
+        "toText": "Basement library archive storage",
+        "riseMm": -5700,
+        "lengthM": 50
+      },
+      {
+        "id": "leg3",
+        "fromText": "Basement library archive storage",
+        "toText": "Outdoor coffee shop terrace",
+        "riseMm": 1800,
+        "lengthM": 20
+      },
+      {
+        "id": "leg4",
+        "fromText": "Outdoor coffee shop terrace",
+        "toText": "Front library checkout reception",
+        "riseMm": 696,
+        "lengthM": 100
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "leg1",
+      "from": "desk",
+      "to": "stairs",
+      "riseMm": 3200,
+      "lengthM": 30,
+      "evidence": {
+        "from": [
+          {
+            "id": "desk",
+            "score": 0.8472444588695269
+          },
+          {
+            "id": "cafe",
+            "score": 0.4399984584874991
+          },
+          {
+            "id": "archive",
+            "score": 0.3236181598196236
+          },
+          {
+            "id": "stairs",
+            "score": 0.31839534386449536
+          }
+        ],
+        "to": [
+          {
+            "id": "stairs",
+            "score": 0.9400897265027457
+          },
+          {
+            "id": "archive",
+            "score": 0.41740544953014586
+          },
+          {
+            "id": "desk",
+            "score": 0.34595324735126937
+          },
+          {
+            "id": "cafe",
+            "score": 0.339877558786351
+          }
+        ]
+      },
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "leg2",
+      "from": "stairs",
+      "to": "archive",
+      "riseMm": -5700,
+      "lengthM": 50,
+      "evidence": {
+        "from": [
+          {
+            "id": "stairs",
+            "score": 0.9400897265027457
+          },
+          {
+            "id": "archive",
+            "score": 0.41740544953014586
+          },
+          {
+            "id": "desk",
+            "score": 0.34595324735126937
+          },
+          {
+            "id": "cafe",
+            "score": 0.339877558786351
+          }
+        ],
+        "to": [
+          {
+            "id": "archive",
+            "score": 0.9175880150072646
+          },
+          {
+            "id": "stairs",
+            "score": 0.39835834936973524
+          },
+          {
+            "id": "cafe",
+            "score": 0.3517178066263962
+          },
+          {
+            "id": "desk",
+            "score": 0.28160023594527206
+          }
+        ]
+      },
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "leg3",
+      "from": "archive",
+      "to": "cafe",
+      "riseMm": 1800,
+      "lengthM": 20,
+      "evidence": {
+        "from": [
+          {
+            "id": "archive",
+            "score": 0.918725544190705
+          },
+          {
+            "id": "stairs",
+            "score": 0.38654576549241076
+          },
+          {
+            "id": "cafe",
+            "score": 0.34957452672554734
+          },
+          {
+            "id": "desk",
+            "score": 0.2741562719219758
+          }
+        ],
+        "to": [
+          {
+            "id": "cafe",
+            "score": 0.8874053834667934
+          },
+          {
+            "id": "desk",
+            "score": 0.29728229758059166
+          },
+          {
+            "id": "archive",
+            "score": 0.22031289333443274
+          },
+          {
+            "id": "stairs",
+            "score": 0.20261910562876284
+          }
+        ]
+      },
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "leg4",
+      "from": "cafe",
+      "to": "desk",
+      "riseMm": 696,
+      "lengthM": 100,
+      "evidence": {
+        "from": [
+          {
+            "id": "cafe",
+            "score": 0.8874053834667934
+          },
+          {
+            "id": "desk",
+            "score": 0.29728229758059166
+          },
+          {
+            "id": "archive",
+            "score": 0.22031289333443274
+          },
+          {
+            "id": "stairs",
+            "score": 0.20261910562876284
+          }
+        ],
+        "to": [
+          {
+            "id": "desk",
+            "score": 0.8473338208693936
+          },
+          {
+            "id": "cafe",
+            "score": 0.44244495274702855
+          },
+          {
+            "id": "archive",
+            "score": 0.3374960289761748
+          },
+          {
+            "id": "stairs",
+            "score": 0.31854473832977537
+          }
+        ]
+      },
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "status": "ready",
+  "issues": [],
+  "plan": [
+    {
+      "id": "leg1",
+      "from": "desk",
+      "to": "stairs",
+      "lengthM": 30,
+      "riseMm": 3200,
+      "correctionMm": 0.6,
+      "adjustedRiseMm": 3200.6,
+      "rawEndMm": 27200,
+      "adjustedEndMm": 27200.6,
+      "cumulativeCorrectionMm": 0.6
+    },
+    {
+      "id": "leg2",
+      "from": "stairs",
+      "to": "archive",
+      "lengthM": 50,
+      "riseMm": -5700,
+      "correctionMm": 1,
+      "adjustedRiseMm": -5699,
+      "rawEndMm": 21500,
+      "adjustedEndMm": 21501.6,
+      "cumulativeCorrectionMm": 1.6
+    },
+    {
+      "id": "leg3",
+      "from": "archive",
+      "to": "cafe",
+      "lengthM": 20,
+      "riseMm": 1800,
+      "correctionMm": 0.4,
+      "adjustedRiseMm": 1800.4,
+      "rawEndMm": 23300,
+      "adjustedEndMm": 23302,
+      "cumulativeCorrectionMm": 2
+    },
+    {
+      "id": "leg4",
+      "from": "cafe",
+      "to": "desk",
+      "lengthM": 100,
+      "riseMm": 696,
+      "correctionMm": 2,
+      "adjustedRiseMm": 698,
+      "rawEndMm": 23996,
+      "adjustedEndMm": 24000,
+      "cumulativeCorrectionMm": 4
+    }
+  ],
+  "summary": {
+    "closureMm": -4,
+    "totalLengthM": 200,
+    "unadjustedEndMm": 23996,
+    "withinTolerance": true,
+    "adjustedClosureMm": 0
+  }
+}

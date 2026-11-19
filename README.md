@@ -1385,3 +1385,10 @@ Real local MiniLM reconciles rough station notes before mandatory station/measur
 Combined-site size guard: deploy-only byte-identical geometry WASM reuse now includes `20261028-15`, preserving its source build and query-versioned existing worker/shell URLs. Preserve immutable shared host `20261028-24`; default/image/STL imports and actual mesh downloads are revalidated for this release.
 
 Bearing Meadow public release: matching Pages `e5147cfec77faf8885af4fe112769200988b89cf` built successfully. Twelve public asset byte matches, both real-AI fixtures, full reviewed-artifact/privacy/offline suite, 8-station/24-record maximum, all 732 gallery cards and the adjusted legacy runtime/import/download checks passed. Combined site: 999,672,798 bytes. Source staging excludes unrelated pre-existing edits; no digest sent.
+
+
+## Boundary Basket — 20261119-24
+
+Real local MiniLM reconciles informal boundary-walk notes before mandatory landmark/coordinate/traversal review. Reject crossed or incomplete outlines, compare flat-polygon ground-cover estimates with axis-aligned bounding rectangles, and export complete JSON/CSV/Markdown plus ordered outline CSV without uploads or orders. Both tiny fixtures matched all 10 intended links; 1,200 independent geometry oracle cases, reviewed-artifact round trips, defensive/race checks and fresh-worker offline inference passed. Estimates are not surveys or measured savings. Preserve immutable worker/runtime `20261115-6` and WASM `20261107-2`. See [workflow/privacy](20261119-24/README.md) and [observed validation](20261119-24/VALIDATION.md). No digest sent.
+
+Boundary Basket public release: matching Pages `5a4a5611d28c00e2fb8b18adff7bccdc4a476db3` built with a successful workflow. Nine public app/gallery/runtime byte matches, both real-AI fixtures, full reviewed-artifact/privacy/offline workflow, 12-corner maximum and all 733 preserved gallery cards passed. Combined site: 999,938,096 bytes; existing runtime-sharing rules unchanged. Source staging excludes unrelated pre-existing edits; no digest sent.

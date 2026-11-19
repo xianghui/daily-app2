@@ -1,0 +1,153 @@
+{
+  "fixtures": [
+    {
+      "name": "Workshop tariff",
+      "expected": [
+        "wood",
+        "ceramic",
+        "wood",
+        "ceramic",
+        "wood",
+        "ceramic"
+      ],
+      "actual": [
+        "wood",
+        "ceramic",
+        "wood",
+        "ceramic",
+        "wood",
+        "ceramic"
+      ],
+      "summary": {
+        "baselineCost": 46,
+        "optimizedCost": 18,
+        "difference": 28,
+        "totalLoad": 9,
+        "gridEnergy": 9,
+        "losses": 0,
+        "finalState": 0
+      },
+      "plans": [
+        {
+          "period": 0,
+          "start": 0,
+          "end": 4,
+          "delta": 4,
+          "load": 2,
+          "grid": 6,
+          "rate": 1,
+          "cost": 6,
+          "baselineCost": 2
+        },
+        {
+          "period": 1,
+          "start": 4,
+          "end": 0,
+          "delta": -4,
+          "load": 5,
+          "grid": 1,
+          "rate": 8,
+          "cost": 8,
+          "baselineCost": 40
+        },
+        {
+          "period": 2,
+          "start": 0,
+          "end": 0,
+          "delta": 0,
+          "load": 2,
+          "grid": 2,
+          "rate": 2,
+          "cost": 4,
+          "baselineCost": 4
+        }
+      ]
+    },
+    {
+      "name": "Community peak",
+      "expected": [
+        "library",
+        "kitchen",
+        "gym",
+        "library",
+        "kitchen",
+        "gym"
+      ],
+      "actual": [
+        "library",
+        "kitchen",
+        "gym",
+        "library",
+        "kitchen",
+        "gym"
+      ],
+      "summary": {
+        "baselineCost": 31,
+        "optimizedCost": 15.849999999999998,
+        "difference": 15.150000000000002,
+        "totalLoad": 7,
+        "gridEnergy": 8.05,
+        "losses": 1.0500000000000007,
+        "finalState": 3
+      },
+      "plans": [
+        {
+          "period": 0,
+          "start": 3,
+          "end": 0,
+          "delta": -3,
+          "load": 4,
+          "grid": 1.2999999999999998,
+          "rate": 7,
+          "cost": 9.099999999999998,
+          "baselineCost": 28
+        },
+        {
+          "period": 1,
+          "start": 0,
+          "end": 3,
+          "delta": 3,
+          "load": 3,
+          "grid": 6.75,
+          "rate": 1,
+          "cost": 6.75,
+          "baselineCost": 3
+        }
+      ]
+    }
+  ],
+  "checks": [
+    "review meter/period/kWh/edit/hold/undo/clipboard/multiline; invalid kWh blocked; duplicate and missing cells block; stale exports disabled; audit import resets approvals; offline fresh-worker real inference",
+    "empty/invalid/oversized/duplicates/limits/formats; cancel and real retry; changed source invalidates run",
+    "56 real texts / four-text chunks; maximum 48 readings retained; complete audit reimport",
+    "desktop/390px/320px no overflow, touch controls, labels and focus"
+  ],
+  "challenge": {
+    "suggested": "gym",
+    "limitation": "Nearest meter for irrelevant text; mandatory human hold. Imported text never changes authority."
+  },
+  "network": {
+    "requests": 51,
+    "onlyGetHead": true,
+    "noBodies": true,
+    "noSourceTextInUrls": true,
+    "paths": [
+      "http://127.0.0.1:6996/daily-app2/20261119-17/",
+      "http://127.0.0.1:6996/daily-app2/20261119-17/assets/index-DgZYEV5l.js",
+      "http://127.0.0.1:6996/daily-app2/20261119-17/assets/index-BAGcxX1u.css",
+      "http://127.0.0.1:6996/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "blob:local-worker",
+      "http://127.0.0.1:6996/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "http://127.0.0.1:6996/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194"
+    ]
+  },
+  "pageErrors": []
+}

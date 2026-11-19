@@ -1,0 +1,227 @@
+{
+  "schema": "charge-terrace/v1",
+  "originalInput": {
+    "context": "Synthetic workshop interval audit. Equal one-hour periods; supplied planning tariffs, not live prices.",
+    "hoursPerPeriod": 1,
+    "rates": [
+      1,
+      8,
+      2
+    ],
+    "battery": {
+      "capacity": 4,
+      "initial": 0,
+      "maxCharge": 4,
+      "maxDischarge": 4,
+      "chargeEfficiency": 1,
+      "dischargeEfficiency": 1
+    },
+    "meters": [
+      {
+        "id": "wood",
+        "description": "Woodworking workshop timber sawdust carpentry benches"
+      },
+      {
+        "id": "ceramic",
+        "description": "Pottery ceramics clay glazing kiln studio"
+      }
+    ],
+    "logs": [
+      {
+        "id": "w1",
+        "meterText": "Carpentry sawdust bench room",
+        "period": 0,
+        "kwh": 1
+      },
+      {
+        "id": "w2",
+        "meterText": "Clay pottery glazing studio",
+        "period": 0,
+        "kwh": 1
+      },
+      {
+        "id": "w3",
+        "meterText": "Timber woodworking shop",
+        "period": 1,
+        "kwh": 3
+      },
+      {
+        "id": "w4",
+        "meterText": "Ceramic clay workshop",
+        "period": 1,
+        "kwh": 2
+      },
+      {
+        "id": "w5",
+        "meterText": "Woodworking carpentry benches",
+        "period": 2,
+        "kwh": 1
+      },
+      {
+        "id": "w6",
+        "meterText": "Pottery kiln and glazing studio",
+        "period": 2,
+        "kwh": 1
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "w1",
+      "meter": "wood",
+      "period": 0,
+      "kwh": 1,
+      "evidence": [
+        {
+          "id": "wood",
+          "score": 0.813565267890776
+        },
+        {
+          "id": "ceramic",
+          "score": 0.26285859370737835
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "w2",
+      "meter": "ceramic",
+      "period": 0,
+      "kwh": 1,
+      "evidence": [
+        {
+          "id": "ceramic",
+          "score": 0.8491002327225643
+        },
+        {
+          "id": "wood",
+          "score": 0.2509431063967448
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "w3",
+      "meter": "wood",
+      "period": 1,
+      "kwh": 3,
+      "evidence": [
+        {
+          "id": "wood",
+          "score": 0.6309132858693904
+        },
+        {
+          "id": "ceramic",
+          "score": 0.21804538512465438
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "w4",
+      "meter": "ceramic",
+      "period": 1,
+      "kwh": 2,
+      "evidence": [
+        {
+          "id": "ceramic",
+          "score": 0.7346746831243618
+        },
+        {
+          "id": "wood",
+          "score": 0.41120531948873085
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "w5",
+      "meter": "wood",
+      "period": 2,
+      "kwh": 1,
+      "evidence": [
+        {
+          "id": "wood",
+          "score": 0.8152343330819779
+        },
+        {
+          "id": "ceramic",
+          "score": 0.23920691732599483
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "w6",
+      "meter": "ceramic",
+      "period": 2,
+      "kwh": 1,
+      "evidence": [
+        {
+          "id": "ceramic",
+          "score": 0.8331829822962606
+        },
+        {
+          "id": "wood",
+          "score": 0.2255921383960578
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 6,
+  "approved": 6,
+  "held": 0,
+  "status": "ready",
+  "issues": [],
+  "plans": [
+    {
+      "period": 0,
+      "start": 0,
+      "end": 4,
+      "delta": 4,
+      "load": 2,
+      "grid": 6,
+      "rate": 1,
+      "cost": 6,
+      "baselineCost": 2
+    },
+    {
+      "period": 1,
+      "start": 4,
+      "end": 0,
+      "delta": -4,
+      "load": 5,
+      "grid": 1,
+      "rate": 8,
+      "cost": 8,
+      "baselineCost": 40
+    },
+    {
+      "period": 2,
+      "start": 0,
+      "end": 0,
+      "delta": 0,
+      "load": 2,
+      "grid": 2,
+      "rate": 2,
+      "cost": 4,
+      "baselineCost": 4
+    }
+  ],
+  "summary": {
+    "baselineCost": 46,
+    "optimizedCost": 18,
+    "difference": 28,
+    "totalLoad": 9,
+    "gridEnergy": 9,
+    "losses": 0,
+    "finalState": 0
+  }
+}

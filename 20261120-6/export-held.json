@@ -1,0 +1,414 @@
+{
+  "schema": "gap-orchard/v1",
+  "originalInput": {
+    "context": "Synthetic community workshop ratings. All questions required for this worksheet; no missing-value imputation.",
+    "minSimilarity": 0.3,
+    "cellBudget": 2,
+    "contactCap": 2,
+    "first": [
+      {
+        "id": "tools",
+        "text": "Availability and condition of hand tools and workshop equipment",
+        "min": 0,
+        "max": 10
+      },
+      {
+        "id": "teaching",
+        "text": "Clarity of instructor explanations and teaching demonstrations",
+        "min": 0,
+        "max": 10
+      },
+      {
+        "id": "booking",
+        "text": "Ease of reserving a workshop session using the online booking system",
+        "min": 0,
+        "max": 10
+      }
+    ],
+    "people": [
+      {
+        "id": "E",
+        "followup": true
+      },
+      {
+        "id": "F",
+        "followup": true
+      },
+      {
+        "id": "G",
+        "followup": true
+      },
+      {
+        "id": "H",
+        "followup": false
+      }
+    ],
+    "records": [
+      {
+        "id": "w1",
+        "person": "E",
+        "text": "Working tools and machinery ready to use",
+        "value": 8
+      },
+      {
+        "id": "w2",
+        "person": "F",
+        "text": "Teacher explained each step clearly",
+        "value": 9
+      },
+      {
+        "id": "w3",
+        "person": "F",
+        "text": "Simple website reservation for class places",
+        "value": 7
+      },
+      {
+        "id": "w4",
+        "person": "G",
+        "text": "Well maintained workshop tools",
+        "value": 6
+      },
+      {
+        "id": "w5",
+        "person": "G",
+        "text": "Clear tutor demonstrations",
+        "value": 8
+      },
+      {
+        "id": "w6",
+        "person": "H",
+        "text": "Making a class reservation online",
+        "value": null
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "w1",
+      "proposed": "tools",
+      "target": "tools",
+      "decision": "approve",
+      "value": "8",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", verify",
+      "evidence": [
+        {
+          "id": "tools",
+          "score": 0.6387459022970083
+        },
+        {
+          "id": "booking",
+          "score": 0.1870898415780531
+        },
+        {
+          "id": "teaching",
+          "score": 0.10354590447186535
+        }
+      ]
+    },
+    {
+      "id": "w2",
+      "proposed": "teaching",
+      "target": "teaching",
+      "decision": "hold",
+      "value": "9",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "teaching",
+          "score": 0.5429742271970746
+        },
+        {
+          "id": "booking",
+          "score": 0.08656925044423583
+        },
+        {
+          "id": "tools",
+          "score": -0.03202836596566259
+        }
+      ]
+    },
+    {
+      "id": "w3",
+      "proposed": "booking",
+      "target": "booking",
+      "decision": "approve",
+      "value": "7",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "booking",
+          "score": 0.4703740498609591
+        },
+        {
+          "id": "teaching",
+          "score": 0.2564909004526533
+        },
+        {
+          "id": "tools",
+          "score": 0.09515913425461871
+        }
+      ]
+    },
+    {
+      "id": "w4",
+      "proposed": "tools",
+      "target": "tools",
+      "decision": "approve",
+      "value": "6",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "tools",
+          "score": 0.6955965748772582
+        },
+        {
+          "id": "booking",
+          "score": 0.4762198747887686
+        },
+        {
+          "id": "teaching",
+          "score": 0.17979906714911714
+        }
+      ]
+    },
+    {
+      "id": "w5",
+      "proposed": "teaching",
+      "target": "teaching",
+      "decision": "approve",
+      "value": "8",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "teaching",
+          "score": 0.754129663795227
+        },
+        {
+          "id": "booking",
+          "score": 0.17987795837148926
+        },
+        {
+          "id": "tools",
+          "score": 0.10300958006371162
+        }
+      ]
+    },
+    {
+      "id": "w6",
+      "proposed": "booking",
+      "target": "booking",
+      "decision": "approve",
+      "value": "",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "booking",
+          "score": 0.5533063831702222
+        },
+        {
+          "id": "teaching",
+          "score": 0.23718179868438916
+        },
+        {
+          "id": "tools",
+          "score": 0.06177407006713264
+        }
+      ]
+    }
+  ],
+  "total": 6,
+  "approved": 5,
+  "held": 1,
+  "plan": [
+    {
+      "id": "E",
+      "followup": true,
+      "cells": [
+        {
+          "question": "tools",
+          "value": 8,
+          "recordId": "w1",
+          "reason": "observed"
+        },
+        {
+          "question": "teaching",
+          "value": null,
+          "recordId": null,
+          "reason": "absent or held"
+        },
+        {
+          "question": "booking",
+          "value": null,
+          "recordId": null,
+          "reason": "absent or held"
+        }
+      ],
+      "missing": [
+        "teaching",
+        "booking"
+      ],
+      "status": "deferred by budget",
+      "selected": false
+    },
+    {
+      "id": "F",
+      "followup": true,
+      "cells": [
+        {
+          "question": "tools",
+          "value": null,
+          "recordId": null,
+          "reason": "absent or held"
+        },
+        {
+          "question": "teaching",
+          "value": null,
+          "recordId": null,
+          "reason": "absent or held"
+        },
+        {
+          "question": "booking",
+          "value": 7,
+          "recordId": "w3",
+          "reason": "observed"
+        }
+      ],
+      "missing": [
+        "tools",
+        "teaching"
+      ],
+      "status": "deferred by budget",
+      "selected": false
+    },
+    {
+      "id": "G",
+      "followup": true,
+      "cells": [
+        {
+          "question": "tools",
+          "value": 6,
+          "recordId": "w4",
+          "reason": "observed"
+        },
+        {
+          "question": "teaching",
+          "value": 8,
+          "recordId": "w5",
+          "reason": "observed"
+        },
+        {
+          "question": "booking",
+          "value": null,
+          "recordId": null,
+          "reason": "absent or held"
+        }
+      ],
+      "missing": [
+        "booking"
+      ],
+      "status": "proposed follow-up",
+      "selected": true
+    },
+    {
+      "id": "H",
+      "followup": false,
+      "cells": [
+        {
+          "question": "tools",
+          "value": null,
+          "recordId": null,
+          "reason": "absent or held"
+        },
+        {
+          "question": "teaching",
+          "value": null,
+          "recordId": null,
+          "reason": "absent or held"
+        },
+        {
+          "question": "booking",
+          "value": null,
+          "recordId": "w6",
+          "reason": "explicitly missing"
+        }
+      ],
+      "missing": [
+        "tools",
+        "teaching",
+        "booking"
+      ],
+      "status": "no follow-up permission",
+      "selected": false
+    }
+  ],
+  "pairwise": [
+    {
+      "question": "tools",
+      "counts": [
+        {
+          "question": "tools",
+          "n": 2
+        },
+        {
+          "question": "teaching",
+          "n": 1
+        },
+        {
+          "question": "booking",
+          "n": 0
+        }
+      ]
+    },
+    {
+      "question": "teaching",
+      "counts": [
+        {
+          "question": "tools",
+          "n": 1
+        },
+        {
+          "question": "teaching",
+          "n": 1
+        },
+        {
+          "question": "booking",
+          "n": 0
+        }
+      ]
+    },
+    {
+      "question": "booking",
+      "counts": [
+        {
+          "question": "tools",
+          "n": 0
+        },
+        {
+          "question": "teaching",
+          "n": 0
+        },
+        {
+          "question": "booking",
+          "n": 1
+        }
+      ]
+    }
+  ],
+  "metrics": {
+    "people": 4,
+    "questions": 3,
+    "observedCells": 4,
+    "missingCells": 8,
+    "completeCases": 0,
+    "listwiseExcluded": 4,
+    "proposedContacts": 1,
+    "proposedCells": 1,
+    "potentialCompleteCases": 1,
+    "baselineContacts": [
+      "E"
+    ],
+    "baselineCells": 2,
+    "baselinePotentialCompleteCases": 1
+  },
+  "warning": "No answers are imputed. All listed questions are required and every absent/empty/held cell is missing. Follow-up requires the supplied permission flag, not inferred consent. Proposed complete cases assume every requested answer is returned; this is a capacity ceiling, not a forecast or bias correction. Pairwise counts show availability, not statistical validity. Optimize number of newly complete people, then fewer requested cells, then earliest subset in roster bit order. Baseline takes feasible whole people in roster order. Held records remain in audit but cannot populate cells. No messages sent."
+}

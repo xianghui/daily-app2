@@ -1,0 +1,412 @@
+{
+  "schema": "gap-orchard/v1",
+  "originalInput": {
+    "context": "Synthetic library visitor feedback, 1–5 ratings. Follow-up flags are supplied permissions, not inferred consent.",
+    "minSimilarity": 0.3,
+    "cellBudget": 2,
+    "contactCap": 2,
+    "first": [
+      {
+        "id": "books",
+        "text": "Availability of books and reading material on library shelves",
+        "min": 1,
+        "max": 5
+      },
+      {
+        "id": "staff",
+        "text": "Helpfulness of librarians answering questions at the service desk",
+        "min": 1,
+        "max": 5
+      },
+      {
+        "id": "quiet",
+        "text": "Quiet study spaces free from noise and distractions",
+        "min": 1,
+        "max": 5
+      }
+    ],
+    "people": [
+      {
+        "id": "A",
+        "followup": true
+      },
+      {
+        "id": "B",
+        "followup": true
+      },
+      {
+        "id": "C",
+        "followup": true
+      },
+      {
+        "id": "D",
+        "followup": false
+      }
+    ],
+    "records": [
+      {
+        "id": "r1",
+        "person": "A",
+        "text": "Selection of novels and nonfiction titles",
+        "value": 4
+      },
+      {
+        "id": "r2",
+        "person": "B",
+        "text": "Useful help from the librarian",
+        "value": 5
+      },
+      {
+        "id": "r3",
+        "person": "B",
+        "text": "Peaceful places to study without loud noise",
+        "value": 3
+      },
+      {
+        "id": "r4",
+        "person": "C",
+        "text": "Range of books available to borrow",
+        "value": 2
+      },
+      {
+        "id": "r5",
+        "person": "C",
+        "text": "Staff assistance at the information counter",
+        "value": 4
+      },
+      {
+        "id": "r6",
+        "person": "D",
+        "text": "Silent reading and study rooms",
+        "value": 5
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "r1",
+      "proposed": "books",
+      "target": "books",
+      "decision": "approve",
+      "value": "4",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "books",
+          "score": 0.31568355540607923
+        },
+        {
+          "id": "quiet",
+          "score": 0.1311559513555342
+        },
+        {
+          "id": "staff",
+          "score": 0.07898262296768171
+        }
+      ]
+    },
+    {
+      "id": "r2",
+      "proposed": "staff",
+      "target": "staff",
+      "decision": "approve",
+      "value": "5",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "staff",
+          "score": 0.5608723208432348
+        },
+        {
+          "id": "books",
+          "score": 0.4859399322046529
+        },
+        {
+          "id": "quiet",
+          "score": 0.24482395759245845
+        }
+      ]
+    },
+    {
+      "id": "r3",
+      "proposed": "quiet",
+      "target": "quiet",
+      "decision": "approve",
+      "value": "3",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "quiet",
+          "score": 0.6531209766078064
+        },
+        {
+          "id": "books",
+          "score": 0.21236113805364368
+        },
+        {
+          "id": "staff",
+          "score": 0.08501469736707365
+        }
+      ]
+    },
+    {
+      "id": "r4",
+      "proposed": "books",
+      "target": "books",
+      "decision": "approve",
+      "value": "2",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "books",
+          "score": 0.5735822175992739
+        },
+        {
+          "id": "staff",
+          "score": 0.13651529570322987
+        },
+        {
+          "id": "quiet",
+          "score": 0.13379294535549602
+        }
+      ]
+    },
+    {
+      "id": "r5",
+      "proposed": "staff",
+      "target": "staff",
+      "decision": "approve",
+      "value": "4",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "staff",
+          "score": 0.4141557903394824
+        },
+        {
+          "id": "books",
+          "score": 0.2446823406822094
+        },
+        {
+          "id": "quiet",
+          "score": 0.23346430150262185
+        }
+      ]
+    },
+    {
+      "id": "r6",
+      "proposed": "quiet",
+      "target": "quiet",
+      "decision": "approve",
+      "value": "5",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "quiet",
+          "score": 0.7392281435242688
+        },
+        {
+          "id": "books",
+          "score": 0.3784523120904693
+        },
+        {
+          "id": "staff",
+          "score": 0.1642745593519259
+        }
+      ]
+    }
+  ],
+  "total": 6,
+  "approved": 6,
+  "held": 0,
+  "plan": [
+    {
+      "id": "A",
+      "followup": true,
+      "cells": [
+        {
+          "question": "books",
+          "value": 4,
+          "recordId": "r1",
+          "reason": "observed"
+        },
+        {
+          "question": "staff",
+          "value": null,
+          "recordId": null,
+          "reason": "absent or held"
+        },
+        {
+          "question": "quiet",
+          "value": null,
+          "recordId": null,
+          "reason": "absent or held"
+        }
+      ],
+      "missing": [
+        "staff",
+        "quiet"
+      ],
+      "status": "deferred by budget",
+      "selected": false
+    },
+    {
+      "id": "B",
+      "followup": true,
+      "cells": [
+        {
+          "question": "books",
+          "value": null,
+          "recordId": null,
+          "reason": "absent or held"
+        },
+        {
+          "question": "staff",
+          "value": 5,
+          "recordId": "r2",
+          "reason": "observed"
+        },
+        {
+          "question": "quiet",
+          "value": 3,
+          "recordId": "r3",
+          "reason": "observed"
+        }
+      ],
+      "missing": [
+        "books"
+      ],
+      "status": "proposed follow-up",
+      "selected": true
+    },
+    {
+      "id": "C",
+      "followup": true,
+      "cells": [
+        {
+          "question": "books",
+          "value": 2,
+          "recordId": "r4",
+          "reason": "observed"
+        },
+        {
+          "question": "staff",
+          "value": 4,
+          "recordId": "r5",
+          "reason": "observed"
+        },
+        {
+          "question": "quiet",
+          "value": null,
+          "recordId": null,
+          "reason": "absent or held"
+        }
+      ],
+      "missing": [
+        "quiet"
+      ],
+      "status": "proposed follow-up",
+      "selected": true
+    },
+    {
+      "id": "D",
+      "followup": false,
+      "cells": [
+        {
+          "question": "books",
+          "value": null,
+          "recordId": null,
+          "reason": "absent or held"
+        },
+        {
+          "question": "staff",
+          "value": null,
+          "recordId": null,
+          "reason": "absent or held"
+        },
+        {
+          "question": "quiet",
+          "value": 5,
+          "recordId": "r6",
+          "reason": "observed"
+        }
+      ],
+      "missing": [
+        "books",
+        "staff"
+      ],
+      "status": "no follow-up permission",
+      "selected": false
+    }
+  ],
+  "pairwise": [
+    {
+      "question": "books",
+      "counts": [
+        {
+          "question": "books",
+          "n": 2
+        },
+        {
+          "question": "staff",
+          "n": 1
+        },
+        {
+          "question": "quiet",
+          "n": 0
+        }
+      ]
+    },
+    {
+      "question": "staff",
+      "counts": [
+        {
+          "question": "books",
+          "n": 1
+        },
+        {
+          "question": "staff",
+          "n": 2
+        },
+        {
+          "question": "quiet",
+          "n": 1
+        }
+      ]
+    },
+    {
+      "question": "quiet",
+      "counts": [
+        {
+          "question": "books",
+          "n": 0
+        },
+        {
+          "question": "staff",
+          "n": 1
+        },
+        {
+          "question": "quiet",
+          "n": 2
+        }
+      ]
+    }
+  ],
+  "metrics": {
+    "people": 4,
+    "questions": 3,
+    "observedCells": 6,
+    "missingCells": 6,
+    "completeCases": 0,
+    "listwiseExcluded": 4,
+    "proposedContacts": 2,
+    "proposedCells": 2,
+    "potentialCompleteCases": 2,
+    "baselineContacts": [
+      "A"
+    ],
+    "baselineCells": 2,
+    "baselinePotentialCompleteCases": 1
+  },
+  "warning": "No answers are imputed. All listed questions are required and every absent/empty/held cell is missing. Follow-up requires the supplied permission flag, not inferred consent. Proposed complete cases assume every requested answer is returned; this is a capacity ceiling, not a forecast or bias correction. Pairwise counts show availability, not statistical validity. Optimize number of newly complete people, then fewer requested cells, then earliest subset in roster bit order. Baseline takes feasible whole people in roster order. Held records remain in audit but cannot populate cells. No messages sent."
+}

@@ -1433,3 +1433,8 @@ Real local MiniLM reconciles informal spot-measurement station names before mand
 Collection size guard: deploy-only byte-identical geometry WASM reuse additionally covers `20261028-12` → immutable `20261028-24`; source builds and legacy JS URLs preserved with query-versioned entries. Actual old-app generation, PNG/STL imports and three distinct valid STL downloads passed. Combined assembly: 999,645,050 bytes; all 737 prior gallery entries preserved.
 
 Field Loom public release: matching Pages `33c3ff9b730bbb662bd866be22af40d3247a07f6` built successfully. Thirteen public asset byte matches, both real-AI fixtures, full reviewed-artifact/privacy/offline/max-batch suite, all 738 gallery cards and affected older-runtime/import/export checks passed. Source staging excludes unrelated pre-existing changes; no digest sent.
+
+
+## Gap Orchard — 20261120-6
+
+Local MiniLM reconciles scattered survey answer labels with a canonical question register. Mandatory review/holds feed missing-cell and pairwise availability audits, followed by exact permission/budget-bounded follow-up planning versus roster order. Both synthetic fixtures matched all 12 links; the two-answer budget supports two potential complete people versus one under the baseline, conditional on every requested reply. No imputation, response forecasts or outreach. Complete JSON/CSV/matrix CSV/Markdown retains all records and the full roster. Reuses immutable worker/factory from `20261115-6` and WASM from `20261107-2`; preserve them. See [workflow/privacy](20261120-6/README.md) and [observed checks](20261120-6/VALIDATION.md).

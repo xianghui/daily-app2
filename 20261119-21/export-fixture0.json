@@ -1,0 +1,245 @@
+{
+  "schema": "slot-orchard/v1",
+  "originalInput": {
+    "context": "Synthetic workshop. Each pick is one separate round trip from the same packing desk.",
+    "items": [
+      {
+        "id": "drill",
+        "description": "Cordless power drill kit",
+        "massKg": 3,
+        "currentSlot": "far",
+        "fixed": false
+      },
+      {
+        "id": "anvil",
+        "description": "Heavy steel blacksmith anvil",
+        "massKg": 18,
+        "currentSlot": "deep",
+        "fixed": false
+      },
+      {
+        "id": "tape",
+        "description": "Adhesive masking tape rolls",
+        "massKg": 2,
+        "currentSlot": "near",
+        "fixed": false
+      },
+      {
+        "id": "paint",
+        "description": "Buckets of wall paint",
+        "massKg": 7,
+        "currentSlot": "middle",
+        "fixed": false
+      }
+    ],
+    "slots": [
+      {
+        "id": "near",
+        "distanceM": 1,
+        "capacityKg": 5
+      },
+      {
+        "id": "middle",
+        "distanceM": 3,
+        "capacityKg": 10
+      },
+      {
+        "id": "far",
+        "distanceM": 10,
+        "capacityKg": 20
+      },
+      {
+        "id": "deep",
+        "distanceM": 20,
+        "capacityKg": 20
+      }
+    ],
+    "logs": [
+      {
+        "id": "p1",
+        "note": "Battery powered drill set",
+        "picks": 40
+      },
+      {
+        "id": "p2",
+        "note": "Steel anvil for forging iron",
+        "picks": 4
+      },
+      {
+        "id": "p3",
+        "note": "Rolls of masking tape adhesive",
+        "picks": 10
+      },
+      {
+        "id": "p4",
+        "note": "Paint bucket for walls",
+        "picks": 20
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "p1",
+      "item": "drill",
+      "picks": 40,
+      "evidence": [
+        {
+          "id": "drill",
+          "score": 0.6410978465882288
+        },
+        {
+          "id": "anvil",
+          "score": 0.2937026836820431
+        },
+        {
+          "id": "paint",
+          "score": 0.11648657279717088
+        },
+        {
+          "id": "tape",
+          "score": -0.001145409831173205
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "p2",
+      "item": "anvil",
+      "picks": 4,
+      "evidence": [
+        {
+          "id": "anvil",
+          "score": 0.7946258855174666
+        },
+        {
+          "id": "drill",
+          "score": 0.257371875039744
+        },
+        {
+          "id": "paint",
+          "score": 0.06962827142541822
+        },
+        {
+          "id": "tape",
+          "score": 0.05222639822455305
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "p3",
+      "item": "tape",
+      "picks": 10,
+      "evidence": [
+        {
+          "id": "tape",
+          "score": 0.9611358712185893
+        },
+        {
+          "id": "paint",
+          "score": 0.14865682037105332
+        },
+        {
+          "id": "drill",
+          "score": 0.09300871374406922
+        },
+        {
+          "id": "anvil",
+          "score": 0.016443697167811196
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "p4",
+      "item": "paint",
+      "picks": 20,
+      "evidence": [
+        {
+          "id": "paint",
+          "score": 0.8913950240282053
+        },
+        {
+          "id": "drill",
+          "score": 0.11817643057963584
+        },
+        {
+          "id": "tape",
+          "score": 0.09171971215377608
+        },
+        {
+          "id": "anvil",
+          "score": 0.06462904520443988
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "status": "ready",
+  "issues": [],
+  "plan": [
+    {
+      "item": "drill",
+      "description": "Cordless power drill kit",
+      "picks": 40,
+      "massKg": 3,
+      "fixed": false,
+      "from": "far",
+      "to": "near",
+      "distanceM": 1,
+      "capacityKg": 5,
+      "estimatedM": 80
+    },
+    {
+      "item": "anvil",
+      "description": "Heavy steel blacksmith anvil",
+      "picks": 4,
+      "massKg": 18,
+      "fixed": false,
+      "from": "deep",
+      "to": "deep",
+      "distanceM": 20,
+      "capacityKg": 20,
+      "estimatedM": 160
+    },
+    {
+      "item": "tape",
+      "description": "Adhesive masking tape rolls",
+      "picks": 10,
+      "massKg": 2,
+      "fixed": false,
+      "from": "near",
+      "to": "far",
+      "distanceM": 10,
+      "capacityKg": 20,
+      "estimatedM": 200
+    },
+    {
+      "item": "paint",
+      "description": "Buckets of wall paint",
+      "picks": 20,
+      "massKg": 7,
+      "fixed": false,
+      "from": "middle",
+      "to": "middle",
+      "distanceM": 3,
+      "capacityKg": 10,
+      "estimatedM": 120
+    }
+  ],
+  "summary": {
+    "totalPicks": 74,
+    "baselineM": 1100,
+    "baselineViolations": [],
+    "optimizedM": 560,
+    "differenceM": 540,
+    "movedItems": 2
+  }
+}

@@ -1358,3 +1358,13 @@ Sort Canopy public release: matching Pages `28917e48b14848e006a0600f88136fca0f89
 Local MiniLM reconciles informal field-station endpoints before mandatory review of signed rises and distances. Closed-chain and supplied-tolerance gates prevent adjustment of incomplete/excessive-closure circuits; distance-proportional corrections expose raw versus enforced adjusted closure, never an accuracy claim. Both synthetic circuits matched 16/16 endpoint identities; real maximum batching, offline fresh-worker inference, complete JSON/CSV/Markdown exports and defensive browser checks passed. Reuses immutable worker/factory from `20261115-6` and WASM from `20261107-2`; preserve those paths. See [workflow/privacy](20261119-20/README.md) and [observed validation](20261119-20/VALIDATION.md). No uploads or equipment actions.
 
 Level Loop public release: matching Pages `64ad4360c219a3734e945e564f44ac343b6676ba` reached built. Nine byte-matched public assets, both real-AI fixtures, full reviewed-artifact/privacy/offline workflow and all 729 gallery cards passed. Source staging excludes unrelated pre-existing edits; no digest sent.
+
+
+## Slot Orchard — 20261119-21
+
+Real local MiniLM reconciles rough picking logs before mandatory item/count review. Compare exact one-container-per-slot mass/fixed-constrained storage layouts with current single-item access-distance estimates; export complete JSON/CSV/Markdown and layout CSV without uploads or stock movement. Both fixtures matched all seven intended identities; 1,200 independent exhaustive-assignment oracle cases, reviewed-artifact round trips, defensive/race checks and fresh-worker offline inference passed. Distance differences are assumptions, not measured savings. Preserve immutable worker/runtime `20261115-6` and WASM `20261107-2`. See [workflow/privacy](20261119-21/README.md) and [observed validation](20261119-21/VALIDATION.md). No digest sent.
+
+Collection size guard: deploy-only byte-identical geometry WASM reuse additionally covers `20261028-18` → `20261028-24`, retaining original JS URLs with query-versioned entry references; older source builds unchanged. Actual generation, PNG import and binary-STL import/export passed. Combined assembly: 999,690,297 bytes; all 729 prior gallery entries preserved.
+
+
+Slot Orchard public release: matching Pages `f482858cfebd71baf88da6aa1b0bf8a18cf0ae67` reached built with a successful workflow. Thirteen public app/runtime/legacy asset byte matches, both real-AI fixtures, full reviewed-artifact/privacy/offline suite, maximum batch and all 730 gallery cards passed. The affected older geometry app passed actual generation/image/STL import/export checks. Source staging excludes unrelated pre-existing edits; no digest sent.

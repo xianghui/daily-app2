@@ -1375,3 +1375,13 @@ Slot Orchard public release: matching Pages `f482858cfebd71baf88da6aa1b0bf8a18cf
 Real local MiniLM embeddings suggest a topical thread through unordered workshop activity cards. Review every position, enforce pinned endpoints and prerequisites, preserve all durations and export complete JSON/CSV/Markdown agendas without uploads or invitations. Four known topical pairs across two tiny fixtures were adjacent; similarity does not establish instructional chronology. 210 independent exhaustive sequencing oracle cases, reviewed artifacts, failure/race defenses and fresh-worker offline inference passed. Preserve immutable worker/runtime `20261115-6` and WASM `20261107-2`. See [workflow/privacy](20261119-22/README.md) and [observed validation](20261119-22/VALIDATION.md). No digest sent.
 
 Thread Atelier public release: matching Pages `28132fba015d1cf50d5546dfc03e66571c259886` reached built with a successful workflow. Nine public asset byte matches, both real-AI fixtures, full reviewed-artifact/privacy/offline suite, maximum batch and all 731 gallery cards passed. Combined site: 999,952,349 bytes; older-runtime sharing unchanged. Source staging excludes unrelated pre-existing edits; no digest sent.
+
+
+## Bearing Meadow — 20261119-23
+
+Real local MiniLM reconciles rough station notes before mandatory station/measurement review and deterministic duration-weighted wind-vector worksheets. Both tiny synthetic surveys matched 8/8 station links; north wraparound, opposing cancellation and unequal-duration means were checked independently. Complete JSON/CSV/Markdown preserves every original and hold. Fresh-worker offline inference is tested only in an already-open warmed page. Similarity is not station verification; vector means are not forecasts or safety assessments. Preserves immutable worker/factory from `20261115-6` and WASM from `20261107-2`. See [workflow/privacy](20261119-23/README.md) and [observed validation](20261119-23/VALIDATION.md).
+
+
+Combined-site size guard: deploy-only byte-identical geometry WASM reuse now includes `20261028-15`, preserving its source build and query-versioned existing worker/shell URLs. Preserve immutable shared host `20261028-24`; default/image/STL imports and actual mesh downloads are revalidated for this release.
+
+Bearing Meadow public release: matching Pages `e5147cfec77faf8885af4fe112769200988b89cf` built successfully. Twelve public asset byte matches, both real-AI fixtures, full reviewed-artifact/privacy/offline suite, 8-station/24-record maximum, all 732 gallery cards and the adjusted legacy runtime/import/download checks passed. Combined site: 999,672,798 bytes. Source staging excludes unrelated pre-existing edits; no digest sent.

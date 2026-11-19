@@ -1,0 +1,132 @@
+{
+  "schema": "bearing-meadow/v1",
+  "originalInput": {
+    "context": "Synthetic uneven-duration survey. All speeds m/s; distinct, nonoverlapping representative windows per station.",
+    "sites": [
+      {
+        "id": "shore",
+        "text": "Sandy ocean beach near the sea and waves"
+      },
+      {
+        "id": "woods",
+        "text": "Forest clearing surrounded by tall woodland trees"
+      }
+    ],
+    "records": [
+      {
+        "id": "s1",
+        "text": "At the sandy beach beside breaking ocean waves",
+        "bearing": 180,
+        "speed": 6,
+        "minutes": 30
+      },
+      {
+        "id": "w1",
+        "text": "In a clearing among the tall forest trees",
+        "bearing": 0,
+        "speed": 2,
+        "minutes": 10
+      },
+      {
+        "id": "s2",
+        "text": "On the sand by the sea and waves",
+        "bearing": 180,
+        "speed": 2,
+        "minutes": 10
+      },
+      {
+        "id": "w2",
+        "text": "Woodland clearing sheltered by surrounding trees",
+        "bearing": 90,
+        "speed": 2,
+        "minutes": 10
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "s1",
+      "site": "shore",
+      "bearing": 180,
+      "speed": 6,
+      "minutes": 30,
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", verify",
+      "evidence": [
+        {
+          "id": "shore",
+          "score": 0.8397070584652027
+        },
+        {
+          "id": "woods",
+          "score": 0.1484407089756329
+        }
+      ]
+    },
+    {
+      "id": "w1",
+      "site": "woods",
+      "bearing": 0,
+      "speed": 2,
+      "minutes": 10,
+      "decision": "hold",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "woods",
+          "score": 0.8117427815085271
+        },
+        {
+          "id": "shore",
+          "score": 0.1966290485879489
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "site": "shore",
+      "bearing": 180,
+      "speed": 2,
+      "minutes": 10,
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "shore",
+          "score": 0.7713119869071208
+        },
+        {
+          "id": "woods",
+          "score": 0.1860845642738059
+        }
+      ]
+    },
+    {
+      "id": "w2",
+      "site": "woods",
+      "bearing": 90,
+      "speed": 2,
+      "minutes": 10,
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "woods",
+          "score": 0.8661074891938072
+        },
+        {
+          "id": "shore",
+          "score": 0.18332849029236356
+        }
+      ]
+    }
+  ],
+  "total": 4,
+  "approved": 3,
+  "held": 1,
+  "status": "blocked",
+  "issues": [
+    "Held observations block the full summary; no measurements are silently dropped."
+  ],
+  "stations": []
+}

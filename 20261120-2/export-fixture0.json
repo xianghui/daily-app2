@@ -1,0 +1,306 @@
+{
+  "schema": "effort-grove/v1",
+  "originalInput": {
+    "context": "Synthetic repair intake. Estimate active hands-on minutes, not queue time. Check scope, condition and parts before quoting.",
+    "k": 1,
+    "history": [
+      {
+        "id": "bike-a",
+        "text": "Bicycle puncture repair: replace inner tube and inflate wheel",
+        "minutes": 15
+      },
+      {
+        "id": "bike-b",
+        "text": "Fix a flat bicycle tyre by fitting a new inner tube",
+        "minutes": 20
+      },
+      {
+        "id": "chair-a",
+        "text": "Restore wooden chair: sand frame and apply two coats of varnish",
+        "minutes": 180
+      },
+      {
+        "id": "chair-b",
+        "text": "Refinish a wooden chair by sanding and varnishing the frame",
+        "minutes": 200
+      },
+      {
+        "id": "zip-a",
+        "text": "Replace broken zipper on a winter coat with a new sewn zip",
+        "minutes": 60
+      },
+      {
+        "id": "zip-b",
+        "text": "Remove damaged coat zip and stitch in replacement zipper",
+        "minutes": 70
+      }
+    ],
+    "records": [
+      {
+        "id": "job-1",
+        "text": "A bike has a flat tire and needs its tube replaced"
+      },
+      {
+        "id": "job-2",
+        "text": "Sand and revarnish a timber chair"
+      },
+      {
+        "id": "job-3",
+        "text": "Sew a new zipper into a jacket"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "job-1",
+      "proposed": 20,
+      "minutes": 20,
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "bike-b",
+          "index": 1,
+          "minutes": 20,
+          "score": 0.707577207339161
+        },
+        {
+          "id": "bike-a",
+          "index": 0,
+          "minutes": 15,
+          "score": 0.5541042653592197
+        },
+        {
+          "id": "zip-a",
+          "index": 4,
+          "minutes": 60,
+          "score": 0.11351450133784767
+        },
+        {
+          "id": "zip-b",
+          "index": 5,
+          "minutes": 70,
+          "score": 0.08816093994525932
+        },
+        {
+          "id": "chair-b",
+          "index": 3,
+          "minutes": 200,
+          "score": 0.05223638491696798
+        },
+        {
+          "id": "chair-a",
+          "index": 2,
+          "minutes": 180,
+          "score": 0.03508451924153478
+        }
+      ],
+      "donorIds": [
+        "bike-b"
+      ],
+      "donorMin": 20,
+      "donorMax": 20
+    },
+    {
+      "id": "job-2",
+      "proposed": 180,
+      "minutes": 180,
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "chair-a",
+          "index": 2,
+          "minutes": 180,
+          "score": 0.7507660042327737
+        },
+        {
+          "id": "chair-b",
+          "index": 3,
+          "minutes": 200,
+          "score": 0.7343785642860842
+        },
+        {
+          "id": "bike-a",
+          "index": 0,
+          "minutes": 15,
+          "score": 0.07410824889824408
+        },
+        {
+          "id": "zip-b",
+          "index": 5,
+          "minutes": 70,
+          "score": 0.056820543675773875
+        },
+        {
+          "id": "zip-a",
+          "index": 4,
+          "minutes": 60,
+          "score": 0.024152555235456
+        },
+        {
+          "id": "bike-b",
+          "index": 1,
+          "minutes": 20,
+          "score": -0.007475027422177337
+        }
+      ],
+      "donorIds": [
+        "chair-a"
+      ],
+      "donorMin": 180,
+      "donorMax": 180
+    },
+    {
+      "id": "job-3",
+      "proposed": 60,
+      "minutes": 60,
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "zip-a",
+          "index": 4,
+          "minutes": 60,
+          "score": 0.7900886623858903
+        },
+        {
+          "id": "zip-b",
+          "index": 5,
+          "minutes": 70,
+          "score": 0.7231272252217644
+        },
+        {
+          "id": "chair-a",
+          "index": 2,
+          "minutes": 180,
+          "score": 0.1770740314679909
+        },
+        {
+          "id": "bike-b",
+          "index": 1,
+          "minutes": 20,
+          "score": 0.09063619790594586
+        },
+        {
+          "id": "chair-b",
+          "index": 3,
+          "minutes": 200,
+          "score": 0.08972932548380805
+        },
+        {
+          "id": "bike-a",
+          "index": 0,
+          "minutes": 15,
+          "score": 0.02527560653156767
+        }
+      ],
+      "donorIds": [
+        "zip-a"
+      ],
+      "donorMin": 60,
+      "donorMax": 60
+    }
+  ],
+  "benchmark": {
+    "method": "Leave one history job out; retrieve from the remaining histories without its own minutes. Same k; global-median baseline also excludes that job. Not independent prospective validation.",
+    "rows": [
+      {
+        "id": "bike-a",
+        "observed": 15,
+        "prediction": 20,
+        "baseline": 70,
+        "donors": [
+          "bike-b"
+        ],
+        "error": 5,
+        "baselineError": 55
+      },
+      {
+        "id": "bike-b",
+        "observed": 20,
+        "prediction": 15,
+        "baseline": 70,
+        "donors": [
+          "bike-a"
+        ],
+        "error": 5,
+        "baselineError": 50
+      },
+      {
+        "id": "chair-a",
+        "observed": 180,
+        "prediction": 200,
+        "baseline": 60,
+        "donors": [
+          "chair-b"
+        ],
+        "error": 20,
+        "baselineError": 120
+      },
+      {
+        "id": "chair-b",
+        "observed": 200,
+        "prediction": 180,
+        "baseline": 60,
+        "donors": [
+          "chair-a"
+        ],
+        "error": 20,
+        "baselineError": 140
+      },
+      {
+        "id": "zip-a",
+        "observed": 60,
+        "prediction": 70,
+        "baseline": 70,
+        "donors": [
+          "zip-b"
+        ],
+        "error": 10,
+        "baselineError": 10
+      },
+      {
+        "id": "zip-b",
+        "observed": 70,
+        "prediction": 60,
+        "baseline": 60,
+        "donors": [
+          "zip-a"
+        ],
+        "error": 10,
+        "baselineError": 10
+      }
+    ],
+    "mae": 11.666666666666666,
+    "baselineMAE": 64.16666666666667
+  },
+  "total": 3,
+  "approved": 3,
+  "held": 0,
+  "baselineMinutes": 65,
+  "metrics": {
+    "reviewedMinutes": 260,
+    "proposedMinutes": 260,
+    "baselineMinutes": 195,
+    "edited": 0
+  },
+  "plan": [
+    {
+      "id": "job-1",
+      "status": "estimated",
+      "minutes": 20
+    },
+    {
+      "id": "job-2",
+      "status": "estimated",
+      "minutes": 180
+    },
+    {
+      "id": "job-3",
+      "status": "estimated",
+      "minutes": 60
+    }
+  ],
+  "comparison": "Totals use the same approved jobs only. Historical median is a description-blind baseline; differences are not savings. Held jobs have no released effort estimate. Observed history is never modified."
+}

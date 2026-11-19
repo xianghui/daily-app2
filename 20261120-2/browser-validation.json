@@ -1,0 +1,267 @@
+{
+  "fixtures": [
+    {
+      "name": "Repair workshop",
+      "expectedDonorFamilies": [
+        [
+          "bike-a",
+          "bike-b"
+        ],
+        [
+          "chair-a",
+          "chair-b"
+        ],
+        [
+          "zip-a",
+          "zip-b"
+        ]
+      ],
+      "actual": [
+        {
+          "donors": [
+            "bike-b"
+          ],
+          "proposed": 20
+        },
+        {
+          "donors": [
+            "chair-a"
+          ],
+          "proposed": 180
+        },
+        {
+          "donors": [
+            "zip-a"
+          ],
+          "proposed": 60
+        }
+      ],
+      "benchmark": {
+        "method": "Leave one history job out; retrieve from the remaining histories without its own minutes. Same k; global-median baseline also excludes that job. Not independent prospective validation.",
+        "rows": [
+          {
+            "id": "bike-a",
+            "observed": 15,
+            "prediction": 20,
+            "baseline": 70,
+            "donors": [
+              "bike-b"
+            ],
+            "error": 5,
+            "baselineError": 55
+          },
+          {
+            "id": "bike-b",
+            "observed": 20,
+            "prediction": 15,
+            "baseline": 70,
+            "donors": [
+              "bike-a"
+            ],
+            "error": 5,
+            "baselineError": 50
+          },
+          {
+            "id": "chair-a",
+            "observed": 180,
+            "prediction": 200,
+            "baseline": 60,
+            "donors": [
+              "chair-b"
+            ],
+            "error": 20,
+            "baselineError": 120
+          },
+          {
+            "id": "chair-b",
+            "observed": 200,
+            "prediction": 180,
+            "baseline": 60,
+            "donors": [
+              "chair-a"
+            ],
+            "error": 20,
+            "baselineError": 140
+          },
+          {
+            "id": "zip-a",
+            "observed": 60,
+            "prediction": 70,
+            "baseline": 70,
+            "donors": [
+              "zip-b"
+            ],
+            "error": 10,
+            "baselineError": 10
+          },
+          {
+            "id": "zip-b",
+            "observed": 70,
+            "prediction": 60,
+            "baseline": 60,
+            "donors": [
+              "zip-a"
+            ],
+            "error": 10,
+            "baselineError": 10
+          }
+        ],
+        "mae": 11.666666666666666,
+        "baselineMAE": 64.16666666666667
+      },
+      "metrics": {
+        "reviewedMinutes": 260,
+        "proposedMinutes": 260,
+        "baselineMinutes": 195,
+        "edited": 0
+      }
+    },
+    {
+      "name": "Publishing desk",
+      "expectedDonorFamilies": [
+        [
+          "audio-a",
+          "audio-b"
+        ],
+        [
+          "image-a",
+          "image-b"
+        ],
+        [
+          "refs-a",
+          "refs-b"
+        ]
+      ],
+      "actual": [
+        {
+          "donors": [
+            "audio-a"
+          ],
+          "proposed": 90
+        },
+        {
+          "donors": [
+            "image-a"
+          ],
+          "proposed": 5
+        },
+        {
+          "donors": [
+            "refs-a"
+          ],
+          "proposed": 40
+        }
+      ],
+      "benchmark": {
+        "method": "Leave one history job out; retrieve from the remaining histories without its own minutes. Same k; global-median baseline also excludes that job. Not independent prospective validation.",
+        "rows": [
+          {
+            "id": "audio-a",
+            "observed": 90,
+            "prediction": 100,
+            "baseline": 40,
+            "donors": [
+              "audio-b"
+            ],
+            "error": 10,
+            "baselineError": 50
+          },
+          {
+            "id": "audio-b",
+            "observed": 100,
+            "prediction": 90,
+            "baseline": 40,
+            "donors": [
+              "audio-a"
+            ],
+            "error": 10,
+            "baselineError": 60
+          },
+          {
+            "id": "image-a",
+            "observed": 5,
+            "prediction": 10,
+            "baseline": 50,
+            "donors": [
+              "image-b"
+            ],
+            "error": 5,
+            "baselineError": 45
+          },
+          {
+            "id": "image-b",
+            "observed": 10,
+            "prediction": 5,
+            "baseline": 50,
+            "donors": [
+              "image-a"
+            ],
+            "error": 5,
+            "baselineError": 40
+          },
+          {
+            "id": "refs-a",
+            "observed": 40,
+            "prediction": 50,
+            "baseline": 50,
+            "donors": [
+              "refs-b"
+            ],
+            "error": 10,
+            "baselineError": 10
+          },
+          {
+            "id": "refs-b",
+            "observed": 50,
+            "prediction": 40,
+            "baseline": 40,
+            "donors": [
+              "refs-a"
+            ],
+            "error": 10,
+            "baselineError": 10
+          }
+        ],
+        "mae": 8.333333333333334,
+        "baselineMAE": 35.833333333333336
+      },
+      "metrics": {
+        "reviewedMinutes": 135,
+        "proposedMinutes": 135,
+        "baselineMinutes": 135,
+        "edited": 0
+      }
+    }
+  ],
+  "checks": [
+    "mandatory approvals; numeric edit resets approval; hold/undo; unchanged observations; numeric validation; multiline notes; invalidated exports; clipboard; audit imports renew AI and do not reinstate approvals; fully offline fresh-worker real inference",
+    "empty/invalid/oversized/duplicate/bad-format/numeric/k/observed-upcoming bounds; cancellation with real retry; input changes invalidate in-flight inference",
+    "12-history/12-upcoming maximum, k=3, 24 texts in six actual inference chunks; complete maximum export/import",
+    "instruction-like unrelated input remains inert; nearest analog must be held by human",
+    "desktop/390/320 no overflow; 44px buttons, labels and visible focus"
+  ],
+  "network": {
+    "requests": 51,
+    "onlyGetHead": true,
+    "noBodies": true,
+    "noSourceTextInUrls": true,
+    "paths": [
+      "http://127.0.0.1:7020/daily-app2/20261120-2/",
+      "http://127.0.0.1:7020/daily-app2/20261120-2/assets/index-DFGundHS.js",
+      "http://127.0.0.1:7020/daily-app2/20261120-2/assets/index-Hc7jCZrG.css",
+      "http://127.0.0.1:7020/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "blob:local-worker",
+      "http://127.0.0.1:7020/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "http://127.0.0.1:7020/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194"
+    ]
+  },
+  "pageErrors": []
+}

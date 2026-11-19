@@ -1,0 +1,306 @@
+{
+  "schema": "effort-grove/v1",
+  "originalInput": {
+    "context": "Synthetic editorial work. Minutes describe active work only; verify document length, source quality and accessibility scope.",
+    "k": 1,
+    "history": [
+      {
+        "id": "audio-a",
+        "text": "Transcribe a recorded spoken interview into a written transcript",
+        "minutes": 90
+      },
+      {
+        "id": "audio-b",
+        "text": "Turn an audio interview recording into a verbatim text transcript",
+        "minutes": 100
+      },
+      {
+        "id": "image-a",
+        "text": "Resize a photograph and crop it for a website thumbnail",
+        "minutes": 5
+      },
+      {
+        "id": "image-b",
+        "text": "Crop and scale a photo into a small web preview image",
+        "minutes": 10
+      },
+      {
+        "id": "refs-a",
+        "text": "Verify academic bibliography entries, DOI identifiers and citation formatting",
+        "minutes": 40
+      },
+      {
+        "id": "refs-b",
+        "text": "Check scholarly references for correct authors, DOIs and citation style",
+        "minutes": 50
+      }
+    ],
+    "records": [
+      {
+        "id": "draft-1",
+        "text": "Write down all speech from this recorded interview"
+      },
+      {
+        "id": "draft-2",
+        "text": "Make a smaller cropped thumbnail of the supplied photo"
+      },
+      {
+        "id": "draft-3",
+        "text": "Audit the bibliography and validate its reference identifiers"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "draft-1",
+      "proposed": 90,
+      "minutes": 90,
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "audio-a",
+          "index": 0,
+          "minutes": 90,
+          "score": 0.7623731343107488
+        },
+        {
+          "id": "audio-b",
+          "index": 1,
+          "minutes": 100,
+          "score": 0.7098191315224941
+        },
+        {
+          "id": "refs-a",
+          "index": 4,
+          "minutes": 40,
+          "score": 0.11122306576153344
+        },
+        {
+          "id": "refs-b",
+          "index": 5,
+          "minutes": 50,
+          "score": 0.0768685539215686
+        },
+        {
+          "id": "image-b",
+          "index": 3,
+          "minutes": 10,
+          "score": -0.011666939872703175
+        },
+        {
+          "id": "image-a",
+          "index": 2,
+          "minutes": 5,
+          "score": -0.01364277872314713
+        }
+      ],
+      "donorIds": [
+        "audio-a"
+      ],
+      "donorMin": 90,
+      "donorMax": 90
+    },
+    {
+      "id": "draft-2",
+      "proposed": 5,
+      "minutes": 5,
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "image-a",
+          "index": 2,
+          "minutes": 5,
+          "score": 0.756976234282948
+        },
+        {
+          "id": "image-b",
+          "index": 3,
+          "minutes": 10,
+          "score": 0.7114700415880623
+        },
+        {
+          "id": "audio-b",
+          "index": 1,
+          "minutes": 100,
+          "score": 0.01341698621093618
+        },
+        {
+          "id": "refs-a",
+          "index": 4,
+          "minutes": 40,
+          "score": -0.0001854446554268134
+        },
+        {
+          "id": "audio-a",
+          "index": 0,
+          "minutes": 90,
+          "score": -0.03318992465689728
+        },
+        {
+          "id": "refs-b",
+          "index": 5,
+          "minutes": 50,
+          "score": -0.038099485453881476
+        }
+      ],
+      "donorIds": [
+        "image-a"
+      ],
+      "donorMin": 5,
+      "donorMax": 5
+    },
+    {
+      "id": "draft-3",
+      "proposed": 40,
+      "minutes": 40,
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "refs-a",
+          "index": 4,
+          "minutes": 40,
+          "score": 0.5980182883237444
+        },
+        {
+          "id": "refs-b",
+          "index": 5,
+          "minutes": 50,
+          "score": 0.5042682620849149
+        },
+        {
+          "id": "audio-a",
+          "index": 0,
+          "minutes": 90,
+          "score": 0.1920449413907185
+        },
+        {
+          "id": "audio-b",
+          "index": 1,
+          "minutes": 100,
+          "score": 0.11048125710088343
+        },
+        {
+          "id": "image-a",
+          "index": 2,
+          "minutes": 5,
+          "score": -0.05398893437450391
+        },
+        {
+          "id": "image-b",
+          "index": 3,
+          "minutes": 10,
+          "score": -0.0641888609569969
+        }
+      ],
+      "donorIds": [
+        "refs-a"
+      ],
+      "donorMin": 40,
+      "donorMax": 40
+    }
+  ],
+  "benchmark": {
+    "method": "Leave one history job out; retrieve from the remaining histories without its own minutes. Same k; global-median baseline also excludes that job. Not independent prospective validation.",
+    "rows": [
+      {
+        "id": "audio-a",
+        "observed": 90,
+        "prediction": 100,
+        "baseline": 40,
+        "donors": [
+          "audio-b"
+        ],
+        "error": 10,
+        "baselineError": 50
+      },
+      {
+        "id": "audio-b",
+        "observed": 100,
+        "prediction": 90,
+        "baseline": 40,
+        "donors": [
+          "audio-a"
+        ],
+        "error": 10,
+        "baselineError": 60
+      },
+      {
+        "id": "image-a",
+        "observed": 5,
+        "prediction": 10,
+        "baseline": 50,
+        "donors": [
+          "image-b"
+        ],
+        "error": 5,
+        "baselineError": 45
+      },
+      {
+        "id": "image-b",
+        "observed": 10,
+        "prediction": 5,
+        "baseline": 50,
+        "donors": [
+          "image-a"
+        ],
+        "error": 5,
+        "baselineError": 40
+      },
+      {
+        "id": "refs-a",
+        "observed": 40,
+        "prediction": 50,
+        "baseline": 50,
+        "donors": [
+          "refs-b"
+        ],
+        "error": 10,
+        "baselineError": 10
+      },
+      {
+        "id": "refs-b",
+        "observed": 50,
+        "prediction": 40,
+        "baseline": 40,
+        "donors": [
+          "refs-a"
+        ],
+        "error": 10,
+        "baselineError": 10
+      }
+    ],
+    "mae": 8.333333333333334,
+    "baselineMAE": 35.833333333333336
+  },
+  "total": 3,
+  "approved": 3,
+  "held": 0,
+  "baselineMinutes": 45,
+  "metrics": {
+    "reviewedMinutes": 135,
+    "proposedMinutes": 135,
+    "baselineMinutes": 135,
+    "edited": 0
+  },
+  "plan": [
+    {
+      "id": "draft-1",
+      "status": "estimated",
+      "minutes": 90
+    },
+    {
+      "id": "draft-2",
+      "status": "estimated",
+      "minutes": 5
+    },
+    {
+      "id": "draft-3",
+      "status": "estimated",
+      "minutes": 40
+    }
+  ],
+  "comparison": "Totals use the same approved jobs only. Historical median is a description-blind baseline; differences are not savings. Held jobs have no released effort estimate. Observed history is never modified."
+}

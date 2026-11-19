@@ -1,0 +1,215 @@
+{
+  "schema": "cover-calendar/v1",
+  "originalInput": {
+    "context": "Synthetic full-time workshop staff, Monday–Friday. One fabrication team needs at least two people present each workday. Priorities are organizer-supplied points, not employee merit.",
+    "start": "2027-01-04",
+    "end": "2027-01-08",
+    "holidays": [
+      "2027-01-06"
+    ],
+    "teams": [
+      {
+        "id": "fabrication",
+        "minimum": 2
+      }
+    ],
+    "staff": [
+      {
+        "id": "metal",
+        "text": "Metal fabrication specialist who welds steel joints with an arc torch",
+        "team": "fabrication"
+      },
+      {
+        "id": "wood",
+        "text": "Woodworking carpenter building timber furniture with saws and planes",
+        "team": "fabrication"
+      },
+      {
+        "id": "electric",
+        "text": "Electrical technician repairing wiring circuits and power sockets",
+        "team": "fabrication"
+      }
+    ],
+    "records": [
+      {
+        "id": "long",
+        "text": "The person who joins steel using a welding torch requests leave",
+        "start": "2027-01-04",
+        "end": "2027-01-05",
+        "priority": 4
+      },
+      {
+        "id": "mon",
+        "text": "Our furniture maker who cuts wooden boards requests leave",
+        "start": "2027-01-04",
+        "end": "2027-01-04",
+        "priority": 3
+      },
+      {
+        "id": "tue",
+        "text": "The technician who fixes electrical wiring requests leave",
+        "start": "2027-01-05",
+        "end": "2027-01-05",
+        "priority": 3
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "long",
+      "staff": "metal",
+      "start": "2027-01-04",
+      "end": "2027-01-05",
+      "priority": 4,
+      "policy": "flexible",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "metal",
+          "score": 0.6946479592072797
+        },
+        {
+          "id": "electric",
+          "score": 0.17950981510638364
+        },
+        {
+          "id": "wood",
+          "score": 0.13500384775132307
+        }
+      ]
+    },
+    {
+      "id": "mon",
+      "staff": "wood",
+      "start": "2027-01-04",
+      "end": "2027-01-04",
+      "priority": 3,
+      "policy": "flexible",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "wood",
+          "score": 0.4650570320490454
+        },
+        {
+          "id": "metal",
+          "score": 0.16477910677960161
+        },
+        {
+          "id": "electric",
+          "score": 0.14927486008915786
+        }
+      ]
+    },
+    {
+      "id": "tue",
+      "staff": "electric",
+      "start": "2027-01-05",
+      "end": "2027-01-05",
+      "priority": 3,
+      "policy": "flexible",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "electric",
+          "score": 0.6715645943994544
+        },
+        {
+          "id": "metal",
+          "score": 0.2554641182848573
+        },
+        {
+          "id": "wood",
+          "score": -0.0309135171995971
+        }
+      ]
+    }
+  ],
+  "total": 3,
+  "approved": 3,
+  "held": 0,
+  "status": "ready",
+  "issues": [],
+  "allocations": [
+    {
+      "id": "long",
+      "staff": "metal",
+      "outcome": "defer"
+    },
+    {
+      "id": "mon",
+      "staff": "wood",
+      "outcome": "grant"
+    },
+    {
+      "id": "tue",
+      "staff": "electric",
+      "outcome": "grant"
+    }
+  ],
+  "coverage": [
+    {
+      "day": "2027-01-04",
+      "teams": [
+        {
+          "team": "fabrication",
+          "minimum": 2,
+          "present": 2,
+          "absent": [
+            "wood"
+          ]
+        }
+      ]
+    },
+    {
+      "day": "2027-01-05",
+      "teams": [
+        {
+          "team": "fabrication",
+          "minimum": 2,
+          "present": 2,
+          "absent": [
+            "electric"
+          ]
+        }
+      ]
+    },
+    {
+      "day": "2027-01-07",
+      "teams": [
+        {
+          "team": "fabrication",
+          "minimum": 2,
+          "present": 3,
+          "absent": []
+        }
+      ]
+    },
+    {
+      "day": "2027-01-08",
+      "teams": [
+        {
+          "team": "fabrication",
+          "minimum": 2,
+          "present": 3,
+          "absent": []
+        }
+      ]
+    }
+  ],
+  "metrics": {
+    "optimalPoints": 6,
+    "baselinePoints": 4,
+    "granted": 2,
+    "personDays": 2,
+    "baselinePersonDays": 2,
+    "baselineIds": [
+      "long"
+    ],
+    "workingDays": 4
+  },
+  "comparison": "Exact subset search versus source-order feasible greedy, both respecting pins, holds, forced deferrals and the same daily minima. Points are supplied priorities, not fairness, approval authority or measured savings."
+}

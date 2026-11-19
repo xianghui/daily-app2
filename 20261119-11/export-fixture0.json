@@ -1,0 +1,305 @@
+{
+  "schema": "offset-harbor/v1",
+  "originalInput": {
+    "context": "Synthetic short incident window. Constant clock offsets in milliseconds, not measured network latency. Bounds already include measurement uncertainty.",
+    "anchor": "reference",
+    "maxWidth": 6,
+    "devices": [
+      {
+        "id": "reference",
+        "description": "Reference time server master clock synchronized laboratory time standard"
+      },
+      {
+        "id": "camera",
+        "description": "Security video camera recorder surveillance footage timestamp clock"
+      },
+      {
+        "id": "printer",
+        "description": "Label printing machine thermal printer job log clock"
+      },
+      {
+        "id": "sensor",
+        "description": "Temperature sensor thermometer environmental measurement logger clock"
+      }
+    ],
+    "observations": [
+      {
+        "id": "c1",
+        "fromText": "Laboratory master time reference",
+        "toText": "Surveillance video recording camera",
+        "lower": 10,
+        "upper": 20
+      },
+      {
+        "id": "c2",
+        "fromText": "Security camera video recorder",
+        "toText": "Thermal label printer machine",
+        "lower": 3,
+        "upper": 7
+      },
+      {
+        "id": "c3",
+        "fromText": "Master laboratory clock standard",
+        "toText": "Printing machine for labels",
+        "lower": 16,
+        "upper": 18
+      },
+      {
+        "id": "c4",
+        "fromText": "Label printing machine thermal printer",
+        "toText": "Environmental temperature thermometer sensor",
+        "lower": -2,
+        "upper": 2
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "c1",
+      "from": "reference",
+      "to": "camera",
+      "lower": 10,
+      "upper": 20,
+      "fromEvidence": [
+        {
+          "id": "reference",
+          "score": 0.7589232666968135
+        },
+        {
+          "id": "sensor",
+          "score": 0.4348217714903597
+        },
+        {
+          "id": "printer",
+          "score": 0.40549317818537106
+        },
+        {
+          "id": "camera",
+          "score": 0.3497479027890154
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "camera",
+          "score": 0.7193254635365512
+        },
+        {
+          "id": "sensor",
+          "score": 0.21403494811055462
+        },
+        {
+          "id": "printer",
+          "score": 0.1396304532431243
+        },
+        {
+          "id": "reference",
+          "score": 0.04542626534646163
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "c2",
+      "from": "camera",
+      "to": "printer",
+      "lower": 3,
+      "upper": 7,
+      "fromEvidence": [
+        {
+          "id": "camera",
+          "score": 0.7840615570214599
+        },
+        {
+          "id": "sensor",
+          "score": 0.2641787222565477
+        },
+        {
+          "id": "printer",
+          "score": 0.173809505586488
+        },
+        {
+          "id": "reference",
+          "score": 0.11673282101710261
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "printer",
+          "score": 0.7668695246698264
+        },
+        {
+          "id": "sensor",
+          "score": 0.37407160820947083
+        },
+        {
+          "id": "reference",
+          "score": 0.1885957669654073
+        },
+        {
+          "id": "camera",
+          "score": 0.09119147840733456
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "c3",
+      "from": "reference",
+      "to": "printer",
+      "lower": 16,
+      "upper": 18,
+      "fromEvidence": [
+        {
+          "id": "reference",
+          "score": 0.8077951109252275
+        },
+        {
+          "id": "sensor",
+          "score": 0.4985177652278947
+        },
+        {
+          "id": "printer",
+          "score": 0.47948628075309085
+        },
+        {
+          "id": "camera",
+          "score": 0.39358746805365213
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "printer",
+          "score": 0.6578390847615722
+        },
+        {
+          "id": "sensor",
+          "score": 0.2070576077290269
+        },
+        {
+          "id": "reference",
+          "score": 0.15947648833830955
+        },
+        {
+          "id": "camera",
+          "score": 0.07002139466133339
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "c4",
+      "from": "printer",
+      "to": "sensor",
+      "lower": -2,
+      "upper": 2,
+      "fromEvidence": [
+        {
+          "id": "printer",
+          "score": 0.790666243158953
+        },
+        {
+          "id": "sensor",
+          "score": 0.34542000614362445
+        },
+        {
+          "id": "reference",
+          "score": 0.1764765099179388
+        },
+        {
+          "id": "camera",
+          "score": 0.09454093636554445
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "sensor",
+          "score": 0.747092434837823
+        },
+        {
+          "id": "printer",
+          "score": 0.3381995909773095
+        },
+        {
+          "id": "camera",
+          "score": 0.2196699012100401
+        },
+        {
+          "id": "reference",
+          "score": 0.19636790639474944
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "status": "ready",
+  "issues": [],
+  "plan": {
+    "consistent": true,
+    "nodes": [
+      {
+        "id": "reference",
+        "lower": 0,
+        "upper": 0,
+        "width": 0,
+        "baselineLower": 0,
+        "baselineUpper": 0,
+        "baselineWidth": 0,
+        "reference": true,
+        "meetsTarget": true,
+        "correctionLower": 0,
+        "correctionUpper": 0
+      },
+      {
+        "id": "camera",
+        "lower": 10,
+        "upper": 15,
+        "width": 5,
+        "baselineLower": 10,
+        "baselineUpper": 20,
+        "baselineWidth": 10,
+        "reference": false,
+        "meetsTarget": true,
+        "correctionLower": -15,
+        "correctionUpper": -10
+      },
+      {
+        "id": "printer",
+        "lower": 16,
+        "upper": 18,
+        "width": 2,
+        "baselineLower": 16,
+        "baselineUpper": 18,
+        "baselineWidth": 2,
+        "reference": false,
+        "meetsTarget": true,
+        "correctionLower": -18,
+        "correctionUpper": -16
+      },
+      {
+        "id": "sensor",
+        "lower": 14,
+        "upper": 20,
+        "width": 6,
+        "baselineLower": null,
+        "baselineUpper": null,
+        "baselineWidth": null,
+        "reference": false,
+        "meetsTarget": true,
+        "correctionLower": -20,
+        "correctionUpper": -14
+      }
+    ],
+    "contradictions": [],
+    "bounded": 3,
+    "baselineBounded": 2,
+    "tightened": 2,
+    "needsFollowup": 0
+  }
+}

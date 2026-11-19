@@ -1282,3 +1282,10 @@ Local MiniLM reconciles informal QA conditions with canonical factor levels befo
 Pairwise Foundry assembly size guard: deploy-only byte-identical geometry WASM reuse additionally covers `20261028-25` → `20261028-24`, retaining legacy JS URLs and query-versioning revised entry/worker references. Older source `dist/` is unchanged; real geometry/import/export checks accompany release.
 
 Pairwise Foundry public release: matching Pages commit `a49dfb3a069baa4fa6e7cf2a94d5639d84427c78` reached built. Public real-AI workflow, offline fresh-worker inference, 52 asset byte matches, reviewed artifacts, all 719 gallery cards and the affected older app geometry/import/export checks passed. Source commit excludes unrelated pre-existing changes.
+
+
+## Offset Harbor — 20261119-11
+
+Local MiniLM reconciles both endpoints of rough clock-comparison notes before mandatory identity/sign/bound review. Propagate constant-offset difference constraints, expose negative cycles and unbounded devices, compare direct-only calibration and export complete JSON/CSV/Markdown without uploads or clock changes. Both tiny fixtures matched 14/14 endpoint identities; 1,200 independent integer-feasibility/marginal-bound oracle cases and fresh-worker offline inference passed. Marginal ranges are not independently selectable settings or synchronization certification. Preserve immutable worker/runtime `20261115-6` and WASM `20261107-2`. See [workflow/privacy](20261119-11/README.md) and [observed validation](20261119-11/VALIDATION.md). No digest sent.
+
+Offset Harbor public release: matching Pages `f110107087195beb0319947d179c553af241b910` reached built. Nine public asset byte matches, both real-AI fixtures, full reviewed-artifact/privacy/offline suite, maximum batch and all 720 preserved gallery cards passed. Combined site: 999,844,246 bytes; no new older-runtime rewriting. Unrelated pre-existing source changes remain untouched. No digest sent.

@@ -1,0 +1,204 @@
+{
+  "schema": "offset-harbor/v1",
+  "originalInput": {
+    "context": "Synthetic field survey. One disconnected device is deliberately retained. Positive offset means destination clock reads ahead of source.",
+    "anchor": "base",
+    "maxWidth": 3,
+    "devices": [
+      {
+        "id": "base",
+        "description": "Base station reference clock master time standard"
+      },
+      {
+        "id": "drone",
+        "description": "Flying drone aerial photography aircraft flight log clock"
+      },
+      {
+        "id": "boat",
+        "description": "Boat marine vessel navigation ship log clock"
+      },
+      {
+        "id": "acoustic",
+        "description": "Underwater hydrophone microphone acoustic audio recording clock"
+      }
+    ],
+    "observations": [
+      {
+        "id": "f1",
+        "fromText": "Base station master time reference",
+        "toText": "Aerial drone aircraft flight recorder",
+        "lower": -12,
+        "upper": -8
+      },
+      {
+        "id": "f2",
+        "fromText": "Flying drone aerial photography log",
+        "toText": "Marine boat vessel navigation log",
+        "lower": 20,
+        "upper": 22
+      },
+      {
+        "id": "f3",
+        "fromText": "Base station reference master clock",
+        "toText": "Ship boat marine navigation recorder",
+        "lower": 10,
+        "upper": 11
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "f1",
+      "from": "base",
+      "to": "boat",
+      "lower": -12,
+      "upper": -8,
+      "fromEvidence": [
+        {
+          "id": "base",
+          "score": 0.8968423155111466
+        },
+        {
+          "id": "boat",
+          "score": 0.4699560035916641
+        },
+        {
+          "id": "acoustic",
+          "score": 0.29431755041830504
+        },
+        {
+          "id": "drone",
+          "score": 0.28430716465443007
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "drone",
+          "score": 0.7118985738312366
+        },
+        {
+          "id": "acoustic",
+          "score": 0.30625982822463493
+        },
+        {
+          "id": "boat",
+          "score": 0.24839635783025735
+        },
+        {
+          "id": "base",
+          "score": 0.07469930124613249
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", verify"
+    },
+    {
+      "id": "f2",
+      "from": "drone",
+      "to": "boat",
+      "lower": 20,
+      "upper": 22,
+      "fromEvidence": [
+        {
+          "id": "drone",
+          "score": 0.7884698038696011
+        },
+        {
+          "id": "boat",
+          "score": 0.2737289862407979
+        },
+        {
+          "id": "acoustic",
+          "score": 0.1049778119928575
+        },
+        {
+          "id": "base",
+          "score": 0.002974353832856682
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "boat",
+          "score": 0.7755927945903613
+        },
+        {
+          "id": "drone",
+          "score": 0.3361970405568731
+        },
+        {
+          "id": "acoustic",
+          "score": 0.2219716099543865
+        },
+        {
+          "id": "base",
+          "score": 0.1408702189405832
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "f3",
+      "from": "base",
+      "to": "boat",
+      "lower": 10,
+      "upper": 11,
+      "fromEvidence": [
+        {
+          "id": "base",
+          "score": 0.9308538173639238
+        },
+        {
+          "id": "boat",
+          "score": 0.47235679819041354
+        },
+        {
+          "id": "acoustic",
+          "score": 0.3416093219701074
+        },
+        {
+          "id": "drone",
+          "score": 0.3329414029168321
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "boat",
+          "score": 0.6747861240173331
+        },
+        {
+          "id": "acoustic",
+          "score": 0.4145551918566139
+        },
+        {
+          "id": "drone",
+          "score": 0.3451959933758362
+        },
+        {
+          "id": "base",
+          "score": 0.21406193984191707
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 3,
+  "approved": 3,
+  "held": 0,
+  "status": "inconsistent",
+  "issues": [
+    "Contradictory bounds: a negative constraint cycle exists. No offsets or corrections released. Inspect every comparison in the implicated component; the cycle does not identify which measurement is wrong."
+  ],
+  "plan": {
+    "consistent": false,
+    "contradictions": [
+      "base",
+      "boat"
+    ],
+    "nodes": [],
+    "bounded": 0,
+    "baselineBounded": 0,
+    "needsFollowup": 3
+  }
+}

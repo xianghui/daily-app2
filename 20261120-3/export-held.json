@@ -1,0 +1,383 @@
+{
+  "schema": "search-lantern/v1",
+  "originalInput": {
+    "context": "Synthetic digital-skills search. Fuse two ranked lists into a three-resource reading shortlist; verify same work and edition before linking.",
+    "minSimilarity": 0.45,
+    "rankConstant": 60,
+    "shortlistSize": 3,
+    "first": [
+      {
+        "id": "a-backup",
+        "text": "Guide to encrypting and restoring computer backup archives"
+      },
+      {
+        "id": "a-audio",
+        "text": "Interview transcription manual: converting recorded speech into text"
+      },
+      {
+        "id": "a-photo",
+        "text": "Website thumbnail tutorial: cropping and resizing photographs"
+      },
+      {
+        "id": "a-refs",
+        "text": "Bibliography checking guide: validating references and DOI identifiers"
+      }
+    ],
+    "records": [
+      {
+        "id": "b-refs",
+        "text": "A handbook for auditing scholarly citations and their DOIs"
+      },
+      {
+        "id": "b-audio",
+        "text": "Instructions for writing down a recorded spoken interview"
+      },
+      {
+        "id": "b-photo",
+        "text": "How to crop and scale pictures into small web preview images"
+      },
+      {
+        "id": "b-sheet",
+        "text": "Spreadsheet tutorial for pivot tables and cell formulas"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "b-refs",
+      "proposed": "a-refs",
+      "target": "",
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", verify",
+      "evidence": [
+        {
+          "id": "a-refs",
+          "score": 0.6847046209385795
+        },
+        {
+          "id": "a-audio",
+          "score": 0.2079257640780733
+        },
+        {
+          "id": "a-backup",
+          "score": 0.16005369923375096
+        },
+        {
+          "id": "a-photo",
+          "score": 0.03402909149048398
+        }
+      ]
+    },
+    {
+      "id": "b-audio",
+      "proposed": "a-audio",
+      "target": "a-audio",
+      "decision": "hold",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "a-audio",
+          "score": 0.7926226229041328
+        },
+        {
+          "id": "a-backup",
+          "score": 0.19170693651176535
+        },
+        {
+          "id": "a-refs",
+          "score": 0.12312950855513938
+        },
+        {
+          "id": "a-photo",
+          "score": 0.0748920742808343
+        }
+      ]
+    },
+    {
+      "id": "b-photo",
+      "proposed": "a-photo",
+      "target": "a-photo",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "a-photo",
+          "score": 0.7323482688628922
+        },
+        {
+          "id": "a-backup",
+          "score": -0.007791855304055635
+        },
+        {
+          "id": "a-audio",
+          "score": -0.04287832341812358
+        },
+        {
+          "id": "a-refs",
+          "score": -0.05965688256900154
+        }
+      ]
+    },
+    {
+      "id": "b-sheet",
+      "proposed": "",
+      "target": "",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "a-photo",
+          "score": 0.18534002953915465
+        },
+        {
+          "id": "a-refs",
+          "score": 0.09537702278492304
+        },
+        {
+          "id": "a-audio",
+          "score": 0.09370268315569616
+        },
+        {
+          "id": "a-backup",
+          "score": 0.04413119092118077
+        }
+      ]
+    }
+  ],
+  "total": 4,
+  "approved": 3,
+  "held": 1,
+  "manifest": [
+    {
+      "key": "first:a-backup",
+      "text": "Guide to encrypting and restoring computer backup archives",
+      "firstId": "a-backup",
+      "secondId": "",
+      "rankA": 1,
+      "rankB": null,
+      "status": "first-list only",
+      "sourceOrder": 0,
+      "score": 0.01639344262295082,
+      "fusedRank": 2,
+      "selected": true
+    },
+    {
+      "key": "first:a-audio",
+      "text": "Interview transcription manual: converting recorded speech into text",
+      "firstId": "a-audio",
+      "secondId": "",
+      "rankA": 2,
+      "rankB": null,
+      "status": "first-list only",
+      "sourceOrder": 1,
+      "score": 0.016129032258064516,
+      "fusedRank": 4,
+      "selected": false
+    },
+    {
+      "key": "first:a-photo",
+      "text": "Website thumbnail tutorial: cropping and resizing photographs",
+      "firstId": "a-photo",
+      "secondId": "b-photo",
+      "rankA": 3,
+      "rankB": 3,
+      "status": "linked across lists",
+      "sourceOrder": 2,
+      "score": 0.031746031746031744,
+      "fusedRank": 1,
+      "selected": true
+    },
+    {
+      "key": "first:a-refs",
+      "text": "Bibliography checking guide: validating references and DOI identifiers",
+      "firstId": "a-refs",
+      "secondId": "",
+      "rankA": 4,
+      "rankB": null,
+      "status": "first-list only",
+      "sourceOrder": 3,
+      "score": 0.015625,
+      "fusedRank": 5,
+      "selected": false
+    },
+    {
+      "key": "second:b-refs",
+      "text": "A handbook for auditing scholarly citations and their DOIs",
+      "firstId": "",
+      "secondId": "b-refs",
+      "rankA": null,
+      "rankB": 1,
+      "status": "second-list only",
+      "sourceOrder": 4,
+      "score": 0.01639344262295082,
+      "fusedRank": 3,
+      "selected": true
+    },
+    {
+      "key": "second:b-audio",
+      "text": "Instructions for writing down a recorded spoken interview",
+      "firstId": "",
+      "secondId": "b-audio",
+      "rankA": null,
+      "rankB": 2,
+      "status": "held — unresolved identity",
+      "score": null,
+      "fusedRank": null,
+      "selected": false
+    },
+    {
+      "key": "second:b-sheet",
+      "text": "Spreadsheet tutorial for pivot tables and cell formulas",
+      "firstId": "",
+      "secondId": "b-sheet",
+      "rankA": null,
+      "rankB": 4,
+      "status": "second-list only",
+      "sourceOrder": 5,
+      "score": 0.015625,
+      "fusedRank": 6,
+      "selected": false
+    }
+  ],
+  "ranking": [
+    {
+      "key": "first:a-photo",
+      "text": "Website thumbnail tutorial: cropping and resizing photographs",
+      "firstId": "a-photo",
+      "secondId": "b-photo",
+      "rankA": 3,
+      "rankB": 3,
+      "status": "linked across lists",
+      "sourceOrder": 2,
+      "score": 0.031746031746031744,
+      "fusedRank": 1,
+      "selected": true
+    },
+    {
+      "key": "first:a-backup",
+      "text": "Guide to encrypting and restoring computer backup archives",
+      "firstId": "a-backup",
+      "secondId": "",
+      "rankA": 1,
+      "rankB": null,
+      "status": "first-list only",
+      "sourceOrder": 0,
+      "score": 0.01639344262295082,
+      "fusedRank": 2,
+      "selected": true
+    },
+    {
+      "key": "second:b-refs",
+      "text": "A handbook for auditing scholarly citations and their DOIs",
+      "firstId": "",
+      "secondId": "b-refs",
+      "rankA": null,
+      "rankB": 1,
+      "status": "second-list only",
+      "sourceOrder": 4,
+      "score": 0.01639344262295082,
+      "fusedRank": 3,
+      "selected": true
+    },
+    {
+      "key": "first:a-audio",
+      "text": "Interview transcription manual: converting recorded speech into text",
+      "firstId": "a-audio",
+      "secondId": "",
+      "rankA": 2,
+      "rankB": null,
+      "status": "first-list only",
+      "sourceOrder": 1,
+      "score": 0.016129032258064516,
+      "fusedRank": 4,
+      "selected": false
+    },
+    {
+      "key": "first:a-refs",
+      "text": "Bibliography checking guide: validating references and DOI identifiers",
+      "firstId": "a-refs",
+      "secondId": "",
+      "rankA": 4,
+      "rankB": null,
+      "status": "first-list only",
+      "sourceOrder": 3,
+      "score": 0.015625,
+      "fusedRank": 5,
+      "selected": false
+    },
+    {
+      "key": "second:b-sheet",
+      "text": "Spreadsheet tutorial for pivot tables and cell formulas",
+      "firstId": "",
+      "secondId": "b-sheet",
+      "rankA": null,
+      "rankB": 4,
+      "status": "second-list only",
+      "sourceOrder": 5,
+      "score": 0.015625,
+      "fusedRank": 6,
+      "selected": false
+    }
+  ],
+  "plan": [
+    {
+      "key": "first:a-photo",
+      "text": "Website thumbnail tutorial: cropping and resizing photographs",
+      "firstId": "a-photo",
+      "secondId": "b-photo",
+      "rankA": 3,
+      "rankB": 3,
+      "status": "linked across lists",
+      "sourceOrder": 2,
+      "score": 0.031746031746031744,
+      "fusedRank": 1,
+      "selected": true
+    },
+    {
+      "key": "first:a-backup",
+      "text": "Guide to encrypting and restoring computer backup archives",
+      "firstId": "a-backup",
+      "secondId": "",
+      "rankA": 1,
+      "rankB": null,
+      "status": "first-list only",
+      "sourceOrder": 0,
+      "score": 0.01639344262295082,
+      "fusedRank": 2,
+      "selected": true
+    },
+    {
+      "key": "second:b-refs",
+      "text": "A handbook for auditing scholarly citations and their DOIs",
+      "firstId": "",
+      "secondId": "b-refs",
+      "rankA": null,
+      "rankB": 1,
+      "status": "second-list only",
+      "sourceOrder": 4,
+      "score": 0.01639344262295082,
+      "fusedRank": 3,
+      "selected": true
+    }
+  ],
+  "baseline": {
+    "method": "First-list order followed by approved B-only records, stopping at the same number of resources. Uses the same reviewed identity groups and excludes holds.",
+    "keys": [
+      "first:a-backup",
+      "first:a-audio",
+      "first:a-photo"
+    ],
+    "consensus": 1,
+    "scoreSum": 0.06426850662704708
+  },
+  "metrics": {
+    "verifiedLinks": 1,
+    "changedLinks": 1,
+    "candidateGroups": 6,
+    "requested": 3,
+    "selected": 3,
+    "consensus": 1,
+    "scoreSum": 0.06453291699193339
+  },
+  "warning": "Reciprocal rank is a deterministic ordinal aggregation score, not relevance probability, confidence, source quality or reading benefit. Correlated lists can amplify the same bias. Similarity is not identity; verify the same resource and edition. Held B results are excluded, but their possible A counterpart remains a separate candidate. No web search, page fetching, messages or catalog changes occur."
+}

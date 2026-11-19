@@ -1,0 +1,345 @@
+{
+  "schema": "search-lantern/v1",
+  "originalInput": {
+    "context": "Synthetic community learning search. Combine ranked resource lists into a three-resource reading shortlist; verify work identity, not just similar topics.",
+    "minSimilarity": 0.45,
+    "rankConstant": 60,
+    "shortlistSize": 3,
+    "first": [
+      {
+        "id": "a-bread",
+        "text": "Beginner sourdough bread baking instructions"
+      },
+      {
+        "id": "a-bike",
+        "text": "Bicycle puncture repair guide: fitting a replacement inner tube"
+      },
+      {
+        "id": "a-compost",
+        "text": "Home composting handbook: turning kitchen scraps into garden soil"
+      },
+      {
+        "id": "a-sew",
+        "text": "Sewing tutorial: replacing a broken jacket zipper"
+      }
+    ],
+    "records": [
+      {
+        "id": "b-compost",
+        "text": "A manual for composting food waste into soil at home"
+      },
+      {
+        "id": "b-sew",
+        "text": "Tutorial on stitching a new zip into a coat"
+      },
+      {
+        "id": "b-bike",
+        "text": "How to fix a flat bike tyre by replacing its tube"
+      },
+      {
+        "id": "b-stars",
+        "text": "Night sky chart for identifying stars and constellations"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "b-compost",
+      "proposed": "a-compost",
+      "target": "a-compost",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "a-compost",
+          "score": 0.7307981809643397
+        },
+        {
+          "id": "a-bread",
+          "score": 0.2762898824185553
+        },
+        {
+          "id": "a-sew",
+          "score": 0.038412158984645464
+        },
+        {
+          "id": "a-bike",
+          "score": -0.012939457165589356
+        }
+      ]
+    },
+    {
+      "id": "b-sew",
+      "proposed": "a-sew",
+      "target": "a-sew",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "a-sew",
+          "score": 0.6844376184446941
+        },
+        {
+          "id": "a-bread",
+          "score": 0.15189755238695593
+        },
+        {
+          "id": "a-bike",
+          "score": 0.09791171720776974
+        },
+        {
+          "id": "a-compost",
+          "score": 0.08836659509805725
+        }
+      ]
+    },
+    {
+      "id": "b-bike",
+      "proposed": "a-bike",
+      "target": "a-bike",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "a-bike",
+          "score": 0.5635212548521591
+        },
+        {
+          "id": "a-sew",
+          "score": 0.1458685360839642
+        },
+        {
+          "id": "a-bread",
+          "score": 0.08655048200388496
+        },
+        {
+          "id": "a-compost",
+          "score": 0.07011929521617649
+        }
+      ]
+    },
+    {
+      "id": "b-stars",
+      "proposed": "",
+      "target": "",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "a-bread",
+          "score": 0.21468609306032588
+        },
+        {
+          "id": "a-sew",
+          "score": 0.09324923681275868
+        },
+        {
+          "id": "a-bike",
+          "score": -0.006673687849553994
+        },
+        {
+          "id": "a-compost",
+          "score": -0.049607360319556246
+        }
+      ]
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "manifest": [
+    {
+      "key": "first:a-bread",
+      "text": "Beginner sourdough bread baking instructions",
+      "firstId": "a-bread",
+      "secondId": "",
+      "rankA": 1,
+      "rankB": null,
+      "status": "first-list only",
+      "sourceOrder": 0,
+      "score": 0.01639344262295082,
+      "fusedRank": 4,
+      "selected": false
+    },
+    {
+      "key": "first:a-bike",
+      "text": "Bicycle puncture repair guide: fitting a replacement inner tube",
+      "firstId": "a-bike",
+      "secondId": "b-bike",
+      "rankA": 2,
+      "rankB": 3,
+      "status": "linked across lists",
+      "sourceOrder": 1,
+      "score": 0.03200204813108039,
+      "fusedRank": 2,
+      "selected": true
+    },
+    {
+      "key": "first:a-compost",
+      "text": "Home composting handbook: turning kitchen scraps into garden soil",
+      "firstId": "a-compost",
+      "secondId": "b-compost",
+      "rankA": 3,
+      "rankB": 1,
+      "status": "linked across lists",
+      "sourceOrder": 2,
+      "score": 0.032266458495966696,
+      "fusedRank": 1,
+      "selected": true
+    },
+    {
+      "key": "first:a-sew",
+      "text": "Sewing tutorial: replacing a broken jacket zipper",
+      "firstId": "a-sew",
+      "secondId": "b-sew",
+      "rankA": 4,
+      "rankB": 2,
+      "status": "linked across lists",
+      "sourceOrder": 3,
+      "score": 0.031754032258064516,
+      "fusedRank": 3,
+      "selected": true
+    },
+    {
+      "key": "second:b-stars",
+      "text": "Night sky chart for identifying stars and constellations",
+      "firstId": "",
+      "secondId": "b-stars",
+      "rankA": null,
+      "rankB": 4,
+      "status": "second-list only",
+      "sourceOrder": 4,
+      "score": 0.015625,
+      "fusedRank": 5,
+      "selected": false
+    }
+  ],
+  "ranking": [
+    {
+      "key": "first:a-compost",
+      "text": "Home composting handbook: turning kitchen scraps into garden soil",
+      "firstId": "a-compost",
+      "secondId": "b-compost",
+      "rankA": 3,
+      "rankB": 1,
+      "status": "linked across lists",
+      "sourceOrder": 2,
+      "score": 0.032266458495966696,
+      "fusedRank": 1,
+      "selected": true
+    },
+    {
+      "key": "first:a-bike",
+      "text": "Bicycle puncture repair guide: fitting a replacement inner tube",
+      "firstId": "a-bike",
+      "secondId": "b-bike",
+      "rankA": 2,
+      "rankB": 3,
+      "status": "linked across lists",
+      "sourceOrder": 1,
+      "score": 0.03200204813108039,
+      "fusedRank": 2,
+      "selected": true
+    },
+    {
+      "key": "first:a-sew",
+      "text": "Sewing tutorial: replacing a broken jacket zipper",
+      "firstId": "a-sew",
+      "secondId": "b-sew",
+      "rankA": 4,
+      "rankB": 2,
+      "status": "linked across lists",
+      "sourceOrder": 3,
+      "score": 0.031754032258064516,
+      "fusedRank": 3,
+      "selected": true
+    },
+    {
+      "key": "first:a-bread",
+      "text": "Beginner sourdough bread baking instructions",
+      "firstId": "a-bread",
+      "secondId": "",
+      "rankA": 1,
+      "rankB": null,
+      "status": "first-list only",
+      "sourceOrder": 0,
+      "score": 0.01639344262295082,
+      "fusedRank": 4,
+      "selected": false
+    },
+    {
+      "key": "second:b-stars",
+      "text": "Night sky chart for identifying stars and constellations",
+      "firstId": "",
+      "secondId": "b-stars",
+      "rankA": null,
+      "rankB": 4,
+      "status": "second-list only",
+      "sourceOrder": 4,
+      "score": 0.015625,
+      "fusedRank": 5,
+      "selected": false
+    }
+  ],
+  "plan": [
+    {
+      "key": "first:a-compost",
+      "text": "Home composting handbook: turning kitchen scraps into garden soil",
+      "firstId": "a-compost",
+      "secondId": "b-compost",
+      "rankA": 3,
+      "rankB": 1,
+      "status": "linked across lists",
+      "sourceOrder": 2,
+      "score": 0.032266458495966696,
+      "fusedRank": 1,
+      "selected": true
+    },
+    {
+      "key": "first:a-bike",
+      "text": "Bicycle puncture repair guide: fitting a replacement inner tube",
+      "firstId": "a-bike",
+      "secondId": "b-bike",
+      "rankA": 2,
+      "rankB": 3,
+      "status": "linked across lists",
+      "sourceOrder": 1,
+      "score": 0.03200204813108039,
+      "fusedRank": 2,
+      "selected": true
+    },
+    {
+      "key": "first:a-sew",
+      "text": "Sewing tutorial: replacing a broken jacket zipper",
+      "firstId": "a-sew",
+      "secondId": "b-sew",
+      "rankA": 4,
+      "rankB": 2,
+      "status": "linked across lists",
+      "sourceOrder": 3,
+      "score": 0.031754032258064516,
+      "fusedRank": 3,
+      "selected": true
+    }
+  ],
+  "baseline": {
+    "method": "First-list order followed by approved B-only records, stopping at the same number of resources. Uses the same reviewed identity groups and excludes holds.",
+    "keys": [
+      "first:a-bread",
+      "first:a-bike",
+      "first:a-compost"
+    ],
+    "consensus": 2,
+    "scoreSum": 0.08066194924999791
+  },
+  "metrics": {
+    "verifiedLinks": 3,
+    "changedLinks": 0,
+    "candidateGroups": 5,
+    "requested": 3,
+    "selected": 3,
+    "consensus": 3,
+    "scoreSum": 0.0960225388851116
+  },
+  "warning": "Reciprocal rank is a deterministic ordinal aggregation score, not relevance probability, confidence, source quality or reading benefit. Correlated lists can amplify the same bias. Similarity is not identity; verify the same resource and edition. Held B results are excluded, but their possible A counterpart remains a separate candidate. No web search, page fetching, messages or catalog changes occur."
+}

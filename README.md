@@ -1298,3 +1298,10 @@ Local MiniLM reconciles informal exhibit lighting logs before mandatory object/l
 Collection size guard: deploy-only byte-identical geometry runtime reuse additionally covers `20261028-26` → `20261028-24`, retaining original legacy JS URLs and query-versioned entries. Source builds remain unchanged; model/image/STL checks accompany release.
 
 Dose Atelier public release: matching Pages `8698b68eeddd12ad01a2fb9967fcc25e3eb0401f` reached built on the first deployment. Thirteen public asset byte matches, both real-AI fixtures, full reviewed-artifact/privacy/offline suite, maximum batch, all 721 preserved gallery cards and the affected older app geometry/image/STL workflow passed. Combined site: 999,568,266 bytes. Source staging excludes unrelated pre-existing work; no digest sent.
+
+
+## Atlas Overlay — 20261119-13
+
+Real local MiniLM reconciles informal sketch landmarks with a supplied reference grid before mandatory identity/coordinate review. Fit an orientation-preserving 2D similarity transform, compare translation-only residuals, block duplicates/holds/poor fits and export complete JSON/CSV/Markdown plus reviewed target coordinates. Both tiny synthetic fixtures matched all eight intended landmarks; 1,500 independent exact-transform/noisy stationarity cases, actual artifacts, defensive/race checks and fresh-worker offline inference passed. Residuals are in-sample, not independent accuracy; planning only, not surveying or navigation. Preserve immutable worker/runtime `20261115-6` and WASM `20261107-2`. See [workflow/privacy](20261119-13/README.md) and [observed validation](20261119-13/VALIDATION.md). No digest sent.
+
+Atlas Overlay public release: matching Pages `12ec07e4950f25746abd6b4adf4ed5dfc54a4148` reached built with a completed successful workflow. Nine public asset byte matches, both real-AI fixtures, full reviewed-artifact/privacy/offline suite, maximum batches and all 722 gallery cards passed. Combined site: 999,835,753 bytes; no new older-runtime rewriting. Source staging excludes unrelated pre-existing work; no digest sent.

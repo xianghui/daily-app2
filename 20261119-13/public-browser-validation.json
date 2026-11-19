@@ -1,0 +1,226 @@
+{
+  "fixtures": [
+    {
+      "name": "Gallery sketch",
+      "expected": [
+        "entry",
+        "fountain",
+        "cafe",
+        "stairs"
+      ],
+      "actual": [
+        "entry",
+        "fountain",
+        "cafe",
+        "stairs"
+      ],
+      "fit": {
+        "a": 0,
+        "b": 2,
+        "tx": 10,
+        "ty": 20,
+        "scale": 2,
+        "rotationDegrees": 90,
+        "rms": 0,
+        "maxResidual": 0,
+        "baselineRms": 5.5901699437494745,
+        "residuals": [
+          {
+            "id": "s1",
+            "anchor": "entry",
+            "referenceX": 10,
+            "referenceY": 20,
+            "x": 10,
+            "y": 20,
+            "residual": 0,
+            "baselineResidual": 5.5901699437494745
+          },
+          {
+            "id": "s2",
+            "anchor": "fountain",
+            "referenceX": 10,
+            "referenceY": 28,
+            "x": 10,
+            "y": 28,
+            "residual": 0,
+            "baselineResidual": 5.590169943749474
+          },
+          {
+            "id": "s3",
+            "anchor": "cafe",
+            "referenceX": 4,
+            "referenceY": 20,
+            "x": 4,
+            "y": 20,
+            "residual": 0,
+            "baselineResidual": 5.590169943749474
+          },
+          {
+            "id": "s4",
+            "anchor": "stairs",
+            "referenceX": 4,
+            "referenceY": 28,
+            "x": 4,
+            "y": 28,
+            "residual": 0,
+            "baselineResidual": 5.5901699437494745
+          }
+        ],
+        "bounds": {
+          "minX": 0,
+          "maxX": 4,
+          "minY": 0,
+          "maxY": 3
+        }
+      },
+      "targets": [
+        {
+          "id": "sign",
+          "description": "Proposed wayfinding sign",
+          "x": 2,
+          "y": 1,
+          "outputX": 8,
+          "outputY": 24,
+          "outsideObservedBox": false
+        },
+        {
+          "id": "desk",
+          "description": "Temporary information desk",
+          "x": 3,
+          "y": 2,
+          "outputX": 6,
+          "outputY": 26,
+          "outsideObservedBox": false
+        }
+      ]
+    },
+    {
+      "name": "Archive floorplan",
+      "expected": [
+        "books",
+        "printer",
+        "plants",
+        "lockers"
+      ],
+      "actual": [
+        "books",
+        "printer",
+        "plants",
+        "lockers"
+      ],
+      "fit": {
+        "a": 0,
+        "b": -0.5,
+        "tx": -3,
+        "ty": 7,
+        "scale": 0.5,
+        "rotationDegrees": -90,
+        "rms": 0,
+        "maxResidual": 0,
+        "baselineRms": 7.158910531638176,
+        "residuals": [
+          {
+            "id": "a1",
+            "anchor": "books",
+            "referenceX": -3,
+            "referenceY": 7,
+            "x": -3,
+            "y": 7,
+            "residual": 0,
+            "baselineResidual": 7.158910531638176
+          },
+          {
+            "id": "a2",
+            "anchor": "printer",
+            "referenceX": -3,
+            "referenceY": 2,
+            "x": -3,
+            "y": 2,
+            "residual": 0,
+            "baselineResidual": 7.158910531638176
+          },
+          {
+            "id": "a3",
+            "anchor": "plants",
+            "referenceX": 1,
+            "referenceY": 7,
+            "x": 1,
+            "y": 7,
+            "residual": 0,
+            "baselineResidual": 7.158910531638176
+          },
+          {
+            "id": "a4",
+            "anchor": "lockers",
+            "referenceX": 1,
+            "referenceY": 2,
+            "x": 1,
+            "y": 2,
+            "residual": 0,
+            "baselineResidual": 7.158910531638176
+          }
+        ],
+        "bounds": {
+          "minX": 0,
+          "maxX": 10,
+          "minY": 0,
+          "maxY": 8
+        }
+      },
+      "targets": [
+        {
+          "id": "cart",
+          "description": "Book cart parking",
+          "x": 4,
+          "y": 2,
+          "outputX": -2,
+          "outputY": 5,
+          "outsideObservedBox": false
+        },
+        {
+          "id": "notice",
+          "description": "Notice board outside observed extent",
+          "x": 12,
+          "y": 10,
+          "outputX": 2,
+          "outputY": 1,
+          "outsideObservedBox": true
+        }
+      ]
+    }
+  ],
+  "checks": [
+    "review/hold/undo/duplicate/residual block/numeric edit/clipboard/multiline; no stale exports; audit import resets approvals; offline fresh-worker real inference",
+    "empty/invalid/oversized/duplicate IDs/bounds/formats; cancellation and real retry; changed source invalidates stale run",
+    "maximum 24 real model texts, four-text chunks; 16 observations retained; duplicate-anchor block; full audit reimport",
+    "desktop,390px,320px; touch heights; form labels and focus; no overflow"
+  ],
+  "challenge": {
+    "suggested": "plants",
+    "limitation": "Nearest anchor still returned for irrelevant text. Human hold required; similarity is not authority."
+  },
+  "network": {
+    "requests": 54,
+    "onlyGetHead": true,
+    "noBodies": true,
+    "noSourceTextInUrls": true,
+    "paths": [
+      "https://xianghui.github.io/daily-app2/20261119-13/",
+      "https://xianghui.github.io/daily-app2/20261119-13/assets/index-C2CYo8J7.js",
+      "https://xianghui.github.io/daily-app2/20261119-13/assets/index-ChctjZwR.css",
+      "https://xianghui.github.io/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "blob:local-worker",
+      "https://xianghui.github.io/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "https://xianghui.github.io/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194"
+    ]
+  },
+  "pageErrors": []
+}

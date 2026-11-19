@@ -1,0 +1,128 @@
+{
+  "schema": "checkpoint-cove/v1",
+  "originalInput": {
+    "context": "Synthetic nonclinical research compute. Fully counted exposed runtime includes saving, excludes restart. No automatic settings or future-performance guarantee.",
+    "profiles": [
+      {
+        "id": "weather",
+        "description": "Weather climate atmospheric simulation computation",
+        "checkpointMinutes": 2,
+        "restartMinutes": 5,
+        "currentInterval": 90,
+        "maxInterval": 120
+      },
+      {
+        "id": "text",
+        "description": "Text document search index building",
+        "checkpointMinutes": 0.1,
+        "restartMinutes": 0.5,
+        "currentInterval": 20,
+        "maxInterval": 60
+      },
+      {
+        "id": "maps",
+        "description": "Geospatial map tile processing geographic imagery",
+        "checkpointMinutes": 0.75,
+        "restartMinutes": 2,
+        "currentInterval": 60,
+        "maxInterval": 120
+      }
+    ],
+    "logs": [
+      {
+        "id": "r1",
+        "workloadText": "Climate weather atmospheric computer simulation",
+        "exposureMinutes": 2000,
+        "interruptions": 8
+      },
+      {
+        "id": "r2",
+        "workloadText": "Building document text search indexes",
+        "exposureMinutes": 2000,
+        "interruptions": 20
+      },
+      {
+        "id": "r3",
+        "workloadText": "Processing geographic maps and geospatial tiles",
+        "exposureMinutes": 2000,
+        "interruptions": 0
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "r1",
+      "profile": "text",
+      "exposureMinutes": 2000,
+      "interruptions": 8,
+      "evidence": [
+        {
+          "id": "weather",
+          "score": 0.926167105112434
+        },
+        {
+          "id": "maps",
+          "score": 0.18500506424887808
+        },
+        {
+          "id": "text",
+          "score": -0.04175418724028555
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"quoted\", verify"
+    },
+    {
+      "id": "r2",
+      "profile": "text",
+      "exposureMinutes": 2000,
+      "interruptions": 20,
+      "evidence": [
+        {
+          "id": "text",
+          "score": 0.9625852647578599
+        },
+        {
+          "id": "maps",
+          "score": 0.08496819313368528
+        },
+        {
+          "id": "weather",
+          "score": -0.034805506441042446
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "r3",
+      "profile": "maps",
+      "exposureMinutes": 2000,
+      "interruptions": 0,
+      "evidence": [
+        {
+          "id": "maps",
+          "score": 0.8800258694388495
+        },
+        {
+          "id": "weather",
+          "score": 0.19333017090965077
+        },
+        {
+          "id": "text",
+          "score": 0.13473435476916157
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 3,
+  "approved": 3,
+  "held": 0,
+  "status": "blocked",
+  "issues": [
+    "weather: no reviewed exposure."
+  ],
+  "plans": []
+}

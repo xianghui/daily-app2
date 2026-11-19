@@ -1,0 +1,147 @@
+{
+  "fixtures": [
+    {
+      "name": "Creative compute",
+      "expected": [
+        "render",
+        "audio",
+        "photo"
+      ],
+      "actual": [
+        "render",
+        "audio",
+        "photo"
+      ],
+      "plans": [
+        {
+          "profile": "render",
+          "rate": 0.005,
+          "exposure": 1000,
+          "interruptions": 5,
+          "interval": 19,
+          "factor": 1.12366822996613,
+          "baselineInterval": 60,
+          "baselineFactor": 1.2065812601710582,
+          "expectedMinutesPerUsefulHour": 67.42009379796781,
+          "baselineMinutesPerUsefulHour": 72.39487561026348,
+          "boundary": false
+        },
+        {
+          "profile": "audio",
+          "rate": 0.002,
+          "exposure": 1000,
+          "interruptions": 2,
+          "interval": 16,
+          "factor": 1.0343737790706424,
+          "baselineInterval": 30,
+          "baselineFactor": 1.0415388794244271,
+          "expectedMinutesPerUsefulHour": 62.06242674423854,
+          "baselineMinutesPerUsefulHour": 62.492332765465626,
+          "boundary": false
+        },
+        {
+          "profile": "photo",
+          "rate": 0.01,
+          "exposure": 1000,
+          "interruptions": 10,
+          "interval": 10,
+          "factor": 1.1292482256281935,
+          "baselineInterval": 30,
+          "baselineFactor": 1.2125250102211618,
+          "expectedMinutesPerUsefulHour": 67.75489353769161,
+          "baselineMinutesPerUsefulHour": 72.75150061326971,
+          "boundary": false
+        }
+      ]
+    },
+    {
+      "name": "Research compute",
+      "expected": [
+        "weather",
+        "text",
+        "maps"
+      ],
+      "actual": [
+        "weather",
+        "text",
+        "maps"
+      ],
+      "plans": [
+        {
+          "profile": "weather",
+          "rate": 0.004,
+          "exposure": 2000,
+          "interruptions": 8,
+          "interval": 30,
+          "factor": 1.1607005229250125,
+          "baselineInterval": 90,
+          "baselineFactor": 1.2603857770926574,
+          "expectedMinutesPerUsefulHour": 69.64203137550075,
+          "baselineMinutesPerUsefulHour": 75.62314662555944,
+          "boundary": false
+        },
+        {
+          "profile": "text",
+          "rate": 0.01,
+          "exposure": 2000,
+          "interruptions": 20,
+          "interval": 4,
+          "factor": 1.0515341518301735,
+          "baselineInterval": 20,
+          "baselineFactor": 1.1186894784122188,
+          "expectedMinutesPerUsefulHour": 63.09204910981041,
+          "baselineMinutesPerUsefulHour": 67.12136870473313,
+          "boundary": false
+        },
+        {
+          "profile": "maps",
+          "rate": 0,
+          "exposure": 2000,
+          "interruptions": 0,
+          "interval": 120,
+          "factor": 1.00625,
+          "baselineInterval": 60,
+          "baselineFactor": 1.0125,
+          "expectedMinutesPerUsefulHour": 60.37500000000001,
+          "baselineMinutesPerUsefulHour": 60.75,
+          "boundary": true
+        }
+      ]
+    }
+  ],
+  "checks": [
+    "review/hold/undo/missing profile/extreme hazard/numeric edit/clipboard/multiline; stale exports disabled; audit import resets approvals; offline fresh-worker real inference",
+    "empty/invalid/oversized/duplicate IDs/limits/formats; cancel and real retry; changed source invalidates run",
+    "maximum 24 real texts/four-text chunks; 16 observations and all pooled exposure retained; full audit reimport",
+    "desktop/390px/320px layouts, labels, touch controls and focus; no overflow"
+  ],
+  "challenge": {
+    "suggested": "weather",
+    "limitation": "Nearest workload returned for irrelevant text. Human hold needed; imported text never requests authority."
+  },
+  "network": {
+    "requests": 52,
+    "onlyGetHead": true,
+    "noBodies": true,
+    "noSourceTextInUrls": true,
+    "paths": [
+      "http://127.0.0.1:6984/daily-app2/20261119-14/",
+      "http://127.0.0.1:6984/daily-app2/20261119-14/assets/index-zbs44a4z.js",
+      "http://127.0.0.1:6984/daily-app2/20261119-14/assets/index-DtNX-eG4.css",
+      "http://127.0.0.1:6984/daily-app2/20261119-14/favicon.svg",
+      "http://127.0.0.1:6984/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "blob:local-worker",
+      "http://127.0.0.1:6984/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "http://127.0.0.1:6984/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194"
+    ]
+  },
+  "pageErrors": []
+}

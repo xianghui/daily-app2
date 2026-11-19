@@ -1,0 +1,1252 @@
+{
+  "schema": "checkpoint-cove/v1",
+  "originalInput": {
+    "context": "Synthetic creative-compute exposure windows. Counts include failures during work/save; exclude recovery. Independent constant failure hazard is an assumption.",
+    "profiles": [
+      {
+        "id": "render",
+        "description": "3D animation video frame rendering workstation",
+        "checkpointMinutes": 1,
+        "restartMinutes": 3,
+        "currentInterval": 60,
+        "maxInterval": 120
+      },
+      {
+        "id": "audio",
+        "description": "Audio music sound mixing recording session",
+        "checkpointMinutes": 0.25,
+        "restartMinutes": 1,
+        "currentInterval": 30,
+        "maxInterval": 60
+      },
+      {
+        "id": "photo",
+        "description": "Photograph image editing retouch batch",
+        "checkpointMinutes": 0.5,
+        "restartMinutes": 2,
+        "currentInterval": 30,
+        "maxInterval": 90
+      }
+    ],
+    "logs": [
+      {
+        "id": "c1",
+        "workloadText": "Video animation frames rendered on workstation",
+        "exposureMinutes": 1000,
+        "interruptions": 5
+      },
+      {
+        "id": "c2",
+        "workloadText": "Music audio recording and sound mixing",
+        "exposureMinutes": 1000,
+        "interruptions": 2
+      },
+      {
+        "id": "c3",
+        "workloadText": "Photo image retouching editing batch",
+        "exposureMinutes": 1000,
+        "interruptions": 10
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "c1",
+      "profile": "render",
+      "exposureMinutes": 1000,
+      "interruptions": 5,
+      "evidence": [
+        {
+          "id": "render",
+          "score": 0.813133394976805
+        },
+        {
+          "id": "audio",
+          "score": 0.09813007119041317
+        },
+        {
+          "id": "photo",
+          "score": 0.0437173365040921
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "c2",
+      "profile": "audio",
+      "exposureMinutes": 1000,
+      "interruptions": 2,
+      "evidence": [
+        {
+          "id": "audio",
+          "score": 0.9087431821612383
+        },
+        {
+          "id": "photo",
+          "score": 0.11921953290036286
+        },
+        {
+          "id": "render",
+          "score": 0.11581328637937811
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "c3",
+      "profile": "photo",
+      "exposureMinutes": 1000,
+      "interruptions": 10,
+      "evidence": [
+        {
+          "id": "photo",
+          "score": 0.9412936463132425
+        },
+        {
+          "id": "audio",
+          "score": 0.11690903129252754
+        },
+        {
+          "id": "render",
+          "score": 0.03023326697516221
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 3,
+  "approved": 3,
+  "held": 0,
+  "status": "ready",
+  "issues": [],
+  "plans": [
+    {
+      "profile": "render",
+      "rate": 0.005,
+      "exposure": 1000,
+      "interruptions": 5,
+      "interval": 19,
+      "factor": 1.12366822996613,
+      "baselineInterval": 60,
+      "baselineFactor": 1.2065812601710582,
+      "expectedMinutesPerUsefulHour": 67.42009379796781,
+      "baselineMinutesPerUsefulHour": 72.39487561026348,
+      "boundary": false,
+      "candidates": [
+        {
+          "interval": 1,
+          "factor": 2.040183918086116
+        },
+        {
+          "interval": 2,
+          "factor": 1.5339760584954762
+        },
+        {
+          "interval": 3,
+          "factor": 1.3669573418104763
+        },
+        {
+          "interval": 4,
+          "factor": 1.2847423666147637
+        },
+        {
+          "interval": 5,
+          "factor": 1.2364540785127844
+        },
+        {
+          "interval": 6,
+          "factor": 1.2051334810539205
+        },
+        {
+          "interval": 7,
+          "factor": 1.1835124515792583
+        },
+        {
+          "interval": 8,
+          "factor": 1.1679569451836924
+        },
+        {
+          "interval": 9,
+          "factor": 1.1564480627036533
+        },
+        {
+          "interval": 10,
+          "factor": 1.147774477912534
+        },
+        {
+          "interval": 11,
+          "factor": 1.1411653589734547
+        },
+        {
+          "interval": 12,
+          "factor": 1.1361068291659253
+        },
+        {
+          "interval": 13,
+          "factor": 1.1322431380466111
+        },
+        {
+          "interval": 14,
+          "factor": 1.1293201878271573
+        },
+        {
+          "interval": 15,
+          "factor": 1.1271516492011058
+        },
+        {
+          "interval": 16,
+          "factor": 1.1255977837359334
+        },
+        {
+          "interval": 17,
+          "factor": 1.124551740715159
+        },
+        {
+          "interval": 18,
+          "factor": 1.1239304216999386
+        },
+        {
+          "interval": 19,
+          "factor": 1.12366822996613
+        },
+        {
+          "interval": 20,
+          "factor": 1.1237126951104082
+        },
+        {
+          "interval": 21,
+          "factor": 1.124021347769089
+        },
+        {
+          "interval": 22,
+          "factor": 1.124559446686522
+        },
+        {
+          "interval": 23,
+          "factor": 1.1252982987223155
+        },
+        {
+          "interval": 24,
+          "factor": 1.126213998856906
+        },
+        {
+          "interval": 25,
+          "factor": 1.1272864725959293
+        },
+        {
+          "interval": 26,
+          "factor": 1.12849873935834
+        },
+        {
+          "interval": 27,
+          "factor": 1.1298363395561903
+        },
+        {
+          "interval": 28,
+          "factor": 1.1312868844431567
+        },
+        {
+          "interval": 29,
+          "factor": 1.1328396990979817
+        },
+        {
+          "interval": 30,
+          "factor": 1.1344855368113465
+        },
+        {
+          "interval": 31,
+          "factor": 1.1362163487528218
+        },
+        {
+          "interval": 32,
+          "factor": 1.1380250968253842
+        },
+        {
+          "interval": 33,
+          "factor": 1.139905600546491
+        },
+        {
+          "interval": 34,
+          "factor": 1.141852410950256
+        },
+        {
+          "interval": 35,
+          "factor": 1.143860706106499
+        },
+        {
+          "interval": 36,
+          "factor": 1.1459262040533933
+        },
+        {
+          "interval": 37,
+          "factor": 1.1480450898492445
+        },
+        {
+          "interval": 38,
+          "factor": 1.1502139541425092
+        },
+        {
+          "interval": 39,
+          "factor": 1.152429741192679
+        },
+        {
+          "interval": 40,
+          "factor": 1.1546897046881268
+        },
+        {
+          "interval": 41,
+          "factor": 1.1569913700297287
+        },
+        {
+          "interval": 42,
+          "factor": 1.1593325020026324
+        },
+        {
+          "interval": 43,
+          "factor": 1.1617110769590304
+        },
+        {
+          "interval": 44,
+          "factor": 1.1641252587942832
+        },
+        {
+          "interval": 45,
+          "factor": 1.1665733781263115
+        },
+        {
+          "interval": 46,
+          "factor": 1.169053914190805
+        },
+        {
+          "interval": 47,
+          "factor": 1.1715654790477692
+        },
+        {
+          "interval": 48,
+          "factor": 1.174106803762333
+        },
+        {
+          "interval": 49,
+          "factor": 1.1766767262777862
+        },
+        {
+          "interval": 50,
+          "factor": 1.1792741807439333
+        },
+        {
+          "interval": 51,
+          "factor": 1.1818981881010133
+        },
+        {
+          "interval": 52,
+          "factor": 1.1845478477501705
+        },
+        {
+          "interval": 53,
+          "factor": 1.1872223301669667
+        },
+        {
+          "interval": 54,
+          "factor": 1.189920870335689
+        },
+        {
+          "interval": 55,
+          "factor": 1.1926427618999946
+        },
+        {
+          "interval": 56,
+          "factor": 1.1953873519403424
+        },
+        {
+          "interval": 57,
+          "factor": 1.1981540363012426
+        },
+        {
+          "interval": 58,
+          "factor": 1.2009422554019686
+        },
+        {
+          "interval": 59,
+          "factor": 1.2037514904733664
+        },
+        {
+          "interval": 60,
+          "factor": 1.2065812601710582
+        },
+        {
+          "interval": 61,
+          "factor": 1.2094311175218375
+        },
+        {
+          "interval": 62,
+          "factor": 1.2123006471656501
+        },
+        {
+          "interval": 63,
+          "factor": 1.2151894628603062
+        },
+        {
+          "interval": 64,
+          "factor": 1.218097205220196
+        },
+        {
+          "interval": 65,
+          "factor": 1.221023539663806
+        },
+        {
+          "interval": 66,
+          "factor": 1.223968154547891
+        },
+        {
+          "interval": 67,
+          "factor": 1.226930759468799
+        },
+        {
+          "interval": 68,
+          "factor": 1.229911083713747
+        },
+        {
+          "interval": 69,
+          "factor": 1.2329088748468293
+        },
+        {
+          "interval": 70,
+          "factor": 1.2359238974162923
+        },
+        {
+          "interval": 71,
+          "factor": 1.2389559317711136
+        },
+        {
+          "interval": 72,
+          "factor": 1.2420047729762649
+        },
+        {
+          "interval": 73,
+          "factor": 1.24507022981719
+        },
+        {
+          "interval": 74,
+          "factor": 1.248152123885066
+        },
+        {
+          "interval": 75,
+          "factor": 1.251250288735301
+        },
+        {
+          "interval": 76,
+          "factor": 1.2543645691125302
+        },
+        {
+          "interval": 77,
+          "factor": 1.2574948202360579
+        },
+        {
+          "interval": 78,
+          "factor": 1.2606409071403277
+        },
+        {
+          "interval": 79,
+          "factor": 1.2638027040655426
+        },
+        {
+          "interval": 80,
+          "factor": 1.266980093894046
+        },
+        {
+          "interval": 81,
+          "factor": 1.2701729676285096
+        },
+        {
+          "interval": 82,
+          "factor": 1.2733812239083635
+        },
+        {
+          "interval": 83,
+          "factor": 1.2766047685612367
+        },
+        {
+          "interval": 84,
+          "factor": 1.2798435141864986
+        },
+        {
+          "interval": 85,
+          "factor": 1.2830973797682486
+        },
+        {
+          "interval": 86,
+          "factor": 1.2863662903153683
+        },
+        {
+          "interval": 87,
+          "factor": 1.2896501765264508
+        },
+        {
+          "interval": 88,
+          "factor": 1.2929489744776288
+        },
+        {
+          "interval": 89,
+          "factor": 1.2962626253315088
+        },
+        {
+          "interval": 90,
+          "factor": 1.2995910750655577
+        },
+        {
+          "interval": 91,
+          "factor": 1.3029342742184595
+        },
+        {
+          "interval": 92,
+          "factor": 1.3062921776530603
+        },
+        {
+          "interval": 93,
+          "factor": 1.309664744334668
+        },
+        {
+          "interval": 94,
+          "factor": 1.3130519371235525
+        },
+        {
+          "interval": 95,
+          "factor": 1.3164537225806037
+        },
+        {
+          "interval": 96,
+          "factor": 1.3198700707851934
+        },
+        {
+          "interval": 97,
+          "factor": 1.32330095516435
+        },
+        {
+          "interval": 98,
+          "factor": 1.3267463523324483
+        },
+        {
+          "interval": 99,
+          "factor": 1.3302062419406668
+        },
+        {
+          "interval": 100,
+          "factor": 1.3336806065355271
+        },
+        {
+          "interval": 101,
+          "factor": 1.3371694314258902
+        },
+        {
+          "interval": 102,
+          "factor": 1.3406727045578282
+        },
+        {
+          "interval": 103,
+          "factor": 1.3441904163968343
+        },
+        {
+          "interval": 104,
+          "factor": 1.3477225598168803
+        },
+        {
+          "interval": 105,
+          "factor": 1.3512691299958646
+        },
+        {
+          "interval": 106,
+          "factor": 1.3548301243170278
+        },
+        {
+          "interval": 107,
+          "factor": 1.3584055422759467
+        },
+        {
+          "interval": 108,
+          "factor": 1.3619953853927445
+        },
+        {
+          "interval": 109,
+          "factor": 1.3655996571291857
+        },
+        {
+          "interval": 110,
+          "factor": 1.3692183628103392
+        },
+        {
+          "interval": 111,
+          "factor": 1.3728515095505276
+        },
+        {
+          "interval": 112,
+          "factor": 1.37649910618329
+        },
+        {
+          "interval": 113,
+          "factor": 1.3801611631951174
+        },
+        {
+          "interval": 114,
+          "factor": 1.3838376926627176
+        },
+        {
+          "interval": 115,
+          "factor": 1.3875287081936076
+        },
+        {
+          "interval": 116,
+          "factor": 1.3912342248698248
+        },
+        {
+          "interval": 117,
+          "factor": 1.3949542591945723
+        },
+        {
+          "interval": 118,
+          "factor": 1.3986888290416253
+        },
+        {
+          "interval": 119,
+          "factor": 1.4024379536073386
+        },
+        {
+          "interval": 120,
+          "factor": 1.4062016533650996
+        }
+      ]
+    },
+    {
+      "profile": "audio",
+      "rate": 0.002,
+      "exposure": 1000,
+      "interruptions": 2,
+      "interval": 16,
+      "factor": 1.0343737790706424,
+      "baselineInterval": 30,
+      "baselineFactor": 1.0415388794244271,
+      "expectedMinutesPerUsefulHour": 62.06242674423854,
+      "baselineMinutesPerUsefulHour": 62.492332765465626,
+      "boundary": false,
+      "candidates": [
+        {
+          "interval": 1,
+          "factor": 1.2540669305033376
+        },
+        {
+          "interval": 2,
+          "factor": 1.1297901212526322
+        },
+        {
+          "interval": 3,
+          "factor": 1.0890355311663915
+        },
+        {
+          "interval": 4,
+          "factor": 1.0691625033979537
+        },
+        {
+          "interval": 5,
+          "factor": 1.0576429081916423
+        },
+        {
+          "interval": 6,
+          "factor": 1.0503007036429703
+        },
+        {
+          "interval": 7,
+          "factor": 1.0453461586643893
+        },
+        {
+          "interval": 8,
+          "factor": 1.041884408726728
+        },
+        {
+          "interval": 9,
+          "factor": 1.0394183077730133
+        },
+        {
+          "interval": 10,
+          "factor": 1.0376495689839966
+        },
+        {
+          "interval": 11,
+          "factor": 1.0363883742170368
+        },
+        {
+          "interval": 12,
+          "factor": 1.035508178725543
+        },
+        {
+          "interval": 13,
+          "factor": 1.0349213752386743
+        },
+        {
+          "interval": 14,
+          "factor": 1.034565387721177
+        },
+        {
+          "interval": 15,
+          "factor": 1.0343943276292802
+        },
+        {
+          "interval": 16,
+          "factor": 1.0343737790706424
+        },
+        {
+          "interval": 17,
+          "factor": 1.0344774244960755
+        },
+        {
+          "interval": 18,
+          "factor": 1.0346847951606999
+        },
+        {
+          "interval": 19,
+          "factor": 1.0349797319657894
+        },
+        {
+          "interval": 20,
+          "factor": 1.0353493080480625
+        },
+        {
+          "interval": 21,
+          "factor": 1.0357830592006074
+        },
+        {
+          "interval": 22,
+          "factor": 1.0362724241790102
+        },
+        {
+          "interval": 23,
+          "factor": 1.036810331014584
+        },
+        {
+          "interval": 24,
+          "factor": 1.037390886749287
+        },
+        {
+          "interval": 25,
+          "factor": 1.0380091416342665
+        },
+        {
+          "interval": 26,
+          "factor": 1.0386609077441231
+        },
+        {
+          "interval": 27,
+          "factor": 1.0393426178991167
+        },
+        {
+          "interval": 28,
+          "factor": 1.0400512148183307
+        },
+        {
+          "interval": 29,
+          "factor": 1.0407840632066638
+        },
+        {
+          "interval": 30,
+          "factor": 1.0415388794244271
+        },
+        {
+          "interval": 31,
+          "factor": 1.0423136747692765
+        },
+        {
+          "interval": 32,
+          "factor": 1.043106709392784
+        },
+        {
+          "interval": 33,
+          "factor": 1.0439164545958155
+        },
+        {
+          "interval": 34,
+          "factor": 1.044741561777667
+        },
+        {
+          "interval": 35,
+          "factor": 1.0455808367082056
+        },
+        {
+          "interval": 36,
+          "factor": 1.04643321808799
+        },
+        {
+          "interval": 37,
+          "factor": 1.047297759585128
+        },
+        {
+          "interval": 38,
+          "factor": 1.0481736147084186
+        },
+        {
+          "interval": 39,
+          "factor": 1.0490600240077086
+        },
+        {
+          "interval": 40,
+          "factor": 1.049956304194191
+        },
+        {
+          "interval": 41,
+          "factor": 1.0508618388528617
+        },
+        {
+          "interval": 42,
+          "factor": 1.051776070481763
+        },
+        {
+          "interval": 43,
+          "factor": 1.0526984936420345
+        },
+        {
+          "interval": 44,
+          "factor": 1.0536286490420494
+        },
+        {
+          "interval": 45,
+          "factor": 1.0545661184103317
+        },
+        {
+          "interval": 46,
+          "factor": 1.0555105200372232
+        },
+        {
+          "interval": 47,
+          "factor": 1.056461504885703
+        },
+        {
+          "interval": 48,
+          "factor": 1.0574187531883525
+        },
+        {
+          "interval": 49,
+          "factor": 1.0583819714610223
+        },
+        {
+          "interval": 50,
+          "factor": 1.0593508898748565
+        },
+        {
+          "interval": 51,
+          "factor": 1.0603252599374933
+        },
+        {
+          "interval": 52,
+          "factor": 1.0613048524418192
+        },
+        {
+          "interval": 53,
+          "factor": 1.0622894556469422
+        },
+        {
+          "interval": 54,
+          "factor": 1.0632788736612768
+        },
+        {
+          "interval": 55,
+          "factor": 1.0642729250020224
+        },
+        {
+          "interval": 56,
+          "factor": 1.0652714413089832
+        },
+        {
+          "interval": 57,
+          "factor": 1.066274266193777
+        },
+        {
+          "interval": 58,
+          "factor": 1.0672812542080903
+        },
+        {
+          "interval": 59,
+          "factor": 1.0682922699168593
+        },
+        {
+          "interval": 60,
+          "factor": 1.0693071870641313
+        }
+      ]
+    },
+    {
+      "profile": "photo",
+      "rate": 0.01,
+      "exposure": 1000,
+      "interruptions": 10,
+      "interval": 10,
+      "factor": 1.1292482256281935,
+      "baselineInterval": 30,
+      "baselineFactor": 1.2125250102211618,
+      "expectedMinutesPerUsefulHour": 67.75489353769161,
+      "baselineMinutesPerUsefulHour": 72.75150061326971,
+      "boundary": false,
+      "candidates": [
+        {
+          "interval": 1,
+          "factor": 1.5415325908033357
+        },
+        {
+          "interval": 2,
+          "factor": 1.2910711467458709
+        },
+        {
+          "interval": 3,
+          "factor": 1.211070099187191
+        },
+        {
+          "interval": 4,
+          "factor": 1.1737104276722818
+        },
+        {
+          "interval": 5,
+          "factor": 1.1534285393800834
+        },
+        {
+          "interval": 6,
+          "factor": 1.1417034145312748
+        },
+        {
+          "interval": 7,
+          "factor": 1.1348833414617738
+        },
+        {
+          "interval": 8,
+          "factor": 1.1311426004045835
+        },
+        {
+          "interval": 9,
+          "factor": 1.1294670247625
+        },
+        {
+          "interval": 10,
+          "factor": 1.1292482256281935
+        },
+        {
+          "interval": 11,
+          "factor": 1.1300991483943374
+        },
+        {
+          "interval": 12,
+          "factor": 1.1317618510680238
+        },
+        {
+          "interval": 13,
+          "factor": 1.1340578464487754
+        },
+        {
+          "interval": 14,
+          "factor": 1.1368597262384432
+        },
+        {
+          "interval": 15,
+          "factor": 1.1400741355148505
+        },
+        {
+          "interval": 16,
+          "factor": 1.143631131785115
+        },
+        {
+          "interval": 17,
+          "factor": 1.147477299674149
+        },
+        {
+          "interval": 18,
+          "factor": 1.1515711607236072
+        },
+        {
+          "interval": 19,
+          "factor": 1.1558800327343441
+        },
+        {
+          "interval": 20,
+          "factor": 1.1603778313122064
+        },
+        {
+          "interval": 21,
+          "factor": 1.1650434995494432
+        },
+        {
+          "interval": 22,
+          "factor": 1.169859865980462
+        },
+        {
+          "interval": 23,
+          "factor": 1.1748128004676068
+        },
+        {
+          "interval": 24,
+          "factor": 1.179890581120768
+        },
+        {
+          "interval": 25,
+          "factor": 1.185083413161391
+        },
+        {
+          "interval": 26,
+          "factor": 1.1903830588228315
+        },
+        {
+          "interval": 27,
+          "factor": 1.1957825494999041
+        },
+        {
+          "interval": 28,
+          "factor": 1.2012759595853688
+        },
+        {
+          "interval": 29,
+          "factor": 1.206858227103456
+        },
+        {
+          "interval": 30,
+          "factor": 1.2125250102211618
+        },
+        {
+          "interval": 31,
+          "factor": 1.2182725715359244
+        },
+        {
+          "interval": 32,
+          "factor": 1.2240976840636453
+        },
+        {
+          "interval": 33,
+          "factor": 1.2299975543239892
+        },
+        {
+          "interval": 34,
+          "factor": 1.2359697590029775
+        },
+        {
+          "interval": 35,
+          "factor": 1.242012192477456
+        },
+        {
+          "interval": 36,
+          "factor": 1.2481230230894482
+        },
+        {
+          "interval": 37,
+          "factor": 1.2543006565150414
+        },
+        {
+          "interval": 38,
+          "factor": 1.2605437049209662
+        },
+        {
+          "interval": 39,
+          "factor": 1.266850960870083
+        },
+        {
+          "interval": 40,
+          "factor": 1.2732213751447556
+        },
+        {
+          "interval": 41,
+          "factor": 1.2796540378192423
+        },
+        {
+          "interval": 42,
+          "factor": 1.286148162039634
+        },
+        {
+          "interval": 43,
+          "factor": 1.2927030700706164
+        },
+        {
+          "interval": 44,
+          "factor": 1.2993181812484547
+        },
+        {
+          "interval": 45,
+          "factor": 1.3059930015437131
+        },
+        {
+          "interval": 46,
+          "factor": 1.3127271144887898
+        },
+        {
+          "interval": 47,
+          "factor": 1.3195201732670183
+        },
+        {
+          "interval": 48,
+          "factor": 1.3263718937939875
+        },
+        {
+          "interval": 49,
+          "factor": 1.3332820486493566
+        },
+        {
+          "interval": 50,
+          "factor": 1.3402504617401356
+        },
+        {
+          "interval": 51,
+          "factor": 1.347277003595059
+        },
+        {
+          "interval": 52,
+          "factor": 1.3543615872051409
+        },
+        {
+          "interval": 53,
+          "factor": 1.361504164338294
+        },
+        {
+          "interval": 54,
+          "factor": 1.3687047222666004
+        },
+        {
+          "interval": 55,
+          "factor": 1.37596328085374
+        },
+        {
+          "interval": 56,
+          "factor": 1.383279889957592
+        },
+        {
+          "interval": 57,
+          "factor": 1.390654627109332
+        },
+        {
+          "interval": 58,
+          "factor": 1.3980875954356862
+        },
+        {
+          "interval": 59,
+          "factor": 1.4055789217955248
+        },
+        {
+          "interval": 60,
+          "factor": 1.4131287551058145
+        },
+        {
+          "interval": 61,
+          "factor": 1.4207372648352354
+        },
+        {
+          "interval": 62,
+          "factor": 1.4284046396465595
+        },
+        {
+          "interval": 63,
+          "factor": 1.4361310861712897
+        },
+        {
+          "interval": 64,
+          "factor": 1.4439168279021268
+        },
+        {
+          "interval": 65,
+          "factor": 1.4517621041905997
+        },
+        {
+          "interval": 66,
+          "factor": 1.459667169338739
+        },
+        {
+          "interval": 67,
+          "factor": 1.4676322917749913
+        },
+        {
+          "interval": 68,
+          "factor": 1.4756577533057402
+        },
+        {
+          "interval": 69,
+          "factor": 1.483743848434781
+        },
+        {
+          "interval": 70,
+          "factor": 1.4918908837439921
+        },
+        {
+          "interval": 71,
+          "factor": 1.5000991773291943
+        },
+        {
+          "interval": 72,
+          "factor": 1.5083690582858558
+        },
+        {
+          "interval": 73,
+          "factor": 1.516700866239902
+        },
+        {
+          "interval": 74,
+          "factor": 1.5250949509193805
+        },
+        {
+          "interval": 75,
+          "factor": 1.5335516717632054
+        },
+        {
+          "interval": 76,
+          "factor": 1.542071397563585
+        },
+        {
+          "interval": 77,
+          "factor": 1.5506545061391057
+        },
+        {
+          "interval": 78,
+          "factor": 1.559301384035744
+        },
+        {
+          "interval": 79,
+          "factor": 1.568012426253362
+        },
+        {
+          "interval": 80,
+          "factor": 1.5767880359954836
+        },
+        {
+          "interval": 81,
+          "factor": 1.585628624440365
+        },
+        {
+          "interval": 82,
+          "factor": 1.594534610531573
+        },
+        {
+          "interval": 83,
+          "factor": 1.6035064207864487
+        },
+        {
+          "interval": 84,
+          "factor": 1.6125444891209995
+        },
+        {
+          "interval": 85,
+          "factor": 1.6216492566898824
+        },
+        {
+          "interval": 86,
+          "factor": 1.6308211717402954
+        },
+        {
+          "interval": 87,
+          "factor": 1.6400606894786665
+        },
+        {
+          "interval": 88,
+          "factor": 1.6493682719491602
+        },
+        {
+          "interval": 89,
+          "factor": 1.658744387923098
+        },
+        {
+          "interval": 90,
+          "factor": 1.6681895127984678
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "schema": "contrast-atelier/v1",
+  "originalInput": {
+    "context": "Design-system maintainer auditing opaque text on solid backgrounds in a library portal.",
+    "minSimilarity": 0.15,
+    "roles": [
+      {
+        "id": "r0",
+        "text": "Navigation menu links and page destinations",
+        "minRatio": 4.5
+      },
+      {
+        "id": "r1",
+        "text": "Form field labels and input instructions",
+        "minRatio": 4.5
+      },
+      {
+        "id": "r2",
+        "text": "Critical error and validation message text",
+        "minRatio": 7
+      }
+    ],
+    "records": [
+      {
+        "id": "token0",
+        "text": "Browse catalog navigation link",
+        "foreground": "#999999",
+        "background": "#ffffff"
+      },
+      {
+        "id": "token1",
+        "text": "Email address input field label",
+        "foreground": "#aaaaaa",
+        "background": "#ffffff"
+      },
+      {
+        "id": "token2",
+        "text": "Invalid password error warning",
+        "foreground": "#999999",
+        "background": "#777777"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "token0",
+      "role": "r0",
+      "proposedRole": "r0",
+      "foreground": "#999999",
+      "background": "#ffffff",
+      "useRepair": true,
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "r0",
+          "score": 0.6108353468140082
+        },
+        {
+          "id": "r1",
+          "score": -0.060932227354611214
+        },
+        {
+          "id": "r2",
+          "score": -0.11161486358065728
+        }
+      ]
+    },
+    {
+      "id": "token1",
+      "role": "r1",
+      "proposedRole": "r1",
+      "foreground": "#aaaaaa",
+      "background": "#ffffff",
+      "useRepair": true,
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "r1",
+          "score": 0.5875085945756089
+        },
+        {
+          "id": "r2",
+          "score": 0.20504993484246364
+        },
+        {
+          "id": "r0",
+          "score": 0.012905597687662666
+        }
+      ]
+    },
+    {
+      "id": "token2",
+      "role": "r2",
+      "proposedRole": "r2",
+      "foreground": "#999999",
+      "background": "#777777",
+      "useRepair": false,
+      "decision": "hold",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "r2",
+          "score": 0.4995532829778684
+        },
+        {
+          "id": "r1",
+          "score": 0.04848239865357445
+        },
+        {
+          "id": "r0",
+          "score": -0.06771455753298387
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "token0",
+      "decision": "approve",
+      "target": 4.5,
+      "beforeRatio": 2.849027755287037,
+      "repair": {
+        "color": "#767676",
+        "ratio": 4.542224959605253,
+        "distance": 3675,
+        "blendStep": 58,
+        "toward": "black"
+      },
+      "finalForeground": "#767676",
+      "finalRatio": 4.542224959605253
+    },
+    {
+      "id": "token1",
+      "decision": "approve",
+      "target": 4.5,
+      "beforeRatio": 2.3231230535045992,
+      "repair": {
+        "color": "#767676",
+        "ratio": 4.542224959605253,
+        "distance": 8112,
+        "blendStep": 78,
+        "toward": "black"
+      },
+      "finalForeground": "#767676",
+      "finalRatio": 4.542224959605253
+    },
+    {
+      "id": "token2",
+      "decision": "hold",
+      "target": 7,
+      "beforeRatio": 1.5717956574017475,
+      "repair": null,
+      "finalForeground": "#999999",
+      "finalRatio": 1.5717956574017475
+    }
+  ],
+  "total": 3,
+  "approved": 2,
+  "held": 1,
+  "beforeFailures": 2,
+  "afterFailures": 0,
+  "repairsUsed": 2,
+  "warning": "AI matches usage descriptions to supplied role definitions, not legal compliance, font size or visual context. Cosine similarity is not confidence. Verify role thresholds, colors and rendered context. WCAG 2.x relative luminance contrast is calculated for opaque sRGB text on a flat solid background only. Suggestions choose least squared RGB movement among 512 quantized black/white blends, not a perceptual or global optimum. Some background/target combinations have no foreground-only solution. Held usages remain in the complete audit but are excluded from CSS and comparison counts. A failing approved token is exported with an explicit failure comment. This worksheet does not establish WCAG conformance; no browser styles or remote files are changed."
+}

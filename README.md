@@ -1537,3 +1537,13 @@ Real local MiniLM reconciles shorthand receipt items with promotion categories b
 
 
 Bundle Orchard public release: matching Pages `3a7642a4b3b634a4cb25f6d16d5019f794b8a88e` is built; workflows `44725538712` and `44725946355` succeeded. Nine public gallery/app/runtime byte matches, the full real-model reviewed-artifact/privacy/offline/max-batch suite and all 753 gallery cards passed. Combined site 999,922,831 bytes under the unchanged guard. A documented legacy-status refresh resolved a stale error after the first successful final deployment; no Pages config changes. Only this task’s changes are staged; unrelated recovery work/drafts remain intact. No digest sent.
+
+
+## Contrast Atelier — 20261120-21
+
+Real local MiniLM matches informal component notes to supplied contrast roles before mandatory role/color/target review. Quantized foreground blend repairs compare current selected colors with unrepaired reviewed pairs; approved-only CSS and complete JSON/CSV/Markdown audits preserve originals and holds. Both tiny synthetic fixtures matched all 6 intended neural links; 1,000 independent repair oracles, actual artifact parsing, maximum batching, cold cancellation and fresh-worker warmed-page offline inference passed. No whole-site WCAG conformance claim or remote style changes. Preserve shared worker/factory `20261115-6` and WASM `20261107-2`. See [workflow/privacy](20261120-21/README.md) and [observed validation](20261120-21/VALIDATION.md). No uploads or digest.
+
+The unchanged 1 GB collection guard is preserved. Deploy-only byte-identical geometry runtime sharing additionally covers `20261028-4` → immutable `20261028-24`; source builds and compatibility JS URLs remain intact. Its real default/PNG/STL workflows and three distinct valid STL exports passed locally before publishing.
+
+
+Contrast Atelier public release: matching Pages `b169c7fbd557bf5de791bf900c12613a7f0f59d3` and workflow `44733531486` succeeded on the first deployment. Seven public app/gallery/runtime byte matches, four affected legacy byte matches, both real-AI fixtures, the full reviewed-artifact/privacy/offline/max-batch suite and all 754 gallery cards passed. Combined site 999,632,307 bytes; unchanged guard. Source staging excludes unrelated pre-existing work. No digest sent.

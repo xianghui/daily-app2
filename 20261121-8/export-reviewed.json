@@ -1,0 +1,262 @@
+{
+  "schema": "range-harbor/v1",
+  "originalInput": {
+    "context": "Synthetic exhibition-floor prop notes. Not navigation or safety surveying. Distances are planar metres.",
+    "unit": "m",
+    "bounds": {
+      "xMin": 0,
+      "xMax": 10,
+      "yMin": 0,
+      "yMax": 10,
+      "steps": 20
+    },
+    "anchors": [
+      {
+        "id": "stage",
+        "text": "The raised presentation stage and speaker podium for live talks.",
+        "x": 0,
+        "y": 0
+      },
+      {
+        "id": "coffee",
+        "text": "The cafe coffee counter serving espresso and hot drinks.",
+        "x": 10,
+        "y": 0
+      },
+      {
+        "id": "checkin",
+        "text": "The visitor registration desk for admission badges and check-in.",
+        "x": 0,
+        "y": 10
+      }
+    ],
+    "records": [
+      {
+        "id": "displayA0",
+        "asset": "displayA",
+        "text": "Distance measured from the elevated platform where presenters give talks.",
+        "distance": 6.324555320336759
+      },
+      {
+        "id": "displayA1",
+        "asset": "displayA",
+        "text": "Range measured from the barista espresso service bar.",
+        "distance": 10
+      },
+      {
+        "id": "displayA2",
+        "asset": "displayA",
+        "text": "Tape distance from the arrival badge collection reception table.",
+        "distance": 4.47213595499958
+      },
+      {
+        "id": "displayB0",
+        "asset": "displayB",
+        "text": "Distance measured from the elevated platform where presenters give talks.",
+        "distance": 8.54400374531753
+      },
+      {
+        "id": "displayB1",
+        "asset": "displayB",
+        "text": "Range measured from the barista espresso service bar.",
+        "distance": 3.6055512754639896
+      },
+      {
+        "id": "displayB2",
+        "asset": "displayB",
+        "text": "Tape distance from the arrival badge collection reception table.",
+        "distance": 10.63014581273465
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "displayA0",
+      "asset": "displayA",
+      "selected": "stage",
+      "distance": 6.324555320336759,
+      "decision": "approve",
+      "note": "=SUM(1,2)\n\"recheck\", source",
+      "rank": [
+        {
+          "anchor": "stage",
+          "score": 0.5727093041943584
+        },
+        {
+          "anchor": "checkin",
+          "score": 0.19817453510023048
+        },
+        {
+          "anchor": "coffee",
+          "score": 0.11003790923264832
+        }
+      ]
+    },
+    {
+      "id": "displayA1",
+      "asset": "displayA",
+      "selected": "coffee",
+      "distance": 10,
+      "decision": "hold",
+      "note": "",
+      "rank": [
+        {
+          "anchor": "coffee",
+          "score": 0.47497313783743034
+        },
+        {
+          "anchor": "checkin",
+          "score": 0.15496688740349643
+        },
+        {
+          "anchor": "stage",
+          "score": 0.10551011318618439
+        }
+      ]
+    },
+    {
+      "id": "displayA2",
+      "asset": "displayA",
+      "selected": "checkin",
+      "distance": 4.47213595499958,
+      "decision": "approve",
+      "note": "",
+      "rank": [
+        {
+          "anchor": "checkin",
+          "score": 0.32934434874367063
+        },
+        {
+          "anchor": "stage",
+          "score": 0.20720262557133282
+        },
+        {
+          "anchor": "coffee",
+          "score": 0.15496311588472486
+        }
+      ]
+    },
+    {
+      "id": "displayB0",
+      "asset": "displayB",
+      "selected": "stage",
+      "distance": 8.54400374531753,
+      "decision": "approve",
+      "note": "",
+      "rank": [
+        {
+          "anchor": "stage",
+          "score": 0.5708444251233941
+        },
+        {
+          "anchor": "checkin",
+          "score": 0.19728045768278052
+        },
+        {
+          "anchor": "coffee",
+          "score": 0.12149479780312354
+        }
+      ]
+    },
+    {
+      "id": "displayB1",
+      "asset": "displayB",
+      "selected": "coffee",
+      "distance": 3.6055512754639896,
+      "decision": "approve",
+      "note": "",
+      "rank": [
+        {
+          "anchor": "coffee",
+          "score": 0.47497313783743034
+        },
+        {
+          "anchor": "checkin",
+          "score": 0.15496688740349643
+        },
+        {
+          "anchor": "stage",
+          "score": 0.10551011318618439
+        }
+      ]
+    },
+    {
+      "id": "displayB2",
+      "asset": "displayB",
+      "selected": "checkin",
+      "distance": 10.63014581273465,
+      "decision": "approve",
+      "note": "",
+      "rank": [
+        {
+          "anchor": "checkin",
+          "score": 0.3443400112081106
+        },
+        {
+          "anchor": "stage",
+          "score": 0.18647502518475348
+        },
+        {
+          "anchor": "coffee",
+          "score": 0.15755487591305764
+        }
+      ]
+    }
+  ],
+  "total": 6,
+  "approved": 5,
+  "held": 1,
+  "positions": [
+    {
+      "asset": "displayA",
+      "available": false,
+      "reason": "Need at least three approved ranges to distinct non-collinear anchors.",
+      "rangeCount": 2
+    },
+    {
+      "asset": "displayB",
+      "available": true,
+      "rangeCount": 3,
+      "x": 8,
+      "y": 3,
+      "rms": 0,
+      "baseline": {
+        "x": 3.3333333333333335,
+        "y": 3.3333333333333335,
+        "rms": 3.6316410830053285
+      },
+      "spacing": [
+        0.5,
+        0.5
+      ],
+      "candidates": 441,
+      "tiedGridCandidates": 1,
+      "onBoundary": false,
+      "residuals": [
+        {
+          "id": "displayB0",
+          "anchor": "stage",
+          "measured": 8.54400374531753,
+          "predicted": 8.54400374531753,
+          "residual": 0
+        },
+        {
+          "id": "displayB1",
+          "anchor": "coffee",
+          "measured": 3.6055512754639896,
+          "predicted": 3.6055512754639896,
+          "residual": 0
+        },
+        {
+          "id": "displayB2",
+          "anchor": "checkin",
+          "measured": 10.63014581273465,
+          "predicted": 10.63014581273465,
+          "residual": 0
+        }
+      ]
+    }
+  ],
+  "changedFromFirstAnchor": 3,
+  "warning": "Sketch-position estimates, not navigation, construction or safety surveying. AI similarity does not prove landmark identity. All coordinates and horizontal distances must share a unit and local planar frame. Grid resolution, restricted bounds, bad geometry, obstacles, sloped ranges and wrong measurements can mislead. Residuals are not uncertainty or confidence. Recheck source notes before acting; no equipment or map changes."
+}

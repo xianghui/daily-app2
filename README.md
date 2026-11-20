@@ -1547,3 +1547,9 @@ The unchanged 1 GB collection guard is preserved. Deploy-only byte-identical geo
 
 
 Contrast Atelier public release: matching Pages `b169c7fbd557bf5de791bf900c12613a7f0f59d3` and workflow `44733531486` succeeded on the first deployment. Seven public app/gallery/runtime byte matches, four affected legacy byte matches, both real-AI fixtures, the full reviewed-artifact/privacy/offline/max-batch suite and all 754 gallery cards passed. Combined site 999,632,307 bytes; unchanged guard. Source staging excludes unrelated pre-existing work. No digest sent.
+
+## Cohort Veil — 20261120-22
+
+Real local MiniLM column-role inference assists small-extract disclosure review. Mandatory role/cell/policy review feeds zero-anchored bins, whole-column masks and below-k group suppression; compare exact-value rarity on the same reviewed quasi columns and export draft CSV plus complete sensitive audits. Both simple fixtures matched all eight intended roles; negated text misclassified, so this is not automatic identification or an anonymity guarantee. Original cells stay in explicitly private backups. 1,000 independent grouping oracles, parsed artifacts, maximum batch and warmed-page fresh-worker offline inference passed. Preserve shared worker/factory `20261115-6` and WASM `20261107-2`. See [workflow/privacy](20261120-22/README.md) and [observed validation](20261120-22/VALIDATION.md). No uploads, releases or digest.
+
+Cohort Veil public release: matching Pages `151b055498e36a6bb60b263fc72f69fa48416091` and workflow `44742101210` succeeded on the first deployment. Nine public gallery/app/runtime byte matches, both real-AI fixtures, the complete reviewed-artifact/privacy/offline/max-batch suite and all 755 gallery cards passed. Combined site 999,898,916 bytes; unchanged guard and no additional legacy runtime rule. Source staging excludes unrelated pre-existing changes/drafts. No digest sent.

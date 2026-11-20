@@ -1,0 +1,257 @@
+{
+  "schema": "cohort-veil/v1",
+  "originalInput": {
+    "context": "Library feedback — synthetic small extract; review every column before export.",
+    "k": 2,
+    "minSimilarity": 0.1,
+    "columns": [
+      {
+        "id": "contact",
+        "description": "Visitor email address for follow-up",
+        "type": "text"
+      },
+      {
+        "id": "years",
+        "description": "Age of library visitor in years",
+        "type": "number"
+      },
+      {
+        "id": "district",
+        "description": "Residential postal district of visitor",
+        "type": "text"
+      },
+      {
+        "id": "rating",
+        "description": "Visitor full name and email address",
+        "type": "number"
+      }
+    ],
+    "records": [
+      {
+        "contact": "ada@example.invalid",
+        "years": 23,
+        "district": "North",
+        "rating": 4
+      },
+      {
+        "contact": "ben@example.invalid",
+        "years": 27,
+        "district": "North",
+        "rating": 3
+      },
+      {
+        "contact": "cy@example.invalid",
+        "years": 31,
+        "district": "South",
+        "rating": 5
+      },
+      {
+        "contact": "dee@example.invalid",
+        "years": 34,
+        "district": "South",
+        "rating": 4
+      },
+      {
+        "contact": "eli@example.invalid",
+        "years": 52,
+        "district": "West",
+        "rating": 2
+      },
+      {
+        "contact": "flo@example.invalid",
+        "years": 24,
+        "district": "North",
+        "rating": 5
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "contact",
+      "role": "direct",
+      "proposedRole": "direct",
+      "method": "drop",
+      "width": 10,
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "direct",
+          "score": 0.20876630852306136
+        },
+        {
+          "id": "payload",
+          "score": 0.0637494082608608
+        },
+        {
+          "id": "quasi",
+          "score": 0.034488566854613045
+        }
+      ]
+    },
+    {
+      "id": "years",
+      "role": "quasi",
+      "proposedRole": "quasi",
+      "method": "bin",
+      "width": 10,
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "quasi",
+          "score": 0.3219967610869346
+        },
+        {
+          "id": "payload",
+          "score": 0.09533806256732177
+        },
+        {
+          "id": "direct",
+          "score": 0.08341816414911289
+        }
+      ]
+    },
+    {
+      "id": "district",
+      "role": "quasi",
+      "proposedRole": "quasi",
+      "method": "keep",
+      "width": 10,
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "quasi",
+          "score": 0.44351978651246093
+        },
+        {
+          "id": "direct",
+          "score": 0.2174401570047275
+        },
+        {
+          "id": "payload",
+          "score": 0.10945930908969033
+        }
+      ]
+    },
+    {
+      "id": "rating",
+      "role": "direct",
+      "proposedRole": "direct",
+      "method": "drop",
+      "width": 10,
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "direct",
+          "score": 0.3660860828270081
+        },
+        {
+          "id": "quasi",
+          "score": 0.14781867598126472
+        },
+        {
+          "id": "payload",
+          "score": 0.09274066505922929
+        }
+      ]
+    }
+  ],
+  "releaseColumns": [
+    "years",
+    "district"
+  ],
+  "quasiColumns": [
+    "years",
+    "district"
+  ],
+  "releaseRecords": [
+    {
+      "years": "[20, 30)",
+      "district": "North"
+    },
+    {
+      "years": "[20, 30)",
+      "district": "North"
+    },
+    {
+      "years": "[30, 40)",
+      "district": "South"
+    },
+    {
+      "years": "[30, 40)",
+      "district": "South"
+    },
+    {
+      "years": "[20, 30)",
+      "district": "North"
+    }
+  ],
+  "statuses": [
+    {
+      "sourceIndex": 1,
+      "groupSize": 3,
+      "status": "retained"
+    },
+    {
+      "sourceIndex": 2,
+      "groupSize": 3,
+      "status": "retained"
+    },
+    {
+      "sourceIndex": 3,
+      "groupSize": 2,
+      "status": "retained"
+    },
+    {
+      "sourceIndex": 4,
+      "groupSize": 2,
+      "status": "retained"
+    },
+    {
+      "sourceIndex": 5,
+      "groupSize": 1,
+      "status": "suppressed"
+    },
+    {
+      "sourceIndex": 6,
+      "groupSize": 3,
+      "status": "retained"
+    }
+  ],
+  "total": 6,
+  "retained": 5,
+  "suppressed": 1,
+  "baselineRare": 6,
+  "generalizedRare": 1,
+  "minimumReleasedGroup": 2,
+  "groups": [
+    {
+      "values": [
+        "[20, 30)",
+        "North"
+      ],
+      "size": 3,
+      "status": "retained"
+    },
+    {
+      "values": [
+        "[30, 40)",
+        "South"
+      ],
+      "size": 2,
+      "status": "retained"
+    },
+    {
+      "values": [
+        "[50, 60)",
+        "West"
+      ],
+      "size": 1,
+      "status": "suppressed"
+    }
+  ],
+  "warning": "Draft only, NOT an anonymity or privacy guarantee. Group sizes apply only to the reviewed quasi-identifiers and this input, not a population or external datasets. Payloads, free text, linkability, attribute disclosure and omitted quasi-identifiers can still identify people. Held/dropped columns and suppressed rows are excluded from the draft but preserved in the sensitive complete audit. No files are changed or uploaded."
+}

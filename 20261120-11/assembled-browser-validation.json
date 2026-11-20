@@ -1,0 +1,97 @@
+{
+  "fixtures": [
+    {
+      "name": "Workshop cards",
+      "actual": [
+        "BOLT-204",
+        "NORTH RACK",
+        "24",
+        "WASHER-108",
+        "PARTS SHELF",
+        "50"
+      ],
+      "expected": [
+        "BOLT-204",
+        "NORTH RACK",
+        "24",
+        "WASHER-108",
+        "PARTS SHELF",
+        "50"
+      ],
+      "correctFields": 6,
+      "totalFields": 6,
+      "metrics": {
+        "total": 2,
+        "approved": 2,
+        "held": 0,
+        "rawValid": 2,
+        "reviewedValid": 2,
+        "fieldEdits": 0,
+        "approvedUnits": 74
+      },
+      "ocr": [
+        "WORKSHOP STOCK CARD\nITEM: BOLT-204\nLOCATION: NORTH RACK\nCOUNT: 24\n",
+        "WORKSHOP STOCK CARD\nITEM: WASHER-108\nLOCATION: PARTS SHELF\nCOUNT: 50\n"
+      ]
+    },
+    {
+      "name": "Archive cards",
+      "actual": [
+        "BOX-317",
+        "BLUE ROOM",
+        "12",
+        "FOLDER-602",
+        "UPPER CABINET",
+        "8"
+      ],
+      "expected": [
+        "BOX-317",
+        "BLUE ROOM",
+        "12",
+        "FOLDER-602",
+        "UPPER CABINET",
+        "8"
+      ],
+      "correctFields": 6,
+      "totalFields": 6,
+      "metrics": {
+        "total": 2,
+        "approved": 2,
+        "held": 0,
+        "rawValid": 2,
+        "reviewedValid": 2,
+        "fieldEdits": 0,
+        "approvedUnits": 20
+      },
+      "ocr": [
+        "ARCHIVE STOCK CARD\nITEM: BOX-317\nLOCATION: BLUE ROOM\nCOUNT: 12\n",
+        "ARCHIVE STOCK CARD\n\nITEM: FOLDER-602\nLOCATION: UPPER CABINET\nCOUNT: 8\n"
+      ]
+    }
+  ],
+  "checks": [
+    "mandatory visual approval; field edit resets decision/export; note newline retained; clipboard; holds conserve all originals; undo; duplicates blocked; blank count never zero",
+    "audit round trip restores originals/review fields but renews approvals; fresh-worker offline real inference in warmed page",
+    "cancel/retry and new-input cancellation prevent stale results",
+    "empty, corrupt, unsupported, oversize image/audit errors show no fabricated results",
+    "eight-image real sequential inference, complete reviewed 108-unit export/reimport; nine images rejected",
+    "desktop/390/320 no overflow; labeled inputs; touch targets and visible focus; real OCR has no WebGPU requirement"
+  ],
+  "network": {
+    "requests": 43,
+    "onlyGetHead": true,
+    "noBodies": true,
+    "noUserTextInUrls": true,
+    "paths": [
+      "http://127.0.0.1:7043/daily-app2/20261120-11/",
+      "http://127.0.0.1:7043/daily-app2/20261120-11/assets/index-BXclmA-O.js",
+      "http://127.0.0.1:7043/daily-app2/20261120-11/assets/index-CCfkp11k.css",
+      "http://127.0.0.1:7043/daily-app2/20261120-11/favicon.svg",
+      "blob:local-resource",
+      "https://cdn.jsdelivr.net/npm/tesseract.js-core@7.0.0/tesseract-core-lstm.wasm.js",
+      "http://127.0.0.1:7043/daily-app2/20261120-11/ocr-worker-7.0.0.js",
+      "https://cdn.jsdelivr.net/npm/@tesseract.js-data/eng@1.0.0/4.0.0_best_int/eng.traineddata.gz"
+    ]
+  },
+  "pageErrors": []
+}

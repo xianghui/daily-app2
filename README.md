@@ -1517,3 +1517,11 @@ Real local MiniLM reconciles rough dimensional reading descriptions with feature
 The unchanged 1 GB collection guard is preserved. Deploy-only byte-identical geometry runtime sharing extends to `20261028-6` → immutable `20261028-24`, preserving source builds and legacy JS URLs with versioned references. Its real worker, PNG/STL imports and three distinct validated STL exports are checked locally and publicly before completion.
 
 Precision Porch public release: matching Pages `fa3c626d59e7d7a48cd6a7cfdf267e52971dd21e` and workflow `44700413384` succeeded. Nine public app/runtime byte matches, four affected legacy matches, both real-AI fixtures and the full public reviewed-artifact/privacy/offline/max-batch suite passed. All 750 gallery cards and affected legacy default/PNG/STL workflows passed. Combined site 999,670,818 bytes; unchanged guard. Unrelated pre-existing work is preserved and excluded from source staging. No digest sent.
+
+
+## Margin Press — 20261120-18
+
+Real local MiniLM reconciles both rough reporting-cell axes before mandatory label/quantity review. Exact minimum-L1 floor/ceiling rounding preserves compatible row and column margins, exposes infeasible constraints and compares independent-nearest violations. Both tiny synthetic fixtures matched all 30 neural axes; controlled tables resolved six and two inconsistent margins. 1,200 independent brute-force solver oracles, actual JSON/CSV/Markdown/table round trips, maximum batching, defensive/race tests and fresh-worker warmed-page offline inference passed locally. Not source correction, inference or disclosure control. Preserve shared worker/factory `20261115-6` and WASM `20261107-2`. See [workflow/privacy](20261120-18/README.md) and [observed checks](20261120-18/VALIDATION.md). No uploads, external reporting or digest.
+
+
+Margin Press public release: matching Pages `51c97a4d1a42792ae7b9b7b1e2a639390e5fe093` and workflow `44708486858` succeeded on the first deployment. Nine public app/gallery/runtime byte matches, both real-AI fixtures and the full public reviewed-artifact/privacy/offline/max-batch suite passed, including infeasible coupled margins and actual narrow-table scrolling. All 751 gallery cards preserved. Combined site 999,939,906 bytes; unchanged guard, no new legacy runtime rule. Source staging excludes unrelated pre-existing work. No digest sent.

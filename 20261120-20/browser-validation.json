@@ -1,0 +1,153 @@
+{
+  "fixtures": [
+    {
+      "name": "Corner café",
+      "expected": [
+        "c0",
+        "c1",
+        "c2",
+        "c3"
+      ],
+      "predictions": [
+        "c0",
+        "c1",
+        "c2",
+        "c3"
+      ],
+      "correct": 4,
+      "total": 4,
+      "optimal": {
+        "savingsCents": 600,
+        "applications": [
+          {
+            "promotion": "left",
+            "mask": 5,
+            "items": [
+              "u0",
+              "u2"
+            ],
+            "discountCents": 300,
+            "subtotalCents": 850
+          },
+          {
+            "promotion": "right",
+            "mask": 10,
+            "items": [
+              "u1",
+              "u3"
+            ],
+            "discountCents": 300,
+            "subtotalCents": 1000
+          }
+        ]
+      },
+      "greedy": {
+        "savingsCents": 500,
+        "applications": [
+          {
+            "promotion": "large",
+            "mask": 3,
+            "items": [
+              "u0",
+              "u1"
+            ],
+            "discountCents": 500,
+            "subtotalCents": 800
+          }
+        ]
+      }
+    },
+    {
+      "name": "Art shop",
+      "expected": [
+        "c0",
+        "c1",
+        "c2",
+        "c3"
+      ],
+      "predictions": [
+        "c0",
+        "c1",
+        "c2",
+        "c3"
+      ],
+      "correct": 4,
+      "total": 4,
+      "optimal": {
+        "savingsCents": 600,
+        "applications": [
+          {
+            "promotion": "left",
+            "mask": 5,
+            "items": [
+              "u0",
+              "u2"
+            ],
+            "discountCents": 300,
+            "subtotalCents": 1800
+          },
+          {
+            "promotion": "right",
+            "mask": 10,
+            "items": [
+              "u1",
+              "u3"
+            ],
+            "discountCents": 300,
+            "subtotalCents": 1300
+          }
+        ]
+      },
+      "greedy": {
+        "savingsCents": 500,
+        "applications": [
+          {
+            "promotion": "large",
+            "mask": 3,
+            "items": [
+              "u0",
+              "u1"
+            ],
+            "discountCents": 500,
+            "subtotalCents": 1400
+          }
+        ]
+      }
+    }
+  ],
+  "checks": [
+    "mandatory review; multiline CSV/JSON/clipboard; hold stays full price and ineligible; undo; price editing and integer validation; originals-only import; fully offline fresh-worker inference",
+    "bad/empty/oversized/duplicate/unsupported-format/price/threshold/rule checks; cancellation/retry; input change invalidates worker",
+    "maximum 12 units + four categories + six promotions; four real inference batches; repeated-category bundles; complete export/reimport",
+    "changed item meaning changes real neural category and discount result from 600 to 300 cents",
+    "instruction-like input stays inert; irrelevant text may match, mandatory review/hold required",
+    "all holds preserve full-price basket; oversized offer discounts excluded with no negative receipt",
+    "desktop/390/320 no horizontal overflow; 44px touch controls, labels and focus"
+  ],
+  "challengePrediction": "c2",
+  "network": {
+    "requests": 61,
+    "onlyGetHead": true,
+    "noBodies": true,
+    "noSourceTextInUrls": true,
+    "paths": [
+      "http://127.0.0.1:7070/daily-app2/20261120-20/",
+      "http://127.0.0.1:7070/daily-app2/20261120-20/assets/index-DuoLVLbU.js",
+      "http://127.0.0.1:7070/daily-app2/20261120-20/assets/index-CsVXplU1.css",
+      "http://127.0.0.1:7070/daily-app2/20261120-20/favicon.svg",
+      "http://127.0.0.1:7070/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "blob:local-worker",
+      "http://127.0.0.1:7070/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "http://127.0.0.1:7070/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json"
+    ]
+  },
+  "pageErrors": []
+}

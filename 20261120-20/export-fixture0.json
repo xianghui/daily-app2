@@ -1,0 +1,234 @@
+{
+  "schema": "bundle-orchard/v1",
+  "originalInput": {
+    "context": "Café supervisor reconciling shorthand items before drafting a bundle-discount receipt.",
+    "currency": "USD",
+    "assumption": "Synthetic one-receipt basket. Each record is one indivisible unit; every listed promotion is single-use and may coexist only on disjoint items. Prices and discounts are pre-tax cents.",
+    "minSimilarity": 0.15,
+    "categories": [
+      {
+        "id": "c0",
+        "text": "Coffee espresso beverages"
+      },
+      {
+        "id": "c1",
+        "text": "Fresh baked pastry croissants"
+      },
+      {
+        "id": "c2",
+        "text": "Fruit juice drinks"
+      },
+      {
+        "id": "c3",
+        "text": "Prepared sandwich lunch"
+      }
+    ],
+    "records": [
+      {
+        "id": "u0",
+        "text": "Double espresso coffee",
+        "priceCents": 450
+      },
+      {
+        "id": "u1",
+        "text": "Buttery baked croissant",
+        "priceCents": 350
+      },
+      {
+        "id": "u2",
+        "text": "Pressed orange fruit juice",
+        "priceCents": 400
+      },
+      {
+        "id": "u3",
+        "text": "Chicken salad lunch sandwich",
+        "priceCents": 650
+      }
+    ],
+    "promotions": [
+      {
+        "id": "large",
+        "text": "One larger bundle",
+        "requires": [
+          "c0",
+          "c1"
+        ],
+        "discountCents": 500
+      },
+      {
+        "id": "left",
+        "text": "First compatible pair",
+        "requires": [
+          "c0",
+          "c2"
+        ],
+        "discountCents": 300
+      },
+      {
+        "id": "right",
+        "text": "Second compatible pair",
+        "requires": [
+          "c1",
+          "c3"
+        ],
+        "discountCents": 300
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "u0",
+      "category": "c0",
+      "proposedCategory": "c0",
+      "priceCents": 450,
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "c0",
+          "score": 0.7722544086026035
+        },
+        {
+          "id": "c2",
+          "score": 0.2154504099170606
+        },
+        {
+          "id": "c1",
+          "score": 0.11882570023287078
+        },
+        {
+          "id": "c3",
+          "score": 0.09073422688597153
+        }
+      ]
+    },
+    {
+      "id": "u1",
+      "category": "c1",
+      "proposedCategory": "c1",
+      "priceCents": 350,
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "c1",
+          "score": 0.7208583820833161
+        },
+        {
+          "id": "c3",
+          "score": 0.18952079658913076
+        },
+        {
+          "id": "c0",
+          "score": 0.12830038478835007
+        },
+        {
+          "id": "c2",
+          "score": 0.03468309106624741
+        }
+      ]
+    },
+    {
+      "id": "u2",
+      "category": "c2",
+      "proposedCategory": "c2",
+      "priceCents": 400,
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "c2",
+          "score": 0.7241115882806339
+        },
+        {
+          "id": "c0",
+          "score": 0.2954018839317406
+        },
+        {
+          "id": "c3",
+          "score": 0.16118393746574597
+        },
+        {
+          "id": "c1",
+          "score": 0.0020791537205857562
+        }
+      ]
+    },
+    {
+      "id": "u3",
+      "category": "c3",
+      "proposedCategory": "c3",
+      "priceCents": 650,
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "c3",
+          "score": 0.6972884094157554
+        },
+        {
+          "id": "c2",
+          "score": 0.16355136017130728
+        },
+        {
+          "id": "c1",
+          "score": 0.060067059563604905
+        },
+        {
+          "id": "c0",
+          "score": 0.020354467141420425
+        }
+      ]
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "subtotalCents": 1850,
+  "optimal": {
+    "savingsCents": 600,
+    "applications": [
+      {
+        "promotion": "left",
+        "mask": 5,
+        "items": [
+          "u0",
+          "u2"
+        ],
+        "discountCents": 300,
+        "subtotalCents": 850
+      },
+      {
+        "promotion": "right",
+        "mask": 10,
+        "items": [
+          "u1",
+          "u3"
+        ],
+        "discountCents": 300,
+        "subtotalCents": 1000
+      }
+    ]
+  },
+  "greedy": {
+    "savingsCents": 500,
+    "applications": [
+      {
+        "promotion": "large",
+        "mask": 3,
+        "items": [
+          "u0",
+          "u1"
+        ],
+        "discountCents": 500,
+        "subtotalCents": 800
+      }
+    ]
+  },
+  "candidateCount": 3,
+  "states": 5,
+  "payableCents": 1250,
+  "baselinePayableCents": 1350,
+  "extraSavingsCents": 100,
+  "warning": "AI retrieves category meaning, not legal promotion eligibility; cosine is not confidence. Verify every item, price, rule and tax basis. Each listed promotion may be used at most once; no unit can participate twice. Held units stay in subtotal at reviewed full price and cannot earn discounts. Only fixed-amount, pre-tax, disjoint-item promotions are modeled: no percentage, stacking, tax, loyalty, shipping or minimum-order rules. Savings compare exact solver with deterministic largest-discount-first greedy on this same reviewed basket, not real-world savings or accuracy. This is a draft, not a till integration or payment."
+}

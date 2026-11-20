@@ -1529,3 +1529,11 @@ Margin Press public release: matching Pages `51c97a4d1a42792ae7b9b7b1e2a639390e5
 ## Trend Cairn — 20261120-19
 
 Local MiniLM series reconciliation for comparable process measurements. Review exact days/values, compare descriptive Sen slopes with endpoint shortcuts, inspect tolerance-based source rechecks and export complete JSON/CSV/series CSV/Markdown without uploads or automatic deletion. Two synthetic batches matched 24/24 labels; robust fixture slopes and seeded rechecks matched known answers. LOO diagnostics are not forecast accuracy; unrelated prose can mislink, and human review is mandatory. Reuses immutable 20261115-6 worker/factory and 20261107-2 WASM. See [workflow](20261120-19/README.md) and [observed validation](20261120-19/VALIDATION.md).
+
+
+## Bundle Orchard — 20261120-20
+
+Real local MiniLM reconciles shorthand receipt items with promotion categories before mandatory item/price/eligibility review. Exact disjoint-unit bundle optimization compares largest-discount-first greedy and exports complete JSON/CSV/Markdown plus cent-conserving receipt CSV. Both tiny synthetic baskets matched 8/8 total neural links; 600 independent exhaustive solver oracles passed. This models single-use fixed discounts only, not actual till eligibility or tax. Shared worker/factory 20261115-6 and WASM 20261107-2 must remain available. See [workflow/privacy](20261120-20/README.md) and [observed checks](20261120-20/VALIDATION.md). No uploads, purchases or digest.
+
+
+Bundle Orchard public release: matching Pages `3a7642a4b3b634a4cb25f6d16d5019f794b8a88e` is built; workflows `44725538712` and `44725946355` succeeded. Nine public gallery/app/runtime byte matches, the full real-model reviewed-artifact/privacy/offline/max-batch suite and all 753 gallery cards passed. Combined site 999,922,831 bytes under the unchanged guard. A documented legacy-status refresh resolved a stale error after the first successful final deployment; no Pages config changes. Only this task’s changes are staged; unrelated recovery work/drafts remain intact. No digest sent.

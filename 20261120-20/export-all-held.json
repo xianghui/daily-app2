@@ -1,0 +1,202 @@
+{
+  "schema": "bundle-orchard/v1",
+  "originalInput": {
+    "context": "Art-shop assistant reviewing handwritten basket notes and compatible classroom bundles.",
+    "currency": "USD",
+    "assumption": "Synthetic one-receipt basket. Each record is one indivisible unit; every listed promotion is single-use and may coexist only on disjoint items. Prices and discounts are pre-tax cents.",
+    "minSimilarity": 0.15,
+    "categories": [
+      {
+        "id": "c0",
+        "text": "Artist drawing pencil sets"
+      },
+      {
+        "id": "c1",
+        "text": "Sketchbook drawing paper notebooks"
+      },
+      {
+        "id": "c2",
+        "text": "Watercolor paint sets"
+      },
+      {
+        "id": "c3",
+        "text": "Artist paint brushes"
+      }
+    ],
+    "records": [
+      {
+        "id": "u0",
+        "text": "Graphite drawing pencils",
+        "priceCents": 600
+      },
+      {
+        "id": "u1",
+        "text": "Spiral bound sketching pad",
+        "priceCents": 800
+      },
+      {
+        "id": "u2",
+        "text": "Watercolour painting colors",
+        "priceCents": 1200
+      },
+      {
+        "id": "u3",
+        "text": "Fine painting brush",
+        "priceCents": 500
+      }
+    ],
+    "promotions": [
+      {
+        "id": "large",
+        "text": "One larger bundle",
+        "requires": [
+          "c0",
+          "c1"
+        ],
+        "discountCents": 500
+      },
+      {
+        "id": "left",
+        "text": "First compatible pair",
+        "requires": [
+          "c0",
+          "c2"
+        ],
+        "discountCents": 300
+      },
+      {
+        "id": "right",
+        "text": "Second compatible pair",
+        "requires": [
+          "c1",
+          "c3"
+        ],
+        "discountCents": 300
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "u0",
+      "category": "c0",
+      "proposedCategory": "c0",
+      "priceCents": 600,
+      "decision": "hold",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "c0",
+          "score": 0.7339932903878313
+        },
+        {
+          "id": "c1",
+          "score": 0.5138125632310603
+        },
+        {
+          "id": "c3",
+          "score": 0.44563038100611513
+        },
+        {
+          "id": "c2",
+          "score": 0.2869776246668472
+        }
+      ]
+    },
+    {
+      "id": "u1",
+      "category": "c1",
+      "proposedCategory": "c1",
+      "priceCents": 800,
+      "decision": "hold",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "c1",
+          "score": 0.5717074383782397
+        },
+        {
+          "id": "c0",
+          "score": 0.4546431894580069
+        },
+        {
+          "id": "c3",
+          "score": 0.28444358687094423
+        },
+        {
+          "id": "c2",
+          "score": 0.15377227758385273
+        }
+      ]
+    },
+    {
+      "id": "u2",
+      "category": "c2",
+      "proposedCategory": "c2",
+      "priceCents": 1200,
+      "decision": "hold",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "c2",
+          "score": 0.766910097663174
+        },
+        {
+          "id": "c3",
+          "score": 0.5654279546386652
+        },
+        {
+          "id": "c0",
+          "score": 0.4239389807380226
+        },
+        {
+          "id": "c1",
+          "score": 0.24766875444772973
+        }
+      ]
+    },
+    {
+      "id": "u3",
+      "category": "c3",
+      "proposedCategory": "c3",
+      "priceCents": 500,
+      "decision": "hold",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "c3",
+          "score": 0.8049891843425979
+        },
+        {
+          "id": "c2",
+          "score": 0.47390356470932365
+        },
+        {
+          "id": "c0",
+          "score": 0.4176907759103716
+        },
+        {
+          "id": "c1",
+          "score": 0.3451941313273504
+        }
+      ]
+    }
+  ],
+  "total": 4,
+  "approved": 0,
+  "held": 4,
+  "subtotalCents": 3100,
+  "optimal": {
+    "savingsCents": 0,
+    "applications": []
+  },
+  "greedy": {
+    "savingsCents": 0,
+    "applications": []
+  },
+  "candidateCount": 0,
+  "states": 1,
+  "payableCents": 3100,
+  "baselinePayableCents": 3100,
+  "extraSavingsCents": 0,
+  "warning": "AI retrieves category meaning, not legal promotion eligibility; cosine is not confidence. Verify every item, price, rule and tax basis. Each listed promotion may be used at most once; no unit can participate twice. Held units stay in subtotal at reviewed full price and cannot earn discounts. Only fixed-amount, pre-tax, disjoint-item promotions are modeled: no percentage, stacking, tax, loyalty, shipping or minimum-order rules. Savings compare exact solver with deterministic largest-discount-first greedy on this same reviewed basket, not real-world savings or accuracy. This is a draft, not a till integration or payment."
+}

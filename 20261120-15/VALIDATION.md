@@ -1,0 +1,31 @@
+# Observed validation — Panel Passage / 2026-11-20
+
+## Local production bundle
+
+- `npm run predeploy` passed. React/Vite production bundle under the actual `/daily-app2/20261120-15/` base, not a dev-only endpoint.
+- Real Chrome, GPU disabled, no API key, actual shared MiniLM/ONNX worker. Workshop learning: **8/8** intended competency links; library induction: **8/8**. Mandatory review remains necessary; these 16 tiny synthetic observations do not estimate general accuracy.
+- Workshop spreadsheet matched-person mean change **+1**, all-respondent cross-sectional baseline **−2/3**. Library search matched change **+0.5**, baseline **−2/3**. Both preserve the seeded before-only/after-only participants. Secondary competency paired changes were **−1** and **+2** respectively. The sign contrast is computed from supplied values, not measured learning or causation. No timing, savings or universal accuracy claim.
+- All originals conserved, no duplicate approved cells, full roster present including neither-wave cells. Each transition matrix total equals its matched denominator. Changed source meaning changes neural labels, matched cohort and downstream results. Instruction-like/unrelated text remains inert and can get an unsuitable nearest match; a human hold excludes it without deleting evidence.
+- **1,000 independent randomized map-based panel oracles** checked directional counts, matrix sums, paired/cross-sectional means, complete roster and approved source conservation. Parser/review guards checked separately (`core-validation.json`).
+- Actual browser downloads parsed independently by Python `csv.DictReader`/`json`: both fixtures, maximum batch and reviewed artifacts. All observation IDs, original texts, reviewed identities/waves/levels, multiline notes, CSV formula-prefix protection and full pair rosters survived. Markdown and clipboard include current edited source-linked results. Missing null/blank remains distinct from numeric zero. Holds/undo and duplicate/invalid-level blocking exercised. JSON import restores originals and fresh review, not old approval.
+- Maximum: **96 observations, eight competencies, 24 people, 104 embedded texts / 26 neural batches**, 192 full-roster cells, 48 matched pairs; complete audit reimport passed.
+- Online model load followed by **offline fresh-worker real inference in the already-open warmed page** passed. No offline reload/navigation claim. No model requests before explicit load. Observed requests were GET/HEAD only, no bodies or supplied content in URLs (`browser-validation.json`). Built text asset credential-pattern scan found no matches; code integration inspection found no keys, analytics or provider calls. A scan alone is not a proof of all possible secret patterns.
+- Empty/malformed/oversized JSON, duplicated IDs, unknown person/wave, invalid level/threshold/text size, unsupported/oversized imports: rejected. Network/model download abort, worker-source failure, unavailable WASM/module worker, malformed vector/result envelope, runtime worker error and forced timeout: actionable errors, no fabricated output. Fault injection used only for defensive tests, never to establish successful AI.
+- Cold-download cancellation followed by real retry passed. Cancel/edit during runs invalidates results. Separate delayed-import, delayed-worker-source and deliberately late old-worker result tests verified that old work cannot replace newer input or a completed newer run. These synthetic race tests complement actual cancel/retry.
+- Desktop 1440 px and narrow 390/320 px: no horizontal overflow, including expanded transition tables; input labels, visible keyboard focus and ≥44 px button targets. Normal viewport overview/review/results screenshots captured; overview and narrow results visually inspected. Physical mobile hardware and non-Chrome browsers unverified.
+
+## Publication
+
+Combined-site and public checks are recorded after assembly/deployment; do not infer public success from this local section. Runtime and model source, privacy, assumptions and limitations are documented in README. Shared AI assets must remain immutable. The original daily_app tree was not modified.
+
+## Combined assembly checks
+
+- Root predeploy passed after its existing conservative size guard correctly rejected the initial oversized assembly. Guard unchanged: **1,000,000,000 bytes**. Final assembly: **999,680,678 bytes**.
+- Additional deploy-only byte-identical geometry WASM reuse: `20261028-7` → immutable `20261028-24`. Source dist trees and compatibility JS URLs preserved; query-versioned references prevent stale shell/worker caches. SHA/size proof in `legacy-sharing-audit.json`.
+- Actual affected older app: default generation, PNG import, binary STL import with unit confirmation; three distinct downloaded meshes passed existing independent STL validation and preview/export fingerprints. Shared runtime request observed; no page errors.
+- All inline gallery scripts compiled with Node `new Function`; new ai-utility entry exactly once; **747 prior objects preserved**, **748 rendered cards**, AI Utilities first and all older categories/search intact. Desktop/narrow gallery checked.
+- All app/runtime build bytes matched assembled paths and runtime dependency hashes. Full assembled production-bundle real-AI workflow suite passed again, including max batching, reviewed downloads, request privacy and fresh-worker offline inference (`assembled-browser-validation.json`).
+
+## Verified public release
+
+Matching Pages commit `0b1800e76897f30680ee34bbf1be1f702b3ded35` reached **built**; workflow `44685883294` completed **successfully**. Nine public gallery/app/worker/factory/WASM files matched assembled bytes. Four affected legacy shell/worker/shared-WASM files also matched. The full live-URL browser suite passed with real MiniLM, both 8/8 fixture link sets, maximum batching, edited exports, privacy, cancellation/retry and warmed-page offline fresh-worker inference. Independent downloaded-artifact parsing passed again. The live gallery retained 748 cards and older categories. The affected older app passed real default/PNG/STL flows with three distinct validated STL downloads. See public reports and publication-status.json. No digest sent.

@@ -1,0 +1,195 @@
+{
+  "schema": "cue-harbor/v1",
+  "originalInput": {
+    "context": "Synthetic facilitator rehearsal. Each fragment represents at most one cue. Cue order is required; missing cues remain visible.",
+    "minimumSimilarity": 0.3,
+    "cues": [
+      {
+        "id": "welcome",
+        "text": "Welcome participants to the paper boat workshop and introduce the learning goal."
+      },
+      {
+        "id": "demo",
+        "text": "Demonstrate how to fold the paper into a small boat."
+      },
+      {
+        "id": "practice",
+        "text": "Let participants practice folding their own paper boats."
+      },
+      {
+        "id": "feedback",
+        "text": "Ask participants to share feedback about the workshop."
+      }
+    ],
+    "records": [
+      {
+        "id": "w1",
+        "text": "Welcome everyone to our workshop. Today we will learn to make origami paper boats."
+      },
+      {
+        "id": "w2",
+        "text": "Watch my hands while I show you how to crease this sheet into a boat."
+      },
+      {
+        "id": "w3",
+        "text": "Now take your own sheet and try making the folds yourself."
+      },
+      {
+        "id": "w4",
+        "text": "Please share your feedback on this workshop and tell us how we can improve the session."
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "w1",
+      "selected": "welcome",
+      "baseline": "practice",
+      "rank": [
+        {
+          "cue": "practice",
+          "score": 0.7310658025762622
+        },
+        {
+          "cue": "demo",
+          "score": 0.708271590047043
+        },
+        {
+          "cue": "welcome",
+          "score": 0.582831833331765
+        },
+        {
+          "cue": "feedback",
+          "score": 0.21198507743819117
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "w2",
+      "selected": "demo",
+      "baseline": "demo",
+      "rank": [
+        {
+          "cue": "demo",
+          "score": 0.693291354789908
+        },
+        {
+          "cue": "practice",
+          "score": 0.5544065102398738
+        },
+        {
+          "cue": "welcome",
+          "score": 0.4053735422024902
+        },
+        {
+          "cue": "feedback",
+          "score": 0.08998498296525402
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "w3",
+      "selected": "practice",
+      "baseline": "demo",
+      "rank": [
+        {
+          "cue": "demo",
+          "score": 0.5153745392417732
+        },
+        {
+          "cue": "practice",
+          "score": 0.49271330182094186
+        },
+        {
+          "cue": "welcome",
+          "score": 0.22821031431079086
+        },
+        {
+          "cue": "feedback",
+          "score": 0.16661896128270517
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "w4",
+      "selected": "feedback",
+      "baseline": "feedback",
+      "rank": [
+        {
+          "cue": "feedback",
+          "score": 0.718571330686409
+        },
+        {
+          "cue": "welcome",
+          "score": 0.3879466625866449
+        },
+        {
+          "cue": "practice",
+          "score": 0.20337928698270466
+        },
+        {
+          "cue": "demo",
+          "score": 0.07872822456017749
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "matched": 4,
+  "unmatched": 0,
+  "missingCues": 0,
+  "coverage": [
+    {
+      "id": "welcome",
+      "text": "Welcome participants to the paper boat workshop and introduce the learning goal.",
+      "order": 1,
+      "recordId": "w1",
+      "status": "reviewed link",
+      "note": ""
+    },
+    {
+      "id": "demo",
+      "text": "Demonstrate how to fold the paper into a small boat.",
+      "order": 2,
+      "recordId": "w2",
+      "status": "reviewed link",
+      "note": ""
+    },
+    {
+      "id": "practice",
+      "text": "Let participants practice folding their own paper boats.",
+      "order": 3,
+      "recordId": "w3",
+      "status": "reviewed link",
+      "note": ""
+    },
+    {
+      "id": "feedback",
+      "text": "Ask participants to share feedback about the workshop.",
+      "order": 4,
+      "recordId": "w4",
+      "status": "reviewed link",
+      "note": ""
+    }
+  ],
+  "baseline": {
+    "matched": 4,
+    "duplicates": 1,
+    "reversals": 2
+  },
+  "reviewedViolations": {
+    "duplicates": 0,
+    "reversals": 0
+  },
+  "warning": "Rehearsal worksheet only, not proof that a cue was spoken correctly or understood. Supplied text is manually segmented: at most one fragment per cue and one cue per fragment. Neural semantic similarity is not entailment or confidence; negation and repeated wording can mislink. Exact dynamic programming maximizes sum(cosine-floor) with optional skips and strict increasing cue positions; it may omit a semantically valid fragment to preserve order. Independent nearest-cue baseline uses the same approved fragments and original scores; its duplicates/reversals are pair counts, not accuracy. Holds remain in the audit and can conceal missing evidence. No audio transcription, sending or execution."
+}

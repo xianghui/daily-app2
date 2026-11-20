@@ -1593,3 +1593,12 @@ Lag Loom public release: matching Pages `192885ea27e22cf8e71df852791fa1d922296f9
 Local MiniLM multi-topic coding for segmented feedback. Review every topic set or hold, compare topic/co-occurrence counts with single-label triage and export complete source-linked JSON/CSV/Markdown without uploads. Two small synthetic fixtures matched ten supplied segment topic keys; this is not general accuracy. Reuses the audited immutable worker/factory from `20261115-6` and WASM from `20261107-2`; preserve these assets. See [workflow](20261121-4/README.md) and [observed checks](20261121-4/VALIDATION.md).
 
 Facet Ledger public release: matching Pages `b9773a6ef0de2b065070e2d85d758929fd1e7fb4` reached built. Byte-matched public app/runtime assets, both real-AI fixtures, reviewed artifacts, offline fresh-worker inference and the preserved 761-entry gallery passed. Source commit excludes unrelated pre-existing work.
+
+
+## Cue Harbor — 20261121-5
+
+Real local MiniLM aligns rehearsal fragments to an ordered cue run sheet with exact monotone partial matching. Review every link or hold, compare duplicate/reversed pairs against independent nearest cues and export complete JSON/CSV/Markdown evidence and gap worksheets without uploads. Revised small fixtures matched eight supplied keys; vague wording and negation failures are documented, so human review is mandatory. Preserve immutable worker/factory `20261115-6` and WASM `20261107-2`. See [workflow/privacy](20261121-5/README.md) and [observed validation](20261121-5/VALIDATION.md). No audio capture, external actions or digest.
+
+Cue Harbor collection-size maintenance extends existing deploy-only byte-identical Manifold sharing to `20261028-16` → immutable `20261028-24`, preserving source builds and compatibility JS paths. Actual worker, PNG/STL import and closed-mesh exports passed on the assembled site; the 1 GB guard is unchanged.
+
+Cue Harbor public release: matching Pages `4b6e99cda8e7762147dda4d267a99b60a46c031b` and workflow `44809044780` succeeded on the first deployment. Nine public app/gallery/AI asset byte matches, five affected legacy matches, both real-AI fixtures, complete reviewed-artifact/offline/max-batch checks, all 762 gallery cards and legacy PNG/STL/mesh workflows passed. Combined site 999564228 bytes; unchanged 1 GB guard. Unrelated pre-existing recovery work is preserved and excluded from source staging. No digest sent.

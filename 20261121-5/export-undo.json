@@ -1,0 +1,195 @@
+{
+  "schema": "cue-harbor/v1",
+  "originalInput": {
+    "context": "Synthetic tour rehearsal. Compare ordered cue coverage against independent nearest-cue retrieval.",
+    "minimumSimilarity": 0.3,
+    "cues": [
+      {
+        "id": "entry",
+        "text": "Welcome visitors at the museum entrance and introduce the guided tour."
+      },
+      {
+        "id": "painting",
+        "text": "Describe the landscape painting and the artist who painted it."
+      },
+      {
+        "id": "sculpture",
+        "text": "Explain the bronze sculpture and its casting technique."
+      },
+      {
+        "id": "exit",
+        "text": "End the tour by directing visitors to the gift shop and exit."
+      }
+    ],
+    "records": [
+      {
+        "id": "m1",
+        "text": "Welcome to the museum! I will be your guide today."
+      },
+      {
+        "id": "m2",
+        "text": "This countryside canvas was painted by a local landscape artist."
+      },
+      {
+        "id": "m3",
+        "text": "The statue was made by pouring molten bronze into a mold."
+      },
+      {
+        "id": "m4",
+        "text": "Our visit is over. You can leave through the souvenir store on your right."
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "m1",
+      "selected": "entry",
+      "baseline": "entry",
+      "rank": [
+        {
+          "cue": "entry",
+          "score": 0.6417627273190364
+        },
+        {
+          "cue": "exit",
+          "score": 0.3155879714735004
+        },
+        {
+          "cue": "painting",
+          "score": 0.1788430014576324
+        },
+        {
+          "cue": "sculpture",
+          "score": 0.14579676322293444
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"reviewed\", with newline"
+    },
+    {
+      "id": "m2",
+      "selected": "painting",
+      "baseline": "painting",
+      "rank": [
+        {
+          "cue": "painting",
+          "score": 0.7034269579470689
+        },
+        {
+          "cue": "sculpture",
+          "score": 0.2096888845401702
+        },
+        {
+          "cue": "exit",
+          "score": 0.10879272423431516
+        },
+        {
+          "cue": "entry",
+          "score": 0.09181698758129957
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "m3",
+      "selected": "sculpture",
+      "baseline": "sculpture",
+      "rank": [
+        {
+          "cue": "sculpture",
+          "score": 0.6810116135882968
+        },
+        {
+          "cue": "painting",
+          "score": 0.28400047162131237
+        },
+        {
+          "cue": "entry",
+          "score": 0.05590623495273368
+        },
+        {
+          "cue": "exit",
+          "score": 0.030134675672122982
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "m4",
+      "selected": "exit",
+      "baseline": "exit",
+      "rank": [
+        {
+          "cue": "exit",
+          "score": 0.5036074078570907
+        },
+        {
+          "cue": "entry",
+          "score": 0.3426186653434247
+        },
+        {
+          "cue": "painting",
+          "score": 0.08022579414610422
+        },
+        {
+          "cue": "sculpture",
+          "score": 0.00696064697852067
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "matched": 4,
+  "unmatched": 0,
+  "missingCues": 0,
+  "coverage": [
+    {
+      "id": "entry",
+      "text": "Welcome visitors at the museum entrance and introduce the guided tour.",
+      "order": 1,
+      "recordId": "m1",
+      "status": "reviewed link",
+      "note": "=SUM(1,2)\n\"reviewed\", with newline"
+    },
+    {
+      "id": "painting",
+      "text": "Describe the landscape painting and the artist who painted it.",
+      "order": 2,
+      "recordId": "m2",
+      "status": "reviewed link",
+      "note": ""
+    },
+    {
+      "id": "sculpture",
+      "text": "Explain the bronze sculpture and its casting technique.",
+      "order": 3,
+      "recordId": "m3",
+      "status": "reviewed link",
+      "note": ""
+    },
+    {
+      "id": "exit",
+      "text": "End the tour by directing visitors to the gift shop and exit.",
+      "order": 4,
+      "recordId": "m4",
+      "status": "reviewed link",
+      "note": ""
+    }
+  ],
+  "baseline": {
+    "matched": 4,
+    "duplicates": 0,
+    "reversals": 0
+  },
+  "reviewedViolations": {
+    "duplicates": 0,
+    "reversals": 0
+  },
+  "warning": "Rehearsal worksheet only, not proof that a cue was spoken correctly or understood. Supplied text is manually segmented: at most one fragment per cue and one cue per fragment. Neural semantic similarity is not entailment or confidence; negation and repeated wording can mislink. Exact dynamic programming maximizes sum(cosine-floor) with optional skips and strict increasing cue positions; it may omit a semantically valid fragment to preserve order. Independent nearest-cue baseline uses the same approved fragments and original scores; its duplicates/reversals are pair counts, not accuracy. Holds remain in the audit and can conceal missing evidence. No audio transcription, sending or execution."
+}

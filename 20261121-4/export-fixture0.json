@@ -1,0 +1,238 @@
+{
+  "schema": "facet-ledger/v1",
+  "originalInput": {
+    "context": "Synthetic shop feedback. Each segment contains one concern; code all concerns, not only the first.",
+    "minimumSimilarity": 0.3,
+    "topics": [
+      {
+        "id": "shipping",
+        "description": "Shipping delivery parcels arriving late or on time"
+      },
+      {
+        "id": "packaging",
+        "description": "Packaging boxes wrapping protection damage to the package"
+      },
+      {
+        "id": "support",
+        "description": "Customer service helpful support agents answering questions"
+      }
+    ],
+    "records": [
+      {
+        "id": "c1",
+        "segments": [
+          "My parcel arrived three days late.",
+          "The cardboard box was crushed and the wrapping torn."
+        ]
+      },
+      {
+        "id": "c2",
+        "segments": [
+          "The support agent answered my question politely and was very helpful.",
+          "Delivery arrived right on schedule."
+        ]
+      },
+      {
+        "id": "c3",
+        "segments": [
+          "The packaging protected everything with thick bubble wrap."
+        ]
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "c1",
+      "selected": [
+        "shipping",
+        "packaging"
+      ],
+      "baseline": "shipping",
+      "evidence": [
+        {
+          "index": 0,
+          "text": "My parcel arrived three days late.",
+          "rank": [
+            {
+              "topic": "shipping",
+              "score": 0.7308830432252676
+            },
+            {
+              "topic": "packaging",
+              "score": 0.32529709387790073
+            },
+            {
+              "topic": "support",
+              "score": 0.09360264949428732
+            }
+          ],
+          "suggested": "shipping"
+        },
+        {
+          "index": 1,
+          "text": "The cardboard box was crushed and the wrapping torn.",
+          "rank": [
+            {
+              "topic": "packaging",
+              "score": 0.6542147397513721
+            },
+            {
+              "topic": "shipping",
+              "score": 0.17208753932604626
+            },
+            {
+              "topic": "support",
+              "score": 0.024737380843655378
+            }
+          ],
+          "suggested": "packaging"
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "c2",
+      "selected": [
+        "support",
+        "shipping"
+      ],
+      "baseline": "support",
+      "evidence": [
+        {
+          "index": 0,
+          "text": "The support agent answered my question politely and was very helpful.",
+          "rank": [
+            {
+              "topic": "support",
+              "score": 0.6713803315720628
+            },
+            {
+              "topic": "packaging",
+              "score": 0.11877458535399067
+            },
+            {
+              "topic": "shipping",
+              "score": 0.04982792979728712
+            }
+          ],
+          "suggested": "support"
+        },
+        {
+          "index": 1,
+          "text": "Delivery arrived right on schedule.",
+          "rank": [
+            {
+              "topic": "shipping",
+              "score": 0.5895899795108035
+            },
+            {
+              "topic": "packaging",
+              "score": 0.20144019666525226
+            },
+            {
+              "topic": "support",
+              "score": 0.16623658105447456
+            }
+          ],
+          "suggested": "shipping"
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "c3",
+      "selected": [
+        "packaging"
+      ],
+      "baseline": "packaging",
+      "evidence": [
+        {
+          "index": 0,
+          "text": "The packaging protected everything with thick bubble wrap.",
+          "rank": [
+            {
+              "topic": "packaging",
+              "score": 0.7467300934634493
+            },
+            {
+              "topic": "shipping",
+              "score": 0.12797474490202695
+            },
+            {
+              "topic": "support",
+              "score": 0.010418411225652773
+            }
+          ],
+          "suggested": "packaging"
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 3,
+  "approved": 3,
+  "held": 0,
+  "uncoded": 0,
+  "assignments": 5,
+  "baselineAssignments": 3,
+  "multiTopicComments": 2,
+  "counts": [
+    {
+      "id": "shipping",
+      "description": "Shipping delivery parcels arriving late or on time",
+      "count": 2,
+      "baselineCount": 1,
+      "recordIds": [
+        "c1",
+        "c2"
+      ]
+    },
+    {
+      "id": "packaging",
+      "description": "Packaging boxes wrapping protection damage to the package",
+      "count": 2,
+      "baselineCount": 1,
+      "recordIds": [
+        "c1",
+        "c3"
+      ]
+    },
+    {
+      "id": "support",
+      "description": "Customer service helpful support agents answering questions",
+      "count": 1,
+      "baselineCount": 1,
+      "recordIds": [
+        "c2"
+      ]
+    }
+  ],
+  "pairs": [
+    {
+      "a": "shipping",
+      "b": "packaging",
+      "count": 1,
+      "recordIds": [
+        "c1"
+      ]
+    },
+    {
+      "a": "shipping",
+      "b": "support",
+      "count": 1,
+      "recordIds": [
+        "c2"
+      ]
+    },
+    {
+      "a": "packaging",
+      "b": "support",
+      "count": 0,
+      "recordIds": []
+    }
+  ],
+  "warning": "Descriptive coding worksheet, not calibrated classification or population prevalence. One nearest topic per supplied segment above a cosine floor; a segment may contain missed secondary issues. Similarity can fail on negation, sarcasm, overlap and unfamiliar language. Review every label. Counts include approved comments only, each at most once per topic or pair. Topic counts can sum above approved comments. Baseline keeps only the highest-scoring segment winner per approved comment; extra assignments are coverage counts, not proven accuracy or improvement. Holds are excluded and originals preserved. No external actions."
+}

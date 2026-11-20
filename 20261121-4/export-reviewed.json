@@ -1,0 +1,238 @@
+{
+  "schema": "facet-ledger/v1",
+  "originalInput": {
+    "context": "Synthetic library comments. Separate access, study conditions and book availability.",
+    "minimumSimilarity": 0.3,
+    "topics": [
+      {
+        "id": "hours",
+        "description": "Library opening hours evening access weekend opening times"
+      },
+      {
+        "id": "noise",
+        "description": "Quiet study spaces noise loud conversations disturbing concentration"
+      },
+      {
+        "id": "collection",
+        "description": "Library books collection titles availability borrowing catalog"
+      }
+    ],
+    "records": [
+      {
+        "id": "l1",
+        "segments": [
+          "Please keep the library open later in the evening.",
+          "Loud conversations make it impossible to concentrate in the study room."
+        ]
+      },
+      {
+        "id": "l2",
+        "segments": [
+          "The catalog has none of the books I need to borrow.",
+          "Weekend opening times are too short."
+        ]
+      },
+      {
+        "id": "l3",
+        "segments": [
+          "I need a quiet place to study without people talking loudly."
+        ]
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "l1",
+      "selected": [
+        "hours",
+        "noise"
+      ],
+      "baseline": "noise",
+      "evidence": [
+        {
+          "index": 0,
+          "text": "Please keep the library open later in the evening.",
+          "rank": [
+            {
+              "topic": "hours",
+              "score": 0.5428166654261459
+            },
+            {
+              "topic": "collection",
+              "score": 0.3886439719295571
+            },
+            {
+              "topic": "noise",
+              "score": 0.20125005582558744
+            }
+          ],
+          "suggested": "hours"
+        },
+        {
+          "index": 1,
+          "text": "Loud conversations make it impossible to concentrate in the study room.",
+          "rank": [
+            {
+              "topic": "noise",
+              "score": 0.7612204905369984
+            },
+            {
+              "topic": "hours",
+              "score": 0.07288782214747147
+            },
+            {
+              "topic": "collection",
+              "score": -0.004341437059859369
+            }
+          ],
+          "suggested": "noise"
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"reviewed\", with newline"
+    },
+    {
+      "id": "l2",
+      "selected": [
+        "collection",
+        "hours"
+      ],
+      "baseline": "collection",
+      "evidence": [
+        {
+          "index": 0,
+          "text": "The catalog has none of the books I need to borrow.",
+          "rank": [
+            {
+              "topic": "collection",
+              "score": 0.6618764754186524
+            },
+            {
+              "topic": "hours",
+              "score": 0.2078691177095982
+            },
+            {
+              "topic": "noise",
+              "score": 0.0646310205664291
+            }
+          ],
+          "suggested": "collection"
+        },
+        {
+          "index": 1,
+          "text": "Weekend opening times are too short.",
+          "rank": [
+            {
+              "topic": "hours",
+              "score": 0.619337596986039
+            },
+            {
+              "topic": "collection",
+              "score": 0.10230071869254934
+            },
+            {
+              "topic": "noise",
+              "score": 0.08500903413234767
+            }
+          ],
+          "suggested": "hours"
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    },
+    {
+      "id": "l3",
+      "selected": [
+        "noise"
+      ],
+      "baseline": "noise",
+      "evidence": [
+        {
+          "index": 0,
+          "text": "I need a quiet place to study without people talking loudly.",
+          "rank": [
+            {
+              "topic": "noise",
+              "score": 0.6458607645260184
+            },
+            {
+              "topic": "hours",
+              "score": 0.22512903012414442
+            },
+            {
+              "topic": "collection",
+              "score": 0.06406930485872823
+            }
+          ],
+          "suggested": "noise"
+        }
+      ],
+      "decision": "approve",
+      "reviewNote": ""
+    }
+  ],
+  "total": 3,
+  "approved": 3,
+  "held": 0,
+  "uncoded": 0,
+  "assignments": 5,
+  "baselineAssignments": 3,
+  "multiTopicComments": 2,
+  "counts": [
+    {
+      "id": "hours",
+      "description": "Library opening hours evening access weekend opening times",
+      "count": 2,
+      "baselineCount": 0,
+      "recordIds": [
+        "l1",
+        "l2"
+      ]
+    },
+    {
+      "id": "noise",
+      "description": "Quiet study spaces noise loud conversations disturbing concentration",
+      "count": 2,
+      "baselineCount": 2,
+      "recordIds": [
+        "l1",
+        "l3"
+      ]
+    },
+    {
+      "id": "collection",
+      "description": "Library books collection titles availability borrowing catalog",
+      "count": 1,
+      "baselineCount": 1,
+      "recordIds": [
+        "l2"
+      ]
+    }
+  ],
+  "pairs": [
+    {
+      "a": "hours",
+      "b": "noise",
+      "count": 1,
+      "recordIds": [
+        "l1"
+      ]
+    },
+    {
+      "a": "hours",
+      "b": "collection",
+      "count": 1,
+      "recordIds": [
+        "l2"
+      ]
+    },
+    {
+      "a": "noise",
+      "b": "collection",
+      "count": 0,
+      "recordIds": []
+    }
+  ],
+  "warning": "Descriptive coding worksheet, not calibrated classification or population prevalence. One nearest topic per supplied segment above a cosine floor; a segment may contain missed secondary issues. Similarity can fail on negation, sarcasm, overlap and unfamiliar language. Review every label. Counts include approved comments only, each at most once per topic or pair. Topic counts can sum above approved comments. Baseline keeps only the highest-scoring segment winner per approved comment; extra assignments are coverage counts, not proven accuracy or improvement. Holds are excluded and originals preserved. No external actions."
+}

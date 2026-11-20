@@ -1586,3 +1586,10 @@ Real local MiniLM reconciles informal sampled-signal names before mandatory chan
 Lag Loom collection-size maintenance extends existing deploy-only byte-identical geometry WASM sharing to Glide & Slot (`20261028-1`) → immutable `20261028-24`, preserving source builds and compatibility JS URLs. Real default/PNG/STL export checks are recorded locally and publicly. The conservative 1 GB guard is unchanged.
 
 Lag Loom public release: matching Pages `192885ea27e22cf8e71df852791fa1d922296f98` and workflow `44790587846` succeeded. Nine public asset byte matches, both real neural fixtures, reviewed artifact/offline/max-dimension checks, all 760 gallery cards and affected legacy PNG/STL/mesh workflows passed. Combined size 999,592,393 bytes; unchanged guard. Unrelated pre-existing recovery work is preserved and excluded from staging. No digest sent.
+
+
+## Facet Ledger — 20261121-4
+
+Local MiniLM multi-topic coding for segmented feedback. Review every topic set or hold, compare topic/co-occurrence counts with single-label triage and export complete source-linked JSON/CSV/Markdown without uploads. Two small synthetic fixtures matched ten supplied segment topic keys; this is not general accuracy. Reuses the audited immutable worker/factory from `20261115-6` and WASM from `20261107-2`; preserve these assets. See [workflow](20261121-4/README.md) and [observed checks](20261121-4/VALIDATION.md).
+
+Facet Ledger public release: matching Pages `b9773a6ef0de2b065070e2d85d758929fd1e7fb4` reached built. Byte-matched public app/runtime assets, both real-AI fixtures, reviewed artifacts, offline fresh-worker inference and the preserved 761-entry gallery passed. Source commit excludes unrelated pre-existing work.

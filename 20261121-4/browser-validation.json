@@ -1,0 +1,259 @@
+{
+  "fixtures": [
+    {
+      "name": "Delivery feedback",
+      "predictions": [
+        [
+          "shipping",
+          "packaging"
+        ],
+        [
+          "support",
+          "shipping"
+        ],
+        [
+          "packaging"
+        ]
+      ],
+      "knownSegmentsCorrect": 5,
+      "knownSegments": 5,
+      "assignments": 5,
+      "singleLabelBaseline": 3,
+      "pairs": [
+        {
+          "a": "shipping",
+          "b": "packaging",
+          "count": 1,
+          "recordIds": [
+            "c1"
+          ]
+        },
+        {
+          "a": "shipping",
+          "b": "support",
+          "count": 1,
+          "recordIds": [
+            "c2"
+          ]
+        },
+        {
+          "a": "packaging",
+          "b": "support",
+          "count": 0,
+          "recordIds": []
+        }
+      ]
+    },
+    {
+      "name": "Library feedback",
+      "predictions": [
+        [
+          "hours",
+          "noise"
+        ],
+        [
+          "collection",
+          "hours"
+        ],
+        [
+          "noise"
+        ]
+      ],
+      "knownSegmentsCorrect": 5,
+      "knownSegments": 5,
+      "assignments": 5,
+      "singleLabelBaseline": 3,
+      "pairs": [
+        {
+          "a": "hours",
+          "b": "noise",
+          "count": 1,
+          "recordIds": [
+            "l1"
+          ]
+        },
+        {
+          "a": "hours",
+          "b": "collection",
+          "count": 1,
+          "recordIds": [
+            "l2"
+          ]
+        },
+        {
+          "a": "noise",
+          "b": "collection",
+          "count": 0,
+          "recordIds": []
+        }
+      ]
+    }
+  ],
+  "checks": [
+    "mandatory review; multiline notes; clipboard; edit invalidation; label rejection; undo; holds conserved; audit originals reimport; fully offline fresh-worker real inference in warmed page",
+    "empty/malformed/over-limit source; bad numeric types; unsupported/oversized files; cancel + real retry",
+    "same IDs with changed text change real neural labels and applied counts",
+    "24 records / 96 segments / 8 topics; 104-text 26-chunk real inference; export/reimport conserved",
+    "real inference with strict floor leaves unmatched comments uncoded, no forced labels",
+    "1440/390/320 widths; no overflow; labeled forms; >=44px buttons; focus/screenshots"
+  ],
+  "challenge": {
+    "text": "Noise is not a problem; no loud conversations disturb my study.",
+    "selected": [
+      "noise"
+    ],
+    "limitation": "Topic coding is not sentiment or negation entailment."
+  },
+  "network": {
+    "count": 61,
+    "hosts": [
+      "127.0.0.1",
+      "huggingface.co",
+      "us.aws.cdn.hf.co"
+    ],
+    "allGETNoBody": true,
+    "noModelBeforeExplicitLoad": true,
+    "requests": [
+      {
+        "host": "127.0.0.1:7094",
+        "path": "/daily-app2/20261121-4/",
+        "queryKeys": []
+      },
+      {
+        "host": "127.0.0.1:7094",
+        "path": "/daily-app2/20261121-4/assets/index-BjhoGV76.js",
+        "queryKeys": []
+      },
+      {
+        "host": "127.0.0.1:7094",
+        "path": "/daily-app2/20261121-4/assets/index-Cmg-TWJy.css",
+        "queryKeys": []
+      },
+      {
+        "host": "127.0.0.1:7094",
+        "path": "/daily-app2/20261121-4/favicon.svg",
+        "queryKeys": []
+      },
+      {
+        "host": "127.0.0.1:7094",
+        "path": "/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+        "queryKeys": []
+      },
+      {
+        "host": "127.0.0.1:7094",
+        "path": "/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+        "queryKeys": []
+      },
+      {
+        "host": "127.0.0.1:7094",
+        "path": "/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+        "queryKeys": []
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "queryKeys": []
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+        "queryKeys": [
+          "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+          "etag"
+        ]
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "queryKeys": []
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+        "queryKeys": [
+          "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+          "etag"
+        ]
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+        "queryKeys": []
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "queryKeys": []
+      },
+      {
+        "host": "us.aws.cdn.hf.co",
+        "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+        "queryKeys": [
+          "xip",
+          "X-Xet-Cas-Uid",
+          "response-content-disposition",
+          "user_id",
+          "Expires",
+          "Policy",
+          "Signature",
+          "Key-Pair-Id",
+          "Hash-Algorithm"
+        ]
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+        "queryKeys": [
+          "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+          "etag"
+        ]
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "queryKeys": []
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "queryKeys": []
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+        "queryKeys": []
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+        "queryKeys": [
+          "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+          "etag"
+        ]
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+        "queryKeys": [
+          "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+          "etag"
+        ]
+      },
+      {
+        "host": "us.aws.cdn.hf.co",
+        "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+        "queryKeys": [
+          "X-Xet-Cas-Uid",
+          "xip",
+          "response-content-disposition",
+          "user_id",
+          "Expires",
+          "Policy",
+          "Signature",
+          "Key-Pair-Id",
+          "Hash-Algorithm"
+        ]
+      }
+    ]
+  }
+}

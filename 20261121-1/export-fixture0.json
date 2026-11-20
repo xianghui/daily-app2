@@ -1,0 +1,231 @@
+{
+  "schema": "pairblock-studio/v1",
+  "originalInput": {
+    "context": "Synthetic workshop: compare two instruction formats, pairing similar baseline task experience. No real participant information.",
+    "seed": 417,
+    "maxSkillGap": 2,
+    "skillWeight": 0.3,
+    "records": [
+      {
+        "id": "p1",
+        "profile": "Regularly builds spreadsheet formulas, pivot tables and financial reports",
+        "skill": 4
+      },
+      {
+        "id": "p2",
+        "profile": "Designs vector illustrations, logos and print layouts in graphics software",
+        "skill": 5
+      },
+      {
+        "id": "p3",
+        "profile": "Writes Python scripts for data processing and automated software tests",
+        "skill": 6
+      },
+      {
+        "id": "p4",
+        "profile": "Uses spreadsheets daily for financial analysis, formulas and pivot reports",
+        "skill": 4
+      },
+      {
+        "id": "p5",
+        "profile": "Develops Python automation scripts and automated data-processing tests",
+        "skill": 6
+      },
+      {
+        "id": "p6",
+        "profile": "Creates vector logos, graphic illustrations and page layouts for printing",
+        "skill": 5
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "p1",
+      "pair": "pair1",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        1,
+        0.17759170046839898,
+        0.29770969214181053,
+        0.8160552506506148,
+        0.30567504789630445,
+        0.17886024597182887
+      ]
+    },
+    {
+      "id": "p2",
+      "pair": "pair2",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        0.17759170046839898,
+        0.9999998955580655,
+        0.02656409085805265,
+        0.12799288118053986,
+        0.028725221944156873,
+        0.8572116359347282
+      ]
+    },
+    {
+      "id": "p3",
+      "pair": "pair3",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        0.29770969214181053,
+        0.02656409085805265,
+        0.9999996642655229,
+        0.2124028419884625,
+        0.8735234179447028,
+        0.06113423156755941
+      ]
+    },
+    {
+      "id": "p4",
+      "pair": "pair1",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        0.8160552506506148,
+        0.12799288118053986,
+        0.2124028419884625,
+        0.9999999102197915,
+        0.20005921764662693,
+        0.10984616178734681
+      ]
+    },
+    {
+      "id": "p5",
+      "pair": "pair3",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        0.30567504789630445,
+        0.028725221944156873,
+        0.8735234179447028,
+        0.20005921764662693,
+        1,
+        0.061760627420578695
+      ]
+    },
+    {
+      "id": "p6",
+      "pair": "pair2",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        0.17886024597182887,
+        0.8572116359347282,
+        0.06113423156755941,
+        0.10984616178734681,
+        0.061760627420578695,
+        1
+      ]
+    }
+  ],
+  "total": 6,
+  "approved": 6,
+  "held": 0,
+  "pairs": [
+    {
+      "pair": "pair1",
+      "indices": [
+        0,
+        3
+      ],
+      "members": [
+        "p1",
+        "p4"
+      ],
+      "gap": 0,
+      "cosine": 0.8160552506506148,
+      "cost": 0.1839447493493852,
+      "allowed": true
+    },
+    {
+      "pair": "pair2",
+      "indices": [
+        1,
+        5
+      ],
+      "members": [
+        "p2",
+        "p6"
+      ],
+      "gap": 0,
+      "cosine": 0.8572116359347282,
+      "cost": 0.14278836406527184,
+      "allowed": true
+    },
+    {
+      "pair": "pair3",
+      "indices": [
+        2,
+        4
+      ],
+      "members": [
+        "p3",
+        "p5"
+      ],
+      "gap": 0,
+      "cosine": 0.8735234179447028,
+      "cost": 0.12647658205529722,
+      "allowed": true
+    }
+  ],
+  "assignments": [
+    {
+      "id": "p1",
+      "pair": "pair1",
+      "arm": "B",
+      "skill": 4
+    },
+    {
+      "id": "p4",
+      "pair": "pair1",
+      "arm": "A",
+      "skill": 4
+    },
+    {
+      "id": "p2",
+      "pair": "pair2",
+      "arm": "A",
+      "skill": 5
+    },
+    {
+      "id": "p6",
+      "pair": "pair2",
+      "arm": "B",
+      "skill": 5
+    },
+    {
+      "id": "p3",
+      "pair": "pair3",
+      "arm": "A",
+      "skill": 6
+    },
+    {
+      "id": "p5",
+      "pair": "pair3",
+      "arm": "B",
+      "skill": 6
+    }
+  ],
+  "arms": [
+    {
+      "arm": "A",
+      "n": 3,
+      "meanSkill": 5
+    },
+    {
+      "arm": "B",
+      "n": 3,
+      "meanSkill": 5
+    }
+  ],
+  "totalCost": 0.45320969546995427,
+  "baselineCost": 2.6682448301225596,
+  "baselineViolations": 0,
+  "warning": "Exploratory matched-pair pilot worksheet, not a guarantee of comparable groups, fairness, causal validity or statistical power. Neural similarity can miss important covariates and confuses negation. Only supplied profiles and baseline skill inform pairing. Cost = 1 − cosine + skillWeight × absolute skill gap / 10. Minimum pairing is exact only for proposed pairs across all input records; human edits and holds may change the optimum. Source-order baseline uses the same approved roster. Xorshift32 gives reproducible non-cryptographic one-per-arm allocation, not secure concealed randomization. Freeze the seed before observing outcomes; do not search seeds for favorable results. Analyze outcomes as paired data with an appropriate prespecified plan. No contact or enrollment occurs."
+}

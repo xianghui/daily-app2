@@ -1483,3 +1483,11 @@ Real local MiniLM queue retrieval reconciles rough duration notes before mandato
 The existing 1 GB size guard remains unchanged. Deploy-only byte-identical geometry sharing extends to `20261028-8`, preserving its source build and compatibility JS URLs and using `20261028-24`'s existing immutable WASM. Its real image-import/worker/STL-export path is verified locally and publicly before release.
 
 Public release: matching Pages `fe1447cc64f1f7f8e276c982da2ba7653bb261d1` and workflow `44672492808` succeeded. Nine public app/runtime asset byte matches, full public real-model workflow/exports/privacy/offline/max-batch suite, 746-card gallery and affected legacy PNG/worker/STL path passed. Four legacy worker/shell/shared-WASM byte matches also passed. Combined site 999,691,441 bytes, below the unchanged guard. Unrelated pre-existing source edits/drafts are preserved and excluded from staging. No digest sent.
+
+
+## Replicate Commons — 20261120-14
+
+Real local MiniLM reconciles informal technical-repeat labels with independent specimen descriptions. Mandatory identity/value review feeds complete-roster equal-specimen means, a pooled-reading baseline, repeat-range rechecks and leave-one-unit-out sensitivity. Both tiny fixtures matched all 16 intended links; a negated label mislinked and remains a documented limitation. Complete JSON/CSV/specimen CSV/Markdown preserves originals, holds and missing units. No significance, causal or independence claims. Reuses immutable worker/factory from `20261115-6` and WASM from `20261107-2`; preserve them. Offline inference is tested only in an already-open warmed page. See [workflow/privacy](20261120-14/README.md) and [observed checks](20261120-14/VALIDATION.md). No digest sent.
+
+
+Replicate Commons public release: matching Pages `8de6080326e01347b7dcdb9d35e68be417145758` built with a successful workflow. Nine public byte matches, both real-AI fixtures, the full reviewed workflow/artifact/privacy/offline/max-batch suite and preserved 747-entry gallery passed. Combined site 999,956,174 bytes, below the unchanged guard; no additional legacy runtime rule was needed. Unrelated pre-existing work is preserved and excluded from staging. No digest sent.

@@ -1,0 +1,125 @@
+{
+  "schema": "power-reserve/v1",
+  "originalInput": {
+    "context": "Synthetic portable workshop. Constant-watt DC-equivalent loads; supplied measurements, not nameplate guesses.",
+    "voltage": 12,
+    "hoursRated": 20,
+    "exponent": 1.2,
+    "usableFraction": 0.8,
+    "capacityAh": 40,
+    "targetHours": 4,
+    "devices": [
+      {
+        "id": "light",
+        "description": "LED work lights illuminating a repair table",
+        "watts": 24
+      },
+      {
+        "id": "fan",
+        "description": "Portable ventilation fan circulating air at the workbench",
+        "watts": 60
+      }
+    ],
+    "records": [
+      {
+        "id": "r1",
+        "note": "Illuminate the repair table with the work lamps",
+        "start": 0,
+        "end": 4,
+        "units": 2
+      },
+      {
+        "id": "r2",
+        "note": "Circulate air using the portable ventilator",
+        "start": 1,
+        "end": 3,
+        "units": 1
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "r1",
+      "device": "light",
+      "start": 0,
+      "end": 4,
+      "units": 2,
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "device": "light",
+          "score": 0.7770139306663405
+        },
+        {
+          "device": "fan",
+          "score": 0.1617002026581651
+        }
+      ]
+    },
+    {
+      "id": "r2",
+      "device": "fan",
+      "start": 1,
+      "end": 3,
+      "units": 1,
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "device": "fan",
+          "score": 0.622196477051155
+        },
+        {
+          "device": "light",
+          "score": -0.17859950142113976
+        }
+      ]
+    }
+  ],
+  "total": 2,
+  "approved": 2,
+  "held": 0,
+  "segments": [
+    {
+      "start": 0,
+      "end": 1,
+      "watts": 48,
+      "amps": 4,
+      "records": [
+        "r1"
+      ],
+      "peukertDemand": 5.278031643091577
+    },
+    {
+      "start": 1,
+      "end": 3,
+      "watts": 108,
+      "amps": 9,
+      "records": [
+        "r1",
+        "r2"
+      ],
+      "peukertDemand": 27.93322033047647
+    },
+    {
+      "start": 3,
+      "end": 4,
+      "watts": 48,
+      "amps": 4,
+      "records": [
+        "r1"
+      ],
+      "peukertDemand": 5.278031643091577
+    }
+  ],
+  "wh": 312,
+  "ampHours": 26,
+  "requiredAh": 41.56360415206914,
+  "baselineAh": 32.5,
+  "consumedFraction": 0.837671688333683,
+  "passes": false,
+  "limitHour": 3.672048905007962,
+  "peakWatts": 108,
+  "warning": "Planning estimate only, not electrical design or a safety certificate. The piecewise Peukert extension assumes constant voltage, known battery-input watts, no recovery, stable temperature and a suitable measured exponent. It is mainly a lead-acid approximation, not a lithium BMS model. It omits surge power, voltage sag, wiring/inverter ratings, aging and thermal effects. Held loads are excluded, so this plan may be incomplete. A lower required Ah is not universally better or a promise of runtime. Verify manufacturer discharge curves and obtain qualified advice before use; never use this for life-critical loads. No equipment is controlled."
+}

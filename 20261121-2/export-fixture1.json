@@ -1,0 +1,125 @@
+{
+  "schema": "power-reserve/v1",
+  "originalInput": {
+    "context": "Synthetic off-grid digitization demo. Equipment watts are DC-equivalent battery input, including conversion loss.",
+    "voltage": 24,
+    "hoursRated": 20,
+    "exponent": 1.15,
+    "usableFraction": 0.75,
+    "capacityAh": 30,
+    "targetHours": 5,
+    "devices": [
+      {
+        "id": "scanner",
+        "description": "Document scanner digitizing paper pages into image files",
+        "watts": 48
+      },
+      {
+        "id": "projector",
+        "description": "Video projector displaying presentations on a screen",
+        "watts": 120
+      }
+    ],
+    "records": [
+      {
+        "id": "s1",
+        "note": "Show the slides on the large projection screen",
+        "start": 0,
+        "end": 2,
+        "units": 1
+      },
+      {
+        "id": "s2",
+        "note": "Digitize paper pages into image files with the scanning machine",
+        "start": 1,
+        "end": 5,
+        "units": 1
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "s1",
+      "device": "projector",
+      "start": 0,
+      "end": 2,
+      "units": 1,
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "device": "projector",
+          "score": 0.6773090063860421
+        },
+        {
+          "device": "scanner",
+          "score": 0.19490134336279838
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "device": "scanner",
+      "start": 1,
+      "end": 5,
+      "units": 1,
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "device": "scanner",
+          "score": 0.9434017046989457
+        },
+        {
+          "device": "projector",
+          "score": 0.005462731047343558
+        }
+      ]
+    }
+  ],
+  "total": 2,
+  "approved": 2,
+  "held": 0,
+  "segments": [
+    {
+      "start": 0,
+      "end": 1,
+      "watts": 120,
+      "amps": 5,
+      "records": [
+        "s1"
+      ],
+      "peukertDemand": 6.365250577732117
+    },
+    {
+      "start": 1,
+      "end": 2,
+      "watts": 168,
+      "amps": 7,
+      "records": [
+        "s1",
+        "s2"
+      ],
+      "peukertDemand": 9.372657476059223
+    },
+    {
+      "start": 2,
+      "end": 5,
+      "watts": 48,
+      "amps": 2,
+      "records": [
+        "s2"
+      ],
+      "peukertDemand": 6.657416832407069
+    }
+  ],
+  "wh": 432,
+  "ampHours": 18,
+  "requiredAh": 28.339476841610818,
+  "baselineAh": 24,
+  "consumedFraction": 0.7024613330308899,
+  "passes": true,
+  "limitHour": null,
+  "peakWatts": 168,
+  "warning": "Planning estimate only, not electrical design or a safety certificate. The piecewise Peukert extension assumes constant voltage, known battery-input watts, no recovery, stable temperature and a suitable measured exponent. It is mainly a lead-acid approximation, not a lithium BMS model. It omits surge power, voltage sag, wiring/inverter ratings, aging and thermal effects. Held loads are excluded, so this plan may be incomplete. A lower required Ah is not universally better or a promise of runtime. Verify manufacturer discharge curves and obtain qualified advice before use; never use this for life-critical loads. No equipment is controlled."
+}

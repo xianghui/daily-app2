@@ -1,0 +1,188 @@
+{
+  "schema": "overlap-ledger/v1",
+  "originalInput": {
+    "context": "Synthetic independent website defect lists for the same frozen build. Each row is one distinct defect.",
+    "minSimilarity": 0.4,
+    "first": [
+      {
+        "id": "a1",
+        "text": "The password reset email link opens an expired token error page"
+      },
+      {
+        "id": "a2",
+        "text": "The shopping cart total ignores the discount coupon"
+      },
+      {
+        "id": "a3",
+        "text": "The contact form submit button has no keyboard focus indicator"
+      }
+    ],
+    "second": [
+      {
+        "id": "b1",
+        "text": "Resetting a forgotten password leads to a token expired error"
+      },
+      {
+        "id": "b2",
+        "text": "Cart price does not apply the promotional voucher discount"
+      },
+      {
+        "id": "b3",
+        "text": "The contact form send button shows no visible focus when tabbing"
+      },
+      {
+        "id": "b4",
+        "text": "The mobile navigation menu cannot be closed"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "a1",
+      "list": "first",
+      "proposed": "",
+      "target": "",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": []
+    },
+    {
+      "id": "a2",
+      "list": "first",
+      "proposed": "",
+      "target": "",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": []
+    },
+    {
+      "id": "a3",
+      "list": "first",
+      "proposed": "",
+      "target": "",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": []
+    },
+    {
+      "id": "b1",
+      "list": "second",
+      "proposed": "a1",
+      "target": "a1",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "a1",
+          "score": 0.761627041258642
+        },
+        {
+          "id": "a2",
+          "score": 0.17840848509711663
+        },
+        {
+          "id": "a3",
+          "score": 0.07343327178873495
+        }
+      ]
+    },
+    {
+      "id": "b2",
+      "list": "second",
+      "proposed": "a2",
+      "target": "a2",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "a2",
+          "score": 0.6347893631881325
+        },
+        {
+          "id": "a1",
+          "score": 0.16883854093480744
+        },
+        {
+          "id": "a3",
+          "score": 0.11685916442974346
+        }
+      ]
+    },
+    {
+      "id": "b3",
+      "list": "second",
+      "proposed": "a3",
+      "target": "a3",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "a3",
+          "score": 0.7312966457269191
+        },
+        {
+          "id": "a1",
+          "score": 0.15098805683742808
+        },
+        {
+          "id": "a2",
+          "score": 0.07085160673258904
+        }
+      ]
+    },
+    {
+      "id": "b4",
+      "list": "second",
+      "proposed": "",
+      "target": "",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "a1",
+          "score": 0.23939077833574218
+        },
+        {
+          "id": "a3",
+          "score": 0.1448844101389015
+        },
+        {
+          "id": "a2",
+          "score": 0.07083354931313827
+        }
+      ]
+    }
+  ],
+  "assumptionsConfirmed": false,
+  "total": 7,
+  "approved": 7,
+  "held": 0,
+  "metrics": {
+    "n1": 3,
+    "n2": 4,
+    "overlap": 3,
+    "observed": 4,
+    "estimatedTotal": null,
+    "estimatedUnseen": null,
+    "reason": "Assumptions not confirmed: counts only."
+  },
+  "links": [
+    {
+      "first": "a1",
+      "second": "b1"
+    },
+    {
+      "first": "a2",
+      "second": "b2"
+    },
+    {
+      "first": "a3",
+      "second": "b3"
+    }
+  ],
+  "firstOnly": [],
+  "secondOnly": [
+    "b4"
+  ],
+  "warning": "Exploratory two-list capture–recapture, not an assurance of completeness. Requires a closed unchanged issue population, independent inspections, roughly equal detectability, correct identity links and no duplicates within either list. Holds change the analyzed population. Positive dependence can underestimate unseen issues; heterogeneous detection and mistaken links can bias either direction. Similar text is not proof of the same physical issue. Never automatically close, merge or send issues."
+}

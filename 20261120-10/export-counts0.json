@@ -1,0 +1,217 @@
+{
+  "schema": "overlap-ledger/v1",
+  "originalInput": {
+    "context": "Synthetic independent library accessibility inspections. Each row is one distinct physical issue, not an issue category.",
+    "minSimilarity": 0.4,
+    "first": [
+      {
+        "id": "a1",
+        "text": "The wheelchair access ramp at the front entrance is blocked by boxes"
+      },
+      {
+        "id": "a2",
+        "text": "The elevator button on the second floor is broken"
+      },
+      {
+        "id": "a3",
+        "text": "The reading room emergency exit door is locked"
+      },
+      {
+        "id": "a4",
+        "text": "The accessible toilet grab bar is loose"
+      }
+    ],
+    "second": [
+      {
+        "id": "b1",
+        "text": "Boxes obstruct the front entrance wheelchair ramp"
+      },
+      {
+        "id": "b2",
+        "text": "Second floor lift call button does not work"
+      },
+      {
+        "id": "b3",
+        "text": "A ceiling lamp flickers above the history shelves"
+      },
+      {
+        "id": "b4",
+        "text": "The carpet is torn near the checkout desk"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "a1",
+      "list": "first",
+      "proposed": "",
+      "target": "",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": []
+    },
+    {
+      "id": "a2",
+      "list": "first",
+      "proposed": "",
+      "target": "",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": []
+    },
+    {
+      "id": "a3",
+      "list": "first",
+      "proposed": "",
+      "target": "",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": []
+    },
+    {
+      "id": "a4",
+      "list": "first",
+      "proposed": "",
+      "target": "",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": []
+    },
+    {
+      "id": "b1",
+      "list": "second",
+      "proposed": "a1",
+      "target": "a1",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "a1",
+          "score": 0.8761296777435331
+        },
+        {
+          "id": "a4",
+          "score": 0.2332851805649521
+        },
+        {
+          "id": "a2",
+          "score": 0.19753426864425713
+        },
+        {
+          "id": "a3",
+          "score": 0.18053511922162666
+        }
+      ]
+    },
+    {
+      "id": "b2",
+      "list": "second",
+      "proposed": "a2",
+      "target": "a2",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "a2",
+          "score": 0.7130767034400342
+        },
+        {
+          "id": "a1",
+          "score": 0.22568282938347797
+        },
+        {
+          "id": "a3",
+          "score": 0.18539567415569583
+        },
+        {
+          "id": "a4",
+          "score": 0.18242387670241111
+        }
+      ]
+    },
+    {
+      "id": "b3",
+      "list": "second",
+      "proposed": "",
+      "target": "",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "a3",
+          "score": 0.06617017191694818
+        },
+        {
+          "id": "a1",
+          "score": 0.06135531213444808
+        },
+        {
+          "id": "a2",
+          "score": 0.047030259060540126
+        },
+        {
+          "id": "a4",
+          "score": 0.027234364259308003
+        }
+      ]
+    },
+    {
+      "id": "b4",
+      "list": "second",
+      "proposed": "",
+      "target": "",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "a2",
+          "score": 0.307168552366608
+        },
+        {
+          "id": "a3",
+          "score": 0.20064100053247502
+        },
+        {
+          "id": "a4",
+          "score": 0.20057699825804995
+        },
+        {
+          "id": "a1",
+          "score": 0.16997597717113483
+        }
+      ]
+    }
+  ],
+  "assumptionsConfirmed": false,
+  "total": 8,
+  "approved": 8,
+  "held": 0,
+  "metrics": {
+    "n1": 4,
+    "n2": 4,
+    "overlap": 2,
+    "observed": 6,
+    "estimatedTotal": null,
+    "estimatedUnseen": null,
+    "reason": "Assumptions not confirmed: counts only."
+  },
+  "links": [
+    {
+      "first": "a1",
+      "second": "b1"
+    },
+    {
+      "first": "a2",
+      "second": "b2"
+    }
+  ],
+  "firstOnly": [
+    "a3",
+    "a4"
+  ],
+  "secondOnly": [
+    "b3",
+    "b4"
+  ],
+  "warning": "Exploratory two-list capture–recapture, not an assurance of completeness. Requires a closed unchanged issue population, independent inspections, roughly equal detectability, correct identity links and no duplicates within either list. Holds change the analyzed population. Positive dependence can underestimate unseen issues; heterogeneous detection and mistaken links can bias either direction. Similar text is not proof of the same physical issue. Never automatically close, merge or send issues."
+}

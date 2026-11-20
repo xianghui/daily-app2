@@ -1,0 +1,28 @@
+# Observed validation — Overlap Ledger / 20261120-10
+
+## Real AI and task quality
+- Actual production React/Vite bundle, desktop Chrome CPU with GPU disabled, shared worker, actual WASM and quantized MiniLM weights. Successful-inference tests use no model mocks.
+- Library inspection: actual proposals `[a1,a2,unique,unique]`, **4/4** expected second-list links. Reviewed n₁=4, n₂=4, overlap=2, observed union=6, Chapman total=7⅓ and unseen=1⅓ when assumptions explicitly confirmed.
+- Website inspection: actual proposals `[a1,a2,a3,unique]`, **4/4** expected links. n₁=3, n₂=4, overlap=3, observed union=4, total=4 and unseen=0. Zero is not a completeness guarantee. These synthetic fixture outcomes are not universal model accuracy. A computed trimmed/lowercased exact-text matching baseline finds zero of the five known reworded overlaps; baseline proposal correctness is 3/8 including unique rows versus neural 8/8 on these fixtures (baseline-comparison.json). This does not measure time savings.
+- A challenging same-symptom finding at the REAR entrance was falsely linked to the FRONT entrance by real MiniLM. The review UI corrected it to unique; instruction-like text in the same source remained inert, without content uploads. This demonstrates why physical identity requires human review (challenge-validation.json).
+- Changing a password issue description to an unrelated volcano changed real neural identity and downstream overlap/estimate. No semantic heuristic or hard-coded response substituted for AI.
+- 96-description maximum batch: 24 real embedding chunks, all source rows survive review/export/reimport. Repeated descriptions in this stress test intentionally test conservation, not validity of capture–recapture assumptions. Human within-list deduplication remains required.
+- Exhaustively checked **40,425** valid size/overlap combinations up to 48×48: union identity, Chapman unseen identity, total ≥ observed, zero-overlap withholding, assumption gate. Schema, malformed vectors, mandatory review and duplicate counterpart rejection passed. This verifies arithmetic, not assumptions about real populations.
+
+## Workflow, failures, privacy and artifacts
+- Pending reviews block apply; assumptions default off; held linked sources and duplicate counterparts block apply; corrected/unique links, exclusions and undo work. Any review/assumption edit invalidates exports. Original audit reimport resets approvals and assumptions.
+- Real browser downloads of JSON/CSV/Markdown and clipboard copy passed. Independent Python parsing checks every source ID/text, reviewed link, decision, full max batch, last multiline note, formula-like multiline quoted/comma notes and Markdown originals. Current reviewed snapshots—not static defaults—drive artifacts.
+- Empty/null/invalid/oversized source, missing lists, duplicate/invalid IDs, overlong descriptions, bad thresholds, unsupported/oversized/malformed import files fail visibly.
+- Defensive fault injection: blocked model download with real retry, unavailable WASM, worker download/construction/execution failures, malformed vectors and message envelope, accelerated timeout. No fabricated classifications/exports. Fault injection is only for defensive paths.
+- Cold download cancellation plus actual retry; changed input cancellation; delayed file read; delayed worker source fetch; late obsolete result after a newer completed run all passed. No stale result replaces newer input or output.
+- Fresh-worker real inference with network disabled in the **already-open warmed production page** passed. Offline reload/startup is not claimed.
+- Browser startup-through-inference requests: GET/HEAD downloads only, no request bodies or user content in URLs; no model-host download before explicit load. Persisted network report strips signed query values. Manual integration review finds no upload/provider/analytics endpoint; built textual assets scanned with zero credential-pattern matches (not an exhaustive security certification).
+- 1440/390/320 widths: no horizontal overflow, labeled forms, visible focus, ≥44px buttons, working import/review/apply/export. Normal screenshots of overview/review/results saved; 390 overview and 320 results visually inspected. Physical phones, non-Chrome browsers, screen-reader flows and low-memory devices remain untested.
+
+## Model and method limitations
+MiniLM compares meaning, not physical identity: the same symptom on another floor/object can be a false match. Greedy one-to-one suggestions are not optimal or authoritative. Users must verify identities and deduplicate each list. Closed population, independence, equal detectability and reliable links cannot be validated by the model. Point estimates can be seriously biased; no interval/guarantee, causal or measured-savings claim.
+
+## Collection assembly and publication
+Root predeploy passed: **743 apps**, zero failures/skips; combined tree **999,871,239 bytes**, under unchanged 1,000,000,000-byte guard. No new deduplication rules or legacy asset changes. All **742** prior gallery objects preserved; new entry exactly once, every inline script compiled with Node new Function. Browser gallery verified 743 cards, AI Utilities first, legacy categories/cards, search and phone widths. Assembled bundle repeated the full actual-inference/maximum-batch/review/export/privacy/offline suite successfully. Shared runtime hashes and all new app bytes match builds.
+
+Publication recorded after root deployment in assembly-validation.json, gallery-validation.json, assembled-browser-validation.json, public-asset-validation.json, public-browser-validation.json and publication-status.json. Do not infer publication from build success alone. No builder digest is sent.

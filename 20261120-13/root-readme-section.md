@@ -1,0 +1,8 @@
+
+## Distribution Dock — 20261120-13
+
+Real local MiniLM queue retrieval reconciles rough duration notes before mandatory human period/value/frequency review. Exact empirical Wasserstein distance exposes equal-mean shape shifts against a mean-only baseline; complete JSON/CSV/Markdown and CDF-area CSV retain source evidence. Both synthetic fixtures matched 16/16 intended neural links; a negation challenge mislinked, so this is descriptive recheck assistance, not truth verification or automatic interventions. 300 independent quantile-transport oracle cases, parsed artifacts, maximum batch and fresh-worker offline inference passed. Offline scope is an already-open warmed page only; physical phones and other browsers unverified. Reuses immutable AI worker/factory from `20261115-6` and WASM from `20261107-2`; preserve both. See [workflow/privacy](20261120-13/README.md) and [observed validation](20261120-13/VALIDATION.md).
+
+The existing 1 GB size guard remains unchanged. Deploy-only byte-identical geometry sharing extends to `20261028-8`, preserving its source build and compatibility JS URLs and using `20261028-24`'s existing immutable WASM. Its real image-import/worker/STL-export path is verified locally and publicly before release.
+
+Public release: matching Pages `fe1447cc64f1f7f8e276c982da2ba7653bb261d1` and workflow `44672492808` succeeded. Nine public app/runtime asset byte matches, full public real-model workflow/exports/privacy/offline/max-batch suite, 746-card gallery and affected legacy PNG/worker/STL path passed. Four legacy worker/shell/shared-WASM byte matches also passed. Combined site 999,691,441 bytes, below the unchanged guard. Unrelated pre-existing source edits/drafts are preserved and excluded from staging. No digest sent.

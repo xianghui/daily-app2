@@ -1,0 +1,337 @@
+{
+  "schema": "distribution-dock/v1",
+  "originalInput": {
+    "context": "Synthetic comparable service observations; no future predictions.",
+    "unit": "minutes",
+    "tolerance": 2,
+    "minSimilarity": 0.15,
+    "first": [
+      {
+        "id": "wash",
+        "text": "Washing dirty fabric laundry in a washing machine"
+      },
+      {
+        "id": "bake",
+        "text": "Baking bread dough in a bakery oven"
+      }
+    ],
+    "records": [
+      {
+        "id": "r1",
+        "text": "Cleaning dirty clothes in the laundry washer",
+        "period": "reference",
+        "value": 10,
+        "count": 1
+      },
+      {
+        "id": "r2",
+        "text": "Machine washing fabric laundry loads",
+        "period": "reference",
+        "value": 20,
+        "count": 1
+      },
+      {
+        "id": "r3",
+        "text": "Washing soiled garments in a washing machine",
+        "period": "current",
+        "value": 15,
+        "count": 1
+      },
+      {
+        "id": "r4",
+        "text": "Cleaning clothes in the washing machine",
+        "period": "current",
+        "value": 25,
+        "count": 1
+      },
+      {
+        "id": "r5",
+        "text": "Baking loaves of bread in the oven",
+        "period": "reference",
+        "value": 5,
+        "count": 1
+      },
+      {
+        "id": "r6",
+        "text": "Putting bread dough into the bakery oven",
+        "period": "reference",
+        "value": 15,
+        "count": 1
+      },
+      {
+        "id": "r7",
+        "text": "Oven baking batches of bread loaves",
+        "period": "current",
+        "value": 5,
+        "count": 1
+      },
+      {
+        "id": "r8",
+        "text": "Baking bread in an oven",
+        "period": "current",
+        "value": 15,
+        "count": 1
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "r1",
+      "value": 10,
+      "period": "reference",
+      "count": 1,
+      "proposed": "wash",
+      "target": "wash",
+      "decision": "approve",
+      "reviewNote": "=SUM(1,2)\n\"reviewed\", with newline",
+      "evidence": [
+        {
+          "id": "wash",
+          "score": 0.8324577721423119
+        },
+        {
+          "id": "bake",
+          "score": 0.14008188743067068
+        }
+      ]
+    },
+    {
+      "id": "r2",
+      "value": 20,
+      "period": "reference",
+      "count": 1,
+      "proposed": "wash",
+      "target": "wash",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "wash",
+          "score": 0.8659431992440189
+        },
+        {
+          "id": "bake",
+          "score": 0.1074501052707711
+        }
+      ]
+    },
+    {
+      "id": "r3",
+      "value": 15,
+      "period": "current",
+      "count": 1,
+      "proposed": "wash",
+      "target": "wash",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "wash",
+          "score": 0.8003528644244843
+        },
+        {
+          "id": "bake",
+          "score": 0.12431595748002922
+        }
+      ]
+    },
+    {
+      "id": "r4",
+      "value": 25,
+      "period": "current",
+      "count": 1,
+      "proposed": "wash",
+      "target": "wash",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "wash",
+          "score": 0.877405145943519
+        },
+        {
+          "id": "bake",
+          "score": 0.10396393554236683
+        }
+      ]
+    },
+    {
+      "id": "r5",
+      "value": 5,
+      "period": "reference",
+      "count": 1,
+      "proposed": "bake",
+      "target": "bake",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "bake",
+          "score": 0.7858814236356406
+        },
+        {
+          "id": "wash",
+          "score": 0.10805685984425478
+        }
+      ]
+    },
+    {
+      "id": "r6",
+      "value": 15,
+      "period": "reference",
+      "count": 1,
+      "proposed": "bake",
+      "target": "bake",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "bake",
+          "score": 0.943327497747013
+        },
+        {
+          "id": "wash",
+          "score": 0.12338834956780924
+        }
+      ]
+    },
+    {
+      "id": "r7",
+      "value": 5,
+      "period": "current",
+      "count": 1,
+      "proposed": "bake",
+      "target": "bake",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "bake",
+          "score": 0.6930923058266989
+        },
+        {
+          "id": "wash",
+          "score": 0.12652863266813927
+        }
+      ]
+    },
+    {
+      "id": "r8",
+      "value": 15,
+      "period": "current",
+      "count": 1,
+      "proposed": "bake",
+      "target": "bake",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "bake",
+          "score": 0.8534056903883898
+        },
+        {
+          "id": "wash",
+          "score": 0.10909859069459803
+        }
+      ]
+    }
+  ],
+  "total": 8,
+  "approved": 8,
+  "held": 0,
+  "plan": [
+    {
+      "id": "wash",
+      "text": "Washing dirty fabric laundry in a washing machine",
+      "recordIds": [
+        "r1",
+        "r2",
+        "r3",
+        "r4"
+      ],
+      "reference": {
+        "count": 2,
+        "mean": 15,
+        "p50": 10,
+        "p90": 20
+      },
+      "current": {
+        "count": 2,
+        "mean": 20,
+        "p50": 15,
+        "p90": 25
+      },
+      "complete": true,
+      "distance": 5,
+      "meanShift": 5,
+      "signedMeanChange": 5,
+      "segments": [
+        {
+          "lo": 10,
+          "hi": 15,
+          "referenceCDF": 0.5,
+          "currentCDF": 0,
+          "area": 2.5
+        },
+        {
+          "lo": 15,
+          "hi": 20,
+          "referenceCDF": 0.5,
+          "currentCDF": 0.5,
+          "area": 0
+        },
+        {
+          "lo": 20,
+          "hi": 25,
+          "referenceCDF": 1,
+          "currentCDF": 0.5,
+          "area": 2.5
+        }
+      ],
+      "exceeds": true
+    },
+    {
+      "id": "bake",
+      "text": "Baking bread dough in a bakery oven",
+      "recordIds": [
+        "r5",
+        "r6",
+        "r7",
+        "r8"
+      ],
+      "reference": {
+        "count": 2,
+        "mean": 10,
+        "p50": 5,
+        "p90": 15
+      },
+      "current": {
+        "count": 2,
+        "mean": 10,
+        "p50": 5,
+        "p90": 15
+      },
+      "complete": true,
+      "distance": 0,
+      "meanShift": 0,
+      "signedMeanChange": 0,
+      "segments": [
+        {
+          "lo": 5,
+          "hi": 15,
+          "referenceCDF": 0.5,
+          "currentCDF": 0.5,
+          "area": 0
+        }
+      ],
+      "exceeds": false
+    }
+  ],
+  "metrics": {
+    "completeQueues": 2,
+    "distributionFlags": 1,
+    "meanOnlyFlags": 1,
+    "approvedFrequency": 8
+  },
+  "warning": "Empirical one-dimensional Wasserstein distance is the area between two normalized CDFs, in the stated duration unit. Counts are frequencies of exact values, not histogram bins or confidence weights. Means/quantiles and distances describe only supplied observations; no statistical significance, causal diagnosis or future reliability. A shape change may be harmless. Verify comparable windows, units, workload and complete logs. Tolerance is your recheck policy, not a learned safety limit. Holds can change representativeness; incomplete queues are not zero-change evidence."
+}

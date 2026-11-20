@@ -1,0 +1,29 @@
+# Distribution Dock — observed validation
+
+## Local production bundle
+
+- React + Vite `npm run predeploy`: passed. Real inference used the emitted production bundle, Chrome with GPU disabled, shared same-origin module worker/factory/WASM and the actual quantized MiniLM model. No mocks in successful AI workflow tests.
+- Archive and workshop fixtures: **8/8 + 8/8** intended queue links. CDF-area distances **[8, 2]** and **[5, 0]** match known answers. Archive scanning means remain 10 → 10 while W1 = 8; distribution flags 1 vs mean-only flags 0 at tolerance 2. Workshop flags 1 vs 1. Strict equality to tolerance does not flag. These are tiny synthetic checks, not general accuracy claims.
+- Changed one note from laundry meaning to baking meaning: actual neural queue and downstream distributions changed. Unrelated instruction-like text remained unassigned and was held. Imported text cannot grant authority or trigger uploads. A negation challenge incorrectly chose `scan` instead of intended `pack`; documented limitation requiring human review.
+- Independent core oracle: **300** generated cases matched quantile-transport integration (different from app's CDF-area implementation). Distance ≥ absolute mean shift, weighted counts, all-held, missing periods and invalid schemas checked. No significance, forecast or time-saving claims.
+- Full browser flow: mandatory review; edit queue/measurements/notes; hold/reject; undo; export invalidation after edits; copy; downloaded JSON, CSV, Markdown and CDF-area CSV; current edited multiline notes survive. Python standard-library CSV/JSON parsing and independent rational quantile coupling verify all source IDs, weighted counts, escaping and distances. Full max batch **96 observations + 8 queues**, 26 real inference batches, complete export/reimport. Import restores originals only, with pending approvals.
+- Empty/invalid/oversized JSON, missing/duplicate IDs, bad text bounds, unsupported file format, file size, periods, values, frequencies, tolerance and thresholds: rejected. All-held and incomplete UI are explicit; threshold 1 abstains; approving unassigned rows is blocked.
+- Fault-injected network failure with real-model recovery, no WASM, worker-download failure, unsupported module-worker constructor, malformed vectors/envelope, worker error and shortened timeout: visible errors, zero proposals, disabled exports. Fault injection is used only to verify defenses.
+- Cold model-download cancellation then real retry, delayed worker-fetch cancellation, delayed file-read races and old-result-after-new-result races: passed. Cancelled/stale runs cannot replace newer data. Late-result race uses a synthetic adversarial worker strictly for defense, not as evidence of AI functionality.
+- Online inference followed by disabled network and a fresh worker: real inference passed in the already-open warmed page. Offline reload/navigation not promised/tested. Cache eviction is not permanent offline storage.
+- Browser network audit: no model host requests before explicit load; only GET/HEAD, no bodies, no source text in URLs. Persisted reports strip CDN query values. Source/integration review found no remote inference, providers, analytics or keys; built text asset credential patterns had no matches. These checks do not certify arbitrary future code/model-host changes.
+- Desktop 1440px, narrow 390px and 320px: no horizontal overflow; labeled inputs, visible keyboard focus, ≥44px button heights. Normal viewport overview/review/result screenshots saved; desktop overview and phone results visually inspected. Other browsers, physical devices and screen readers untested.
+
+## Combined assembly
+
+`npm run predeploy` at root passed: **746** apps copied, 0 failed/skipped, conservative 1 GB guard unchanged. Assembled size **999,691,441 bytes**. Gallery script compilation with `new Function` passed; exactly one new correct AI Utilities entry; all **745** prior objects/categories preserved. Gallery rendering/search/phone layouts passed. Shared AI dependency and app byte hashes match the assembly.
+
+One additional byte-identical legacy geometry runtime (`20261028-8`) is deploy-only shared from `20261028-24`. Source dist trees remain untouched; compatibility JS paths are retained with cache-busted references. Real image import, worker-generated geometry and valid fingerprint-matched STL export are required locally and publicly; report files document outcomes. This is deployment preservation, not the new app's workflow.
+
+## Publication
+
+**Published and verified.** Root deploy reported Published. Remote gh-pages and successful Pages workflow `44672492808` both target `fe1447cc64f1f7f8e276c982da2ba7653bb261d1`; Pages status built, all build/deploy jobs succeeded. Nine public gallery/app/worker/factory/WASM assets match the combined build byte-for-byte. The full public real-model browser suite passed: both known-answer fixtures, semantic-change behavior, max batch, review/hold/undo, actual artifacts, privacy, responsive layouts and fresh-worker offline inference. Public gallery renders all 746 entries with earlier categories intact. The affected older app passed real PNG import/worker/shared-WASM/STL export; four rewritten legacy shell/worker/shared-runtime byte checks also passed. Public downloaded artifacts were independently reparsed successfully. Source commit/push is the final delivery step; unrelated pre-existing edits and drafts remain untouched. No digest sent.
+
+## Evidence
+
+`browser-validation.json`, `core-validation.json`, `artifact-validation.json`, `defensive-validation.json`, `edge-validation.json`, cold/stale race reports, `runtime-dependency-audit.json`, `asset-validation.json`, `gallery-validation.json`, gallery UI reports, `assembly-validation.json`, and assembled/public reports. Test fixtures/artifacts are synthetic only.

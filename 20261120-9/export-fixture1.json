@@ -1,0 +1,245 @@
+{
+  "schema": "crossover-cove/v1",
+  "originalInput": {
+    "context": "Synthetic instruction satisfaction trial. Higher points are better. No clinical interpretation.",
+    "unit": "points",
+    "minSimilarity": 0.15,
+    "first": [
+      {
+        "id": "A",
+        "text": "In person classroom teaching with a teacher in a school room",
+        "phrases": [
+          "Face to face lessons with a classroom teacher",
+          "Attending a lesson in the school classroom"
+        ]
+      },
+      {
+        "id": "B",
+        "text": "Online distance education through video courses on a computer",
+        "phrases": [
+          "Studying remotely using online video tutorials",
+          "Watching an internet course on a laptop at home"
+        ]
+      }
+    ],
+    "records": [
+      {
+        "id": "r1",
+        "subject": "S1",
+        "period": 1,
+        "text": "Face to face lessons with a classroom teacher",
+        "value": 10
+      },
+      {
+        "id": "r2",
+        "subject": "S1",
+        "period": 2,
+        "text": "Watching an internet course on a laptop at home",
+        "value": 15
+      },
+      {
+        "id": "r3",
+        "subject": "S2",
+        "period": 1,
+        "text": "Watching an internet course on a laptop at home",
+        "value": 14
+      },
+      {
+        "id": "r4",
+        "subject": "S2",
+        "period": 2,
+        "text": "Face to face lessons with a classroom teacher",
+        "value": 13
+      },
+      {
+        "id": "r5",
+        "subject": "S3",
+        "period": 1,
+        "text": "Studying remotely using online video tutorials",
+        "value": 16
+      },
+      {
+        "id": "r6",
+        "subject": "S3",
+        "period": 2,
+        "text": "Attending a lesson in the school classroom",
+        "value": 15
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "r1",
+      "subject": "S1",
+      "period": 1,
+      "value": 10,
+      "proposed": "A",
+      "target": "A",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "A",
+          "score": 0.6653744957563615
+        },
+        {
+          "id": "B",
+          "score": 0.32008153807492257
+        }
+      ]
+    },
+    {
+      "id": "r2",
+      "subject": "S1",
+      "period": 2,
+      "value": 15,
+      "proposed": "B",
+      "target": "B",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "B",
+          "score": 0.6455066810984522
+        },
+        {
+          "id": "A",
+          "score": 0.2571733123152215
+        }
+      ]
+    },
+    {
+      "id": "r3",
+      "subject": "S2",
+      "period": 1,
+      "value": 14,
+      "proposed": "B",
+      "target": "B",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "B",
+          "score": 0.6434476890401379
+        },
+        {
+          "id": "A",
+          "score": 0.2595648256308221
+        }
+      ]
+    },
+    {
+      "id": "r4",
+      "subject": "S2",
+      "period": 2,
+      "value": 13,
+      "proposed": "A",
+      "target": "A",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "A",
+          "score": 0.6777187433669172
+        },
+        {
+          "id": "B",
+          "score": 0.32679718448523043
+        }
+      ]
+    },
+    {
+      "id": "r5",
+      "subject": "S3",
+      "period": 1,
+      "value": 16,
+      "proposed": "B",
+      "target": "B",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "B",
+          "score": 0.6900137660899067
+        },
+        {
+          "id": "A",
+          "score": 0.298952175802973
+        }
+      ]
+    },
+    {
+      "id": "r6",
+      "subject": "S3",
+      "period": 2,
+      "value": 15,
+      "proposed": "A",
+      "target": "A",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "A",
+          "score": 0.6810759529540977
+        },
+        {
+          "id": "B",
+          "score": 0.3122219740718313
+        }
+      ]
+    }
+  ],
+  "total": 6,
+  "approved": 6,
+  "held": 0,
+  "plan": [
+    {
+      "subject": "S1",
+      "sequence": "AB",
+      "period1": 10,
+      "period2": 15,
+      "change": 5,
+      "BminusA": 5,
+      "recordIds": [
+        "r1",
+        "r2"
+      ]
+    },
+    {
+      "subject": "S2",
+      "sequence": "BA",
+      "period1": 14,
+      "period2": 13,
+      "change": -1,
+      "BminusA": 1,
+      "recordIds": [
+        "r3",
+        "r4"
+      ]
+    },
+    {
+      "subject": "S3",
+      "sequence": "BA",
+      "period1": 16,
+      "period2": 15,
+      "change": -1,
+      "BminusA": 1,
+      "recordIds": [
+        "r5",
+        "r6"
+      ]
+    }
+  ],
+  "excluded": [],
+  "metrics": {
+    "AB": 1,
+    "BA": 2,
+    "naiveBminusA": 2.3333333333333335,
+    "methodBminusA": 3,
+    "period2minus1": 2,
+    "meanABChange": 5,
+    "meanBAChange": -1,
+    "reason": "Both sequence groups present. Descriptive contrasts only."
+  },
+  "warning": "Descriptive two-period AB/BA contrasts, not causal proof or significance tests. Assumes common additive period effects, stable method effects, comparable units and no carryover. Sequence differences can reflect selection; subject-specific period effects are not resolved. A two-period design cannot separately identify carryover. Randomization, washout, measurement quality and applicability require human verification. Do not use for clinical or safety decisions. No extrapolated savings."
+}

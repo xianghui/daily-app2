@@ -1,0 +1,245 @@
+{
+  "schema": "crossover-cove/v1",
+  "originalInput": {
+    "context": "Synthetic archive retrieval trial. Lower minutes are better. Unequal AB/BA group sizes.",
+    "unit": "minutes",
+    "minSimilarity": 0.15,
+    "first": [
+      {
+        "id": "A",
+        "text": "Manual paper filing in printed folders and physical archive cabinets",
+        "phrases": [
+          "Looking through paper folders in the filing cabinet",
+          "Searching printed documents in physical archive boxes"
+        ]
+      },
+      {
+        "id": "B",
+        "text": "Digital document scanning with searchable electronic archives",
+        "phrases": [
+          "Searching scanned documents in an electronic database",
+          "Finding files using digital archive search"
+        ]
+      }
+    ],
+    "records": [
+      {
+        "id": "r1",
+        "subject": "P1",
+        "period": 1,
+        "text": "Looking through paper folders in the filing cabinet",
+        "value": 20
+      },
+      {
+        "id": "r2",
+        "subject": "P1",
+        "period": 2,
+        "text": "Finding files using digital archive search",
+        "value": 10
+      },
+      {
+        "id": "r3",
+        "subject": "P2",
+        "period": 1,
+        "text": "Searching printed documents in physical archive boxes",
+        "value": 22
+      },
+      {
+        "id": "r4",
+        "subject": "P2",
+        "period": 2,
+        "text": "Searching scanned documents in an electronic database",
+        "value": 12
+      },
+      {
+        "id": "r5",
+        "subject": "P3",
+        "period": 1,
+        "text": "Searching scanned documents in an electronic database",
+        "value": 24
+      },
+      {
+        "id": "r6",
+        "subject": "P3",
+        "period": 2,
+        "text": "Searching printed documents in physical archive boxes",
+        "value": 22
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "r1",
+      "subject": "P1",
+      "period": 1,
+      "value": 20,
+      "proposed": "A",
+      "target": "A",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "A",
+          "score": 0.7035753375909427
+        },
+        {
+          "id": "B",
+          "score": 0.48584801148648943
+        }
+      ]
+    },
+    {
+      "id": "r2",
+      "subject": "P1",
+      "period": 2,
+      "value": 10,
+      "proposed": "B",
+      "target": "B",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "B",
+          "score": 0.6865463403803195
+        },
+        {
+          "id": "A",
+          "score": 0.34047915389133965
+        }
+      ]
+    },
+    {
+      "id": "r3",
+      "subject": "P2",
+      "period": 1,
+      "value": 22,
+      "proposed": "B",
+      "target": "A",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "B",
+          "score": 0.7246856399581483
+        },
+        {
+          "id": "A",
+          "score": 0.6243935001633727
+        }
+      ]
+    },
+    {
+      "id": "r4",
+      "subject": "P2",
+      "period": 2,
+      "value": 12,
+      "proposed": "B",
+      "target": "B",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "B",
+          "score": 0.8404197983648936
+        },
+        {
+          "id": "A",
+          "score": 0.4022210475691692
+        }
+      ]
+    },
+    {
+      "id": "r5",
+      "subject": "P3",
+      "period": 1,
+      "value": 24,
+      "proposed": "B",
+      "target": "B",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "B",
+          "score": 0.8404197983648936
+        },
+        {
+          "id": "A",
+          "score": 0.4022210475691692
+        }
+      ]
+    },
+    {
+      "id": "r6",
+      "subject": "P3",
+      "period": 2,
+      "value": 22,
+      "proposed": "B",
+      "target": "A",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "B",
+          "score": 0.7246856399581483
+        },
+        {
+          "id": "A",
+          "score": 0.6243935001633727
+        }
+      ]
+    }
+  ],
+  "total": 6,
+  "approved": 6,
+  "held": 0,
+  "plan": [
+    {
+      "subject": "P1",
+      "sequence": "AB",
+      "period1": 20,
+      "period2": 10,
+      "change": -10,
+      "BminusA": -10,
+      "recordIds": [
+        "r1",
+        "r2"
+      ]
+    },
+    {
+      "subject": "P2",
+      "sequence": "AB",
+      "period1": 22,
+      "period2": 12,
+      "change": -10,
+      "BminusA": -10,
+      "recordIds": [
+        "r3",
+        "r4"
+      ]
+    },
+    {
+      "subject": "P3",
+      "sequence": "BA",
+      "period1": 24,
+      "period2": 22,
+      "change": -2,
+      "BminusA": 2,
+      "recordIds": [
+        "r5",
+        "r6"
+      ]
+    }
+  ],
+  "excluded": [],
+  "metrics": {
+    "AB": 2,
+    "BA": 1,
+    "naiveBminusA": -6,
+    "methodBminusA": -4,
+    "period2minus1": -6,
+    "meanABChange": -10,
+    "meanBAChange": -2,
+    "reason": "Both sequence groups present. Descriptive contrasts only."
+  },
+  "warning": "Descriptive two-period AB/BA contrasts, not causal proof or significance tests. Assumes common additive period effects, stable method effects, comparable units and no carryover. Sequence differences can reflect selection; subject-specific period effects are not resolved. A two-period design cannot separately identify carryover. Randomization, washout, measurement quality and applicability require human verification. Do not use for clinical or safety decisions. No extrapolated savings."
+}

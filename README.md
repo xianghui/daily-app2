@@ -1501,3 +1501,10 @@ The unchanged 1 GB collection guard is preserved. Deploy-only byte-identical geo
 
 
 Public release: matching Pages `0b1800e76897f30680ee34bbf1be1f702b3ded35` and workflow `44685883294` succeeded. Nine public app/runtime byte matches, four affected legacy asset matches, both real-AI fixtures and the complete public reviewed-artifact/privacy/offline/max-batch suite passed. All 748 gallery cards and affected legacy default/PNG/STL workflows passed. Combined site 999,680,678 bytes; unchanged guard. Unrelated pre-existing work is preserved and excluded from source staging. No digest sent.
+
+
+## Chroma Ledger — 20261120-16
+
+Real local MiniLM reconciles informal print/textile swatch notes with approved targets, followed by mandatory target/measurement review and deterministic CIELAB ΔE76 worksheets. Both tiny synthetic batches matched 16/16 target links in total; each exposed two chromatic rechecks missed by lightness-only checks. Unrelated text still mislinked, so human holds remain essential. Complete JSON/CSV/Markdown and approved-only Checks CSV preserve originals and current reviews. Shared worker/factory `20261115-6` and WASM `20261107-2` must be preserved. See [workflow/privacy](20261120-16/README.md) and [observed validation](20261120-16/VALIDATION.md). No uploads, press changes or production release.
+
+Chroma Ledger public release: matching Pages commit `02431bcd3c2c52f3046af5aceacfd365b3bdf667` reached built on the first deployment. All 9 public app/gallery/runtime files byte-matched; the full public real-AI workflow, reviewed artifacts, offline fresh-worker inference and preserved 749-entry gallery passed. Source changes exclude unrelated pre-existing work.

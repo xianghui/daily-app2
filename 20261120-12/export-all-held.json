@@ -1,0 +1,220 @@
+{
+  "schema": "load-ladder/v1",
+  "originalInput": {
+    "context": "Synthetic archive time-study summaries. Comparable workload, staffing and minutes per complete batch.",
+    "unit": "minutes",
+    "ceiling": 25,
+    "minSimilarity": 0.15,
+    "first": [
+      {
+        "id": "scan",
+        "text": "Scanning paper documents into digital electronic archives"
+      },
+      {
+        "id": "pack",
+        "text": "Packing cardboard shipping boxes for parcel delivery"
+      }
+    ],
+    "records": [
+      {
+        "id": "r1",
+        "text": "Digitizing printed papers with a document scanner",
+        "size": 10,
+        "duration": 15,
+        "count": 2
+      },
+      {
+        "id": "r2",
+        "text": "Scanning paper pages for the electronic archive",
+        "size": 20,
+        "duration": 30,
+        "count": 1
+      },
+      {
+        "id": "r3",
+        "text": "Converting paper files into searchable digital documents",
+        "size": 30,
+        "duration": 20,
+        "count": 1
+      },
+      {
+        "id": "r4",
+        "text": "Wrapping cardboard cartons for shipment",
+        "size": 10,
+        "duration": 8,
+        "count": 1
+      },
+      {
+        "id": "r5",
+        "text": "Packing parcels in cardboard boxes",
+        "size": 20,
+        "duration": 16,
+        "count": 2
+      },
+      {
+        "id": "r6",
+        "text": "Preparing boxed packages for courier collection",
+        "size": 30,
+        "duration": 28,
+        "count": 1
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "r1",
+      "size": 10,
+      "duration": 15,
+      "count": 2,
+      "proposed": "scan",
+      "target": "scan",
+      "decision": "hold",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "scan",
+          "score": 0.7329189302593874
+        },
+        {
+          "id": "pack",
+          "score": 0.18322878638072715
+        }
+      ]
+    },
+    {
+      "id": "r2",
+      "size": 20,
+      "duration": 30,
+      "count": 1,
+      "proposed": "scan",
+      "target": "scan",
+      "decision": "hold",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "scan",
+          "score": 0.8629995397534291
+        },
+        {
+          "id": "pack",
+          "score": 0.18817707525766592
+        }
+      ]
+    },
+    {
+      "id": "r3",
+      "size": 30,
+      "duration": 20,
+      "count": 1,
+      "proposed": "scan",
+      "target": "scan",
+      "decision": "hold",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "scan",
+          "score": 0.7512201813284436
+        },
+        {
+          "id": "pack",
+          "score": 0.18509017913545855
+        }
+      ]
+    },
+    {
+      "id": "r4",
+      "size": 10,
+      "duration": 8,
+      "count": 1,
+      "proposed": "pack",
+      "target": "pack",
+      "decision": "hold",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "pack",
+          "score": 0.7072938883893124
+        },
+        {
+          "id": "scan",
+          "score": 0.17377503074542897
+        }
+      ]
+    },
+    {
+      "id": "r5",
+      "size": 20,
+      "duration": 16,
+      "count": 2,
+      "proposed": "pack",
+      "target": "pack",
+      "decision": "hold",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "pack",
+          "score": 0.9346955103340673
+        },
+        {
+          "id": "scan",
+          "score": 0.19771888102529334
+        }
+      ]
+    },
+    {
+      "id": "r6",
+      "size": 30,
+      "duration": 28,
+      "count": 1,
+      "proposed": "pack",
+      "target": "pack",
+      "decision": "hold",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "pack",
+          "score": 0.726132127680773
+        },
+        {
+          "id": "scan",
+          "score": 0.15338243002300686
+        }
+      ]
+    }
+  ],
+  "total": 6,
+  "approved": 0,
+  "held": 6,
+  "plan": [
+    {
+      "id": "scan",
+      "text": "Scanning paper documents into digital electronic archives",
+      "recordIds": [],
+      "levels": [],
+      "blocks": [],
+      "rawAdjacentDrops": 0,
+      "fittedAdjacentDrops": 0,
+      "weightedAdjustmentSSE": 0,
+      "largestObservedWithinCeiling": null,
+      "sampleCount": 0
+    },
+    {
+      "id": "pack",
+      "text": "Packing cardboard shipping boxes for parcel delivery",
+      "recordIds": [],
+      "levels": [],
+      "blocks": [],
+      "rawAdjacentDrops": 0,
+      "fittedAdjacentDrops": 0,
+      "weightedAdjustmentSSE": 0,
+      "largestObservedWithinCeiling": null,
+      "sampleCount": 0
+    }
+  ],
+  "metrics": {
+    "rawDrops": 0,
+    "fittedDrops": 0,
+    "sampleCount": 0
+  },
+  "warning": "Monotonicity is a supplied planning assumption, not a discovered law. Weighted isotonic least squares smooths observed level means; zero fitted drops is by construction, not improved predictive accuracy. Count weights require comparable independent measurements and identical units/staffing. Pooled plateaus can hide real process changes. Ceilings are descriptive screens on fitted means, never guarantees, confidence bounds or safe capacities. No interpolation, extrapolation, causal claims or equipment control."
+}

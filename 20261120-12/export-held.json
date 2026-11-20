@@ -1,0 +1,332 @@
+{
+  "schema": "load-ladder/v1",
+  "originalInput": {
+    "context": "Synthetic workshop batch timings. Same procedure and fixed staffing within each profile.",
+    "unit": "minutes",
+    "ceiling": 25,
+    "minSimilarity": 0.15,
+    "first": [
+      {
+        "id": "wash",
+        "text": "Washing dirty fabric laundry in a washing machine"
+      },
+      {
+        "id": "bake",
+        "text": "Baking bread dough in a bakery oven"
+      }
+    ],
+    "records": [
+      {
+        "id": "r1",
+        "text": "Cleaning dirty clothes in the laundry washer",
+        "size": 10,
+        "duration": 12,
+        "count": 2
+      },
+      {
+        "id": "r2",
+        "text": "Machine washing fabric laundry loads",
+        "size": 20,
+        "duration": 28,
+        "count": 1
+      },
+      {
+        "id": "r3",
+        "text": "Washing soiled garments in a washing machine",
+        "size": 30,
+        "duration": 18,
+        "count": 1
+      },
+      {
+        "id": "r4",
+        "text": "Baking loaves of bread in the oven",
+        "size": 10,
+        "duration": 20,
+        "count": 1
+      },
+      {
+        "id": "r5",
+        "text": "Putting bread dough into the bakery oven",
+        "size": 20,
+        "duration": 18,
+        "count": 2
+      },
+      {
+        "id": "r6",
+        "text": "Oven baking batches of bread loaves",
+        "size": 30,
+        "duration": 40,
+        "count": 1
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "r1",
+      "size": 10,
+      "duration": 12,
+      "count": 2,
+      "proposed": "wash",
+      "target": "wash",
+      "decision": "hold",
+      "reviewNote": "=SUM(1,2)\n\"reviewed\", with newline",
+      "evidence": [
+        {
+          "id": "wash",
+          "score": 0.8324577721423119
+        },
+        {
+          "id": "bake",
+          "score": 0.14008188743067068
+        }
+      ]
+    },
+    {
+      "id": "r2",
+      "size": 20,
+      "duration": 28,
+      "count": 1,
+      "proposed": "wash",
+      "target": "wash",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "wash",
+          "score": 0.8659431992440189
+        },
+        {
+          "id": "bake",
+          "score": 0.1074501052707711
+        }
+      ]
+    },
+    {
+      "id": "r3",
+      "size": 30,
+      "duration": 18,
+      "count": 1,
+      "proposed": "wash",
+      "target": "wash",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "wash",
+          "score": 0.8037777074475516
+        },
+        {
+          "id": "bake",
+          "score": 0.1300507388082595
+        }
+      ]
+    },
+    {
+      "id": "r4",
+      "size": 10,
+      "duration": 20,
+      "count": 1,
+      "proposed": "bake",
+      "target": "bake",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "bake",
+          "score": 0.7821371951541499
+        },
+        {
+          "id": "wash",
+          "score": 0.11408840057848606
+        }
+      ]
+    },
+    {
+      "id": "r5",
+      "size": 20,
+      "duration": 18,
+      "count": 2,
+      "proposed": "bake",
+      "target": "bake",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "bake",
+          "score": 0.9431078003972865
+        },
+        {
+          "id": "wash",
+          "score": 0.10911224818320751
+        }
+      ]
+    },
+    {
+      "id": "r6",
+      "size": 30,
+      "duration": 40,
+      "count": 1,
+      "proposed": "bake",
+      "target": "bake",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "id": "bake",
+          "score": 0.6963033449537357
+        },
+        {
+          "id": "wash",
+          "score": 0.1252109189560671
+        }
+      ]
+    }
+  ],
+  "total": 6,
+  "approved": 5,
+  "held": 1,
+  "plan": [
+    {
+      "id": "wash",
+      "text": "Washing dirty fabric laundry in a washing machine",
+      "recordIds": [
+        "r2",
+        "r3"
+      ],
+      "levels": [
+        {
+          "size": 20,
+          "weight": 1,
+          "sum": 28,
+          "ids": [
+            "r2"
+          ],
+          "raw": 28,
+          "fitted": 23,
+          "block": 1
+        },
+        {
+          "size": 30,
+          "weight": 1,
+          "sum": 18,
+          "ids": [
+            "r3"
+          ],
+          "raw": 18,
+          "fitted": 23,
+          "block": 1
+        }
+      ],
+      "blocks": [
+        {
+          "start": 0,
+          "end": 1,
+          "weight": 2,
+          "sum": 46,
+          "id": 1,
+          "mean": 23,
+          "sizes": [
+            20,
+            30
+          ],
+          "sourceIds": [
+            "r2",
+            "r3"
+          ]
+        }
+      ],
+      "rawAdjacentDrops": 1,
+      "fittedAdjacentDrops": 0,
+      "weightedAdjustmentSSE": 50,
+      "largestObservedWithinCeiling": 30,
+      "sampleCount": 2
+    },
+    {
+      "id": "bake",
+      "text": "Baking bread dough in a bakery oven",
+      "recordIds": [
+        "r4",
+        "r5",
+        "r6"
+      ],
+      "levels": [
+        {
+          "size": 10,
+          "weight": 1,
+          "sum": 20,
+          "ids": [
+            "r4"
+          ],
+          "raw": 20,
+          "fitted": 18.666666666666668,
+          "block": 1
+        },
+        {
+          "size": 20,
+          "weight": 2,
+          "sum": 36,
+          "ids": [
+            "r5"
+          ],
+          "raw": 18,
+          "fitted": 18.666666666666668,
+          "block": 1
+        },
+        {
+          "size": 30,
+          "weight": 1,
+          "sum": 40,
+          "ids": [
+            "r6"
+          ],
+          "raw": 40,
+          "fitted": 40,
+          "block": 2
+        }
+      ],
+      "blocks": [
+        {
+          "start": 0,
+          "end": 1,
+          "weight": 3,
+          "sum": 56,
+          "id": 1,
+          "mean": 18.666666666666668,
+          "sizes": [
+            10,
+            20
+          ],
+          "sourceIds": [
+            "r4",
+            "r5"
+          ]
+        },
+        {
+          "start": 2,
+          "end": 2,
+          "weight": 1,
+          "sum": 40,
+          "id": 2,
+          "mean": 40,
+          "sizes": [
+            30
+          ],
+          "sourceIds": [
+            "r6"
+          ]
+        }
+      ],
+      "rawAdjacentDrops": 1,
+      "fittedAdjacentDrops": 0,
+      "weightedAdjustmentSSE": 2.6666666666666665,
+      "largestObservedWithinCeiling": 20,
+      "sampleCount": 4
+    }
+  ],
+  "metrics": {
+    "rawDrops": 2,
+    "fittedDrops": 0,
+    "sampleCount": 6
+  },
+  "warning": "Monotonicity is a supplied planning assumption, not a discovered law. Weighted isotonic least squares smooths observed level means; zero fitted drops is by construction, not improved predictive accuracy. Count weights require comparable independent measurements and identical units/staffing. Pooled plateaus can hide real process changes. Ceilings are descriptive screens on fitted means, never guarantees, confidence bounds or safe capacities. No interpolation, extrapolation, causal claims or equipment control."
+}

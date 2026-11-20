@@ -1468,3 +1468,10 @@ Real local Tesseract LSTM OCR transcribes printed stocktake card photos into a m
 The conservative 1 GB collection limit remains unchanged. Deploy-only byte-identical geometry WASM sharing additionally covers `20261028-9` → immutable `20261028-24`, preserving source builds and legacy JS URLs with versioned worker/shell references. Actual older-app default/PNG/STL workflows and distinct validated STL downloads passed. No digest sent.
 
 Label Scribe public release: matching Pages `34f363e07c561f2b4fcbf218bbba11bc1e7e2647` built successfully. Twelve public byte matches, both real OCR fixtures, the full public reviewed-artifact/privacy/offline/max-batch suite, all 744 gallery cards and the affected older-app imports/exports passed. Combined site 999,702,485 bytes; source staging excludes unrelated pre-existing changes. No digest sent.
+
+
+## Load Ladder — 20261120-12
+
+Real local MiniLM procedure retrieval reconciles rough batch-time studies before mandatory size/mean/count review. Weighted isotonic PAVA pools contradictory observed levels, compares raw downward steps and screens an explicit mean-duration ceiling without extrapolation. Both tiny fixtures matched all 12 intended links; 1,200 independent exhaustive-partition oracles, actual reviewed-artifact round trips, maximum batching, defensive/race tests and fresh-worker warmed-page offline inference passed. Zero fitted drops is by construction, not predictive accuracy. Preserve shared AI worker/factory `20261115-6` and WASM `20261107-2`. See [workflow/privacy](20261120-12/README.md) and [observed validation](20261120-12/VALIDATION.md). No uploads, device actions or digest.
+
+Public release: matching Pages `51986e68bea0e8fb87b23dd63865946b3492eaa3` built successfully. Nine public gallery/app/worker/factory/WASM byte matches, both real-AI fixtures, the complete public reviewed-artifact/privacy/offline/max-batch suite and all 745 gallery cards passed. Combined site 999,967,250 bytes, below the unchanged guard; no additional legacy-runtime deduplication rule. Source staging excludes unrelated pre-existing changes. No digest sent.

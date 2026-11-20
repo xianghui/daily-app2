@@ -1577,3 +1577,12 @@ Local MiniLM profiles assist task-experience matched pairs for a small A/B pilot
 Pairblock release deployment-size maintenance: deploy-only byte-identical Manifold sharing now also covers Step & Stack (`20261028-2`), referencing the existing immutable `20261028-24/assets/manifold-BE4c7gO-.wasm`. Source builds and legacy JS compatibility URLs are preserved; entry/worker query versions change. Its actual PNG/STL import and mesh exports are rechecked locally and publicly; see `20261121-1/legacy-runtime-validation.json`. The 1 GB guard is unchanged.
 
 Pairblock Studio public release: matching Pages `ed37f4f999e0856c1756b536c5dac57c1b7296db` and workflow `44770542399` succeeded. Nine byte-matched public assets, both actual neural fixtures, the full reviewed-artifact/offline/max-batch suite, 758 preserved gallery cards and Step & Stack shared-runtime PNG/STL/mesh checks passed. Combined size 999,603,985 bytes; unchanged 1 GB guard. Negation limitation documented; unrelated existing edits excluded from staging; no digest sent.
+
+
+## Lag Loom — 20261121-3
+
+Real local MiniLM reconciles informal sampled-signal names before mandatory channel/sample review. Bounded signed-correlation scans compare zero-lag alignment, expose tied/constant windows and export complete JSON/CSV/paired-sample CSV/Markdown without uploads or clock changes. Both tiny fixtures matched all four intended channels and planted lags; negation still mislinks, and correlation is not clock calibration. Actual artifacts, offline fresh-worker CPU inference and failure/stale guards passed locally. Preserve shared worker/factory `20261115-6` and WASM `20261107-2`. See [workflow/privacy](20261121-3/README.md) and [observed checks](20261121-3/VALIDATION.md). No digest sent.
+
+Lag Loom collection-size maintenance extends existing deploy-only byte-identical geometry WASM sharing to Glide & Slot (`20261028-1`) → immutable `20261028-24`, preserving source builds and compatibility JS URLs. Real default/PNG/STL export checks are recorded locally and publicly. The conservative 1 GB guard is unchanged.
+
+Lag Loom public release: matching Pages `192885ea27e22cf8e71df852791fa1d922296f98` and workflow `44790587846` succeeded. Nine public asset byte matches, both real neural fixtures, reviewed artifact/offline/max-dimension checks, all 760 gallery cards and affected legacy PNG/STL/mesh workflows passed. Combined size 999,592,393 bytes; unchanged guard. Unrelated pre-existing recovery work is preserved and excluded from staging. No digest sent.

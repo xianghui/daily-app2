@@ -1,0 +1,386 @@
+{
+  "schema": "lag-loom/v1",
+  "originalInput": {
+    "context": "Synthetic equally spaced archive monitoring traces with shifted logger starts.",
+    "stepSeconds": 60,
+    "maxLag": 3,
+    "references": [
+      {
+        "id": "humidity",
+        "description": "Humidity sensor measuring moisture in the archive air",
+        "values": [
+          8,
+          2,
+          6,
+          1,
+          5,
+          9,
+          3,
+          7,
+          0,
+          4,
+          8,
+          2
+        ]
+      },
+      {
+        "id": "light",
+        "description": "Illuminance sensor measuring brightness from room lighting",
+        "values": [
+          2,
+          5,
+          1,
+          8,
+          3,
+          7,
+          4,
+          9,
+          2,
+          6,
+          0,
+          5
+        ]
+      }
+    ],
+    "records": [
+      {
+        "id": "s1",
+        "note": "Moisture levels in the air from the hygrometer",
+        "values": [
+          0,
+          2,
+          5,
+          1,
+          8,
+          3,
+          7,
+          4,
+          9,
+          2,
+          6,
+          0
+        ]
+      },
+      {
+        "id": "s2",
+        "note": "Brightness readings from the room illumination detector",
+        "values": [
+          6,
+          1,
+          5,
+          9,
+          3,
+          7,
+          0,
+          4,
+          8,
+          2,
+          0,
+          0
+        ]
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "s1",
+      "channel": "humidity",
+      "valuesText": "[0,2,5,1,8,3,7,4,9,2,6,0]",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "channel": "humidity",
+          "score": 0.6625144615051309
+        },
+        {
+          "channel": "light",
+          "score": 0.2873899746365632
+        }
+      ],
+      "values": [
+        0,
+        2,
+        5,
+        1,
+        8,
+        3,
+        7,
+        4,
+        9,
+        2,
+        6,
+        0
+      ]
+    },
+    {
+      "id": "s2",
+      "channel": "light",
+      "valuesText": "[6,1,5,9,3,7,0,4,8,2,0,0]",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "channel": "light",
+          "score": 0.7938634125777921
+        },
+        {
+          "channel": "humidity",
+          "score": 0.29118286983386343
+        }
+      ],
+      "values": [
+        6,
+        1,
+        5,
+        9,
+        3,
+        7,
+        0,
+        4,
+        8,
+        2,
+        0,
+        0
+      ]
+    }
+  ],
+  "total": 2,
+  "approved": 2,
+  "held": 0,
+  "checks": [
+    {
+      "id": "s1",
+      "channel": "humidity",
+      "baseline": -0.08179682322911468,
+      "best": {
+        "lag": -3,
+        "overlap": 9,
+        "correlation": 0.2875000000000001,
+        "pairs": [
+          {
+            "referenceIndex": 3,
+            "traceIndex": 0,
+            "reference": 1,
+            "trace": 0
+          },
+          {
+            "referenceIndex": 4,
+            "traceIndex": 1,
+            "reference": 5,
+            "trace": 2
+          },
+          {
+            "referenceIndex": 5,
+            "traceIndex": 2,
+            "reference": 9,
+            "trace": 5
+          },
+          {
+            "referenceIndex": 6,
+            "traceIndex": 3,
+            "reference": 3,
+            "trace": 1
+          },
+          {
+            "referenceIndex": 7,
+            "traceIndex": 4,
+            "reference": 7,
+            "trace": 8
+          },
+          {
+            "referenceIndex": 8,
+            "traceIndex": 5,
+            "reference": 0,
+            "trace": 3
+          },
+          {
+            "referenceIndex": 9,
+            "traceIndex": 6,
+            "reference": 4,
+            "trace": 7
+          },
+          {
+            "referenceIndex": 10,
+            "traceIndex": 7,
+            "reference": 8,
+            "trace": 4
+          },
+          {
+            "referenceIndex": 11,
+            "traceIndex": 8,
+            "reference": 2,
+            "trace": 9
+          }
+        ]
+      },
+      "ambiguous": false,
+      "ties": [
+        -3
+      ],
+      "candidates": [
+        {
+          "lag": -3,
+          "overlap": 9,
+          "correlation": 0.2875000000000001
+        },
+        {
+          "lag": -2,
+          "overlap": 10,
+          "correlation": -0.13740958277972223
+        },
+        {
+          "lag": -1,
+          "overlap": 11,
+          "correlation": 0.17216494845360822
+        },
+        {
+          "lag": 0,
+          "overlap": 12,
+          "correlation": -0.08179682322911468
+        },
+        {
+          "lag": 1,
+          "overlap": 11,
+          "correlation": -0.10404683161371117
+        },
+        {
+          "lag": 2,
+          "overlap": 10,
+          "correlation": 0.030303030303030304
+        },
+        {
+          "lag": 3,
+          "overlap": 9,
+          "correlation": 0.1918918918918918
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "channel": "light",
+      "baseline": 0.20684385488963103,
+      "best": {
+        "lag": 0,
+        "overlap": 12,
+        "correlation": 0.20684385488963103,
+        "pairs": [
+          {
+            "referenceIndex": 0,
+            "traceIndex": 0,
+            "reference": 2,
+            "trace": 6
+          },
+          {
+            "referenceIndex": 1,
+            "traceIndex": 1,
+            "reference": 5,
+            "trace": 1
+          },
+          {
+            "referenceIndex": 2,
+            "traceIndex": 2,
+            "reference": 1,
+            "trace": 5
+          },
+          {
+            "referenceIndex": 3,
+            "traceIndex": 3,
+            "reference": 8,
+            "trace": 9
+          },
+          {
+            "referenceIndex": 4,
+            "traceIndex": 4,
+            "reference": 3,
+            "trace": 3
+          },
+          {
+            "referenceIndex": 5,
+            "traceIndex": 5,
+            "reference": 7,
+            "trace": 7
+          },
+          {
+            "referenceIndex": 6,
+            "traceIndex": 6,
+            "reference": 4,
+            "trace": 0
+          },
+          {
+            "referenceIndex": 7,
+            "traceIndex": 7,
+            "reference": 9,
+            "trace": 4
+          },
+          {
+            "referenceIndex": 8,
+            "traceIndex": 8,
+            "reference": 2,
+            "trace": 8
+          },
+          {
+            "referenceIndex": 9,
+            "traceIndex": 9,
+            "reference": 6,
+            "trace": 2
+          },
+          {
+            "referenceIndex": 10,
+            "traceIndex": 10,
+            "reference": 0,
+            "trace": 0
+          },
+          {
+            "referenceIndex": 11,
+            "traceIndex": 11,
+            "reference": 5,
+            "trace": 0
+          }
+        ]
+      },
+      "ambiguous": false,
+      "ties": [
+        0
+      ],
+      "candidates": [
+        {
+          "lag": -3,
+          "overlap": 9,
+          "correlation": -0.10010667934047582
+        },
+        {
+          "lag": -2,
+          "overlap": 10,
+          "correlation": -0.01818181818181818
+        },
+        {
+          "lag": -1,
+          "overlap": 11,
+          "correlation": -0.016914794888212105
+        },
+        {
+          "lag": 0,
+          "overlap": 12,
+          "correlation": 0.20684385488963103
+        },
+        {
+          "lag": 1,
+          "overlap": 11,
+          "correlation": 0.0644003946468276
+        },
+        {
+          "lag": 2,
+          "overlap": 10,
+          "correlation": 0.15953330583655556
+        },
+        {
+          "lag": 3,
+          "overlap": 9,
+          "correlation": -0.4177476437134449
+        }
+      ]
+    }
+  ],
+  "warning": "Exploratory finite-window alignment only. Correlation is not causation or clock calibration. Positive lag pairs reference[i] with trace[i+lag]. Shifted windows have different overlap; edge optima, periodic signals, trends and short records can mislead. Constant windows are unavailable, tied maxima are ambiguous. No interpolation, resampling, clock changes or source deletions."
+}

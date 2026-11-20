@@ -1,0 +1,386 @@
+{
+  "schema": "lag-loom/v1",
+  "originalInput": {
+    "context": "Synthetic equal-interval workshop logs. Positive lag means trace occurs later than reference.",
+    "stepSeconds": 10,
+    "maxLag": 3,
+    "references": [
+      {
+        "id": "heat",
+        "description": "Temperature sensor measuring heat in the drying chamber",
+        "values": [
+          2,
+          5,
+          1,
+          8,
+          3,
+          7,
+          4,
+          9,
+          2,
+          6,
+          0,
+          5
+        ]
+      },
+      {
+        "id": "flow",
+        "description": "Water flow meter measuring liquid through a pipe",
+        "values": [
+          8,
+          2,
+          6,
+          1,
+          5,
+          9,
+          3,
+          7,
+          0,
+          4,
+          8,
+          2
+        ]
+      }
+    ],
+    "records": [
+      {
+        "id": "r1",
+        "note": "Thermometer readings inside the heated drying enclosure",
+        "values": [
+          0,
+          0,
+          2,
+          5,
+          1,
+          8,
+          3,
+          7,
+          4,
+          9,
+          2,
+          6
+        ]
+      },
+      {
+        "id": "r2",
+        "note": "Liquid throughput readings from the pipe water meter",
+        "values": [
+          2,
+          6,
+          1,
+          5,
+          9,
+          3,
+          7,
+          0,
+          4,
+          8,
+          2,
+          0
+        ]
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "r1",
+      "channel": "heat",
+      "valuesText": "[0,0,2,5,1,8,3,7,4,9,2,6]",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "channel": "heat",
+          "score": 0.8406804181859576
+        },
+        {
+          "channel": "flow",
+          "score": 0.31007813827030123
+        }
+      ],
+      "values": [
+        0,
+        0,
+        2,
+        5,
+        1,
+        8,
+        3,
+        7,
+        4,
+        9,
+        2,
+        6
+      ]
+    },
+    {
+      "id": "r2",
+      "channel": "flow",
+      "valuesText": "[2,6,1,5,9,3,7,0,4,8,2,0]",
+      "decision": "approve",
+      "reviewNote": "",
+      "evidence": [
+        {
+          "channel": "flow",
+          "score": 0.7992053896484917
+        },
+        {
+          "channel": "heat",
+          "score": 0.28183657796194517
+        }
+      ],
+      "values": [
+        2,
+        6,
+        1,
+        5,
+        9,
+        3,
+        7,
+        0,
+        4,
+        8,
+        2,
+        0
+      ]
+    }
+  ],
+  "total": 2,
+  "approved": 2,
+  "held": 0,
+  "checks": [
+    {
+      "id": "r1",
+      "channel": "heat",
+      "baseline": 0.6670119601631492,
+      "best": {
+        "lag": 2,
+        "overlap": 10,
+        "correlation": 1,
+        "pairs": [
+          {
+            "referenceIndex": 0,
+            "traceIndex": 2,
+            "reference": 2,
+            "trace": 2
+          },
+          {
+            "referenceIndex": 1,
+            "traceIndex": 3,
+            "reference": 5,
+            "trace": 5
+          },
+          {
+            "referenceIndex": 2,
+            "traceIndex": 4,
+            "reference": 1,
+            "trace": 1
+          },
+          {
+            "referenceIndex": 3,
+            "traceIndex": 5,
+            "reference": 8,
+            "trace": 8
+          },
+          {
+            "referenceIndex": 4,
+            "traceIndex": 6,
+            "reference": 3,
+            "trace": 3
+          },
+          {
+            "referenceIndex": 5,
+            "traceIndex": 7,
+            "reference": 7,
+            "trace": 7
+          },
+          {
+            "referenceIndex": 6,
+            "traceIndex": 8,
+            "reference": 4,
+            "trace": 4
+          },
+          {
+            "referenceIndex": 7,
+            "traceIndex": 9,
+            "reference": 9,
+            "trace": 9
+          },
+          {
+            "referenceIndex": 8,
+            "traceIndex": 10,
+            "reference": 2,
+            "trace": 2
+          },
+          {
+            "referenceIndex": 9,
+            "traceIndex": 11,
+            "reference": 6,
+            "trace": 6
+          }
+        ]
+      },
+      "ambiguous": false,
+      "ties": [
+        2
+      ],
+      "candidates": [
+        {
+          "lag": -3,
+          "overlap": 9,
+          "correlation": -0.7256646498629522
+        },
+        {
+          "lag": -2,
+          "overlap": 10,
+          "correlation": 0.38586041963298984
+        },
+        {
+          "lag": -1,
+          "overlap": 11,
+          "correlation": -0.45435980369743423
+        },
+        {
+          "lag": 0,
+          "overlap": 12,
+          "correlation": 0.6670119601631492
+        },
+        {
+          "lag": 1,
+          "overlap": 11,
+          "correlation": -0.4402061855670103
+        },
+        {
+          "lag": 2,
+          "overlap": 10,
+          "correlation": 1
+        },
+        {
+          "lag": 3,
+          "overlap": 9,
+          "correlation": -0.6821673907431289
+        }
+      ]
+    },
+    {
+      "id": "r2",
+      "channel": "flow",
+      "baseline": -0.3441945531918192,
+      "best": {
+        "lag": -1,
+        "overlap": 11,
+        "correlation": 1,
+        "pairs": [
+          {
+            "referenceIndex": 1,
+            "traceIndex": 0,
+            "reference": 2,
+            "trace": 2
+          },
+          {
+            "referenceIndex": 2,
+            "traceIndex": 1,
+            "reference": 6,
+            "trace": 6
+          },
+          {
+            "referenceIndex": 3,
+            "traceIndex": 2,
+            "reference": 1,
+            "trace": 1
+          },
+          {
+            "referenceIndex": 4,
+            "traceIndex": 3,
+            "reference": 5,
+            "trace": 5
+          },
+          {
+            "referenceIndex": 5,
+            "traceIndex": 4,
+            "reference": 9,
+            "trace": 9
+          },
+          {
+            "referenceIndex": 6,
+            "traceIndex": 5,
+            "reference": 3,
+            "trace": 3
+          },
+          {
+            "referenceIndex": 7,
+            "traceIndex": 6,
+            "reference": 7,
+            "trace": 7
+          },
+          {
+            "referenceIndex": 8,
+            "traceIndex": 7,
+            "reference": 0,
+            "trace": 0
+          },
+          {
+            "referenceIndex": 9,
+            "traceIndex": 8,
+            "reference": 4,
+            "trace": 4
+          },
+          {
+            "referenceIndex": 10,
+            "traceIndex": 9,
+            "reference": 8,
+            "trace": 8
+          },
+          {
+            "referenceIndex": 11,
+            "traceIndex": 10,
+            "reference": 2,
+            "trace": 2
+          }
+        ]
+      },
+      "ambiguous": false,
+      "ties": [
+        -1
+      ],
+      "candidates": [
+        {
+          "lag": -3,
+          "overlap": 9,
+          "correlation": -0.07184212081070994
+        },
+        {
+          "lag": -2,
+          "overlap": 10,
+          "correlation": -0.4666666666666667
+        },
+        {
+          "lag": -1,
+          "overlap": 11,
+          "correlation": 1
+        },
+        {
+          "lag": 0,
+          "overlap": 12,
+          "correlation": -0.3441945531918192
+        },
+        {
+          "lag": 1,
+          "overlap": 11,
+          "correlation": -0.142155440748439
+        },
+        {
+          "lag": 2,
+          "overlap": 10,
+          "correlation": 0.027960899973405055
+        },
+        {
+          "lag": 3,
+          "overlap": 9,
+          "correlation": -0.18988428937907864
+        }
+      ]
+    }
+  ],
+  "warning": "Exploratory finite-window alignment only. Correlation is not causation or clock calibration. Positive lag pairs reference[i] with trace[i+lag]. Shifted windows have different overlap; edge optima, periodic signals, trends and short records can mislead. Constant windows are unavailable, tied maxima are ambiguous. No interpolation, resampling, clock changes or source deletions."
+}

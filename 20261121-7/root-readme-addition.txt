@@ -1,0 +1,6 @@
+
+## Joint Signal — 20261121-7
+
+Local MiniLM reconciles paired-measurement process notes before mandatory reference/check role and reading review. Reference-only regularized covariance distances expose unusual combinations beyond marginal checks; originals and holds survive complete JSON/CSV/check CSV/Markdown audits. Both tiny fixtures matched 24/24 supplied group keys and four planted joint-only rechecks; a negation challenge failed, so this is exploratory recheck assistance, not fault diagnosis or release authority. Offline inference tested only in a warmed open page. Preserve shared worker/factory `20261115-6` and WASM `20261107-2`. See [workflow/privacy](20261121-7/README.md) and [observed checks](20261121-7/VALIDATION.md). React 18 keeps the new app within the unchanged collection budget; no older apps or runtime rules removed. No uploads or digest.
+
+Joint Signal public release: matching Pages `3467e10c41dd676e5e72a6abe93d41922cf7a211` and workflow `44826356867` succeeded. Seven public gallery/app/AI asset byte matches, both real neural fixtures, reviewed artifacts, maximum batching, warmed-page fresh-worker offline inference and all 764 gallery cards passed. Combined site 999,998,845 bytes under the unchanged 1 GB guard. No new legacy runtime rules; unrelated existing edits/drafts excluded from source staging. No digest sent.

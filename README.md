@@ -1561,3 +1561,10 @@ Real local MiniLM reconciles rough daily meter diaries to reviewed site boundari
 Climate Ledger collection-size maintenance extends existing deploy-only byte-identical geometry WASM sharing to `20261028-3` → `20261028-24`, preserving its source and compatibility JS URLs. Real worker/PNG import/checked STL export passed on the assembled site. The <1 GB guard is unchanged.
 
 Climate Ledger public release: matching Pages build `5228ca892bc844551a00b85b6a5dca31fab97721` reached built. Public real-AI workflows, reviewed artifacts/offline checks, preserved 756-card gallery and the affected legacy geometry app passed. See the app's public asset hashes and publication reports. Source commit excludes unrelated pre-existing drafts/edits.
+
+
+## Factor Grove — 20261120-24
+
+Real local MiniLM reconciles rough full-factorial run notes before mandatory condition/measurement review. Balanced 2–3-factor contrasts expose interactions beyond additive-only cell summaries; originals and holds survive complete JSON/CSV/Markdown audits. Both tiny fixtures matched 16/16 links in total; a negated airflow challenge failed, so manual review remains essential. 1,200 independent contrast/reconstruction oracles, actual artifact parsing, 80-record batching and warmed-page fresh-worker offline inference passed. Not causal proof or process release. Preserve shared worker/factory `20261115-6` and WASM `20261107-2`. See [workflow/privacy](20261120-24/README.md) and [observed checks](20261120-24/VALIDATION.md). No uploads or digest.
+
+Factor Grove public release: matching Pages `ed29f7daa16739eb386353cba6d1c8ddf421d54a` and workflow `44760651535` succeeded on the first deployment. Nine public asset byte matches, both real-AI fixtures, full reviewed-artifact/offline/max-batch checks and all 757 gallery cards passed. Combined site 999,889,152 bytes under the unchanged guard; no new legacy runtime rule. Unrelated pre-existing work is preserved and excluded from source staging. No digest sent.

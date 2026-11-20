@@ -1,0 +1,41 @@
+# Factor Grove — 20261120-24
+
+A local, human-reviewed full-factorial trial notebook utility for small-workshop experiment reviewers. It reconciles paraphrased run notes with supplied experimental conditions, preserves every original, and produces a source-linked effects/recheck worksheet. Unlike existing two-station schedulers, card sorting, pairwise QA design and pilot/reference dashboards, this workflow reconstructs a balanced 2–3-factor full factorial and exposes its main and interaction contrasts. It neither executes an experiment nor changes equipment.
+
+## Workflow
+
+1. Load **Workshop drying** or **Parcel handling**, or paste/import source JSON. Set your response unit, 2–3 factors with low/high labels, all 4/8 conditions with explicit ±1 levels, and 1–80 measured runs. Condition descriptions must agree with their factor signs; the model cannot verify that assumption.
+2. Read the download/device notice, then explicitly select **Load AI & reconcile**. Actual neural embeddings propose condition IDs and show cosine-ranked source descriptions. Notes are data, never tool instructions. Cancel or retry any loading/run.
+3. Inspect every source note and condition, edit its response, write multiline evidence, and approve or hold it. Use undo for review edits. Originals are immutable. Pending reviews block apply; changes invalidate export snapshots.
+4. Apply reviewed checks. Every condition must have the same positive number of approved runs. Missing/unequal cells produce a visible recheck and no contrasts. Holds are retained in complete exports.
+5. Inspect main effects, interactions, source-linked cell means, additive-only cell-mean RMSE and within-cell repeat RMS. Export complete JSON, Audit CSV, condition Summary CSV or Markdown; copy the current reviewed worksheet. Reimport a JSON audit to recover originals only (fresh inference/review required).
+
+## Real AI and static runtime
+
+- **Model:** [Xenova/all-MiniLM-L6-v2](https://huggingface.co/Xenova/all-MiniLM-L6-v2), Apache-2.0, quantized q8 ONNX, approximately 23 MB plus tokenizer/config. Browser downloads use huggingface.co and its redirected hf.co/CDN hosts (observed us.aws.cdn.hf.co). No key/paid provider or backend.
+- **Task:** real feature extraction, normalized mean-pooled 384-dimensional embeddings; cosine match between each run note and the user's condition descriptions. This reduces manual re-coding, but is not a generative scientist, causal engine or reliable negation interpreter. All neural suggestions start pending. No hardcoded model responses or deterministic AI fallback.
+- **Runtime:** Transformers.js 4.3.2, ONNX Runtime Web WASM CPU. WebGPU is not used/required. Four texts per chunk. The tokenizer's actual configured ceiling is 512 tokens (the feature-extraction pipeline ignores per-call max_length); descriptions and notes are separately capped at 300 characters.
+- **Immutable collection dependencies:** `/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js`, `/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs`, `/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm`. Preserve these older published apps/assets. This app bundles React/UI locally and reuses the verified 549 KB worker, 53 KB factory and 26.86 MB binary rather than duplicating them. See actual byte counts/hashes in `runtime-dependency-audit.json` (authoritative).
+- First load needs internet for approximately 50 MB model/runtime plus app assets, several hundred MB available RAM, secure context, module workers, WebAssembly SIMD and Cache API. Tested with desktop Chrome headless CPU; real phones, Safari/Firefox/Edge and assistive technology are untested. No claim that every phone supports it.
+- File-level download progress and processed-text counts come from the worker; total completion percentage is not invented. Cancel terminates the worker; a 180-second timeout and monotonically changing run IDs reject stale fetches/messages. Network, runtime, worker and malformed vector errors leave no fake result and support retry.
+- Worker source, factory/binary and model assets are explicitly cached. Fresh-worker inference after an online run in an already-open, warmed page was tested with all network disabled. **Offline reload/navigation is not promised.** Browser eviction/private browsing can remove caches. No cache-clearing function touches your source files. Model `main` is unpinned; the observed revision is recorded, not a reproducibility guarantee.
+
+## Data flow, bounds and artifacts
+
+All notes, measurements, vectors, reviews and exports remain on-device in memory/downloads. Only public asset GETs occur; no user-content network bodies/URLs, analytics, credentials, remote APIs or account actions. Downloading weights is not uploading content. Persistent browser caches hold public runtime/model assets only. Do not put sensitive content in a shared exported audit.
+
+Source: JSON ≤50,000 characters; 2–3 uniquely identified factors, exactly 2^k distinct ±1 condition vectors, 1–80 uniquely identified records, notes/descriptions ≤300 characters and finite responses within ±1 million. Import `.json` ≤2 MB supports expanded audit envelopes, but restored originals must meet the same stricter limits. IDs are bounded safe ASCII; units/context and factor labels are bounded strings. Unsupported formats, empty/bad/oversized input and nonfinite values are rejected. Output vectors must be finite normalized 384-dimensional arrays with exactly one vector per text.
+
+JSON is the lossless complete source/review backup, including evidence and holds. Audit CSV includes every original note/value and current review; Summary CSV includes every design condition, n, mean, additive prediction, interaction residual, source run IDs and blocking rechecks. Markdown includes complete trial reviews and current contrasts. CSV uses quoted RFC-style fields and CRLF; string cells beginning with formula-like characters are prefixed with an apostrophe for spreadsheet safety, while numeric negatives stay numeric. JSON remains exact, including line breaks. Exports always use the currently applied review, never stale defaults.
+
+## Deterministic method and limits
+
+Only independent comparable runs of a **complete balanced full factorial**, with 2 or 3 two-level factors and a common response, are supported. Not fractional, nested, blocked, split-plot or repeated-measures analysis. Supplied factor signs/units and equal replication require human verification. Duplicate IDs are blocked; repeated measurements with different IDs cannot be identified automatically and must not be counted as independent replication. Held runs are excluded and may make the design incomplete; balance checks prevent quietly changing the estimand.
+
+For a nonempty set S of factors, effect = 2 × mean(cell mean × product of selected ±1 signs). Main effects are high-minus-low averaged over other factors. A two-factor difference-of-differences equals twice the interaction effect reported here. Additive prediction = grand mean + sum(main effect × sign / 2). The baseline is the main-effect-only cell prediction; its cell-mean RMSE shows omitted interactions. The saturated cell-mean model has zero cell-mean residual **by construction, not validation accuracy**. Within-cell repeat RMS = sqrt(sum((run − cell mean)^2)/N), a descriptive spread, not residual standard error, a confidence interval or a significance test. With one replicate per cell it is zero without establishing measurement precision. No statistical/causal or production-release claims.
+
+## Validation and development
+
+`npm install`, `npm run predeploy` (required alias for `npm run build`). Per-app `deploy: gh-pages -d dist` exists for contract compliance but **do not invoke it**: deploy the collection through root `npm run predeploy` / `npm run deploy`, preserving its gallery and size guard.
+
+See `VALIDATION.md` and machine reports for actual observations: two real-model fixtures, a failed negation challenge, 1,200 independent numeric oracles, browser CPU/chunking/offline/defensive/layout tests, actual downloaded artifact parsing and public verification. Tests use synthetic data only. Public status is recorded only after matching Pages build and public real inference verification.

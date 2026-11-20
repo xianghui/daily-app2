@@ -1,0 +1,72 @@
+{
+  "fixtures": [
+    {
+      "name": "Workshop drying",
+      "effects": [
+        {
+          "mask": 1,
+          "factors": [
+            "application"
+          ],
+          "order": 1,
+          "effect": 6
+        },
+        {
+          "mask": 2,
+          "factors": [
+            "air"
+          ],
+          "order": 1,
+          "effect": 4
+        },
+        {
+          "mask": 3,
+          "factors": [
+            "application",
+            "air"
+          ],
+          "order": 2,
+          "effect": 16
+        }
+      ],
+      "additiveRMSE": 8,
+      "repeatRMS": 1
+    },
+    {
+      "name": "Parcel handling",
+      "effects": [
+        {
+          "mask": 1,
+          "factors": [
+            "wrap"
+          ],
+          "order": 1,
+          "effect": -4
+        },
+        {
+          "mask": 2,
+          "factors": [
+            "move"
+          ],
+          "order": 1,
+          "effect": 8
+        },
+        {
+          "mask": 3,
+          "factors": [
+            "wrap",
+            "move"
+          ],
+          "order": 2,
+          "effect": -10
+        }
+      ],
+      "additiveRMSE": 5,
+      "repeatRMS": 2
+    }
+  ],
+  "oracleTrials": 1200,
+  "checks": [
+    "independent signed-group contrast oracle, full Walsh reconstruction, repeat residual oracle, balanced/missing cells, review gate, malformed vectors, no lost originals, real-newline artifacts"
+  ]
+}

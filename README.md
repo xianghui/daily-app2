@@ -1525,3 +1525,7 @@ Real local MiniLM reconciles both rough reporting-cell axes before mandatory lab
 
 
 Margin Press public release: matching Pages `51c97a4d1a42792ae7b9b7b1e2a639390e5fe093` and workflow `44708486858` succeeded on the first deployment. Nine public app/gallery/runtime byte matches, both real-AI fixtures and the full public reviewed-artifact/privacy/offline/max-batch suite passed, including infeasible coupled margins and actual narrow-table scrolling. All 751 gallery cards preserved. Combined site 999,939,906 bytes; unchanged guard, no new legacy runtime rule. Source staging excludes unrelated pre-existing work. No digest sent.
+
+## Trend Cairn — 20261120-19
+
+Local MiniLM series reconciliation for comparable process measurements. Review exact days/values, compare descriptive Sen slopes with endpoint shortcuts, inspect tolerance-based source rechecks and export complete JSON/CSV/series CSV/Markdown without uploads or automatic deletion. Two synthetic batches matched 24/24 labels; robust fixture slopes and seeded rechecks matched known answers. LOO diagnostics are not forecast accuracy; unrelated prose can mislink, and human review is mandatory. Reuses immutable 20261115-6 worker/factory and 20261107-2 WASM. See [workflow](20261120-19/README.md) and [observed validation](20261120-19/VALIDATION.md).

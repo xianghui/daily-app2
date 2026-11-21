@@ -1,0 +1,10 @@
+"record_type","id","source_or_expression","original_value","reviewed_value","ai_quantity","reviewed_quantity_or_target","decision_or_status","reason_or_note"
+"variable","height","Vertical height of the liquid column.","2","4","volume","length","approve","'=SUM(1,2)
+Reviewed ""source"", preserved."
+"variable","base","Surface area of the rectangular tank floor.","3","3","area","area","approve",""
+"variable","material","Mass density of the liquid, mass per cubic metre.","1000","1000","density","density","approve",""
+"variable","duration","Elapsed time taken to fill the tank.","60","60","time","time","approve",""
+"formula","capacity","[""mul"",""height"",""base""]","","12","","volume","compatible","Dimensions match the reviewed target; physical meaning is not proven."
+"formula","contents","[""mul"",""material"",[""mul"",""height"",""base""]]","","12000","","mass","compatible","Dimensions match the reviewed target; physical meaning is not proven."
+"formula","wrong_mass","[""div"",[""mul"",""height"",""base""],""material""]","","0.012","","mass","mismatch","Output dimension m^6 kg^-1 s^0 differs from target m^0 kg^1 s^0"
+"formula","wrong_energy","[""mul"",""material"",""duration""]","","60000","","energy","mismatch","Output dimension m^-3 kg^1 s^1 differs from target m^2 kg^1 s^-2"

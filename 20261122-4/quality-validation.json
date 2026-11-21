@@ -1,0 +1,687 @@
+{
+  "realModelEvidenceFromDownloadedAudits": true,
+  "report": [
+    {
+      "fixture": 0,
+      "initialAI": [
+        "speed",
+        "time",
+        "mass"
+      ],
+      "reviewed": [
+        "length",
+        "time",
+        "mass"
+      ],
+      "beforeQuantityCorrections": {
+        "checks": [
+          {
+            "id": "velocity",
+            "target": "speed",
+            "expr": [
+              "div",
+              "distance",
+              "duration"
+            ],
+            "targetUnit": "m/s",
+            "baseline": 12,
+            "baselineError": null,
+            "status": "mismatch",
+            "value": 12,
+            "actualDimension": [
+              1,
+              0,
+              -2
+            ],
+            "trace": [
+              {
+                "path": "root",
+                "op": "div",
+                "value": 12,
+                "dimension": [
+                  1,
+                  0,
+                  -2
+                ]
+              }
+            ],
+            "reason": "Output dimension m^1 kg^0 s^-2 differs from target m^1 kg^0 s^-1"
+          },
+          {
+            "id": "wrong_velocity",
+            "target": "speed",
+            "expr": [
+              "mul",
+              "distance",
+              "duration"
+            ],
+            "targetUnit": "m/s",
+            "baseline": 1200,
+            "baselineError": null,
+            "status": "mismatch",
+            "value": 1200,
+            "actualDimension": [
+              1,
+              0,
+              0
+            ],
+            "trace": [
+              {
+                "path": "root",
+                "op": "mul",
+                "value": 1200,
+                "dimension": [
+                  1,
+                  0,
+                  0
+                ]
+              }
+            ],
+            "reason": "Output dimension m^1 kg^0 s^0 differs from target m^1 kg^0 s^-1"
+          },
+          {
+            "id": "bad_sum",
+            "target": "length",
+            "expr": [
+              "add",
+              "distance",
+              "duration"
+            ],
+            "targetUnit": "m",
+            "baseline": 130,
+            "baselineError": null,
+            "status": "blocked",
+            "value": null,
+            "actualDimension": null,
+            "trace": [],
+            "reason": "Incompatible add at root: m^1 kg^0 s^-1 versus m^0 kg^0 s^1"
+          },
+          {
+            "id": "kinetic",
+            "target": "energy",
+            "expr": [
+              "mul",
+              0.5,
+              [
+                "mul",
+                "load",
+                [
+                  "pow",
+                  [
+                    "div",
+                    "distance",
+                    "duration"
+                  ],
+                  2
+                ]
+              ]
+            ],
+            "targetUnit": "J",
+            "baseline": 288,
+            "baselineError": null,
+            "status": "mismatch",
+            "value": 288,
+            "actualDimension": [
+              2,
+              1,
+              -4
+            ],
+            "trace": [
+              {
+                "path": "root.2.2.1",
+                "op": "div",
+                "value": 12,
+                "dimension": [
+                  1,
+                  0,
+                  -2
+                ]
+              },
+              {
+                "path": "root.2.2",
+                "op": "pow",
+                "value": 144,
+                "dimension": [
+                  2,
+                  0,
+                  -4
+                ]
+              },
+              {
+                "path": "root.2",
+                "op": "mul",
+                "value": 576,
+                "dimension": [
+                  2,
+                  1,
+                  -4
+                ]
+              },
+              {
+                "path": "root",
+                "op": "mul",
+                "value": 288,
+                "dimension": [
+                  2,
+                  1,
+                  -4
+                ]
+              }
+            ],
+            "reason": "Output dimension m^2 kg^1 s^-4 differs from target m^2 kg^1 s^-2"
+          }
+        ],
+        "numericEvaluable": 4,
+        "compatible": 0,
+        "mismatch": 3,
+        "blocked": 1
+      },
+      "afterQuantityCorrections": {
+        "checks": [
+          {
+            "id": "velocity",
+            "target": "speed",
+            "expr": [
+              "div",
+              "distance",
+              "duration"
+            ],
+            "targetUnit": "m/s",
+            "baseline": 12,
+            "baselineError": null,
+            "status": "compatible",
+            "value": 12,
+            "actualDimension": [
+              1,
+              0,
+              -1
+            ],
+            "trace": [
+              {
+                "path": "root",
+                "op": "div",
+                "value": 12,
+                "dimension": [
+                  1,
+                  0,
+                  -1
+                ]
+              }
+            ],
+            "reason": "Dimensions match the reviewed target; physical meaning is not proven."
+          },
+          {
+            "id": "wrong_velocity",
+            "target": "speed",
+            "expr": [
+              "mul",
+              "distance",
+              "duration"
+            ],
+            "targetUnit": "m/s",
+            "baseline": 1200,
+            "baselineError": null,
+            "status": "mismatch",
+            "value": 1200,
+            "actualDimension": [
+              1,
+              0,
+              1
+            ],
+            "trace": [
+              {
+                "path": "root",
+                "op": "mul",
+                "value": 1200,
+                "dimension": [
+                  1,
+                  0,
+                  1
+                ]
+              }
+            ],
+            "reason": "Output dimension m^1 kg^0 s^1 differs from target m^1 kg^0 s^-1"
+          },
+          {
+            "id": "bad_sum",
+            "target": "length",
+            "expr": [
+              "add",
+              "distance",
+              "duration"
+            ],
+            "targetUnit": "m",
+            "baseline": 130,
+            "baselineError": null,
+            "status": "blocked",
+            "value": null,
+            "actualDimension": null,
+            "trace": [],
+            "reason": "Incompatible add at root: m^1 kg^0 s^0 versus m^0 kg^0 s^1"
+          },
+          {
+            "id": "kinetic",
+            "target": "energy",
+            "expr": [
+              "mul",
+              0.5,
+              [
+                "mul",
+                "load",
+                [
+                  "pow",
+                  [
+                    "div",
+                    "distance",
+                    "duration"
+                  ],
+                  2
+                ]
+              ]
+            ],
+            "targetUnit": "J",
+            "baseline": 288,
+            "baselineError": null,
+            "status": "compatible",
+            "value": 288,
+            "actualDimension": [
+              2,
+              1,
+              -2
+            ],
+            "trace": [
+              {
+                "path": "root.2.2.1",
+                "op": "div",
+                "value": 12,
+                "dimension": [
+                  1,
+                  0,
+                  -1
+                ]
+              },
+              {
+                "path": "root.2.2",
+                "op": "pow",
+                "value": 144,
+                "dimension": [
+                  2,
+                  0,
+                  -2
+                ]
+              },
+              {
+                "path": "root.2",
+                "op": "mul",
+                "value": 576,
+                "dimension": [
+                  2,
+                  1,
+                  -2
+                ]
+              },
+              {
+                "path": "root",
+                "op": "mul",
+                "value": 288,
+                "dimension": [
+                  2,
+                  1,
+                  -2
+                ]
+              }
+            ],
+            "reason": "Dimensions match the reviewed target; physical meaning is not proven."
+          }
+        ],
+        "numericEvaluable": 4,
+        "compatible": 2,
+        "mismatch": 1,
+        "blocked": 1
+      }
+    },
+    {
+      "fixture": 1,
+      "initialAI": [
+        "volume",
+        "area",
+        "density",
+        "time"
+      ],
+      "reviewed": [
+        "length",
+        "area",
+        "density",
+        "time"
+      ],
+      "beforeQuantityCorrections": {
+        "checks": [
+          {
+            "id": "capacity",
+            "target": "volume",
+            "expr": [
+              "mul",
+              "height",
+              "base"
+            ],
+            "targetUnit": "m³",
+            "baseline": 6,
+            "baselineError": null,
+            "status": "mismatch",
+            "value": 6,
+            "actualDimension": [
+              5,
+              0,
+              0
+            ],
+            "trace": [
+              {
+                "path": "root",
+                "op": "mul",
+                "value": 6,
+                "dimension": [
+                  5,
+                  0,
+                  0
+                ]
+              }
+            ],
+            "reason": "Output dimension m^5 kg^0 s^0 differs from target m^3 kg^0 s^0"
+          },
+          {
+            "id": "contents",
+            "target": "mass",
+            "expr": [
+              "mul",
+              "material",
+              [
+                "mul",
+                "height",
+                "base"
+              ]
+            ],
+            "targetUnit": "kg",
+            "baseline": 6000,
+            "baselineError": null,
+            "status": "mismatch",
+            "value": 6000,
+            "actualDimension": [
+              2,
+              1,
+              0
+            ],
+            "trace": [
+              {
+                "path": "root.2",
+                "op": "mul",
+                "value": 6,
+                "dimension": [
+                  5,
+                  0,
+                  0
+                ]
+              },
+              {
+                "path": "root",
+                "op": "mul",
+                "value": 6000,
+                "dimension": [
+                  2,
+                  1,
+                  0
+                ]
+              }
+            ],
+            "reason": "Output dimension m^2 kg^1 s^0 differs from target m^0 kg^1 s^0"
+          },
+          {
+            "id": "wrong_mass",
+            "target": "mass",
+            "expr": [
+              "div",
+              [
+                "mul",
+                "height",
+                "base"
+              ],
+              "material"
+            ],
+            "targetUnit": "kg",
+            "baseline": 0.006,
+            "baselineError": null,
+            "status": "mismatch",
+            "value": 0.006,
+            "actualDimension": [
+              8,
+              -1,
+              0
+            ],
+            "trace": [
+              {
+                "path": "root.1",
+                "op": "mul",
+                "value": 6,
+                "dimension": [
+                  5,
+                  0,
+                  0
+                ]
+              },
+              {
+                "path": "root",
+                "op": "div",
+                "value": 0.006,
+                "dimension": [
+                  8,
+                  -1,
+                  0
+                ]
+              }
+            ],
+            "reason": "Output dimension m^8 kg^-1 s^0 differs from target m^0 kg^1 s^0"
+          },
+          {
+            "id": "wrong_energy",
+            "target": "energy",
+            "expr": [
+              "mul",
+              "material",
+              "duration"
+            ],
+            "targetUnit": "J",
+            "baseline": 60000,
+            "baselineError": null,
+            "status": "mismatch",
+            "value": 60000,
+            "actualDimension": [
+              -3,
+              1,
+              1
+            ],
+            "trace": [
+              {
+                "path": "root",
+                "op": "mul",
+                "value": 60000,
+                "dimension": [
+                  -3,
+                  1,
+                  1
+                ]
+              }
+            ],
+            "reason": "Output dimension m^-3 kg^1 s^1 differs from target m^2 kg^1 s^-2"
+          }
+        ],
+        "numericEvaluable": 4,
+        "compatible": 0,
+        "mismatch": 4,
+        "blocked": 0
+      },
+      "afterQuantityCorrections": {
+        "checks": [
+          {
+            "id": "capacity",
+            "target": "volume",
+            "expr": [
+              "mul",
+              "height",
+              "base"
+            ],
+            "targetUnit": "m³",
+            "baseline": 6,
+            "baselineError": null,
+            "status": "compatible",
+            "value": 6,
+            "actualDimension": [
+              3,
+              0,
+              0
+            ],
+            "trace": [
+              {
+                "path": "root",
+                "op": "mul",
+                "value": 6,
+                "dimension": [
+                  3,
+                  0,
+                  0
+                ]
+              }
+            ],
+            "reason": "Dimensions match the reviewed target; physical meaning is not proven."
+          },
+          {
+            "id": "contents",
+            "target": "mass",
+            "expr": [
+              "mul",
+              "material",
+              [
+                "mul",
+                "height",
+                "base"
+              ]
+            ],
+            "targetUnit": "kg",
+            "baseline": 6000,
+            "baselineError": null,
+            "status": "compatible",
+            "value": 6000,
+            "actualDimension": [
+              0,
+              1,
+              0
+            ],
+            "trace": [
+              {
+                "path": "root.2",
+                "op": "mul",
+                "value": 6,
+                "dimension": [
+                  3,
+                  0,
+                  0
+                ]
+              },
+              {
+                "path": "root",
+                "op": "mul",
+                "value": 6000,
+                "dimension": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            ],
+            "reason": "Dimensions match the reviewed target; physical meaning is not proven."
+          },
+          {
+            "id": "wrong_mass",
+            "target": "mass",
+            "expr": [
+              "div",
+              [
+                "mul",
+                "height",
+                "base"
+              ],
+              "material"
+            ],
+            "targetUnit": "kg",
+            "baseline": 0.006,
+            "baselineError": null,
+            "status": "mismatch",
+            "value": 0.006,
+            "actualDimension": [
+              6,
+              -1,
+              0
+            ],
+            "trace": [
+              {
+                "path": "root.1",
+                "op": "mul",
+                "value": 6,
+                "dimension": [
+                  3,
+                  0,
+                  0
+                ]
+              },
+              {
+                "path": "root",
+                "op": "div",
+                "value": 0.006,
+                "dimension": [
+                  6,
+                  -1,
+                  0
+                ]
+              }
+            ],
+            "reason": "Output dimension m^6 kg^-1 s^0 differs from target m^0 kg^1 s^0"
+          },
+          {
+            "id": "wrong_energy",
+            "target": "energy",
+            "expr": [
+              "mul",
+              "material",
+              "duration"
+            ],
+            "targetUnit": "J",
+            "baseline": 60000,
+            "baselineError": null,
+            "status": "mismatch",
+            "value": 60000,
+            "actualDimension": [
+              -3,
+              1,
+              1
+            ],
+            "trace": [
+              {
+                "path": "root",
+                "op": "mul",
+                "value": 60000,
+                "dimension": [
+                  -3,
+                  1,
+                  1
+                ]
+              }
+            ],
+            "reason": "Output dimension m^-3 kg^1 s^1 differs from target m^2 kg^1 s^-2"
+          }
+        ],
+        "numericEvaluable": 4,
+        "compatible": 2,
+        "mismatch": 2,
+        "blocked": 0
+      }
+    }
+  ]
+}

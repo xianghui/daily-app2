@@ -1,0 +1,413 @@
+{
+  "schema": "dimension-desk/1",
+  "originalInput": {
+    "title": "Motion worksheet / SI inputs",
+    "variables": [
+      {
+        "id": "distance",
+        "description": "Distance traveled along the track.",
+        "value": 120
+      },
+      {
+        "id": "duration",
+        "description": "Elapsed time for the journey.",
+        "value": 10
+      },
+      {
+        "id": "load",
+        "description": "Mass of the moving cart.",
+        "value": 4
+      }
+    ],
+    "formulas": [
+      {
+        "id": "velocity",
+        "target": "speed",
+        "expr": [
+          "div",
+          "distance",
+          "duration"
+        ]
+      },
+      {
+        "id": "wrong_velocity",
+        "target": "speed",
+        "expr": [
+          "mul",
+          "distance",
+          "duration"
+        ]
+      },
+      {
+        "id": "bad_sum",
+        "target": "length",
+        "expr": [
+          "add",
+          "distance",
+          "duration"
+        ]
+      },
+      {
+        "id": "kinetic",
+        "target": "energy",
+        "expr": [
+          "mul",
+          0.5,
+          [
+            "mul",
+            "load",
+            [
+              "pow",
+              [
+                "div",
+                "distance",
+                "duration"
+              ],
+              2
+            ]
+          ]
+        ]
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "distance",
+      "quantity": "length",
+      "aiQuantity": "speed",
+      "evidence": [
+        {
+          "id": "speed",
+          "score": 0.6100471545453308
+        },
+        {
+          "id": "acceleration",
+          "score": 0.31591734129529236
+        },
+        {
+          "id": "length",
+          "score": 0.3074647740955052
+        },
+        {
+          "id": "time",
+          "score": 0.22128679448037925
+        },
+        {
+          "id": "energy",
+          "score": 0.18969170294666893
+        },
+        {
+          "id": "power",
+          "score": 0.15430419788615446
+        },
+        {
+          "id": "force",
+          "score": 0.15328473084438327
+        },
+        {
+          "id": "area",
+          "score": 0.13027629055131307
+        },
+        {
+          "id": "mass",
+          "score": 0.11793832099070253
+        },
+        {
+          "id": "density",
+          "score": 0.1065332797014024
+        },
+        {
+          "id": "scalar",
+          "score": 0.08267644033510645
+        },
+        {
+          "id": "volume",
+          "score": 0.06408973132329546
+        }
+      ],
+      "decision": "approve",
+      "value": 120,
+      "note": ""
+    },
+    {
+      "id": "duration",
+      "quantity": "time",
+      "aiQuantity": "time",
+      "evidence": [
+        {
+          "id": "time",
+          "score": 0.4657823800945604
+        },
+        {
+          "id": "speed",
+          "score": 0.3062352814702027
+        },
+        {
+          "id": "acceleration",
+          "score": 0.18266765144540165
+        },
+        {
+          "id": "energy",
+          "score": 0.1392055085402261
+        },
+        {
+          "id": "length",
+          "score": 0.1361831081968069
+        },
+        {
+          "id": "power",
+          "score": 0.118694640612314
+        },
+        {
+          "id": "force",
+          "score": 0.08223300893541464
+        },
+        {
+          "id": "volume",
+          "score": 0.017639263023982145
+        },
+        {
+          "id": "scalar",
+          "score": -0.003040505428616211
+        },
+        {
+          "id": "area",
+          "score": -0.019083475835711544
+        },
+        {
+          "id": "density",
+          "score": -0.025697718690027564
+        },
+        {
+          "id": "mass",
+          "score": -0.028945030611550758
+        }
+      ],
+      "decision": "approve",
+      "value": 10,
+      "note": ""
+    },
+    {
+      "id": "load",
+      "quantity": "mass",
+      "aiQuantity": "mass",
+      "evidence": [
+        {
+          "id": "mass",
+          "score": 0.4229590018586793
+        },
+        {
+          "id": "acceleration",
+          "score": 0.38907933580389054
+        },
+        {
+          "id": "force",
+          "score": 0.3734565453637717
+        },
+        {
+          "id": "speed",
+          "score": 0.30366253566004964
+        },
+        {
+          "id": "density",
+          "score": 0.29812741201131676
+        },
+        {
+          "id": "energy",
+          "score": 0.25004898197789155
+        },
+        {
+          "id": "length",
+          "score": 0.2131785792817953
+        },
+        {
+          "id": "area",
+          "score": 0.20151012426140055
+        },
+        {
+          "id": "volume",
+          "score": 0.18335838881066263
+        },
+        {
+          "id": "power",
+          "score": 0.15574982444898366
+        },
+        {
+          "id": "scalar",
+          "score": 0.15006119037741483
+        },
+        {
+          "id": "time",
+          "score": 0.13550789638568
+        }
+      ],
+      "decision": "approve",
+      "value": 4,
+      "note": ""
+    }
+  ],
+  "analysis": {
+    "checks": [
+      {
+        "id": "velocity",
+        "target": "speed",
+        "expr": [
+          "div",
+          "distance",
+          "duration"
+        ],
+        "targetUnit": "m/s",
+        "baseline": 12,
+        "baselineError": null,
+        "status": "compatible",
+        "value": 12,
+        "actualDimension": [
+          1,
+          0,
+          -1
+        ],
+        "trace": [
+          {
+            "path": "root",
+            "op": "div",
+            "value": 12,
+            "dimension": [
+              1,
+              0,
+              -1
+            ]
+          }
+        ],
+        "reason": "Dimensions match the reviewed target; physical meaning is not proven."
+      },
+      {
+        "id": "wrong_velocity",
+        "target": "speed",
+        "expr": [
+          "mul",
+          "distance",
+          "duration"
+        ],
+        "targetUnit": "m/s",
+        "baseline": 1200,
+        "baselineError": null,
+        "status": "mismatch",
+        "value": 1200,
+        "actualDimension": [
+          1,
+          0,
+          1
+        ],
+        "trace": [
+          {
+            "path": "root",
+            "op": "mul",
+            "value": 1200,
+            "dimension": [
+              1,
+              0,
+              1
+            ]
+          }
+        ],
+        "reason": "Output dimension m^1 kg^0 s^1 differs from target m^1 kg^0 s^-1"
+      },
+      {
+        "id": "bad_sum",
+        "target": "length",
+        "expr": [
+          "add",
+          "distance",
+          "duration"
+        ],
+        "targetUnit": "m",
+        "baseline": 130,
+        "baselineError": null,
+        "status": "blocked",
+        "value": null,
+        "actualDimension": null,
+        "trace": [],
+        "reason": "Incompatible add at root: m^1 kg^0 s^0 versus m^0 kg^0 s^1"
+      },
+      {
+        "id": "kinetic",
+        "target": "energy",
+        "expr": [
+          "mul",
+          0.5,
+          [
+            "mul",
+            "load",
+            [
+              "pow",
+              [
+                "div",
+                "distance",
+                "duration"
+              ],
+              2
+            ]
+          ]
+        ],
+        "targetUnit": "J",
+        "baseline": 288,
+        "baselineError": null,
+        "status": "compatible",
+        "value": 288,
+        "actualDimension": [
+          2,
+          1,
+          -2
+        ],
+        "trace": [
+          {
+            "path": "root.2.2.1",
+            "op": "div",
+            "value": 12,
+            "dimension": [
+              1,
+              0,
+              -1
+            ]
+          },
+          {
+            "path": "root.2.2",
+            "op": "pow",
+            "value": 144,
+            "dimension": [
+              2,
+              0,
+              -2
+            ]
+          },
+          {
+            "path": "root.2",
+            "op": "mul",
+            "value": 576,
+            "dimension": [
+              2,
+              1,
+              -2
+            ]
+          },
+          {
+            "path": "root",
+            "op": "mul",
+            "value": 288,
+            "dimension": [
+              2,
+              1,
+              -2
+            ]
+          }
+        ],
+        "reason": "Dimensions match the reviewed target; physical meaning is not proven."
+      }
+    ],
+    "numericEvaluable": 4,
+    "compatible": 2,
+    "mismatch": 1,
+    "blocked": 1
+  },
+  "warning": "SI base values only; no unit conversion. Dimensions are necessary, not sufficient: torque and energy share dimensions. No temperature, electrical, angular or affine units. Numeric-only baseline ignores review holds and dimensions. All formulas and original values are retained; this worksheet changes no files or equipment."
+}

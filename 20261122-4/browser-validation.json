@@ -1,0 +1,703 @@
+{
+  "fixtures": [
+    {
+      "name": "Motion worksheet",
+      "actual": [
+        "speed",
+        "time",
+        "mass"
+      ],
+      "expected": [
+        "length",
+        "time",
+        "mass"
+      ],
+      "correct": 2,
+      "analysis": {
+        "checks": [
+          {
+            "id": "velocity",
+            "target": "speed",
+            "expr": [
+              "div",
+              "distance",
+              "duration"
+            ],
+            "targetUnit": "m/s",
+            "baseline": 12,
+            "baselineError": null,
+            "status": "compatible",
+            "value": 12,
+            "actualDimension": [
+              1,
+              0,
+              -1
+            ],
+            "trace": [
+              {
+                "path": "root",
+                "op": "div",
+                "value": 12,
+                "dimension": [
+                  1,
+                  0,
+                  -1
+                ]
+              }
+            ],
+            "reason": "Dimensions match the reviewed target; physical meaning is not proven."
+          },
+          {
+            "id": "wrong_velocity",
+            "target": "speed",
+            "expr": [
+              "mul",
+              "distance",
+              "duration"
+            ],
+            "targetUnit": "m/s",
+            "baseline": 1200,
+            "baselineError": null,
+            "status": "mismatch",
+            "value": 1200,
+            "actualDimension": [
+              1,
+              0,
+              1
+            ],
+            "trace": [
+              {
+                "path": "root",
+                "op": "mul",
+                "value": 1200,
+                "dimension": [
+                  1,
+                  0,
+                  1
+                ]
+              }
+            ],
+            "reason": "Output dimension m^1 kg^0 s^1 differs from target m^1 kg^0 s^-1"
+          },
+          {
+            "id": "bad_sum",
+            "target": "length",
+            "expr": [
+              "add",
+              "distance",
+              "duration"
+            ],
+            "targetUnit": "m",
+            "baseline": 130,
+            "baselineError": null,
+            "status": "blocked",
+            "value": null,
+            "actualDimension": null,
+            "trace": [],
+            "reason": "Incompatible add at root: m^1 kg^0 s^0 versus m^0 kg^0 s^1"
+          },
+          {
+            "id": "kinetic",
+            "target": "energy",
+            "expr": [
+              "mul",
+              0.5,
+              [
+                "mul",
+                "load",
+                [
+                  "pow",
+                  [
+                    "div",
+                    "distance",
+                    "duration"
+                  ],
+                  2
+                ]
+              ]
+            ],
+            "targetUnit": "J",
+            "baseline": 288,
+            "baselineError": null,
+            "status": "compatible",
+            "value": 288,
+            "actualDimension": [
+              2,
+              1,
+              -2
+            ],
+            "trace": [
+              {
+                "path": "root.2.2.1",
+                "op": "div",
+                "value": 12,
+                "dimension": [
+                  1,
+                  0,
+                  -1
+                ]
+              },
+              {
+                "path": "root.2.2",
+                "op": "pow",
+                "value": 144,
+                "dimension": [
+                  2,
+                  0,
+                  -2
+                ]
+              },
+              {
+                "path": "root.2",
+                "op": "mul",
+                "value": 576,
+                "dimension": [
+                  2,
+                  1,
+                  -2
+                ]
+              },
+              {
+                "path": "root",
+                "op": "mul",
+                "value": 288,
+                "dimension": [
+                  2,
+                  1,
+                  -2
+                ]
+              }
+            ],
+            "reason": "Dimensions match the reviewed target; physical meaning is not proven."
+          }
+        ],
+        "numericEvaluable": 4,
+        "compatible": 2,
+        "mismatch": 1,
+        "blocked": 1
+      }
+    },
+    {
+      "name": "Tank worksheet",
+      "actual": [
+        "volume",
+        "area",
+        "density",
+        "time"
+      ],
+      "expected": [
+        "length",
+        "area",
+        "density",
+        "time"
+      ],
+      "correct": 3,
+      "analysis": {
+        "checks": [
+          {
+            "id": "capacity",
+            "target": "volume",
+            "expr": [
+              "mul",
+              "height",
+              "base"
+            ],
+            "targetUnit": "m³",
+            "baseline": 6,
+            "baselineError": null,
+            "status": "compatible",
+            "value": 6,
+            "actualDimension": [
+              3,
+              0,
+              0
+            ],
+            "trace": [
+              {
+                "path": "root",
+                "op": "mul",
+                "value": 6,
+                "dimension": [
+                  3,
+                  0,
+                  0
+                ]
+              }
+            ],
+            "reason": "Dimensions match the reviewed target; physical meaning is not proven."
+          },
+          {
+            "id": "contents",
+            "target": "mass",
+            "expr": [
+              "mul",
+              "material",
+              [
+                "mul",
+                "height",
+                "base"
+              ]
+            ],
+            "targetUnit": "kg",
+            "baseline": 6000,
+            "baselineError": null,
+            "status": "compatible",
+            "value": 6000,
+            "actualDimension": [
+              0,
+              1,
+              0
+            ],
+            "trace": [
+              {
+                "path": "root.2",
+                "op": "mul",
+                "value": 6,
+                "dimension": [
+                  3,
+                  0,
+                  0
+                ]
+              },
+              {
+                "path": "root",
+                "op": "mul",
+                "value": 6000,
+                "dimension": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            ],
+            "reason": "Dimensions match the reviewed target; physical meaning is not proven."
+          },
+          {
+            "id": "wrong_mass",
+            "target": "mass",
+            "expr": [
+              "div",
+              [
+                "mul",
+                "height",
+                "base"
+              ],
+              "material"
+            ],
+            "targetUnit": "kg",
+            "baseline": 0.006,
+            "baselineError": null,
+            "status": "mismatch",
+            "value": 0.006,
+            "actualDimension": [
+              6,
+              -1,
+              0
+            ],
+            "trace": [
+              {
+                "path": "root.1",
+                "op": "mul",
+                "value": 6,
+                "dimension": [
+                  3,
+                  0,
+                  0
+                ]
+              },
+              {
+                "path": "root",
+                "op": "div",
+                "value": 0.006,
+                "dimension": [
+                  6,
+                  -1,
+                  0
+                ]
+              }
+            ],
+            "reason": "Output dimension m^6 kg^-1 s^0 differs from target m^0 kg^1 s^0"
+          },
+          {
+            "id": "wrong_energy",
+            "target": "energy",
+            "expr": [
+              "mul",
+              "material",
+              "duration"
+            ],
+            "targetUnit": "J",
+            "baseline": 60000,
+            "baselineError": null,
+            "status": "mismatch",
+            "value": 60000,
+            "actualDimension": [
+              -3,
+              1,
+              1
+            ],
+            "trace": [
+              {
+                "path": "root",
+                "op": "mul",
+                "value": 60000,
+                "dimension": [
+                  -3,
+                  1,
+                  1
+                ]
+              }
+            ],
+            "reason": "Output dimension m^-3 kg^1 s^1 differs from target m^2 kg^1 s^-2"
+          }
+        ],
+        "numericEvaluable": 4,
+        "compatible": 2,
+        "mismatch": 2,
+        "blocked": 0
+      }
+    }
+  ],
+  "checks": [
+    "fresh-worker real inference fully offline in already-open page; no reload claim",
+    "maximum 24 variables + 12 anchors, 9 real inference chunks, 16 formulas, full audit-envelope reimport",
+    "cancel and real retry",
+    "review/type/value undo, export invalidation, actual clipboard/downloads, holds, invalid/oversized/unsupported inputs, accessible labels/focus/touch, desktop/390/320 layouts, GET-only downloads, no model requests before explicit load"
+  ],
+  "negationChallenge": {
+    "expected": "time",
+    "actual": "speed"
+  },
+  "requests": [
+    {
+      "host": "127.0.0.1:7221",
+      "path": "/daily-app2/20261122-4/",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7221",
+      "path": "/daily-app2/20261122-4/assets/index-BD9VpgBh.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7221",
+      "path": "/daily-app2/20261122-4/assets/index-C4TzFLCP.css",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7221",
+      "path": "/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/0e06f0ce-50d8-4e0f-9a65-9c5c892a6820",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7221",
+      "path": "/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7221",
+      "path": "/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "user_id",
+        "xip",
+        "X-Xet-Cas-Uid",
+        "response-content-disposition",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "user_id",
+        "X-Xet-Cas-Uid",
+        "response-content-disposition",
+        "xip",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/4eb60007-755b-4da1-8ba8-d1e83e40a9d9",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/b2108ad6-8e88-4e88-a045-bd7cfd87f004",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/b886a4d2-3a36-4021-a21d-f7e8b8254265",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/e72eee16-a864-4efa-a9aa-0e0dd49e5e04",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/976211d9-f95f-4edc-bc47-bcce3df49eb0",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/e213999d-4dd8-4851-8338-ca2623f5651c",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/bddc2b2c-f8f4-47b1-a90e-26e3c8f9f857",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/0021b160-6c66-4c5d-9932-e3bbf7eba549",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/158488d4-1740-4318-8b26-62063e66d4b1",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/0ff93136-ac4b-4d11-848c-ffc0d1b31877",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/df40988f-66a8-49bb-8c46-97cb2c27e910",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/33500b94-f837-4a71-b9f8-83ce0d296529",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/ca82a168-6cba-46d1-bbaa-2282d1901211",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/a29148f1-316c-4950-98a6-01ca86e4379a",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/526f42d4-2355-4bfa-9c77-d203560b58b1",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/bfa6a925-43df-4dc4-866f-82297cfcfa60",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/40bc55c1-4695-40fb-81fe-4460021e0d31",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/1050ae13-c6dd-4ca8-bba5-2d6ca8571b4f",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/45a0c636-3113-41a8-a29a-d1d32ab18f74",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/a8da198b-d702-42ca-8e8d-b384a694580a",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/5661b838-65bd-492d-8fba-86bc95f48107",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    }
+  ],
+  "errors": []
+}

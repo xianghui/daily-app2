@@ -1,0 +1,802 @@
+{
+  "schema": "backdoor-studio/1",
+  "originalInput": {
+    "title": "Training pilot · assumed causal structure",
+    "exposure": "X",
+    "outcome": "Y",
+    "variables": [
+      {
+        "id": "X",
+        "text": "Enrollment in a staff training course",
+        "observed": true
+      },
+      {
+        "id": "Y",
+        "text": "Final assessment examination score",
+        "observed": true
+      },
+      {
+        "id": "C",
+        "text": "Previous job experience before training",
+        "observed": true
+      },
+      {
+        "id": "U",
+        "text": "Unrecorded supervisor encouragement",
+        "observed": false
+      },
+      {
+        "id": "V",
+        "text": "Unrecorded test anxiety",
+        "observed": false
+      },
+      {
+        "id": "K",
+        "text": "Completion of a voluntary research questionnaire",
+        "observed": true
+      },
+      {
+        "id": "M",
+        "text": "Practice exercises completed after enrollment",
+        "observed": true
+      }
+    ],
+    "arrows": [
+      {
+        "id": "A1",
+        "from": "prior work experience",
+        "to": "staff course enrollment"
+      },
+      {
+        "id": "A2",
+        "from": "prior work experience",
+        "to": "final exam score"
+      },
+      {
+        "id": "A3",
+        "from": "supervisor encouragement",
+        "to": "staff course enrollment"
+      },
+      {
+        "id": "A4",
+        "from": "supervisor encouragement",
+        "to": "voluntary research questionnaire completion"
+      },
+      {
+        "id": "A5",
+        "from": "test anxiety",
+        "to": "voluntary research questionnaire completion"
+      },
+      {
+        "id": "A6",
+        "from": "test anxiety",
+        "to": "final exam score"
+      },
+      {
+        "id": "A7",
+        "from": "staff course enrollment",
+        "to": "practice exercises completed"
+      },
+      {
+        "id": "A8",
+        "from": "practice exercises completed",
+        "to": "final exam score"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "A1",
+      "from": "prior work experience",
+      "to": "staff course enrollment",
+      "fromId": "C",
+      "toId": "X",
+      "aiFrom": "C",
+      "aiTo": "X",
+      "fromEvidence": [
+        {
+          "id": "C",
+          "score": 0.7076400237184425
+        },
+        {
+          "id": "M",
+          "score": 0.2842029874151742
+        },
+        {
+          "id": "X",
+          "score": 0.2519187221537307
+        },
+        {
+          "id": "K",
+          "score": 0.18444106640462374
+        },
+        {
+          "id": "U",
+          "score": 0.18407737302115287
+        },
+        {
+          "id": "Y",
+          "score": 0.1776107356747476
+        },
+        {
+          "id": "V",
+          "score": 0.09301449282946536
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "X",
+          "score": 0.9137782967811842
+        },
+        {
+          "id": "M",
+          "score": 0.4371714903481345
+        },
+        {
+          "id": "C",
+          "score": 0.2908435427215011
+        },
+        {
+          "id": "Y",
+          "score": 0.17085069023228608
+        },
+        {
+          "id": "K",
+          "score": 0.14800838373105302
+        },
+        {
+          "id": "U",
+          "score": 0.14612579198324815
+        },
+        {
+          "id": "V",
+          "score": 0.05944645446300284
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "A2",
+      "from": "prior work experience",
+      "to": "final exam score",
+      "fromId": "C",
+      "toId": "Y",
+      "aiFrom": "C",
+      "aiTo": "Y",
+      "fromEvidence": [
+        {
+          "id": "C",
+          "score": 0.6953821729021458
+        },
+        {
+          "id": "M",
+          "score": 0.31167171451278775
+        },
+        {
+          "id": "X",
+          "score": 0.26395874142055775
+        },
+        {
+          "id": "K",
+          "score": 0.19817011110732158
+        },
+        {
+          "id": "U",
+          "score": 0.19495516077046277
+        },
+        {
+          "id": "Y",
+          "score": 0.19371062397908062
+        },
+        {
+          "id": "V",
+          "score": 0.1160184851629792
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "Y",
+          "score": 0.8756311573439601
+        },
+        {
+          "id": "M",
+          "score": 0.24806001791243149
+        },
+        {
+          "id": "V",
+          "score": 0.23706957370946408
+        },
+        {
+          "id": "K",
+          "score": 0.1865745946905984
+        },
+        {
+          "id": "X",
+          "score": 0.13751442334850558
+        },
+        {
+          "id": "C",
+          "score": 0.11414460122202542
+        },
+        {
+          "id": "U",
+          "score": -0.002649454302072011
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "A3",
+      "from": "supervisor encouragement",
+      "to": "staff course enrollment",
+      "fromId": "U",
+      "toId": "X",
+      "aiFrom": "U",
+      "aiTo": "X",
+      "fromEvidence": [
+        {
+          "id": "U",
+          "score": 0.8936424855719004
+        },
+        {
+          "id": "K",
+          "score": 0.2629622301158406
+        },
+        {
+          "id": "C",
+          "score": 0.26127928438863246
+        },
+        {
+          "id": "X",
+          "score": 0.2092052404956504
+        },
+        {
+          "id": "V",
+          "score": 0.14794229693763508
+        },
+        {
+          "id": "M",
+          "score": 0.12364862387213177
+        },
+        {
+          "id": "Y",
+          "score": 0.03402828319649377
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "X",
+          "score": 0.9161560494551813
+        },
+        {
+          "id": "M",
+          "score": 0.4329053069313632
+        },
+        {
+          "id": "C",
+          "score": 0.29379495872074607
+        },
+        {
+          "id": "Y",
+          "score": 0.1632802498725877
+        },
+        {
+          "id": "K",
+          "score": 0.16012528765847595
+        },
+        {
+          "id": "U",
+          "score": 0.13543422190169466
+        },
+        {
+          "id": "V",
+          "score": 0.0454117462540999
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "A4",
+      "from": "supervisor encouragement",
+      "to": "voluntary research questionnaire completion",
+      "fromId": "U",
+      "toId": "K",
+      "aiFrom": "U",
+      "aiTo": "K",
+      "fromEvidence": [
+        {
+          "id": "U",
+          "score": 0.8963736874925466
+        },
+        {
+          "id": "C",
+          "score": 0.2661608279667785
+        },
+        {
+          "id": "K",
+          "score": 0.25384264397981404
+        },
+        {
+          "id": "X",
+          "score": 0.1986637493774259
+        },
+        {
+          "id": "V",
+          "score": 0.1532784342055005
+        },
+        {
+          "id": "M",
+          "score": 0.11470941817686092
+        },
+        {
+          "id": "Y",
+          "score": 0.029525467053672358
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "K",
+          "score": 0.9608147462103995
+        },
+        {
+          "id": "M",
+          "score": 0.2983575112363512
+        },
+        {
+          "id": "U",
+          "score": 0.27345671209083783
+        },
+        {
+          "id": "V",
+          "score": 0.263639826488107
+        },
+        {
+          "id": "Y",
+          "score": 0.2289505388563415
+        },
+        {
+          "id": "X",
+          "score": 0.1544620775859588
+        },
+        {
+          "id": "C",
+          "score": 0.07472222546784599
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "A5",
+      "from": "test anxiety",
+      "to": "voluntary research questionnaire completion",
+      "fromId": "V",
+      "toId": "K",
+      "aiFrom": "V",
+      "aiTo": "K",
+      "fromEvidence": [
+        {
+          "id": "V",
+          "score": 0.8864481615893323
+        },
+        {
+          "id": "Y",
+          "score": 0.33405183211391126
+        },
+        {
+          "id": "K",
+          "score": 0.27629285331018894
+        },
+        {
+          "id": "M",
+          "score": 0.22510776114827047
+        },
+        {
+          "id": "U",
+          "score": 0.1807158587268481
+        },
+        {
+          "id": "C",
+          "score": 0.1438674802910455
+        },
+        {
+          "id": "X",
+          "score": 0.12094540066972659
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "K",
+          "score": 0.9608321713712874
+        },
+        {
+          "id": "M",
+          "score": 0.3079502536446005
+        },
+        {
+          "id": "V",
+          "score": 0.27414393656674824
+        },
+        {
+          "id": "U",
+          "score": 0.2727235306517303
+        },
+        {
+          "id": "Y",
+          "score": 0.24358202710978755
+        },
+        {
+          "id": "X",
+          "score": 0.16929292299862722
+        },
+        {
+          "id": "C",
+          "score": 0.08337769402223748
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "A6",
+      "from": "test anxiety",
+      "to": "final exam score",
+      "fromId": "V",
+      "toId": "Y",
+      "aiFrom": "V",
+      "aiTo": "Y",
+      "fromEvidence": [
+        {
+          "id": "V",
+          "score": 0.8872789902261419
+        },
+        {
+          "id": "Y",
+          "score": 0.3249988381653767
+        },
+        {
+          "id": "K",
+          "score": 0.2824292932533257
+        },
+        {
+          "id": "M",
+          "score": 0.22533052285325722
+        },
+        {
+          "id": "U",
+          "score": 0.1851264280297652
+        },
+        {
+          "id": "C",
+          "score": 0.12975653356940303
+        },
+        {
+          "id": "X",
+          "score": 0.12320128640057389
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "Y",
+          "score": 0.8745282777608256
+        },
+        {
+          "id": "M",
+          "score": 0.2534668203854487
+        },
+        {
+          "id": "V",
+          "score": 0.25014048630477415
+        },
+        {
+          "id": "K",
+          "score": 0.1935234521598738
+        },
+        {
+          "id": "X",
+          "score": 0.11800357635847922
+        },
+        {
+          "id": "C",
+          "score": 0.10021917346145473
+        },
+        {
+          "id": "U",
+          "score": 0.0012496936054843368
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "A7",
+      "from": "staff course enrollment",
+      "to": "practice exercises completed",
+      "fromId": "X",
+      "toId": "M",
+      "aiFrom": "X",
+      "aiTo": "M",
+      "fromEvidence": [
+        {
+          "id": "X",
+          "score": 0.9131712146496634
+        },
+        {
+          "id": "M",
+          "score": 0.4334951861702945
+        },
+        {
+          "id": "C",
+          "score": 0.28574459425893506
+        },
+        {
+          "id": "Y",
+          "score": 0.17076692013348607
+        },
+        {
+          "id": "K",
+          "score": 0.15929501003954621
+        },
+        {
+          "id": "U",
+          "score": 0.14880226073398692
+        },
+        {
+          "id": "V",
+          "score": 0.05606528916849458
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "M",
+          "score": 0.8039381766729132
+        },
+        {
+          "id": "Y",
+          "score": 0.2716159505768285
+        },
+        {
+          "id": "C",
+          "score": 0.2282291934174657
+        },
+        {
+          "id": "K",
+          "score": 0.225900291821577
+        },
+        {
+          "id": "X",
+          "score": 0.2258006323075491
+        },
+        {
+          "id": "V",
+          "score": 0.14025585108006655
+        },
+        {
+          "id": "U",
+          "score": 0.10851493239051029
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "A8",
+      "from": "practice exercises completed",
+      "to": "final exam score",
+      "fromId": "M",
+      "toId": "Y",
+      "aiFrom": "M",
+      "aiTo": "Y",
+      "fromEvidence": [
+        {
+          "id": "M",
+          "score": 0.8039381766729132
+        },
+        {
+          "id": "Y",
+          "score": 0.2716159505768285
+        },
+        {
+          "id": "C",
+          "score": 0.2282291934174657
+        },
+        {
+          "id": "K",
+          "score": 0.225900291821577
+        },
+        {
+          "id": "X",
+          "score": 0.2258006323075491
+        },
+        {
+          "id": "V",
+          "score": 0.14025585108006655
+        },
+        {
+          "id": "U",
+          "score": 0.10851493239051029
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "Y",
+          "score": 0.8686424614819404
+        },
+        {
+          "id": "V",
+          "score": 0.24611845834410412
+        },
+        {
+          "id": "M",
+          "score": 0.23073107793399736
+        },
+        {
+          "id": "K",
+          "score": 0.1903732874966672
+        },
+        {
+          "id": "X",
+          "score": 0.11128496369038729
+        },
+        {
+          "id": "C",
+          "score": 0.10286038083127921
+        },
+        {
+          "id": "U",
+          "score": -0.002866803363242087
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "approvedArrows": [
+    {
+      "id": "A1",
+      "fromId": "C",
+      "toId": "X"
+    },
+    {
+      "id": "A2",
+      "fromId": "C",
+      "toId": "Y"
+    },
+    {
+      "id": "A3",
+      "fromId": "U",
+      "toId": "X"
+    },
+    {
+      "id": "A4",
+      "fromId": "U",
+      "toId": "K"
+    },
+    {
+      "id": "A5",
+      "fromId": "V",
+      "toId": "K"
+    },
+    {
+      "id": "A6",
+      "fromId": "V",
+      "toId": "Y"
+    },
+    {
+      "id": "A7",
+      "fromId": "X",
+      "toId": "M"
+    },
+    {
+      "id": "A8",
+      "fromId": "M",
+      "toId": "Y"
+    }
+  ],
+  "held": 0,
+  "complete": true,
+  "analysis": {
+    "candidates": [
+      "C",
+      "K"
+    ],
+    "descendants": [
+      "M",
+      "Y"
+    ],
+    "minimalSets": [
+      [
+        "C"
+      ]
+    ],
+    "validSets": [
+      [
+        "C"
+      ]
+    ],
+    "testedSets": 4,
+    "unadjusted": {
+      "set": [],
+      "valid": false,
+      "descendantsExcluded": [],
+      "separated": false,
+      "moralWitness": [
+        "X",
+        "C",
+        "Y"
+      ]
+    },
+    "allObserved": {
+      "set": [
+        "C",
+        "K",
+        "M"
+      ],
+      "valid": false,
+      "descendantsExcluded": [
+        "M"
+      ],
+      "separated": false,
+      "moralWitness": [
+        "X",
+        "U",
+        "V",
+        "Y"
+      ]
+    },
+    "tests": [
+      {
+        "set": [],
+        "valid": false,
+        "descendantsExcluded": [],
+        "separated": false,
+        "moralWitness": [
+          "X",
+          "C",
+          "Y"
+        ]
+      },
+      {
+        "set": [
+          "C"
+        ],
+        "valid": true,
+        "descendantsExcluded": [],
+        "separated": true,
+        "moralWitness": []
+      },
+      {
+        "set": [
+          "K"
+        ],
+        "valid": false,
+        "descendantsExcluded": [],
+        "separated": false,
+        "moralWitness": [
+          "X",
+          "C",
+          "Y"
+        ]
+      },
+      {
+        "set": [
+          "C",
+          "K"
+        ],
+        "valid": false,
+        "descendantsExcluded": [],
+        "separated": false,
+        "moralWitness": [
+          "X",
+          "U",
+          "V",
+          "Y"
+        ]
+      }
+    ]
+  },
+  "warning": "Graph-conditional backdoor criterion for a TOTAL effect only. Assumed arrows are not causal evidence; no effects are estimated. Absence of a sufficient set here does not prove non-identifiability by other methods."
+}

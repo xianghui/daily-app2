@@ -1,0 +1,726 @@
+{
+  "schema": "backdoor-studio/1",
+  "originalInput": {
+    "title": "Website redesign · assumed causal structure",
+    "exposure": "X",
+    "outcome": "Y",
+    "variables": [
+      {
+        "id": "X",
+        "text": "Exposure to the redesigned website layout",
+        "observed": true
+      },
+      {
+        "id": "Y",
+        "text": "Checkout purchase completion",
+        "observed": true
+      },
+      {
+        "id": "A",
+        "text": "Device type used to browse the website",
+        "observed": true
+      },
+      {
+        "id": "B",
+        "text": "Returning customer purchase history",
+        "observed": true
+      },
+      {
+        "id": "L",
+        "text": "Unobserved advertising influence",
+        "observed": false
+      },
+      {
+        "id": "Z",
+        "text": "Joining an optional feedback survey",
+        "observed": true
+      }
+    ],
+    "arrows": [
+      {
+        "id": "E1",
+        "from": "browsing device category",
+        "to": "redesigned website exposure"
+      },
+      {
+        "id": "E2",
+        "from": "browsing device category",
+        "to": "completed checkout purchase"
+      },
+      {
+        "id": "E3",
+        "from": "returning customer history",
+        "to": "redesigned website exposure"
+      },
+      {
+        "id": "E4",
+        "from": "returning customer history",
+        "to": "completed checkout purchase"
+      },
+      {
+        "id": "E5",
+        "from": "unobserved advertising influence",
+        "to": "redesigned website exposure"
+      },
+      {
+        "id": "E6",
+        "from": "unobserved advertising influence",
+        "to": "completed checkout purchase"
+      },
+      {
+        "id": "E7",
+        "from": "redesigned website exposure",
+        "to": "optional feedback survey participation"
+      },
+      {
+        "id": "E8",
+        "from": "completed checkout purchase",
+        "to": "optional feedback survey participation"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "E1",
+      "from": "browsing device category",
+      "to": "redesigned website exposure",
+      "fromId": "A",
+      "toId": "X",
+      "aiFrom": "A",
+      "aiTo": "X",
+      "fromEvidence": [
+        {
+          "id": "A",
+          "score": 0.7106523404953989
+        },
+        {
+          "id": "X",
+          "score": 0.16158809446339217
+        },
+        {
+          "id": "B",
+          "score": 0.10796887718601456
+        },
+        {
+          "id": "L",
+          "score": 0.10337432966766506
+        },
+        {
+          "id": "Z",
+          "score": 0.053924504594565124
+        },
+        {
+          "id": "Y",
+          "score": 0.012116941268103334
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "X",
+          "score": 0.8016733215155737
+        },
+        {
+          "id": "L",
+          "score": 0.2743680088034713
+        },
+        {
+          "id": "A",
+          "score": 0.20646299135748164
+        },
+        {
+          "id": "B",
+          "score": 0.11563991136821562
+        },
+        {
+          "id": "Z",
+          "score": 0.08596423996726488
+        },
+        {
+          "id": "Y",
+          "score": -0.011056484919598854
+        }
+      ],
+      "decision": "approve",
+      "note": "=SUM(1,2)\n\"analyst\", verify direction"
+    },
+    {
+      "id": "E2",
+      "from": "browsing device category",
+      "to": "completed checkout purchase",
+      "fromId": "A",
+      "toId": "Y",
+      "aiFrom": "A",
+      "aiTo": "Y",
+      "fromEvidence": [
+        {
+          "id": "A",
+          "score": 0.7063443041673473
+        },
+        {
+          "id": "X",
+          "score": 0.15935401951628958
+        },
+        {
+          "id": "B",
+          "score": 0.10640039813558898
+        },
+        {
+          "id": "L",
+          "score": 0.08453968686981536
+        },
+        {
+          "id": "Z",
+          "score": 0.037898029029932986
+        },
+        {
+          "id": "Y",
+          "score": 0.007763558259157088
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "Y",
+          "score": 0.8876342207913942
+        },
+        {
+          "id": "B",
+          "score": 0.4774299263154655
+        },
+        {
+          "id": "Z",
+          "score": 0.19270120868154655
+        },
+        {
+          "id": "L",
+          "score": 0.13590029842754586
+        },
+        {
+          "id": "X",
+          "score": 0.017615239075496836
+        },
+        {
+          "id": "A",
+          "score": 0.006420459631769265
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "E3",
+      "from": "returning customer history",
+      "to": "redesigned website exposure",
+      "fromId": "B",
+      "toId": "X",
+      "aiFrom": "B",
+      "aiTo": "X",
+      "fromEvidence": [
+        {
+          "id": "B",
+          "score": 0.8913413935311745
+        },
+        {
+          "id": "Y",
+          "score": 0.2199228943808702
+        },
+        {
+          "id": "L",
+          "score": 0.19345106105635732
+        },
+        {
+          "id": "X",
+          "score": 0.13710675219377827
+        },
+        {
+          "id": "A",
+          "score": 0.11906051795226423
+        },
+        {
+          "id": "Z",
+          "score": 0.08933757011071063
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "X",
+          "score": 0.7970623898766224
+        },
+        {
+          "id": "L",
+          "score": 0.2593462449212837
+        },
+        {
+          "id": "A",
+          "score": 0.21862180381989016
+        },
+        {
+          "id": "B",
+          "score": 0.11505438427609202
+        },
+        {
+          "id": "Z",
+          "score": 0.09043258607013616
+        },
+        {
+          "id": "Y",
+          "score": -0.0027687104422892033
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "E4",
+      "from": "returning customer history",
+      "to": "completed checkout purchase",
+      "fromId": "B",
+      "toId": "Y",
+      "aiFrom": "B",
+      "aiTo": "Y",
+      "fromEvidence": [
+        {
+          "id": "B",
+          "score": 0.89298054149537
+        },
+        {
+          "id": "Y",
+          "score": 0.22539346800268117
+        },
+        {
+          "id": "L",
+          "score": 0.1806436552645738
+        },
+        {
+          "id": "X",
+          "score": 0.132547608005316
+        },
+        {
+          "id": "A",
+          "score": 0.11943084926138275
+        },
+        {
+          "id": "Z",
+          "score": 0.08401261374079207
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "Y",
+          "score": 0.893713098845413
+        },
+        {
+          "id": "B",
+          "score": 0.4748323033451194
+        },
+        {
+          "id": "Z",
+          "score": 0.19792680060095652
+        },
+        {
+          "id": "L",
+          "score": 0.14731034827721756
+        },
+        {
+          "id": "X",
+          "score": 0.02319606389589264
+        },
+        {
+          "id": "A",
+          "score": 0.012630158807406366
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "E5",
+      "from": "unobserved advertising influence",
+      "to": "redesigned website exposure",
+      "fromId": "L",
+      "toId": "X",
+      "aiFrom": "L",
+      "aiTo": "X",
+      "fromEvidence": [
+        {
+          "id": "L",
+          "score": 0.9924082693228243
+        },
+        {
+          "id": "X",
+          "score": 0.2438528029899784
+        },
+        {
+          "id": "Z",
+          "score": 0.22368111857273412
+        },
+        {
+          "id": "B",
+          "score": 0.18504736912120423
+        },
+        {
+          "id": "Y",
+          "score": 0.11480684888024613
+        },
+        {
+          "id": "A",
+          "score": 0.10504819300833129
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "X",
+          "score": 0.779746358058364
+        },
+        {
+          "id": "L",
+          "score": 0.27019302760098146
+        },
+        {
+          "id": "A",
+          "score": 0.22105422828944915
+        },
+        {
+          "id": "B",
+          "score": 0.11037444041155432
+        },
+        {
+          "id": "Z",
+          "score": 0.08294560616123628
+        },
+        {
+          "id": "Y",
+          "score": -0.0020388285950565105
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "E6",
+      "from": "unobserved advertising influence",
+      "to": "completed checkout purchase",
+      "fromId": "L",
+      "toId": "Y",
+      "aiFrom": "L",
+      "aiTo": "Y",
+      "fromEvidence": [
+        {
+          "id": "L",
+          "score": 0.9924792437239803
+        },
+        {
+          "id": "X",
+          "score": 0.24574608748823062
+        },
+        {
+          "id": "Z",
+          "score": 0.21837607068747641
+        },
+        {
+          "id": "B",
+          "score": 0.189246801627264
+        },
+        {
+          "id": "Y",
+          "score": 0.11922947072491302
+        },
+        {
+          "id": "A",
+          "score": 0.09157743010646555
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "Y",
+          "score": 0.8913265993690936
+        },
+        {
+          "id": "B",
+          "score": 0.486956202871857
+        },
+        {
+          "id": "Z",
+          "score": 0.1909303213217649
+        },
+        {
+          "id": "L",
+          "score": 0.15210729070775564
+        },
+        {
+          "id": "X",
+          "score": 0.0325635873253741
+        },
+        {
+          "id": "A",
+          "score": 0.017817368972508667
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "E7",
+      "from": "redesigned website exposure",
+      "to": "optional feedback survey participation",
+      "fromId": "X",
+      "toId": "Z",
+      "aiFrom": "X",
+      "aiTo": "Z",
+      "fromEvidence": [
+        {
+          "id": "X",
+          "score": 0.7883223833307574
+        },
+        {
+          "id": "L",
+          "score": 0.26741514274226563
+        },
+        {
+          "id": "A",
+          "score": 0.21331990011023436
+        },
+        {
+          "id": "B",
+          "score": 0.09506051616389875
+        },
+        {
+          "id": "Z",
+          "score": 0.07901319752800098
+        },
+        {
+          "id": "Y",
+          "score": -0.014795719985415184
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "Z",
+          "score": 0.8985303613104556
+        },
+        {
+          "id": "L",
+          "score": 0.21094446078679813
+        },
+        {
+          "id": "X",
+          "score": 0.15624925618311047
+        },
+        {
+          "id": "Y",
+          "score": 0.15070699283725494
+        },
+        {
+          "id": "B",
+          "score": 0.07305965241273518
+        },
+        {
+          "id": "A",
+          "score": -0.012419183268907036
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "E8",
+      "from": "completed checkout purchase",
+      "to": "optional feedback survey participation",
+      "fromId": "Y",
+      "toId": "Z",
+      "aiFrom": "Y",
+      "aiTo": "Z",
+      "fromEvidence": [
+        {
+          "id": "Y",
+          "score": 0.8892621498701146
+        },
+        {
+          "id": "B",
+          "score": 0.47226421039605876
+        },
+        {
+          "id": "Z",
+          "score": 0.18978949147109378
+        },
+        {
+          "id": "L",
+          "score": 0.14980308756830907
+        },
+        {
+          "id": "A",
+          "score": 0.021040704316817885
+        },
+        {
+          "id": "X",
+          "score": 0.01966097919828805
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "Z",
+          "score": 0.8949883130082105
+        },
+        {
+          "id": "L",
+          "score": 0.2078408920406564
+        },
+        {
+          "id": "Y",
+          "score": 0.16167774693148018
+        },
+        {
+          "id": "X",
+          "score": 0.15127661744392362
+        },
+        {
+          "id": "B",
+          "score": 0.07313438645645838
+        },
+        {
+          "id": "A",
+          "score": -0.013372292016450578
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "approvedArrows": [
+    {
+      "id": "E1",
+      "fromId": "A",
+      "toId": "X"
+    },
+    {
+      "id": "E2",
+      "fromId": "A",
+      "toId": "Y"
+    },
+    {
+      "id": "E3",
+      "fromId": "B",
+      "toId": "X"
+    },
+    {
+      "id": "E4",
+      "fromId": "B",
+      "toId": "Y"
+    },
+    {
+      "id": "E5",
+      "fromId": "L",
+      "toId": "X"
+    },
+    {
+      "id": "E6",
+      "fromId": "L",
+      "toId": "Y"
+    },
+    {
+      "id": "E7",
+      "fromId": "X",
+      "toId": "Z"
+    },
+    {
+      "id": "E8",
+      "fromId": "Y",
+      "toId": "Z"
+    }
+  ],
+  "held": 0,
+  "complete": true,
+  "analysis": {
+    "candidates": [
+      "A",
+      "B"
+    ],
+    "descendants": [
+      "Z"
+    ],
+    "minimalSets": [],
+    "validSets": [],
+    "testedSets": 4,
+    "unadjusted": {
+      "set": [],
+      "valid": false,
+      "descendantsExcluded": [],
+      "separated": false,
+      "moralWitness": [
+        "X",
+        "A",
+        "Y"
+      ]
+    },
+    "allObserved": {
+      "set": [
+        "A",
+        "B",
+        "Z"
+      ],
+      "valid": false,
+      "descendantsExcluded": [
+        "Z"
+      ],
+      "separated": false,
+      "moralWitness": [
+        "X",
+        "L",
+        "Y"
+      ]
+    },
+    "tests": [
+      {
+        "set": [],
+        "valid": false,
+        "descendantsExcluded": [],
+        "separated": false,
+        "moralWitness": [
+          "X",
+          "A",
+          "Y"
+        ]
+      },
+      {
+        "set": [
+          "A"
+        ],
+        "valid": false,
+        "descendantsExcluded": [],
+        "separated": false,
+        "moralWitness": [
+          "X",
+          "B",
+          "Y"
+        ]
+      },
+      {
+        "set": [
+          "B"
+        ],
+        "valid": false,
+        "descendantsExcluded": [],
+        "separated": false,
+        "moralWitness": [
+          "X",
+          "A",
+          "Y"
+        ]
+      },
+      {
+        "set": [
+          "A",
+          "B"
+        ],
+        "valid": false,
+        "descendantsExcluded": [],
+        "separated": false,
+        "moralWitness": [
+          "X",
+          "L",
+          "Y"
+        ]
+      }
+    ]
+  },
+  "warning": "Graph-conditional backdoor criterion for a TOTAL effect only. Assumed arrows are not causal evidence; no effects are estimated. Absence of a sufficient set here does not prove non-identifiability by other methods."
+}

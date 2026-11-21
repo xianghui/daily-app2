@@ -1,0 +1,1104 @@
+{
+  "fixtures": [
+    {
+      "name": "Shop checkout",
+      "actual": [
+        [
+          "n0",
+          "n1"
+        ],
+        [
+          "n0",
+          "n2"
+        ],
+        [
+          "n2",
+          "n0"
+        ],
+        [
+          "n1",
+          "n2"
+        ]
+      ],
+      "expected": [
+        [
+          "n0",
+          "n1"
+        ],
+        [
+          "n0",
+          "n2"
+        ],
+        [
+          "n2",
+          "n0"
+        ],
+        [
+          "n1",
+          "n2"
+        ]
+      ],
+      "result": {
+        "schema": "transition-trail/v1",
+        "originalInput": {
+          "context": "Synthetic manual shopping-app regression walkthrough. Minutes are supplied illustrative execution estimates.",
+          "start": "n0",
+          "nodes": [
+            {
+              "id": "n0",
+              "text": "Product catalog screen for browsing merchandise and searching items."
+            },
+            {
+              "id": "n1",
+              "text": "Shopping basket screen showing selected products and quantities."
+            },
+            {
+              "id": "n2",
+              "text": "Payment checkout screen for entering billing and confirming purchase."
+            }
+          ],
+          "paths": [
+            {
+              "id": "p0",
+              "from": "The merchandise browsing page",
+              "to": "The basket of selected items",
+              "minutes": 2
+            },
+            {
+              "id": "p1",
+              "from": "The browse and search products screen",
+              "to": "The checkout payment form",
+              "minutes": 1
+            },
+            {
+              "id": "p2",
+              "from": "The checkout payment form",
+              "to": "The merchandise browsing page",
+              "minutes": 2
+            },
+            {
+              "id": "p3",
+              "from": "The shopping cart with item quantities",
+              "to": "The billing and purchase confirmation form",
+              "minutes": 3
+            }
+          ]
+        },
+        "reviews": [
+          {
+            "id": "p0",
+            "from": "n0",
+            "to": "n1",
+            "fromRank": [
+              {
+                "node": "n0",
+                "score": 0.6737741618756925
+              },
+              {
+                "node": "n1",
+                "score": 0.4639958660268522
+              },
+              {
+                "node": "n2",
+                "score": 0.2944094747910897
+              }
+            ],
+            "toRank": [
+              {
+                "node": "n1",
+                "score": 0.7160955867607451
+              },
+              {
+                "node": "n0",
+                "score": 0.3784020158261964
+              },
+              {
+                "node": "n2",
+                "score": 0.12413577127779016
+              }
+            ],
+            "minutes": 2,
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "p1",
+            "from": "n0",
+            "to": "n2",
+            "fromRank": [
+              {
+                "node": "n0",
+                "score": 0.7782305651192978
+              },
+              {
+                "node": "n1",
+                "score": 0.4914850202728495
+              },
+              {
+                "node": "n2",
+                "score": 0.199806350134755
+              }
+            ],
+            "toRank": [
+              {
+                "node": "n2",
+                "score": 0.7268818562480194
+              },
+              {
+                "node": "n1",
+                "score": 0.2501806305299443
+              },
+              {
+                "node": "n0",
+                "score": 0.1487217649491242
+              }
+            ],
+            "minutes": 1,
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "p2",
+            "from": "n2",
+            "to": "n0",
+            "fromRank": [
+              {
+                "node": "n2",
+                "score": 0.7268818562480194
+              },
+              {
+                "node": "n1",
+                "score": 0.2501806305299443
+              },
+              {
+                "node": "n0",
+                "score": 0.1487217649491242
+              }
+            ],
+            "toRank": [
+              {
+                "node": "n0",
+                "score": 0.6772753698197372
+              },
+              {
+                "node": "n1",
+                "score": 0.47185737814814044
+              },
+              {
+                "node": "n2",
+                "score": 0.2986891858109265
+              }
+            ],
+            "minutes": 2,
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "p3",
+            "from": "n1",
+            "to": "n2",
+            "fromRank": [
+              {
+                "node": "n1",
+                "score": 0.7348824918642752
+              },
+              {
+                "node": "n0",
+                "score": 0.46121824346985907
+              },
+              {
+                "node": "n2",
+                "score": 0.28058840070583946
+              }
+            ],
+            "toRank": [
+              {
+                "node": "n2",
+                "score": 0.7642087320297515
+              },
+              {
+                "node": "n1",
+                "score": 0.2784547719133249
+              },
+              {
+                "node": "n0",
+                "score": 0.14867737571641082
+              }
+            ],
+            "minutes": 3,
+            "decision": "approve",
+            "note": ""
+          }
+        ],
+        "total": 4,
+        "approved": 4,
+        "held": 0,
+        "excluded": 0,
+        "optimal": {
+          "route": [
+            "p0",
+            "p3",
+            "p2",
+            "p1",
+            "p2"
+          ],
+          "extra": [
+            "p2"
+          ],
+          "balance": [
+            {
+              "state": "n0",
+              "outMinusIn": 1
+            },
+            {
+              "state": "n1",
+              "outMinusIn": 0
+            },
+            {
+              "state": "n2",
+              "outMinusIn": -1
+            }
+          ],
+          "steps": [
+            {
+              "step": 1,
+              "id": "p0",
+              "from": "n0",
+              "to": "n1",
+              "minutes": 2,
+              "repeat": false
+            },
+            {
+              "step": 2,
+              "id": "p3",
+              "from": "n1",
+              "to": "n2",
+              "minutes": 3,
+              "repeat": false
+            },
+            {
+              "step": 3,
+              "id": "p2",
+              "from": "n2",
+              "to": "n0",
+              "minutes": 2,
+              "repeat": false
+            },
+            {
+              "step": 4,
+              "id": "p1",
+              "from": "n0",
+              "to": "n2",
+              "minutes": 1,
+              "repeat": false
+            },
+            {
+              "step": 5,
+              "id": "p2",
+              "from": "n2",
+              "to": "n0",
+              "minutes": 2,
+              "repeat": true
+            }
+          ],
+          "minutes": 10,
+          "closed": true,
+          "covered": 4,
+          "repeats": 1
+        },
+        "baseline": {
+          "route": [
+            "p0",
+            "p3",
+            "p2",
+            "p1",
+            "p2"
+          ],
+          "steps": [
+            {
+              "step": 1,
+              "id": "p0",
+              "from": "n0",
+              "to": "n1",
+              "minutes": 2,
+              "repeat": false
+            },
+            {
+              "step": 2,
+              "id": "p3",
+              "from": "n1",
+              "to": "n2",
+              "minutes": 3,
+              "repeat": false
+            },
+            {
+              "step": 3,
+              "id": "p2",
+              "from": "n2",
+              "to": "n0",
+              "minutes": 2,
+              "repeat": false
+            },
+            {
+              "step": 4,
+              "id": "p1",
+              "from": "n0",
+              "to": "n2",
+              "minutes": 1,
+              "repeat": false
+            },
+            {
+              "step": 5,
+              "id": "p2",
+              "from": "n2",
+              "to": "n0",
+              "minutes": 2,
+              "repeat": true
+            }
+          ],
+          "minutes": 10,
+          "closed": true,
+          "covered": 4,
+          "repeats": 1
+        },
+        "savedMinutes": 0,
+        "warning": "Exact directed postman walkthrough for approved transitions only, with positive supplied execution-minute estimates. Every approved transition is covered at least once and the route returns to the declared start. Holds/exclusions are not tested. Assumes repeatable actions and a complete state description: hidden authentication, data changes, prerequisites and destructive actions can invalidate this model. Human execution and independent verification required. No browser automation, purchases, account changes or measured time-saving claims."
+      }
+    },
+    {
+      "name": "Library workflow",
+      "actual": [
+        [
+          "n0",
+          "n3"
+        ],
+        [
+          "n3",
+          "n0"
+        ],
+        [
+          "n3",
+          "n1"
+        ],
+        [
+          "n0",
+          "n1"
+        ],
+        [
+          "n1",
+          "n2"
+        ],
+        [
+          "n2",
+          "n3"
+        ]
+      ],
+      "expected": [
+        [
+          "n0",
+          "n3"
+        ],
+        [
+          "n3",
+          "n0"
+        ],
+        [
+          "n3",
+          "n1"
+        ],
+        [
+          "n0",
+          "n1"
+        ],
+        [
+          "n1",
+          "n2"
+        ],
+        [
+          "n2",
+          "n3"
+        ]
+      ],
+      "result": {
+        "schema": "transition-trail/v1",
+        "originalInput": {
+          "context": "Synthetic library-app manual walkthrough. No books, patrons or accounts are modified.",
+          "start": "n0",
+          "nodes": [
+            {
+              "id": "n0",
+              "text": "Book search results screen for finding titles and authors."
+            },
+            {
+              "id": "n1",
+              "text": "Book detail screen showing synopsis, author and publication information."
+            },
+            {
+              "id": "n2",
+              "text": "Loan reservation screen for placing and cancelling borrowing requests."
+            },
+            {
+              "id": "n3",
+              "text": "Reader account screen showing member profile and current loans."
+            }
+          ],
+          "paths": [
+            {
+              "id": "p0",
+              "from": "The book search results list",
+              "to": "The reader account profile",
+              "minutes": 4
+            },
+            {
+              "id": "p1",
+              "from": "The reader membership account",
+              "to": "The book title search results",
+              "minutes": 2
+            },
+            {
+              "id": "p2",
+              "from": "The membership and loan account",
+              "to": "The synopsis and author detail view",
+              "minutes": 1
+            },
+            {
+              "id": "p3",
+              "from": "The list of matching book titles",
+              "to": "The author and synopsis detail page",
+              "minutes": 1
+            },
+            {
+              "id": "p4",
+              "from": "The book publication details page",
+              "to": "The borrowing request form",
+              "minutes": 2
+            },
+            {
+              "id": "p5",
+              "from": "The loan reservation form",
+              "to": "The member profile and current loans",
+              "minutes": 3
+            }
+          ]
+        },
+        "reviews": [
+          {
+            "id": "p0",
+            "from": "n0",
+            "to": "n3",
+            "fromRank": [
+              {
+                "node": "n0",
+                "score": 0.814640971376308
+              },
+              {
+                "node": "n1",
+                "score": 0.5504597381156504
+              },
+              {
+                "node": "n3",
+                "score": 0.2769726437740992
+              },
+              {
+                "node": "n2",
+                "score": 0.11423636478876635
+              }
+            ],
+            "toRank": [
+              {
+                "node": "n3",
+                "score": 0.7032473847430769
+              },
+              {
+                "node": "n1",
+                "score": 0.34912128812796167
+              },
+              {
+                "node": "n0",
+                "score": 0.2570967205305405
+              },
+              {
+                "node": "n2",
+                "score": 0.15926679889464423
+              }
+            ],
+            "minutes": 4,
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "p1",
+            "from": "n3",
+            "to": "n0",
+            "fromRank": [
+              {
+                "node": "n3",
+                "score": 0.6574270613371503
+              },
+              {
+                "node": "n1",
+                "score": 0.27827198543499393
+              },
+              {
+                "node": "n0",
+                "score": 0.23165674326823948
+              },
+              {
+                "node": "n2",
+                "score": 0.19189719537336344
+              }
+            ],
+            "toRank": [
+              {
+                "node": "n0",
+                "score": 0.844938786666001
+              },
+              {
+                "node": "n1",
+                "score": 0.5697969832344447
+              },
+              {
+                "node": "n3",
+                "score": 0.2611827806712041
+              },
+              {
+                "node": "n2",
+                "score": 0.1007891929698549
+              }
+            ],
+            "minutes": 2,
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "p2",
+            "from": "n3",
+            "to": "n1",
+            "fromRank": [
+              {
+                "node": "n3",
+                "score": 0.6759797275113788
+              },
+              {
+                "node": "n2",
+                "score": 0.4707194866576869
+              },
+              {
+                "node": "n1",
+                "score": 0.1584942433790532
+              },
+              {
+                "node": "n0",
+                "score": 0.09220169820728305
+              }
+            ],
+            "toRank": [
+              {
+                "node": "n1",
+                "score": 0.7824451580190648
+              },
+              {
+                "node": "n0",
+                "score": 0.5123294657053429
+              },
+              {
+                "node": "n3",
+                "score": 0.37653560282141646
+              },
+              {
+                "node": "n2",
+                "score": 0.1041295099845988
+              }
+            ],
+            "minutes": 1,
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "p3",
+            "from": "n0",
+            "to": "n1",
+            "fromRank": [
+              {
+                "node": "n0",
+                "score": 0.6796662579728522
+              },
+              {
+                "node": "n1",
+                "score": 0.503844854093279
+              },
+              {
+                "node": "n3",
+                "score": 0.19692957387162383
+              },
+              {
+                "node": "n2",
+                "score": 0.07054790623505271
+              }
+            ],
+            "toRank": [
+              {
+                "node": "n1",
+                "score": 0.7567221392179604
+              },
+              {
+                "node": "n0",
+                "score": 0.46916635925161104
+              },
+              {
+                "node": "n3",
+                "score": 0.29864775944009286
+              },
+              {
+                "node": "n2",
+                "score": 0.09862355872041781
+              }
+            ],
+            "minutes": 1,
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "p4",
+            "from": "n1",
+            "to": "n2",
+            "fromRank": [
+              {
+                "node": "n1",
+                "score": 0.7114411402399039
+              },
+              {
+                "node": "n0",
+                "score": 0.5318493012173304
+              },
+              {
+                "node": "n3",
+                "score": 0.3063741904963327
+              },
+              {
+                "node": "n2",
+                "score": 0.084846082498673
+              }
+            ],
+            "toRank": [
+              {
+                "node": "n2",
+                "score": 0.5458980703213877
+              },
+              {
+                "node": "n3",
+                "score": 0.38597290279258445
+              },
+              {
+                "node": "n1",
+                "score": 0.12706731946489297
+              },
+              {
+                "node": "n0",
+                "score": 0.07671562113864769
+              }
+            ],
+            "minutes": 2,
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "p5",
+            "from": "n2",
+            "to": "n3",
+            "fromRank": [
+              {
+                "node": "n2",
+                "score": 0.6969394412706349
+              },
+              {
+                "node": "n3",
+                "score": 0.44842923877346147
+              },
+              {
+                "node": "n1",
+                "score": 0.12842798235024214
+              },
+              {
+                "node": "n0",
+                "score": 0.1147559549776277
+              }
+            ],
+            "toRank": [
+              {
+                "node": "n3",
+                "score": 0.6932531052016873
+              },
+              {
+                "node": "n2",
+                "score": 0.3995108719241172
+              },
+              {
+                "node": "n1",
+                "score": 0.17455418681833024
+              },
+              {
+                "node": "n0",
+                "score": 0.15027706333414398
+              }
+            ],
+            "minutes": 3,
+            "decision": "approve",
+            "note": ""
+          }
+        ],
+        "total": 6,
+        "approved": 6,
+        "held": 0,
+        "excluded": 0,
+        "optimal": {
+          "route": [
+            "p0",
+            "p1",
+            "p3",
+            "p4",
+            "p5",
+            "p2",
+            "p4",
+            "p5",
+            "p1"
+          ],
+          "extra": [
+            "p4",
+            "p5",
+            "p1"
+          ],
+          "balance": [
+            {
+              "state": "n0",
+              "outMinusIn": 1
+            },
+            {
+              "state": "n1",
+              "outMinusIn": -1
+            },
+            {
+              "state": "n2",
+              "outMinusIn": 0
+            },
+            {
+              "state": "n3",
+              "outMinusIn": 0
+            }
+          ],
+          "steps": [
+            {
+              "step": 1,
+              "id": "p0",
+              "from": "n0",
+              "to": "n3",
+              "minutes": 4,
+              "repeat": false
+            },
+            {
+              "step": 2,
+              "id": "p1",
+              "from": "n3",
+              "to": "n0",
+              "minutes": 2,
+              "repeat": false
+            },
+            {
+              "step": 3,
+              "id": "p3",
+              "from": "n0",
+              "to": "n1",
+              "minutes": 1,
+              "repeat": false
+            },
+            {
+              "step": 4,
+              "id": "p4",
+              "from": "n1",
+              "to": "n2",
+              "minutes": 2,
+              "repeat": false
+            },
+            {
+              "step": 5,
+              "id": "p5",
+              "from": "n2",
+              "to": "n3",
+              "minutes": 3,
+              "repeat": false
+            },
+            {
+              "step": 6,
+              "id": "p2",
+              "from": "n3",
+              "to": "n1",
+              "minutes": 1,
+              "repeat": false
+            },
+            {
+              "step": 7,
+              "id": "p4",
+              "from": "n1",
+              "to": "n2",
+              "minutes": 2,
+              "repeat": true
+            },
+            {
+              "step": 8,
+              "id": "p5",
+              "from": "n2",
+              "to": "n3",
+              "minutes": 3,
+              "repeat": true
+            },
+            {
+              "step": 9,
+              "id": "p1",
+              "from": "n3",
+              "to": "n0",
+              "minutes": 2,
+              "repeat": true
+            }
+          ],
+          "minutes": 20,
+          "closed": true,
+          "covered": 6,
+          "repeats": 3
+        },
+        "baseline": {
+          "route": [
+            "p0",
+            "p1",
+            "p0",
+            "p2",
+            "p4",
+            "p5",
+            "p1",
+            "p3",
+            "p4",
+            "p5",
+            "p1"
+          ],
+          "steps": [
+            {
+              "step": 1,
+              "id": "p0",
+              "from": "n0",
+              "to": "n3",
+              "minutes": 4,
+              "repeat": false
+            },
+            {
+              "step": 2,
+              "id": "p1",
+              "from": "n3",
+              "to": "n0",
+              "minutes": 2,
+              "repeat": false
+            },
+            {
+              "step": 3,
+              "id": "p0",
+              "from": "n0",
+              "to": "n3",
+              "minutes": 4,
+              "repeat": true
+            },
+            {
+              "step": 4,
+              "id": "p2",
+              "from": "n3",
+              "to": "n1",
+              "minutes": 1,
+              "repeat": false
+            },
+            {
+              "step": 5,
+              "id": "p4",
+              "from": "n1",
+              "to": "n2",
+              "minutes": 2,
+              "repeat": false
+            },
+            {
+              "step": 6,
+              "id": "p5",
+              "from": "n2",
+              "to": "n3",
+              "minutes": 3,
+              "repeat": false
+            },
+            {
+              "step": 7,
+              "id": "p1",
+              "from": "n3",
+              "to": "n0",
+              "minutes": 2,
+              "repeat": true
+            },
+            {
+              "step": 8,
+              "id": "p3",
+              "from": "n0",
+              "to": "n1",
+              "minutes": 1,
+              "repeat": false
+            },
+            {
+              "step": 9,
+              "id": "p4",
+              "from": "n1",
+              "to": "n2",
+              "minutes": 2,
+              "repeat": true
+            },
+            {
+              "step": 10,
+              "id": "p5",
+              "from": "n2",
+              "to": "n3",
+              "minutes": 3,
+              "repeat": true
+            },
+            {
+              "step": 11,
+              "id": "p1",
+              "from": "n3",
+              "to": "n0",
+              "minutes": 2,
+              "repeat": true
+            }
+          ],
+          "minutes": 26,
+          "closed": true,
+          "covered": 6,
+          "repeats": 5
+        },
+        "savedMinutes": 6,
+        "warning": "Exact directed postman walkthrough for approved transitions only, with positive supplied execution-minute estimates. Every approved transition is covered at least once and the route returns to the declared start. Holds/exclusions are not tested. Assumes repeatable actions and a complete state description: hidden authentication, data changes, prerequisites and destructive actions can invalidate this model. Human execution and independent verification required. No browser automation, purchases, account changes or measured time-saving claims."
+      }
+    }
+  ],
+  "checks": [
+    "fully offline fresh-worker real inference in warmed page",
+    "maximum 24 actions / 10 states / 15 chunks conserved; complete audit round trip",
+    "cancel and real retry"
+  ],
+  "privacy": {
+    "externalRequests": 14,
+    "onlyGetNoBodies": true,
+    "hosts": [
+      "huggingface.co",
+      "us.aws.cdn.hf.co"
+    ],
+    "noModelRequestsBeforeRun": true,
+    "requests": [
+      {
+        "host": "huggingface.co",
+        "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "queryKeys": []
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+        "queryKeys": [
+          "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+          "etag"
+        ]
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "queryKeys": []
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+        "queryKeys": [
+          "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+          "etag"
+        ]
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+        "queryKeys": []
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "queryKeys": []
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+        "queryKeys": [
+          "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+          "etag"
+        ]
+      },
+      {
+        "host": "us.aws.cdn.hf.co",
+        "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+        "queryKeys": [
+          "response-content-disposition",
+          "user_id",
+          "X-Xet-Cas-Uid",
+          "xip",
+          "Expires",
+          "Policy",
+          "Signature",
+          "Key-Pair-Id",
+          "Hash-Algorithm"
+        ]
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "queryKeys": []
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "queryKeys": []
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+        "queryKeys": []
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+        "queryKeys": [
+          "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+          "etag"
+        ]
+      },
+      {
+        "host": "us.aws.cdn.hf.co",
+        "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+        "queryKeys": [
+          "X-Xet-Cas-Uid",
+          "user_id",
+          "response-content-disposition",
+          "xip",
+          "Expires",
+          "Policy",
+          "Signature",
+          "Key-Pair-Id",
+          "Hash-Algorithm"
+        ]
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+        "queryKeys": [
+          "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+          "etag"
+        ]
+      }
+    ]
+  },
+  "errors": []
+}

@@ -1,0 +1,326 @@
+{
+  "schema": "transition-trail/v1",
+  "originalInput": {
+    "context": "Synthetic manual shopping-app regression walkthrough. Minutes are supplied illustrative execution estimates.",
+    "start": "n0",
+    "nodes": [
+      {
+        "id": "n0",
+        "text": "Product catalog screen for browsing merchandise and searching items."
+      },
+      {
+        "id": "n1",
+        "text": "Shopping basket screen showing selected products and quantities."
+      },
+      {
+        "id": "n2",
+        "text": "Payment checkout screen for entering billing and confirming purchase."
+      }
+    ],
+    "paths": [
+      {
+        "id": "p0",
+        "from": "The merchandise browsing page",
+        "to": "The basket of selected items",
+        "minutes": 2
+      },
+      {
+        "id": "p1",
+        "from": "The browse and search products screen",
+        "to": "The checkout payment form",
+        "minutes": 1
+      },
+      {
+        "id": "p2",
+        "from": "The checkout payment form",
+        "to": "The merchandise browsing page",
+        "minutes": 2
+      },
+      {
+        "id": "p3",
+        "from": "The shopping cart with item quantities",
+        "to": "The billing and purchase confirmation form",
+        "minutes": 3
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "p0",
+      "from": "n0",
+      "to": "n1",
+      "minutes": 2,
+      "decision": "approve",
+      "note": "",
+      "fromRank": [
+        {
+          "node": "n0",
+          "score": 0
+        },
+        {
+          "node": "n1",
+          "score": 0
+        },
+        {
+          "node": "n2",
+          "score": 0
+        }
+      ],
+      "toRank": [
+        {
+          "node": "n0",
+          "score": 0
+        },
+        {
+          "node": "n1",
+          "score": 0
+        },
+        {
+          "node": "n2",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "p1",
+      "from": "n0",
+      "to": "n2",
+      "minutes": 1,
+      "decision": "approve",
+      "note": "",
+      "fromRank": [
+        {
+          "node": "n0",
+          "score": 0
+        },
+        {
+          "node": "n1",
+          "score": 0
+        },
+        {
+          "node": "n2",
+          "score": 0
+        }
+      ],
+      "toRank": [
+        {
+          "node": "n0",
+          "score": 0
+        },
+        {
+          "node": "n1",
+          "score": 0
+        },
+        {
+          "node": "n2",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "from": "n2",
+      "to": "n0",
+      "minutes": 2,
+      "decision": "approve",
+      "note": "",
+      "fromRank": [
+        {
+          "node": "n0",
+          "score": 0
+        },
+        {
+          "node": "n1",
+          "score": 0
+        },
+        {
+          "node": "n2",
+          "score": 0
+        }
+      ],
+      "toRank": [
+        {
+          "node": "n0",
+          "score": 0
+        },
+        {
+          "node": "n1",
+          "score": 0
+        },
+        {
+          "node": "n2",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "from": "n1",
+      "to": "n2",
+      "minutes": 3,
+      "decision": "approve",
+      "note": "",
+      "fromRank": [
+        {
+          "node": "n0",
+          "score": 0
+        },
+        {
+          "node": "n1",
+          "score": 0
+        },
+        {
+          "node": "n2",
+          "score": 0
+        }
+      ],
+      "toRank": [
+        {
+          "node": "n0",
+          "score": 0
+        },
+        {
+          "node": "n1",
+          "score": 0
+        },
+        {
+          "node": "n2",
+          "score": 0
+        }
+      ]
+    }
+  ],
+  "total": 4,
+  "approved": 4,
+  "held": 0,
+  "excluded": 0,
+  "optimal": {
+    "route": [
+      "p0",
+      "p3",
+      "p2",
+      "p1",
+      "p2"
+    ],
+    "extra": [
+      "p2"
+    ],
+    "balance": [
+      {
+        "state": "n0",
+        "outMinusIn": 1
+      },
+      {
+        "state": "n1",
+        "outMinusIn": 0
+      },
+      {
+        "state": "n2",
+        "outMinusIn": -1
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "id": "p0",
+        "from": "n0",
+        "to": "n1",
+        "minutes": 2,
+        "repeat": false
+      },
+      {
+        "step": 2,
+        "id": "p3",
+        "from": "n1",
+        "to": "n2",
+        "minutes": 3,
+        "repeat": false
+      },
+      {
+        "step": 3,
+        "id": "p2",
+        "from": "n2",
+        "to": "n0",
+        "minutes": 2,
+        "repeat": false
+      },
+      {
+        "step": 4,
+        "id": "p1",
+        "from": "n0",
+        "to": "n2",
+        "minutes": 1,
+        "repeat": false
+      },
+      {
+        "step": 5,
+        "id": "p2",
+        "from": "n2",
+        "to": "n0",
+        "minutes": 2,
+        "repeat": true
+      }
+    ],
+    "minutes": 10,
+    "closed": true,
+    "covered": 4,
+    "repeats": 1
+  },
+  "baseline": {
+    "route": [
+      "p0",
+      "p3",
+      "p2",
+      "p1",
+      "p2"
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "id": "p0",
+        "from": "n0",
+        "to": "n1",
+        "minutes": 2,
+        "repeat": false
+      },
+      {
+        "step": 2,
+        "id": "p3",
+        "from": "n1",
+        "to": "n2",
+        "minutes": 3,
+        "repeat": false
+      },
+      {
+        "step": 3,
+        "id": "p2",
+        "from": "n2",
+        "to": "n0",
+        "minutes": 2,
+        "repeat": false
+      },
+      {
+        "step": 4,
+        "id": "p1",
+        "from": "n0",
+        "to": "n2",
+        "minutes": 1,
+        "repeat": false
+      },
+      {
+        "step": 5,
+        "id": "p2",
+        "from": "n2",
+        "to": "n0",
+        "minutes": 2,
+        "repeat": true
+      }
+    ],
+    "minutes": 10,
+    "closed": true,
+    "covered": 4,
+    "repeats": 1
+  },
+  "savedMinutes": 0,
+  "warning": "Exact directed postman walkthrough for approved transitions only, with positive supplied execution-minute estimates. Every approved transition is covered at least once and the route returns to the declared start. Holds/exclusions are not tested. Assumes repeatable actions and a complete state description: hidden authentication, data changes, prerequisites and destructive actions can invalidate this model. Human execution and independent verification required. No browser automation, purchases, account changes or measured time-saving claims."
+}

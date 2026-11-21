@@ -1,0 +1,7 @@
+
+
+## Equation Folio — 20261122-5
+
+Local MiniLM reconciles informal compound names to a fixed neutral-formula catalog before mandatory editorial review. Exact rational nullspace balancing proves minimal positive atom-conserving coefficients against all-one drafts; export student blanks, answer keys and complete JSON/CSV/Markdown source audits. Both tiny fixtures matched 20/20 compound links, but a negation probe mislinked: review remains essential, and atom conservation does not establish reaction feasibility or safety. Symbolic equations only, no experiment instructions. Reuses immutable worker/factory from `20261115-6` and WASM from `20261107-2`; preserve these dependencies. Offline scope is fresh-worker inference in an already-open warmed page. See [workflow/privacy](20261122-5/README.md) and [observed validation](20261122-5/VALIDATION.md). The unchanged 1 GB guard required deploy-only byte-identical geometry sharing for `20261029-7` → `20261028-24`; source builds and compatibility JS URLs are preserved. No digest sent.
+
+Public release: matching Pages `45da5001c9dde1cc0c109252939613c5c198edb2` and workflow `44945054607` succeeded. Seven public asset byte matches, both real-AI fixtures, complete reviewed/export/max-batch/offline/privacy suite, all 786 gallery cards and the affected older geometry app's real import/export regression passed. Combined size 999,593,305 bytes remains below the unchanged guard. Source staging preserves and excludes unrelated pre-existing recovery work; no digest sent.

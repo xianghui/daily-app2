@@ -1,0 +1,654 @@
+# Carbon cycle equation proofs
+
+Symbolic classroom equations only. Atom conservation does not establish whether a reaction occurs, its mechanism, yield, energy, conditions or safety. No experiment procedures, concentrations or mixing quantities. Fixed neutral formula catalog; no ions, charge balance, hydrates or state symbols. Every source is preserved. Held and blocked equations are never released as balanced.
+
+All-one baseline balanced: 0; exact balanced: 2; held: 0; blocked: 0.
+
+## Student equation drafts
+respiration: ___ C6H12O6 + ___ O2 → ___ CO2 + ___ H2O [balanced]
+photosynthesis: ___ CO2 + ___ H2O → ___ C6H12O6 + ___ O2 [balanced]
+
+## Reviewed answer key and atom proofs
+{"id":"respiration","status":"balanced","coefficients":[1,6,6,6],"totals":[{"element":"C","left":6,"right":6,"unitResidual":5},{"element":"H","left":12,"right":12,"unitResidual":10},{"element":"O","left":18,"right":18,"unitResidual":5}],"baselineBalanced":false,"equation":"C6H12O6 + 6 O2 → 6 CO2 + 6 H2O"}
+{"id":"photosynthesis","status":"balanced","coefficients":[6,6,1,6],"totals":[{"element":"C","left":6,"right":6,"unitResidual":-5},{"element":"H","left":12,"right":12,"unitResidual":-10},{"element":"O","left":18,"right":18,"unitResidual":-5}],"baselineBalanced":false,"equation":"6 CO2 + 6 H2O → C6H12O6 + 6 O2"}
+
+## Complete source and review audit
+{
+  "originalInput": {
+    "title": "Carbon cycle equation proofs",
+    "equations": [
+      {
+        "id": "respiration",
+        "left": [
+          "Glucose sugar",
+          "Molecular oxygen gas"
+        ],
+        "right": [
+          "Carbon dioxide gas",
+          "Water"
+        ]
+      },
+      {
+        "id": "photosynthesis",
+        "left": [
+          "Carbon dioxide gas",
+          "Water"
+        ],
+        "right": [
+          "Glucose sugar",
+          "Molecular oxygen gas"
+        ]
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "equation": "respiration",
+      "side": "left",
+      "index": 0,
+      "description": "Glucose sugar",
+      "compound": "glucose",
+      "aiCompound": "glucose",
+      "evidence": [
+        {
+          "id": "glucose",
+          "score": 0.6466913783227615
+        },
+        {
+          "id": "carbon_dioxide",
+          "score": 0.2892458473870789
+        },
+        {
+          "id": "hydrogen",
+          "score": 0.26262813585588507
+        },
+        {
+          "id": "sodium_bicarbonate",
+          "score": 0.23698812545722486
+        },
+        {
+          "id": "oxygen",
+          "score": 0.22421202849077865
+        },
+        {
+          "id": "sodium_carbonate",
+          "score": 0.21356850396619426
+        },
+        {
+          "id": "water",
+          "score": 0.19956087271165357
+        },
+        {
+          "id": "sodium_hydroxide",
+          "score": 0.1884990642311621
+        },
+        {
+          "id": "calcium_carbonate",
+          "score": 0.17379545484802492
+        },
+        {
+          "id": "sodium_acetate",
+          "score": 0.17132628645618161
+        },
+        {
+          "id": "sodium_chloride",
+          "score": 0.1575306266760258
+        },
+        {
+          "id": "calcium_chloride",
+          "score": 0.15307040214091716
+        },
+        {
+          "id": "acetic_acid",
+          "score": 0.1447096919779401
+        },
+        {
+          "id": "calcium_hydroxide",
+          "score": 0.14443125376157023
+        },
+        {
+          "id": "hydrochloric_acid",
+          "score": 0.13753297432132097
+        },
+        {
+          "id": "calcium_oxide",
+          "score": 0.1363145466880744
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "equation": "respiration",
+      "side": "left",
+      "index": 1,
+      "description": "Molecular oxygen gas",
+      "compound": "oxygen",
+      "aiCompound": "oxygen",
+      "evidence": [
+        {
+          "id": "oxygen",
+          "score": 0.8801550280348543
+        },
+        {
+          "id": "hydrogen",
+          "score": 0.6326225788624085
+        },
+        {
+          "id": "carbon_dioxide",
+          "score": 0.4821082561796347
+        },
+        {
+          "id": "water",
+          "score": 0.256508971094101
+        },
+        {
+          "id": "glucose",
+          "score": 0.23737064463448754
+        },
+        {
+          "id": "hydrochloric_acid",
+          "score": 0.23309818908721677
+        },
+        {
+          "id": "sodium_acetate",
+          "score": 0.22484017961240027
+        },
+        {
+          "id": "sodium_bicarbonate",
+          "score": 0.22427062980605247
+        },
+        {
+          "id": "calcium_hydroxide",
+          "score": 0.19507142612186285
+        },
+        {
+          "id": "calcium_chloride",
+          "score": 0.18560592921347285
+        },
+        {
+          "id": "sodium_hydroxide",
+          "score": 0.17862563302454923
+        },
+        {
+          "id": "sodium_chloride",
+          "score": 0.17202979061793416
+        },
+        {
+          "id": "acetic_acid",
+          "score": 0.1664230587940453
+        },
+        {
+          "id": "sodium_carbonate",
+          "score": 0.15752176330718742
+        },
+        {
+          "id": "calcium_oxide",
+          "score": 0.129692757577413
+        },
+        {
+          "id": "calcium_carbonate",
+          "score": 0.10662186373533995
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "equation": "respiration",
+      "side": "right",
+      "index": 0,
+      "description": "Carbon dioxide gas",
+      "compound": "carbon_dioxide",
+      "aiCompound": "carbon_dioxide",
+      "evidence": [
+        {
+          "id": "carbon_dioxide",
+          "score": 0.6570734443627131
+        },
+        {
+          "id": "oxygen",
+          "score": 0.570515452823618
+        },
+        {
+          "id": "hydrogen",
+          "score": 0.5287105261261889
+        },
+        {
+          "id": "water",
+          "score": 0.33642317510246733
+        },
+        {
+          "id": "sodium_bicarbonate",
+          "score": 0.33541524050895544
+        },
+        {
+          "id": "sodium_carbonate",
+          "score": 0.29911029974941183
+        },
+        {
+          "id": "sodium_acetate",
+          "score": 0.2841986777557998
+        },
+        {
+          "id": "sodium_hydroxide",
+          "score": 0.2777410797888326
+        },
+        {
+          "id": "calcium_chloride",
+          "score": 0.2752162782808028
+        },
+        {
+          "id": "calcium_carbonate",
+          "score": 0.26398179494653434
+        },
+        {
+          "id": "acetic_acid",
+          "score": 0.2620488522930332
+        },
+        {
+          "id": "glucose",
+          "score": 0.24970538034623313
+        },
+        {
+          "id": "calcium_oxide",
+          "score": 0.23805451068250985
+        },
+        {
+          "id": "hydrochloric_acid",
+          "score": 0.23445975725975135
+        },
+        {
+          "id": "calcium_hydroxide",
+          "score": 0.20386322125227171
+        },
+        {
+          "id": "sodium_chloride",
+          "score": 0.18566874110048098
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "equation": "respiration",
+      "side": "right",
+      "index": 1,
+      "description": "Water",
+      "compound": "water",
+      "aiCompound": "water",
+      "evidence": [
+        {
+          "id": "water",
+          "score": 0.6205008460046657
+        },
+        {
+          "id": "hydrochloric_acid",
+          "score": 0.3589324097513251
+        },
+        {
+          "id": "sodium_carbonate",
+          "score": 0.3529046641321241
+        },
+        {
+          "id": "sodium_hydroxide",
+          "score": 0.3325536521563543
+        },
+        {
+          "id": "calcium_oxide",
+          "score": 0.3236249413819093
+        },
+        {
+          "id": "sodium_chloride",
+          "score": 0.31850437278209887
+        },
+        {
+          "id": "hydrogen",
+          "score": 0.31519942751966135
+        },
+        {
+          "id": "calcium_chloride",
+          "score": 0.3037647809326643
+        },
+        {
+          "id": "calcium_hydroxide",
+          "score": 0.2968420999116096
+        },
+        {
+          "id": "glucose",
+          "score": 0.2547985892378333
+        },
+        {
+          "id": "oxygen",
+          "score": 0.25069188293729094
+        },
+        {
+          "id": "calcium_carbonate",
+          "score": 0.24130011397025708
+        },
+        {
+          "id": "sodium_acetate",
+          "score": 0.23688586625002508
+        },
+        {
+          "id": "sodium_bicarbonate",
+          "score": 0.23439838848757838
+        },
+        {
+          "id": "carbon_dioxide",
+          "score": 0.22741426103810125
+        },
+        {
+          "id": "acetic_acid",
+          "score": 0.17160429109991632
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "equation": "photosynthesis",
+      "side": "left",
+      "index": 0,
+      "description": "Carbon dioxide gas",
+      "compound": "carbon_dioxide",
+      "aiCompound": "carbon_dioxide",
+      "evidence": [
+        {
+          "id": "carbon_dioxide",
+          "score": 0.6570734443627131
+        },
+        {
+          "id": "oxygen",
+          "score": 0.570515452823618
+        },
+        {
+          "id": "hydrogen",
+          "score": 0.5287105261261889
+        },
+        {
+          "id": "water",
+          "score": 0.33642317510246733
+        },
+        {
+          "id": "sodium_bicarbonate",
+          "score": 0.33541524050895544
+        },
+        {
+          "id": "sodium_carbonate",
+          "score": 0.29911029974941183
+        },
+        {
+          "id": "sodium_acetate",
+          "score": 0.2841986777557998
+        },
+        {
+          "id": "sodium_hydroxide",
+          "score": 0.2777410797888326
+        },
+        {
+          "id": "calcium_chloride",
+          "score": 0.2752162782808028
+        },
+        {
+          "id": "calcium_carbonate",
+          "score": 0.26398179494653434
+        },
+        {
+          "id": "acetic_acid",
+          "score": 0.2620488522930332
+        },
+        {
+          "id": "glucose",
+          "score": 0.24970538034623313
+        },
+        {
+          "id": "calcium_oxide",
+          "score": 0.23805451068250985
+        },
+        {
+          "id": "hydrochloric_acid",
+          "score": 0.23445975725975135
+        },
+        {
+          "id": "calcium_hydroxide",
+          "score": 0.20386322125227171
+        },
+        {
+          "id": "sodium_chloride",
+          "score": 0.18566874110048098
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "equation": "photosynthesis",
+      "side": "left",
+      "index": 1,
+      "description": "Water",
+      "compound": "water",
+      "aiCompound": "water",
+      "evidence": [
+        {
+          "id": "water",
+          "score": 0.6205008460046657
+        },
+        {
+          "id": "hydrochloric_acid",
+          "score": 0.3589324097513251
+        },
+        {
+          "id": "sodium_carbonate",
+          "score": 0.3529046641321241
+        },
+        {
+          "id": "sodium_hydroxide",
+          "score": 0.3325536521563543
+        },
+        {
+          "id": "calcium_oxide",
+          "score": 0.3236249413819093
+        },
+        {
+          "id": "sodium_chloride",
+          "score": 0.31850437278209887
+        },
+        {
+          "id": "hydrogen",
+          "score": 0.31519942751966135
+        },
+        {
+          "id": "calcium_chloride",
+          "score": 0.3037647809326643
+        },
+        {
+          "id": "calcium_hydroxide",
+          "score": 0.2968420999116096
+        },
+        {
+          "id": "glucose",
+          "score": 0.2547985892378333
+        },
+        {
+          "id": "oxygen",
+          "score": 0.25069188293729094
+        },
+        {
+          "id": "calcium_carbonate",
+          "score": 0.24130011397025708
+        },
+        {
+          "id": "sodium_acetate",
+          "score": 0.23688586625002508
+        },
+        {
+          "id": "sodium_bicarbonate",
+          "score": 0.23439838848757838
+        },
+        {
+          "id": "carbon_dioxide",
+          "score": 0.22741426103810125
+        },
+        {
+          "id": "acetic_acid",
+          "score": 0.17160429109991632
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "equation": "photosynthesis",
+      "side": "right",
+      "index": 0,
+      "description": "Glucose sugar",
+      "compound": "glucose",
+      "aiCompound": "glucose",
+      "evidence": [
+        {
+          "id": "glucose",
+          "score": 0.6466913783227615
+        },
+        {
+          "id": "carbon_dioxide",
+          "score": 0.2892458473870789
+        },
+        {
+          "id": "hydrogen",
+          "score": 0.26262813585588507
+        },
+        {
+          "id": "sodium_bicarbonate",
+          "score": 0.23698812545722486
+        },
+        {
+          "id": "oxygen",
+          "score": 0.22421202849077865
+        },
+        {
+          "id": "sodium_carbonate",
+          "score": 0.21356850396619426
+        },
+        {
+          "id": "water",
+          "score": 0.19956087271165357
+        },
+        {
+          "id": "sodium_hydroxide",
+          "score": 0.1884990642311621
+        },
+        {
+          "id": "calcium_carbonate",
+          "score": 0.17379545484802492
+        },
+        {
+          "id": "sodium_acetate",
+          "score": 0.17132628645618161
+        },
+        {
+          "id": "sodium_chloride",
+          "score": 0.1575306266760258
+        },
+        {
+          "id": "calcium_chloride",
+          "score": 0.15307040214091716
+        },
+        {
+          "id": "acetic_acid",
+          "score": 0.1447096919779401
+        },
+        {
+          "id": "calcium_hydroxide",
+          "score": 0.14443125376157023
+        },
+        {
+          "id": "hydrochloric_acid",
+          "score": 0.13753297432132097
+        },
+        {
+          "id": "calcium_oxide",
+          "score": 0.1363145466880744
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "equation": "photosynthesis",
+      "side": "right",
+      "index": 1,
+      "description": "Molecular oxygen gas",
+      "compound": "oxygen",
+      "aiCompound": "oxygen",
+      "evidence": [
+        {
+          "id": "oxygen",
+          "score": 0.8801550280348543
+        },
+        {
+          "id": "hydrogen",
+          "score": 0.6326225788624085
+        },
+        {
+          "id": "carbon_dioxide",
+          "score": 0.4821082561796347
+        },
+        {
+          "id": "water",
+          "score": 0.256508971094101
+        },
+        {
+          "id": "glucose",
+          "score": 0.23737064463448754
+        },
+        {
+          "id": "hydrochloric_acid",
+          "score": 0.23309818908721677
+        },
+        {
+          "id": "sodium_acetate",
+          "score": 0.22484017961240027
+        },
+        {
+          "id": "sodium_bicarbonate",
+          "score": 0.22427062980605247
+        },
+        {
+          "id": "calcium_hydroxide",
+          "score": 0.19507142612186285
+        },
+        {
+          "id": "calcium_chloride",
+          "score": 0.18560592921347285
+        },
+        {
+          "id": "sodium_hydroxide",
+          "score": 0.17862563302454923
+        },
+        {
+          "id": "sodium_chloride",
+          "score": 0.17202979061793416
+        },
+        {
+          "id": "acetic_acid",
+          "score": 0.1664230587940453
+        },
+        {
+          "id": "sodium_carbonate",
+          "score": 0.15752176330718742
+        },
+        {
+          "id": "calcium_oxide",
+          "score": 0.129692757577413
+        },
+        {
+          "id": "calcium_carbonate",
+          "score": 0.10662186373533995
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ]
+}

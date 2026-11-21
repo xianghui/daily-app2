@@ -1,0 +1,5 @@
+import json,subprocess
+from pathlib import Path
+report=json.loads(Path('pages-watch.json').read_text());assert report['status']=='built'and report['commit']==report['buildCommit'];assert report['workflow']['conclusion']=='success'
+browser=json.loads(Path('public-browser-validation.json').read_text());assets=json.loads(Path('public-asset-validation.json').read_text());gallery=json.loads(Path('public-gallery-validation.json').read_text());assert len(browser['fixtures'])==2 and all(f['correct']==4 for f in browser['fixtures']);assert browser['errors']==[];assert len(assets)==7 and all(a['matchesAssembled'] for a in assets);assert gallery['after']==789 and gallery['legacyCardsAndCategoriesPreserved'];assert Path('artifact-validation.json').is_file()
+Path('publication-status.json').write_text(json.dumps({'status':'published-and-verified','url':'https://xianghui.github.io/daily-app2/20261122-8/','pagesCommit':report['commit'],'pagesWorkflow':report['workflow']['databaseId'],'publicRuntimeBytesVerified':True,'publicRealInferenceAndReviewedWorkflowVerified':True,'digestSent':False},indent=2))

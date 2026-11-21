@@ -1,0 +1,220 @@
+{
+  "schema": "melt-atelier/1",
+  "originalInput": {
+    "title": "Greenhouse dawn and dusk observations",
+    "identifiers": [
+      "tray",
+      "batch"
+    ],
+    "waves": [
+      {
+        "id": "morning",
+        "description": "Morning at sunrise"
+      },
+      {
+        "id": "evening",
+        "description": "Evening at sunset"
+      }
+    ],
+    "measures": [
+      {
+        "id": "temperature",
+        "description": "Air temperature in degrees Celsius"
+      },
+      {
+        "id": "humidity",
+        "description": "Relative air humidity percent"
+      }
+    ],
+    "columns": [
+      {
+        "id": "tray",
+        "description": "Plant tray code"
+      },
+      {
+        "id": "batch",
+        "description": "Plant batch code"
+      },
+      {
+        "id": "hpm",
+        "description": "Relative air humidity percent in the evening at sunset"
+      },
+      {
+        "id": "tam",
+        "description": "Air temperature in degrees Celsius in the morning at sunrise"
+      },
+      {
+        "id": "ham",
+        "description": "Relative air humidity percent in the morning at sunrise"
+      },
+      {
+        "id": "tpm",
+        "description": "Air temperature in degrees Celsius in the evening at sunset"
+      }
+    ],
+    "rows": [
+      [
+        "T1",
+        "B1",
+        "65",
+        "21.0",
+        "81",
+        "25.5"
+      ],
+      [
+        "T2",
+        "B1",
+        "60",
+        "22.0",
+        "78",
+        "26.0"
+      ]
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "column": "hpm",
+      "slot": "[\"evening\",\"humidity\"]",
+      "aiSlot": "[\"evening\",\"humidity\"]",
+      "evidence": [
+        {
+          "key": "[\"evening\",\"humidity\"]",
+          "wave": "evening",
+          "measure": "humidity",
+          "score": 0.9822724941695684
+        },
+        {
+          "key": "[\"morning\",\"humidity\"]",
+          "wave": "morning",
+          "measure": "humidity",
+          "score": 0.8412578120192022
+        },
+        {
+          "key": "[\"evening\",\"temperature\"]",
+          "wave": "evening",
+          "measure": "temperature",
+          "score": 0.7720298688327758
+        },
+        {
+          "key": "[\"morning\",\"temperature\"]",
+          "wave": "morning",
+          "measure": "temperature",
+          "score": 0.5676345413451073
+        }
+      ],
+      "decision": "reject",
+      "note": "=SUM(1,2)\nReviewed \"source\", preserved."
+    },
+    {
+      "index": 1,
+      "column": "tam",
+      "slot": "[\"morning\",\"temperature\"]",
+      "aiSlot": "[\"morning\",\"temperature\"]",
+      "evidence": [
+        {
+          "key": "[\"morning\",\"temperature\"]",
+          "wave": "morning",
+          "measure": "temperature",
+          "score": 0.9853618785794566
+        },
+        {
+          "key": "[\"evening\",\"temperature\"]",
+          "wave": "evening",
+          "measure": "temperature",
+          "score": 0.759481699560791
+        },
+        {
+          "key": "[\"morning\",\"humidity\"]",
+          "wave": "morning",
+          "measure": "humidity",
+          "score": 0.7300925983808148
+        },
+        {
+          "key": "[\"evening\",\"humidity\"]",
+          "wave": "evening",
+          "measure": "humidity",
+          "score": 0.5581893337665482
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "column": "ham",
+      "slot": "[\"morning\",\"humidity\"]",
+      "aiSlot": "[\"morning\",\"humidity\"]",
+      "evidence": [
+        {
+          "key": "[\"morning\",\"humidity\"]",
+          "wave": "morning",
+          "measure": "humidity",
+          "score": 0.9823238334525283
+        },
+        {
+          "key": "[\"evening\",\"humidity\"]",
+          "wave": "evening",
+          "measure": "humidity",
+          "score": 0.84017186917145
+        },
+        {
+          "key": "[\"morning\",\"temperature\"]",
+          "wave": "morning",
+          "measure": "temperature",
+          "score": 0.7373706417045625
+        },
+        {
+          "key": "[\"evening\",\"temperature\"]",
+          "wave": "evening",
+          "measure": "temperature",
+          "score": 0.597809817973986
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 3,
+      "column": "tpm",
+      "slot": "[\"evening\",\"temperature\"]",
+      "aiSlot": "[\"evening\",\"temperature\"]",
+      "evidence": [
+        {
+          "key": "[\"evening\",\"temperature\"]",
+          "wave": "evening",
+          "measure": "temperature",
+          "score": 0.9809490542388913
+        },
+        {
+          "key": "[\"evening\",\"humidity\"]",
+          "wave": "evening",
+          "measure": "humidity",
+          "score": 0.7681645712701587
+        },
+        {
+          "key": "[\"morning\",\"temperature\"]",
+          "wave": "morning",
+          "measure": "temperature",
+          "score": 0.7556648175831272
+        },
+        {
+          "key": "[\"morning\",\"humidity\"]",
+          "wave": "morning",
+          "measure": "humidity",
+          "score": 0.5981844112152432
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "warning": "Human-confirmed reshaping, not unit conversion, missing-value imputation or evidence that repeated rows are the same subject. All values stay strings. Row ordinals—not identifier uniqueness—preserve duplicates.",
+  "analysis": {
+    "status": "held",
+    "reason": "Held columns: tidy export withheld. All original rows and review evidence retained.",
+    "sourceRows": 2,
+    "literalHeaderBaseline": 0,
+    "fieldCount": 4
+  }
+}

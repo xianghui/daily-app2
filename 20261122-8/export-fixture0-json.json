@@ -1,0 +1,280 @@
+{
+  "schema": "melt-atelier/1",
+  "originalInput": {
+    "title": "Workshop pre/post scores",
+    "identifiers": [
+      "learner"
+    ],
+    "waves": [
+      {
+        "id": "before",
+        "description": "Before the training workshop"
+      },
+      {
+        "id": "after",
+        "description": "After the training workshop"
+      }
+    ],
+    "measures": [
+      {
+        "id": "knowledge",
+        "description": "Knowledge quiz score"
+      },
+      {
+        "id": "practical",
+        "description": "Practical exercise score"
+      }
+    ],
+    "columns": [
+      {
+        "id": "learner",
+        "description": "Learner identifier"
+      },
+      {
+        "id": "k0",
+        "description": "Knowledge quiz score before the training workshop"
+      },
+      {
+        "id": "p0",
+        "description": "Practical exercise score before the training workshop"
+      },
+      {
+        "id": "k1",
+        "description": "Knowledge quiz score after the training workshop"
+      },
+      {
+        "id": "p1",
+        "description": "Practical exercise score after the training workshop"
+      }
+    ],
+    "rows": [
+      [
+        "A01",
+        "4",
+        "3",
+        "8",
+        "7"
+      ],
+      [
+        "A02",
+        "5",
+        "",
+        "9",
+        "8"
+      ],
+      [
+        "A01",
+        "4",
+        "3",
+        "8",
+        "7"
+      ]
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "column": "k0",
+      "slot": "[\"before\",\"knowledge\"]",
+      "aiSlot": "[\"before\",\"knowledge\"]",
+      "evidence": [
+        {
+          "key": "[\"before\",\"knowledge\"]",
+          "wave": "before",
+          "measure": "knowledge",
+          "score": 0.9785225275566736
+        },
+        {
+          "key": "[\"after\",\"knowledge\"]",
+          "wave": "after",
+          "measure": "knowledge",
+          "score": 0.9604777201472653
+        },
+        {
+          "key": "[\"before\",\"practical\"]",
+          "wave": "before",
+          "measure": "practical",
+          "score": 0.5975610953724819
+        },
+        {
+          "key": "[\"after\",\"practical\"]",
+          "wave": "after",
+          "measure": "practical",
+          "score": 0.5815113654513586
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 1,
+      "column": "p0",
+      "slot": "[\"before\",\"practical\"]",
+      "aiSlot": "[\"before\",\"practical\"]",
+      "evidence": [
+        {
+          "key": "[\"before\",\"practical\"]",
+          "wave": "before",
+          "measure": "practical",
+          "score": 0.9671926169741277
+        },
+        {
+          "key": "[\"after\",\"practical\"]",
+          "wave": "after",
+          "measure": "practical",
+          "score": 0.944398600819846
+        },
+        {
+          "key": "[\"before\",\"knowledge\"]",
+          "wave": "before",
+          "measure": "knowledge",
+          "score": 0.5889687954510516
+        },
+        {
+          "key": "[\"after\",\"knowledge\"]",
+          "wave": "after",
+          "measure": "knowledge",
+          "score": 0.5547206268021788
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "column": "k1",
+      "slot": "[\"after\",\"knowledge\"]",
+      "aiSlot": "[\"after\",\"knowledge\"]",
+      "evidence": [
+        {
+          "key": "[\"after\",\"knowledge\"]",
+          "wave": "after",
+          "measure": "knowledge",
+          "score": 0.9762359871752697
+        },
+        {
+          "key": "[\"before\",\"knowledge\"]",
+          "wave": "before",
+          "measure": "knowledge",
+          "score": 0.9706317479003848
+        },
+        {
+          "key": "[\"after\",\"practical\"]",
+          "wave": "after",
+          "measure": "practical",
+          "score": 0.5931442815270358
+        },
+        {
+          "key": "[\"before\",\"practical\"]",
+          "wave": "before",
+          "measure": "practical",
+          "score": 0.5828154215766115
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 3,
+      "column": "p1",
+      "slot": "[\"after\",\"practical\"]",
+      "aiSlot": "[\"after\",\"practical\"]",
+      "evidence": [
+        {
+          "key": "[\"after\",\"practical\"]",
+          "wave": "after",
+          "measure": "practical",
+          "score": 0.9654402646073078
+        },
+        {
+          "key": "[\"before\",\"practical\"]",
+          "wave": "before",
+          "measure": "practical",
+          "score": 0.9541266311871286
+        },
+        {
+          "key": "[\"before\",\"knowledge\"]",
+          "wave": "before",
+          "measure": "knowledge",
+          "score": 0.5721779148102921
+        },
+        {
+          "key": "[\"after\",\"knowledge\"]",
+          "wave": "after",
+          "measure": "knowledge",
+          "score": 0.5673809387790978
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "warning": "Human-confirmed reshaping, not unit conversion, missing-value imputation or evidence that repeated rows are the same subject. All values stay strings. Row ordinals—not identifier uniqueness—preserve duplicates.",
+  "analysis": {
+    "status": "ready",
+    "sourceRows": 3,
+    "fieldCount": 4,
+    "literalHeaderBaseline": 0,
+    "collisions": [],
+    "missing": [],
+    "originalCells": 15,
+    "tidy": {
+      "columns": [
+        "source_row",
+        "id:learner",
+        "wave",
+        "value:knowledge",
+        "value:practical"
+      ],
+      "rows": [
+        [
+          1,
+          "A01",
+          "before",
+          "4",
+          "3"
+        ],
+        [
+          1,
+          "A01",
+          "after",
+          "8",
+          "7"
+        ],
+        [
+          2,
+          "A02",
+          "before",
+          "5",
+          ""
+        ],
+        [
+          2,
+          "A02",
+          "after",
+          "9",
+          "8"
+        ],
+        [
+          3,
+          "A01",
+          "before",
+          "4",
+          "3"
+        ],
+        [
+          3,
+          "A01",
+          "after",
+          "8",
+          "7"
+        ]
+      ]
+    },
+    "longRows": 6,
+    "measurementCells": 12,
+    "blankMeasurements": 1,
+    "roundTripExact": true,
+    "reconstructedRows": 3
+  }
+}

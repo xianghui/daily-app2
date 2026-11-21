@@ -1,0 +1,676 @@
+{
+  "fixtures": [
+    {
+      "name": "Order lookup",
+      "actual": [
+        "client",
+        "memo",
+        "district"
+      ],
+      "expected": [
+        "client",
+        "memo",
+        "district"
+      ],
+      "analysis": {
+        "keys": [
+          {
+            "left": "buyer",
+            "right": "client"
+          },
+          {
+            "left": "branch",
+            "right": "district"
+          }
+        ],
+        "cardinality": "one-to-many",
+        "violations": [
+          "Right key is not unique: lookup expectation violated."
+        ],
+        "duplicateLeft": [],
+        "duplicateRight": [
+          {
+            "key": "[\"C2\",\"N\"]",
+            "rows": [
+              3,
+              4
+            ]
+          }
+        ],
+        "nullLeft": [
+          5
+        ],
+        "nullRight": [
+          5
+        ],
+        "lineage": [
+          {
+            "leftRow": 1,
+            "rightRows": [
+              1
+            ],
+            "nullKey": false
+          },
+          {
+            "leftRow": 2,
+            "rightRows": [
+              2
+            ],
+            "nullKey": false
+          },
+          {
+            "leftRow": 3,
+            "rightRows": [
+              3,
+              4
+            ],
+            "nullKey": false
+          },
+          {
+            "leftRow": 4,
+            "rightRows": [],
+            "nullKey": false
+          },
+          {
+            "leftRow": 5,
+            "rightRows": [],
+            "nullKey": true
+          }
+        ],
+        "joined": [
+          {
+            "leftRow": 1,
+            "rightRow": 1,
+            "left": [
+              "C1",
+              "Leave at reception",
+              "N"
+            ],
+            "right": [
+              "N",
+              "C1",
+              "Main"
+            ]
+          },
+          {
+            "leftRow": 2,
+            "rightRow": 2,
+            "left": [
+              "C1",
+              "Ring bell",
+              "S"
+            ],
+            "right": [
+              "S",
+              "C1",
+              "South"
+            ]
+          },
+          {
+            "leftRow": 3,
+            "rightRow": 3,
+            "left": [
+              "C2",
+              "Fragile",
+              "N"
+            ],
+            "right": [
+              "N",
+              "C2",
+              "First"
+            ]
+          },
+          {
+            "leftRow": 3,
+            "rightRow": 4,
+            "left": [
+              "C2",
+              "Fragile",
+              "N"
+            ],
+            "right": [
+              "N",
+              "C2",
+              "Duplicate"
+            ]
+          },
+          {
+            "leftRow": 4,
+            "rightRow": null,
+            "left": [
+              "C3",
+              "Call ahead",
+              "N"
+            ],
+            "right": null
+          },
+          {
+            "leftRow": 5,
+            "rightRow": null,
+            "left": [
+              null,
+              "Unknown buyer",
+              "N"
+            ],
+            "right": null
+          }
+        ],
+        "baselineRows": 5,
+        "extraRows": 1,
+        "fanoutLeft": [
+          3
+        ],
+        "unmatchedLeft": [
+          4,
+          5
+        ],
+        "unusedRight": [
+          5,
+          6
+        ]
+      }
+    },
+    {
+      "name": "Archive rights",
+      "actual": [
+        "asset",
+        "rights",
+        "locale",
+        "memo"
+      ],
+      "expected": [
+        "asset",
+        "rights",
+        "locale",
+        "memo"
+      ],
+      "analysis": {
+        "keys": [
+          {
+            "left": "item",
+            "right": "asset"
+          },
+          {
+            "left": "language",
+            "right": "locale"
+          }
+        ],
+        "cardinality": "one-to-many",
+        "violations": [
+          "Right key is not unique: lookup expectation violated."
+        ],
+        "duplicateLeft": [],
+        "duplicateRight": [
+          {
+            "key": "[\"P2\",\"en\"]",
+            "rows": [
+              3,
+              4
+            ]
+          }
+        ],
+        "nullLeft": [],
+        "nullRight": [],
+        "lineage": [
+          {
+            "leftRow": 1,
+            "rightRows": [
+              1
+            ],
+            "nullKey": false
+          },
+          {
+            "leftRow": 2,
+            "rightRows": [
+              2
+            ],
+            "nullKey": false
+          },
+          {
+            "leftRow": 3,
+            "rightRows": [
+              3,
+              4
+            ],
+            "nullKey": false
+          },
+          {
+            "leftRow": 4,
+            "rightRows": [],
+            "nullKey": false
+          }
+        ],
+        "joined": [
+          {
+            "leftRow": 1,
+            "rightRow": 1,
+            "left": [
+              "P1",
+              "CC0",
+              "en",
+              "Check crop"
+            ],
+            "right": [
+              "CC0",
+              "en",
+              "Public",
+              "P1"
+            ]
+          },
+          {
+            "leftRow": 2,
+            "rightRow": 2,
+            "left": [
+              "P1",
+              "CC0",
+              "fr",
+              "Check caption"
+            ],
+            "right": [
+              "CC0",
+              "fr",
+              "Public",
+              "P1"
+            ]
+          },
+          {
+            "leftRow": 3,
+            "rightRow": 3,
+            "left": [
+              "P2",
+              "CC-BY",
+              "en",
+              "Credit author"
+            ],
+            "right": [
+              "CC-BY",
+              "en",
+              "Signed",
+              "P2"
+            ]
+          },
+          {
+            "leftRow": 3,
+            "rightRow": 4,
+            "left": [
+              "P2",
+              "CC-BY",
+              "en",
+              "Credit author"
+            ],
+            "right": [
+              "CC-BY",
+              "en",
+              "Revised",
+              "P2"
+            ]
+          },
+          {
+            "leftRow": 4,
+            "rightRow": null,
+            "left": [
+              "P4",
+              null,
+              "en",
+              "Await release"
+            ],
+            "right": null
+          }
+        ],
+        "baselineRows": 4,
+        "extraRows": 1,
+        "fanoutLeft": [
+          3
+        ],
+        "unmatchedLeft": [
+          4
+        ],
+        "unusedRight": [
+          5
+        ]
+      }
+    }
+  ],
+  "checks": [
+    "fresh-worker real inference fully offline in already-open page; no reload claim",
+    "maximum 8+8 fields, 64+64 rows, 16 texts / 4 chunks, 4096 joined rows, complete lineage, formula/newline, bounded audit-envelope reimport",
+    "cancel and real retry",
+    "review/link undo, export invalidation, actual clipboard/downloads, reject, invalid/oversized/unsupported inputs, accessible labels/focus/touch, desktop/390/320 layouts, GET-only downloads, no model requests before explicit load"
+  ],
+  "negationChallenge": {
+    "expected": "memo",
+    "actual": "client"
+  },
+  "requests": [
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261122-3/",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261122-3/assets/index-hdA8vcl0.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261122-3/assets/index-CAIegJ7A.css",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/a68e6d87-75ee-4f61-9637-3fcefdb25e77",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "user_id",
+        "response-content-disposition",
+        "X-Xet-Cas-Uid",
+        "xip",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "xip",
+        "user_id",
+        "X-Xet-Cas-Uid",
+        "response-content-disposition",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/4d60896b-0f40-4b08-a837-312dd3720338",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/290a360f-5cab-445c-a9ac-2b07436037b7",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/1f5ef3ab-a3c3-411b-a6fc-523e5907b38e",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/cc4a2f60-a49f-44ae-972a-62233497ba0a",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/41b3fb60-5dd9-4ad4-8a2a-e7f9d6dc19de",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/9c3a8079-eec4-480e-8272-93b212df5fcf",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/92d3e622-6f19-4abb-8d9f-d299aebf1e6e",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/763381c6-4572-4556-b359-a61a2071c9d4",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/d7de181d-96f6-451b-b1ab-55226c64543e",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/543d1e06-ce4a-430a-afab-5d6fa8395f88",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/7e2d7115-b002-4e8d-b7a3-1026945d01f1",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/c99929d1-92aa-4e82-a780-747a7ea5b427",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/150c33fe-0da9-4109-a96d-e808a9cad076",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/028d5b13-32b3-449c-ad36-0df8ce5ab33f",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/cb411c88-24a1-4b27-ab5b-254e76d9f338",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/72f1de7d-7a70-44ca-b768-5955284c8009",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/ab23adc9-9b99-4825-a577-4cf8b8c7d6bc",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/7a8fb2ab-6ce7-446e-82e6-0f33b682dce5",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/294c6e18-d256-4444-bccd-67603e70ba50",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/7090ac63-2158-4f5a-b176-ce0b6d44bbee",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/615f0731-cb03-4666-bc7a-b90439e72f66",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    }
+  ],
+  "errors": []
+}

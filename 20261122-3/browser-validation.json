@@ -1,0 +1,676 @@
+{
+  "fixtures": [
+    {
+      "name": "Order lookup",
+      "actual": [
+        "client",
+        "memo",
+        "district"
+      ],
+      "expected": [
+        "client",
+        "memo",
+        "district"
+      ],
+      "analysis": {
+        "keys": [
+          {
+            "left": "buyer",
+            "right": "client"
+          },
+          {
+            "left": "branch",
+            "right": "district"
+          }
+        ],
+        "cardinality": "one-to-many",
+        "violations": [
+          "Right key is not unique: lookup expectation violated."
+        ],
+        "duplicateLeft": [],
+        "duplicateRight": [
+          {
+            "key": "[\"C2\",\"N\"]",
+            "rows": [
+              3,
+              4
+            ]
+          }
+        ],
+        "nullLeft": [
+          5
+        ],
+        "nullRight": [
+          5
+        ],
+        "lineage": [
+          {
+            "leftRow": 1,
+            "rightRows": [
+              1
+            ],
+            "nullKey": false
+          },
+          {
+            "leftRow": 2,
+            "rightRows": [
+              2
+            ],
+            "nullKey": false
+          },
+          {
+            "leftRow": 3,
+            "rightRows": [
+              3,
+              4
+            ],
+            "nullKey": false
+          },
+          {
+            "leftRow": 4,
+            "rightRows": [],
+            "nullKey": false
+          },
+          {
+            "leftRow": 5,
+            "rightRows": [],
+            "nullKey": true
+          }
+        ],
+        "joined": [
+          {
+            "leftRow": 1,
+            "rightRow": 1,
+            "left": [
+              "C1",
+              "Leave at reception",
+              "N"
+            ],
+            "right": [
+              "N",
+              "C1",
+              "Main"
+            ]
+          },
+          {
+            "leftRow": 2,
+            "rightRow": 2,
+            "left": [
+              "C1",
+              "Ring bell",
+              "S"
+            ],
+            "right": [
+              "S",
+              "C1",
+              "South"
+            ]
+          },
+          {
+            "leftRow": 3,
+            "rightRow": 3,
+            "left": [
+              "C2",
+              "Fragile",
+              "N"
+            ],
+            "right": [
+              "N",
+              "C2",
+              "First"
+            ]
+          },
+          {
+            "leftRow": 3,
+            "rightRow": 4,
+            "left": [
+              "C2",
+              "Fragile",
+              "N"
+            ],
+            "right": [
+              "N",
+              "C2",
+              "Duplicate"
+            ]
+          },
+          {
+            "leftRow": 4,
+            "rightRow": null,
+            "left": [
+              "C3",
+              "Call ahead",
+              "N"
+            ],
+            "right": null
+          },
+          {
+            "leftRow": 5,
+            "rightRow": null,
+            "left": [
+              null,
+              "Unknown buyer",
+              "N"
+            ],
+            "right": null
+          }
+        ],
+        "baselineRows": 5,
+        "extraRows": 1,
+        "fanoutLeft": [
+          3
+        ],
+        "unmatchedLeft": [
+          4,
+          5
+        ],
+        "unusedRight": [
+          5,
+          6
+        ]
+      }
+    },
+    {
+      "name": "Archive rights",
+      "actual": [
+        "asset",
+        "rights",
+        "locale",
+        "memo"
+      ],
+      "expected": [
+        "asset",
+        "rights",
+        "locale",
+        "memo"
+      ],
+      "analysis": {
+        "keys": [
+          {
+            "left": "item",
+            "right": "asset"
+          },
+          {
+            "left": "language",
+            "right": "locale"
+          }
+        ],
+        "cardinality": "one-to-many",
+        "violations": [
+          "Right key is not unique: lookup expectation violated."
+        ],
+        "duplicateLeft": [],
+        "duplicateRight": [
+          {
+            "key": "[\"P2\",\"en\"]",
+            "rows": [
+              3,
+              4
+            ]
+          }
+        ],
+        "nullLeft": [],
+        "nullRight": [],
+        "lineage": [
+          {
+            "leftRow": 1,
+            "rightRows": [
+              1
+            ],
+            "nullKey": false
+          },
+          {
+            "leftRow": 2,
+            "rightRows": [
+              2
+            ],
+            "nullKey": false
+          },
+          {
+            "leftRow": 3,
+            "rightRows": [
+              3,
+              4
+            ],
+            "nullKey": false
+          },
+          {
+            "leftRow": 4,
+            "rightRows": [],
+            "nullKey": false
+          }
+        ],
+        "joined": [
+          {
+            "leftRow": 1,
+            "rightRow": 1,
+            "left": [
+              "P1",
+              "CC0",
+              "en",
+              "Check crop"
+            ],
+            "right": [
+              "CC0",
+              "en",
+              "Public",
+              "P1"
+            ]
+          },
+          {
+            "leftRow": 2,
+            "rightRow": 2,
+            "left": [
+              "P1",
+              "CC0",
+              "fr",
+              "Check caption"
+            ],
+            "right": [
+              "CC0",
+              "fr",
+              "Public",
+              "P1"
+            ]
+          },
+          {
+            "leftRow": 3,
+            "rightRow": 3,
+            "left": [
+              "P2",
+              "CC-BY",
+              "en",
+              "Credit author"
+            ],
+            "right": [
+              "CC-BY",
+              "en",
+              "Signed",
+              "P2"
+            ]
+          },
+          {
+            "leftRow": 3,
+            "rightRow": 4,
+            "left": [
+              "P2",
+              "CC-BY",
+              "en",
+              "Credit author"
+            ],
+            "right": [
+              "CC-BY",
+              "en",
+              "Revised",
+              "P2"
+            ]
+          },
+          {
+            "leftRow": 4,
+            "rightRow": null,
+            "left": [
+              "P4",
+              null,
+              "en",
+              "Await release"
+            ],
+            "right": null
+          }
+        ],
+        "baselineRows": 4,
+        "extraRows": 1,
+        "fanoutLeft": [
+          3
+        ],
+        "unmatchedLeft": [
+          4
+        ],
+        "unusedRight": [
+          5
+        ]
+      }
+    }
+  ],
+  "checks": [
+    "fresh-worker real inference fully offline in already-open page; no reload claim",
+    "maximum 8+8 fields, 64+64 rows, 16 texts / 4 chunks, 4096 joined rows, complete lineage, formula/newline, bounded audit-envelope reimport",
+    "cancel and real retry",
+    "review/link undo, export invalidation, actual clipboard/downloads, reject, invalid/oversized/unsupported inputs, accessible labels/focus/touch, desktop/390/320 layouts, GET-only downloads, no model requests before explicit load"
+  ],
+  "negationChallenge": {
+    "expected": "memo",
+    "actual": "client"
+  },
+  "requests": [
+    {
+      "host": "127.0.0.1:7221",
+      "path": "/daily-app2/20261122-3/",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7221",
+      "path": "/daily-app2/20261122-3/assets/index-hdA8vcl0.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7221",
+      "path": "/daily-app2/20261122-3/assets/index-CAIegJ7A.css",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7221",
+      "path": "/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/8be10b1f-302b-482a-91fe-8f00453cb86d",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7221",
+      "path": "/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7221",
+      "path": "/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "user_id",
+        "xip",
+        "response-content-disposition",
+        "X-Xet-Cas-Uid",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "X-Xet-Cas-Uid",
+        "user_id",
+        "response-content-disposition",
+        "xip",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/20ad149d-a046-4878-839a-430a11cb85fc",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/930989cf-158a-42a6-98ae-3ab4569c15a2",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/e74b7aff-4cab-4f49-a1b2-4af0c6900d52",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/ee084324-d46c-49b8-9be0-3a69d2ac9dac",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/58520952-83b3-4313-ba03-1cdffd18746a",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/d8ace714-8f1f-4cdb-8667-e3b1da593f99",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/c871f967-60d0-4090-b2d6-224619ab46ec",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/431b4cee-92ad-4cb4-aa5c-04be423a3ee1",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/5be3d27f-ddef-4b5a-b825-36753bfd2765",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/edac8f54-53c7-4691-bcf2-81d04c0e3f2e",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/60c7face-69a6-4f8a-8c1a-d70ced5ad6f7",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/36650751-b238-4d8a-9bee-86f492626720",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/401b01b0-1ef3-45e4-b161-46b7f7f61e99",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/62d3c82d-0ff8-4417-8a78-462065c2720b",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/ae5a0622-bb79-4098-8a4f-47526f17bdc1",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/722dcf7a-b4ac-411d-b212-11e816df955d",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/c816efc3-3603-4de2-8376-192a6eca5c66",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/2b265532-4a79-4ab3-8ef4-467213ccd592",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/2ad85422-b635-4e06-b513-88116e039763",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/8824a030-ad09-4680-a9dc-63b8d1f3789b",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7221/8e1ab24d-d44d-4467-b7f1-1f0239cca6c6",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    }
+  ],
+  "errors": []
+}

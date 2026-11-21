@@ -1667,3 +1667,8 @@ Real local MiniLM reconciles informal service-estimate descriptions before manda
 Collection-size maintenance extends existing deploy-only byte-identical Manifold sharing to `20261028-30` → immutable `20261028-24`, preserving source builds and compatibility JS paths. The unchanged 1 GB guard remains enforced, with affected legacy PNG/STL/mesh workflow checks.
 
 Buffer Folio public release: matching Pages `505f1bb9747c27c75f22ad3897ad02d850ebd545` and workflow `44869558672` succeeded. Nine public app/gallery/AI and four affected legacy asset byte matches, both real neural fixtures, complete review/export/offline/maximum-batch/privacy suite, all 771 gallery cards and legacy PNG/STL/mesh workflows passed. Combined size 999,536,431 bytes under the unchanged guard; source commit excludes unrelated existing recovery work. No digest sent.
+
+
+## Probe Orchard — 20261121-15
+
+Real local MiniLM semantic shortlists assist human-reviewed diagnostic question planning. Exact subset minimax trees compare worst-case supplied check minutes with source order; identical signatures remain unresolved. Four tiny synthetic reports retrieved all intended cause memberships; 400 independent optimizer-oracle cases passed. Complete JSON/CSV/Markdown preserves originals and holds. No diagnosis, content uploads or equipment action. Reuses immutable shared worker/factory from `20261115-6` and WASM from `20261107-2`; preserve those paths. Offline scope is a warmed open page with fresh-worker inference, not offline startup. See [workflow/privacy](20261121-15/README.md) and [observed validation](20261121-15/VALIDATION.md).

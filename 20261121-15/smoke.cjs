@@ -1,0 +1,2 @@
+const{chromium}=require('/Users/hsianghui/.openclaw/workspace/node_modules/playwright');
+(async()=>{const b=await chromium.launch({channel:'chrome',headless:true,args:['--disable-gpu']}),p=await b.newPage();p.on('pageerror',console.error);await p.goto('http://127.0.0.1:7115/daily-app2/20261121-15/');await p.getByRole('button',{name:'Load AI & reconcile',exact:true}).click();await p.locator('#decision-0').waitFor({timeout:190000});console.log(await p.locator('.record').allTextContents());await b.close()})().catch(e=>{console.error(e);process.exit(1)});

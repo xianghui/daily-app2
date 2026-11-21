@@ -1,0 +1,395 @@
+{
+  "fixtures": [
+    {
+      "name": "Print desk",
+      "actual": [
+        [
+          "H1",
+          "H2",
+          "H3"
+        ],
+        [
+          "H1",
+          "H2",
+          "H3"
+        ]
+      ],
+      "expected": [
+        [
+          "H1",
+          "H2",
+          "H3"
+        ],
+        [
+          "H1",
+          "H2",
+          "H3"
+        ]
+      ],
+      "result": {
+        "app": "Probe Orchard",
+        "version": 1,
+        "model": "Xenova/all-MiniLM-L6-v2 q8 / WASM CPU",
+        "originalInput": {
+          "title": "Printer support follow-up",
+          "shortlist": 3,
+          "checks": [
+            {
+              "id": "feed",
+              "text": "Is a sheet obstructing the opened paper feed path?",
+              "cost": 10
+            },
+            {
+              "id": "toner",
+              "text": "Does the printer report an empty toner cartridge?",
+              "cost": 1
+            },
+            {
+              "id": "network",
+              "text": "Is the network connection indicator offline?",
+              "cost": 2
+            }
+          ],
+          "hypotheses": [
+            {
+              "id": "H1",
+              "text": "Printer paper feed jam rollers obstructed sheet path",
+              "outcomes": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "id": "H2",
+              "text": "Printer empty toner cartridge faded blank pages",
+              "outcomes": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "id": "H3",
+              "text": "Printer disconnected network WiFi connection offline",
+              "outcomes": [
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "id": "H4",
+              "text": "Bicycle flat tire puncture tube repair",
+              "outcomes": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "id": "H5",
+              "text": "Bicycle brake pads worn weak stopping power",
+              "outcomes": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "id": "H6",
+              "text": "Bicycle chain slipped gears drivetrain skipping",
+              "outcomes": [
+                0,
+                0,
+                1
+              ]
+            }
+          ],
+          "reports": [
+            {
+              "id": "R1",
+              "text": "The printer cannot produce usable pages: possible blank toner, a paper feed jam, or a lost network connection."
+            },
+            {
+              "id": "R2",
+              "text": "Printer job failed. Could be a wireless disconnect, empty toner cartridge or sheet jam; check which cause fits."
+            }
+          ]
+        },
+        "reviews": [
+          {
+            "id": "R1",
+            "text": "The printer cannot produce usable pages: possible blank toner, a paper feed jam, or a lost network connection.",
+            "aiCandidates": [
+              "H2",
+              "H1",
+              "H3"
+            ],
+            "candidates": [
+              "H2",
+              "H1",
+              "H3"
+            ],
+            "evidence": [
+              {
+                "id": "H2",
+                "score": 0.7226187863008484
+              },
+              {
+                "id": "H1",
+                "score": 0.5314277487110644
+              },
+              {
+                "id": "H3",
+                "score": 0.4615163216473644
+              },
+              {
+                "id": "H6",
+                "score": 0.1647635264669945
+              },
+              {
+                "id": "H4",
+                "score": 0.07076002190451294
+              },
+              {
+                "id": "H5",
+                "score": 0.06523375283315223
+              }
+            ],
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "R2",
+            "text": "Printer job failed. Could be a wireless disconnect, empty toner cartridge or sheet jam; check which cause fits.",
+            "aiCandidates": [
+              "H2",
+              "H1",
+              "H3"
+            ],
+            "candidates": [
+              "H2",
+              "H1",
+              "H3"
+            ],
+            "evidence": [
+              {
+                "id": "H2",
+                "score": 0.6032920943911354
+              },
+              {
+                "id": "H1",
+                "score": 0.4676325090943746
+              },
+              {
+                "id": "H3",
+                "score": 0.44449741319203645
+              },
+              {
+                "id": "H6",
+                "score": 0.16634063093445695
+              },
+              {
+                "id": "H4",
+                "score": 0.07750723941735574
+              },
+              {
+                "id": "H5",
+                "score": 0.030207932647570143
+              }
+            ],
+            "decision": "approve",
+            "note": ""
+          }
+        ],
+        "plans": [
+          {
+            "id": "R1",
+            "candidates": [
+              "H2",
+              "H1",
+              "H3"
+            ],
+            "optimal": {
+              "check": "toner",
+              "question": "Does the printer report an empty toner cartridge?",
+              "minutes": 1,
+              "cost": 3,
+              "yes": {
+                "candidates": [
+                  "H2"
+                ],
+                "cost": 0,
+                "unresolved": false
+              },
+              "no": {
+                "check": "network",
+                "question": "Is the network connection indicator offline?",
+                "minutes": 2,
+                "cost": 2,
+                "yes": {
+                  "candidates": [
+                    "H3"
+                  ],
+                  "cost": 0,
+                  "unresolved": false
+                },
+                "no": {
+                  "candidates": [
+                    "H1"
+                  ],
+                  "cost": 0,
+                  "unresolved": false
+                }
+              }
+            },
+            "baseline": {
+              "check": "feed",
+              "question": "Is a sheet obstructing the opened paper feed path?",
+              "minutes": 10,
+              "cost": 11,
+              "yes": {
+                "candidates": [
+                  "H1"
+                ],
+                "cost": 0,
+                "unresolved": false
+              },
+              "no": {
+                "check": "toner",
+                "question": "Does the printer report an empty toner cartridge?",
+                "minutes": 1,
+                "cost": 1,
+                "yes": {
+                  "candidates": [
+                    "H2"
+                  ],
+                  "cost": 0,
+                  "unresolved": false
+                },
+                "no": {
+                  "candidates": [
+                    "H3"
+                  ],
+                  "cost": 0,
+                  "unresolved": false
+                }
+              }
+            },
+            "minutesSaved": 8,
+            "unresolved": []
+          },
+          {
+            "id": "R2",
+            "candidates": [
+              "H2",
+              "H1",
+              "H3"
+            ],
+            "optimal": {
+              "check": "toner",
+              "question": "Does the printer report an empty toner cartridge?",
+              "minutes": 1,
+              "cost": 3,
+              "yes": {
+                "candidates": [
+                  "H2"
+                ],
+                "cost": 0,
+                "unresolved": false
+              },
+              "no": {
+                "check": "network",
+                "question": "Is the network connection indicator offline?",
+                "minutes": 2,
+                "cost": 2,
+                "yes": {
+                  "candidates": [
+                    "H3"
+                  ],
+                  "cost": 0,
+                  "unresolved": false
+                },
+                "no": {
+                  "candidates": [
+                    "H1"
+                  ],
+                  "cost": 0,
+                  "unresolved": false
+                }
+              }
+            },
+            "baseline": {
+              "check": "feed",
+              "question": "Is a sheet obstructing the opened paper feed path?",
+              "minutes": 10,
+              "cost": 11,
+              "yes": {
+                "candidates": [
+                  "H1"
+                ],
+                "cost": 0,
+                "unresolved": false
+              },
+              "no": {
+                "check": "toner",
+                "question": "Does the printer report an empty toner cartridge?",
+                "minutes": 1,
+                "cost": 1,
+                "yes": {
+                  "candidates": [
+                    "H2"
+                  ],
+                  "cost": 0,
+                  "unresolved": false
+                },
+                "no": {
+                  "candidates": [
+                    "H3"
+                  ],
+                  "cost": 0,
+                  "unresolved": false
+                }
+              }
+            },
+            "minutesSaved": 8,
+            "unresolved": []
+          }
+        ],
+        "held": 0,
+        "optimalMinutes": 6,
+        "baselineMinutes": 22,
+        "warning": "Planning assumptions only: exhaustive reviewed shortlist, one cause, deterministic independent-of-order binary checks, additive fixed check costs. Real faults may violate all of these. Similarity is not probability. No diagnosis, equipment action or safety assurance."
+      }
+    },
+    {
+      "name": "Cycle workshop",
+      "actual": [
+        [
+          "H4",
+          "H5",
+          "H6"
+        ],
+        [
+          "H4",
+          "H5",
+          "H6"
+        ]
+      ],
+      "expected": [
+        [
+          "H4",
+          "H5",
+          "H6"
+        ],
+        [
+          "H4",
+          "H5",
+          "H6"
+        ]
+      ]
+    }
+  ],
+  "checks": []
+}

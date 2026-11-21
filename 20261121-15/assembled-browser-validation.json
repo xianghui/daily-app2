@@ -1,0 +1,852 @@
+{
+  "fixtures": [
+    {
+      "name": "Print desk",
+      "actual": [
+        [
+          "H1",
+          "H2",
+          "H3"
+        ],
+        [
+          "H1",
+          "H2",
+          "H3"
+        ]
+      ],
+      "expected": [
+        [
+          "H1",
+          "H2",
+          "H3"
+        ],
+        [
+          "H1",
+          "H2",
+          "H3"
+        ]
+      ],
+      "result": {
+        "app": "Probe Orchard",
+        "version": 1,
+        "model": "Xenova/all-MiniLM-L6-v2 q8 / WASM CPU",
+        "originalInput": {
+          "title": "Printer support follow-up",
+          "shortlist": 3,
+          "checks": [
+            {
+              "id": "feed",
+              "text": "Is a sheet obstructing the opened paper feed path?",
+              "cost": 10
+            },
+            {
+              "id": "toner",
+              "text": "Does the printer report an empty toner cartridge?",
+              "cost": 1
+            },
+            {
+              "id": "network",
+              "text": "Is the network connection indicator offline?",
+              "cost": 2
+            }
+          ],
+          "hypotheses": [
+            {
+              "id": "H1",
+              "text": "Printer paper feed jam rollers obstructed sheet path",
+              "outcomes": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "id": "H2",
+              "text": "Printer empty toner cartridge faded blank pages",
+              "outcomes": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "id": "H3",
+              "text": "Printer disconnected network WiFi connection offline",
+              "outcomes": [
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "id": "H4",
+              "text": "Bicycle flat tire puncture tube repair",
+              "outcomes": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "id": "H5",
+              "text": "Bicycle brake pads worn weak stopping power",
+              "outcomes": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "id": "H6",
+              "text": "Bicycle chain slipped gears drivetrain skipping",
+              "outcomes": [
+                0,
+                0,
+                1
+              ]
+            }
+          ],
+          "reports": [
+            {
+              "id": "R1",
+              "text": "The printer cannot produce usable pages: possible blank toner, a paper feed jam, or a lost network connection."
+            },
+            {
+              "id": "R2",
+              "text": "Printer job failed. Could be a wireless disconnect, empty toner cartridge or sheet jam; check which cause fits."
+            }
+          ]
+        },
+        "reviews": [
+          {
+            "id": "R1",
+            "text": "The printer cannot produce usable pages: possible blank toner, a paper feed jam, or a lost network connection.",
+            "aiCandidates": [
+              "H2",
+              "H1",
+              "H3"
+            ],
+            "candidates": [
+              "H2",
+              "H1",
+              "H3"
+            ],
+            "evidence": [
+              {
+                "id": "H2",
+                "score": 0.7226187863008484
+              },
+              {
+                "id": "H1",
+                "score": 0.5314277487110644
+              },
+              {
+                "id": "H3",
+                "score": 0.4615163216473644
+              },
+              {
+                "id": "H6",
+                "score": 0.1647635264669945
+              },
+              {
+                "id": "H4",
+                "score": 0.07076002190451294
+              },
+              {
+                "id": "H5",
+                "score": 0.06523375283315223
+              }
+            ],
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "R2",
+            "text": "Printer job failed. Could be a wireless disconnect, empty toner cartridge or sheet jam; check which cause fits.",
+            "aiCandidates": [
+              "H2",
+              "H1",
+              "H3"
+            ],
+            "candidates": [
+              "H2",
+              "H1",
+              "H3"
+            ],
+            "evidence": [
+              {
+                "id": "H2",
+                "score": 0.6032920943911354
+              },
+              {
+                "id": "H1",
+                "score": 0.4676325090943746
+              },
+              {
+                "id": "H3",
+                "score": 0.44449741319203645
+              },
+              {
+                "id": "H6",
+                "score": 0.16634063093445695
+              },
+              {
+                "id": "H4",
+                "score": 0.07750723941735574
+              },
+              {
+                "id": "H5",
+                "score": 0.030207932647570143
+              }
+            ],
+            "decision": "approve",
+            "note": ""
+          }
+        ],
+        "plans": [
+          {
+            "id": "R1",
+            "candidates": [
+              "H2",
+              "H1",
+              "H3"
+            ],
+            "optimal": {
+              "check": "toner",
+              "question": "Does the printer report an empty toner cartridge?",
+              "minutes": 1,
+              "cost": 3,
+              "yes": {
+                "candidates": [
+                  "H2"
+                ],
+                "cost": 0,
+                "unresolved": false
+              },
+              "no": {
+                "check": "network",
+                "question": "Is the network connection indicator offline?",
+                "minutes": 2,
+                "cost": 2,
+                "yes": {
+                  "candidates": [
+                    "H3"
+                  ],
+                  "cost": 0,
+                  "unresolved": false
+                },
+                "no": {
+                  "candidates": [
+                    "H1"
+                  ],
+                  "cost": 0,
+                  "unresolved": false
+                }
+              }
+            },
+            "baseline": {
+              "check": "feed",
+              "question": "Is a sheet obstructing the opened paper feed path?",
+              "minutes": 10,
+              "cost": 11,
+              "yes": {
+                "candidates": [
+                  "H1"
+                ],
+                "cost": 0,
+                "unresolved": false
+              },
+              "no": {
+                "check": "toner",
+                "question": "Does the printer report an empty toner cartridge?",
+                "minutes": 1,
+                "cost": 1,
+                "yes": {
+                  "candidates": [
+                    "H2"
+                  ],
+                  "cost": 0,
+                  "unresolved": false
+                },
+                "no": {
+                  "candidates": [
+                    "H3"
+                  ],
+                  "cost": 0,
+                  "unresolved": false
+                }
+              }
+            },
+            "minutesSaved": 8,
+            "unresolved": []
+          },
+          {
+            "id": "R2",
+            "candidates": [
+              "H2",
+              "H1",
+              "H3"
+            ],
+            "optimal": {
+              "check": "toner",
+              "question": "Does the printer report an empty toner cartridge?",
+              "minutes": 1,
+              "cost": 3,
+              "yes": {
+                "candidates": [
+                  "H2"
+                ],
+                "cost": 0,
+                "unresolved": false
+              },
+              "no": {
+                "check": "network",
+                "question": "Is the network connection indicator offline?",
+                "minutes": 2,
+                "cost": 2,
+                "yes": {
+                  "candidates": [
+                    "H3"
+                  ],
+                  "cost": 0,
+                  "unresolved": false
+                },
+                "no": {
+                  "candidates": [
+                    "H1"
+                  ],
+                  "cost": 0,
+                  "unresolved": false
+                }
+              }
+            },
+            "baseline": {
+              "check": "feed",
+              "question": "Is a sheet obstructing the opened paper feed path?",
+              "minutes": 10,
+              "cost": 11,
+              "yes": {
+                "candidates": [
+                  "H1"
+                ],
+                "cost": 0,
+                "unresolved": false
+              },
+              "no": {
+                "check": "toner",
+                "question": "Does the printer report an empty toner cartridge?",
+                "minutes": 1,
+                "cost": 1,
+                "yes": {
+                  "candidates": [
+                    "H2"
+                  ],
+                  "cost": 0,
+                  "unresolved": false
+                },
+                "no": {
+                  "candidates": [
+                    "H3"
+                  ],
+                  "cost": 0,
+                  "unresolved": false
+                }
+              }
+            },
+            "minutesSaved": 8,
+            "unresolved": []
+          }
+        ],
+        "held": 0,
+        "optimalMinutes": 6,
+        "baselineMinutes": 22,
+        "warning": "Planning assumptions only: exhaustive reviewed shortlist, one cause, deterministic independent-of-order binary checks, additive fixed check costs. Real faults may violate all of these. Similarity is not probability. No diagnosis, equipment action or safety assurance."
+      }
+    },
+    {
+      "name": "Cycle workshop",
+      "actual": [
+        [
+          "H4",
+          "H5",
+          "H6"
+        ],
+        [
+          "H4",
+          "H5",
+          "H6"
+        ]
+      ],
+      "expected": [
+        [
+          "H4",
+          "H5",
+          "H6"
+        ],
+        [
+          "H4",
+          "H5",
+          "H6"
+        ]
+      ],
+      "result": {
+        "app": "Probe Orchard",
+        "version": 1,
+        "model": "Xenova/all-MiniLM-L6-v2 q8 / WASM CPU",
+        "originalInput": {
+          "title": "Bicycle intake follow-up",
+          "shortlist": 3,
+          "checks": [
+            {
+              "id": "tube",
+              "text": "Does the removed inner tube leak in a water test?",
+              "cost": 10
+            },
+            {
+              "id": "pads",
+              "text": "Are the brake pads below their wear marks?",
+              "cost": 1
+            },
+            {
+              "id": "chain",
+              "text": "Does the chain skip on the workshop stand?",
+              "cost": 2
+            }
+          ],
+          "hypotheses": [
+            {
+              "id": "H1",
+              "text": "Printer paper feed jam rollers obstructed sheet path",
+              "outcomes": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "id": "H2",
+              "text": "Printer empty toner cartridge faded blank pages",
+              "outcomes": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "id": "H3",
+              "text": "Printer disconnected network WiFi connection offline",
+              "outcomes": [
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "id": "H4",
+              "text": "Bicycle flat tire puncture tube repair",
+              "outcomes": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "id": "H5",
+              "text": "Bicycle brake pads worn weak stopping power",
+              "outcomes": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "id": "H6",
+              "text": "Bicycle chain slipped gears drivetrain skipping",
+              "outcomes": [
+                0,
+                0,
+                1
+              ]
+            }
+          ],
+          "reports": [
+            {
+              "id": "R1",
+              "text": "The bicycle behaves oddly: possible flat tire, worn brakes or skipping chain; the intake agent has not isolated the cause."
+            },
+            {
+              "id": "R2",
+              "text": "The cycle needs troubleshooting: rule out punctured tube, worn braking pads and slipping gears before suggesting a repair."
+            }
+          ]
+        },
+        "reviews": [
+          {
+            "id": "R1",
+            "text": "The bicycle behaves oddly: possible flat tire, worn brakes or skipping chain; the intake agent has not isolated the cause.",
+            "aiCandidates": [
+              "H6",
+              "H5",
+              "H4"
+            ],
+            "candidates": [
+              "H6",
+              "H5",
+              "H4"
+            ],
+            "evidence": [
+              {
+                "id": "H6",
+                "score": 0.46677353137664435
+              },
+              {
+                "id": "H5",
+                "score": 0.2982244580833889
+              },
+              {
+                "id": "H4",
+                "score": 0.2626235292102682
+              },
+              {
+                "id": "H1",
+                "score": 0.16115829848283836
+              },
+              {
+                "id": "H2",
+                "score": 0.11648454277320935
+              },
+              {
+                "id": "H3",
+                "score": 0.03832693378511321
+              }
+            ],
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "R2",
+            "text": "The cycle needs troubleshooting: rule out punctured tube, worn braking pads and slipping gears before suggesting a repair.",
+            "aiCandidates": [
+              "H5",
+              "H6",
+              "H4"
+            ],
+            "candidates": [
+              "H5",
+              "H6",
+              "H4"
+            ],
+            "evidence": [
+              {
+                "id": "H5",
+                "score": 0.4158250328260071
+              },
+              {
+                "id": "H6",
+                "score": 0.40332988628897737
+              },
+              {
+                "id": "H4",
+                "score": 0.4031723271584964
+              },
+              {
+                "id": "H1",
+                "score": 0.21355958738052522
+              },
+              {
+                "id": "H2",
+                "score": 0.14903483981399995
+              },
+              {
+                "id": "H3",
+                "score": 0.038948723494830154
+              }
+            ],
+            "decision": "approve",
+            "note": ""
+          }
+        ],
+        "plans": [
+          {
+            "id": "R1",
+            "candidates": [
+              "H6",
+              "H5",
+              "H4"
+            ],
+            "optimal": {
+              "check": "pads",
+              "question": "Are the brake pads below their wear marks?",
+              "minutes": 1,
+              "cost": 3,
+              "yes": {
+                "candidates": [
+                  "H5"
+                ],
+                "cost": 0,
+                "unresolved": false
+              },
+              "no": {
+                "check": "chain",
+                "question": "Does the chain skip on the workshop stand?",
+                "minutes": 2,
+                "cost": 2,
+                "yes": {
+                  "candidates": [
+                    "H6"
+                  ],
+                  "cost": 0,
+                  "unresolved": false
+                },
+                "no": {
+                  "candidates": [
+                    "H4"
+                  ],
+                  "cost": 0,
+                  "unresolved": false
+                }
+              }
+            },
+            "baseline": {
+              "check": "tube",
+              "question": "Does the removed inner tube leak in a water test?",
+              "minutes": 10,
+              "cost": 11,
+              "yes": {
+                "candidates": [
+                  "H4"
+                ],
+                "cost": 0,
+                "unresolved": false
+              },
+              "no": {
+                "check": "pads",
+                "question": "Are the brake pads below their wear marks?",
+                "minutes": 1,
+                "cost": 1,
+                "yes": {
+                  "candidates": [
+                    "H5"
+                  ],
+                  "cost": 0,
+                  "unresolved": false
+                },
+                "no": {
+                  "candidates": [
+                    "H6"
+                  ],
+                  "cost": 0,
+                  "unresolved": false
+                }
+              }
+            },
+            "minutesSaved": 8,
+            "unresolved": []
+          },
+          {
+            "id": "R2",
+            "candidates": [
+              "H5",
+              "H6",
+              "H4"
+            ],
+            "optimal": {
+              "check": "pads",
+              "question": "Are the brake pads below their wear marks?",
+              "minutes": 1,
+              "cost": 3,
+              "yes": {
+                "candidates": [
+                  "H5"
+                ],
+                "cost": 0,
+                "unresolved": false
+              },
+              "no": {
+                "check": "chain",
+                "question": "Does the chain skip on the workshop stand?",
+                "minutes": 2,
+                "cost": 2,
+                "yes": {
+                  "candidates": [
+                    "H6"
+                  ],
+                  "cost": 0,
+                  "unresolved": false
+                },
+                "no": {
+                  "candidates": [
+                    "H4"
+                  ],
+                  "cost": 0,
+                  "unresolved": false
+                }
+              }
+            },
+            "baseline": {
+              "check": "tube",
+              "question": "Does the removed inner tube leak in a water test?",
+              "minutes": 10,
+              "cost": 11,
+              "yes": {
+                "candidates": [
+                  "H4"
+                ],
+                "cost": 0,
+                "unresolved": false
+              },
+              "no": {
+                "check": "pads",
+                "question": "Are the brake pads below their wear marks?",
+                "minutes": 1,
+                "cost": 1,
+                "yes": {
+                  "candidates": [
+                    "H5"
+                  ],
+                  "cost": 0,
+                  "unresolved": false
+                },
+                "no": {
+                  "candidates": [
+                    "H6"
+                  ],
+                  "cost": 0,
+                  "unresolved": false
+                }
+              }
+            },
+            "minutesSaved": 8,
+            "unresolved": []
+          }
+        ],
+        "held": 0,
+        "optimalMinutes": 6,
+        "baselineMinutes": 22,
+        "warning": "Planning assumptions only: exhaustive reviewed shortlist, one cause, deterministic independent-of-order binary checks, additive fixed check costs. Real faults may violate all of these. Similarity is not probability. No diagnosis, equipment action or safety assurance."
+      }
+    }
+  ],
+  "checks": [
+    "fully offline fresh-worker real inference in warmed page",
+    "maximum 16 reports + 8 hypotheses / six chunks conserved; audit reimport",
+    "cancel and real retry"
+  ],
+  "privacy": {
+    "externalRequests": 14,
+    "onlyGetNoBodies": true,
+    "hosts": [
+      "huggingface.co",
+      "us.aws.cdn.hf.co"
+    ],
+    "noModelRequestsBeforeRun": true,
+    "requests": [
+      {
+        "host": "huggingface.co",
+        "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "queryKeys": []
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+        "queryKeys": [
+          "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+          "etag"
+        ]
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "queryKeys": []
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+        "queryKeys": [
+          "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+          "etag"
+        ]
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+        "queryKeys": []
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "queryKeys": []
+      },
+      {
+        "host": "us.aws.cdn.hf.co",
+        "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+        "queryKeys": [
+          "X-Xet-Cas-Uid",
+          "response-content-disposition",
+          "xip",
+          "user_id",
+          "Expires",
+          "Policy",
+          "Signature",
+          "Key-Pair-Id",
+          "Hash-Algorithm"
+        ]
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+        "queryKeys": [
+          "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+          "etag"
+        ]
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "queryKeys": []
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "queryKeys": []
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+        "queryKeys": []
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+        "queryKeys": [
+          "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+          "etag"
+        ]
+      },
+      {
+        "host": "us.aws.cdn.hf.co",
+        "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+        "queryKeys": [
+          "xip",
+          "response-content-disposition",
+          "user_id",
+          "X-Xet-Cas-Uid",
+          "Expires",
+          "Policy",
+          "Signature",
+          "Key-Pair-Id",
+          "Hash-Algorithm"
+        ]
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+        "queryKeys": [
+          "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+          "etag"
+        ]
+      }
+    ]
+  },
+  "errors": []
+}

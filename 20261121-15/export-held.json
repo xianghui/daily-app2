@@ -1,0 +1,232 @@
+{
+  "app": "Probe Orchard",
+  "version": 1,
+  "model": "Xenova/all-MiniLM-L6-v2 q8 / WASM CPU",
+  "originalInput": {
+    "title": "Bicycle intake follow-up",
+    "shortlist": 3,
+    "checks": [
+      {
+        "id": "tube",
+        "text": "Does the removed inner tube leak in a water test?",
+        "cost": 10
+      },
+      {
+        "id": "pads",
+        "text": "Are the brake pads below their wear marks?",
+        "cost": 1
+      },
+      {
+        "id": "chain",
+        "text": "Does the chain skip on the workshop stand?",
+        "cost": 2
+      }
+    ],
+    "hypotheses": [
+      {
+        "id": "H1",
+        "text": "Printer paper feed jam rollers obstructed sheet path",
+        "outcomes": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "H2",
+        "text": "Printer empty toner cartridge faded blank pages",
+        "outcomes": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "id": "H3",
+        "text": "Printer disconnected network WiFi connection offline",
+        "outcomes": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "id": "H4",
+        "text": "Bicycle flat tire puncture tube repair",
+        "outcomes": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "H5",
+        "text": "Bicycle brake pads worn weak stopping power",
+        "outcomes": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "id": "H6",
+        "text": "Bicycle chain slipped gears drivetrain skipping",
+        "outcomes": [
+          0,
+          0,
+          1
+        ]
+      }
+    ],
+    "reports": [
+      {
+        "id": "R1",
+        "text": "The bicycle behaves oddly: possible flat tire, worn brakes or skipping chain; the intake agent has not isolated the cause."
+      },
+      {
+        "id": "R2",
+        "text": "The cycle needs troubleshooting: rule out punctured tube, worn braking pads and slipping gears before suggesting a repair."
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "R1",
+      "text": "The bicycle behaves oddly: possible flat tire, worn brakes or skipping chain; the intake agent has not isolated the cause.",
+      "aiCandidates": [
+        "H6",
+        "H5",
+        "H4"
+      ],
+      "candidates": [
+        "H5",
+        "H4"
+      ],
+      "evidence": [
+        {
+          "id": "H6",
+          "score": 0.46677353137664435
+        },
+        {
+          "id": "H5",
+          "score": 0.2982244580833889
+        },
+        {
+          "id": "H4",
+          "score": 0.2626235292102682
+        },
+        {
+          "id": "H1",
+          "score": 0.16115829848283836
+        },
+        {
+          "id": "H2",
+          "score": 0.11648454277320935
+        },
+        {
+          "id": "H3",
+          "score": 0.03832693378511321
+        }
+      ],
+      "decision": "approve",
+      "note": "=SUM(1,2)\n\"owner\", recheck"
+    },
+    {
+      "id": "R2",
+      "text": "The cycle needs troubleshooting: rule out punctured tube, worn braking pads and slipping gears before suggesting a repair.",
+      "aiCandidates": [
+        "H5",
+        "H6",
+        "H4"
+      ],
+      "candidates": [
+        "H5",
+        "H6",
+        "H4"
+      ],
+      "evidence": [
+        {
+          "id": "H5",
+          "score": 0.4158250328260071
+        },
+        {
+          "id": "H6",
+          "score": 0.40332988628897737
+        },
+        {
+          "id": "H4",
+          "score": 0.4031723271584964
+        },
+        {
+          "id": "H1",
+          "score": 0.21355958738052522
+        },
+        {
+          "id": "H2",
+          "score": 0.14903483981399995
+        },
+        {
+          "id": "H3",
+          "score": 0.038948723494830154
+        }
+      ],
+      "decision": "hold",
+      "note": ""
+    }
+  ],
+  "plans": [
+    {
+      "id": "R1",
+      "candidates": [
+        "H5",
+        "H4"
+      ],
+      "optimal": {
+        "check": "pads",
+        "question": "Are the brake pads below their wear marks?",
+        "minutes": 1,
+        "cost": 1,
+        "yes": {
+          "candidates": [
+            "H5"
+          ],
+          "cost": 0,
+          "unresolved": false
+        },
+        "no": {
+          "candidates": [
+            "H4"
+          ],
+          "cost": 0,
+          "unresolved": false
+        }
+      },
+      "baseline": {
+        "check": "tube",
+        "question": "Does the removed inner tube leak in a water test?",
+        "minutes": 10,
+        "cost": 10,
+        "yes": {
+          "candidates": [
+            "H4"
+          ],
+          "cost": 0,
+          "unresolved": false
+        },
+        "no": {
+          "candidates": [
+            "H5"
+          ],
+          "cost": 0,
+          "unresolved": false
+        }
+      },
+      "minutesSaved": 9,
+      "unresolved": []
+    }
+  ],
+  "held": 1,
+  "optimalMinutes": 1,
+  "baselineMinutes": 10,
+  "warning": "Planning assumptions only: exhaustive reviewed shortlist, one cause, deterministic independent-of-order binary checks, additive fixed check costs. Real faults may violate all of these. Similarity is not probability. No diagnosis, equipment action or safety assurance."
+}

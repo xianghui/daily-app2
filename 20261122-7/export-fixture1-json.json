@@ -1,0 +1,250 @@
+{
+  "schema": "lookup-loom/1",
+  "originalInput": {
+    "title": "Course term room lookup audit",
+    "columns": [
+      {
+        "id": "learner",
+        "description": "Student enrollment identifier"
+      },
+      {
+        "id": "course",
+        "description": "Course subject code"
+      },
+      {
+        "id": "term",
+        "description": "Academic teaching semester"
+      },
+      {
+        "id": "room",
+        "description": "Classroom location"
+      },
+      {
+        "id": "score",
+        "description": "Student examination score"
+      }
+    ],
+    "determinants": [
+      "Subject course identifier",
+      "Teaching semester"
+    ],
+    "dependents": [
+      "Teaching classroom"
+    ],
+    "rows": [
+      [
+        "S1",
+        "BIO1",
+        "Fall",
+        "Lab A",
+        "82"
+      ],
+      [
+        "S2",
+        "BIO1",
+        "Fall",
+        "Lab A",
+        "75"
+      ],
+      [
+        "S3",
+        "BIO1",
+        "Spring",
+        "Lab B",
+        "91"
+      ],
+      [
+        "S4",
+        "ART2",
+        "Fall",
+        "Studio",
+        "88"
+      ],
+      [
+        "S5",
+        "ART2",
+        "Fall",
+        "Studio",
+        "73"
+      ]
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "side": "determinant",
+      "column": "course",
+      "aiColumn": "course",
+      "evidence": [
+        {
+          "id": "course",
+          "score": 0.767343318986026
+        },
+        {
+          "id": "learner",
+          "score": 0.570973590760053
+        },
+        {
+          "id": "term",
+          "score": 0.45908859314858336
+        },
+        {
+          "id": "score",
+          "score": 0.3701943609622562
+        },
+        {
+          "id": "room",
+          "score": 0.3291410131957304
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 1,
+      "side": "determinant",
+      "column": "term",
+      "aiColumn": "term",
+      "evidence": [
+        {
+          "id": "term",
+          "score": 0.9071014778577441
+        },
+        {
+          "id": "course",
+          "score": 0.544557004682062
+        },
+        {
+          "id": "room",
+          "score": 0.5268751929701296
+        },
+        {
+          "id": "learner",
+          "score": 0.39386036730489843
+        },
+        {
+          "id": "score",
+          "score": 0.3399597680671485
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "side": "dependent",
+      "column": "room",
+      "aiColumn": "room",
+      "evidence": [
+        {
+          "id": "room",
+          "score": 0.6686481701334961
+        },
+        {
+          "id": "term",
+          "score": 0.6617581302263911
+        },
+        {
+          "id": "course",
+          "score": 0.4636577660355258
+        },
+        {
+          "id": "learner",
+          "score": 0.22994261462335092
+        },
+        {
+          "id": "score",
+          "score": 0.2114259543340844
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "warning": "Observed functional dependency, not a business-rule proof or full database normalization. Exact case-sensitive string equality; blanks on either side block extraction. No cell repairs, deletions or database changes.",
+  "analysis": {
+    "status": "ready",
+    "keys": [
+      "course",
+      "term"
+    ],
+    "values": [
+      "room"
+    ],
+    "sourceRows": 5,
+    "keyGroups": 3,
+    "missingRows": [],
+    "conflicts": [],
+    "flatDependentCells": 5,
+    "lookupDependentCells": 3,
+    "literalHeaderBaseline": 0,
+    "fieldCount": 3,
+    "lookup": {
+      "columns": [
+        "course",
+        "term",
+        "room"
+      ],
+      "rows": [
+        [
+          "BIO1",
+          "Fall",
+          "Lab A"
+        ],
+        [
+          "BIO1",
+          "Spring",
+          "Lab B"
+        ],
+        [
+          "ART2",
+          "Fall",
+          "Studio"
+        ]
+      ]
+    },
+    "remainder": {
+      "columns": [
+        "learner",
+        "course",
+        "term",
+        "score"
+      ],
+      "rows": [
+        [
+          "S1",
+          "BIO1",
+          "Fall",
+          "82"
+        ],
+        [
+          "S2",
+          "BIO1",
+          "Fall",
+          "75"
+        ],
+        [
+          "S3",
+          "BIO1",
+          "Spring",
+          "91"
+        ],
+        [
+          "S4",
+          "ART2",
+          "Fall",
+          "88"
+        ],
+        [
+          "S5",
+          "ART2",
+          "Fall",
+          "73"
+        ]
+      ]
+    },
+    "rejoinedRows": 5,
+    "roundTripExact": true,
+    "dependentCellsAvoided": 2
+  }
+}

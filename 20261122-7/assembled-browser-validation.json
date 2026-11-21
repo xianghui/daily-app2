@@ -1,0 +1,478 @@
+{
+  "fixtures": [
+    {
+      "name": "Supplier desk",
+      "actual": [
+        "vendor",
+        "address"
+      ],
+      "expected": [
+        "vendor",
+        "address"
+      ],
+      "correct": 2,
+      "analysis": {
+        "status": "blocked",
+        "keys": [
+          "vendor"
+        ],
+        "values": [
+          "address"
+        ],
+        "sourceRows": 4,
+        "keyGroups": 2,
+        "missingRows": [],
+        "conflicts": [
+          {
+            "key": [
+              "V20"
+            ],
+            "sourceRows": [
+              2,
+              3
+            ],
+            "variants": [
+              {
+                "values": [
+                  "7 Birch Road"
+                ],
+                "sourceRows": [
+                  2
+                ]
+              },
+              {
+                "values": [
+                  "9 Birch Road"
+                ],
+                "sourceRows": [
+                  3
+                ]
+              }
+            ]
+          }
+        ],
+        "flatDependentCells": 4,
+        "lookupDependentCells": 2,
+        "literalHeaderBaseline": 0,
+        "fieldCount": 2
+      }
+    },
+    {
+      "name": "Course desk",
+      "actual": [
+        "course",
+        "term",
+        "room"
+      ],
+      "expected": [
+        "course",
+        "term",
+        "room"
+      ],
+      "correct": 3,
+      "analysis": {
+        "status": "ready",
+        "keys": [
+          "course",
+          "term"
+        ],
+        "values": [
+          "room"
+        ],
+        "sourceRows": 5,
+        "keyGroups": 3,
+        "missingRows": [],
+        "conflicts": [],
+        "flatDependentCells": 5,
+        "lookupDependentCells": 3,
+        "literalHeaderBaseline": 0,
+        "fieldCount": 3,
+        "lookup": {
+          "columns": [
+            "course",
+            "term",
+            "room"
+          ],
+          "rows": [
+            [
+              "BIO1",
+              "Fall",
+              "Lab A"
+            ],
+            [
+              "BIO1",
+              "Spring",
+              "Lab B"
+            ],
+            [
+              "ART2",
+              "Fall",
+              "Studio"
+            ]
+          ]
+        },
+        "remainder": {
+          "columns": [
+            "learner",
+            "course",
+            "term",
+            "score"
+          ],
+          "rows": [
+            [
+              "S1",
+              "BIO1",
+              "Fall",
+              "82"
+            ],
+            [
+              "S2",
+              "BIO1",
+              "Fall",
+              "75"
+            ],
+            [
+              "S3",
+              "BIO1",
+              "Spring",
+              "91"
+            ],
+            [
+              "S4",
+              "ART2",
+              "Fall",
+              "88"
+            ],
+            [
+              "S5",
+              "ART2",
+              "Fall",
+              "73"
+            ]
+          ]
+        },
+        "rejoinedRows": 5,
+        "roundTripExact": true,
+        "dependentCellsAvoided": 2
+      }
+    }
+  ],
+  "checks": [
+    "Fresh worker real inference fully offline in warmed open page",
+    "Maximum 60 source rows; source/audit import round trip; multiline formula-like cells",
+    "Source repair then real inference updates blocked dependency into exact split",
+    "Cancel then real retry",
+    "Review/undo/hold/export invalidation, artifacts and clipboard, labels/focus/touch, desktop/390/320 no overflow, GET-only downloads, no content in URLs or bodies, explicit model load"
+  ],
+  "requests": [
+    {
+      "host": "127.0.0.1:7327",
+      "path": "/daily-app2/20261122-7/",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7327",
+      "path": "/daily-app2/20261122-7/assets/index-HR82DJzH.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7327",
+      "path": "/daily-app2/20261122-7/assets/index-DhkszDtM.css",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7327",
+      "path": "/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7327/cf889f98-0d0c-4388-b114-5e8a39a3c155",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7327",
+      "path": "/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7327",
+      "path": "/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "user_id",
+        "response-content-disposition",
+        "X-Xet-Cas-Uid",
+        "xip",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "xip",
+        "response-content-disposition",
+        "user_id",
+        "X-Xet-Cas-Uid",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7327/fdf6afdc-0de0-4471-b083-b18b1e7d1338",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7327/e4ec6f7f-3338-4aa5-a24a-973df3a2a750",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7327/220e02b7-fa3a-489b-a24e-bc0270235c47",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7327/c0d44a48-a36c-4815-a262-f184226646af",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7327/28761446-24ce-4817-bc04-3f5da9a55d4e",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7327/caf33d01-56d8-44cb-a252-b13eb6cf81a0",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7327/c8fb47e3-2655-4db7-93f2-efeb85ef3a45",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7327/fb481dbb-6523-4102-90aa-221f73f4f65d",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7327/3b5a2e6a-b213-46c7-ba56-0bad24721993",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7327/fd4298cb-fa00-4ac9-b5af-9a656707c84c",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7327/8c98b770-9281-4519-b7d0-b6f23d12cee7",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7327/2070cbe5-8097-4a34-be41-31d7c87f02dc",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7327/15e89520-9fe9-4ff6-b30f-c57264fb3a2c",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7327/15eb8f79-9227-43d3-a8e6-41f906fefe6f",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7327/44a7b573-7a63-4920-b764-0e0d1204d4f1",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7327/5826cc77-f67e-4d1d-bef6-b361b65e6819",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7327/a94aa0e5-b617-4d89-88c2-64a4de274968",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7327/611efa4f-b55f-453f-babf-fe0f816edb7c",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    }
+  ],
+  "errors": []
+}

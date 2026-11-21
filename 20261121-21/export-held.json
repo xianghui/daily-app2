@@ -1,0 +1,146 @@
+{
+  "schema": "reserve-passage/1",
+  "originalInput": {
+    "title": "Synthetic library digitization",
+    "resources": [
+      {
+        "id": "laptop",
+        "text": "Portable laptop computer for catalog data entry",
+        "total": 4
+      },
+      {
+        "id": "scanner",
+        "text": "Flatbed document scanner for digitizing paper pages",
+        "total": 2
+      }
+    ],
+    "claims": [
+      {
+        "id": "L1",
+        "job": "archive",
+        "description": "Portable computer for entering archive catalog records",
+        "allocated": 2,
+        "max": 4,
+        "request": 1
+      },
+      {
+        "id": "L2",
+        "job": "index",
+        "description": "Laptop computer for typing the catalog index",
+        "allocated": 1,
+        "max": 2,
+        "request": 1
+      },
+      {
+        "id": "L3",
+        "job": "archive",
+        "description": "Flatbed scanner to digitize paper documents",
+        "allocated": 1,
+        "max": 2,
+        "request": 0
+      },
+      {
+        "id": "L4",
+        "job": "index",
+        "description": "Document scanning machine for paper pages",
+        "allocated": 0,
+        "max": 1,
+        "request": 0
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "L1",
+      "job": "archive",
+      "description": "Portable computer for entering archive catalog records",
+      "allocated": 2,
+      "max": 4,
+      "request": 1,
+      "resource": "laptop",
+      "aiResource": "laptop",
+      "evidence": [
+        {
+          "id": "laptop",
+          "score": 0.7726989928367108
+        },
+        {
+          "id": "scanner",
+          "score": 0.30336700440329956
+        }
+      ],
+      "decision": "approve",
+      "note": "=SUM(1,2)\n\"reviewer\", verify equipment"
+    },
+    {
+      "id": "L2",
+      "job": "index",
+      "description": "Laptop computer for typing the catalog index",
+      "allocated": 1,
+      "max": 2,
+      "request": 1,
+      "resource": "laptop",
+      "aiResource": "laptop",
+      "evidence": [
+        {
+          "id": "laptop",
+          "score": 0.7258649059227269
+        },
+        {
+          "id": "scanner",
+          "score": 0.22916700877665283
+        }
+      ],
+      "decision": "hold",
+      "note": ""
+    },
+    {
+      "id": "L3",
+      "job": "archive",
+      "description": "Flatbed scanner to digitize paper documents",
+      "allocated": 1,
+      "max": 2,
+      "request": 0,
+      "resource": "scanner",
+      "aiResource": "scanner",
+      "evidence": [
+        {
+          "id": "scanner",
+          "score": 0.9510060620990605
+        },
+        {
+          "id": "laptop",
+          "score": 0.254690870803788
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "L4",
+      "job": "index",
+      "description": "Document scanning machine for paper pages",
+      "allocated": 0,
+      "max": 1,
+      "request": 0,
+      "resource": "scanner",
+      "aiResource": "scanner",
+      "evidence": [
+        {
+          "id": "scanner",
+          "score": 0.8133650616633145
+        },
+        {
+          "id": "laptop",
+          "score": 0.28640331423155624
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "held": 1,
+  "complete": false,
+  "analysis": null,
+  "warning": "Worksheet only. Every candidate is tested independently from the ORIGINAL state; never combine grants from this report. Safe means a completion sequence exists under declared maximum claims, not guaranteed deadlock freedom in a real system. Jobs must release all resources on completion; units are interchangeable and reusable. Unsafe is not proof of an existing deadlock. Holds withhold the whole plan. No equipment or accounts are changed."
+}

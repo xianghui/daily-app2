@@ -1,0 +1,362 @@
+{
+  "fixtures": [
+    {
+      "name": "Media workshop",
+      "actual": [
+        "camera",
+        "camera",
+        "projector",
+        "projector"
+      ],
+      "expected": [
+        "camera",
+        "camera",
+        "projector",
+        "projector"
+      ],
+      "result": {
+        "schema": "reserve-passage/1",
+        "originalInput": {
+          "title": "Synthetic media workshop",
+          "resources": [
+            {
+              "id": "camera",
+              "text": "Digital camera for photography and video recording",
+              "total": 3
+            },
+            {
+              "id": "projector",
+              "text": "Video projector for presentation display",
+              "total": 2
+            }
+          ],
+          "claims": [
+            {
+              "id": "M1",
+              "job": "film",
+              "description": "Camera equipment for filming a short video",
+              "allocated": 1,
+              "max": 3,
+              "request": 1
+            },
+            {
+              "id": "M2",
+              "job": "photo",
+              "description": "Digital photographic camera for still pictures",
+              "allocated": 1,
+              "max": 2,
+              "request": 1
+            },
+            {
+              "id": "M3",
+              "job": "film",
+              "description": "Presentation video projector display",
+              "allocated": 0,
+              "max": 1,
+              "request": 0
+            },
+            {
+              "id": "M4",
+              "job": "photo",
+              "description": "Projection equipment for the image presentation",
+              "allocated": 1,
+              "max": 1,
+              "request": 0
+            }
+          ]
+        },
+        "reviews": [
+          {
+            "id": "M1",
+            "job": "film",
+            "description": "Camera equipment for filming a short video",
+            "allocated": 1,
+            "max": 3,
+            "request": 1,
+            "resource": "camera",
+            "aiResource": "camera",
+            "evidence": [
+              {
+                "id": "camera",
+                "score": 0.5984464708212388
+              },
+              {
+                "id": "projector",
+                "score": 0.41112467441653106
+              }
+            ],
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "M2",
+            "job": "photo",
+            "description": "Digital photographic camera for still pictures",
+            "allocated": 1,
+            "max": 2,
+            "request": 1,
+            "resource": "camera",
+            "aiResource": "camera",
+            "evidence": [
+              {
+                "id": "camera",
+                "score": 0.7525903229085779
+              },
+              {
+                "id": "projector",
+                "score": 0.24067396012098058
+              }
+            ],
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "M3",
+            "job": "film",
+            "description": "Presentation video projector display",
+            "allocated": 0,
+            "max": 1,
+            "request": 0,
+            "resource": "projector",
+            "aiResource": "projector",
+            "evidence": [
+              {
+                "id": "projector",
+                "score": 0.955808535266284
+              },
+              {
+                "id": "camera",
+                "score": 0.3120468493297238
+              }
+            ],
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "M4",
+            "job": "photo",
+            "description": "Projection equipment for the image presentation",
+            "allocated": 1,
+            "max": 1,
+            "request": 0,
+            "resource": "projector",
+            "aiResource": "projector",
+            "evidence": [
+              {
+                "id": "projector",
+                "score": 0.6674126358860446
+              },
+              {
+                "id": "camera",
+                "score": 0.3615529772529313
+              }
+            ],
+            "decision": "approve",
+            "note": ""
+          }
+        ],
+        "held": 0,
+        "complete": true,
+        "analysis": {
+          "jobs": [
+            "film",
+            "photo"
+          ],
+          "resources": [
+            "camera",
+            "projector"
+          ],
+          "total": [
+            3,
+            2
+          ],
+          "allocated": [
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "max": [
+            [
+              3,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "request": [
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "current": {
+            "safe": true,
+            "initialFree": [
+              1,
+              1
+            ],
+            "sequence": [
+              "photo",
+              "film"
+            ],
+            "steps": [
+              {
+                "job": "photo",
+                "freeBefore": [
+                  1,
+                  1
+                ],
+                "remainingNeed": [
+                  1,
+                  0
+                ],
+                "freeAfter": [
+                  2,
+                  2
+                ]
+              },
+              {
+                "job": "film",
+                "freeBefore": [
+                  2,
+                  2
+                ],
+                "remainingNeed": [
+                  2,
+                  1
+                ],
+                "freeAfter": [
+                  3,
+                  2
+                ]
+              }
+            ],
+            "blocked": [],
+            "finalFree": [
+              3,
+              2
+            ]
+          },
+          "candidates": [
+            {
+              "job": "film",
+              "request": [
+                1,
+                0
+              ],
+              "requested": true,
+              "fitsNow": true,
+              "completionSafe": false,
+              "witness": {
+                "safe": false,
+                "initialFree": [
+                  0,
+                  1
+                ],
+                "sequence": [],
+                "steps": [],
+                "blocked": [
+                  "film",
+                  "photo"
+                ],
+                "finalFree": [
+                  0,
+                  1
+                ]
+              }
+            },
+            {
+              "job": "photo",
+              "request": [
+                1,
+                0
+              ],
+              "requested": true,
+              "fitsNow": true,
+              "completionSafe": true,
+              "witness": {
+                "safe": true,
+                "initialFree": [
+                  0,
+                  1
+                ],
+                "sequence": [
+                  "photo",
+                  "film"
+                ],
+                "steps": [
+                  {
+                    "job": "photo",
+                    "freeBefore": [
+                      0,
+                      1
+                    ],
+                    "remainingNeed": [
+                      0,
+                      0
+                    ],
+                    "freeAfter": [
+                      2,
+                      2
+                    ]
+                  },
+                  {
+                    "job": "film",
+                    "freeBefore": [
+                      2,
+                      2
+                    ],
+                    "remainingNeed": [
+                      2,
+                      1
+                    ],
+                    "freeAfter": [
+                      3,
+                      2
+                    ]
+                  }
+                ],
+                "blocked": [],
+                "finalFree": [
+                  3,
+                  2
+                ]
+              }
+            }
+          ],
+          "baselineEligible": 2,
+          "safeEligible": 1,
+          "unsafeFits": 1
+        },
+        "warning": "Worksheet only. Every candidate is tested independently from the ORIGINAL state; never combine grants from this report. Safe means a completion sequence exists under declared maximum claims, not guaranteed deadlock freedom in a real system. Jobs must release all resources on completion; units are interchangeable and reusable. Unsafe is not proof of an existing deadlock. Holds withhold the whole plan. No equipment or accounts are changed."
+      }
+    },
+    {
+      "name": "Library digitization",
+      "actual": [
+        "laptop",
+        "laptop",
+        "scanner",
+        "scanner"
+      ],
+      "expected": [
+        "laptop",
+        "laptop",
+        "scanner",
+        "scanner"
+      ]
+    }
+  ],
+  "checks": []
+}

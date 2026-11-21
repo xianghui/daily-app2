@@ -1,0 +1,6 @@
+
+## Voice Orchard — 20261122-2
+
+Local MiniLM links informal workshop nominations to candidate topics before mandatory approval review. Exact fixed-size proportional approval shortlists maximize harmonic participant coverage against top-approval totals; preserve all nominations and the full roster in JSON/CSV/Markdown. Both small fixtures matched 17/17 links, but a negated nomination mislinked, so review remains essential. This is workshop planning, not binding elections or a guarantee of universal representation. Reuses immutable `20261115-6` worker/factory and `20261107-2` WASM; preserve these dependencies. Offline scope is a fresh worker in an already-open warmed page. See [workflow/privacy](20261122-2/README.md) and [observed validation](20261122-2/VALIDATION.md). No digest sent.
+
+Public release: matching Pages `35ffc485afa3bac292ecee767c78d8788b5ff1df` and workflow `44928620364` succeeded. Seven public gallery/app/worker/factory/WASM byte matches, both real MiniLM fixtures (17/17 simple links), the complete public review/export/max-batch/offline/privacy suite, independently parsed downloaded artifacts and all 783 gallery cards passed. Combined site remains 999,888,706 bytes under the unchanged guard. No new runtime-sharing rule or old-app removal; unrelated pre-existing recovery work is preserved and excluded from this source commit. No digest sent.

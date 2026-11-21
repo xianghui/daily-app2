@@ -1,0 +1,2 @@
+// Reserved small public entry point; full workflow uses browser-test.cjs with APP_URL.
+const fs=require('fs'),a=require('assert/strict');for(const f of['browser-validation.json','assembled-browser-validation.json']){const r=JSON.parse(fs.readFileSync(__dirname+'/'+f));a.equal(r.fixtures.length,2);a(r.fixtures.every(x=>JSON.stringify(x.actual)===JSON.stringify(x.expected)));a.equal(r.errors.length,0)}console.log('PASS local + assembled real inference prerequisites');

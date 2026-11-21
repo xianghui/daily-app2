@@ -1,0 +1,983 @@
+{
+  "fixtures": [
+    {
+      "name": "Maker evening",
+      "actual": [
+        "paid",
+        "staff",
+        "interest",
+        "paid",
+        "interest"
+      ],
+      "expected": [
+        "paid",
+        "staff",
+        "interest",
+        "paid",
+        "interest"
+      ],
+      "result": {
+        "schema": "seat-margin/1",
+        "originalInput": {
+          "title": "Synthetic maker evening",
+          "capacity": 3,
+          "maxOverflow": 0.2,
+          "profiles": [
+            {
+              "id": "paid",
+              "text": "Paid advance ticket reservation; prepaid workshop admission",
+              "probability": 0.8
+            },
+            {
+              "id": "interest",
+              "text": "Free newsletter interest signup; tentative drop-in expression of interest",
+              "probability": 0.3
+            },
+            {
+              "id": "staff",
+              "text": "Event staff assigned to work a confirmed duty shift",
+              "probability": 1
+            }
+          ],
+          "guests": [
+            {
+              "id": "M1",
+              "description": "Prepaid ticket for the hands-on maker workshop",
+              "state": "committed"
+            },
+            {
+              "id": "M2",
+              "description": "Assigned event staff working the duty shift",
+              "state": "committed"
+            },
+            {
+              "id": "M3",
+              "description": "Newsletter reader, tentative free drop-in interest signup",
+              "state": "waitlist"
+            },
+            {
+              "id": "M4",
+              "description": "Paid advance admission ticket reservation",
+              "state": "waitlist"
+            },
+            {
+              "id": "M5",
+              "description": "Free newsletter interest, maybe drop in",
+              "state": "waitlist"
+            }
+          ]
+        },
+        "reviews": [
+          {
+            "id": "M1",
+            "description": "Prepaid ticket for the hands-on maker workshop",
+            "state": "committed",
+            "profile": "paid",
+            "aiProfile": "paid",
+            "probability": 0.8,
+            "evidence": [
+              {
+                "id": "paid",
+                "score": 0.6717832531086881
+              },
+              {
+                "id": "staff",
+                "score": 0.2360224465405735
+              },
+              {
+                "id": "interest",
+                "score": 0.19379253203935762
+              }
+            ],
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "M2",
+            "description": "Assigned event staff working the duty shift",
+            "state": "committed",
+            "profile": "staff",
+            "aiProfile": "staff",
+            "probability": 1,
+            "evidence": [
+              {
+                "id": "staff",
+                "score": 0.9270232437509853
+              },
+              {
+                "id": "paid",
+                "score": 0.20537546660157663
+              },
+              {
+                "id": "interest",
+                "score": -0.007868303584143421
+              }
+            ],
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "M3",
+            "description": "Newsletter reader, tentative free drop-in interest signup",
+            "state": "waitlist",
+            "profile": "interest",
+            "aiProfile": "interest",
+            "probability": 0.3,
+            "evidence": [
+              {
+                "id": "interest",
+                "score": 0.9113717173974608
+              },
+              {
+                "id": "paid",
+                "score": 0.21821950458101194
+              },
+              {
+                "id": "staff",
+                "score": 0.04579725512962798
+              }
+            ],
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "M4",
+            "description": "Paid advance admission ticket reservation",
+            "state": "waitlist",
+            "profile": "paid",
+            "aiProfile": "paid",
+            "probability": 0.8,
+            "evidence": [
+              {
+                "id": "paid",
+                "score": 0.8447354258057898
+              },
+              {
+                "id": "staff",
+                "score": 0.22724095212756004
+              },
+              {
+                "id": "interest",
+                "score": 0.18378336408456636
+              }
+            ],
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "M5",
+            "description": "Free newsletter interest, maybe drop in",
+            "state": "waitlist",
+            "profile": "interest",
+            "aiProfile": "interest",
+            "probability": 0.3,
+            "evidence": [
+              {
+                "id": "interest",
+                "score": 0.8246614723432211
+              },
+              {
+                "id": "paid",
+                "score": 0.12541502750882755
+              },
+              {
+                "id": "staff",
+                "score": 0.027256832746927105
+              }
+            ],
+            "decision": "approve",
+            "note": ""
+          }
+        ],
+        "held": 0,
+        "complete": true,
+        "analysis": {
+          "capacity": 3,
+          "limit": 0.2,
+          "committed": 2,
+          "waitlisted": 3,
+          "feasible": true,
+          "chosen": {
+            "added": 2,
+            "ids": [
+              "M1",
+              "M2",
+              "M3",
+              "M4"
+            ],
+            "pmf": [
+              0,
+              0.027999999999999987,
+              0.23599999999999993,
+              0.5439999999999999,
+              0.192
+            ],
+            "overflow": 0.192,
+            "expectedAttendance": 2.9000000000000004,
+            "expectedExcess": 0.192,
+            "expectedSeated": 2.708,
+            "mass": 0.9999999999999998,
+            "safe": true
+          },
+          "prefixes": [
+            {
+              "added": 0,
+              "ids": [
+                "M1",
+                "M2"
+              ],
+              "pmf": [
+                0,
+                0.19999999999999996,
+                0.8
+              ],
+              "overflow": 0,
+              "expectedAttendance": 1.8,
+              "expectedExcess": 0,
+              "expectedSeated": 1.8,
+              "mass": 1,
+              "safe": true
+            },
+            {
+              "added": 1,
+              "ids": [
+                "M1",
+                "M2",
+                "M3"
+              ],
+              "pmf": [
+                0,
+                0.13999999999999996,
+                0.6199999999999999,
+                0.24
+              ],
+              "overflow": 0,
+              "expectedAttendance": 2.1,
+              "expectedExcess": 0,
+              "expectedSeated": 2.1,
+              "mass": 0.9999999999999998,
+              "safe": true
+            },
+            {
+              "added": 2,
+              "ids": [
+                "M1",
+                "M2",
+                "M3",
+                "M4"
+              ],
+              "pmf": [
+                0,
+                0.027999999999999987,
+                0.23599999999999993,
+                0.5439999999999999,
+                0.192
+              ],
+              "overflow": 0.192,
+              "expectedAttendance": 2.9000000000000004,
+              "expectedExcess": 0.192,
+              "expectedSeated": 2.708,
+              "mass": 0.9999999999999998,
+              "safe": true
+            },
+            {
+              "added": 3,
+              "ids": [
+                "M1",
+                "M2",
+                "M3",
+                "M4",
+                "M5"
+              ],
+              "pmf": [
+                0,
+                0.01959999999999999,
+                0.17359999999999992,
+                0.4515999999999999,
+                0.2976,
+                0.0576
+              ],
+              "overflow": 0.35519999999999996,
+              "expectedAttendance": 3.2,
+              "expectedExcess": 0.41279999999999994,
+              "expectedSeated": 2.7872000000000003,
+              "mass": 0.9999999999999998,
+              "safe": false
+            }
+          ],
+          "headcount": {
+            "added": 1,
+            "ids": [
+              "M1",
+              "M2",
+              "M3"
+            ],
+            "pmf": [
+              0,
+              0.13999999999999996,
+              0.6199999999999999,
+              0.24
+            ],
+            "overflow": 0,
+            "expectedAttendance": 2.1,
+            "expectedExcess": 0,
+            "expectedSeated": 2.1,
+            "mass": 0.9999999999999998,
+            "safe": true
+          },
+          "meanfill": {
+            "added": 2,
+            "ids": [
+              "M1",
+              "M2",
+              "M3",
+              "M4"
+            ],
+            "pmf": [
+              0,
+              0.027999999999999987,
+              0.23599999999999993,
+              0.5439999999999999,
+              0.192
+            ],
+            "overflow": 0.192,
+            "expectedAttendance": 2.9000000000000004,
+            "expectedExcess": 0.192,
+            "expectedSeated": 2.708,
+            "mass": 0.9999999999999998,
+            "safe": true
+          },
+          "baselineCommittedOverCapacity": false
+        },
+        "warning": "Scenario worksheet only. Probabilities are supplied assumptions, not AI predictions or personal reliability scores. Independent Bernoulli attendance; common travel/weather/household effects can invalidate the risk estimate. Never exceed physical or legal occupancy. No bookings, invitations or admissions are changed."
+      }
+    },
+    {
+      "name": "Library lab",
+      "actual": [
+        "crew",
+        "tentative",
+        "ticket",
+        "tentative"
+      ],
+      "expected": [
+        "crew",
+        "tentative",
+        "ticket",
+        "tentative"
+      ],
+      "result": {
+        "schema": "seat-margin/1",
+        "originalInput": {
+          "title": "Synthetic library creative lab",
+          "capacity": 2,
+          "maxOverflow": 0.15,
+          "profiles": [
+            {
+              "id": "ticket",
+              "text": "Prepaid paid workshop registration and advance ticket booking",
+              "probability": 0.8
+            },
+            {
+              "id": "tentative",
+              "text": "Tentative free interest mailing list signup, maybe attend as a drop-in",
+              "probability": 0.2
+            },
+            {
+              "id": "crew",
+              "text": "Confirmed event crew assigned to work a volunteer duty shift",
+              "probability": 1
+            }
+          ],
+          "guests": [
+            {
+              "id": "L1",
+              "description": "Confirmed volunteer crew, working the event duty shift",
+              "state": "committed"
+            },
+            {
+              "id": "L2",
+              "description": "Free interest mailing list signup, might drop in",
+              "state": "waitlist"
+            },
+            {
+              "id": "L3",
+              "description": "Prepaid workshop registration, paid advance ticket",
+              "state": "waitlist"
+            },
+            {
+              "id": "L4",
+              "description": "Tentative free mailing list interest, maybe attend",
+              "state": "waitlist"
+            }
+          ]
+        },
+        "reviews": [
+          {
+            "id": "L1",
+            "description": "Confirmed volunteer crew, working the event duty shift",
+            "state": "committed",
+            "profile": "crew",
+            "aiProfile": "crew",
+            "probability": 1,
+            "evidence": [
+              {
+                "id": "crew",
+                "score": 0.9174199639094507
+              },
+              {
+                "id": "ticket",
+                "score": 0.28316161917530286
+              },
+              {
+                "id": "tentative",
+                "score": 0.21524785464939375
+              }
+            ],
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "L2",
+            "description": "Free interest mailing list signup, might drop in",
+            "state": "waitlist",
+            "profile": "tentative",
+            "aiProfile": "tentative",
+            "probability": 0.2,
+            "evidence": [
+              {
+                "id": "tentative",
+                "score": 0.8997267061032141
+              },
+              {
+                "id": "ticket",
+                "score": 0.21876740728801933
+              },
+              {
+                "id": "crew",
+                "score": 0.08068585122187054
+              }
+            ],
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "L3",
+            "description": "Prepaid workshop registration, paid advance ticket",
+            "state": "waitlist",
+            "profile": "ticket",
+            "aiProfile": "ticket",
+            "probability": 0.8,
+            "evidence": [
+              {
+                "id": "ticket",
+                "score": 0.9574157438399731
+              },
+              {
+                "id": "tentative",
+                "score": 0.30542759511152473
+              },
+              {
+                "id": "crew",
+                "score": 0.26970909264291243
+              }
+            ],
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "L4",
+            "description": "Tentative free mailing list interest, maybe attend",
+            "state": "waitlist",
+            "profile": "tentative",
+            "aiProfile": "tentative",
+            "probability": 0.2,
+            "evidence": [
+              {
+                "id": "tentative",
+                "score": 0.8877241118240882
+              },
+              {
+                "id": "ticket",
+                "score": 0.2871039872706622
+              },
+              {
+                "id": "crew",
+                "score": 0.16321649970115232
+              }
+            ],
+            "decision": "approve",
+            "note": ""
+          }
+        ],
+        "held": 0,
+        "complete": true,
+        "analysis": {
+          "capacity": 2,
+          "limit": 0.15,
+          "committed": 1,
+          "waitlisted": 3,
+          "feasible": true,
+          "chosen": {
+            "added": 1,
+            "ids": [
+              "L1",
+              "L2"
+            ],
+            "pmf": [
+              0,
+              0.8,
+              0.2
+            ],
+            "overflow": 0,
+            "expectedAttendance": 1.2,
+            "expectedExcess": 0,
+            "expectedSeated": 1.2,
+            "mass": 1,
+            "safe": true
+          },
+          "prefixes": [
+            {
+              "added": 0,
+              "ids": [
+                "L1"
+              ],
+              "pmf": [
+                0,
+                1
+              ],
+              "overflow": 0,
+              "expectedAttendance": 1,
+              "expectedExcess": 0,
+              "expectedSeated": 1,
+              "mass": 1,
+              "safe": true
+            },
+            {
+              "added": 1,
+              "ids": [
+                "L1",
+                "L2"
+              ],
+              "pmf": [
+                0,
+                0.8,
+                0.2
+              ],
+              "overflow": 0,
+              "expectedAttendance": 1.2,
+              "expectedExcess": 0,
+              "expectedSeated": 1.2,
+              "mass": 1,
+              "safe": true
+            },
+            {
+              "added": 2,
+              "ids": [
+                "L1",
+                "L2",
+                "L3"
+              ],
+              "pmf": [
+                0,
+                0.15999999999999998,
+                0.6800000000000002,
+                0.16000000000000003
+              ],
+              "overflow": 0.16000000000000003,
+              "expectedAttendance": 2,
+              "expectedExcess": 0.16000000000000003,
+              "expectedSeated": 1.8399999999999999,
+              "mass": 1,
+              "safe": false
+            },
+            {
+              "added": 3,
+              "ids": [
+                "L1",
+                "L2",
+                "L3",
+                "L4"
+              ],
+              "pmf": [
+                0,
+                0.12799999999999997,
+                0.5760000000000002,
+                0.26400000000000007,
+                0.03200000000000001
+              ],
+              "overflow": 0.2960000000000001,
+              "expectedAttendance": 2.2,
+              "expectedExcess": 0.32800000000000007,
+              "expectedSeated": 1.872,
+              "mass": 1.0000000000000002,
+              "safe": false
+            }
+          ],
+          "headcount": {
+            "added": 1,
+            "ids": [
+              "L1",
+              "L2"
+            ],
+            "pmf": [
+              0,
+              0.8,
+              0.2
+            ],
+            "overflow": 0,
+            "expectedAttendance": 1.2,
+            "expectedExcess": 0,
+            "expectedSeated": 1.2,
+            "mass": 1,
+            "safe": true
+          },
+          "meanfill": {
+            "added": 2,
+            "ids": [
+              "L1",
+              "L2",
+              "L3"
+            ],
+            "pmf": [
+              0,
+              0.15999999999999998,
+              0.6800000000000002,
+              0.16000000000000003
+            ],
+            "overflow": 0.16000000000000003,
+            "expectedAttendance": 2,
+            "expectedExcess": 0.16000000000000003,
+            "expectedSeated": 1.8399999999999999,
+            "mass": 1,
+            "safe": false
+          },
+          "baselineCommittedOverCapacity": false
+        },
+        "warning": "Scenario worksheet only. Probabilities are supplied assumptions, not AI predictions or personal reliability scores. Independent Bernoulli attendance; common travel/weather/household effects can invalidate the risk estimate. Never exceed physical or legal occupancy. No bookings, invitations or admissions are changed."
+      }
+    }
+  ],
+  "checks": [
+    "fully offline fresh-worker real inference in warmed page",
+    "max 32 reservations/8 profiles/40 texts/10 real chunks; audit reimport",
+    "cancel and real retry",
+    "review undo, edited multiline export, clipboard, holds, schema/size/format errors, labels/touch/focus, desktop and 320/390 phone widths, local content static GET-only network"
+  ],
+  "negationProbe": {
+    "actual": "P0",
+    "expected": "P1",
+    "warning": "Nearest profile always returned; negation can be wrong; review mandatory."
+  },
+  "requests": [
+    {
+      "host": "127.0.0.1:7120",
+      "path": "/daily-app2/20261121-20/",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7120",
+      "path": "/daily-app2/20261121-20/assets/index-DWN5KP1q.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7120",
+      "path": "/daily-app2/20261121-20/assets/index-CRhVDUXE.css",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7120",
+      "path": "/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7120/c7a8d07c-f58b-48c7-8b35-e6be0f641d0a",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7120",
+      "path": "/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7120",
+      "path": "/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "xip",
+        "user_id",
+        "X-Xet-Cas-Uid",
+        "response-content-disposition",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "xip",
+        "response-content-disposition",
+        "user_id",
+        "X-Xet-Cas-Uid",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7120/d0afb8f0-e730-4faa-8df1-62ecd72fc94b",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7120/d4f42e22-2d32-4902-bf3d-f5268820318f",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7120/960ac67b-78ec-4c1b-91b9-d9c38d70b1f0",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7120/f792f46f-09fb-435d-baea-e60aedcead0e",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7120/61c1c2ea-6f23-4baf-9468-ce461c13528f",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7120/eb38caf4-cb19-49ea-bc22-53e5416f2dfe",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7120/83ee3672-5e9c-4251-a233-3b021267f51f",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7120/8934fb8e-ba3b-4b15-aaab-946863cb3745",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7120/351642f4-b20d-4aa3-a85b-52b61da6ad67",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7120/71d55980-00cc-4989-9554-afb73ac38ea9",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7120/a072280e-cc6d-415a-9918-374cf0bc260c",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7120/5f9741dd-472c-40e3-b9ac-2ff78d0bcc02",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7120/428b4b2c-2ebc-4e14-a1f7-2e4c4907259d",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7120/f563564a-1a35-46c2-b334-439f6b53d807",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7120/2797d2cb-fc57-47d0-b58d-4ef4a72b04ce",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7120/c6030dd7-8d42-4687-bb45-cf5d125e3076",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7120/c4baf618-cb0e-4490-948b-b498983e32b5",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7120/047aa251-8071-4238-bf58-3324a662c9eb",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    }
+  ],
+  "errors": []
+}

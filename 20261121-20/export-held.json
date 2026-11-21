@@ -1,0 +1,149 @@
+{
+  "schema": "seat-margin/1",
+  "originalInput": {
+    "title": "Synthetic library creative lab",
+    "capacity": 2,
+    "maxOverflow": 0.15,
+    "profiles": [
+      {
+        "id": "ticket",
+        "text": "Prepaid paid workshop registration and advance ticket booking",
+        "probability": 0.8
+      },
+      {
+        "id": "tentative",
+        "text": "Tentative free interest mailing list signup, maybe attend as a drop-in",
+        "probability": 0.2
+      },
+      {
+        "id": "crew",
+        "text": "Confirmed event crew assigned to work a volunteer duty shift",
+        "probability": 1
+      }
+    ],
+    "guests": [
+      {
+        "id": "L1",
+        "description": "Confirmed volunteer crew, working the event duty shift",
+        "state": "committed"
+      },
+      {
+        "id": "L2",
+        "description": "Free interest mailing list signup, might drop in",
+        "state": "waitlist"
+      },
+      {
+        "id": "L3",
+        "description": "Prepaid workshop registration, paid advance ticket",
+        "state": "waitlist"
+      },
+      {
+        "id": "L4",
+        "description": "Tentative free mailing list interest, maybe attend",
+        "state": "waitlist"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "L1",
+      "description": "Confirmed volunteer crew, working the event duty shift",
+      "state": "committed",
+      "profile": "crew",
+      "aiProfile": "crew",
+      "probability": 1,
+      "evidence": [
+        {
+          "id": "crew",
+          "score": 0.9174199639094507
+        },
+        {
+          "id": "ticket",
+          "score": 0.28316161917530286
+        },
+        {
+          "id": "tentative",
+          "score": 0.21524785464939375
+        }
+      ],
+      "decision": "approve",
+      "note": "=SUM(1,2)\n\"reviewer\", verify channel"
+    },
+    {
+      "id": "L2",
+      "description": "Free interest mailing list signup, might drop in",
+      "state": "waitlist",
+      "profile": "tentative",
+      "aiProfile": "tentative",
+      "probability": 0.2,
+      "evidence": [
+        {
+          "id": "tentative",
+          "score": 0.8997267061032141
+        },
+        {
+          "id": "ticket",
+          "score": 0.21876740728801933
+        },
+        {
+          "id": "crew",
+          "score": 0.08068585122187054
+        }
+      ],
+      "decision": "hold",
+      "note": ""
+    },
+    {
+      "id": "L3",
+      "description": "Prepaid workshop registration, paid advance ticket",
+      "state": "waitlist",
+      "profile": "ticket",
+      "aiProfile": "ticket",
+      "probability": 0.8,
+      "evidence": [
+        {
+          "id": "ticket",
+          "score": 0.9574157438399731
+        },
+        {
+          "id": "tentative",
+          "score": 0.30542759511152473
+        },
+        {
+          "id": "crew",
+          "score": 0.26970909264291243
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "L4",
+      "description": "Tentative free mailing list interest, maybe attend",
+      "state": "waitlist",
+      "profile": "tentative",
+      "aiProfile": "tentative",
+      "probability": 0.2,
+      "evidence": [
+        {
+          "id": "tentative",
+          "score": 0.8877241118240882
+        },
+        {
+          "id": "ticket",
+          "score": 0.2871039872706622
+        },
+        {
+          "id": "crew",
+          "score": 0.16321649970115232
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "held": 1,
+  "complete": false,
+  "analysis": null,
+  "warning": "Holds remain unresolved. Entire planning calculation withheld; no reservations are silently dropped."
+}

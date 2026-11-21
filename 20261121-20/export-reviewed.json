@@ -1,0 +1,290 @@
+{
+  "schema": "seat-margin/1",
+  "originalInput": {
+    "title": "Synthetic library creative lab",
+    "capacity": 2,
+    "maxOverflow": 0.15,
+    "profiles": [
+      {
+        "id": "ticket",
+        "text": "Prepaid paid workshop registration and advance ticket booking",
+        "probability": 0.8
+      },
+      {
+        "id": "tentative",
+        "text": "Tentative free interest mailing list signup, maybe attend as a drop-in",
+        "probability": 0.2
+      },
+      {
+        "id": "crew",
+        "text": "Confirmed event crew assigned to work a volunteer duty shift",
+        "probability": 1
+      }
+    ],
+    "guests": [
+      {
+        "id": "L1",
+        "description": "Confirmed volunteer crew, working the event duty shift",
+        "state": "committed"
+      },
+      {
+        "id": "L2",
+        "description": "Free interest mailing list signup, might drop in",
+        "state": "waitlist"
+      },
+      {
+        "id": "L3",
+        "description": "Prepaid workshop registration, paid advance ticket",
+        "state": "waitlist"
+      },
+      {
+        "id": "L4",
+        "description": "Tentative free mailing list interest, maybe attend",
+        "state": "waitlist"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "L1",
+      "description": "Confirmed volunteer crew, working the event duty shift",
+      "state": "committed",
+      "profile": "crew",
+      "aiProfile": "crew",
+      "probability": 1,
+      "evidence": [
+        {
+          "id": "crew",
+          "score": 0.9174199639094507
+        },
+        {
+          "id": "ticket",
+          "score": 0.28316161917530286
+        },
+        {
+          "id": "tentative",
+          "score": 0.21524785464939375
+        }
+      ],
+      "decision": "approve",
+      "note": "=SUM(1,2)\n\"reviewer\", verify channel"
+    },
+    {
+      "id": "L2",
+      "description": "Free interest mailing list signup, might drop in",
+      "state": "waitlist",
+      "profile": "tentative",
+      "aiProfile": "tentative",
+      "probability": 0.2,
+      "evidence": [
+        {
+          "id": "tentative",
+          "score": 0.8997267061032141
+        },
+        {
+          "id": "ticket",
+          "score": 0.21876740728801933
+        },
+        {
+          "id": "crew",
+          "score": 0.08068585122187054
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "L3",
+      "description": "Prepaid workshop registration, paid advance ticket",
+      "state": "waitlist",
+      "profile": "ticket",
+      "aiProfile": "ticket",
+      "probability": 0.8,
+      "evidence": [
+        {
+          "id": "ticket",
+          "score": 0.9574157438399731
+        },
+        {
+          "id": "tentative",
+          "score": 0.30542759511152473
+        },
+        {
+          "id": "crew",
+          "score": 0.26970909264291243
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "L4",
+      "description": "Tentative free mailing list interest, maybe attend",
+      "state": "waitlist",
+      "profile": "tentative",
+      "aiProfile": "tentative",
+      "probability": 0.2,
+      "evidence": [
+        {
+          "id": "tentative",
+          "score": 0.8877241118240882
+        },
+        {
+          "id": "ticket",
+          "score": 0.2871039872706622
+        },
+        {
+          "id": "crew",
+          "score": 0.16321649970115232
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "held": 0,
+  "complete": true,
+  "analysis": {
+    "capacity": 2,
+    "limit": 0.15,
+    "committed": 1,
+    "waitlisted": 3,
+    "feasible": true,
+    "chosen": {
+      "added": 1,
+      "ids": [
+        "L1",
+        "L2"
+      ],
+      "pmf": [
+        0,
+        0.8,
+        0.2
+      ],
+      "overflow": 0,
+      "expectedAttendance": 1.2,
+      "expectedExcess": 0,
+      "expectedSeated": 1.2,
+      "mass": 1,
+      "safe": true
+    },
+    "prefixes": [
+      {
+        "added": 0,
+        "ids": [
+          "L1"
+        ],
+        "pmf": [
+          0,
+          1
+        ],
+        "overflow": 0,
+        "expectedAttendance": 1,
+        "expectedExcess": 0,
+        "expectedSeated": 1,
+        "mass": 1,
+        "safe": true
+      },
+      {
+        "added": 1,
+        "ids": [
+          "L1",
+          "L2"
+        ],
+        "pmf": [
+          0,
+          0.8,
+          0.2
+        ],
+        "overflow": 0,
+        "expectedAttendance": 1.2,
+        "expectedExcess": 0,
+        "expectedSeated": 1.2,
+        "mass": 1,
+        "safe": true
+      },
+      {
+        "added": 2,
+        "ids": [
+          "L1",
+          "L2",
+          "L3"
+        ],
+        "pmf": [
+          0,
+          0.15999999999999998,
+          0.6800000000000002,
+          0.16000000000000003
+        ],
+        "overflow": 0.16000000000000003,
+        "expectedAttendance": 2,
+        "expectedExcess": 0.16000000000000003,
+        "expectedSeated": 1.8399999999999999,
+        "mass": 1,
+        "safe": false
+      },
+      {
+        "added": 3,
+        "ids": [
+          "L1",
+          "L2",
+          "L3",
+          "L4"
+        ],
+        "pmf": [
+          0,
+          0.12799999999999997,
+          0.5760000000000002,
+          0.26400000000000007,
+          0.03200000000000001
+        ],
+        "overflow": 0.2960000000000001,
+        "expectedAttendance": 2.2,
+        "expectedExcess": 0.32800000000000007,
+        "expectedSeated": 1.872,
+        "mass": 1.0000000000000002,
+        "safe": false
+      }
+    ],
+    "headcount": {
+      "added": 1,
+      "ids": [
+        "L1",
+        "L2"
+      ],
+      "pmf": [
+        0,
+        0.8,
+        0.2
+      ],
+      "overflow": 0,
+      "expectedAttendance": 1.2,
+      "expectedExcess": 0,
+      "expectedSeated": 1.2,
+      "mass": 1,
+      "safe": true
+    },
+    "meanfill": {
+      "added": 2,
+      "ids": [
+        "L1",
+        "L2",
+        "L3"
+      ],
+      "pmf": [
+        0,
+        0.15999999999999998,
+        0.6800000000000002,
+        0.16000000000000003
+      ],
+      "overflow": 0.16000000000000003,
+      "expectedAttendance": 2,
+      "expectedExcess": 0.16000000000000003,
+      "expectedSeated": 1.8399999999999999,
+      "mass": 1,
+      "safe": false
+    },
+    "baselineCommittedOverCapacity": false
+  },
+  "warning": "Scenario worksheet only. Probabilities are supplied assumptions, not AI predictions or personal reliability scores. Independent Bernoulli attendance; common travel/weather/household effects can invalidate the risk estimate. Never exceed physical or legal occupancy. No bookings, invitations or admissions are changed."
+}

@@ -1,0 +1,339 @@
+{
+  "schema": "seat-margin/1",
+  "originalInput": {
+    "title": "Synthetic maker evening",
+    "capacity": 3,
+    "maxOverflow": 0.2,
+    "profiles": [
+      {
+        "id": "paid",
+        "text": "Paid advance ticket reservation; prepaid workshop admission",
+        "probability": 0.8
+      },
+      {
+        "id": "interest",
+        "text": "Free newsletter interest signup; tentative drop-in expression of interest",
+        "probability": 0.3
+      },
+      {
+        "id": "staff",
+        "text": "Event staff assigned to work a confirmed duty shift",
+        "probability": 1
+      }
+    ],
+    "guests": [
+      {
+        "id": "M1",
+        "description": "Prepaid ticket for the hands-on maker workshop",
+        "state": "committed"
+      },
+      {
+        "id": "M2",
+        "description": "Assigned event staff working the duty shift",
+        "state": "committed"
+      },
+      {
+        "id": "M3",
+        "description": "Newsletter reader, tentative free drop-in interest signup",
+        "state": "waitlist"
+      },
+      {
+        "id": "M4",
+        "description": "Paid advance admission ticket reservation",
+        "state": "waitlist"
+      },
+      {
+        "id": "M5",
+        "description": "Free newsletter interest, maybe drop in",
+        "state": "waitlist"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "M1",
+      "description": "Prepaid ticket for the hands-on maker workshop",
+      "state": "committed",
+      "profile": "paid",
+      "aiProfile": "paid",
+      "probability": 0,
+      "evidence": [
+        {
+          "id": "paid",
+          "score": 0.6717832531086881
+        },
+        {
+          "id": "staff",
+          "score": 0.2360224465405735
+        },
+        {
+          "id": "interest",
+          "score": 0.19379253203935762
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "M2",
+      "description": "Assigned event staff working the duty shift",
+      "state": "committed",
+      "profile": "staff",
+      "aiProfile": "staff",
+      "probability": 1,
+      "evidence": [
+        {
+          "id": "staff",
+          "score": 0.9270232437509853
+        },
+        {
+          "id": "paid",
+          "score": 0.20537546660157663
+        },
+        {
+          "id": "interest",
+          "score": -0.007868303584143421
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "M3",
+      "description": "Newsletter reader, tentative free drop-in interest signup",
+      "state": "waitlist",
+      "profile": "interest",
+      "aiProfile": "interest",
+      "probability": 0.3,
+      "evidence": [
+        {
+          "id": "interest",
+          "score": 0.9113717173974608
+        },
+        {
+          "id": "paid",
+          "score": 0.21821950458101194
+        },
+        {
+          "id": "staff",
+          "score": 0.04579725512962798
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "M4",
+      "description": "Paid advance admission ticket reservation",
+      "state": "waitlist",
+      "profile": "paid",
+      "aiProfile": "paid",
+      "probability": 0.8,
+      "evidence": [
+        {
+          "id": "paid",
+          "score": 0.8447354258057898
+        },
+        {
+          "id": "staff",
+          "score": 0.22724095212756004
+        },
+        {
+          "id": "interest",
+          "score": 0.18378336408456636
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "M5",
+      "description": "Free newsletter interest, maybe drop in",
+      "state": "waitlist",
+      "profile": "interest",
+      "aiProfile": "interest",
+      "probability": 0.3,
+      "evidence": [
+        {
+          "id": "interest",
+          "score": 0.8246614723432211
+        },
+        {
+          "id": "paid",
+          "score": 0.12541502750882755
+        },
+        {
+          "id": "staff",
+          "score": 0.027256832746927105
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "held": 0,
+  "complete": true,
+  "analysis": {
+    "capacity": 3,
+    "limit": 0.2,
+    "committed": 2,
+    "waitlisted": 3,
+    "feasible": true,
+    "chosen": {
+      "added": 3,
+      "ids": [
+        "M1",
+        "M2",
+        "M3",
+        "M4",
+        "M5"
+      ],
+      "pmf": [
+        0,
+        0.09799999999999996,
+        0.47599999999999987,
+        0.354,
+        0.072,
+        0
+      ],
+      "overflow": 0.072,
+      "expectedAttendance": 2.4,
+      "expectedExcess": 0.072,
+      "expectedSeated": 2.328,
+      "mass": 0.9999999999999998,
+      "safe": true
+    },
+    "prefixes": [
+      {
+        "added": 0,
+        "ids": [
+          "M1",
+          "M2"
+        ],
+        "pmf": [
+          0,
+          1,
+          0
+        ],
+        "overflow": 0,
+        "expectedAttendance": 1,
+        "expectedExcess": 0,
+        "expectedSeated": 1,
+        "mass": 1,
+        "safe": true
+      },
+      {
+        "added": 1,
+        "ids": [
+          "M1",
+          "M2",
+          "M3"
+        ],
+        "pmf": [
+          0,
+          0.7,
+          0.3,
+          0
+        ],
+        "overflow": 0,
+        "expectedAttendance": 1.3,
+        "expectedExcess": 0,
+        "expectedSeated": 1.3,
+        "mass": 1,
+        "safe": true
+      },
+      {
+        "added": 2,
+        "ids": [
+          "M1",
+          "M2",
+          "M3",
+          "M4"
+        ],
+        "pmf": [
+          0,
+          0.13999999999999996,
+          0.6199999999999999,
+          0.24,
+          0
+        ],
+        "overflow": 0,
+        "expectedAttendance": 2.1,
+        "expectedExcess": 0,
+        "expectedSeated": 2.1,
+        "mass": 0.9999999999999998,
+        "safe": true
+      },
+      {
+        "added": 3,
+        "ids": [
+          "M1",
+          "M2",
+          "M3",
+          "M4",
+          "M5"
+        ],
+        "pmf": [
+          0,
+          0.09799999999999996,
+          0.47599999999999987,
+          0.354,
+          0.072,
+          0
+        ],
+        "overflow": 0.072,
+        "expectedAttendance": 2.4,
+        "expectedExcess": 0.072,
+        "expectedSeated": 2.328,
+        "mass": 0.9999999999999998,
+        "safe": true
+      }
+    ],
+    "headcount": {
+      "added": 1,
+      "ids": [
+        "M1",
+        "M2",
+        "M3"
+      ],
+      "pmf": [
+        0,
+        0.7,
+        0.3,
+        0
+      ],
+      "overflow": 0,
+      "expectedAttendance": 1.3,
+      "expectedExcess": 0,
+      "expectedSeated": 1.3,
+      "mass": 1,
+      "safe": true
+    },
+    "meanfill": {
+      "added": 3,
+      "ids": [
+        "M1",
+        "M2",
+        "M3",
+        "M4",
+        "M5"
+      ],
+      "pmf": [
+        0,
+        0.09799999999999996,
+        0.47599999999999987,
+        0.354,
+        0.072,
+        0
+      ],
+      "overflow": 0.072,
+      "expectedAttendance": 2.4,
+      "expectedExcess": 0.072,
+      "expectedSeated": 2.328,
+      "mass": 0.9999999999999998,
+      "safe": true
+    },
+    "baselineCommittedOverCapacity": false
+  },
+  "warning": "Scenario worksheet only. Probabilities are supplied assumptions, not AI predictions or personal reliability scores. Independent Bernoulli attendance; common travel/weather/household effects can invalidate the risk estimate. Never exceed physical or legal occupancy. No bookings, invitations or admissions are changed."
+}

@@ -1,0 +1,353 @@
+{
+  "schema": "pinpoint-commons/v1",
+  "originalInput": {
+    "context": "Synthetic Python notebook compatibility handoff. Candidate releases and bounds are illustrative, not verified package support claims.",
+    "policy": "newest",
+    "packages": [
+      {
+        "id": "numpy",
+        "text": "NumPy numerical arrays and vectorized scientific matrix calculations.",
+        "versions": [
+          "1.24.0",
+          "1.26.0",
+          "2.0.0"
+        ]
+      },
+      {
+        "id": "pandas",
+        "text": "Pandas DataFrame spreadsheet tables, tabular data analysis and CSV manipulation.",
+        "versions": [
+          "1.5.0",
+          "2.1.0",
+          "2.2.0"
+        ]
+      },
+      {
+        "id": "matplotlib",
+        "text": "Matplotlib charts, plots, axes and scientific data visualization figures.",
+        "versions": [
+          "3.6.0",
+          "3.8.0",
+          "3.9.0"
+        ]
+      }
+    ],
+    "records": [
+      {
+        "id": "r0",
+        "text": "The vectorized numerical array library used in our matrix computations.",
+        "lower": "1.24.0",
+        "upper": "2.0.0"
+      },
+      {
+        "id": "r1",
+        "text": "The scientific n-dimensional array engine in our notebooks.",
+        "lower": "1.25.0",
+        "upper": "3.0.0"
+      },
+      {
+        "id": "r2",
+        "text": "The dataframe library that reads CSV files and joins tabular datasets.",
+        "lower": "1.0.0",
+        "upper": "2.2.0"
+      },
+      {
+        "id": "r3",
+        "text": "The spreadsheet-like table analysis package with DataFrames.",
+        "lower": "2.0.0",
+        "upper": "3.0.0"
+      },
+      {
+        "id": "r4",
+        "text": "The graph plotting package that draws figures with axes and legends.",
+        "lower": "3.0.0",
+        "upper": "4.0.0"
+      },
+      {
+        "id": "r5",
+        "text": "The scientific chart rendering library for line plots.",
+        "lower": "3.8.0",
+        "upper": "3.9.0"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "r0",
+      "selected": "numpy",
+      "lower": "1.24.0",
+      "upper": "2.0.0",
+      "decision": "approve",
+      "note": "",
+      "rank": [
+        {
+          "package": "numpy",
+          "score": 0.7602764091837305
+        },
+        {
+          "package": "matplotlib",
+          "score": 0.3129746445260144
+        },
+        {
+          "package": "pandas",
+          "score": 0.1852666281854291
+        }
+      ]
+    },
+    {
+      "id": "r1",
+      "selected": "numpy",
+      "lower": "1.25.0",
+      "upper": "3.0.0",
+      "decision": "approve",
+      "note": "",
+      "rank": [
+        {
+          "package": "numpy",
+          "score": 0.647421528020381
+        },
+        {
+          "package": "matplotlib",
+          "score": 0.27481017818525816
+        },
+        {
+          "package": "pandas",
+          "score": 0.216277306980857
+        }
+      ]
+    },
+    {
+      "id": "r2",
+      "selected": "pandas",
+      "lower": "1.0.0",
+      "upper": "2.2.0",
+      "decision": "approve",
+      "note": "",
+      "rank": [
+        {
+          "package": "pandas",
+          "score": 0.735994240565311
+        },
+        {
+          "package": "matplotlib",
+          "score": 0.4227584062972664
+        },
+        {
+          "package": "numpy",
+          "score": 0.19346185735713767
+        }
+      ]
+    },
+    {
+      "id": "r3",
+      "selected": "pandas",
+      "lower": "2.0.0",
+      "upper": "3.0.0",
+      "decision": "approve",
+      "note": "",
+      "rank": [
+        {
+          "package": "pandas",
+          "score": 0.7648585748519285
+        },
+        {
+          "package": "matplotlib",
+          "score": 0.4435635039400665
+        },
+        {
+          "package": "numpy",
+          "score": 0.260087488168143
+        }
+      ]
+    },
+    {
+      "id": "r4",
+      "selected": "matplotlib",
+      "lower": "3.0.0",
+      "upper": "4.0.0",
+      "decision": "approve",
+      "note": "",
+      "rank": [
+        {
+          "package": "matplotlib",
+          "score": 0.6818609784896339
+        },
+        {
+          "package": "pandas",
+          "score": 0.20525776414818267
+        },
+        {
+          "package": "numpy",
+          "score": 0.13304141446932133
+        }
+      ]
+    },
+    {
+      "id": "r5",
+      "selected": "matplotlib",
+      "lower": "3.8.0",
+      "upper": "3.9.0",
+      "decision": "approve",
+      "note": "",
+      "rank": [
+        {
+          "package": "matplotlib",
+          "score": 0.7294615361530694
+        },
+        {
+          "package": "pandas",
+          "score": 0.25467458098469026
+        },
+        {
+          "package": "numpy",
+          "score": 0.24887346474653826
+        }
+      ]
+    }
+  ],
+  "total": 6,
+  "approved": 6,
+  "held": 0,
+  "packages": [
+    {
+      "package": "numpy",
+      "available": true,
+      "selected": "1.26.0",
+      "allowed": [
+        "1.26.0"
+      ],
+      "candidates": [
+        "1.24.0",
+        "1.26.0",
+        "2.0.0"
+      ],
+      "rejected": [
+        {
+          "version": "1.24.0",
+          "violations": [
+            "r1"
+          ]
+        },
+        {
+          "version": "1.26.0",
+          "violations": []
+        },
+        {
+          "version": "2.0.0",
+          "violations": [
+            "r0"
+          ]
+        }
+      ],
+      "baseline": "2.0.0",
+      "baselineViolations": [
+        "r0"
+      ],
+      "requirements": [
+        "r0",
+        "r1"
+      ],
+      "intersection": {
+        "lower": "1.25.0",
+        "upper": "2.0.0"
+      },
+      "conflictWitness": [],
+      "reason": ""
+    },
+    {
+      "package": "pandas",
+      "available": true,
+      "selected": "2.1.0",
+      "allowed": [
+        "2.1.0"
+      ],
+      "candidates": [
+        "1.5.0",
+        "2.1.0",
+        "2.2.0"
+      ],
+      "rejected": [
+        {
+          "version": "1.5.0",
+          "violations": [
+            "r3"
+          ]
+        },
+        {
+          "version": "2.1.0",
+          "violations": []
+        },
+        {
+          "version": "2.2.0",
+          "violations": [
+            "r2"
+          ]
+        }
+      ],
+      "baseline": "2.2.0",
+      "baselineViolations": [
+        "r2"
+      ],
+      "requirements": [
+        "r2",
+        "r3"
+      ],
+      "intersection": {
+        "lower": "2.0.0",
+        "upper": "2.2.0"
+      },
+      "conflictWitness": [],
+      "reason": ""
+    },
+    {
+      "package": "matplotlib",
+      "available": true,
+      "selected": "3.8.0",
+      "allowed": [
+        "3.8.0"
+      ],
+      "candidates": [
+        "3.6.0",
+        "3.8.0",
+        "3.9.0"
+      ],
+      "rejected": [
+        {
+          "version": "3.6.0",
+          "violations": [
+            "r5"
+          ]
+        },
+        {
+          "version": "3.8.0",
+          "violations": []
+        },
+        {
+          "version": "3.9.0",
+          "violations": [
+            "r5"
+          ]
+        }
+      ],
+      "baseline": "3.9.0",
+      "baselineViolations": [
+        "r5"
+      ],
+      "requirements": [
+        "r4",
+        "r5"
+      ],
+      "intersection": {
+        "lower": "3.8.0",
+        "upper": "3.9.0"
+      },
+      "conflictWitness": [],
+      "reason": ""
+    }
+  ],
+  "pinsReady": true,
+  "baselineSatisfied": 0,
+  "reviewedSatisfied": 3,
+  "changedFromFirstPackage": 4,
+  "warning": "This is a reviewed direct-requirement worksheet, not a dependency resolver, lockfile, vulnerability audit or installation guarantee. Candidates and bounds are user-supplied, not checked against a registry. Numeric three-part versions only; no prereleases, epochs, post/dev/local versions, extras, environment markers, transitive dependencies or Python/platform compatibility. AI similarity is not identity proof. No packages are fetched or installed. Confirm with package owners and a real resolver in an isolated environment before use."
+}

@@ -1,0 +1,348 @@
+{
+  "schema": "pinpoint-commons/v1",
+  "originalInput": {
+    "context": "Synthetic web-tooling handoff. One incompatible pair deliberately requires owner reconciliation. No package registry is contacted.",
+    "policy": "newest",
+    "packages": [
+      {
+        "id": "requests",
+        "text": "Requests Python HTTP client for web requests, URL fetching and REST API calls.",
+        "versions": [
+          "2.28.0",
+          "2.31.0",
+          "2.32.0"
+        ]
+      },
+      {
+        "id": "pillow",
+        "text": "Pillow PIL image processing library for opening, resizing and transforming photographs.",
+        "versions": [
+          "9.5.0",
+          "10.0.0",
+          "11.0.0"
+        ]
+      },
+      {
+        "id": "pytest",
+        "text": "Pytest automated Python testing framework with test fixtures and assertions.",
+        "versions": [
+          "7.0.0",
+          "8.0.0",
+          "8.3.0"
+        ]
+      }
+    ],
+    "records": [
+      {
+        "id": "r0",
+        "text": "The HTTP library we use to fetch URLs and call REST services.",
+        "lower": "2.0.0",
+        "upper": "3.0.0"
+      },
+      {
+        "id": "r1",
+        "text": "The Python web request client used for API downloads.",
+        "lower": "2.30.0",
+        "upper": "2.32.0"
+      },
+      {
+        "id": "r2",
+        "text": "The PIL photo manipulation library that resizes image files.",
+        "lower": "9.0.0",
+        "upper": "10.0.0"
+      },
+      {
+        "id": "r3",
+        "text": "The image opening and thumbnail transformation package.",
+        "lower": "10.0.0",
+        "upper": "12.0.0"
+      },
+      {
+        "id": "r4",
+        "text": "The automated test runner with reusable test fixtures.",
+        "lower": "7.0.0",
+        "upper": "9.0.0"
+      },
+      {
+        "id": "r5",
+        "text": "The Python testing framework for assertions and parametrized tests.",
+        "lower": "8.0.0",
+        "upper": "8.3.0"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "r0",
+      "selected": "requests",
+      "lower": "2.0.0",
+      "upper": "3.0.0",
+      "decision": "approve",
+      "note": "=SUM(1,2)\n\"owner\", recheck",
+      "rank": [
+        {
+          "package": "requests",
+          "score": 0.6594045565588142
+        },
+        {
+          "package": "pillow",
+          "score": 0.1701330632375639
+        },
+        {
+          "package": "pytest",
+          "score": 0.04137356660414079
+        }
+      ]
+    },
+    {
+      "id": "r1",
+      "selected": "requests",
+      "lower": "2.30.0",
+      "upper": "2.32.0",
+      "decision": "hold",
+      "note": "",
+      "rank": [
+        {
+          "package": "requests",
+          "score": 0.8369765960110545
+        },
+        {
+          "package": "pytest",
+          "score": 0.28181669778134905
+        },
+        {
+          "package": "pillow",
+          "score": 0.09525070333476111
+        }
+      ]
+    },
+    {
+      "id": "r2",
+      "selected": "pillow",
+      "lower": "9.0.0",
+      "upper": "11.0.0",
+      "decision": "approve",
+      "note": "",
+      "rank": [
+        {
+          "package": "pillow",
+          "score": 0.7581183451564428
+        },
+        {
+          "package": "requests",
+          "score": 0.07211657602530999
+        },
+        {
+          "package": "pytest",
+          "score": 0.009244410882781249
+        }
+      ]
+    },
+    {
+      "id": "r3",
+      "selected": "pillow",
+      "lower": "10.0.0",
+      "upper": "12.0.0",
+      "decision": "approve",
+      "note": "",
+      "rank": [
+        {
+          "package": "pillow",
+          "score": 0.6279785172391875
+        },
+        {
+          "package": "requests",
+          "score": 0.07243871972657345
+        },
+        {
+          "package": "pytest",
+          "score": 0.03422641477096136
+        }
+      ]
+    },
+    {
+      "id": "r4",
+      "selected": "pytest",
+      "lower": "7.0.0",
+      "upper": "9.0.0",
+      "decision": "approve",
+      "note": "",
+      "rank": [
+        {
+          "package": "pytest",
+          "score": 0.6380160872814802
+        },
+        {
+          "package": "requests",
+          "score": 0.10281504019179524
+        },
+        {
+          "package": "pillow",
+          "score": -0.016612039156804148
+        }
+      ]
+    },
+    {
+      "id": "r5",
+      "selected": "pytest",
+      "lower": "8.0.0",
+      "upper": "8.3.0",
+      "decision": "approve",
+      "note": "",
+      "rank": [
+        {
+          "package": "pytest",
+          "score": 0.7548388573666798
+        },
+        {
+          "package": "requests",
+          "score": 0.3903523748449022
+        },
+        {
+          "package": "pillow",
+          "score": 0.05349779287699206
+        }
+      ]
+    }
+  ],
+  "total": 6,
+  "approved": 5,
+  "held": 1,
+  "packages": [
+    {
+      "package": "requests",
+      "available": true,
+      "selected": "2.32.0",
+      "allowed": [
+        "2.28.0",
+        "2.31.0",
+        "2.32.0"
+      ],
+      "candidates": [
+        "2.28.0",
+        "2.31.0",
+        "2.32.0"
+      ],
+      "rejected": [
+        {
+          "version": "2.28.0",
+          "violations": []
+        },
+        {
+          "version": "2.31.0",
+          "violations": []
+        },
+        {
+          "version": "2.32.0",
+          "violations": []
+        }
+      ],
+      "baseline": "2.32.0",
+      "baselineViolations": [],
+      "requirements": [
+        "r0"
+      ],
+      "intersection": {
+        "lower": "2.0.0",
+        "upper": "3.0.0"
+      },
+      "conflictWitness": [],
+      "reason": ""
+    },
+    {
+      "package": "pillow",
+      "available": true,
+      "selected": "10.0.0",
+      "allowed": [
+        "10.0.0"
+      ],
+      "candidates": [
+        "9.5.0",
+        "10.0.0",
+        "11.0.0"
+      ],
+      "rejected": [
+        {
+          "version": "9.5.0",
+          "violations": [
+            "r3"
+          ]
+        },
+        {
+          "version": "10.0.0",
+          "violations": []
+        },
+        {
+          "version": "11.0.0",
+          "violations": [
+            "r2"
+          ]
+        }
+      ],
+      "baseline": "11.0.0",
+      "baselineViolations": [
+        "r2"
+      ],
+      "requirements": [
+        "r2",
+        "r3"
+      ],
+      "intersection": {
+        "lower": "10.0.0",
+        "upper": "11.0.0"
+      },
+      "conflictWitness": [],
+      "reason": ""
+    },
+    {
+      "package": "pytest",
+      "available": true,
+      "selected": "8.0.0",
+      "allowed": [
+        "8.0.0"
+      ],
+      "candidates": [
+        "7.0.0",
+        "8.0.0",
+        "8.3.0"
+      ],
+      "rejected": [
+        {
+          "version": "7.0.0",
+          "violations": [
+            "r5"
+          ]
+        },
+        {
+          "version": "8.0.0",
+          "violations": []
+        },
+        {
+          "version": "8.3.0",
+          "violations": [
+            "r5"
+          ]
+        }
+      ],
+      "baseline": "8.3.0",
+      "baselineViolations": [
+        "r5"
+      ],
+      "requirements": [
+        "r4",
+        "r5"
+      ],
+      "intersection": {
+        "lower": "8.0.0",
+        "upper": "8.3.0"
+      },
+      "conflictWitness": [],
+      "reason": ""
+    }
+  ],
+  "pinsReady": false,
+  "baselineSatisfied": 1,
+  "reviewedSatisfied": 3,
+  "changedFromFirstPackage": 4,
+  "warning": "This is a reviewed direct-requirement worksheet, not a dependency resolver, lockfile, vulnerability audit or installation guarantee. Candidates and bounds are user-supplied, not checked against a registry. Numeric three-part versions only; no prereleases, epochs, post/dev/local versions, extras, environment markers, transitive dependencies or Python/platform compatibility. AI similarity is not identity proof. No packages are fetched or installed. Confirm with package owners and a real resolver in an isolated environment before use."
+}

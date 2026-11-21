@@ -1,0 +1,465 @@
+{
+  "schema": "forecast-canopy/1",
+  "originalInput": {
+    "title": "Synthetic next-week help-desk workload · cases",
+    "nodes": [
+      {
+        "id": "all",
+        "text": "Total help desk workload across all support cases",
+        "parent": null
+      },
+      {
+        "id": "tech",
+        "text": "Technical software support cases",
+        "parent": "all"
+      },
+      {
+        "id": "billing",
+        "text": "Billing payment support cases",
+        "parent": "all"
+      },
+      {
+        "id": "login",
+        "text": "Password login account access support cases",
+        "parent": "tech"
+      },
+      {
+        "id": "crash",
+        "text": "Application software crash support cases",
+        "parent": "tech"
+      },
+      {
+        "id": "refund",
+        "text": "Purchase refund support cases",
+        "parent": "billing"
+      },
+      {
+        "id": "invoice",
+        "text": "Invoice billing document support cases",
+        "parent": "billing"
+      }
+    ],
+    "estimates": [
+      {
+        "id": "T1",
+        "description": "Combined help desk support case workload",
+        "value": 100,
+        "weight": 3
+      },
+      {
+        "id": "T2",
+        "description": "Technical software support case forecast",
+        "value": 45,
+        "weight": 1
+      },
+      {
+        "id": "T3",
+        "description": "Billing payment support case forecast",
+        "value": 35,
+        "weight": 1
+      },
+      {
+        "id": "T4",
+        "description": "Password login account access problems",
+        "value": 35,
+        "weight": 1
+      },
+      {
+        "id": "T5",
+        "description": "Application software crashes",
+        "value": 20,
+        "weight": 1
+      },
+      {
+        "id": "T6",
+        "description": "Purchase refund requests",
+        "value": 15,
+        "weight": 1
+      },
+      {
+        "id": "T7",
+        "description": "Invoice billing document requests",
+        "value": 10,
+        "weight": 1
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "T1",
+      "description": "Combined help desk support case workload",
+      "value": 110,
+      "weight": 3,
+      "node": "all",
+      "aiNode": "all",
+      "evidence": [
+        {
+          "id": "all",
+          "score": 0.915513244786522
+        },
+        {
+          "id": "tech",
+          "score": 0.5396831130463683
+        },
+        {
+          "id": "refund",
+          "score": 0.39039949392789297
+        },
+        {
+          "id": "invoice",
+          "score": 0.3571394162540199
+        },
+        {
+          "id": "billing",
+          "score": 0.34782282446387514
+        },
+        {
+          "id": "crash",
+          "score": 0.328575992719882
+        },
+        {
+          "id": "login",
+          "score": 0.2614889125447924
+        }
+      ],
+      "decision": "approve",
+      "note": "=SUM(1,2)\nReviewed \"source\", preserved."
+    },
+    {
+      "id": "T2",
+      "description": "Technical software support case forecast",
+      "value": 45,
+      "weight": 1,
+      "node": "tech",
+      "aiNode": "tech",
+      "evidence": [
+        {
+          "id": "tech",
+          "score": 0.7813974038005496
+        },
+        {
+          "id": "crash",
+          "score": 0.5177767726131557
+        },
+        {
+          "id": "all",
+          "score": 0.40281452484836583
+        },
+        {
+          "id": "refund",
+          "score": 0.3819150472966059
+        },
+        {
+          "id": "invoice",
+          "score": 0.38114277626329957
+        },
+        {
+          "id": "billing",
+          "score": 0.3742525805361734
+        },
+        {
+          "id": "login",
+          "score": 0.24794663210303924
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "T3",
+      "description": "Billing payment support case forecast",
+      "value": 35,
+      "weight": 1,
+      "node": "billing",
+      "aiNode": "billing",
+      "evidence": [
+        {
+          "id": "billing",
+          "score": 0.7648806263990279
+        },
+        {
+          "id": "invoice",
+          "score": 0.6189367722320774
+        },
+        {
+          "id": "refund",
+          "score": 0.4837866148505373
+        },
+        {
+          "id": "tech",
+          "score": 0.4018692405087218
+        },
+        {
+          "id": "all",
+          "score": 0.2985206486896356
+        },
+        {
+          "id": "login",
+          "score": 0.2977632421845974
+        },
+        {
+          "id": "crash",
+          "score": 0.24980725234901519
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "T4",
+      "description": "Password login account access problems",
+      "value": 35,
+      "weight": 1,
+      "node": "login",
+      "aiNode": "login",
+      "evidence": [
+        {
+          "id": "login",
+          "score": 0.7695960640392786
+        },
+        {
+          "id": "billing",
+          "score": 0.17823941480951716
+        },
+        {
+          "id": "refund",
+          "score": 0.0916261667957814
+        },
+        {
+          "id": "crash",
+          "score": 0.0814561192522721
+        },
+        {
+          "id": "invoice",
+          "score": 0.06055679421394374
+        },
+        {
+          "id": "tech",
+          "score": 0.04285624043637388
+        },
+        {
+          "id": "all",
+          "score": 0.033630439216211075
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "T5",
+      "description": "Application software crashes",
+      "value": 20,
+      "weight": 1,
+      "node": "crash",
+      "aiNode": "crash",
+      "evidence": [
+        {
+          "id": "crash",
+          "score": 0.809876339711672
+        },
+        {
+          "id": "tech",
+          "score": 0.4137757954972511
+        },
+        {
+          "id": "refund",
+          "score": 0.17740300396475012
+        },
+        {
+          "id": "all",
+          "score": 0.1610439080076419
+        },
+        {
+          "id": "billing",
+          "score": 0.12278418163527954
+        },
+        {
+          "id": "invoice",
+          "score": 0.1002842615234357
+        },
+        {
+          "id": "login",
+          "score": 0.06282697396812964
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "T6",
+      "description": "Purchase refund requests",
+      "value": 15,
+      "weight": 1,
+      "node": "refund",
+      "aiNode": "refund",
+      "evidence": [
+        {
+          "id": "refund",
+          "score": 0.7184062448495299
+        },
+        {
+          "id": "billing",
+          "score": 0.3965326717668376
+        },
+        {
+          "id": "invoice",
+          "score": 0.2689583142014394
+        },
+        {
+          "id": "crash",
+          "score": 0.15519733633044033
+        },
+        {
+          "id": "login",
+          "score": 0.1307089099110618
+        },
+        {
+          "id": "tech",
+          "score": 0.12444697042015368
+        },
+        {
+          "id": "all",
+          "score": 0.08303957465568279
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "T7",
+      "description": "Invoice billing document requests",
+      "value": 10,
+      "weight": 1,
+      "node": "invoice",
+      "aiNode": "invoice",
+      "evidence": [
+        {
+          "id": "invoice",
+          "score": 0.7990997714250113
+        },
+        {
+          "id": "billing",
+          "score": 0.5477076480299112
+        },
+        {
+          "id": "refund",
+          "score": 0.18202160942491033
+        },
+        {
+          "id": "tech",
+          "score": 0.1433740734155042
+        },
+        {
+          "id": "all",
+          "score": 0.14264855334926743
+        },
+        {
+          "id": "login",
+          "score": 0.10539902458898431
+        },
+        {
+          "id": "crash",
+          "score": 0.05837628383165473
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "held": 0,
+  "analysis": {
+    "weightedLoss": 606.666666666667,
+    "bottomUpLoss": 2900,
+    "rawIncoherence": 30,
+    "coherentResidual": 1.4210854715202004e-14,
+    "rawResiduals": [
+      {
+        "node": "all",
+        "residual": 30
+      },
+      {
+        "node": "tech",
+        "residual": -10
+      },
+      {
+        "node": "billing",
+        "residual": 10
+      }
+    ],
+    "activeFaces": 16,
+    "leafCount": 4,
+    "table": [
+      {
+        "id": "all",
+        "text": "Total help desk workload across all support cases",
+        "parent": null,
+        "raw": 110,
+        "weight": 3,
+        "reconciled": 103.99999999999999,
+        "adjustment": -6.000000000000014,
+        "bottomUp": 80
+      },
+      {
+        "id": "tech",
+        "text": "Technical software support cases",
+        "parent": "all",
+        "raw": 45,
+        "weight": 1,
+        "reconciled": 60.33333333333333,
+        "adjustment": 15.333333333333329,
+        "bottomUp": 55
+      },
+      {
+        "id": "billing",
+        "text": "Billing payment support cases",
+        "parent": "all",
+        "raw": 35,
+        "weight": 1,
+        "reconciled": 43.666666666666664,
+        "adjustment": 8.666666666666664,
+        "bottomUp": 25
+      },
+      {
+        "id": "login",
+        "text": "Password login account access support cases",
+        "parent": "tech",
+        "raw": 35,
+        "weight": 1,
+        "reconciled": 37.666666666666664,
+        "adjustment": 2.6666666666666643,
+        "bottomUp": 35
+      },
+      {
+        "id": "crash",
+        "text": "Application software crash support cases",
+        "parent": "tech",
+        "raw": 20,
+        "weight": 1,
+        "reconciled": 22.666666666666668,
+        "adjustment": 2.666666666666668,
+        "bottomUp": 20
+      },
+      {
+        "id": "refund",
+        "text": "Purchase refund support cases",
+        "parent": "billing",
+        "raw": 15,
+        "weight": 1,
+        "reconciled": 24.333333333333336,
+        "adjustment": 9.333333333333336,
+        "bottomUp": 15
+      },
+      {
+        "id": "invoice",
+        "text": "Invoice billing document support cases",
+        "parent": "billing",
+        "raw": 10,
+        "weight": 1,
+        "reconciled": 19.33333333333333,
+        "adjustment": 9.333333333333329,
+        "bottomUp": 10
+      }
+    ]
+  },
+  "warning": "Planning reconciliation only, not improved forecast accuracy. Use the same horizon, additive units and disjoint exhaustive child groups. Positive weights are supplied adjustment penalties, not AI confidence or inferred reliability. Similarity cannot establish aggregation membership; verify every link. Fractional units are retained; rounded displayed figures may not sum exactly. No orders, staffing commitments or external changes."
+}

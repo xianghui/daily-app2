@@ -1,0 +1,278 @@
+{
+  "schema": "swing-commons/1",
+  "originalInput": {
+    "title": "Community center rule review",
+    "quota": 5,
+    "groups": [
+      {
+        "id": "garden",
+        "text": "Community gardening and vegetable growing club"
+      },
+      {
+        "id": "music",
+        "text": "Music choir and singing club"
+      },
+      {
+        "id": "chess",
+        "text": "Chess and board game club"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "N1",
+        "description": "vegetable gardening community growers",
+        "weight": 3
+      },
+      {
+        "id": "N2",
+        "description": "singing choir and music club",
+        "weight": 1
+      },
+      {
+        "id": "N3",
+        "description": "chess players and board games",
+        "weight": 1
+      },
+      {
+        "id": "N4",
+        "description": "community garden vegetable growing group",
+        "weight": 2
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "N1",
+      "description": "vegetable gardening community growers",
+      "weight": 3,
+      "group": "garden",
+      "aiGroup": "garden",
+      "evidence": [
+        {
+          "id": "garden",
+          "score": 0.8420897540002337
+        },
+        {
+          "id": "music",
+          "score": 0.13832486077271733
+        },
+        {
+          "id": "chess",
+          "score": 0.12005134879947854
+        }
+      ],
+      "decision": "approve",
+      "note": "=SUM(1,2)\n\"reviewer\", verify mandate"
+    },
+    {
+      "id": "N2",
+      "description": "singing choir and music club",
+      "weight": 1,
+      "group": "music",
+      "aiGroup": "music",
+      "evidence": [
+        {
+          "id": "music",
+          "score": 0.9858432740734713
+        },
+        {
+          "id": "garden",
+          "score": 0.3630320899729298
+        },
+        {
+          "id": "chess",
+          "score": 0.30363900380038006
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "N3",
+      "description": "chess players and board games",
+      "weight": 1,
+      "group": "chess",
+      "aiGroup": "chess",
+      "evidence": [
+        {
+          "id": "chess",
+          "score": 0.7947525947467406
+        },
+        {
+          "id": "garden",
+          "score": 0.12736341585835348
+        },
+        {
+          "id": "music",
+          "score": 0.10595047728299303
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "N4",
+      "description": "community garden vegetable growing group",
+      "weight": 2,
+      "group": "garden",
+      "aiGroup": "garden",
+      "evidence": [
+        {
+          "id": "garden",
+          "score": 0.8300083566752058
+        },
+        {
+          "id": "music",
+          "score": 0.21091201797607917
+        },
+        {
+          "id": "chess",
+          "score": 0.16942711723004852
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "held": 0,
+  "complete": true,
+  "analysis": {
+    "quota": 5,
+    "totalWeight": 7,
+    "coalitionCount": 8,
+    "winningCount": 4,
+    "totalSwings": 4,
+    "power": [
+      {
+        "id": "garden",
+        "weight": 5,
+        "weightShare": 0.7142857142857143,
+        "swings": 4,
+        "normalizedBanzhaf": 1,
+        "absoluteBanzhaf": 1,
+        "dummy": false,
+        "veto": true
+      },
+      {
+        "id": "music",
+        "weight": 1,
+        "weightShare": 0.14285714285714285,
+        "swings": 0,
+        "normalizedBanzhaf": 0,
+        "absoluteBanzhaf": 0,
+        "dummy": true,
+        "veto": false
+      },
+      {
+        "id": "chess",
+        "weight": 1,
+        "weightShare": 0.14285714285714285,
+        "swings": 0,
+        "normalizedBanzhaf": 0,
+        "absoluteBanzhaf": 0,
+        "dummy": true,
+        "veto": false
+      }
+    ],
+    "coalitions": [
+      {
+        "mask": 0,
+        "members": [],
+        "weight": 0,
+        "winning": false,
+        "critical": [],
+        "minimalWinning": false
+      },
+      {
+        "mask": 1,
+        "members": [
+          "garden"
+        ],
+        "weight": 5,
+        "winning": true,
+        "critical": [
+          "garden"
+        ],
+        "minimalWinning": true
+      },
+      {
+        "mask": 2,
+        "members": [
+          "music"
+        ],
+        "weight": 1,
+        "winning": false,
+        "critical": [],
+        "minimalWinning": false
+      },
+      {
+        "mask": 3,
+        "members": [
+          "garden",
+          "music"
+        ],
+        "weight": 6,
+        "winning": true,
+        "critical": [
+          "garden"
+        ],
+        "minimalWinning": false
+      },
+      {
+        "mask": 4,
+        "members": [
+          "chess"
+        ],
+        "weight": 1,
+        "winning": false,
+        "critical": [],
+        "minimalWinning": false
+      },
+      {
+        "mask": 5,
+        "members": [
+          "garden",
+          "chess"
+        ],
+        "weight": 6,
+        "winning": true,
+        "critical": [
+          "garden"
+        ],
+        "minimalWinning": false
+      },
+      {
+        "mask": 6,
+        "members": [
+          "music",
+          "chess"
+        ],
+        "weight": 2,
+        "winning": false,
+        "critical": [],
+        "minimalWinning": false
+      },
+      {
+        "mask": 7,
+        "members": [
+          "garden",
+          "music",
+          "chess"
+        ],
+        "weight": 7,
+        "winning": true,
+        "critical": [
+          "garden"
+        ],
+        "minimalWinning": false
+      }
+    ],
+    "minimalWinning": [
+      [
+        "garden"
+      ]
+    ],
+    "weightConserved": true
+  },
+  "warning": "Hypothetical rule-review worksheet, not observed behavior, fairness certification or legal interpretation. Each group acts as a single yes/no voter, all subsets are equally weighted mathematically, and votes pass at weight ≥ quota. No abstention, turnout, proxy or coalition restrictions. No votes are cast."
+}

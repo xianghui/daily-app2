@@ -1735,3 +1735,8 @@ Evidence Walk public release: matching Pages `38f520465c9339282c67b9dc6eb96db8ab
 ## Forecast Canopy — 20261121-24
 
 Local MiniLM matches informal team estimates to a supplied forecast hierarchy. Review every mapping/value/weight; reconcile nonnegative additive totals with bounded weighted least squares, compare bottom-up adjustment loss, and export full-precision JSON/CSV/Markdown. Both positive fixtures matched 14/14 labels, but a negation challenge failed; mandatory human review remains essential. Reuses immutable runtime paths from `20261115-6` and `20261107-2`; preserve them. See [workflow](20261121-24/README.md) and [observed checks](20261121-24/VALIDATION.md). No accuracy-gain or integer-order claims.
+
+
+## Keyfield Studio — 20261122-1
+
+Local MiniLM column-role inference plus exact minimal composite record-key discovery and source-linked duplicate investigation. Review all roles and a provisional audit key; retain all rows in JSON/long-form CSV/Markdown exports. Shared immutable browser runtime dependencies are documented in [app README](20261122-1/README.md); preserve 20261115-6 and 20261107-2. Deploy-only byte-identical geometry runtime reuse now includes 20261029-5, with its original source build preserved. See [observed validation](20261122-1/VALIDATION.md).

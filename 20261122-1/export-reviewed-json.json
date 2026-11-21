@@ -1,0 +1,392 @@
+{
+  "schema": "keyfield-studio/1",
+  "originalInput": {
+    "title": "Course offering register — provisional campus/course/term grain",
+    "columns": [
+      {
+        "id": "campus",
+        "description": "Stable campus identifier code, an identity key component."
+      },
+      {
+        "id": "course",
+        "description": "Stable course catalog identifier code, an identity key component."
+      },
+      {
+        "id": "term",
+        "description": "Academic term identifier code, a stable key component identifying the course offering semester."
+      },
+      {
+        "id": "room",
+        "description": "Descriptive human-readable room display label, not a stable identifier key."
+      },
+      {
+        "id": "seats",
+        "description": "Changing numeric capacity count of available seats, not an identity code."
+      }
+    ],
+    "auditKey": [
+      "campus",
+      "course",
+      "term"
+    ],
+    "records": [
+      {
+        "campus": "N",
+        "course": "ENG",
+        "term": "T1",
+        "room": "Language studio",
+        "seats": "20"
+      },
+      {
+        "campus": "N",
+        "course": "ENG",
+        "term": "T2",
+        "room": "Language studio",
+        "seats": "20"
+      },
+      {
+        "campus": "N",
+        "course": "ART",
+        "term": "T1",
+        "room": "Drawing room",
+        "seats": "20"
+      },
+      {
+        "campus": "N",
+        "course": "ART",
+        "term": "T2",
+        "room": "Drawing room",
+        "seats": "20"
+      },
+      {
+        "campus": "S",
+        "course": "ENG",
+        "term": "T1",
+        "room": "Language studio",
+        "seats": "20"
+      },
+      {
+        "campus": "S",
+        "course": "ENG",
+        "term": "T2",
+        "room": "Language studio",
+        "seats": "20"
+      },
+      {
+        "campus": "S",
+        "course": "ART",
+        "term": "T1",
+        "room": "Drawing room",
+        "seats": "20"
+      },
+      {
+        "campus": "S",
+        "course": "ART",
+        "term": "T2",
+        "room": "Drawing room",
+        "seats": "20"
+      },
+      {
+        "campus": "N",
+        "course": "ENG",
+        "term": "T1",
+        "room": "Temporary classroom",
+        "seats": "18"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "campus",
+      "description": "Stable campus identifier code, an identity key component.",
+      "role": "identifier",
+      "aiRole": "identifier",
+      "evidence": [
+        {
+          "id": "identifier",
+          "score": 0.6595261627082541
+        },
+        {
+          "id": "measure",
+          "score": 0.2915632851493555
+        },
+        {
+          "id": "attribute",
+          "score": 0.1771454875294606
+        }
+      ],
+      "decision": "approve",
+      "note": "=SUM(1,2)\nReviewed \"source\", preserved."
+    },
+    {
+      "id": "course",
+      "description": "Stable course catalog identifier code, an identity key component.",
+      "role": "identifier",
+      "aiRole": "identifier",
+      "evidence": [
+        {
+          "id": "identifier",
+          "score": 0.6708489725457936
+        },
+        {
+          "id": "measure",
+          "score": 0.31029997095113565
+        },
+        {
+          "id": "attribute",
+          "score": 0.26042295010204025
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "term",
+      "description": "Academic term identifier code, a stable key component identifying the course offering semester.",
+      "role": "identifier",
+      "aiRole": "identifier",
+      "evidence": [
+        {
+          "id": "identifier",
+          "score": 0.5628144148899377
+        },
+        {
+          "id": "measure",
+          "score": 0.27039254589326595
+        },
+        {
+          "id": "attribute",
+          "score": 0.24329688616270737
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "room",
+      "description": "Descriptive human-readable room display label, not a stable identifier key.",
+      "role": "attribute",
+      "aiRole": "attribute",
+      "evidence": [
+        {
+          "id": "attribute",
+          "score": 0.5077159318480337
+        },
+        {
+          "id": "identifier",
+          "score": 0.4188272658546042
+        },
+        {
+          "id": "measure",
+          "score": 0.31738669487732474
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "seats",
+      "description": "Changing numeric capacity count of available seats, not an identity code.",
+      "role": "measure",
+      "aiRole": "measure",
+      "evidence": [
+        {
+          "id": "measure",
+          "score": 0.4420819058616578
+        },
+        {
+          "id": "identifier",
+          "score": 0.3213992480275088
+        },
+        {
+          "id": "attribute",
+          "score": 0.18663257699757446
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "selectedKey": [
+    "campus",
+    "course",
+    "term"
+  ],
+  "held": 0,
+  "analysis": {
+    "recordCount": 9,
+    "candidateColumns": [
+      "campus",
+      "course",
+      "term"
+    ],
+    "tested": 7,
+    "uniqueCombinations": 0,
+    "minimalKeys": [],
+    "singles": [
+      {
+        "key": [
+          "campus"
+        ],
+        "missingRows": [],
+        "duplicateGroups": [
+          {
+            "tuple": [
+              "N"
+            ],
+            "rows": [
+              1,
+              2,
+              3,
+              4,
+              9
+            ],
+            "differingColumns": [
+              "course",
+              "term",
+              "room",
+              "seats"
+            ]
+          },
+          {
+            "tuple": [
+              "S"
+            ],
+            "rows": [
+              5,
+              6,
+              7,
+              8
+            ],
+            "differingColumns": [
+              "course",
+              "term",
+              "room"
+            ]
+          }
+        ],
+        "collisionRows": 9,
+        "distinctCompleteTuples": 2,
+        "valid": false
+      },
+      {
+        "key": [
+          "course"
+        ],
+        "missingRows": [],
+        "duplicateGroups": [
+          {
+            "tuple": [
+              "ENG"
+            ],
+            "rows": [
+              1,
+              2,
+              5,
+              6,
+              9
+            ],
+            "differingColumns": [
+              "campus",
+              "term",
+              "room",
+              "seats"
+            ]
+          },
+          {
+            "tuple": [
+              "ART"
+            ],
+            "rows": [
+              3,
+              4,
+              7,
+              8
+            ],
+            "differingColumns": [
+              "campus",
+              "term"
+            ]
+          }
+        ],
+        "collisionRows": 9,
+        "distinctCompleteTuples": 2,
+        "valid": false
+      },
+      {
+        "key": [
+          "term"
+        ],
+        "missingRows": [],
+        "duplicateGroups": [
+          {
+            "tuple": [
+              "T1"
+            ],
+            "rows": [
+              1,
+              3,
+              5,
+              7,
+              9
+            ],
+            "differingColumns": [
+              "campus",
+              "course",
+              "room",
+              "seats"
+            ]
+          },
+          {
+            "tuple": [
+              "T2"
+            ],
+            "rows": [
+              2,
+              4,
+              6,
+              8
+            ],
+            "differingColumns": [
+              "campus",
+              "course",
+              "room"
+            ]
+          }
+        ],
+        "collisionRows": 9,
+        "distinctCompleteTuples": 2,
+        "valid": false
+      }
+    ],
+    "audit": {
+      "key": [
+        "campus",
+        "course",
+        "term"
+      ],
+      "missingRows": [],
+      "duplicateGroups": [
+        {
+          "tuple": [
+            "N",
+            "ENG",
+            "T1"
+          ],
+          "rows": [
+            1,
+            9
+          ],
+          "differingColumns": [
+            "room",
+            "seats"
+          ]
+        }
+      ],
+      "collisionRows": 2,
+      "distinctCompleteTuples": 8,
+      "valid": false
+    }
+  },
+  "warning": "Observed-batch audit only. Unique tuples do not prove business identity, causal dependencies, future uniqueness or a safe database constraint. AI proposes field roles from descriptions, never from cell values. Exact case-sensitive strings are retained without trimming or normalization; whitespace-only cells are missing. Repeated events may be legitimate. Verify row grain before correcting data. No records are removed or merged; no external database changes."
+}

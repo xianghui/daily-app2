@@ -1,0 +1,90 @@
+{
+  "schema": "cloze-orchard/1",
+  "model": "Xenova/bert-base-NER q8",
+  "originalInput": "# Sarah works: Sarah.\tfoo::bar.",
+  "passages": [
+    {
+      "id": 1,
+      "text": "# Sarah works: Sarah.\tfoo::bar.",
+      "offset": 0
+    }
+  ],
+  "reviews": {
+    "rows": [
+      {
+        "id": "e0",
+        "chunk": 0,
+        "start": 2,
+        "end": 7,
+        "answer": "Sarah",
+        "kind": "PER",
+        "origin": "neural BERT",
+        "decision": "keep",
+        "note": "first\nsecond\t{{c2::unsafe}}"
+      },
+      {
+        "id": "e1",
+        "chunk": 0,
+        "start": 15,
+        "end": 20,
+        "answer": "Sarah",
+        "kind": "PER",
+        "origin": "neural BERT",
+        "decision": "keep",
+        "note": ""
+      },
+      {
+        "id": "manual-0-22-8",
+        "chunk": 0,
+        "start": 22,
+        "end": 30,
+        "answer": "foo::bar",
+        "kind": "MANUAL",
+        "origin": "manual exact phrase",
+        "decision": "keep",
+        "note": ""
+      }
+    ],
+    "reviewed": [
+      true
+    ]
+  },
+  "limit": 20,
+  "cards": [
+    {
+      "id": "passage-1-card-1",
+      "passage": 1,
+      "answer": "Sarah",
+      "candidateIds": [
+        "e0",
+        "e1"
+      ],
+      "maskedOccurrences": 2,
+      "text": "<div># {{c1::Sarah}} works&#58; {{c1::Sarah}}.&#9;foo&#58;&#58;bar.</div>",
+      "extra": "Source passage 1 · answer&#58; Sarah<br>first<br>second&#9;&#123;&#123;c2&#58;&#58;unsafe&#125;&#125;",
+      "tags": "cloze_orchard passage_1"
+    },
+    {
+      "id": "passage-1-card-2",
+      "passage": 1,
+      "answer": "foo::bar",
+      "candidateIds": [
+        "manual-0-22-8"
+      ],
+      "maskedOccurrences": 1,
+      "text": "<div># Sarah works&#58; Sarah.&#9;{{c1::foo&#58;&#58;bar}}.</div>",
+      "extra": "Source passage 1 · answer&#58; foo&#58;&#58;bar<br>",
+      "tags": "cloze_orchard passage_1"
+    }
+  ],
+  "metrics": {
+    "sourcePassages": 1,
+    "candidateSpans": 3,
+    "keptSpans": 3,
+    "rejectedSpans": 0,
+    "generatedCards": 2,
+    "duplicateCardsAvoided": 1,
+    "passagesWithoutCards": 0
+  },
+  "warning": "Study draft, not a fact check. AI recognizes named entities, not educational importance. Choose the Cloze note type when importing TSV; all repeated exact answer occurrences are hidden together."
+}

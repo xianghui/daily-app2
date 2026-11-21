@@ -1,0 +1,176 @@
+{
+  "schema": "cloze-orchard/1",
+  "model": "Xenova/bert-base-NER q8",
+  "originalInput": "My name is Sarah and I live in London. I work for Microsoft.\n\nJohn Smith joined Google in Berlin. He prefers working from home.",
+  "passages": [
+    {
+      "id": 1,
+      "text": "My name is Sarah and I live in London. I work for Microsoft.",
+      "offset": 0
+    },
+    {
+      "id": 2,
+      "text": "John Smith joined Google in Berlin. He prefers working from home.",
+      "offset": 62
+    }
+  ],
+  "reviews": {
+    "rows": [
+      {
+        "id": "e0",
+        "chunk": 0,
+        "start": 11,
+        "end": 16,
+        "answer": "Sarah",
+        "kind": "PER",
+        "origin": "neural BERT",
+        "decision": "keep",
+        "note": ""
+      },
+      {
+        "id": "e1",
+        "chunk": 0,
+        "start": 31,
+        "end": 37,
+        "answer": "London",
+        "kind": "LOC",
+        "origin": "neural BERT",
+        "decision": "keep",
+        "note": ""
+      },
+      {
+        "id": "e2",
+        "chunk": 0,
+        "start": 50,
+        "end": 59,
+        "answer": "Microsoft",
+        "kind": "ORG",
+        "origin": "neural BERT",
+        "decision": "keep",
+        "note": ""
+      },
+      {
+        "id": "e3",
+        "chunk": 1,
+        "start": 0,
+        "end": 10,
+        "answer": "John Smith",
+        "kind": "PER",
+        "origin": "neural BERT",
+        "decision": "keep",
+        "note": ""
+      },
+      {
+        "id": "e4",
+        "chunk": 1,
+        "start": 18,
+        "end": 24,
+        "answer": "Google",
+        "kind": "ORG",
+        "origin": "neural BERT",
+        "decision": "keep",
+        "note": ""
+      },
+      {
+        "id": "e5",
+        "chunk": 1,
+        "start": 28,
+        "end": 34,
+        "answer": "Berlin",
+        "kind": "LOC",
+        "origin": "neural BERT",
+        "decision": "keep",
+        "note": ""
+      }
+    ],
+    "reviewed": [
+      true,
+      true
+    ]
+  },
+  "limit": 20,
+  "cards": [
+    {
+      "id": "passage-1-card-1",
+      "passage": 1,
+      "answer": "Sarah",
+      "candidateIds": [
+        "e0"
+      ],
+      "maskedOccurrences": 1,
+      "text": "<div>My name is {{c1::Sarah}} and I live in London. I work for Microsoft.</div>",
+      "extra": "Source passage 1 · answer&#58; Sarah<br>",
+      "tags": "cloze_orchard passage_1"
+    },
+    {
+      "id": "passage-1-card-2",
+      "passage": 1,
+      "answer": "London",
+      "candidateIds": [
+        "e1"
+      ],
+      "maskedOccurrences": 1,
+      "text": "<div>My name is Sarah and I live in {{c1::London}}. I work for Microsoft.</div>",
+      "extra": "Source passage 1 · answer&#58; London<br>",
+      "tags": "cloze_orchard passage_1"
+    },
+    {
+      "id": "passage-1-card-3",
+      "passage": 1,
+      "answer": "Microsoft",
+      "candidateIds": [
+        "e2"
+      ],
+      "maskedOccurrences": 1,
+      "text": "<div>My name is Sarah and I live in London. I work for {{c1::Microsoft}}.</div>",
+      "extra": "Source passage 1 · answer&#58; Microsoft<br>",
+      "tags": "cloze_orchard passage_1"
+    },
+    {
+      "id": "passage-2-card-4",
+      "passage": 2,
+      "answer": "John Smith",
+      "candidateIds": [
+        "e3"
+      ],
+      "maskedOccurrences": 1,
+      "text": "<div>{{c1::John Smith}} joined Google in Berlin. He prefers working from home.</div>",
+      "extra": "Source passage 2 · answer&#58; John Smith<br>",
+      "tags": "cloze_orchard passage_2"
+    },
+    {
+      "id": "passage-2-card-5",
+      "passage": 2,
+      "answer": "Google",
+      "candidateIds": [
+        "e4"
+      ],
+      "maskedOccurrences": 1,
+      "text": "<div>John Smith joined {{c1::Google}} in Berlin. He prefers working from home.</div>",
+      "extra": "Source passage 2 · answer&#58; Google<br>",
+      "tags": "cloze_orchard passage_2"
+    },
+    {
+      "id": "passage-2-card-6",
+      "passage": 2,
+      "answer": "Berlin",
+      "candidateIds": [
+        "e5"
+      ],
+      "maskedOccurrences": 1,
+      "text": "<div>John Smith joined Google in {{c1::Berlin}}. He prefers working from home.</div>",
+      "extra": "Source passage 2 · answer&#58; Berlin<br>",
+      "tags": "cloze_orchard passage_2"
+    }
+  ],
+  "metrics": {
+    "sourcePassages": 2,
+    "candidateSpans": 6,
+    "keptSpans": 6,
+    "rejectedSpans": 0,
+    "generatedCards": 6,
+    "duplicateCardsAvoided": 0,
+    "passagesWithoutCards": 0
+  },
+  "warning": "Study draft, not a fact check. AI recognizes named entities, not educational importance. Choose the Cloze note type when importing TSV; all repeated exact answer occurrences are hidden together."
+}

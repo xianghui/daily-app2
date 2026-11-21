@@ -1,0 +1,269 @@
+{
+  "fixtures": [
+    {
+      "name": "Science notebook",
+      "actual": [
+        "Marie Curie",
+        "Paris",
+        "Albert Einstein",
+        "Princeton",
+        "Apple",
+        "California",
+        "Tim Cook",
+        "London"
+      ],
+      "expected": [
+        "Marie Curie",
+        "Paris",
+        "Albert Einstein",
+        "Princeton",
+        "Apple",
+        "California",
+        "Tim Cook",
+        "London"
+      ],
+      "result": {
+        "schema": "cloze-orchard/1",
+        "model": "Xenova/bert-base-NER q8",
+        "originalInput": "Marie Curie worked in Paris. Albert Einstein moved to Princeton.\n\nApple is based in California. Tim Cook visited London.",
+        "passages": [
+          {
+            "id": 1,
+            "text": "Marie Curie worked in Paris. Albert Einstein moved to Princeton.",
+            "offset": 0
+          },
+          {
+            "id": 2,
+            "text": "Apple is based in California. Tim Cook visited London.",
+            "offset": 66
+          }
+        ],
+        "reviews": {
+          "rows": [
+            {
+              "id": "e0",
+              "chunk": 0,
+              "start": 0,
+              "end": 11,
+              "answer": "Marie Curie",
+              "kind": "PER",
+              "origin": "neural BERT",
+              "decision": "keep",
+              "note": ""
+            },
+            {
+              "id": "e1",
+              "chunk": 0,
+              "start": 22,
+              "end": 27,
+              "answer": "Paris",
+              "kind": "LOC",
+              "origin": "neural BERT",
+              "decision": "keep",
+              "note": ""
+            },
+            {
+              "id": "e2",
+              "chunk": 0,
+              "start": 29,
+              "end": 44,
+              "answer": "Albert Einstein",
+              "kind": "PER",
+              "origin": "neural BERT",
+              "decision": "keep",
+              "note": ""
+            },
+            {
+              "id": "e3",
+              "chunk": 0,
+              "start": 54,
+              "end": 63,
+              "answer": "Princeton",
+              "kind": "LOC",
+              "origin": "neural BERT",
+              "decision": "keep",
+              "note": ""
+            },
+            {
+              "id": "e4",
+              "chunk": 1,
+              "start": 0,
+              "end": 5,
+              "answer": "Apple",
+              "kind": "ORG",
+              "origin": "neural BERT",
+              "decision": "keep",
+              "note": ""
+            },
+            {
+              "id": "e5",
+              "chunk": 1,
+              "start": 18,
+              "end": 28,
+              "answer": "California",
+              "kind": "LOC",
+              "origin": "neural BERT",
+              "decision": "keep",
+              "note": ""
+            },
+            {
+              "id": "e6",
+              "chunk": 1,
+              "start": 30,
+              "end": 38,
+              "answer": "Tim Cook",
+              "kind": "PER",
+              "origin": "neural BERT",
+              "decision": "keep",
+              "note": ""
+            },
+            {
+              "id": "e7",
+              "chunk": 1,
+              "start": 47,
+              "end": 53,
+              "answer": "London",
+              "kind": "LOC",
+              "origin": "neural BERT",
+              "decision": "keep",
+              "note": ""
+            }
+          ],
+          "reviewed": [
+            true,
+            true
+          ]
+        },
+        "limit": 20,
+        "cards": [
+          {
+            "id": "passage-1-card-1",
+            "passage": 1,
+            "answer": "Marie Curie",
+            "candidateIds": [
+              "e0"
+            ],
+            "maskedOccurrences": 1,
+            "text": "<div>{{c1::Marie Curie}} worked in Paris. Albert Einstein moved to Princeton.</div>",
+            "extra": "Source passage 1 · answer&#58; Marie Curie<br>",
+            "tags": "cloze_orchard passage_1"
+          },
+          {
+            "id": "passage-1-card-2",
+            "passage": 1,
+            "answer": "Paris",
+            "candidateIds": [
+              "e1"
+            ],
+            "maskedOccurrences": 1,
+            "text": "<div>Marie Curie worked in {{c1::Paris}}. Albert Einstein moved to Princeton.</div>",
+            "extra": "Source passage 1 · answer&#58; Paris<br>",
+            "tags": "cloze_orchard passage_1"
+          },
+          {
+            "id": "passage-1-card-3",
+            "passage": 1,
+            "answer": "Albert Einstein",
+            "candidateIds": [
+              "e2"
+            ],
+            "maskedOccurrences": 1,
+            "text": "<div>Marie Curie worked in Paris. {{c1::Albert Einstein}} moved to Princeton.</div>",
+            "extra": "Source passage 1 · answer&#58; Albert Einstein<br>",
+            "tags": "cloze_orchard passage_1"
+          },
+          {
+            "id": "passage-1-card-4",
+            "passage": 1,
+            "answer": "Princeton",
+            "candidateIds": [
+              "e3"
+            ],
+            "maskedOccurrences": 1,
+            "text": "<div>Marie Curie worked in Paris. Albert Einstein moved to {{c1::Princeton}}.</div>",
+            "extra": "Source passage 1 · answer&#58; Princeton<br>",
+            "tags": "cloze_orchard passage_1"
+          },
+          {
+            "id": "passage-2-card-5",
+            "passage": 2,
+            "answer": "Apple",
+            "candidateIds": [
+              "e4"
+            ],
+            "maskedOccurrences": 1,
+            "text": "<div>{{c1::Apple}} is based in California. Tim Cook visited London.</div>",
+            "extra": "Source passage 2 · answer&#58; Apple<br>",
+            "tags": "cloze_orchard passage_2"
+          },
+          {
+            "id": "passage-2-card-6",
+            "passage": 2,
+            "answer": "California",
+            "candidateIds": [
+              "e5"
+            ],
+            "maskedOccurrences": 1,
+            "text": "<div>Apple is based in {{c1::California}}. Tim Cook visited London.</div>",
+            "extra": "Source passage 2 · answer&#58; California<br>",
+            "tags": "cloze_orchard passage_2"
+          },
+          {
+            "id": "passage-2-card-7",
+            "passage": 2,
+            "answer": "Tim Cook",
+            "candidateIds": [
+              "e6"
+            ],
+            "maskedOccurrences": 1,
+            "text": "<div>Apple is based in California. {{c1::Tim Cook}} visited London.</div>",
+            "extra": "Source passage 2 · answer&#58; Tim Cook<br>",
+            "tags": "cloze_orchard passage_2"
+          },
+          {
+            "id": "passage-2-card-8",
+            "passage": 2,
+            "answer": "London",
+            "candidateIds": [
+              "e7"
+            ],
+            "maskedOccurrences": 1,
+            "text": "<div>Apple is based in California. Tim Cook visited {{c1::London}}.</div>",
+            "extra": "Source passage 2 · answer&#58; London<br>",
+            "tags": "cloze_orchard passage_2"
+          }
+        ],
+        "metrics": {
+          "sourcePassages": 2,
+          "candidateSpans": 8,
+          "keptSpans": 8,
+          "rejectedSpans": 0,
+          "generatedCards": 8,
+          "duplicateCardsAvoided": 0,
+          "passagesWithoutCards": 0
+        },
+        "warning": "Study draft, not a fact check. AI recognizes named entities, not educational importance. Choose the Cloze note type when importing TSV; all repeated exact answer occurrences are hidden together."
+      }
+    },
+    {
+      "name": "Newsroom notebook",
+      "actual": [
+        "Sarah",
+        "London",
+        "Microsoft",
+        "John Smith",
+        "Google",
+        "Berlin"
+      ],
+      "expected": [
+        "Sarah",
+        "London",
+        "Microsoft",
+        "John Smith",
+        "Google",
+        "Berlin"
+      ]
+    }
+  ],
+  "checks": []
+}

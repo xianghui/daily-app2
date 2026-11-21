@@ -1,0 +1,113 @@
+{
+  "schema": "cloze-orchard/1",
+  "model": "Xenova/bert-base-NER q8",
+  "originalInput": "Sarah lives in London. Sarah works for Microsoft.",
+  "passages": [
+    {
+      "id": 1,
+      "text": "Sarah lives in London. Sarah works for Microsoft.",
+      "offset": 0
+    }
+  ],
+  "reviews": {
+    "rows": [
+      {
+        "id": "e0",
+        "chunk": 0,
+        "start": 0,
+        "end": 5,
+        "answer": "Sarah",
+        "kind": "PER",
+        "origin": "neural BERT",
+        "decision": "keep",
+        "note": ""
+      },
+      {
+        "id": "e1",
+        "chunk": 0,
+        "start": 15,
+        "end": 21,
+        "answer": "London",
+        "kind": "LOC",
+        "origin": "neural BERT",
+        "decision": "keep",
+        "note": ""
+      },
+      {
+        "id": "e2",
+        "chunk": 0,
+        "start": 23,
+        "end": 28,
+        "answer": "Sarah",
+        "kind": "PER",
+        "origin": "neural BERT",
+        "decision": "keep",
+        "note": ""
+      },
+      {
+        "id": "e3",
+        "chunk": 0,
+        "start": 39,
+        "end": 48,
+        "answer": "Microsoft",
+        "kind": "ORG",
+        "origin": "neural BERT",
+        "decision": "keep",
+        "note": ""
+      }
+    ],
+    "reviewed": [
+      true
+    ]
+  },
+  "limit": 20,
+  "cards": [
+    {
+      "id": "passage-1-card-1",
+      "passage": 1,
+      "answer": "Sarah",
+      "candidateIds": [
+        "e0",
+        "e2"
+      ],
+      "maskedOccurrences": 2,
+      "text": "<div>{{c1::Sarah}} lives in London. {{c1::Sarah}} works for Microsoft.</div>",
+      "extra": "Source passage 1 · answer&#58; Sarah<br>",
+      "tags": "cloze_orchard passage_1"
+    },
+    {
+      "id": "passage-1-card-2",
+      "passage": 1,
+      "answer": "London",
+      "candidateIds": [
+        "e1"
+      ],
+      "maskedOccurrences": 1,
+      "text": "<div>Sarah lives in {{c1::London}}. Sarah works for Microsoft.</div>",
+      "extra": "Source passage 1 · answer&#58; London<br>",
+      "tags": "cloze_orchard passage_1"
+    },
+    {
+      "id": "passage-1-card-3",
+      "passage": 1,
+      "answer": "Microsoft",
+      "candidateIds": [
+        "e3"
+      ],
+      "maskedOccurrences": 1,
+      "text": "<div>Sarah lives in London. Sarah works for {{c1::Microsoft}}.</div>",
+      "extra": "Source passage 1 · answer&#58; Microsoft<br>",
+      "tags": "cloze_orchard passage_1"
+    }
+  ],
+  "metrics": {
+    "sourcePassages": 1,
+    "candidateSpans": 4,
+    "keptSpans": 4,
+    "rejectedSpans": 0,
+    "generatedCards": 3,
+    "duplicateCardsAvoided": 1,
+    "passagesWithoutCards": 0
+  },
+  "warning": "Study draft, not a fact check. AI recognizes named entities, not educational importance. Choose the Cloze note type when importing TSV; all repeated exact answer occurrences are hidden together."
+}

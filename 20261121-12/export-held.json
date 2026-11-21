@@ -1,0 +1,219 @@
+{
+  "schema": "prevalence-porch/v1",
+  "originalInput": {
+    "positive": "Reader says the software documentation example code fails, contains an error or produces the wrong result.",
+    "negative": "Reader asks for more tutorials, beginner explanations or additional documentation topics.",
+    "calibration": [
+      {
+        "id": "c1",
+        "text": "The sample Python code throws a syntax error when I run it.",
+        "truth": "positive"
+      },
+      {
+        "id": "c2",
+        "text": "Your example uses a function that does not exist in this version.",
+        "truth": "positive"
+      },
+      {
+        "id": "c3",
+        "text": "The documented query returns the wrong total.",
+        "truth": "positive"
+      },
+      {
+        "id": "c4",
+        "text": "Please add a beginner tutorial on authentication.",
+        "truth": "negative"
+      },
+      {
+        "id": "c5",
+        "text": "I would love more examples explaining database joins.",
+        "truth": "negative"
+      },
+      {
+        "id": "c6",
+        "text": "Could you write a step by step introduction for new users?",
+        "truth": "negative"
+      }
+    ],
+    "target": [
+      {
+        "id": "t1",
+        "text": "The tutorial snippet crashes with an undefined variable error."
+      },
+      {
+        "id": "t2",
+        "text": "Please publish a getting started walkthrough for beginners."
+      },
+      {
+        "id": "t3",
+        "text": "Could the guide explain deployment options in more detail?"
+      },
+      {
+        "id": "t4",
+        "text": "The code example calculates an incorrect answer."
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "c1",
+      "text": "The sample Python code throws a syntax error when I run it.",
+      "truth": "positive",
+      "cohort": "calibration",
+      "predicted": "positive",
+      "scores": [
+        0.5250205074551508,
+        0.10403900334328295
+      ],
+      "label": "negative",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "c2",
+      "text": "Your example uses a function that does not exist in this version.",
+      "truth": "positive",
+      "cohort": "calibration",
+      "predicted": "positive",
+      "scores": [
+        0.4145470900863708,
+        0.03463616054240106
+      ],
+      "label": "positive",
+      "decision": "hold",
+      "note": ""
+    },
+    {
+      "id": "c3",
+      "text": "The documented query returns the wrong total.",
+      "truth": "positive",
+      "cohort": "calibration",
+      "predicted": "positive",
+      "scores": [
+        0.3166123850001201,
+        0.03279141022369539
+      ],
+      "label": "positive",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "c4",
+      "text": "Please add a beginner tutorial on authentication.",
+      "truth": "negative",
+      "cohort": "calibration",
+      "predicted": "negative",
+      "scores": [
+        0.14253732804120378,
+        0.4270240799923649
+      ],
+      "label": "negative",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "c5",
+      "text": "I would love more examples explaining database joins.",
+      "truth": "negative",
+      "cohort": "calibration",
+      "predicted": "negative",
+      "scores": [
+        0.09599667182771304,
+        0.21675755743628008
+      ],
+      "label": "negative",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "c6",
+      "text": "Could you write a step by step introduction for new users?",
+      "truth": "negative",
+      "cohort": "calibration",
+      "predicted": "negative",
+      "scores": [
+        0.19363114084969021,
+        0.5909037812701061
+      ],
+      "label": "negative",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "t1",
+      "text": "The tutorial snippet crashes with an undefined variable error.",
+      "cohort": "target",
+      "predicted": "positive",
+      "scores": [
+        0.3875159488162314,
+        0.2907944905242497
+      ],
+      "label": "negative",
+      "decision": "approve",
+      "note": "=SUM(1,2)\n\"owner\", recheck"
+    },
+    {
+      "id": "t2",
+      "text": "Please publish a getting started walkthrough for beginners.",
+      "cohort": "target",
+      "predicted": "negative",
+      "scores": [
+        0.18131861990507417,
+        0.542695191952155
+      ],
+      "label": "negative",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "t3",
+      "text": "Could the guide explain deployment options in more detail?",
+      "cohort": "target",
+      "predicted": "negative",
+      "scores": [
+        0.10086609276987483,
+        0.382463715203223
+      ],
+      "label": "negative",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "t4",
+      "text": "The code example calculates an incorrect answer.",
+      "cohort": "target",
+      "predicted": "positive",
+      "scores": [
+        0.4793274887609589,
+        0.10316262657620937
+      ],
+      "label": "positive",
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "total": 10,
+  "held": 1,
+  "approved": 9,
+  "confusion": {
+    "tp": 1,
+    "fn": 0,
+    "tn": 3,
+    "fp": 1
+  },
+  "raw": 0.5,
+  "reviewed": 0.25,
+  "reviewedTargetCount": 4,
+  "targetCount": 4,
+  "correction": {
+    "sensitivity": 1,
+    "specificity": 0.75,
+    "denominator": 0.75,
+    "estimate": null,
+    "reason": ""
+  },
+  "assumptionConfirmed": true,
+  "blocked": "Held records make the cohort incomplete. Estimate blocked; full audit retained.",
+  "changedLabels": 2,
+  "warning": "Descriptive point estimates, not confidence or accuracy claims. Small or nonrepresentative calibration can make adjustment misleading. No clinical, individual-risk or automatic routing decisions. Corrected target labels are used only in the reviewed share, never fed back into the raw AI calibration estimator."
+}

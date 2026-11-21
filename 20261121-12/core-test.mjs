@@ -1,0 +1,5 @@
+import a from 'node:assert/strict';import fs from 'node:fs';import{adjust,parse,examples,suggest,analyze}from './src/core.js';
+a.equal(adjust(3,1,3,1,.5).estimate,.5);a.equal(adjust(0,0,3,1,.5).estimate,null);a.equal(adjust(1,1,1,1,.5).estimate,null);a.equal(adjust(4,0,3,1,0).estimate,null);a(Math.abs(adjust(3,1,3,1,.4).estimate-.3)<1e-12);
+for(const d of examples.map(e=>e.data)){a.deepEqual(parse(JSON.stringify(d)),d);for(const v of[null,[],[[NaN]],Array(12).fill(Array(384).fill(0))])a.throws(()=>suggest(d,v));}
+for(const s of['','null','[]','{}','x'.repeat(60001),JSON.stringify({...examples[0].data,target:[]}),JSON.stringify({...examples[0].data,calibration:[{id:'c1',text:'x',truth:'unknown'}]})])a.throws(()=>parse(s));
+fs.writeFileSync('core-validation.json',JSON.stringify({checks:'Known Rogan–Gladen cases: .5, .3; missing class, weak denominator, incompatible rate blocked; malformed inputs/vectors rejected',passed:true},null,2));console.log('PASS known calibration arithmetic and schemas');

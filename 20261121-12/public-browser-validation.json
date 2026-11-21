@@ -1,0 +1,618 @@
+{
+  "fixtures": [
+    {
+      "name": "Delivery feedback",
+      "actual": [
+        "AI prediction: positive",
+        "AI prediction: positive",
+        "AI prediction: positive",
+        "AI prediction: negative",
+        "AI prediction: negative",
+        "AI prediction: negative",
+        "AI prediction: positive",
+        "AI prediction: negative",
+        "AI prediction: positive",
+        "AI prediction: negative"
+      ],
+      "expected": [
+        "positive",
+        "positive",
+        "positive",
+        "negative",
+        "negative",
+        "negative",
+        "positive",
+        "negative",
+        "positive",
+        "negative"
+      ],
+      "result": {
+        "schema": "prevalence-porch/v1",
+        "originalInput": {
+          "positive": "Customer reports a damaged, broken or defective delivered product.",
+          "negative": "Customer asks about shipping, tracking or delivery timing of an undamaged order.",
+          "calibration": [
+            {
+              "id": "c1",
+              "text": "The ceramic mug arrived shattered into pieces.",
+              "truth": "positive"
+            },
+            {
+              "id": "c2",
+              "text": "My new lamp does not turn on and the switch is broken.",
+              "truth": "positive"
+            },
+            {
+              "id": "c3",
+              "text": "The delivered plate has a crack across the middle.",
+              "truth": "positive"
+            },
+            {
+              "id": "c4",
+              "text": "Tracking says delivered but nothing is here.",
+              "truth": "negative"
+            },
+            {
+              "id": "c5",
+              "text": "When will my parcel arrive? Please send a tracking link.",
+              "truth": "negative"
+            },
+            {
+              "id": "c6",
+              "text": "The courier is three days late with my shipment.",
+              "truth": "negative"
+            }
+          ],
+          "target": [
+            {
+              "id": "t1",
+              "text": "The vase arrived smashed and unusable."
+            },
+            {
+              "id": "t2",
+              "text": "Can you tell me when my package will be delivered?"
+            },
+            {
+              "id": "t3",
+              "text": "The delivered headphones are defective and will not power on."
+            },
+            {
+              "id": "t4",
+              "text": "Where can I track my shipment?"
+            }
+          ]
+        },
+        "reviews": [
+          {
+            "id": "c1",
+            "text": "The ceramic mug arrived shattered into pieces.",
+            "truth": "positive",
+            "cohort": "calibration",
+            "predicted": "positive",
+            "scores": [
+              0.3390041492327317,
+              0.17726795926024083
+            ],
+            "label": "positive",
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "c2",
+            "text": "My new lamp does not turn on and the switch is broken.",
+            "truth": "positive",
+            "cohort": "calibration",
+            "predicted": "positive",
+            "scores": [
+              0.28921350328732254,
+              0.05371450127362165
+            ],
+            "label": "positive",
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "c3",
+            "text": "The delivered plate has a crack across the middle.",
+            "truth": "positive",
+            "cohort": "calibration",
+            "predicted": "positive",
+            "scores": [
+              0.46315038299697897,
+              0.300748436691921
+            ],
+            "label": "positive",
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "c4",
+            "text": "Tracking says delivered but nothing is here.",
+            "truth": "negative",
+            "cohort": "calibration",
+            "predicted": "negative",
+            "scores": [
+              0.41072928129855746,
+              0.5510651840476888
+            ],
+            "label": "negative",
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "c5",
+            "text": "When will my parcel arrive? Please send a tracking link.",
+            "truth": "negative",
+            "cohort": "calibration",
+            "predicted": "negative",
+            "scores": [
+              0.2506160570452864,
+              0.5265539838263656
+            ],
+            "label": "negative",
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "c6",
+            "text": "The courier is three days late with my shipment.",
+            "truth": "negative",
+            "cohort": "calibration",
+            "predicted": "negative",
+            "scores": [
+              0.25073672831888844,
+              0.4720010858239337
+            ],
+            "label": "negative",
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "t1",
+            "text": "The vase arrived smashed and unusable.",
+            "cohort": "target",
+            "predicted": "positive",
+            "scores": [
+              0.375849367478424,
+              0.23900882048049568
+            ],
+            "label": "positive",
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "t2",
+            "text": "Can you tell me when my package will be delivered?",
+            "cohort": "target",
+            "predicted": "negative",
+            "scores": [
+              0.2650162920510385,
+              0.44507253908297817
+            ],
+            "label": "negative",
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "t3",
+            "text": "The delivered headphones are defective and will not power on.",
+            "cohort": "target",
+            "predicted": "positive",
+            "scores": [
+              0.38418513427231055,
+              0.28439802701523054
+            ],
+            "label": "positive",
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "t4",
+            "text": "Where can I track my shipment?",
+            "cohort": "target",
+            "predicted": "negative",
+            "scores": [
+              0.3017790880470466,
+              0.4980499269881869
+            ],
+            "label": "negative",
+            "decision": "approve",
+            "note": ""
+          }
+        ],
+        "total": 10,
+        "held": 0,
+        "approved": 10,
+        "confusion": {
+          "tp": 3,
+          "fn": 0,
+          "tn": 3,
+          "fp": 0
+        },
+        "raw": 0.5,
+        "reviewed": 0.5,
+        "reviewedTargetCount": 4,
+        "targetCount": 4,
+        "correction": {
+          "sensitivity": 1,
+          "specificity": 1,
+          "denominator": 1,
+          "estimate": 0.5,
+          "reason": ""
+        },
+        "assumptionConfirmed": true,
+        "blocked": "",
+        "changedLabels": 0,
+        "warning": "Descriptive point estimates, not confidence or accuracy claims. Small or nonrepresentative calibration can make adjustment misleading. No clinical, individual-risk or automatic routing decisions. Corrected target labels are used only in the reviewed share, never fed back into the raw AI calibration estimator."
+      }
+    },
+    {
+      "name": "Documentation feedback",
+      "actual": [
+        "AI prediction: positive",
+        "AI prediction: positive",
+        "AI prediction: positive",
+        "AI prediction: negative",
+        "AI prediction: negative",
+        "AI prediction: negative",
+        "AI prediction: positive",
+        "AI prediction: negative",
+        "AI prediction: negative",
+        "AI prediction: positive"
+      ],
+      "expected": [
+        "positive",
+        "positive",
+        "positive",
+        "negative",
+        "negative",
+        "negative",
+        "positive",
+        "negative",
+        "negative",
+        "positive"
+      ],
+      "result": {
+        "schema": "prevalence-porch/v1",
+        "originalInput": {
+          "positive": "Reader says the software documentation example code fails, contains an error or produces the wrong result.",
+          "negative": "Reader asks for more tutorials, beginner explanations or additional documentation topics.",
+          "calibration": [
+            {
+              "id": "c1",
+              "text": "The sample Python code throws a syntax error when I run it.",
+              "truth": "positive"
+            },
+            {
+              "id": "c2",
+              "text": "Your example uses a function that does not exist in this version.",
+              "truth": "positive"
+            },
+            {
+              "id": "c3",
+              "text": "The documented query returns the wrong total.",
+              "truth": "positive"
+            },
+            {
+              "id": "c4",
+              "text": "Please add a beginner tutorial on authentication.",
+              "truth": "negative"
+            },
+            {
+              "id": "c5",
+              "text": "I would love more examples explaining database joins.",
+              "truth": "negative"
+            },
+            {
+              "id": "c6",
+              "text": "Could you write a step by step introduction for new users?",
+              "truth": "negative"
+            }
+          ],
+          "target": [
+            {
+              "id": "t1",
+              "text": "The tutorial snippet crashes with an undefined variable error."
+            },
+            {
+              "id": "t2",
+              "text": "Please publish a getting started walkthrough for beginners."
+            },
+            {
+              "id": "t3",
+              "text": "Could the guide explain deployment options in more detail?"
+            },
+            {
+              "id": "t4",
+              "text": "The code example calculates an incorrect answer."
+            }
+          ]
+        },
+        "reviews": [
+          {
+            "id": "c1",
+            "text": "The sample Python code throws a syntax error when I run it.",
+            "truth": "positive",
+            "cohort": "calibration",
+            "predicted": "positive",
+            "scores": [
+              0.5250205074551508,
+              0.10403900334328295
+            ],
+            "label": "positive",
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "c2",
+            "text": "Your example uses a function that does not exist in this version.",
+            "truth": "positive",
+            "cohort": "calibration",
+            "predicted": "positive",
+            "scores": [
+              0.4145470900863708,
+              0.03463616054240106
+            ],
+            "label": "positive",
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "c3",
+            "text": "The documented query returns the wrong total.",
+            "truth": "positive",
+            "cohort": "calibration",
+            "predicted": "positive",
+            "scores": [
+              0.3166123850001201,
+              0.03279141022369539
+            ],
+            "label": "positive",
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "c4",
+            "text": "Please add a beginner tutorial on authentication.",
+            "truth": "negative",
+            "cohort": "calibration",
+            "predicted": "negative",
+            "scores": [
+              0.14253732804120378,
+              0.4270240799923649
+            ],
+            "label": "negative",
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "c5",
+            "text": "I would love more examples explaining database joins.",
+            "truth": "negative",
+            "cohort": "calibration",
+            "predicted": "negative",
+            "scores": [
+              0.09599667182771304,
+              0.21675755743628008
+            ],
+            "label": "negative",
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "c6",
+            "text": "Could you write a step by step introduction for new users?",
+            "truth": "negative",
+            "cohort": "calibration",
+            "predicted": "negative",
+            "scores": [
+              0.19363114084969021,
+              0.5909037812701061
+            ],
+            "label": "negative",
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "t1",
+            "text": "The tutorial snippet crashes with an undefined variable error.",
+            "cohort": "target",
+            "predicted": "positive",
+            "scores": [
+              0.3875159488162314,
+              0.2907944905242497
+            ],
+            "label": "positive",
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "t2",
+            "text": "Please publish a getting started walkthrough for beginners.",
+            "cohort": "target",
+            "predicted": "negative",
+            "scores": [
+              0.18131861990507417,
+              0.542695191952155
+            ],
+            "label": "negative",
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "t3",
+            "text": "Could the guide explain deployment options in more detail?",
+            "cohort": "target",
+            "predicted": "negative",
+            "scores": [
+              0.10086609276987483,
+              0.382463715203223
+            ],
+            "label": "negative",
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "t4",
+            "text": "The code example calculates an incorrect answer.",
+            "cohort": "target",
+            "predicted": "positive",
+            "scores": [
+              0.4793274887609589,
+              0.10316262657620937
+            ],
+            "label": "positive",
+            "decision": "approve",
+            "note": ""
+          }
+        ],
+        "total": 10,
+        "held": 0,
+        "approved": 10,
+        "confusion": {
+          "tp": 3,
+          "fn": 0,
+          "tn": 3,
+          "fp": 0
+        },
+        "raw": 0.5,
+        "reviewed": 0.5,
+        "reviewedTargetCount": 4,
+        "targetCount": 4,
+        "correction": {
+          "sensitivity": 1,
+          "specificity": 1,
+          "denominator": 1,
+          "estimate": 0.5,
+          "reason": ""
+        },
+        "assumptionConfirmed": true,
+        "blocked": "",
+        "changedLabels": 0,
+        "warning": "Descriptive point estimates, not confidence or accuracy claims. Small or nonrepresentative calibration can make adjustment misleading. No clinical, individual-risk or automatic routing decisions. Corrected target labels are used only in the reviewed share, never fed back into the raw AI calibration estimator."
+      }
+    }
+  ],
+  "checks": [
+    "fully offline fresh-worker real inference in warmed page",
+    "maximum 32+32 records / 66 texts / 17 chunks conserved; audit reimport",
+    "cancel and real retry"
+  ],
+  "privacy": {
+    "externalRequests": 14,
+    "onlyGetNoBodies": true,
+    "hosts": [
+      "huggingface.co",
+      "us.aws.cdn.hf.co"
+    ],
+    "noModelRequestsBeforeRun": true,
+    "requests": [
+      {
+        "host": "huggingface.co",
+        "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "queryKeys": []
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+        "queryKeys": [
+          "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+          "etag"
+        ]
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "queryKeys": []
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+        "queryKeys": [
+          "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+          "etag"
+        ]
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+        "queryKeys": []
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "queryKeys": []
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+        "queryKeys": [
+          "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+          "etag"
+        ]
+      },
+      {
+        "host": "us.aws.cdn.hf.co",
+        "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+        "queryKeys": [
+          "user_id",
+          "xip",
+          "X-Xet-Cas-Uid",
+          "response-content-disposition",
+          "Expires",
+          "Policy",
+          "Signature",
+          "Key-Pair-Id",
+          "Hash-Algorithm"
+        ]
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "queryKeys": []
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "queryKeys": []
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+        "queryKeys": []
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+        "queryKeys": [
+          "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+          "etag"
+        ]
+      },
+      {
+        "host": "huggingface.co",
+        "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+        "queryKeys": [
+          "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+          "etag"
+        ]
+      },
+      {
+        "host": "us.aws.cdn.hf.co",
+        "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+        "queryKeys": [
+          "response-content-disposition",
+          "user_id",
+          "X-Xet-Cas-Uid",
+          "xip",
+          "Expires",
+          "Policy",
+          "Signature",
+          "Key-Pair-Id",
+          "Hash-Algorithm"
+        ]
+      }
+    ]
+  },
+  "errors": []
+}

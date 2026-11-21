@@ -1,0 +1,278 @@
+{
+  "fixtures": [
+    {
+      "name": "Delivery feedback",
+      "actual": [
+        "AI prediction: positive",
+        "AI prediction: positive",
+        "AI prediction: positive",
+        "AI prediction: negative",
+        "AI prediction: negative",
+        "AI prediction: negative",
+        "AI prediction: positive",
+        "AI prediction: negative",
+        "AI prediction: positive",
+        "AI prediction: negative"
+      ],
+      "expected": [
+        "positive",
+        "positive",
+        "positive",
+        "negative",
+        "negative",
+        "negative",
+        "positive",
+        "negative",
+        "positive",
+        "negative"
+      ],
+      "result": {
+        "schema": "prevalence-porch/v1",
+        "originalInput": {
+          "positive": "Customer reports a damaged, broken or defective delivered product.",
+          "negative": "Customer asks about shipping, tracking or delivery timing of an undamaged order.",
+          "calibration": [
+            {
+              "id": "c1",
+              "text": "The ceramic mug arrived shattered into pieces.",
+              "truth": "positive"
+            },
+            {
+              "id": "c2",
+              "text": "My new lamp does not turn on and the switch is broken.",
+              "truth": "positive"
+            },
+            {
+              "id": "c3",
+              "text": "The delivered plate has a crack across the middle.",
+              "truth": "positive"
+            },
+            {
+              "id": "c4",
+              "text": "Tracking says delivered but nothing is here.",
+              "truth": "negative"
+            },
+            {
+              "id": "c5",
+              "text": "When will my parcel arrive? Please send a tracking link.",
+              "truth": "negative"
+            },
+            {
+              "id": "c6",
+              "text": "The courier is three days late with my shipment.",
+              "truth": "negative"
+            }
+          ],
+          "target": [
+            {
+              "id": "t1",
+              "text": "The vase arrived smashed and unusable."
+            },
+            {
+              "id": "t2",
+              "text": "Can you tell me when my package will be delivered?"
+            },
+            {
+              "id": "t3",
+              "text": "The delivered headphones are defective and will not power on."
+            },
+            {
+              "id": "t4",
+              "text": "Where can I track my shipment?"
+            }
+          ]
+        },
+        "reviews": [
+          {
+            "id": "c1",
+            "text": "The ceramic mug arrived shattered into pieces.",
+            "truth": "positive",
+            "cohort": "calibration",
+            "predicted": "positive",
+            "scores": [
+              0.3390041492327317,
+              0.17726795926024083
+            ],
+            "label": "positive",
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "c2",
+            "text": "My new lamp does not turn on and the switch is broken.",
+            "truth": "positive",
+            "cohort": "calibration",
+            "predicted": "positive",
+            "scores": [
+              0.28921350328732254,
+              0.05371450127362165
+            ],
+            "label": "positive",
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "c3",
+            "text": "The delivered plate has a crack across the middle.",
+            "truth": "positive",
+            "cohort": "calibration",
+            "predicted": "positive",
+            "scores": [
+              0.46315038299697897,
+              0.300748436691921
+            ],
+            "label": "positive",
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "c4",
+            "text": "Tracking says delivered but nothing is here.",
+            "truth": "negative",
+            "cohort": "calibration",
+            "predicted": "negative",
+            "scores": [
+              0.41072928129855746,
+              0.5510651840476888
+            ],
+            "label": "negative",
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "c5",
+            "text": "When will my parcel arrive? Please send a tracking link.",
+            "truth": "negative",
+            "cohort": "calibration",
+            "predicted": "negative",
+            "scores": [
+              0.2506160570452864,
+              0.5265539838263656
+            ],
+            "label": "negative",
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "c6",
+            "text": "The courier is three days late with my shipment.",
+            "truth": "negative",
+            "cohort": "calibration",
+            "predicted": "negative",
+            "scores": [
+              0.25073672831888844,
+              0.4720010858239337
+            ],
+            "label": "negative",
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "t1",
+            "text": "The vase arrived smashed and unusable.",
+            "cohort": "target",
+            "predicted": "positive",
+            "scores": [
+              0.375849367478424,
+              0.23900882048049568
+            ],
+            "label": "positive",
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "t2",
+            "text": "Can you tell me when my package will be delivered?",
+            "cohort": "target",
+            "predicted": "negative",
+            "scores": [
+              0.2650162920510385,
+              0.44507253908297817
+            ],
+            "label": "negative",
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "t3",
+            "text": "The delivered headphones are defective and will not power on.",
+            "cohort": "target",
+            "predicted": "positive",
+            "scores": [
+              0.38418513427231055,
+              0.28439802701523054
+            ],
+            "label": "positive",
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "t4",
+            "text": "Where can I track my shipment?",
+            "cohort": "target",
+            "predicted": "negative",
+            "scores": [
+              0.3017790880470466,
+              0.4980499269881869
+            ],
+            "label": "negative",
+            "decision": "approve",
+            "note": ""
+          }
+        ],
+        "total": 10,
+        "held": 0,
+        "approved": 10,
+        "confusion": {
+          "tp": 3,
+          "fn": 0,
+          "tn": 3,
+          "fp": 0
+        },
+        "raw": 0.5,
+        "reviewed": 0.5,
+        "reviewedTargetCount": 4,
+        "targetCount": 4,
+        "correction": {
+          "sensitivity": 1,
+          "specificity": 1,
+          "denominator": 1,
+          "estimate": 0.5,
+          "reason": ""
+        },
+        "assumptionConfirmed": true,
+        "blocked": "",
+        "changedLabels": 0,
+        "warning": "Descriptive point estimates, not confidence or accuracy claims. Small or nonrepresentative calibration can make adjustment misleading. No clinical, individual-risk or automatic routing decisions. Corrected target labels are used only in the reviewed share, never fed back into the raw AI calibration estimator."
+      }
+    },
+    {
+      "name": "Documentation feedback",
+      "actual": [
+        "AI prediction: positive",
+        "AI prediction: positive",
+        "AI prediction: positive",
+        "AI prediction: negative",
+        "AI prediction: negative",
+        "AI prediction: negative",
+        "AI prediction: positive",
+        "AI prediction: negative",
+        "AI prediction: negative",
+        "AI prediction: positive"
+      ],
+      "expected": [
+        "positive",
+        "positive",
+        "positive",
+        "negative",
+        "negative",
+        "negative",
+        "positive",
+        "negative",
+        "negative",
+        "positive"
+      ]
+    }
+  ],
+  "checks": []
+}

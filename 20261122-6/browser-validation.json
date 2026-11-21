@@ -1,0 +1,720 @@
+{
+  "fixtures": [
+    {
+      "name": "Editorial desk",
+      "actual": [
+        "draft",
+        "review",
+        "draft",
+        "draft",
+        "review",
+        "published"
+      ],
+      "expected": [
+        "draft",
+        "review",
+        "review",
+        "draft",
+        "review",
+        "published"
+      ],
+      "correct": 5,
+      "analysis": {
+        "status": "ready",
+        "expectedHandoffs": 3.3333333333333335,
+        "onePassBaseline": 2,
+        "extraExpected": 1.3333333333333335,
+        "outcomes": [
+          {
+            "id": "published",
+            "probability": 1
+          }
+        ],
+        "visits": [
+          {
+            "id": "draft",
+            "expectedVisits": 1.6666666666666667,
+            "reachable": true
+          },
+          {
+            "id": "review",
+            "expectedVisits": 1.6666666666666667,
+            "reachable": true
+          }
+        ],
+        "edges": [
+          {
+            "index": 0,
+            "from": "draft",
+            "to": "review",
+            "aiFrom": "draft",
+            "aiTo": "review",
+            "fromEvidence": [
+              {
+                "id": "draft",
+                "score": 0.8141312691662914
+              },
+              {
+                "id": "published",
+                "score": 0.5328036185216511
+              },
+              {
+                "id": "review",
+                "score": 0.5326587777069793
+              }
+            ],
+            "toEvidence": [
+              {
+                "id": "review",
+                "score": 0.866468085930659
+              },
+              {
+                "id": "draft",
+                "score": 0.4531275873943299
+              },
+              {
+                "id": "published",
+                "score": 0.36238684721492254
+              }
+            ],
+            "count": 100,
+            "decision": "approve",
+            "note": "",
+            "probability": 1
+          },
+          {
+            "index": 1,
+            "from": "review",
+            "to": "draft",
+            "aiFrom": "draft",
+            "aiTo": "draft",
+            "fromEvidence": [
+              {
+                "id": "draft",
+                "score": 0.5464148266884138
+              },
+              {
+                "id": "review",
+                "score": 0.43052927773278166
+              },
+              {
+                "id": "published",
+                "score": 0.22788534409996736
+              }
+            ],
+            "toEvidence": [
+              {
+                "id": "draft",
+                "score": 0.6788978175274434
+              },
+              {
+                "id": "review",
+                "score": 0.46084500890625946
+              },
+              {
+                "id": "published",
+                "score": 0.45430183448651534
+              }
+            ],
+            "count": 40,
+            "decision": "approve",
+            "note": "",
+            "probability": 0.4
+          },
+          {
+            "index": 2,
+            "from": "review",
+            "to": "published",
+            "aiFrom": "review",
+            "aiTo": "published",
+            "fromEvidence": [
+              {
+                "id": "review",
+                "score": 0.7331062112872704
+              },
+              {
+                "id": "published",
+                "score": 0.43222801119049176
+              },
+              {
+                "id": "draft",
+                "score": 0.39493463750006996
+              }
+            ],
+            "toEvidence": [
+              {
+                "id": "published",
+                "score": 0.8828592420382237
+              },
+              {
+                "id": "review",
+                "score": 0.5002544848400845
+              },
+              {
+                "id": "draft",
+                "score": 0.4010785162996888
+              }
+            ],
+            "count": 60,
+            "decision": "approve",
+            "note": "",
+            "probability": 0.6
+          }
+        ],
+        "residual": 0,
+        "sourceRows": 3,
+        "originalCount": 200,
+        "reviewedCount": 200
+      }
+    },
+    {
+      "name": "Repair bench",
+      "actual": [
+        "inspect",
+        "repair",
+        "inspect",
+        "retired",
+        "repair",
+        "inspect",
+        "repair",
+        "done"
+      ],
+      "expected": [
+        "inspect",
+        "repair",
+        "inspect",
+        "retired",
+        "repair",
+        "inspect",
+        "repair",
+        "done"
+      ],
+      "correct": 8,
+      "analysis": {
+        "status": "ready",
+        "expectedHandoffs": 2.25,
+        "onePassBaseline": 2,
+        "extraExpected": 0.25,
+        "outcomes": [
+          {
+            "id": "done",
+            "probability": 0.75
+          },
+          {
+            "id": "retired",
+            "probability": 0.25
+          }
+        ],
+        "visits": [
+          {
+            "id": "inspect",
+            "expectedVisits": 1.25,
+            "reachable": true
+          },
+          {
+            "id": "repair",
+            "expectedVisits": 1,
+            "reachable": true
+          }
+        ],
+        "edges": [
+          {
+            "index": 0,
+            "from": "inspect",
+            "to": "repair",
+            "aiFrom": "inspect",
+            "aiTo": "repair",
+            "fromEvidence": [
+              {
+                "id": "inspect",
+                "score": 0.9627880591911945
+              },
+              {
+                "id": "repair",
+                "score": 0.7664486611593612
+              },
+              {
+                "id": "done",
+                "score": 0.6090120292999982
+              },
+              {
+                "id": "retired",
+                "score": 0.5610414150506815
+              }
+            ],
+            "toEvidence": [
+              {
+                "id": "repair",
+                "score": 0.7548477653928755
+              },
+              {
+                "id": "inspect",
+                "score": 0.41798161938244793
+              },
+              {
+                "id": "done",
+                "score": 0.39151504424032624
+              },
+              {
+                "id": "retired",
+                "score": 0.16693607134375618
+              }
+            ],
+            "count": 80,
+            "decision": "approve",
+            "note": "",
+            "probability": 0.8
+          },
+          {
+            "index": 1,
+            "from": "inspect",
+            "to": "retired",
+            "aiFrom": "inspect",
+            "aiTo": "retired",
+            "fromEvidence": [
+              {
+                "id": "inspect",
+                "score": 0.688580284493582
+              },
+              {
+                "id": "done",
+                "score": 0.5488079061468519
+              },
+              {
+                "id": "repair",
+                "score": 0.46369812356129836
+              },
+              {
+                "id": "retired",
+                "score": 0.4268286023791339
+              }
+            ],
+            "toEvidence": [
+              {
+                "id": "retired",
+                "score": 0.5615956117743144
+              },
+              {
+                "id": "repair",
+                "score": 0.05211608500257331
+              },
+              {
+                "id": "inspect",
+                "score": 0.011004987236073873
+              },
+              {
+                "id": "done",
+                "score": -0.016859735803171984
+              }
+            ],
+            "count": 20,
+            "decision": "approve",
+            "note": "",
+            "probability": 0.2
+          },
+          {
+            "index": 2,
+            "from": "repair",
+            "to": "inspect",
+            "aiFrom": "repair",
+            "aiTo": "inspect",
+            "fromEvidence": [
+              {
+                "id": "repair",
+                "score": 0.797190688913585
+              },
+              {
+                "id": "inspect",
+                "score": 0.7842072626195353
+              },
+              {
+                "id": "done",
+                "score": 0.6431172745387063
+              },
+              {
+                "id": "retired",
+                "score": 0.4532724992982738
+              }
+            ],
+            "toEvidence": [
+              {
+                "id": "inspect",
+                "score": 0.7756784997256545
+              },
+              {
+                "id": "done",
+                "score": 0.5943920568799562
+              },
+              {
+                "id": "retired",
+                "score": 0.5694580062495571
+              },
+              {
+                "id": "repair",
+                "score": 0.5271241666289574
+              }
+            ],
+            "count": 25,
+            "decision": "approve",
+            "note": "",
+            "probability": 0.25
+          },
+          {
+            "index": 3,
+            "from": "repair",
+            "to": "done",
+            "aiFrom": "repair",
+            "aiTo": "done",
+            "fromEvidence": [
+              {
+                "id": "repair",
+                "score": 0.7156432721465664
+              },
+              {
+                "id": "inspect",
+                "score": 0.5346276703948929
+              },
+              {
+                "id": "done",
+                "score": 0.3750807899301403
+              },
+              {
+                "id": "retired",
+                "score": 0.33999521849578107
+              }
+            ],
+            "toEvidence": [
+              {
+                "id": "done",
+                "score": 0.8124667532119129
+              },
+              {
+                "id": "repair",
+                "score": 0.4259757048301459
+              },
+              {
+                "id": "inspect",
+                "score": 0.39535908791260166
+              },
+              {
+                "id": "retired",
+                "score": 0.22292645901020602
+              }
+            ],
+            "count": 75,
+            "decision": "approve",
+            "note": "",
+            "probability": 0.75
+          }
+        ],
+        "residual": 0,
+        "sourceRows": 4,
+        "originalCount": 200,
+        "reviewedCount": 200
+      }
+    }
+  ],
+  "checks": [
+    "Fresh worker real inference fully offline in warmed open page",
+    "Maximum 40 handoffs, 83 real embeddings across 21 chunks, lossless envelope reimport",
+    "Cancel then real retry",
+    "Review, undo, export invalidation, actual downloads/copy, holds, invalid inputs, accessible labels/focus/touch, desktop/390/320 no overflow, GET-only downloads, no source content in URLs, no model request before explicit run"
+  ],
+  "requests": [
+    {
+      "host": "127.0.0.1:7226",
+      "path": "/daily-app2/20261122-6/",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7226",
+      "path": "/daily-app2/20261122-6/assets/index-BdBYvKYd.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7226",
+      "path": "/daily-app2/20261122-6/assets/index-DfxWPbsF.css",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7226",
+      "path": "/daily-app2/20261122-6/favicon.svg",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7226",
+      "path": "/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7226/d0ce93c2-3271-48d4-9838-4cc024b43e39",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7226",
+      "path": "/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7226",
+      "path": "/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "X-Xet-Cas-Uid",
+        "user_id",
+        "xip",
+        "response-content-disposition",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "X-Xet-Cas-Uid",
+        "user_id",
+        "response-content-disposition",
+        "xip",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7226/8d508cf2-0be7-498b-923e-6d53446772e3",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7226/81144fcc-c755-4727-953a-b4d3ad8d7ae9",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7226/57879b68-5ad1-4fd5-85ca-33030d48030f",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7226/5902656e-59b0-4b81-9a7e-a0de68eebd4f",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7226/e040e237-f314-4b0d-81e9-a1f2aa7792d6",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7226/6ce76429-9ba0-4266-ac79-9616c7a8b064",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7226/ca787610-6be1-45d9-8008-e0f9708fbbda",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7226/cdad3b75-e68b-467c-a3b3-184c27d7d3ee",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7226/5cf45301-76e5-4811-b678-1a927329e048",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7226/c96015b0-a2d7-45e3-bb94-02be648c954a",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7226/0939404d-20ef-4c47-9673-c54213ed798d",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7226/4f161f07-d261-44ee-98fe-e49315848fcb",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7226/48f9d3e9-b2b4-4a9e-93e3-435c664b2d65",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7226/12e7f696-e86f-479c-9c2b-2329931044dd",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7226/0616a994-01d8-4529-bc1d-54d83b89ef4b",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,146 @@
+{
+  "checks": "Known answers, geometric mean, visits identity, conservation, closed-loop/terminal/missing-review/count/vector/schema bounds",
+  "results": [
+    {
+      "status": "ready",
+      "expectedHandoffs": 3.3333333333333335,
+      "onePassBaseline": 2,
+      "extraExpected": 1.3333333333333335,
+      "outcomes": [
+        {
+          "id": "published",
+          "probability": 1
+        }
+      ],
+      "visits": [
+        {
+          "id": "draft",
+          "expectedVisits": 1.6666666666666667,
+          "reachable": true
+        },
+        {
+          "id": "review",
+          "expectedVisits": 1.6666666666666667,
+          "reachable": true
+        }
+      ],
+      "edges": [
+        {
+          "index": 0,
+          "from": "draft",
+          "to": "review",
+          "aiFrom": "draft",
+          "aiTo": "review",
+          "count": 100,
+          "decision": "approve",
+          "note": "",
+          "probability": 1
+        },
+        {
+          "index": 1,
+          "from": "review",
+          "to": "draft",
+          "aiFrom": "review",
+          "aiTo": "draft",
+          "count": 40,
+          "decision": "approve",
+          "note": "",
+          "probability": 0.4
+        },
+        {
+          "index": 2,
+          "from": "review",
+          "to": "published",
+          "aiFrom": "review",
+          "aiTo": "published",
+          "count": 60,
+          "decision": "approve",
+          "note": "",
+          "probability": 0.6
+        }
+      ],
+      "residual": 0,
+      "sourceRows": 3,
+      "originalCount": 200,
+      "reviewedCount": 200
+    },
+    {
+      "status": "ready",
+      "expectedHandoffs": 2.25,
+      "onePassBaseline": 2,
+      "extraExpected": 0.25,
+      "outcomes": [
+        {
+          "id": "done",
+          "probability": 0.75
+        },
+        {
+          "id": "retired",
+          "probability": 0.25
+        }
+      ],
+      "visits": [
+        {
+          "id": "inspect",
+          "expectedVisits": 1.25,
+          "reachable": true
+        },
+        {
+          "id": "repair",
+          "expectedVisits": 1,
+          "reachable": true
+        }
+      ],
+      "edges": [
+        {
+          "index": 0,
+          "from": "inspect",
+          "to": "repair",
+          "aiFrom": "inspect",
+          "aiTo": "repair",
+          "count": 80,
+          "decision": "approve",
+          "note": "",
+          "probability": 0.8
+        },
+        {
+          "index": 1,
+          "from": "inspect",
+          "to": "retired",
+          "aiFrom": "inspect",
+          "aiTo": "retired",
+          "count": 20,
+          "decision": "approve",
+          "note": "",
+          "probability": 0.2
+        },
+        {
+          "index": 2,
+          "from": "repair",
+          "to": "inspect",
+          "aiFrom": "repair",
+          "aiTo": "inspect",
+          "count": 25,
+          "decision": "approve",
+          "note": "",
+          "probability": 0.25
+        },
+        {
+          "index": 3,
+          "from": "repair",
+          "to": "done",
+          "aiFrom": "repair",
+          "aiTo": "done",
+          "count": 75,
+          "decision": "approve",
+          "note": "",
+          "probability": 0.75
+        }
+      ],
+      "residual": 0,
+      "sourceRows": 4,
+      "originalCount": 200,
+      "reviewedCount": 200
+    }
+  ]
+}

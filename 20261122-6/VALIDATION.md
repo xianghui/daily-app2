@@ -1,0 +1,15 @@
+# Observed validation — 2026-11-22
+
+- Real production-bundle Chrome/WASM CPU inference: editorial endpoints 5/6 correct; `Editor reviews manuscript` matched draft rather than review. The test corrected this through the real review control before analysis. Repair bench 8/8 endpoints matched. These tiny synthetic fixtures are not production accuracy estimates. Similarity is not confidence; mandatory review matters.
+- Reviewed editorial expected handoffs 3.3333333333 vs one-pass map count 2. Repair expected handoffs 2.25 vs map count 2; terminal shares done .75, retired .25. Independent geometric self-loop fixture gives 4 visits. Visits sum equals handoffs, finite systems and residuals verified.
+- Maximum 40 source handoffs retained through 83 embeddings/21 chunks, review, JSON/CSV exports and audit reimport. No lost rows or counts. Real cancellation/retry and fresh-worker fully offline inference passed in a warmed open page.
+- Actual downloaded JSON/CSV/Markdown independently parsed; multiline quoted comma/formula-like note retained, CSV formula escaped, held rows retained, reviewed edits reflected. Clipboard readback passed. No stale export after edits.
+- Network audit from production startup: GET-only downloads, no request body or tested user text in URLs, no model request before explicit run. Credential-pattern scan of built assets passed; no optional provider integrations. Audits omit signed CDN query values.
+- Desktop/390/320 layouts: no horizontal overflow, form labels, touch target checks and keyboard focus passed; normal-viewport screenshots inspected. Physical mobile devices, screen-reader interaction and other browser engines not tested.
+- Empty, malformed, oversized JSON, unsupported imports; malformed model vectors/envelopes, missing runtime, WASM-disabled worker, network/worker-download failures, worker errors, accelerated timeout, late cancelled/changed-input results tested without fake outputs. Network failure recovered with real model retry. Closed-loop, terminal outgoing, review/count/schema validation tested.
+- Offline page reload/startup is intentionally not claimed. Model quality on unknown, negated or context-dependent labels is not guaranteed. Expected results assume representative stationary Markov transition observations.
+
+- Cold download cancellation observed real download progress and successful real retry; delayed file reads/worker fetches cannot overwrite changed inputs. A newer real inference run survived an older delayed worker error.
+- Assembled combined-site real-browser suite passed; all 787 gallery entries retained and all inline scripts compile. Assembly: 999,860,001 bytes, below unchanged 1,000,000,000-byte guard.
+
+Public release: matching Pages `1c93f80261d5d1363981e7d5298ddafe8d8a96b2` and workflow `44949907289` succeeded. Seven public asset byte matches, both real-AI fixtures (including documented human correction), the full review/export/max-batch/offline/privacy suite and preserved 787-card gallery passed. Combined size 999,860,001 bytes remains below the unchanged guard. Source staging excludes unrelated pre-existing work. No digest sent.

@@ -1,0 +1,460 @@
+{
+  "schema": "return-passage/1",
+  "originalInput": {
+    "title": "Repair bench recheck forecast",
+    "start": "inspect",
+    "states": [
+      {
+        "id": "inspect",
+        "description": "Inspect and diagnose a broken device",
+        "terminal": false
+      },
+      {
+        "id": "repair",
+        "description": "Repair the faulty device and replace broken parts",
+        "terminal": false
+      },
+      {
+        "id": "done",
+        "description": "Device passed final checks, repair completed",
+        "terminal": true
+      },
+      {
+        "id": "retired",
+        "description": "Device retired as irreparable scrap",
+        "terminal": true
+      }
+    ],
+    "transitions": [
+      {
+        "from": "Diagnose the broken device",
+        "to": "Fix the fault and replace parts",
+        "count": 80
+      },
+      {
+        "from": "Device inspection and diagnosis",
+        "to": "Retire as irreparable scrap",
+        "count": 20
+      },
+      {
+        "from": "Fix faulty device",
+        "to": "Inspect device again",
+        "count": 25
+      },
+      {
+        "from": "Repair broken components",
+        "to": "Repair complete, checks passed",
+        "count": 75
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "from": "inspect",
+      "to": "repair",
+      "aiFrom": "inspect",
+      "aiTo": "repair",
+      "fromEvidence": [
+        {
+          "id": "inspect",
+          "score": 0.9627880591911945
+        },
+        {
+          "id": "repair",
+          "score": 0.7664486611593612
+        },
+        {
+          "id": "done",
+          "score": 0.6090120292999982
+        },
+        {
+          "id": "retired",
+          "score": 0.5610414150506815
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "repair",
+          "score": 0.7548477653928755
+        },
+        {
+          "id": "inspect",
+          "score": 0.41798161938244793
+        },
+        {
+          "id": "done",
+          "score": 0.39151504424032624
+        },
+        {
+          "id": "retired",
+          "score": 0.16693607134375618
+        }
+      ],
+      "count": 80,
+      "decision": "approve",
+      "note": "=SUM(1,2)\nReviewed \"source\", preserved."
+    },
+    {
+      "index": 1,
+      "from": "inspect",
+      "to": "retired",
+      "aiFrom": "inspect",
+      "aiTo": "retired",
+      "fromEvidence": [
+        {
+          "id": "inspect",
+          "score": 0.688580284493582
+        },
+        {
+          "id": "done",
+          "score": 0.5488079061468519
+        },
+        {
+          "id": "repair",
+          "score": 0.46369812356129836
+        },
+        {
+          "id": "retired",
+          "score": 0.4268286023791339
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "retired",
+          "score": 0.5615956117743144
+        },
+        {
+          "id": "repair",
+          "score": 0.05211608500257331
+        },
+        {
+          "id": "inspect",
+          "score": 0.011004987236073873
+        },
+        {
+          "id": "done",
+          "score": -0.016859735803171984
+        }
+      ],
+      "count": 20,
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "from": "repair",
+      "to": "inspect",
+      "aiFrom": "repair",
+      "aiTo": "inspect",
+      "fromEvidence": [
+        {
+          "id": "repair",
+          "score": 0.797190688913585
+        },
+        {
+          "id": "inspect",
+          "score": 0.7842072626195353
+        },
+        {
+          "id": "done",
+          "score": 0.6431172745387063
+        },
+        {
+          "id": "retired",
+          "score": 0.4532724992982738
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "inspect",
+          "score": 0.7756784997256545
+        },
+        {
+          "id": "done",
+          "score": 0.5943920568799562
+        },
+        {
+          "id": "retired",
+          "score": 0.5694580062495571
+        },
+        {
+          "id": "repair",
+          "score": 0.5271241666289574
+        }
+      ],
+      "count": 25,
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 3,
+      "from": "repair",
+      "to": "done",
+      "aiFrom": "repair",
+      "aiTo": "done",
+      "fromEvidence": [
+        {
+          "id": "repair",
+          "score": 0.7156432721465664
+        },
+        {
+          "id": "inspect",
+          "score": 0.5346276703948929
+        },
+        {
+          "id": "done",
+          "score": 0.3750807899301403
+        },
+        {
+          "id": "retired",
+          "score": 0.33999521849578107
+        }
+      ],
+      "toEvidence": [
+        {
+          "id": "done",
+          "score": 0.8124667532119129
+        },
+        {
+          "id": "repair",
+          "score": 0.4259757048301459
+        },
+        {
+          "id": "inspect",
+          "score": 0.39535908791260166
+        },
+        {
+          "id": "retired",
+          "score": 0.22292645901020602
+        }
+      ],
+      "count": 75,
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "warning": "Descriptive stationary-transition scenario, not a guaranteed completion time or causal forecast. Counts must represent comparable transitions, not stage population totals. Selection bias, changing workflows and history-dependent behavior violate assumptions. Holds block the forecast instead of silently dropping records.",
+  "analysis": {
+    "status": "ready",
+    "expectedHandoffs": 2.25,
+    "onePassBaseline": 2,
+    "extraExpected": 0.25,
+    "outcomes": [
+      {
+        "id": "done",
+        "probability": 0.75
+      },
+      {
+        "id": "retired",
+        "probability": 0.25
+      }
+    ],
+    "visits": [
+      {
+        "id": "inspect",
+        "expectedVisits": 1.25,
+        "reachable": true
+      },
+      {
+        "id": "repair",
+        "expectedVisits": 1,
+        "reachable": true
+      }
+    ],
+    "edges": [
+      {
+        "index": 0,
+        "from": "inspect",
+        "to": "repair",
+        "aiFrom": "inspect",
+        "aiTo": "repair",
+        "fromEvidence": [
+          {
+            "id": "inspect",
+            "score": 0.9627880591911945
+          },
+          {
+            "id": "repair",
+            "score": 0.7664486611593612
+          },
+          {
+            "id": "done",
+            "score": 0.6090120292999982
+          },
+          {
+            "id": "retired",
+            "score": 0.5610414150506815
+          }
+        ],
+        "toEvidence": [
+          {
+            "id": "repair",
+            "score": 0.7548477653928755
+          },
+          {
+            "id": "inspect",
+            "score": 0.41798161938244793
+          },
+          {
+            "id": "done",
+            "score": 0.39151504424032624
+          },
+          {
+            "id": "retired",
+            "score": 0.16693607134375618
+          }
+        ],
+        "count": 80,
+        "decision": "approve",
+        "note": "=SUM(1,2)\nReviewed \"source\", preserved.",
+        "probability": 0.8
+      },
+      {
+        "index": 1,
+        "from": "inspect",
+        "to": "retired",
+        "aiFrom": "inspect",
+        "aiTo": "retired",
+        "fromEvidence": [
+          {
+            "id": "inspect",
+            "score": 0.688580284493582
+          },
+          {
+            "id": "done",
+            "score": 0.5488079061468519
+          },
+          {
+            "id": "repair",
+            "score": 0.46369812356129836
+          },
+          {
+            "id": "retired",
+            "score": 0.4268286023791339
+          }
+        ],
+        "toEvidence": [
+          {
+            "id": "retired",
+            "score": 0.5615956117743144
+          },
+          {
+            "id": "repair",
+            "score": 0.05211608500257331
+          },
+          {
+            "id": "inspect",
+            "score": 0.011004987236073873
+          },
+          {
+            "id": "done",
+            "score": -0.016859735803171984
+          }
+        ],
+        "count": 20,
+        "decision": "approve",
+        "note": "",
+        "probability": 0.2
+      },
+      {
+        "index": 2,
+        "from": "repair",
+        "to": "inspect",
+        "aiFrom": "repair",
+        "aiTo": "inspect",
+        "fromEvidence": [
+          {
+            "id": "repair",
+            "score": 0.797190688913585
+          },
+          {
+            "id": "inspect",
+            "score": 0.7842072626195353
+          },
+          {
+            "id": "done",
+            "score": 0.6431172745387063
+          },
+          {
+            "id": "retired",
+            "score": 0.4532724992982738
+          }
+        ],
+        "toEvidence": [
+          {
+            "id": "inspect",
+            "score": 0.7756784997256545
+          },
+          {
+            "id": "done",
+            "score": 0.5943920568799562
+          },
+          {
+            "id": "retired",
+            "score": 0.5694580062495571
+          },
+          {
+            "id": "repair",
+            "score": 0.5271241666289574
+          }
+        ],
+        "count": 25,
+        "decision": "approve",
+        "note": "",
+        "probability": 0.25
+      },
+      {
+        "index": 3,
+        "from": "repair",
+        "to": "done",
+        "aiFrom": "repair",
+        "aiTo": "done",
+        "fromEvidence": [
+          {
+            "id": "repair",
+            "score": 0.7156432721465664
+          },
+          {
+            "id": "inspect",
+            "score": 0.5346276703948929
+          },
+          {
+            "id": "done",
+            "score": 0.3750807899301403
+          },
+          {
+            "id": "retired",
+            "score": 0.33999521849578107
+          }
+        ],
+        "toEvidence": [
+          {
+            "id": "done",
+            "score": 0.8124667532119129
+          },
+          {
+            "id": "repair",
+            "score": 0.4259757048301459
+          },
+          {
+            "id": "inspect",
+            "score": 0.39535908791260166
+          },
+          {
+            "id": "retired",
+            "score": 0.22292645901020602
+          }
+        ],
+        "count": 75,
+        "decision": "approve",
+        "note": "",
+        "probability": 0.75
+      }
+    ],
+    "residual": 0,
+    "sourceRows": 4,
+    "originalCount": 200,
+    "reviewedCount": 200
+  }
+}

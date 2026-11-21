@@ -1,0 +1,145 @@
+{
+  "schema": "role-mosaic/1",
+  "originalInput": {
+    "title": "Finance capability workshop",
+    "capabilities": [
+      {
+        "id": "invoice",
+        "text": "Create customer billing invoices"
+      },
+      {
+        "id": "refund",
+        "text": "Issue customer payment refunds"
+      },
+      {
+        "id": "report",
+        "text": "Read financial reporting dashboards"
+      }
+    ],
+    "people": [
+      "Dev",
+      "Eli",
+      "Fran"
+    ],
+    "grants": [
+      {
+        "id": "F1",
+        "person": "Dev",
+        "description": "prepare billing invoices for customers"
+      },
+      {
+        "id": "F2",
+        "person": "Eli",
+        "description": "return customer payments as refunds"
+      },
+      {
+        "id": "F3",
+        "person": "Fran",
+        "description": "create customer invoices"
+      },
+      {
+        "id": "F4",
+        "person": "Fran",
+        "description": "issue refunds to customers"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "F1",
+      "person": "Dev",
+      "description": "prepare billing invoices for customers",
+      "capability": "invoice",
+      "aiCapability": "invoice",
+      "evidence": [
+        {
+          "id": "invoice",
+          "score": 0.8803021191369567
+        },
+        {
+          "id": "refund",
+          "score": 0.31242616006958074
+        },
+        {
+          "id": "report",
+          "score": 0.14138450776916725
+        }
+      ],
+      "decision": "approve",
+      "note": "=SUM(1,2)\n\"reviewer\", verify grant"
+    },
+    {
+      "id": "F2",
+      "person": "Eli",
+      "description": "return customer payments as refunds",
+      "capability": "refund",
+      "aiCapability": "refund",
+      "evidence": [
+        {
+          "id": "refund",
+          "score": 0.8673705901263355
+        },
+        {
+          "id": "invoice",
+          "score": 0.31100529981137875
+        },
+        {
+          "id": "report",
+          "score": 0.13170325290795082
+        }
+      ],
+      "decision": "hold",
+      "note": ""
+    },
+    {
+      "id": "F3",
+      "person": "Fran",
+      "description": "create customer invoices",
+      "capability": "invoice",
+      "aiCapability": "invoice",
+      "evidence": [
+        {
+          "id": "invoice",
+          "score": 0.917887867720803
+        },
+        {
+          "id": "refund",
+          "score": 0.31360278183078055
+        },
+        {
+          "id": "report",
+          "score": 0.07556658456727294
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "F4",
+      "person": "Fran",
+      "description": "issue refunds to customers",
+      "capability": "refund",
+      "aiCapability": "refund",
+      "evidence": [
+        {
+          "id": "refund",
+          "score": 0.8878908932348729
+        },
+        {
+          "id": "invoice",
+          "score": 0.23641404740241917
+        },
+        {
+          "id": "report",
+          "score": 0.14217591133876603
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "held": 1,
+  "complete": false,
+  "analysis": null,
+  "warning": "Held source grants remain unresolved. Role design withheld."
+}

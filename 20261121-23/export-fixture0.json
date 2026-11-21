@@ -1,0 +1,313 @@
+{
+  "schema": "evidence-walk/1",
+  "originalInput": {
+    "title": "Synthetic packaging inspection",
+    "p0": 0.02,
+    "p1": 0.15,
+    "alpha": 0.1,
+    "beta": 0.1,
+    "fixedN": 30,
+    "protocols": [
+      {
+        "id": "seal",
+        "text": "Package heat seal integrity leak inspection"
+      },
+      {
+        "id": "print",
+        "text": "Printed package barcode label readability inspection"
+      }
+    ],
+    "batches": [
+      {
+        "id": "A1",
+        "description": "Pouch heat-seal leak test",
+        "tested": 10,
+        "defective": 0
+      },
+      {
+        "id": "B1",
+        "description": "Printed barcode label scan readability check",
+        "tested": 10,
+        "defective": 3
+      },
+      {
+        "id": "A2",
+        "description": "Heat sealed pouch leakage inspection",
+        "tested": 10,
+        "defective": 0
+      },
+      {
+        "id": "B2",
+        "description": "Barcode print scanner readability inspection",
+        "tested": 10,
+        "defective": 4
+      },
+      {
+        "id": "A3",
+        "description": "Package heat seal integrity test",
+        "tested": 10,
+        "defective": 1
+      },
+      {
+        "id": "B3",
+        "description": "Printed barcode label quality check",
+        "tested": 10,
+        "defective": 0
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "A1",
+      "description": "Pouch heat-seal leak test",
+      "tested": 10,
+      "defective": 0,
+      "protocol": "seal",
+      "aiProtocol": "seal",
+      "evidence": [
+        {
+          "id": "seal",
+          "score": 0.7079297400263302
+        },
+        {
+          "id": "print",
+          "score": 0.1781192402868539
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "B1",
+      "description": "Printed barcode label scan readability check",
+      "tested": 10,
+      "defective": 3,
+      "protocol": "print",
+      "aiProtocol": "print",
+      "evidence": [
+        {
+          "id": "print",
+          "score": 0.9059388076259953
+        },
+        {
+          "id": "seal",
+          "score": 0.23747547663411048
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "A2",
+      "description": "Heat sealed pouch leakage inspection",
+      "tested": 10,
+      "defective": 0,
+      "protocol": "seal",
+      "aiProtocol": "seal",
+      "evidence": [
+        {
+          "id": "seal",
+          "score": 0.7901633753575259
+        },
+        {
+          "id": "print",
+          "score": 0.25562806934106547
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "B2",
+      "description": "Barcode print scanner readability inspection",
+      "tested": 10,
+      "defective": 4,
+      "protocol": "print",
+      "aiProtocol": "print",
+      "evidence": [
+        {
+          "id": "print",
+          "score": 0.8393040523399012
+        },
+        {
+          "id": "seal",
+          "score": 0.2836548553469087
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "A3",
+      "description": "Package heat seal integrity test",
+      "tested": 10,
+      "defective": 1,
+      "protocol": "seal",
+      "aiProtocol": "seal",
+      "evidence": [
+        {
+          "id": "seal",
+          "score": 0.8600904446936719
+        },
+        {
+          "id": "print",
+          "score": 0.35058834754134105
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "B3",
+      "description": "Printed barcode label quality check",
+      "tested": 10,
+      "defective": 0,
+      "protocol": "print",
+      "aiProtocol": "print",
+      "evidence": [
+        {
+          "id": "print",
+          "score": 0.8477691077000148
+        },
+        {
+          "id": "seal",
+          "score": 0.240310584388016
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "held": 0,
+  "analysis": {
+    "lower": -2.197224577336219,
+    "upper": 2.1972245773362196,
+    "badIncrement": 2.0149030205422647,
+    "goodIncrement": -0.1423162221802555,
+    "streams": [
+      {
+        "id": "seal",
+        "text": "Package heat seal integrity leak inspection",
+        "batches": 3,
+        "totalTested": 30,
+        "totalDefective": 1,
+        "stop": {
+          "batch": "A2",
+          "observations": 20,
+          "defective": 0,
+          "llr": -2.84632444360511,
+          "direction": "lower-defect evidence"
+        },
+        "direction": "lower-defect evidence",
+        "lastActiveLLR": -2.84632444360511,
+        "fixed": {
+          "status": "lower sample rate",
+          "observations": 30,
+          "defective": 1,
+          "batch": "A3",
+          "threshold": 0.08499999999999999
+        },
+        "observedDifference": 10,
+        "plannedRemainder": 10,
+        "postBoundaryTested": 10
+      },
+      {
+        "id": "print",
+        "text": "Printed package barcode label readability inspection",
+        "batches": 3,
+        "totalTested": 30,
+        "totalDefective": 7,
+        "stop": {
+          "batch": "B1",
+          "observations": 10,
+          "defective": 3,
+          "llr": 5.048495506365005,
+          "direction": "higher-defect evidence"
+        },
+        "direction": "higher-defect evidence",
+        "lastActiveLLR": 5.048495506365005,
+        "fixed": {
+          "status": "higher sample rate",
+          "observations": 30,
+          "defective": 7,
+          "batch": "B3",
+          "threshold": 0.08499999999999999
+        },
+        "observedDifference": 20,
+        "plannedRemainder": 20,
+        "postBoundaryTested": 20
+      }
+    ],
+    "trace": [
+      {
+        "id": "A1",
+        "protocol": "seal",
+        "tested": 10,
+        "defective": 0,
+        "cumulativeTested": 10,
+        "cumulativeDefective": 0,
+        "delta": -1.423162221802555,
+        "llr": -1.423162221802555,
+        "phase": "continue"
+      },
+      {
+        "id": "B1",
+        "protocol": "print",
+        "tested": 10,
+        "defective": 3,
+        "cumulativeTested": 10,
+        "cumulativeDefective": 3,
+        "delta": 5.048495506365005,
+        "llr": 5.048495506365005,
+        "phase": "higher-defect evidence"
+      },
+      {
+        "id": "A2",
+        "protocol": "seal",
+        "tested": 10,
+        "defective": 0,
+        "cumulativeTested": 20,
+        "cumulativeDefective": 0,
+        "delta": -1.423162221802555,
+        "llr": -2.84632444360511,
+        "phase": "lower-defect evidence"
+      },
+      {
+        "id": "B2",
+        "protocol": "print",
+        "tested": 10,
+        "defective": 4,
+        "cumulativeTested": 20,
+        "cumulativeDefective": 7,
+        "delta": 7.205714749087526,
+        "llr": null,
+        "phase": "after first boundary · retained, not used"
+      },
+      {
+        "id": "A3",
+        "protocol": "seal",
+        "tested": 10,
+        "defective": 1,
+        "cumulativeTested": 30,
+        "cumulativeDefective": 1,
+        "delta": 0.7340570209199653,
+        "llr": null,
+        "phase": "after first boundary · retained, not used"
+      },
+      {
+        "id": "B3",
+        "protocol": "print",
+        "tested": 10,
+        "defective": 0,
+        "cumulativeTested": 30,
+        "cumulativeDefective": 7,
+        "delta": -1.423162221802555,
+        "llr": null,
+        "phase": "after first boundary · retained, not used"
+      }
+    ],
+    "totalTested": 60,
+    "totalDefective": 8
+  },
+  "warning": "Exploratory batch-boundary Bernoulli likelihood-ratio worksheet, not a lot-release instruction. Preselect p0/p1 and error targets before observations; assume independent comparable binary outcomes and a stable protocol. Wald boundaries are nominal approximations; batched looks, overshoot, finite horizons, dependent outcomes and multiple protocols change error behavior. Never reset the evidence after an inconvenient result. AI similarity is not protocol equivalence. No inspection execution, purchases or account changes."
+}

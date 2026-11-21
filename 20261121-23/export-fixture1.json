@@ -1,0 +1,313 @@
+{
+  "schema": "evidence-walk/1",
+  "originalInput": {
+    "title": "Synthetic website QA inspection",
+    "p0": 0.02,
+    "p1": 0.15,
+    "alpha": 0.1,
+    "beta": 0.1,
+    "fixedN": 30,
+    "protocols": [
+      {
+        "id": "links",
+        "text": "Website hyperlink destination broken link test"
+      },
+      {
+        "id": "contrast",
+        "text": "Text foreground background color contrast accessibility test"
+      }
+    ],
+    "batches": [
+      {
+        "id": "L1",
+        "description": "Broken website hyperlink destination checks",
+        "tested": 10,
+        "defective": 4
+      },
+      {
+        "id": "C1",
+        "description": "Text and background colour contrast accessibility audit",
+        "tested": 10,
+        "defective": 0
+      },
+      {
+        "id": "L2",
+        "description": "Website broken links destination inspection",
+        "tested": 10,
+        "defective": 0
+      },
+      {
+        "id": "C2",
+        "description": "Foreground background text colour contrast check",
+        "tested": 10,
+        "defective": 0
+      },
+      {
+        "id": "L3",
+        "description": "Hyperlink destination broken link verification",
+        "tested": 10,
+        "defective": 0
+      },
+      {
+        "id": "C3",
+        "description": "Text foreground background color contrast inspection",
+        "tested": 10,
+        "defective": 2
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "L1",
+      "description": "Broken website hyperlink destination checks",
+      "tested": 10,
+      "defective": 4,
+      "protocol": "links",
+      "aiProtocol": "links",
+      "evidence": [
+        {
+          "id": "links",
+          "score": 0.7995779438116871
+        },
+        {
+          "id": "contrast",
+          "score": 0.0396354328596422
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "C1",
+      "description": "Text and background colour contrast accessibility audit",
+      "tested": 10,
+      "defective": 0,
+      "protocol": "contrast",
+      "aiProtocol": "contrast",
+      "evidence": [
+        {
+          "id": "contrast",
+          "score": 0.8048332183738193
+        },
+        {
+          "id": "links",
+          "score": 0.08877028861304714
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "L2",
+      "description": "Website broken links destination inspection",
+      "tested": 10,
+      "defective": 0,
+      "protocol": "links",
+      "aiProtocol": "links",
+      "evidence": [
+        {
+          "id": "links",
+          "score": 0.7707411150956593
+        },
+        {
+          "id": "contrast",
+          "score": 0.07322644842520659
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "C2",
+      "description": "Foreground background text colour contrast check",
+      "tested": 10,
+      "defective": 0,
+      "protocol": "contrast",
+      "aiProtocol": "contrast",
+      "evidence": [
+        {
+          "id": "contrast",
+          "score": 0.8583127402805516
+        },
+        {
+          "id": "links",
+          "score": 0.04766985962577292
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "L3",
+      "description": "Hyperlink destination broken link verification",
+      "tested": 10,
+      "defective": 0,
+      "protocol": "links",
+      "aiProtocol": "links",
+      "evidence": [
+        {
+          "id": "links",
+          "score": 0.8297773396712924
+        },
+        {
+          "id": "contrast",
+          "score": 0.0069843667023775004
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "C3",
+      "description": "Text foreground background color contrast inspection",
+      "tested": 10,
+      "defective": 2,
+      "protocol": "contrast",
+      "aiProtocol": "contrast",
+      "evidence": [
+        {
+          "id": "contrast",
+          "score": 0.8591523824532684
+        },
+        {
+          "id": "links",
+          "score": 0.04752665729574318
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "held": 0,
+  "analysis": {
+    "lower": -2.197224577336219,
+    "upper": 2.1972245773362196,
+    "badIncrement": 2.0149030205422647,
+    "goodIncrement": -0.1423162221802555,
+    "streams": [
+      {
+        "id": "links",
+        "text": "Website hyperlink destination broken link test",
+        "batches": 3,
+        "totalTested": 30,
+        "totalDefective": 4,
+        "stop": {
+          "batch": "L1",
+          "observations": 10,
+          "defective": 4,
+          "llr": 7.205714749087526,
+          "direction": "higher-defect evidence"
+        },
+        "direction": "higher-defect evidence",
+        "lastActiveLLR": 7.205714749087526,
+        "fixed": {
+          "status": "higher sample rate",
+          "observations": 30,
+          "defective": 4,
+          "batch": "L3",
+          "threshold": 0.08499999999999999
+        },
+        "observedDifference": 20,
+        "plannedRemainder": 20,
+        "postBoundaryTested": 20
+      },
+      {
+        "id": "contrast",
+        "text": "Text foreground background color contrast accessibility test",
+        "batches": 3,
+        "totalTested": 30,
+        "totalDefective": 2,
+        "stop": {
+          "batch": "C2",
+          "observations": 20,
+          "defective": 0,
+          "llr": -2.84632444360511,
+          "direction": "lower-defect evidence"
+        },
+        "direction": "lower-defect evidence",
+        "lastActiveLLR": -2.84632444360511,
+        "fixed": {
+          "status": "lower sample rate",
+          "observations": 30,
+          "defective": 2,
+          "batch": "C3",
+          "threshold": 0.08499999999999999
+        },
+        "observedDifference": 10,
+        "plannedRemainder": 10,
+        "postBoundaryTested": 10
+      }
+    ],
+    "trace": [
+      {
+        "id": "L1",
+        "protocol": "links",
+        "tested": 10,
+        "defective": 4,
+        "cumulativeTested": 10,
+        "cumulativeDefective": 4,
+        "delta": 7.205714749087526,
+        "llr": 7.205714749087526,
+        "phase": "higher-defect evidence"
+      },
+      {
+        "id": "C1",
+        "protocol": "contrast",
+        "tested": 10,
+        "defective": 0,
+        "cumulativeTested": 10,
+        "cumulativeDefective": 0,
+        "delta": -1.423162221802555,
+        "llr": -1.423162221802555,
+        "phase": "continue"
+      },
+      {
+        "id": "L2",
+        "protocol": "links",
+        "tested": 10,
+        "defective": 0,
+        "cumulativeTested": 20,
+        "cumulativeDefective": 4,
+        "delta": -1.423162221802555,
+        "llr": null,
+        "phase": "after first boundary · retained, not used"
+      },
+      {
+        "id": "C2",
+        "protocol": "contrast",
+        "tested": 10,
+        "defective": 0,
+        "cumulativeTested": 20,
+        "cumulativeDefective": 0,
+        "delta": -1.423162221802555,
+        "llr": -2.84632444360511,
+        "phase": "lower-defect evidence"
+      },
+      {
+        "id": "L3",
+        "protocol": "links",
+        "tested": 10,
+        "defective": 0,
+        "cumulativeTested": 30,
+        "cumulativeDefective": 4,
+        "delta": -1.423162221802555,
+        "llr": null,
+        "phase": "after first boundary · retained, not used"
+      },
+      {
+        "id": "C3",
+        "protocol": "contrast",
+        "tested": 10,
+        "defective": 2,
+        "cumulativeTested": 30,
+        "cumulativeDefective": 2,
+        "delta": 2.891276263642485,
+        "llr": null,
+        "phase": "after first boundary · retained, not used"
+      }
+    ],
+    "totalTested": 60,
+    "totalDefective": 6
+  },
+  "warning": "Exploratory batch-boundary Bernoulli likelihood-ratio worksheet, not a lot-release instruction. Preselect p0/p1 and error targets before observations; assume independent comparable binary outcomes and a stable protocol. Wald boundaries are nominal approximations; batched looks, overshoot, finite horizons, dependent outcomes and multiple protocols change error behavior. Never reset the evidence after an inconvenient result. AI similarity is not protocol equivalence. No inspection execution, purchases or account changes."
+}

@@ -1,0 +1,734 @@
+{
+  "fixtures": [
+    {
+      "name": "Workshop circuit",
+      "actual": [
+        "panel",
+        "batten",
+        "highbay"
+      ],
+      "expected": [
+        "panel",
+        "batten",
+        "highbay"
+      ],
+      "result": {
+        "schema": "lumen-terrace/1",
+        "originalInput": {
+          "title": "Synthetic workshop lighting mix",
+          "area": 30,
+          "targetLux": 300,
+          "utilization": 0.7,
+          "maintenance": 0.8,
+          "wattCap": 180,
+          "stock": 12,
+          "profiles": [
+            {
+              "id": "panel",
+              "text": "LED ceiling panel light",
+              "lumens": 3600,
+              "watts": 36
+            },
+            {
+              "id": "batten",
+              "text": "Fluorescent strip tube light batten",
+              "lumens": 3000,
+              "watts": 60
+            },
+            {
+              "id": "highbay",
+              "text": "Industrial high bay pendant light",
+              "lumens": 7000,
+              "watts": 50
+            }
+          ],
+          "offers": [
+            {
+              "id": "P",
+              "description": "Flat LED luminous ceiling panel",
+              "maxUnits": 3,
+              "costCents": 6000
+            },
+            {
+              "id": "B",
+              "description": "Fluorescent tube strip batten luminaire",
+              "maxUnits": 3,
+              "costCents": 2500
+            },
+            {
+              "id": "H",
+              "description": "Industrial high bay hanging pendant fixture",
+              "maxUnits": 3,
+              "costCents": 10000
+            }
+          ]
+        },
+        "reviews": [
+          {
+            "id": "P",
+            "description": "Flat LED luminous ceiling panel",
+            "maxUnits": 3,
+            "costCents": 6000,
+            "profile": "panel",
+            "aiProfile": "panel",
+            "evidence": [
+              {
+                "id": "panel",
+                "score": 0.8136849484019313
+              },
+              {
+                "id": "highbay",
+                "score": 0.4387849086390856
+              },
+              {
+                "id": "batten",
+                "score": 0.3522761075218313
+              }
+            ],
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "B",
+            "description": "Fluorescent tube strip batten luminaire",
+            "maxUnits": 3,
+            "costCents": 2500,
+            "profile": "batten",
+            "aiProfile": "batten",
+            "evidence": [
+              {
+                "id": "batten",
+                "score": 0.9121069678313622
+              },
+              {
+                "id": "panel",
+                "score": 0.3428917761743353
+              },
+              {
+                "id": "highbay",
+                "score": 0.3096001110040448
+              }
+            ],
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "H",
+            "description": "Industrial high bay hanging pendant fixture",
+            "maxUnits": 3,
+            "costCents": 10000,
+            "profile": "highbay",
+            "aiProfile": "highbay",
+            "evidence": [
+              {
+                "id": "highbay",
+                "score": 0.8160338932645783
+              },
+              {
+                "id": "panel",
+                "score": 0.3923543025952019
+              },
+              {
+                "id": "batten",
+                "score": 0.26522210270441604
+              }
+            ],
+            "decision": "approve",
+            "note": ""
+          }
+        ],
+        "held": 0,
+        "analysis": {
+          "requiredLumens": 16071.428571428572,
+          "factor": 0.5599999999999999,
+          "targetLux": 300,
+          "wattCap": 180,
+          "examined": 23,
+          "greedy": {
+            "counts": [
+              0,
+              3,
+              0
+            ],
+            "lumens": 9000,
+            "watts": 180,
+            "lux": 167.99999999999997,
+            "costCents": 7500,
+            "units": 3,
+            "meets": false
+          },
+          "best": {
+            "counts": [
+              0,
+              1,
+              2
+            ],
+            "lumens": 17000,
+            "watts": 160,
+            "lux": 317.33333333333326,
+            "costCents": 22500,
+            "units": 3,
+            "meets": true
+          },
+          "savedCents": null,
+          "assignments": [
+            {
+              "id": "P",
+              "profile": "panel",
+              "ratedLumens": 3600,
+              "ratedWatts": 36,
+              "maxUnits": 3,
+              "units": 0,
+              "lumens": 0,
+              "watts": 0,
+              "costCents": 0
+            },
+            {
+              "id": "B",
+              "profile": "batten",
+              "ratedLumens": 3000,
+              "ratedWatts": 60,
+              "maxUnits": 3,
+              "units": 1,
+              "lumens": 3000,
+              "watts": 60,
+              "costCents": 2500
+            },
+            {
+              "id": "H",
+              "profile": "highbay",
+              "ratedLumens": 7000,
+              "ratedWatts": 50,
+              "maxUnits": 3,
+              "units": 2,
+              "lumens": 14000,
+              "watts": 100,
+              "costCents": 20000
+            }
+          ]
+        },
+        "warning": "Preliminary mixed-fixture worksheet, not an electrical or photometric design. Lumen method estimates average maintained illuminance using one shared utilization and maintenance factor. It cannot assess uniformity, glare, shadows, beam angles, mounting, driver startup or wiring. Watts are supplied steady ratings, not a circuit safety certification. Verify actual fixture equivalence and manufacturer data; use a qualified designer before installation. No orders, account or equipment changes."
+      }
+    },
+    {
+      "name": "Gallery refresh",
+      "actual": [
+        "track",
+        "pendant",
+        "downlight"
+      ],
+      "expected": [
+        "track",
+        "pendant",
+        "downlight"
+      ],
+      "result": {
+        "schema": "lumen-terrace/1",
+        "originalInput": {
+          "title": "Synthetic gallery lighting mix",
+          "area": 20,
+          "targetLux": 250,
+          "utilization": 0.6,
+          "maintenance": 0.8,
+          "wattCap": 90,
+          "stock": 8,
+          "profiles": [
+            {
+              "id": "track",
+              "text": "LED track spotlight for exhibits",
+              "lumens": 1800,
+              "watts": 18
+            },
+            {
+              "id": "pendant",
+              "text": "Decorative hanging pendant lamp",
+              "lumens": 2400,
+              "watts": 32
+            },
+            {
+              "id": "downlight",
+              "text": "Recessed LED downlight ceiling fixture",
+              "lumens": 2200,
+              "watts": 20
+            }
+          ],
+          "offers": [
+            {
+              "id": "T",
+              "description": "LED directional track spot for exhibits",
+              "maxUnits": 3,
+              "costCents": 4000
+            },
+            {
+              "id": "P",
+              "description": "Decorative pendant hanging lamp",
+              "maxUnits": 3,
+              "costCents": 2500
+            },
+            {
+              "id": "D",
+              "description": "Recessed LED ceiling down light",
+              "maxUnits": 3,
+              "costCents": 3500
+            }
+          ]
+        },
+        "reviews": [
+          {
+            "id": "T",
+            "description": "LED directional track spot for exhibits",
+            "maxUnits": 3,
+            "costCents": 4000,
+            "profile": "track",
+            "aiProfile": "track",
+            "evidence": [
+              {
+                "id": "track",
+                "score": 0.850455589570868
+              },
+              {
+                "id": "downlight",
+                "score": 0.2369707332704271
+              },
+              {
+                "id": "pendant",
+                "score": 0.11632046845120739
+              }
+            ],
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "P",
+            "description": "Decorative pendant hanging lamp",
+            "maxUnits": 3,
+            "costCents": 2500,
+            "profile": "pendant",
+            "aiProfile": "pendant",
+            "evidence": [
+              {
+                "id": "pendant",
+                "score": 0.9889535769359766
+              },
+              {
+                "id": "downlight",
+                "score": 0.4230479206895066
+              },
+              {
+                "id": "track",
+                "score": 0.17803282683837773
+              }
+            ],
+            "decision": "approve",
+            "note": ""
+          },
+          {
+            "id": "D",
+            "description": "Recessed LED ceiling down light",
+            "maxUnits": 3,
+            "costCents": 3500,
+            "profile": "downlight",
+            "aiProfile": "downlight",
+            "evidence": [
+              {
+                "id": "downlight",
+                "score": 0.8966804633131986
+              },
+              {
+                "id": "pendant",
+                "score": 0.35846404698441525
+              },
+              {
+                "id": "track",
+                "score": 0.284705866095324
+              }
+            ],
+            "decision": "approve",
+            "note": ""
+          }
+        ],
+        "held": 0,
+        "analysis": {
+          "requiredLumens": 10416.666666666668,
+          "factor": 0.48,
+          "targetLux": 250,
+          "wattCap": 90,
+          "examined": 25,
+          "greedy": {
+            "counts": [
+              0,
+              2,
+              1
+            ],
+            "lumens": 7000,
+            "watts": 84,
+            "lux": 168,
+            "costCents": 8500,
+            "units": 3,
+            "meets": false
+          },
+          "best": null,
+          "savedCents": null,
+          "assignments": [
+            {
+              "id": "T",
+              "profile": "track",
+              "ratedLumens": 1800,
+              "ratedWatts": 18,
+              "maxUnits": 3,
+              "units": null,
+              "lumens": null,
+              "watts": null,
+              "costCents": null
+            },
+            {
+              "id": "P",
+              "profile": "pendant",
+              "ratedLumens": 2400,
+              "ratedWatts": 32,
+              "maxUnits": 3,
+              "units": null,
+              "lumens": null,
+              "watts": null,
+              "costCents": null
+            },
+            {
+              "id": "D",
+              "profile": "downlight",
+              "ratedLumens": 2200,
+              "ratedWatts": 20,
+              "maxUnits": 3,
+              "units": null,
+              "lumens": null,
+              "watts": null,
+              "costCents": null
+            }
+          ]
+        },
+        "warning": "Preliminary mixed-fixture worksheet, not an electrical or photometric design. Lumen method estimates average maintained illuminance using one shared utilization and maintenance factor. It cannot assess uniformity, glare, shadows, beam angles, mounting, driver startup or wiring. Watts are supplied steady ratings, not a circuit safety certification. Verify actual fixture equivalence and manufacturer data; use a qualified designer before installation. No orders, account or equipment changes."
+      }
+    }
+  ],
+  "checks": [
+    "fully offline fresh-worker real inference in warmed page",
+    "max 8 offers/11 texts/3 real chunks; 65,536 mix enumeration; audit reimport",
+    "cancel and real retry",
+    "review undo, edited multiline export, clipboard, holds, schema/size/format errors, labels/touch/focus, desktop and 320/390 phone widths, local content static GET-only network"
+  ],
+  "negationProbe": {
+    "actual": "panel",
+    "expected": "batten",
+    "warning": "Nearest profile always returned; negation may be wrong; review mandatory."
+  },
+  "requests": [
+    {
+      "host": "127.0.0.1:7122",
+      "path": "/daily-app2/20261121-22/",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7122",
+      "path": "/daily-app2/20261121-22/assets/index-CBqyr_tR.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7122",
+      "path": "/daily-app2/20261121-22/assets/index-Bvsp651G.css",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7122",
+      "path": "/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7122/ccf6e888-5294-4593-91d6-c67d52ea3b84",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7122",
+      "path": "/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7122",
+      "path": "/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "X-Xet-Cas-Uid",
+        "response-content-disposition",
+        "xip",
+        "user_id",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "user_id",
+        "X-Xet-Cas-Uid",
+        "response-content-disposition",
+        "xip",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7122/3752c6fa-f5b9-4ca6-a175-2be997c6dc03",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7122/8e91e6e0-7414-4c74-a82d-3cef0f485fba",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7122/fd6232ac-78c3-41ad-9992-621ac79bdfd2",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7122/4c13b8e7-39e8-46d0-962f-1076fce905ee",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7122/8baa7079-881f-4f05-bbcd-5386e982a1df",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7122/9f38fd53-726e-4ed9-a10b-d9fb2cffef88",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7122/7031a835-03ef-4f27-bb94-b17d3d972c7d",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7122/d615c555-4b50-4e23-a3cc-472d7d2beeab",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7122/56cff278-916d-406b-9d59-c492fe2f68bc",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7122/bb9b233b-7775-42f7-a4ae-129204623a96",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7122/91d09af8-fca2-4234-a9db-723e5f9512eb",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7122/649e6be4-3233-4357-a95c-a0021da4a6cd",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7122/57b9e35b-83dc-42ea-b843-4e92b36477d0",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7122/1264ea1a-d4be-4489-b8a4-5ad4f170e8c7",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7122/1e73ed02-9f21-4df6-a64d-e7d5db2b41b6",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7122/5ea0b14b-0a41-46d8-88fd-5d3e17df09a9",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7122/3017e2be-64d3-492e-9e79-54aeceb7dfe9",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7122/365d2b52-d22c-42ac-9d91-ec4ea2dec757",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    }
+  ],
+  "errors": []
+}

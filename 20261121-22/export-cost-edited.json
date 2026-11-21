@@ -1,0 +1,197 @@
+{
+  "schema": "lumen-terrace/1",
+  "originalInput": {
+    "title": "Synthetic workshop lighting mix",
+    "area": 30,
+    "targetLux": 300,
+    "utilization": 0.7,
+    "maintenance": 0.8,
+    "wattCap": 180,
+    "stock": 12,
+    "profiles": [
+      {
+        "id": "panel",
+        "text": "LED ceiling panel light",
+        "lumens": 3600,
+        "watts": 36
+      },
+      {
+        "id": "batten",
+        "text": "Fluorescent strip tube light batten",
+        "lumens": 3000,
+        "watts": 60
+      },
+      {
+        "id": "highbay",
+        "text": "Industrial high bay pendant light",
+        "lumens": 7000,
+        "watts": 50
+      }
+    ],
+    "offers": [
+      {
+        "id": "P",
+        "description": "Flat LED luminous ceiling panel",
+        "maxUnits": 3,
+        "costCents": 6000
+      },
+      {
+        "id": "B",
+        "description": "Fluorescent tube strip batten luminaire",
+        "maxUnits": 3,
+        "costCents": 2500
+      },
+      {
+        "id": "H",
+        "description": "Industrial high bay hanging pendant fixture",
+        "maxUnits": 3,
+        "costCents": 10000
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "P",
+      "description": "Flat LED luminous ceiling panel",
+      "maxUnits": 3,
+      "costCents": 2000,
+      "profile": "panel",
+      "aiProfile": "panel",
+      "evidence": [
+        {
+          "id": "panel",
+          "score": 0.8136849484019313
+        },
+        {
+          "id": "highbay",
+          "score": 0.4387849086390856
+        },
+        {
+          "id": "batten",
+          "score": 0.3522761075218313
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "B",
+      "description": "Fluorescent tube strip batten luminaire",
+      "maxUnits": 3,
+      "costCents": 2500,
+      "profile": "batten",
+      "aiProfile": "batten",
+      "evidence": [
+        {
+          "id": "batten",
+          "score": 0.9121069678313622
+        },
+        {
+          "id": "panel",
+          "score": 0.3428917761743353
+        },
+        {
+          "id": "highbay",
+          "score": 0.3096001110040448
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "id": "H",
+      "description": "Industrial high bay hanging pendant fixture",
+      "maxUnits": 3,
+      "costCents": 10000,
+      "profile": "highbay",
+      "aiProfile": "highbay",
+      "evidence": [
+        {
+          "id": "highbay",
+          "score": 0.8160338932645783
+        },
+        {
+          "id": "panel",
+          "score": 0.3923543025952019
+        },
+        {
+          "id": "batten",
+          "score": 0.26522210270441604
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "held": 0,
+  "analysis": {
+    "requiredLumens": 16071.428571428572,
+    "factor": 0.5599999999999999,
+    "targetLux": 300,
+    "wattCap": 180,
+    "examined": 23,
+    "greedy": {
+      "counts": [
+        3,
+        1,
+        0
+      ],
+      "lumens": 13800,
+      "watts": 168,
+      "lux": 257.59999999999997,
+      "costCents": 8500,
+      "units": 4,
+      "meets": false
+    },
+    "best": {
+      "counts": [
+        3,
+        0,
+        1
+      ],
+      "lumens": 17800,
+      "watts": 158,
+      "lux": 332.2666666666666,
+      "costCents": 16000,
+      "units": 4,
+      "meets": true
+    },
+    "savedCents": null,
+    "assignments": [
+      {
+        "id": "P",
+        "profile": "panel",
+        "ratedLumens": 3600,
+        "ratedWatts": 36,
+        "maxUnits": 3,
+        "units": 3,
+        "lumens": 10800,
+        "watts": 108,
+        "costCents": 6000
+      },
+      {
+        "id": "B",
+        "profile": "batten",
+        "ratedLumens": 3000,
+        "ratedWatts": 60,
+        "maxUnits": 3,
+        "units": 0,
+        "lumens": 0,
+        "watts": 0,
+        "costCents": 0
+      },
+      {
+        "id": "H",
+        "profile": "highbay",
+        "ratedLumens": 7000,
+        "ratedWatts": 50,
+        "maxUnits": 3,
+        "units": 1,
+        "lumens": 7000,
+        "watts": 50,
+        "costCents": 10000
+      }
+    ]
+  },
+  "warning": "Preliminary mixed-fixture worksheet, not an electrical or photometric design. Lumen method estimates average maintained illuminance using one shared utilization and maintenance factor. It cannot assess uniformity, glare, shadows, beam angles, mounting, driver startup or wiring. Watts are supplied steady ratings, not a circuit safety certification. Verify actual fixture equivalence and manufacturer data; use a qualified designer before installation. No orders, account or equipment changes."
+}

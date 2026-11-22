@@ -1,0 +1,7 @@
+
+
+## Chunk Harbor — 20261123-3
+
+Local MiniLM reconciles informal received-part notes before mandatory file/version/range review. Exact interval unions expose missing holes and repeated coverage beyond summed lengths; complete JSON/CSV/Markdown and inclusive missing-range worksheets preserve every original and source witness. Two small fixtures matched 12/12 simple file labels and both exposed 100-byte gaps; 1,000 independent byte-array oracles passed, not a general accuracy claim. Coverage does not prove content integrity or durable transfer. No storage access or retry requests. Offline scope is fresh-worker inference in an already-open warmed page. Preserve shared worker/factory from `20261115-6` and WASM from `20261107-2`. No new runtime sharing rules or size-guard changes. See [workflow/privacy](20261123-3/README.md) and [observed checks](20261123-3/VALIDATION.md). No digest sent.
+
+Public release verified: matching Pages `842aeba5424bff0526ff47fcc923551a8d111f13` and workflow `45053419944` succeeded. Nine public gallery/app/runtime assets byte-match assembled output; both public real-AI fixtures (12/12 simple file labels), full reviewed/export/maximum-batch/offline/privacy suite, independent artifact parsing and all 808 gallery cards passed. Combined size 999,895,949 bytes remains below the unchanged 1 GB guard. Unrelated pre-existing recovery work is preserved and excluded from this release commit. No digest sent.

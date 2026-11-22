@@ -1,0 +1,295 @@
+{
+  "schema": "chunk-harbor/1",
+  "originalInput": {
+    "title": "Synthetic overlapping office transfer",
+    "files": [
+      {
+        "id": "report",
+        "description": "Quarterly financial budget report PDF document",
+        "size": 1000
+      },
+      {
+        "id": "photo",
+        "description": "Mountain landscape photograph JPEG image",
+        "size": 800
+      }
+    ],
+    "records": [
+      {
+        "id": "report-opening",
+        "fileNote": "Quarterly budget finance report document",
+        "start": 0,
+        "length": 400
+      },
+      {
+        "id": "photo-tail",
+        "fileNote": "Mountain landscape photo image",
+        "start": 400,
+        "length": 400
+      },
+      {
+        "id": "report-retry",
+        "fileNote": "Financial budget quarterly PDF report",
+        "start": 200,
+        "length": 400
+      },
+      {
+        "id": "photo-opening",
+        "fileNote": "Landscape mountain photograph JPEG",
+        "start": 0,
+        "length": 500
+      },
+      {
+        "id": "report-tail",
+        "fileNote": "Quarterly financial report PDF",
+        "start": 700,
+        "length": 300
+      },
+      {
+        "id": "photo-retry",
+        "fileNote": "Mountain landscape photograph image",
+        "start": 0,
+        "length": 500
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "text": "Quarterly budget finance report document",
+      "resource": "report",
+      "aiResource": "report",
+      "evidence": [
+        {
+          "resource": "report",
+          "score": 0.9476070882020913
+        },
+        {
+          "resource": "photo",
+          "score": -0.023299604373158058
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 1,
+      "text": "Mountain landscape photo image",
+      "resource": "photo",
+      "aiResource": "photo",
+      "evidence": [
+        {
+          "resource": "photo",
+          "score": 0.90000161880951
+        },
+        {
+          "resource": "report",
+          "score": 0.004434951740526135
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "text": "Financial budget quarterly PDF report",
+      "resource": "report",
+      "aiResource": "report",
+      "evidence": [
+        {
+          "resource": "report",
+          "score": 0.9362182961095549
+        },
+        {
+          "resource": "photo",
+          "score": -0.039013672356494805
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 3,
+      "text": "Landscape mountain photograph JPEG",
+      "resource": "photo",
+      "aiResource": "photo",
+      "evidence": [
+        {
+          "resource": "photo",
+          "score": 0.9685034196924723
+        },
+        {
+          "resource": "report",
+          "score": 0.028311856946964198
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 4,
+      "text": "Quarterly financial report PDF",
+      "resource": "report",
+      "aiResource": "report",
+      "evidence": [
+        {
+          "resource": "report",
+          "score": 0.8875655669688342
+        },
+        {
+          "resource": "photo",
+          "score": 0.005047804772118872
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 5,
+      "text": "Mountain landscape photograph image",
+      "resource": "photo",
+      "aiResource": "photo",
+      "evidence": [
+        {
+          "resource": "photo",
+          "score": 0.908723248178168
+        },
+        {
+          "resource": "report",
+          "score": -0.024143761576709482
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "warning": "Neural similarity is not file identity. Verify one version per file, expected sizes and received-range evidence. This worksheet never uploads, downloads or repairs your files.",
+  "analysis": {
+    "status": "ready",
+    "files": [
+      {
+        "id": "report",
+        "description": "Quarterly financial budget report PDF document",
+        "recordIds": [
+          "report-opening",
+          "report-retry",
+          "report-tail"
+        ],
+        "size": 1000,
+        "loggedBytes": 1100,
+        "uniqueBytes": 900,
+        "missingBytes": 100,
+        "duplicateBytes": 200,
+        "overlapBytes": 200,
+        "baselineCoveredBytes": 1000,
+        "complete": false,
+        "baselineComplete": true,
+        "segments": [
+          {
+            "start": 0,
+            "end": 200,
+            "length": 200,
+            "sources": [
+              "report-opening"
+            ]
+          },
+          {
+            "start": 200,
+            "end": 400,
+            "length": 200,
+            "sources": [
+              "report-opening",
+              "report-retry"
+            ]
+          },
+          {
+            "start": 400,
+            "end": 600,
+            "length": 200,
+            "sources": [
+              "report-retry"
+            ]
+          },
+          {
+            "start": 600,
+            "end": 700,
+            "length": 100,
+            "sources": []
+          },
+          {
+            "start": 700,
+            "end": 1000,
+            "length": 300,
+            "sources": [
+              "report-tail"
+            ]
+          }
+        ],
+        "missing": [
+          {
+            "start": 600,
+            "end": 700,
+            "length": 100
+          }
+        ]
+      },
+      {
+        "id": "photo",
+        "description": "Mountain landscape photograph JPEG image",
+        "recordIds": [
+          "photo-tail",
+          "photo-opening",
+          "photo-retry"
+        ],
+        "size": 800,
+        "loggedBytes": 1400,
+        "uniqueBytes": 800,
+        "missingBytes": 0,
+        "duplicateBytes": 600,
+        "overlapBytes": 500,
+        "baselineCoveredBytes": 800,
+        "complete": true,
+        "baselineComplete": true,
+        "segments": [
+          {
+            "start": 0,
+            "end": 400,
+            "length": 400,
+            "sources": [
+              "photo-opening",
+              "photo-retry"
+            ]
+          },
+          {
+            "start": 400,
+            "end": 500,
+            "length": 100,
+            "sources": [
+              "photo-tail",
+              "photo-opening",
+              "photo-retry"
+            ]
+          },
+          {
+            "start": 500,
+            "end": 800,
+            "length": 300,
+            "sources": [
+              "photo-tail"
+            ]
+          }
+        ],
+        "missing": []
+      }
+    ],
+    "expectedBytes": 1800,
+    "loggedBytes": 2500,
+    "uniqueBytes": 1700,
+    "missingBytes": 100,
+    "duplicateBytes": 800,
+    "baselineCoveredBytes": 1800,
+    "completeFiles": 1,
+    "baselineCompleteFiles": 2,
+    "scope": "Offline manifest arithmetic for received byte ranges in a single fixed version of each file. Zero-based start and positive length imply [start,start+length); export range ends are inclusive. Coverage is not checksum equality, successful assembly, durable storage or transfer success. No file bytes, hashes, storage access, network requests or repairs are performed."
+  }
+}

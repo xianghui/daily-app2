@@ -1,0 +1,292 @@
+{
+  "schema": "chunk-harbor/1",
+  "originalInput": {
+    "title": "Synthetic out-of-order studio transfer",
+    "files": [
+      {
+        "id": "audio",
+        "description": "Acoustic guitar instrumental music audio recording",
+        "size": 1200
+      },
+      {
+        "id": "guide",
+        "description": "Employee onboarding staff handbook policy document",
+        "size": 600
+      }
+    ],
+    "records": [
+      {
+        "id": "audio-middle",
+        "fileNote": "Acoustic guitar music audio recording",
+        "start": 600,
+        "length": 300
+      },
+      {
+        "id": "handbook-opening",
+        "fileNote": "Employee onboarding handbook document",
+        "start": 0,
+        "length": 200
+      },
+      {
+        "id": "audio-opening",
+        "fileNote": "Instrumental acoustic guitar audio",
+        "start": 0,
+        "length": 600
+      },
+      {
+        "id": "handbook-retry",
+        "fileNote": "Staff onboarding policy handbook",
+        "start": 100,
+        "length": 200
+      },
+      {
+        "id": "audio-tail",
+        "fileNote": "Guitar instrumental music recording",
+        "start": 900,
+        "length": 300
+      },
+      {
+        "id": "handbook-tail",
+        "fileNote": "Employee staff policy handbook",
+        "start": 400,
+        "length": 200
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "text": "Acoustic guitar music audio recording",
+      "resource": "audio",
+      "aiResource": "audio",
+      "evidence": [
+        {
+          "resource": "audio",
+          "score": 0.9306200464097965
+        },
+        {
+          "resource": "guide",
+          "score": 0.05677822101645799
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 1,
+      "text": "Employee onboarding handbook document",
+      "resource": "guide",
+      "aiResource": "guide",
+      "evidence": [
+        {
+          "resource": "guide",
+          "score": 0.903576276032012
+        },
+        {
+          "resource": "audio",
+          "score": 0.09219861158780282
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "text": "Instrumental acoustic guitar audio",
+      "resource": "audio",
+      "aiResource": "audio",
+      "evidence": [
+        {
+          "resource": "audio",
+          "score": 0.8490008241231578
+        },
+        {
+          "resource": "guide",
+          "score": 0.06895433841938851
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 3,
+      "text": "Staff onboarding policy handbook",
+      "resource": "guide",
+      "aiResource": "guide",
+      "evidence": [
+        {
+          "resource": "guide",
+          "score": 0.8542554326434477
+        },
+        {
+          "resource": "audio",
+          "score": -0.014939030976436346
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 4,
+      "text": "Guitar instrumental music recording",
+      "resource": "audio",
+      "aiResource": "audio",
+      "evidence": [
+        {
+          "resource": "audio",
+          "score": 0.9301930713215995
+        },
+        {
+          "resource": "guide",
+          "score": 0.053927016057576244
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 5,
+      "text": "Employee staff policy handbook",
+      "resource": "guide",
+      "aiResource": "guide",
+      "evidence": [
+        {
+          "resource": "guide",
+          "score": 0.7982113402220414
+        },
+        {
+          "resource": "audio",
+          "score": -0.00015087128686978868
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "warning": "Neural similarity is not file identity. Verify one version per file, expected sizes and received-range evidence. This worksheet never uploads, downloads or repairs your files.",
+  "analysis": {
+    "status": "ready",
+    "files": [
+      {
+        "id": "audio",
+        "description": "Acoustic guitar instrumental music audio recording",
+        "recordIds": [
+          "audio-middle",
+          "audio-opening",
+          "audio-tail"
+        ],
+        "size": 1200,
+        "loggedBytes": 1200,
+        "uniqueBytes": 1200,
+        "missingBytes": 0,
+        "duplicateBytes": 0,
+        "overlapBytes": 0,
+        "baselineCoveredBytes": 1200,
+        "complete": true,
+        "baselineComplete": true,
+        "segments": [
+          {
+            "start": 0,
+            "end": 600,
+            "length": 600,
+            "sources": [
+              "audio-opening"
+            ]
+          },
+          {
+            "start": 600,
+            "end": 900,
+            "length": 300,
+            "sources": [
+              "audio-middle"
+            ]
+          },
+          {
+            "start": 900,
+            "end": 1200,
+            "length": 300,
+            "sources": [
+              "audio-tail"
+            ]
+          }
+        ],
+        "missing": []
+      },
+      {
+        "id": "guide",
+        "description": "Employee onboarding staff handbook policy document",
+        "recordIds": [
+          "handbook-opening",
+          "handbook-retry",
+          "handbook-tail"
+        ],
+        "size": 600,
+        "loggedBytes": 600,
+        "uniqueBytes": 500,
+        "missingBytes": 100,
+        "duplicateBytes": 100,
+        "overlapBytes": 100,
+        "baselineCoveredBytes": 600,
+        "complete": false,
+        "baselineComplete": true,
+        "segments": [
+          {
+            "start": 0,
+            "end": 100,
+            "length": 100,
+            "sources": [
+              "handbook-opening"
+            ]
+          },
+          {
+            "start": 100,
+            "end": 200,
+            "length": 100,
+            "sources": [
+              "handbook-opening",
+              "handbook-retry"
+            ]
+          },
+          {
+            "start": 200,
+            "end": 300,
+            "length": 100,
+            "sources": [
+              "handbook-retry"
+            ]
+          },
+          {
+            "start": 300,
+            "end": 400,
+            "length": 100,
+            "sources": []
+          },
+          {
+            "start": 400,
+            "end": 600,
+            "length": 200,
+            "sources": [
+              "handbook-tail"
+            ]
+          }
+        ],
+        "missing": [
+          {
+            "start": 300,
+            "end": 400,
+            "length": 100
+          }
+        ]
+      }
+    ],
+    "expectedBytes": 1800,
+    "loggedBytes": 1800,
+    "uniqueBytes": 1700,
+    "missingBytes": 100,
+    "duplicateBytes": 100,
+    "baselineCoveredBytes": 1800,
+    "completeFiles": 1,
+    "baselineCompleteFiles": 2,
+    "scope": "Offline manifest arithmetic for received byte ranges in a single fixed version of each file. Zero-based start and positive length imply [start,start+length); export range ends are inclusive. Coverage is not checksum equality, successful assembly, durable storage or transfer success. No file bytes, hashes, storage access, network requests or repairs are performed."
+  }
+}

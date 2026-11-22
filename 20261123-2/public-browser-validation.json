@@ -1,0 +1,598 @@
+{
+  "fixtures": [
+    {
+      "name": "Mixed office paths",
+      "actual": [
+        "office",
+        "vpn",
+        "sensor"
+      ],
+      "expected": [
+        "office",
+        "vpn",
+        "sensor"
+      ],
+      "correct": 3,
+      "analysis": {
+        "status": "ready",
+        "records": [
+          {
+            "id": "desk-copy",
+            "path": "office",
+            "mtu": 1500,
+            "payloadBytes": 4000,
+            "count": 2,
+            "dontFragment": false,
+            "blocked": false,
+            "baselinePacketsPerDatagram": 3,
+            "actualPacketsPerDatagram": 3,
+            "wireBytesPerDatagram": 4060,
+            "extraHeaderBytesPerDatagram": 40,
+            "fragments": [
+              {
+                "index": 0,
+                "offsetBytes": 0,
+                "offsetUnits": 0,
+                "payloadBytes": 1480,
+                "totalBytes": 1500,
+                "moreFragments": true
+              },
+              {
+                "index": 1,
+                "offsetBytes": 1480,
+                "offsetUnits": 185,
+                "payloadBytes": 1480,
+                "totalBytes": 1500,
+                "moreFragments": true
+              },
+              {
+                "index": 2,
+                "offsetBytes": 2960,
+                "offsetUnits": 370,
+                "payloadBytes": 1040,
+                "totalBytes": 1060,
+                "moreFragments": false
+              }
+            ]
+          },
+          {
+            "id": "remote-sync",
+            "path": "vpn",
+            "mtu": 1499,
+            "payloadBytes": 2958,
+            "count": 3,
+            "dontFragment": false,
+            "blocked": false,
+            "baselinePacketsPerDatagram": 2,
+            "actualPacketsPerDatagram": 3,
+            "wireBytesPerDatagram": 3018,
+            "extraHeaderBytesPerDatagram": 40,
+            "fragments": [
+              {
+                "index": 0,
+                "offsetBytes": 0,
+                "offsetUnits": 0,
+                "payloadBytes": 1472,
+                "totalBytes": 1492,
+                "moreFragments": true
+              },
+              {
+                "index": 1,
+                "offsetBytes": 1472,
+                "offsetUnits": 184,
+                "payloadBytes": 1472,
+                "totalBytes": 1492,
+                "moreFragments": true
+              },
+              {
+                "index": 2,
+                "offsetBytes": 2944,
+                "offsetUnits": 368,
+                "payloadBytes": 14,
+                "totalBytes": 34,
+                "moreFragments": false
+              }
+            ]
+          },
+          {
+            "id": "meter",
+            "path": "sensor",
+            "mtu": 100,
+            "payloadBytes": 200,
+            "count": 5,
+            "dontFragment": true,
+            "blocked": true,
+            "baselinePacketsPerDatagram": 0,
+            "actualPacketsPerDatagram": 0,
+            "wireBytesPerDatagram": 0,
+            "extraHeaderBytesPerDatagram": 0,
+            "fragments": []
+          }
+        ],
+        "baselinePackets": 12,
+        "actualPackets": 15,
+        "blockedDatagrams": 5,
+        "deliveredPayloadBytes": 16874,
+        "blockedPayloadBytes": 1000,
+        "inputPayloadBytes": 17874,
+        "wireBytes": 17174,
+        "extraHeaderBytes": 200,
+        "underCountGroups": 1,
+        "scope": "Single-hop initially unfragmented IPv4 datagrams with fixed 20-byte headers; supplied effective MTUs only. No IPv6, options, downstream refragmentation, link-layer overhead, loss, TCP segmentation or live path discovery. DF blocks oversized datagrams. Fragment templates repeat count times; output bytes mean IPv4 bytes, not physical wire traffic."
+      }
+    },
+    {
+      "name": "Field network paths",
+      "actual": [
+        "sat",
+        "fiber",
+        "mobile"
+      ],
+      "expected": [
+        "sat",
+        "fiber",
+        "mobile"
+      ],
+      "correct": 3,
+      "analysis": {
+        "status": "ready",
+        "records": [
+          {
+            "id": "field-burst",
+            "path": "sat",
+            "mtu": 100,
+            "payloadBytes": 161,
+            "count": 4,
+            "dontFragment": false,
+            "blocked": false,
+            "baselinePacketsPerDatagram": 3,
+            "actualPacketsPerDatagram": 3,
+            "wireBytesPerDatagram": 221,
+            "extraHeaderBytesPerDatagram": 40,
+            "fragments": [
+              {
+                "index": 0,
+                "offsetBytes": 0,
+                "offsetUnits": 0,
+                "payloadBytes": 80,
+                "totalBytes": 100,
+                "moreFragments": true
+              },
+              {
+                "index": 1,
+                "offsetBytes": 80,
+                "offsetUnits": 10,
+                "payloadBytes": 80,
+                "totalBytes": 100,
+                "moreFragments": true
+              },
+              {
+                "index": 2,
+                "offsetBytes": 160,
+                "offsetUnits": 20,
+                "payloadBytes": 1,
+                "totalBytes": 21,
+                "moreFragments": false
+              }
+            ]
+          },
+          {
+            "id": "rack-backup",
+            "path": "fiber",
+            "mtu": 9000,
+            "payloadBytes": 20000,
+            "count": 2,
+            "dontFragment": false,
+            "blocked": false,
+            "baselinePacketsPerDatagram": 3,
+            "actualPacketsPerDatagram": 3,
+            "wireBytesPerDatagram": 20060,
+            "extraHeaderBytesPerDatagram": 40,
+            "fragments": [
+              {
+                "index": 0,
+                "offsetBytes": 0,
+                "offsetUnits": 0,
+                "payloadBytes": 8976,
+                "totalBytes": 8996,
+                "moreFragments": true
+              },
+              {
+                "index": 1,
+                "offsetBytes": 8976,
+                "offsetUnits": 1122,
+                "payloadBytes": 8976,
+                "totalBytes": 8996,
+                "moreFragments": true
+              },
+              {
+                "index": 2,
+                "offsetBytes": 17952,
+                "offsetUnits": 2244,
+                "payloadBytes": 2048,
+                "totalBytes": 2068,
+                "moreFragments": false
+              }
+            ]
+          },
+          {
+            "id": "phone-report",
+            "path": "mobile",
+            "mtu": 1280,
+            "payloadBytes": 1260,
+            "count": 7,
+            "dontFragment": true,
+            "blocked": false,
+            "baselinePacketsPerDatagram": 1,
+            "actualPacketsPerDatagram": 1,
+            "wireBytesPerDatagram": 1280,
+            "extraHeaderBytesPerDatagram": 0,
+            "fragments": [
+              {
+                "index": 0,
+                "offsetBytes": 0,
+                "offsetUnits": 0,
+                "payloadBytes": 1260,
+                "totalBytes": 1280,
+                "moreFragments": false
+              }
+            ]
+          }
+        ],
+        "baselinePackets": 25,
+        "actualPackets": 25,
+        "blockedDatagrams": 0,
+        "deliveredPayloadBytes": 49464,
+        "blockedPayloadBytes": 0,
+        "inputPayloadBytes": 49464,
+        "wireBytes": 49964,
+        "extraHeaderBytes": 240,
+        "underCountGroups": 0,
+        "scope": "Single-hop initially unfragmented IPv4 datagrams with fixed 20-byte headers; supplied effective MTUs only. No IPv6, options, downstream refragmentation, link-layer overhead, loss, TCP segmentation or live path discovery. DF blocks oversized datagrams. Fragment templates repeat count times; output bytes mean IPv4 bytes, not physical wire traffic."
+      }
+    }
+  ],
+  "checks": [
+    "Actual fresh-worker offline inference in already-open warmed page",
+    "Maximum 8 paths/32 groups/65515 payload/10000 quantity; 40 embeddings in 10 chunks; lossless audit reimport",
+    "Reviewed path changes fragmentation count; exports invalidated; cancellation/retry",
+    "Holds/undo/export invalidation/downloads/clipboard; responsive labels/focus/touch/no overflow; invalid inputs/files; GET-only downloads without content"
+  ],
+  "negationProbe": {
+    "proposed": "office",
+    "decision": "pending",
+    "limitation": "Unknown/negated text selects nearest path; hold required."
+  },
+  "requests": [
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261123-2/",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261123-2/assets/index-DUc6ufTS.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261123-2/assets/index-rZutEiB7.css",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/d75df181-e854-4fdd-af67-26ed4996f93b",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "user_id",
+        "response-content-disposition",
+        "X-Xet-Cas-Uid",
+        "xip",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "xip",
+        "user_id",
+        "X-Xet-Cas-Uid",
+        "response-content-disposition",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/e211a0e7-5978-46e6-beb2-d24a671c816c",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/0983261d-5f78-417d-b032-fc507ee60496",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/002ae086-0d53-47e9-b5ad-99a8f6fbb902",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/3891ff33-6239-410f-bc0d-cc28f56e17d6",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/1347f84b-3441-4a26-ac9e-3ea5cca41ee6",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/29850787-f02c-40eb-9afd-94177fad2e75",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/1401a310-1990-4ae9-ba5c-c0b0fea32041",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/87d6bb58-ede8-4aed-8529-6a810909127e",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/f1b67623-1a34-471d-acaa-5fd1fcdd8964",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/a2d58fdc-3b5f-49fc-9e5c-d622597b9298",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/c8716919-25a8-41bf-8ae7-dfdbc9883a5a",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/f623f72d-a9b8-4554-83e3-12f05f4a555c",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/6af0b34a-1079-4b94-bd04-af4b5a0cfa83",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/2d1e468c-8be8-4623-8d4e-fbb3c03303cd",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/f0cc4ac2-1556-4d44-971c-42fa6648aa8d",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/225c3e23-e0f1-4285-9c54-362186304d70",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/70fd5ffa-0009-459f-aa59-27c4e851b064",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/bbd4512f-2673-4141-8a63-09e195c01683",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/6d8f8431-1ef2-46ee-93c0-e26bf89ff0e9",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/fdfeffdd-e1e9-49b2-a036-d99361f9c0ed",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/f0dbf2b3-466f-420e-a749-ffeff4537e6e",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    }
+  ],
+  "errors": []
+}

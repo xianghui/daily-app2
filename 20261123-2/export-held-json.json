@@ -1,0 +1,119 @@
+{
+  "schema": "fragment-desk/1",
+  "originalInput": {
+    "title": "Synthetic field-transfer review",
+    "paths": [
+      {
+        "id": "sat",
+        "description": "Satellite uplink remote field station",
+        "mtu": 100
+      },
+      {
+        "id": "fiber",
+        "description": "Data center fiber jumbo frame network",
+        "mtu": 9000
+      },
+      {
+        "id": "mobile",
+        "description": "Cellular mobile phone hotspot network",
+        "mtu": 1280
+      }
+    ],
+    "records": [
+      {
+        "id": "field-burst",
+        "pathNote": "Remote field station satellite uplink",
+        "payloadBytes": 161,
+        "count": 4,
+        "dontFragment": false
+      },
+      {
+        "id": "rack-backup",
+        "pathNote": "Data center fiber jumbo frames",
+        "payloadBytes": 20000,
+        "count": 2,
+        "dontFragment": false
+      },
+      {
+        "id": "phone-report",
+        "pathNote": "Mobile cellular phone hotspot",
+        "payloadBytes": 1260,
+        "count": 7,
+        "dontFragment": true
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "text": "Remote field station satellite uplink",
+      "resource": "sat",
+      "aiResource": "sat",
+      "evidence": [
+        {
+          "resource": "sat",
+          "score": 0.9689452121777682
+        },
+        {
+          "resource": "fiber",
+          "score": 0.2800006704795322
+        },
+        {
+          "resource": "mobile",
+          "score": 0.25210539242298274
+        }
+      ],
+      "decision": "reject",
+      "note": "=SUM(1,2)\nReviewed \"bytes\", preserved."
+    },
+    {
+      "index": 1,
+      "text": "Data center fiber jumbo frames",
+      "resource": "fiber",
+      "aiResource": "fiber",
+      "evidence": [
+        {
+          "resource": "fiber",
+          "score": 0.8957677016941816
+        },
+        {
+          "resource": "sat",
+          "score": 0.22506697899391376
+        },
+        {
+          "resource": "mobile",
+          "score": 0.1243649412576505
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "text": "Mobile cellular phone hotspot",
+      "resource": "mobile",
+      "aiResource": "mobile",
+      "evidence": [
+        {
+          "resource": "mobile",
+          "score": 0.9483852231021772
+        },
+        {
+          "resource": "sat",
+          "score": 0.2642493823160235
+        },
+        {
+          "resource": "fiber",
+          "score": 0.13147474728641628
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "warning": "Neural similarity is not path identity. Verify MTUs and source values. No probes, packets or configuration changes are performed.",
+  "analysis": {
+    "status": "held",
+    "reason": "Held references: whole fragmentation worksheet withheld. All sources/reviews retained."
+  }
+}

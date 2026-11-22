@@ -1,0 +1,598 @@
+{
+  "fixtures": [
+    {
+      "name": "Mixed office paths",
+      "actual": [
+        "office",
+        "vpn",
+        "sensor"
+      ],
+      "expected": [
+        "office",
+        "vpn",
+        "sensor"
+      ],
+      "correct": 3,
+      "analysis": {
+        "status": "ready",
+        "records": [
+          {
+            "id": "desk-copy",
+            "path": "office",
+            "mtu": 1500,
+            "payloadBytes": 4000,
+            "count": 2,
+            "dontFragment": false,
+            "blocked": false,
+            "baselinePacketsPerDatagram": 3,
+            "actualPacketsPerDatagram": 3,
+            "wireBytesPerDatagram": 4060,
+            "extraHeaderBytesPerDatagram": 40,
+            "fragments": [
+              {
+                "index": 0,
+                "offsetBytes": 0,
+                "offsetUnits": 0,
+                "payloadBytes": 1480,
+                "totalBytes": 1500,
+                "moreFragments": true
+              },
+              {
+                "index": 1,
+                "offsetBytes": 1480,
+                "offsetUnits": 185,
+                "payloadBytes": 1480,
+                "totalBytes": 1500,
+                "moreFragments": true
+              },
+              {
+                "index": 2,
+                "offsetBytes": 2960,
+                "offsetUnits": 370,
+                "payloadBytes": 1040,
+                "totalBytes": 1060,
+                "moreFragments": false
+              }
+            ]
+          },
+          {
+            "id": "remote-sync",
+            "path": "vpn",
+            "mtu": 1499,
+            "payloadBytes": 2958,
+            "count": 3,
+            "dontFragment": false,
+            "blocked": false,
+            "baselinePacketsPerDatagram": 2,
+            "actualPacketsPerDatagram": 3,
+            "wireBytesPerDatagram": 3018,
+            "extraHeaderBytesPerDatagram": 40,
+            "fragments": [
+              {
+                "index": 0,
+                "offsetBytes": 0,
+                "offsetUnits": 0,
+                "payloadBytes": 1472,
+                "totalBytes": 1492,
+                "moreFragments": true
+              },
+              {
+                "index": 1,
+                "offsetBytes": 1472,
+                "offsetUnits": 184,
+                "payloadBytes": 1472,
+                "totalBytes": 1492,
+                "moreFragments": true
+              },
+              {
+                "index": 2,
+                "offsetBytes": 2944,
+                "offsetUnits": 368,
+                "payloadBytes": 14,
+                "totalBytes": 34,
+                "moreFragments": false
+              }
+            ]
+          },
+          {
+            "id": "meter",
+            "path": "sensor",
+            "mtu": 100,
+            "payloadBytes": 200,
+            "count": 5,
+            "dontFragment": true,
+            "blocked": true,
+            "baselinePacketsPerDatagram": 0,
+            "actualPacketsPerDatagram": 0,
+            "wireBytesPerDatagram": 0,
+            "extraHeaderBytesPerDatagram": 0,
+            "fragments": []
+          }
+        ],
+        "baselinePackets": 12,
+        "actualPackets": 15,
+        "blockedDatagrams": 5,
+        "deliveredPayloadBytes": 16874,
+        "blockedPayloadBytes": 1000,
+        "inputPayloadBytes": 17874,
+        "wireBytes": 17174,
+        "extraHeaderBytes": 200,
+        "underCountGroups": 1,
+        "scope": "Single-hop initially unfragmented IPv4 datagrams with fixed 20-byte headers; supplied effective MTUs only. No IPv6, options, downstream refragmentation, link-layer overhead, loss, TCP segmentation or live path discovery. DF blocks oversized datagrams. Fragment templates repeat count times; output bytes mean IPv4 bytes, not physical wire traffic."
+      }
+    },
+    {
+      "name": "Field network paths",
+      "actual": [
+        "sat",
+        "fiber",
+        "mobile"
+      ],
+      "expected": [
+        "sat",
+        "fiber",
+        "mobile"
+      ],
+      "correct": 3,
+      "analysis": {
+        "status": "ready",
+        "records": [
+          {
+            "id": "field-burst",
+            "path": "sat",
+            "mtu": 100,
+            "payloadBytes": 161,
+            "count": 4,
+            "dontFragment": false,
+            "blocked": false,
+            "baselinePacketsPerDatagram": 3,
+            "actualPacketsPerDatagram": 3,
+            "wireBytesPerDatagram": 221,
+            "extraHeaderBytesPerDatagram": 40,
+            "fragments": [
+              {
+                "index": 0,
+                "offsetBytes": 0,
+                "offsetUnits": 0,
+                "payloadBytes": 80,
+                "totalBytes": 100,
+                "moreFragments": true
+              },
+              {
+                "index": 1,
+                "offsetBytes": 80,
+                "offsetUnits": 10,
+                "payloadBytes": 80,
+                "totalBytes": 100,
+                "moreFragments": true
+              },
+              {
+                "index": 2,
+                "offsetBytes": 160,
+                "offsetUnits": 20,
+                "payloadBytes": 1,
+                "totalBytes": 21,
+                "moreFragments": false
+              }
+            ]
+          },
+          {
+            "id": "rack-backup",
+            "path": "fiber",
+            "mtu": 9000,
+            "payloadBytes": 20000,
+            "count": 2,
+            "dontFragment": false,
+            "blocked": false,
+            "baselinePacketsPerDatagram": 3,
+            "actualPacketsPerDatagram": 3,
+            "wireBytesPerDatagram": 20060,
+            "extraHeaderBytesPerDatagram": 40,
+            "fragments": [
+              {
+                "index": 0,
+                "offsetBytes": 0,
+                "offsetUnits": 0,
+                "payloadBytes": 8976,
+                "totalBytes": 8996,
+                "moreFragments": true
+              },
+              {
+                "index": 1,
+                "offsetBytes": 8976,
+                "offsetUnits": 1122,
+                "payloadBytes": 8976,
+                "totalBytes": 8996,
+                "moreFragments": true
+              },
+              {
+                "index": 2,
+                "offsetBytes": 17952,
+                "offsetUnits": 2244,
+                "payloadBytes": 2048,
+                "totalBytes": 2068,
+                "moreFragments": false
+              }
+            ]
+          },
+          {
+            "id": "phone-report",
+            "path": "mobile",
+            "mtu": 1280,
+            "payloadBytes": 1260,
+            "count": 7,
+            "dontFragment": true,
+            "blocked": false,
+            "baselinePacketsPerDatagram": 1,
+            "actualPacketsPerDatagram": 1,
+            "wireBytesPerDatagram": 1280,
+            "extraHeaderBytesPerDatagram": 0,
+            "fragments": [
+              {
+                "index": 0,
+                "offsetBytes": 0,
+                "offsetUnits": 0,
+                "payloadBytes": 1260,
+                "totalBytes": 1280,
+                "moreFragments": false
+              }
+            ]
+          }
+        ],
+        "baselinePackets": 25,
+        "actualPackets": 25,
+        "blockedDatagrams": 0,
+        "deliveredPayloadBytes": 49464,
+        "blockedPayloadBytes": 0,
+        "inputPayloadBytes": 49464,
+        "wireBytes": 49964,
+        "extraHeaderBytes": 240,
+        "underCountGroups": 0,
+        "scope": "Single-hop initially unfragmented IPv4 datagrams with fixed 20-byte headers; supplied effective MTUs only. No IPv6, options, downstream refragmentation, link-layer overhead, loss, TCP segmentation or live path discovery. DF blocks oversized datagrams. Fragment templates repeat count times; output bytes mean IPv4 bytes, not physical wire traffic."
+      }
+    }
+  ],
+  "checks": [
+    "Actual fresh-worker offline inference in already-open warmed page",
+    "Maximum 8 paths/32 groups/65515 payload/10000 quantity; 40 embeddings in 10 chunks; lossless audit reimport",
+    "Reviewed path changes fragmentation count; exports invalidated; cancellation/retry",
+    "Holds/undo/export invalidation/downloads/clipboard; responsive labels/focus/touch/no overflow; invalid inputs/files; GET-only downloads without content"
+  ],
+  "negationProbe": {
+    "proposed": "office",
+    "decision": "pending",
+    "limitation": "Unknown/negated text selects nearest path; hold required."
+  },
+  "requests": [
+    {
+      "host": "127.0.0.1:7374",
+      "path": "/daily-app2/20261123-2/",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7374",
+      "path": "/daily-app2/20261123-2/assets/index-DUc6ufTS.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7374",
+      "path": "/daily-app2/20261123-2/assets/index-rZutEiB7.css",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7374",
+      "path": "/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7374/c58095e3-f8e3-40fe-a514-c3237ee165e0",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7374",
+      "path": "/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7374",
+      "path": "/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "X-Xet-Cas-Uid",
+        "response-content-disposition",
+        "user_id",
+        "xip",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "xip",
+        "X-Xet-Cas-Uid",
+        "user_id",
+        "response-content-disposition",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7374/33f77753-c0c6-4750-ad95-e2c48ee4cefe",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7374/f7839400-fbf5-4805-b723-bafe5ccca58b",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7374/d05ba581-fca1-4768-a240-04c3f15e028c",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7374/0ee19b65-b11b-4b88-b524-36293300c4b9",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7374/7874d9a4-add6-4a2e-afb0-562346ca4fb4",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7374/22f9187f-2f10-4da5-9a32-cd0b831cda6f",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7374/0fdbe9f3-aec8-403b-bfd0-302fa910a208",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7374/d7623ab6-a0ff-4027-b281-c89843796891",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7374/ed329f4b-c3de-42ce-9e9d-28b633f0b60f",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7374/007734b8-1d6b-4e7b-a6da-39965cbee396",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7374/217d6dff-dd1c-42cd-a762-4e76a487c4b3",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7374/310f382f-2ead-4f8b-8714-54f21adccb6d",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7374/8e3b9dd6-0647-40b1-b797-bcdd91322634",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7374/781b03d0-ac68-49f0-ab5d-9ad38202bfa6",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7374/bc5f477e-c1bd-4a2f-b3df-1bf1d67d779e",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7374/9aad1569-2b93-463c-8542-889c8775fc37",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7374/2fdff43d-1d07-4a6e-960a-c952075e0f30",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7374/f8a9799f-3247-4fed-a85a-811883bea50b",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7374/6ca93f66-a3fa-4bfe-8b40-a545eab5268d",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7374/19de7bc2-a7e6-4d87-90cb-b41434dcc0dc",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7374/d039318c-d150-4a37-8341-5677c7cc6859",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    }
+  ],
+  "errors": []
+}

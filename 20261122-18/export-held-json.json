@@ -1,0 +1,228 @@
+{
+  "schema": "commit-cove/1",
+  "originalInput": {
+    "title": "Synthetic editorial committed handoff",
+    "resources": [
+      {
+        "id": "headline",
+        "description": "News article headline title"
+      },
+      {
+        "id": "caption",
+        "description": "Photograph image caption text"
+      },
+      {
+        "id": "author",
+        "description": "Writer author biography profile"
+      }
+    ],
+    "transactions": [
+      "revise",
+      "publish",
+      "credit"
+    ],
+    "operations": [
+      {
+        "id": "e1",
+        "transaction": "revise",
+        "mode": "W",
+        "resourceNote": "Article news headline title"
+      },
+      {
+        "id": "e2",
+        "transaction": "credit",
+        "mode": "W",
+        "resourceNote": "Biography of article writer"
+      },
+      {
+        "id": "e3",
+        "transaction": "publish",
+        "mode": "R",
+        "resourceNote": "Article news headline title"
+      },
+      {
+        "id": "e4",
+        "transaction": "publish",
+        "mode": "R",
+        "resourceNote": "Biography of article writer"
+      },
+      {
+        "id": "e5",
+        "transaction": "publish",
+        "mode": "W",
+        "resourceNote": "Caption text under photograph"
+      },
+      {
+        "id": "e6",
+        "transaction": "publish",
+        "mode": "R",
+        "resourceNote": "Caption text under photograph"
+      }
+    ],
+    "commits": [
+      {
+        "transaction": "revise",
+        "after": 1
+      },
+      {
+        "transaction": "credit",
+        "after": 2
+      },
+      {
+        "transaction": "publish",
+        "after": 6
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "id": "e1",
+      "resource": "headline",
+      "aiResource": "headline",
+      "transaction": "revise",
+      "mode": "W",
+      "evidence": [
+        {
+          "resource": "headline",
+          "score": 0.9838928330950154
+        },
+        {
+          "resource": "caption",
+          "score": 0.22188919706769006
+        },
+        {
+          "resource": "author",
+          "score": 0.12505698906153298
+        }
+      ],
+      "decision": "reject",
+      "note": "=SUM(1,2)\nReviewed \"source\", preserved."
+    },
+    {
+      "index": 1,
+      "id": "e2",
+      "resource": "author",
+      "aiResource": "author",
+      "transaction": "credit",
+      "mode": "W",
+      "evidence": [
+        {
+          "resource": "author",
+          "score": 0.7575416777986888
+        },
+        {
+          "resource": "headline",
+          "score": 0.338440679603711
+        },
+        {
+          "resource": "caption",
+          "score": 0.051280444714017964
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "id": "e3",
+      "resource": "headline",
+      "aiResource": "headline",
+      "transaction": "publish",
+      "mode": "R",
+      "evidence": [
+        {
+          "resource": "headline",
+          "score": 0.9842521657038736
+        },
+        {
+          "resource": "caption",
+          "score": 0.21873926094601376
+        },
+        {
+          "resource": "author",
+          "score": 0.11600722634506293
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 3,
+      "id": "e4",
+      "resource": "author",
+      "aiResource": "author",
+      "transaction": "publish",
+      "mode": "R",
+      "evidence": [
+        {
+          "resource": "author",
+          "score": 0.7575416777986888
+        },
+        {
+          "resource": "headline",
+          "score": 0.338440679603711
+        },
+        {
+          "resource": "caption",
+          "score": 0.051280444714017964
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 4,
+      "id": "e5",
+      "resource": "caption",
+      "aiResource": "caption",
+      "transaction": "publish",
+      "mode": "W",
+      "evidence": [
+        {
+          "resource": "caption",
+          "score": 0.9201075604609518
+        },
+        {
+          "resource": "headline",
+          "score": 0.23237483125247346
+        },
+        {
+          "resource": "author",
+          "score": 0.040033875548913134
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 5,
+      "id": "e6",
+      "resource": "caption",
+      "aiResource": "caption",
+      "transaction": "publish",
+      "mode": "R",
+      "evidence": [
+        {
+          "resource": "caption",
+          "score": 0.9269776551104064
+        },
+        {
+          "resource": "headline",
+          "score": 0.24386517541191946
+        },
+        {
+          "resource": "author",
+          "score": 0.04439965473248485
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "warning": "AI similarity is not record identity. Whole analysis withheld for any held operation. Verify the explicit commit boundaries before approving. No database connection or changes.",
+  "analysis": {
+    "status": "held",
+    "reason": "Held operations: whole analysis withheld. Every source and review retained."
+  }
+}

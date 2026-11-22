@@ -1,0 +1,573 @@
+{
+  "fixtures": [
+    {
+      "name": "Consistent accounts",
+      "actual": [
+        "account",
+        "billing",
+        "billing",
+        "audit",
+        "account",
+        "audit"
+      ],
+      "expected": [
+        "account",
+        "billing",
+        "billing",
+        "audit",
+        "account",
+        "audit"
+      ],
+      "correct": 6,
+      "analysis": {
+        "status": "ready",
+        "traces": [
+          {
+            "id": "Checkout",
+            "acquire": [
+              "account",
+              "billing"
+            ]
+          },
+          {
+            "id": "Invoice log",
+            "acquire": [
+              "billing",
+              "audit"
+            ]
+          },
+          {
+            "id": "Profile log",
+            "acquire": [
+              "account",
+              "audit"
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "from": "account",
+            "to": "billing",
+            "witnesses": [
+              {
+                "trace": "Checkout",
+                "fromPosition": 1,
+                "toPosition": 2
+              }
+            ]
+          },
+          {
+            "from": "billing",
+            "to": "audit",
+            "witnesses": [
+              {
+                "trace": "Invoice log",
+                "fromPosition": 1,
+                "toPosition": 2
+              }
+            ]
+          },
+          {
+            "from": "account",
+            "to": "audit",
+            "witnesses": [
+              {
+                "trace": "Profile log",
+                "fromPosition": 1,
+                "toPosition": 2
+              }
+            ]
+          }
+        ],
+        "reversedPairs": [],
+        "cycle": null,
+        "order": [
+          "account",
+          "billing",
+          "audit"
+        ],
+        "cycleEdges": [],
+        "traceCount": 3,
+        "acquisitionCount": 6,
+        "scope": "Potential lock-order inversion only. Assumes non-reentrant exclusive mutexes, acquired in listed order and all retained until trace end. A cycle is not proof of a reachable runtime deadlock; an acyclic graph covers only supplied notes. No source analysis, scheduling, code execution or automatic reordering."
+      }
+    },
+    {
+      "name": "Three-way cycle",
+      "actual": [
+        "stock",
+        "payment",
+        "payment",
+        "mail",
+        "mail",
+        "stock"
+      ],
+      "expected": [
+        "stock",
+        "payment",
+        "payment",
+        "mail",
+        "mail",
+        "stock"
+      ],
+      "correct": 6,
+      "analysis": {
+        "status": "ready",
+        "traces": [
+          {
+            "id": "Reserve",
+            "acquire": [
+              "stock",
+              "payment"
+            ]
+          },
+          {
+            "id": "Receipt",
+            "acquire": [
+              "payment",
+              "mail"
+            ]
+          },
+          {
+            "id": "Restock",
+            "acquire": [
+              "mail",
+              "stock"
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "from": "stock",
+            "to": "payment",
+            "witnesses": [
+              {
+                "trace": "Reserve",
+                "fromPosition": 1,
+                "toPosition": 2
+              }
+            ]
+          },
+          {
+            "from": "payment",
+            "to": "mail",
+            "witnesses": [
+              {
+                "trace": "Receipt",
+                "fromPosition": 1,
+                "toPosition": 2
+              }
+            ]
+          },
+          {
+            "from": "mail",
+            "to": "stock",
+            "witnesses": [
+              {
+                "trace": "Restock",
+                "fromPosition": 1,
+                "toPosition": 2
+              }
+            ]
+          }
+        ],
+        "reversedPairs": [],
+        "cycle": [
+          "stock",
+          "payment",
+          "mail",
+          "stock"
+        ],
+        "order": null,
+        "cycleEdges": [
+          {
+            "from": "stock",
+            "to": "payment",
+            "witnesses": [
+              {
+                "trace": "Reserve",
+                "fromPosition": 1,
+                "toPosition": 2
+              }
+            ]
+          },
+          {
+            "from": "payment",
+            "to": "mail",
+            "witnesses": [
+              {
+                "trace": "Receipt",
+                "fromPosition": 1,
+                "toPosition": 2
+              }
+            ]
+          },
+          {
+            "from": "mail",
+            "to": "stock",
+            "witnesses": [
+              {
+                "trace": "Restock",
+                "fromPosition": 1,
+                "toPosition": 2
+              }
+            ]
+          }
+        ],
+        "traceCount": 3,
+        "acquisitionCount": 6,
+        "scope": "Potential lock-order inversion only. Assumes non-reentrant exclusive mutexes, acquired in listed order and all retained until trace end. A cycle is not proof of a reachable runtime deadlock; an acyclic graph covers only supplied notes. No source analysis, scheduling, code execution or automatic reordering."
+      }
+    }
+  ],
+  "checks": [
+    "Actual fresh-worker offline inference in already-open warmed page",
+    "Maximum 8 locks/24 eight-acquisition traces; 200 real embeddings in 50 chunks; lossless originals/audit reimport",
+    "Reviewed identity changes computed lock graph; exports invalidated; cancellation/retry",
+    "Holds/undo/export invalidation/downloads/clipboard; responsive labels/focus/touch/no overflow; invalid inputs/files; GET-only file traffic without content"
+  ],
+  "negationProbe": {
+    "proposed": "billing",
+    "decision": "pending",
+    "limitation": "Unknown/negated text selects nearest mutex; hold required."
+  },
+  "requests": [
+    {
+      "host": "127.0.0.1:7370",
+      "path": "/daily-app2/20261122-23/",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7370",
+      "path": "/daily-app2/20261122-23/assets/index-GLmi1zK2.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7370",
+      "path": "/daily-app2/20261122-23/assets/index-ClX56HdC.css",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7370",
+      "path": "/daily-app2/20261122-23/favicon.svg",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7370",
+      "path": "/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7370/9f176fcd-1a2d-47ef-941c-b2c51ffb5ec0",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7370",
+      "path": "/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7370",
+      "path": "/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "response-content-disposition",
+        "X-Xet-Cas-Uid",
+        "xip",
+        "user_id",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "xip",
+        "user_id",
+        "X-Xet-Cas-Uid",
+        "response-content-disposition",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7370/cd4c28db-bab9-4db1-b918-d9c2c6e68bdd",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7370/e132356c-8824-4216-b7ea-b19588da42e4",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7370/7a93de7c-cae0-4257-ac03-c1f741e34cca",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7370/123a416c-0a20-4b0f-b99a-e36f4d64f102",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7370/8098b1c0-b373-416a-a63d-50e548534086",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7370/d93850a5-e927-4d8d-b557-54a952aeaf51",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7370/80da819e-418d-4931-92b2-88fa69a14af0",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7370/d1625093-051c-45fa-ba15-1df9874273c8",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7370/d6412b4f-8141-40e8-b362-fa02789407ec",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7370/472d74c3-5403-4e6f-9f68-fc0a6e5e0bba",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7370/18f73458-03a8-49c8-8596-d6ec2fdeb5e4",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7370/193bab4c-5d41-420e-92e4-cc381746c26b",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7370/0ab582b4-4c6c-4dc9-abb0-2cbcacb0b8fb",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7370/014c23a1-f376-4812-a015-10ff52d5950a",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7370/38621a8c-fb3e-4481-80f6-f661fcce9335",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7370/16cb8152-67e9-4d6d-a388-031eb36b3a23",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7370/a0ba916e-4049-4e50-b366-e677cf0ec157",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7370/aea0f9f2-dd58-40c9-97d8-210deec926b6",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7370/f6d4e6a1-76f3-47fe-829b-e598f5ea13b1",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7370/00b881a2-a8e5-4d90-84c8-a27c63521a2b",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7370/db0a26cc-eed9-4e76-ab24-b9d2c7320318",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    }
+  ],
+  "errors": []
+}

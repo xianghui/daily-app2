@@ -1,0 +1,566 @@
+{
+  "fixtures": [
+    {
+      "name": "Consistent accounts",
+      "actual": [
+        "account",
+        "billing",
+        "billing",
+        "audit",
+        "account",
+        "audit"
+      ],
+      "expected": [
+        "account",
+        "billing",
+        "billing",
+        "audit",
+        "account",
+        "audit"
+      ],
+      "correct": 6,
+      "analysis": {
+        "status": "ready",
+        "traces": [
+          {
+            "id": "Checkout",
+            "acquire": [
+              "account",
+              "billing"
+            ]
+          },
+          {
+            "id": "Invoice log",
+            "acquire": [
+              "billing",
+              "audit"
+            ]
+          },
+          {
+            "id": "Profile log",
+            "acquire": [
+              "account",
+              "audit"
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "from": "account",
+            "to": "billing",
+            "witnesses": [
+              {
+                "trace": "Checkout",
+                "fromPosition": 1,
+                "toPosition": 2
+              }
+            ]
+          },
+          {
+            "from": "billing",
+            "to": "audit",
+            "witnesses": [
+              {
+                "trace": "Invoice log",
+                "fromPosition": 1,
+                "toPosition": 2
+              }
+            ]
+          },
+          {
+            "from": "account",
+            "to": "audit",
+            "witnesses": [
+              {
+                "trace": "Profile log",
+                "fromPosition": 1,
+                "toPosition": 2
+              }
+            ]
+          }
+        ],
+        "reversedPairs": [],
+        "cycle": null,
+        "order": [
+          "account",
+          "billing",
+          "audit"
+        ],
+        "cycleEdges": [],
+        "traceCount": 3,
+        "acquisitionCount": 6,
+        "scope": "Potential lock-order inversion only. Assumes non-reentrant exclusive mutexes, acquired in listed order and all retained until trace end. A cycle is not proof of a reachable runtime deadlock; an acyclic graph covers only supplied notes. No source analysis, scheduling, code execution or automatic reordering."
+      }
+    },
+    {
+      "name": "Three-way cycle",
+      "actual": [
+        "stock",
+        "payment",
+        "payment",
+        "mail",
+        "mail",
+        "stock"
+      ],
+      "expected": [
+        "stock",
+        "payment",
+        "payment",
+        "mail",
+        "mail",
+        "stock"
+      ],
+      "correct": 6,
+      "analysis": {
+        "status": "ready",
+        "traces": [
+          {
+            "id": "Reserve",
+            "acquire": [
+              "stock",
+              "payment"
+            ]
+          },
+          {
+            "id": "Receipt",
+            "acquire": [
+              "payment",
+              "mail"
+            ]
+          },
+          {
+            "id": "Restock",
+            "acquire": [
+              "mail",
+              "stock"
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "from": "stock",
+            "to": "payment",
+            "witnesses": [
+              {
+                "trace": "Reserve",
+                "fromPosition": 1,
+                "toPosition": 2
+              }
+            ]
+          },
+          {
+            "from": "payment",
+            "to": "mail",
+            "witnesses": [
+              {
+                "trace": "Receipt",
+                "fromPosition": 1,
+                "toPosition": 2
+              }
+            ]
+          },
+          {
+            "from": "mail",
+            "to": "stock",
+            "witnesses": [
+              {
+                "trace": "Restock",
+                "fromPosition": 1,
+                "toPosition": 2
+              }
+            ]
+          }
+        ],
+        "reversedPairs": [],
+        "cycle": [
+          "stock",
+          "payment",
+          "mail",
+          "stock"
+        ],
+        "order": null,
+        "cycleEdges": [
+          {
+            "from": "stock",
+            "to": "payment",
+            "witnesses": [
+              {
+                "trace": "Reserve",
+                "fromPosition": 1,
+                "toPosition": 2
+              }
+            ]
+          },
+          {
+            "from": "payment",
+            "to": "mail",
+            "witnesses": [
+              {
+                "trace": "Receipt",
+                "fromPosition": 1,
+                "toPosition": 2
+              }
+            ]
+          },
+          {
+            "from": "mail",
+            "to": "stock",
+            "witnesses": [
+              {
+                "trace": "Restock",
+                "fromPosition": 1,
+                "toPosition": 2
+              }
+            ]
+          }
+        ],
+        "traceCount": 3,
+        "acquisitionCount": 6,
+        "scope": "Potential lock-order inversion only. Assumes non-reentrant exclusive mutexes, acquired in listed order and all retained until trace end. A cycle is not proof of a reachable runtime deadlock; an acyclic graph covers only supplied notes. No source analysis, scheduling, code execution or automatic reordering."
+      }
+    }
+  ],
+  "checks": [
+    "Actual fresh-worker offline inference in already-open warmed page",
+    "Maximum 8 locks/24 eight-acquisition traces; 200 real embeddings in 50 chunks; lossless originals/audit reimport",
+    "Reviewed identity changes computed lock graph; exports invalidated; cancellation/retry",
+    "Holds/undo/export invalidation/downloads/clipboard; responsive labels/focus/touch/no overflow; invalid inputs/files; GET-only file traffic without content"
+  ],
+  "negationProbe": {
+    "proposed": "billing",
+    "decision": "pending",
+    "limitation": "Unknown/negated text selects nearest mutex; hold required."
+  },
+  "requests": [
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261122-23/",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261122-23/assets/index-DQ068I6p.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261122-23/assets/index-ClX56HdC.css",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/0c61a276-3278-4def-b032-7c3179982715",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "X-Xet-Cas-Uid",
+        "xip",
+        "user_id",
+        "response-content-disposition",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "xip",
+        "user_id",
+        "response-content-disposition",
+        "X-Xet-Cas-Uid",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/ab60c17c-0bb5-4a28-89c4-a6b8a098fffa",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/93385bcd-4981-4de1-a4a3-cdbb4a320abf",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/9ce896ae-87f6-419d-92f9-6abc8994bdaa",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/0e76e062-665b-43ce-ac5d-b208904491a3",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/481dfbbf-5490-4ba9-83db-6ef685f376b2",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/facf99f5-1394-486f-b901-70e61e642877",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/1999d0e7-24da-4aa0-9ce5-41d69a8a4d01",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/4442c200-9c16-4545-9590-d8930f0cfdfe",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/7fa6ac94-b1f5-4159-bc13-71bb0d0f556d",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/dee687c0-69f3-489d-bdda-43e8818efc9d",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/b329a27f-af29-48ca-a5f7-8f37e985b916",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/5918eb8f-a2ec-46bc-92a7-1953aa5eab87",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/a291b357-4972-4cb4-9348-1840c455afb2",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/50535ca8-c44f-4b65-8e12-4dbeec0bed27",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/ab6a072e-75e1-42b2-a34d-b02ac9b1929d",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/2ba9254e-79f8-481a-8635-453defa39372",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/31606cfa-29be-487a-aceb-d8af917d11d4",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/1eaebb9e-201f-448d-a968-a311785640bc",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/b38a02f8-03f6-4475-a584-a285da9f8b06",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/b9994f29-c31d-48f9-9929-fad152fe6214",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/1eccca46-1282-4376-9186-daa5b7bcd1b2",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    }
+  ],
+  "errors": []
+}

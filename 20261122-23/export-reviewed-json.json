@@ -1,0 +1,297 @@
+{
+  "schema": "lock-orchard/1",
+  "originalInput": {
+    "title": "Synthetic order-service lock notes",
+    "locks": [
+      {
+        "id": "stock",
+        "description": "Warehouse stock inventory mutex"
+      },
+      {
+        "id": "payment",
+        "description": "Credit card payment processing mutex"
+      },
+      {
+        "id": "mail",
+        "description": "Email notification delivery mutex"
+      }
+    ],
+    "traces": [
+      {
+        "id": "Reserve",
+        "acquire": [
+          "Warehouse stock inventory",
+          "Credit card payment processing"
+        ]
+      },
+      {
+        "id": "Receipt",
+        "acquire": [
+          "Credit card payment processing",
+          "Email notification delivery"
+        ]
+      },
+      {
+        "id": "Restock",
+        "acquire": [
+          "Email notification delivery",
+          "Warehouse stock inventory"
+        ]
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "rule": 0,
+      "position": 0,
+      "text": "Warehouse stock inventory",
+      "index": 0,
+      "resource": "stock",
+      "aiResource": "stock",
+      "evidence": [
+        {
+          "resource": "stock",
+          "score": 0.7407297360073292
+        },
+        {
+          "resource": "mail",
+          "score": 0.08939160928595583
+        },
+        {
+          "resource": "payment",
+          "score": 0.08557135291508201
+        }
+      ],
+      "decision": "approve",
+      "note": "=SUM(1,2)\nReviewed \"source\", preserved."
+    },
+    {
+      "rule": 0,
+      "position": 1,
+      "text": "Credit card payment processing",
+      "index": 1,
+      "resource": "payment",
+      "aiResource": "payment",
+      "evidence": [
+        {
+          "resource": "payment",
+          "score": 0.6187046841279681
+        },
+        {
+          "resource": "stock",
+          "score": 0.06679559224515938
+        },
+        {
+          "resource": "mail",
+          "score": 0.06238779509167827
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "rule": 1,
+      "position": 0,
+      "text": "Credit card payment processing",
+      "index": 2,
+      "resource": "payment",
+      "aiResource": "payment",
+      "evidence": [
+        {
+          "resource": "payment",
+          "score": 0.6187046841279681
+        },
+        {
+          "resource": "stock",
+          "score": 0.06679559224515938
+        },
+        {
+          "resource": "mail",
+          "score": 0.06238779509167827
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "rule": 1,
+      "position": 1,
+      "text": "Email notification delivery",
+      "index": 3,
+      "resource": "mail",
+      "aiResource": "mail",
+      "evidence": [
+        {
+          "resource": "mail",
+          "score": 0.7220849555498126
+        },
+        {
+          "resource": "payment",
+          "score": 0.14669883433450967
+        },
+        {
+          "resource": "stock",
+          "score": 0.10051792425962816
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "rule": 2,
+      "position": 0,
+      "text": "Email notification delivery",
+      "index": 4,
+      "resource": "mail",
+      "aiResource": "mail",
+      "evidence": [
+        {
+          "resource": "mail",
+          "score": 0.7220849555498126
+        },
+        {
+          "resource": "payment",
+          "score": 0.14669883433450967
+        },
+        {
+          "resource": "stock",
+          "score": 0.10051792425962816
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "rule": 2,
+      "position": 1,
+      "text": "Warehouse stock inventory",
+      "index": 5,
+      "resource": "stock",
+      "aiResource": "stock",
+      "evidence": [
+        {
+          "resource": "stock",
+          "score": 0.7330950618210523
+        },
+        {
+          "resource": "mail",
+          "score": 0.08527600405391324
+        },
+        {
+          "resource": "payment",
+          "score": 0.07734797099984388
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "warning": "Neural similarity is not mutex identity. Holds withhold the entire audit; originals are preserved. No code or system is changed.",
+  "analysis": {
+    "status": "ready",
+    "traces": [
+      {
+        "id": "Reserve",
+        "acquire": [
+          "stock",
+          "payment"
+        ]
+      },
+      {
+        "id": "Receipt",
+        "acquire": [
+          "payment",
+          "mail"
+        ]
+      },
+      {
+        "id": "Restock",
+        "acquire": [
+          "mail",
+          "stock"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "stock",
+        "to": "payment",
+        "witnesses": [
+          {
+            "trace": "Reserve",
+            "fromPosition": 1,
+            "toPosition": 2
+          }
+        ]
+      },
+      {
+        "from": "payment",
+        "to": "mail",
+        "witnesses": [
+          {
+            "trace": "Receipt",
+            "fromPosition": 1,
+            "toPosition": 2
+          }
+        ]
+      },
+      {
+        "from": "mail",
+        "to": "stock",
+        "witnesses": [
+          {
+            "trace": "Restock",
+            "fromPosition": 1,
+            "toPosition": 2
+          }
+        ]
+      }
+    ],
+    "reversedPairs": [],
+    "cycle": [
+      "stock",
+      "payment",
+      "mail",
+      "stock"
+    ],
+    "order": null,
+    "cycleEdges": [
+      {
+        "from": "stock",
+        "to": "payment",
+        "witnesses": [
+          {
+            "trace": "Reserve",
+            "fromPosition": 1,
+            "toPosition": 2
+          }
+        ]
+      },
+      {
+        "from": "payment",
+        "to": "mail",
+        "witnesses": [
+          {
+            "trace": "Receipt",
+            "fromPosition": 1,
+            "toPosition": 2
+          }
+        ]
+      },
+      {
+        "from": "mail",
+        "to": "stock",
+        "witnesses": [
+          {
+            "trace": "Restock",
+            "fromPosition": 1,
+            "toPosition": 2
+          }
+        ]
+      }
+    ],
+    "traceCount": 3,
+    "acquisitionCount": 6,
+    "scope": "Potential lock-order inversion only. Assumes non-reentrant exclusive mutexes, acquired in listed order and all retained until trace end. A cycle is not proof of a reachable runtime deadlock; an acyclic graph covers only supplied notes. No source analysis, scheduling, code execution or automatic reordering."
+  }
+}

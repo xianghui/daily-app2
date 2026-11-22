@@ -1,0 +1,637 @@
+{
+  "fixtures": [
+    {
+      "name": "Office exceptions",
+      "actual": [
+        "wan",
+        "office",
+        "lab"
+      ],
+      "expected": [
+        "wan",
+        "office",
+        "lab"
+      ],
+      "correct": 3,
+      "analysis": {
+        "status": "ready",
+        "segments": [
+          {
+            "start": "0.0.0.0",
+            "end": "9.255.255.255",
+            "addresses": 167772160,
+            "routeIds": [
+              "default"
+            ],
+            "gateway": "wan",
+            "status": "selected",
+            "firstRoute": "default",
+            "firstGateway": "wan"
+          },
+          {
+            "start": "10.0.0.0",
+            "end": "10.1.255.255",
+            "addresses": 131072,
+            "routeIds": [
+              "staff"
+            ],
+            "gateway": "office",
+            "status": "selected",
+            "firstRoute": "default",
+            "firstGateway": "wan"
+          },
+          {
+            "start": "10.2.0.0",
+            "end": "10.2.255.255",
+            "addresses": 65536,
+            "routeIds": [
+              "research"
+            ],
+            "gateway": "lab",
+            "status": "selected",
+            "firstRoute": "default",
+            "firstGateway": "wan"
+          },
+          {
+            "start": "10.3.0.0",
+            "end": "10.255.255.255",
+            "addresses": 16580608,
+            "routeIds": [
+              "staff"
+            ],
+            "gateway": "office",
+            "status": "selected",
+            "firstRoute": "default",
+            "firstGateway": "wan"
+          },
+          {
+            "start": "11.0.0.0",
+            "end": "255.255.255.255",
+            "addresses": 4110417920,
+            "routeIds": [
+              "default"
+            ],
+            "gateway": "wan",
+            "status": "selected",
+            "firstRoute": "default",
+            "firstGateway": "wan"
+          }
+        ],
+        "coverage": [
+          {
+            "id": "default",
+            "cidr": "0.0.0.0/0",
+            "gateway": "wan",
+            "totalAddresses": 4294967296,
+            "winningAddresses": 4278190080,
+            "ambiguousAddresses": 0
+          },
+          {
+            "id": "staff",
+            "cidr": "10.0.0.0/8",
+            "gateway": "office",
+            "totalAddresses": 16777216,
+            "winningAddresses": 16711680,
+            "ambiguousAddresses": 0
+          },
+          {
+            "id": "research",
+            "cidr": "10.2.0.0/16",
+            "gateway": "lab",
+            "totalAddresses": 65536,
+            "winningAddresses": 65536,
+            "ambiguousAddresses": 0
+          }
+        ],
+        "probes": [
+          {
+            "id": "Lab workstation",
+            "ip": "10.2.5.8",
+            "expected": "lab",
+            "routeIds": [
+              "research"
+            ],
+            "gateway": "lab",
+            "status": "selected",
+            "firstRoute": "default",
+            "firstGateway": "wan",
+            "matchesExpected": true
+          },
+          {
+            "id": "Staff laptop",
+            "ip": "10.9.0.1",
+            "expected": "office",
+            "routeIds": [
+              "staff"
+            ],
+            "gateway": "office",
+            "status": "selected",
+            "firstRoute": "default",
+            "firstGateway": "wan",
+            "matchesExpected": true
+          },
+          {
+            "id": "External resolver",
+            "ip": "203.0.113.8",
+            "expected": "wan",
+            "routeIds": [
+              "default"
+            ],
+            "gateway": "wan",
+            "status": "selected",
+            "firstRoute": "default",
+            "firstGateway": "wan",
+            "matchesExpected": true
+          }
+        ],
+        "baselineMismatches": 2,
+        "reviewedMismatches": 0,
+        "shadowed": [],
+        "uncoveredAddresses": 0,
+        "ambiguousAddresses": 0,
+        "differentFromFirstMatch": 16777216,
+        "scope": "Hypothetical single-table IPv4 destination forwarding only: longest prefix, then lowest metric. Equal-rank different gateways are ambiguous; no ECMP simulation. No source routing, recursive next hops, policy tables, interface state or live reachability. Address counts include network/broadcast and all IPv4 space, not usable hosts."
+      }
+    },
+    {
+      "name": "Shadowed warehouse",
+      "actual": [
+        "legacy",
+        "stock",
+        "camera"
+      ],
+      "expected": [
+        "legacy",
+        "stock",
+        "camera"
+      ],
+      "correct": 3,
+      "analysis": {
+        "status": "ready",
+        "segments": [
+          {
+            "start": "0.0.0.0",
+            "end": "192.0.1.255",
+            "addresses": 3221225984,
+            "routeIds": [],
+            "gateway": null,
+            "status": "uncovered",
+            "firstRoute": null,
+            "firstGateway": null
+          },
+          {
+            "start": "192.0.2.0",
+            "end": "192.0.2.127",
+            "addresses": 128,
+            "routeIds": [
+              "stock-half"
+            ],
+            "gateway": "stock",
+            "status": "selected",
+            "firstRoute": "old-aggregate",
+            "firstGateway": "legacy"
+          },
+          {
+            "start": "192.0.2.128",
+            "end": "192.0.2.255",
+            "addresses": 128,
+            "routeIds": [
+              "camera-half"
+            ],
+            "gateway": "camera",
+            "status": "selected",
+            "firstRoute": "old-aggregate",
+            "firstGateway": "legacy"
+          },
+          {
+            "start": "192.0.3.0",
+            "end": "255.255.255.255",
+            "addresses": 1073741056,
+            "routeIds": [],
+            "gateway": null,
+            "status": "uncovered",
+            "firstRoute": null,
+            "firstGateway": null
+          }
+        ],
+        "coverage": [
+          {
+            "id": "old-aggregate",
+            "cidr": "192.0.2.0/24",
+            "gateway": "legacy",
+            "totalAddresses": 256,
+            "winningAddresses": 0,
+            "ambiguousAddresses": 0
+          },
+          {
+            "id": "stock-half",
+            "cidr": "192.0.2.0/25",
+            "gateway": "stock",
+            "totalAddresses": 128,
+            "winningAddresses": 128,
+            "ambiguousAddresses": 0
+          },
+          {
+            "id": "camera-half",
+            "cidr": "192.0.2.128/25",
+            "gateway": "camera",
+            "totalAddresses": 128,
+            "winningAddresses": 128,
+            "ambiguousAddresses": 0
+          }
+        ],
+        "probes": [
+          {
+            "id": "Stock scanner",
+            "ip": "192.0.2.12",
+            "expected": "stock",
+            "routeIds": [
+              "stock-half"
+            ],
+            "gateway": "stock",
+            "status": "selected",
+            "firstRoute": "old-aggregate",
+            "firstGateway": "legacy",
+            "matchesExpected": true
+          },
+          {
+            "id": "Camera recorder",
+            "ip": "192.0.2.180",
+            "expected": "camera",
+            "routeIds": [
+              "camera-half"
+            ],
+            "gateway": "camera",
+            "status": "selected",
+            "firstRoute": "old-aggregate",
+            "firstGateway": "legacy",
+            "matchesExpected": true
+          },
+          {
+            "id": "Uncovered target",
+            "ip": "198.51.100.4",
+            "expected": "legacy",
+            "routeIds": [],
+            "gateway": null,
+            "status": "uncovered",
+            "firstRoute": null,
+            "firstGateway": null,
+            "matchesExpected": false
+          }
+        ],
+        "baselineMismatches": 3,
+        "reviewedMismatches": 1,
+        "shadowed": [
+          "old-aggregate"
+        ],
+        "uncoveredAddresses": 4294967040,
+        "ambiguousAddresses": 0,
+        "differentFromFirstMatch": 256,
+        "scope": "Hypothetical single-table IPv4 destination forwarding only: longest prefix, then lowest metric. Equal-rank different gateways are ambiguous; no ECMP simulation. No source routing, recursive next hops, policy tables, interface state or live reachability. Address counts include network/broadcast and all IPv4 space, not usable hosts."
+      }
+    }
+  ],
+  "checks": [
+    "Actual fresh-worker offline inference in already-open warmed page",
+    "Maximum 8 gateways/32 routes/32 probes; 40 real embeddings in 10 chunks; lossless source/audit reimport",
+    "Reviewed gateway changes computed forwarding; exports invalidated; cancellation/retry",
+    "Holds/undo/export invalidation/downloads/clipboard; responsive labels/focus/touch/no overflow; invalid inputs/files; GET-only file traffic without content"
+  ],
+  "negationProbe": {
+    "proposed": "wan",
+    "decision": "pending",
+    "limitation": "Unknown/negated text selects nearest gateway; hold required."
+  },
+  "requests": [
+    {
+      "host": "127.0.0.1:7372",
+      "path": "/daily-app2/20261122-24/",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7372",
+      "path": "/daily-app2/20261122-24/assets/index-htDVb1h9.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7372",
+      "path": "/daily-app2/20261122-24/assets/index-F46aq57i.css",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7372",
+      "path": "/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7372/a9873fc1-e7be-4ab4-8e46-837ce4351563",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7372",
+      "path": "/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7372",
+      "path": "/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "response-content-disposition",
+        "user_id",
+        "xip",
+        "X-Xet-Cas-Uid",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "xip",
+        "response-content-disposition",
+        "X-Xet-Cas-Uid",
+        "user_id",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7372/afdb1f45-afb0-45ab-acc3-373eda1cab35",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7372/fe7c5015-5748-478c-83e4-80f918e2475c",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7372/e4deef39-2a9b-4fbe-ad41-c660c4172604",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7372/f59f2441-f67a-4666-8450-90a6eb834bcd",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7372/8093e0f6-2e73-408b-a2dd-9b00f5c69e9e",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7372/ce21f368-bc98-4066-82e2-d3571c38a117",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7372/a34afcfc-b830-4834-8015-37c6e1162f68",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7372/17d14e8d-5808-481d-9528-737de9860fbb",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7372/c23c4e92-8168-44ee-a5b9-d9c08762eea9",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7372/80e82cd6-c36d-4e48-a55b-e4566d184df5",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7372/6aefb6d9-f99b-467e-9710-e0635800320c",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7372/07ca5836-caf2-4ad1-91fc-4060f07575d1",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7372/b01c0fe3-7ff5-47cc-865d-a40f3480ddc0",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7372/8041ab45-858a-4df2-bf0b-4c27918340fa",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7372/ad2a46c1-a365-41fe-9f4a-c7162cd4141d",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7372/81211adf-e02b-431d-9c5d-8cb39ce2c0ef",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7372/d2e5adc6-ac93-4e3d-ac11-77ae4de6ff2e",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7372/89f479b3-86df-4a20-ab7b-b98399aa6be0",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7372/574d2ad6-7c87-4b4e-868f-17e944188289",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7372/885e8e7c-6e5c-46b8-8728-ee55099e8c20",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7372/454c553c-352b-4a7f-8580-1e15296e39e3",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    }
+  ],
+  "errors": []
+}

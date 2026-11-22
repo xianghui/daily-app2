@@ -1,0 +1,130 @@
+{
+  "schema": "prefix-harbor/1",
+  "originalInput": {
+    "title": "Synthetic warehouse forwarding review",
+    "gateways": [
+      {
+        "id": "legacy",
+        "description": "Retired legacy network router"
+      },
+      {
+        "id": "stock",
+        "description": "Warehouse inventory network gateway"
+      },
+      {
+        "id": "camera",
+        "description": "Security camera video network gateway"
+      }
+    ],
+    "routes": [
+      {
+        "id": "old-aggregate",
+        "cidr": "192.0.2.0/24",
+        "metric": 5,
+        "nextHop": "Old retired legacy router"
+      },
+      {
+        "id": "stock-half",
+        "cidr": "192.0.2.0/25",
+        "metric": 9,
+        "nextHop": "Warehouse stock inventory network"
+      },
+      {
+        "id": "camera-half",
+        "cidr": "192.0.2.128/25",
+        "metric": 9,
+        "nextHop": "Security cameras video network"
+      }
+    ],
+    "probes": [
+      {
+        "id": "Stock scanner",
+        "ip": "192.0.2.12",
+        "expected": "stock"
+      },
+      {
+        "id": "Camera recorder",
+        "ip": "192.0.2.180",
+        "expected": "camera"
+      },
+      {
+        "id": "Uncovered target",
+        "ip": "198.51.100.4",
+        "expected": "legacy"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "text": "Old retired legacy router",
+      "resource": "legacy",
+      "aiResource": "legacy",
+      "evidence": [
+        {
+          "resource": "legacy",
+          "score": 0.940883336887483
+        },
+        {
+          "resource": "stock",
+          "score": 0.25631499058666063
+        },
+        {
+          "resource": "camera",
+          "score": 0.24532028306728726
+        }
+      ],
+      "decision": "reject",
+      "note": "=SUM(1,2)\nReviewed \"gateway\", preserved."
+    },
+    {
+      "index": 1,
+      "text": "Warehouse stock inventory network",
+      "resource": "stock",
+      "aiResource": "stock",
+      "evidence": [
+        {
+          "resource": "stock",
+          "score": 0.8187119024925845
+        },
+        {
+          "resource": "legacy",
+          "score": 0.20001565739745886
+        },
+        {
+          "resource": "camera",
+          "score": 0.10396258997340573
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "text": "Security cameras video network",
+      "resource": "camera",
+      "aiResource": "camera",
+      "evidence": [
+        {
+          "resource": "camera",
+          "score": 0.8789678784428518
+        },
+        {
+          "resource": "legacy",
+          "score": 0.21357444661092598
+        },
+        {
+          "resource": "stock",
+          "score": 0.11508950709141026
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "warning": "Neural similarity is not gateway identity. Review every next hop. A mismatch is a worksheet cue, not a network diagnosis. No configuration is changed.",
+  "analysis": {
+    "status": "held",
+    "reason": "Held references: whole routing audit withheld. All sources/reviews retained."
+  }
+}

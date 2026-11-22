@@ -1,0 +1,274 @@
+{
+  "checks": [
+    {
+      "fixture": 0,
+      "analysis": {
+        "status": "ready",
+        "segments": [
+          {
+            "start": "0.0.0.0",
+            "end": "9.255.255.255",
+            "addresses": 167772160,
+            "routeIds": [
+              "default"
+            ],
+            "gateway": "wan",
+            "status": "selected",
+            "firstRoute": "default",
+            "firstGateway": "wan"
+          },
+          {
+            "start": "10.0.0.0",
+            "end": "10.1.255.255",
+            "addresses": 131072,
+            "routeIds": [
+              "staff"
+            ],
+            "gateway": "office",
+            "status": "selected",
+            "firstRoute": "default",
+            "firstGateway": "wan"
+          },
+          {
+            "start": "10.2.0.0",
+            "end": "10.2.255.255",
+            "addresses": 65536,
+            "routeIds": [
+              "research"
+            ],
+            "gateway": "lab",
+            "status": "selected",
+            "firstRoute": "default",
+            "firstGateway": "wan"
+          },
+          {
+            "start": "10.3.0.0",
+            "end": "10.255.255.255",
+            "addresses": 16580608,
+            "routeIds": [
+              "staff"
+            ],
+            "gateway": "office",
+            "status": "selected",
+            "firstRoute": "default",
+            "firstGateway": "wan"
+          },
+          {
+            "start": "11.0.0.0",
+            "end": "255.255.255.255",
+            "addresses": 4110417920,
+            "routeIds": [
+              "default"
+            ],
+            "gateway": "wan",
+            "status": "selected",
+            "firstRoute": "default",
+            "firstGateway": "wan"
+          }
+        ],
+        "coverage": [
+          {
+            "id": "default",
+            "cidr": "0.0.0.0/0",
+            "gateway": "wan",
+            "totalAddresses": 4294967296,
+            "winningAddresses": 4278190080,
+            "ambiguousAddresses": 0
+          },
+          {
+            "id": "staff",
+            "cidr": "10.0.0.0/8",
+            "gateway": "office",
+            "totalAddresses": 16777216,
+            "winningAddresses": 16711680,
+            "ambiguousAddresses": 0
+          },
+          {
+            "id": "research",
+            "cidr": "10.2.0.0/16",
+            "gateway": "lab",
+            "totalAddresses": 65536,
+            "winningAddresses": 65536,
+            "ambiguousAddresses": 0
+          }
+        ],
+        "probes": [
+          {
+            "id": "Lab workstation",
+            "ip": "10.2.5.8",
+            "expected": "lab",
+            "routeIds": [
+              "research"
+            ],
+            "gateway": "lab",
+            "status": "selected",
+            "firstRoute": "default",
+            "firstGateway": "wan",
+            "matchesExpected": true
+          },
+          {
+            "id": "Staff laptop",
+            "ip": "10.9.0.1",
+            "expected": "office",
+            "routeIds": [
+              "staff"
+            ],
+            "gateway": "office",
+            "status": "selected",
+            "firstRoute": "default",
+            "firstGateway": "wan",
+            "matchesExpected": true
+          },
+          {
+            "id": "External resolver",
+            "ip": "203.0.113.8",
+            "expected": "wan",
+            "routeIds": [
+              "default"
+            ],
+            "gateway": "wan",
+            "status": "selected",
+            "firstRoute": "default",
+            "firstGateway": "wan",
+            "matchesExpected": true
+          }
+        ],
+        "baselineMismatches": 2,
+        "reviewedMismatches": 0,
+        "shadowed": [],
+        "uncoveredAddresses": 0,
+        "ambiguousAddresses": 0,
+        "differentFromFirstMatch": 16777216,
+        "scope": "Hypothetical single-table IPv4 destination forwarding only: longest prefix, then lowest metric. Equal-rank different gateways are ambiguous; no ECMP simulation. No source routing, recursive next hops, policy tables, interface state or live reachability. Address counts include network/broadcast and all IPv4 space, not usable hosts."
+      }
+    },
+    {
+      "fixture": 1,
+      "analysis": {
+        "status": "ready",
+        "segments": [
+          {
+            "start": "0.0.0.0",
+            "end": "192.0.1.255",
+            "addresses": 3221225984,
+            "routeIds": [],
+            "gateway": null,
+            "status": "uncovered",
+            "firstRoute": null,
+            "firstGateway": null
+          },
+          {
+            "start": "192.0.2.0",
+            "end": "192.0.2.127",
+            "addresses": 128,
+            "routeIds": [
+              "stock-half"
+            ],
+            "gateway": "stock",
+            "status": "selected",
+            "firstRoute": "old-aggregate",
+            "firstGateway": "legacy"
+          },
+          {
+            "start": "192.0.2.128",
+            "end": "192.0.2.255",
+            "addresses": 128,
+            "routeIds": [
+              "camera-half"
+            ],
+            "gateway": "camera",
+            "status": "selected",
+            "firstRoute": "old-aggregate",
+            "firstGateway": "legacy"
+          },
+          {
+            "start": "192.0.3.0",
+            "end": "255.255.255.255",
+            "addresses": 1073741056,
+            "routeIds": [],
+            "gateway": null,
+            "status": "uncovered",
+            "firstRoute": null,
+            "firstGateway": null
+          }
+        ],
+        "coverage": [
+          {
+            "id": "old-aggregate",
+            "cidr": "192.0.2.0/24",
+            "gateway": "legacy",
+            "totalAddresses": 256,
+            "winningAddresses": 0,
+            "ambiguousAddresses": 0
+          },
+          {
+            "id": "stock-half",
+            "cidr": "192.0.2.0/25",
+            "gateway": "stock",
+            "totalAddresses": 128,
+            "winningAddresses": 128,
+            "ambiguousAddresses": 0
+          },
+          {
+            "id": "camera-half",
+            "cidr": "192.0.2.128/25",
+            "gateway": "camera",
+            "totalAddresses": 128,
+            "winningAddresses": 128,
+            "ambiguousAddresses": 0
+          }
+        ],
+        "probes": [
+          {
+            "id": "Stock scanner",
+            "ip": "192.0.2.12",
+            "expected": "stock",
+            "routeIds": [
+              "stock-half"
+            ],
+            "gateway": "stock",
+            "status": "selected",
+            "firstRoute": "old-aggregate",
+            "firstGateway": "legacy",
+            "matchesExpected": true
+          },
+          {
+            "id": "Camera recorder",
+            "ip": "192.0.2.180",
+            "expected": "camera",
+            "routeIds": [
+              "camera-half"
+            ],
+            "gateway": "camera",
+            "status": "selected",
+            "firstRoute": "old-aggregate",
+            "firstGateway": "legacy",
+            "matchesExpected": true
+          },
+          {
+            "id": "Uncovered target",
+            "ip": "198.51.100.4",
+            "expected": "legacy",
+            "routeIds": [],
+            "gateway": null,
+            "status": "uncovered",
+            "firstRoute": null,
+            "firstGateway": null,
+            "matchesExpected": false
+          }
+        ],
+        "baselineMismatches": 3,
+        "reviewedMismatches": 1,
+        "shadowed": [
+          "old-aggregate"
+        ],
+        "uncoveredAddresses": 4294967040,
+        "ambiguousAddresses": 0,
+        "differentFromFirstMatch": 256,
+        "scope": "Hypothetical single-table IPv4 destination forwarding only: longest prefix, then lowest metric. Equal-rank different gateways are ambiguous; no ECMP simulation. No source routing, recursive next hops, policy tables, interface state or live reachability. Address counts include network/broadcast and all IPv4 space, not usable hosts."
+      }
+    },
+    "Canonical CIDR/IPv4 bounds; metric precedence, different-hop ties ambiguous and same-hop duplicates retained; malformed vectors; pending/held gates",
+    "100 synthetic route tables × 256 exhaustive independent destination lookups; all 2^32-address partitions conserved"
+  ]
+}

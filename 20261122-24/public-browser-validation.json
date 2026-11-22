@@ -1,0 +1,637 @@
+{
+  "fixtures": [
+    {
+      "name": "Office exceptions",
+      "actual": [
+        "wan",
+        "office",
+        "lab"
+      ],
+      "expected": [
+        "wan",
+        "office",
+        "lab"
+      ],
+      "correct": 3,
+      "analysis": {
+        "status": "ready",
+        "segments": [
+          {
+            "start": "0.0.0.0",
+            "end": "9.255.255.255",
+            "addresses": 167772160,
+            "routeIds": [
+              "default"
+            ],
+            "gateway": "wan",
+            "status": "selected",
+            "firstRoute": "default",
+            "firstGateway": "wan"
+          },
+          {
+            "start": "10.0.0.0",
+            "end": "10.1.255.255",
+            "addresses": 131072,
+            "routeIds": [
+              "staff"
+            ],
+            "gateway": "office",
+            "status": "selected",
+            "firstRoute": "default",
+            "firstGateway": "wan"
+          },
+          {
+            "start": "10.2.0.0",
+            "end": "10.2.255.255",
+            "addresses": 65536,
+            "routeIds": [
+              "research"
+            ],
+            "gateway": "lab",
+            "status": "selected",
+            "firstRoute": "default",
+            "firstGateway": "wan"
+          },
+          {
+            "start": "10.3.0.0",
+            "end": "10.255.255.255",
+            "addresses": 16580608,
+            "routeIds": [
+              "staff"
+            ],
+            "gateway": "office",
+            "status": "selected",
+            "firstRoute": "default",
+            "firstGateway": "wan"
+          },
+          {
+            "start": "11.0.0.0",
+            "end": "255.255.255.255",
+            "addresses": 4110417920,
+            "routeIds": [
+              "default"
+            ],
+            "gateway": "wan",
+            "status": "selected",
+            "firstRoute": "default",
+            "firstGateway": "wan"
+          }
+        ],
+        "coverage": [
+          {
+            "id": "default",
+            "cidr": "0.0.0.0/0",
+            "gateway": "wan",
+            "totalAddresses": 4294967296,
+            "winningAddresses": 4278190080,
+            "ambiguousAddresses": 0
+          },
+          {
+            "id": "staff",
+            "cidr": "10.0.0.0/8",
+            "gateway": "office",
+            "totalAddresses": 16777216,
+            "winningAddresses": 16711680,
+            "ambiguousAddresses": 0
+          },
+          {
+            "id": "research",
+            "cidr": "10.2.0.0/16",
+            "gateway": "lab",
+            "totalAddresses": 65536,
+            "winningAddresses": 65536,
+            "ambiguousAddresses": 0
+          }
+        ],
+        "probes": [
+          {
+            "id": "Lab workstation",
+            "ip": "10.2.5.8",
+            "expected": "lab",
+            "routeIds": [
+              "research"
+            ],
+            "gateway": "lab",
+            "status": "selected",
+            "firstRoute": "default",
+            "firstGateway": "wan",
+            "matchesExpected": true
+          },
+          {
+            "id": "Staff laptop",
+            "ip": "10.9.0.1",
+            "expected": "office",
+            "routeIds": [
+              "staff"
+            ],
+            "gateway": "office",
+            "status": "selected",
+            "firstRoute": "default",
+            "firstGateway": "wan",
+            "matchesExpected": true
+          },
+          {
+            "id": "External resolver",
+            "ip": "203.0.113.8",
+            "expected": "wan",
+            "routeIds": [
+              "default"
+            ],
+            "gateway": "wan",
+            "status": "selected",
+            "firstRoute": "default",
+            "firstGateway": "wan",
+            "matchesExpected": true
+          }
+        ],
+        "baselineMismatches": 2,
+        "reviewedMismatches": 0,
+        "shadowed": [],
+        "uncoveredAddresses": 0,
+        "ambiguousAddresses": 0,
+        "differentFromFirstMatch": 16777216,
+        "scope": "Hypothetical single-table IPv4 destination forwarding only: longest prefix, then lowest metric. Equal-rank different gateways are ambiguous; no ECMP simulation. No source routing, recursive next hops, policy tables, interface state or live reachability. Address counts include network/broadcast and all IPv4 space, not usable hosts."
+      }
+    },
+    {
+      "name": "Shadowed warehouse",
+      "actual": [
+        "legacy",
+        "stock",
+        "camera"
+      ],
+      "expected": [
+        "legacy",
+        "stock",
+        "camera"
+      ],
+      "correct": 3,
+      "analysis": {
+        "status": "ready",
+        "segments": [
+          {
+            "start": "0.0.0.0",
+            "end": "192.0.1.255",
+            "addresses": 3221225984,
+            "routeIds": [],
+            "gateway": null,
+            "status": "uncovered",
+            "firstRoute": null,
+            "firstGateway": null
+          },
+          {
+            "start": "192.0.2.0",
+            "end": "192.0.2.127",
+            "addresses": 128,
+            "routeIds": [
+              "stock-half"
+            ],
+            "gateway": "stock",
+            "status": "selected",
+            "firstRoute": "old-aggregate",
+            "firstGateway": "legacy"
+          },
+          {
+            "start": "192.0.2.128",
+            "end": "192.0.2.255",
+            "addresses": 128,
+            "routeIds": [
+              "camera-half"
+            ],
+            "gateway": "camera",
+            "status": "selected",
+            "firstRoute": "old-aggregate",
+            "firstGateway": "legacy"
+          },
+          {
+            "start": "192.0.3.0",
+            "end": "255.255.255.255",
+            "addresses": 1073741056,
+            "routeIds": [],
+            "gateway": null,
+            "status": "uncovered",
+            "firstRoute": null,
+            "firstGateway": null
+          }
+        ],
+        "coverage": [
+          {
+            "id": "old-aggregate",
+            "cidr": "192.0.2.0/24",
+            "gateway": "legacy",
+            "totalAddresses": 256,
+            "winningAddresses": 0,
+            "ambiguousAddresses": 0
+          },
+          {
+            "id": "stock-half",
+            "cidr": "192.0.2.0/25",
+            "gateway": "stock",
+            "totalAddresses": 128,
+            "winningAddresses": 128,
+            "ambiguousAddresses": 0
+          },
+          {
+            "id": "camera-half",
+            "cidr": "192.0.2.128/25",
+            "gateway": "camera",
+            "totalAddresses": 128,
+            "winningAddresses": 128,
+            "ambiguousAddresses": 0
+          }
+        ],
+        "probes": [
+          {
+            "id": "Stock scanner",
+            "ip": "192.0.2.12",
+            "expected": "stock",
+            "routeIds": [
+              "stock-half"
+            ],
+            "gateway": "stock",
+            "status": "selected",
+            "firstRoute": "old-aggregate",
+            "firstGateway": "legacy",
+            "matchesExpected": true
+          },
+          {
+            "id": "Camera recorder",
+            "ip": "192.0.2.180",
+            "expected": "camera",
+            "routeIds": [
+              "camera-half"
+            ],
+            "gateway": "camera",
+            "status": "selected",
+            "firstRoute": "old-aggregate",
+            "firstGateway": "legacy",
+            "matchesExpected": true
+          },
+          {
+            "id": "Uncovered target",
+            "ip": "198.51.100.4",
+            "expected": "legacy",
+            "routeIds": [],
+            "gateway": null,
+            "status": "uncovered",
+            "firstRoute": null,
+            "firstGateway": null,
+            "matchesExpected": false
+          }
+        ],
+        "baselineMismatches": 3,
+        "reviewedMismatches": 1,
+        "shadowed": [
+          "old-aggregate"
+        ],
+        "uncoveredAddresses": 4294967040,
+        "ambiguousAddresses": 0,
+        "differentFromFirstMatch": 256,
+        "scope": "Hypothetical single-table IPv4 destination forwarding only: longest prefix, then lowest metric. Equal-rank different gateways are ambiguous; no ECMP simulation. No source routing, recursive next hops, policy tables, interface state or live reachability. Address counts include network/broadcast and all IPv4 space, not usable hosts."
+      }
+    }
+  ],
+  "checks": [
+    "Actual fresh-worker offline inference in already-open warmed page",
+    "Maximum 8 gateways/32 routes/32 probes; 40 real embeddings in 10 chunks; lossless source/audit reimport",
+    "Reviewed gateway changes computed forwarding; exports invalidated; cancellation/retry",
+    "Holds/undo/export invalidation/downloads/clipboard; responsive labels/focus/touch/no overflow; invalid inputs/files; GET-only file traffic without content"
+  ],
+  "negationProbe": {
+    "proposed": "wan",
+    "decision": "pending",
+    "limitation": "Unknown/negated text selects nearest gateway; hold required."
+  },
+  "requests": [
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261122-24/",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261122-24/assets/index-DQ0np-np.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261122-24/assets/index-PsTMX3sB.css",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/694ba118-f06a-4568-b7b4-28443c892a4c",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "xip",
+        "user_id",
+        "X-Xet-Cas-Uid",
+        "response-content-disposition",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "X-Xet-Cas-Uid",
+        "user_id",
+        "response-content-disposition",
+        "xip",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/99ff0e6b-e1c9-49aa-9c61-8ac12a4b6343",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/c0589a34-adc3-4bfb-afc0-7608a99c62c8",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/925d5e97-1099-4d60-9c79-d73c4e4f2ae9",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/558562d5-203a-45a8-9a64-78fa18dc11cd",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/d0697c03-1ce1-4d0a-bdd4-fb591314dbbb",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/fabf5a01-f81e-4dd5-9396-7d53ecb2b09c",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/b1120762-99f3-4ea1-8349-045b193cee15",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/4bbe2104-0992-4bac-b36f-f0db142b12be",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/87ce9894-4b6b-4ae4-b5e1-0fb1e6cb686a",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/07ed9211-2f49-4e00-888d-371adb1c9848",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/be8b8f55-1945-4850-83b5-3017455e24ed",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/bb48189a-552c-4c58-b213-4cf9a237d547",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/381d5f0c-086e-4f3e-b7d0-2248f561ae9b",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/28e402f6-0e93-43b1-a7b6-e66bf04b38cf",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/e202bed3-012d-4501-b205-cc974fb76fc4",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/7e085336-bdb0-4d82-9d51-155a808fa1c4",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/97aa73b0-c369-430b-be44-0b817cb52d8c",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/f5ef975e-3f44-45d4-8dc5-aa07b638875c",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/8f479889-5fba-4a41-b96c-396a5465d9ea",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/861ae28e-83eb-491c-a35f-b63056837d5f",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/3e0662e7-27e3-497a-b7e7-6e70d22ec5e0",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,392 @@
+# Synthetic inventory interleave
+
+AI similarity is not record identity. Whole-trace analysis withheld for any held operation. Array order is the supplied total execution order. No values, locks, commits, aborts, range reads or database connection. No operations executed or repaired.
+
+## Reviewed trace worksheet
+
+CONFLICT SERIALIZABILITY: CYCLIC — no conflict-equivalent serial order
+
+Conflict serializability of the supplied single-version total R/W trace only. Not view serializability, isolation, recoverability, durability or a database execution guarantee.
+
+FIRST-APPEARANCE BASELINE: checkout → restock; reversed conflict pairs: 2.
+
+CONFLICT PAIRS: 3; precedence edges: 2; harmless read/read pairs ignored: 1.
+
+CYCLE WITNESS:
+checkout → restock because o1 precedes o4 on stock (RW)
+restock → checkout because o2 precedes o5 on stock (RW)
+
+SOURCE-LINKED PRECEDENCE:
+checkout → restock: o1 < o4 [stock RW]
+restock → checkout: o2 < o5 [stock RW]; o4 < o5 [stock WW]
+
+Counts describe this supplied trace, not measured time savings or model accuracy.
+
+## Complete source-linked audit
+
+{
+  "schema": "serial-atelier/1",
+  "originalInput": {
+    "title": "Synthetic inventory interleave",
+    "resources": [
+      {
+        "id": "stock",
+        "description": "Warehouse available inventory quantity"
+      },
+      {
+        "id": "price",
+        "description": "Product retail selling price"
+      },
+      {
+        "id": "address",
+        "description": "Customer delivery street address"
+      }
+    ],
+    "transactions": [
+      "checkout",
+      "restock"
+    ],
+    "operations": [
+      {
+        "id": "o1",
+        "transaction": "checkout",
+        "mode": "R",
+        "resourceNote": "Available stock in warehouse"
+      },
+      {
+        "id": "o2",
+        "transaction": "restock",
+        "mode": "R",
+        "resourceNote": "Warehouse inventory quantity on hand"
+      },
+      {
+        "id": "o3",
+        "transaction": "checkout",
+        "mode": "R",
+        "resourceNote": "Retail price of product"
+      },
+      {
+        "id": "o4",
+        "transaction": "restock",
+        "mode": "W",
+        "resourceNote": "Available stock in warehouse"
+      },
+      {
+        "id": "o5",
+        "transaction": "checkout",
+        "mode": "W",
+        "resourceNote": "Warehouse inventory quantity on hand"
+      },
+      {
+        "id": "o6",
+        "transaction": "restock",
+        "mode": "R",
+        "resourceNote": "Customer street address for delivery"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "id": "o1",
+      "resource": "stock",
+      "aiResource": "stock",
+      "transaction": "checkout",
+      "mode": "R",
+      "evidence": [
+        {
+          "resource": "stock",
+          "score": 0.8117918311003203
+        },
+        {
+          "resource": "price",
+          "score": 0.3497332059319932
+        },
+        {
+          "resource": "address",
+          "score": 0.25999696792735544
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 1,
+      "id": "o2",
+      "resource": "stock",
+      "aiResource": "stock",
+      "transaction": "restock",
+      "mode": "R",
+      "evidence": [
+        {
+          "resource": "stock",
+          "score": 0.9356453832219132
+        },
+        {
+          "resource": "price",
+          "score": 0.35768889975230883
+        },
+        {
+          "resource": "address",
+          "score": 0.21197403287443822
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "id": "o3",
+      "resource": "price",
+      "aiResource": "price",
+      "transaction": "checkout",
+      "mode": "R",
+      "evidence": [
+        {
+          "resource": "price",
+          "score": 0.9086479478925709
+        },
+        {
+          "resource": "stock",
+          "score": 0.3765766516433079
+        },
+        {
+          "resource": "address",
+          "score": 0.1667732516614501
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 3,
+      "id": "o4",
+      "resource": "stock",
+      "aiResource": "stock",
+      "transaction": "restock",
+      "mode": "W",
+      "evidence": [
+        {
+          "resource": "stock",
+          "score": 0.7956558578558405
+        },
+        {
+          "resource": "price",
+          "score": 0.3361703291791367
+        },
+        {
+          "resource": "address",
+          "score": 0.26324403770622423
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 4,
+      "id": "o5",
+      "resource": "stock",
+      "aiResource": "stock",
+      "transaction": "checkout",
+      "mode": "W",
+      "evidence": [
+        {
+          "resource": "stock",
+          "score": 0.9356453832219132
+        },
+        {
+          "resource": "price",
+          "score": 0.35768889975230883
+        },
+        {
+          "resource": "address",
+          "score": 0.21197403287443822
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 5,
+      "id": "o6",
+      "resource": "address",
+      "aiResource": "address",
+      "transaction": "restock",
+      "mode": "R",
+      "evidence": [
+        {
+          "resource": "address",
+          "score": 0.9683020087885602
+        },
+        {
+          "resource": "stock",
+          "score": 0.21902583638926523
+        },
+        {
+          "resource": "price",
+          "score": 0.1732012438203349
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "warning": "AI similarity is not record identity. Whole-trace analysis withheld for any held operation. Array order is the supplied total execution order. No values, locks, commits, aborts, range reads or database connection. No operations executed or repaired.",
+  "analysis": {
+    "status": "ready",
+    "serializable": false,
+    "sharedCrossTransactionPairs": 4,
+    "readReadPairsIgnored": 1,
+    "conflictingPairs": 3,
+    "edges": [
+      {
+        "from": "checkout",
+        "to": "restock",
+        "witnesses": [
+          {
+            "from": "checkout",
+            "to": "restock",
+            "resource": "stock",
+            "before": "o1",
+            "after": "o4",
+            "beforeIndex": 0,
+            "afterIndex": 3,
+            "modes": "RW"
+          }
+        ]
+      },
+      {
+        "from": "restock",
+        "to": "checkout",
+        "witnesses": [
+          {
+            "from": "restock",
+            "to": "checkout",
+            "resource": "stock",
+            "before": "o2",
+            "after": "o5",
+            "beforeIndex": 1,
+            "afterIndex": 4,
+            "modes": "RW"
+          },
+          {
+            "from": "restock",
+            "to": "checkout",
+            "resource": "stock",
+            "before": "o4",
+            "after": "o5",
+            "beforeIndex": 3,
+            "afterIndex": 4,
+            "modes": "WW"
+          }
+        ]
+      }
+    ],
+    "conflicts": [
+      {
+        "from": "checkout",
+        "to": "restock",
+        "resource": "stock",
+        "before": "o1",
+        "after": "o4",
+        "beforeIndex": 0,
+        "afterIndex": 3,
+        "modes": "RW"
+      },
+      {
+        "from": "restock",
+        "to": "checkout",
+        "resource": "stock",
+        "before": "o2",
+        "after": "o5",
+        "beforeIndex": 1,
+        "afterIndex": 4,
+        "modes": "RW"
+      },
+      {
+        "from": "restock",
+        "to": "checkout",
+        "resource": "stock",
+        "before": "o4",
+        "after": "o5",
+        "beforeIndex": 3,
+        "afterIndex": 4,
+        "modes": "WW"
+      }
+    ],
+    "baselineOrder": [
+      "checkout",
+      "restock"
+    ],
+    "baselineViolations": [
+      {
+        "from": "restock",
+        "to": "checkout",
+        "resource": "stock",
+        "before": "o2",
+        "after": "o5",
+        "beforeIndex": 1,
+        "afterIndex": 4,
+        "modes": "RW"
+      },
+      {
+        "from": "restock",
+        "to": "checkout",
+        "resource": "stock",
+        "before": "o4",
+        "after": "o5",
+        "beforeIndex": 3,
+        "afterIndex": 4,
+        "modes": "WW"
+      }
+    ],
+    "serialOrder": [],
+    "serialOperations": [],
+    "cycle": [
+      {
+        "from": "checkout",
+        "to": "restock",
+        "witnesses": [
+          {
+            "from": "checkout",
+            "to": "restock",
+            "resource": "stock",
+            "before": "o1",
+            "after": "o4",
+            "beforeIndex": 0,
+            "afterIndex": 3,
+            "modes": "RW"
+          }
+        ]
+      },
+      {
+        "from": "restock",
+        "to": "checkout",
+        "witnesses": [
+          {
+            "from": "restock",
+            "to": "checkout",
+            "resource": "stock",
+            "before": "o2",
+            "after": "o5",
+            "beforeIndex": 1,
+            "afterIndex": 4,
+            "modes": "RW"
+          },
+          {
+            "from": "restock",
+            "to": "checkout",
+            "resource": "stock",
+            "before": "o4",
+            "after": "o5",
+            "beforeIndex": 3,
+            "afterIndex": 4,
+            "modes": "WW"
+          }
+        ]
+      }
+    ],
+    "scope": "Conflict serializability of the supplied single-version total R/W trace only. Not view serializability, isolation, recoverability, durability or a database execution guarantee."
+  }
+}
+

@@ -1,0 +1,633 @@
+{
+  "fixtures": [
+    {
+      "name": "Building inspections",
+      "actual": [
+        "power",
+        "air",
+        "power",
+        "lift"
+      ],
+      "expected": [
+        "power",
+        "air",
+        "power",
+        "lift"
+      ],
+      "correct": 4,
+      "analysis": {
+        "groups": [
+          {
+            "group": "Shared shutdown",
+            "status": "ready",
+            "sources": [
+              "r1",
+              "r2"
+            ],
+            "heldSources": [],
+            "calendars": [
+              {
+                "id": "power",
+                "description": "Electrical switchboard inspection electrician power circuit panel",
+                "period": 6,
+                "phase": 1,
+                "source": "r1"
+              },
+              {
+                "id": "air",
+                "description": "Ventilation duct filter inspection air handling HVAC",
+                "period": 8,
+                "phase": 3,
+                "source": "r2"
+              }
+            ],
+            "cycleDays": 24,
+            "witnesses": [],
+            "individualNext": [
+              {
+                "source": "r1",
+                "calendar": "power",
+                "next": "2026-11-02"
+              },
+              {
+                "source": "r2",
+                "calendar": "air",
+                "next": "2026-11-04"
+              }
+            ],
+            "baselineDate": "2026-11-04",
+            "baselineViolations": [
+              "r1"
+            ],
+            "baselineBlackout": false,
+            "baselineOutsideHorizon": false,
+            "rawDates": [
+              "2026-11-20",
+              "2026-12-14"
+            ],
+            "excludedByBlackout": [
+              "2026-11-20"
+            ],
+            "dates": [
+              "2026-12-14"
+            ],
+            "next": "2026-12-14"
+          },
+          {
+            "group": "Hoist visit",
+            "status": "incompatible",
+            "sources": [
+              "r3",
+              "r4"
+            ],
+            "heldSources": [],
+            "calendars": [
+              {
+                "id": "power",
+                "description": "Electrical switchboard inspection electrician power circuit panel",
+                "period": 6,
+                "phase": 1,
+                "source": "r3"
+              },
+              {
+                "id": "lift",
+                "description": "Elevator lift mechanical inspection cabin hoist",
+                "period": 4,
+                "phase": 0,
+                "source": "r4"
+              }
+            ],
+            "cycleDays": 12,
+            "witnesses": [
+              {
+                "first": "r3",
+                "second": "r4",
+                "firstCalendar": "power",
+                "secondCalendar": "lift",
+                "gcd": 2,
+                "firstResidue": 1,
+                "secondResidue": 0
+              }
+            ],
+            "individualNext": [
+              {
+                "source": "r3",
+                "calendar": "power",
+                "next": "2026-11-02"
+              },
+              {
+                "source": "r4",
+                "calendar": "lift",
+                "next": "2026-11-01"
+              }
+            ],
+            "baselineDate": "2026-11-02",
+            "baselineViolations": [
+              "r4"
+            ],
+            "baselineBlackout": false,
+            "baselineOutsideHorizon": false,
+            "rawDates": [],
+            "excludedByBlackout": [],
+            "dates": [],
+            "next": null
+          }
+        ],
+        "ready": 1,
+        "held": 0,
+        "incompatible": 1,
+        "noWindow": 0,
+        "baselineFailures": 2,
+        "evaluatedGroups": 2,
+        "sourceCount": 4,
+        "scope": "Exact intersection of reviewed fixed-day availability cadences, not monthly/weekday recurrence. Day zero is the supplied anchor. Baseline takes the latest individual next date without rechecking others. Blackouts remove whole dates globally. Held requirements withhold their entire group. Groups are independent: no cross-group capacity, duration or live vendor availability is modeled. Dates are worksheets, not bookings."
+      }
+    },
+    {
+      "name": "Food workshop visits",
+      "actual": [
+        "sanitary",
+        "cold",
+        "sanitary",
+        "fire"
+      ],
+      "expected": [
+        "sanitary",
+        "cold",
+        "sanitary",
+        "fire"
+      ],
+      "correct": 4,
+      "analysis": {
+        "groups": [
+          {
+            "group": "Kitchen closure",
+            "status": "ready",
+            "sources": [
+              "a1",
+              "a2"
+            ],
+            "heldSources": [],
+            "calendars": [
+              {
+                "id": "sanitary",
+                "description": "Kitchen hygiene sanitation food preparation cleaning inspection",
+                "period": 5,
+                "phase": 2,
+                "source": "a1"
+              },
+              {
+                "id": "cold",
+                "description": "Refrigeration cold storage freezer temperature equipment service",
+                "period": 7,
+                "phase": 4,
+                "source": "a2"
+              }
+            ],
+            "cycleDays": 35,
+            "witnesses": [],
+            "individualNext": [
+              {
+                "source": "a1",
+                "calendar": "sanitary",
+                "next": "2026-11-03"
+              },
+              {
+                "source": "a2",
+                "calendar": "cold",
+                "next": "2026-11-05"
+              }
+            ],
+            "baselineDate": "2026-11-05",
+            "baselineViolations": [
+              "a1"
+            ],
+            "baselineBlackout": false,
+            "baselineOutsideHorizon": false,
+            "rawDates": [
+              "2026-12-03",
+              "2027-01-07"
+            ],
+            "excludedByBlackout": [],
+            "dates": [
+              "2026-12-03",
+              "2027-01-07"
+            ],
+            "next": "2026-12-03"
+          },
+          {
+            "group": "Safety visit",
+            "status": "incompatible",
+            "sources": [
+              "a3",
+              "a4"
+            ],
+            "heldSources": [],
+            "calendars": [
+              {
+                "id": "sanitary",
+                "description": "Kitchen hygiene sanitation food preparation cleaning inspection",
+                "period": 5,
+                "phase": 2,
+                "source": "a3"
+              },
+              {
+                "id": "fire",
+                "description": "Fire extinguisher alarm smoke detector safety inspection",
+                "period": 10,
+                "phase": 3,
+                "source": "a4"
+              }
+            ],
+            "cycleDays": 10,
+            "witnesses": [
+              {
+                "first": "a3",
+                "second": "a4",
+                "firstCalendar": "sanitary",
+                "secondCalendar": "fire",
+                "gcd": 5,
+                "firstResidue": 2,
+                "secondResidue": 3
+              }
+            ],
+            "individualNext": [
+              {
+                "source": "a3",
+                "calendar": "sanitary",
+                "next": "2026-11-03"
+              },
+              {
+                "source": "a4",
+                "calendar": "fire",
+                "next": "2026-11-04"
+              }
+            ],
+            "baselineDate": "2026-11-04",
+            "baselineViolations": [
+              "a3"
+            ],
+            "baselineBlackout": false,
+            "baselineOutsideHorizon": false,
+            "rawDates": [],
+            "excludedByBlackout": [],
+            "dates": [],
+            "next": null
+          }
+        ],
+        "ready": 1,
+        "held": 0,
+        "incompatible": 1,
+        "noWindow": 0,
+        "baselineFailures": 2,
+        "evaluatedGroups": 2,
+        "sourceCount": 4,
+        "scope": "Exact intersection of reviewed fixed-day availability cadences, not monthly/weekday recurrence. Day zero is the supplied anchor. Baseline takes the latest individual next date without rechecking others. Blackouts remove whole dates globally. Held requirements withhold their entire group. Groups are independent: no cross-group capacity, duration or live vendor availability is modeled. Dates are worksheets, not bookings."
+      }
+    }
+  ],
+  "checks": [
+    "Identity edits change shared dates and reset approval; pending/stale exports blocked; held requirement withholds entire group; undo/multiline note/clipboard",
+    "Actual fresh-worker offline inference in already-open warmed page",
+    "Maximum 8 calendars / 32 requirements / 16 groups; 40 real embeddings in 10 chunks; complete audit reimport",
+    "Real cancellation followed by successful retry",
+    "Actual download/clipboard, labels/focus/touch/no overflow at 1440/390/320, invalid inputs/files, GET-only public file downloads with no content"
+  ],
+  "negationProbe": {
+    "proposed": "power",
+    "decision": "pending",
+    "limitation": "Unknown/negated text selects nearest calendar; hold required."
+  },
+  "requests": [
+    {
+      "host": "127.0.0.1:7377",
+      "path": "/daily-app2/20261123-6/",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7377",
+      "path": "/daily-app2/20261123-6/assets/index-D9aAnSDK.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7377",
+      "path": "/daily-app2/20261123-6/assets/index-CsDZiKPi.css",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7377",
+      "path": "/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/2c57143c-b6d4-4831-b291-dbc51a032db7",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7377",
+      "path": "/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7377",
+      "path": "/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "xip",
+        "response-content-disposition",
+        "X-Xet-Cas-Uid",
+        "user_id",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "user_id",
+        "X-Xet-Cas-Uid",
+        "xip",
+        "response-content-disposition",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/ccb5dc72-50ca-4463-8276-315d9a904753",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/19779ecb-0f07-4dca-8a0b-dcb9dfc5b6fd",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/8e0726ad-d409-48c6-b233-330f41ed7ed9",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/2118be35-3fdf-46d1-9ac4-bb882aaa2d7e",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/708a5a90-ac8a-44e0-97f9-7f8629e8cc46",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/7917ecd2-a90a-4da3-b214-e6f69fe613c8",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/e562d638-ede4-49f6-9f6a-d9ecf9828871",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/6b68d699-0e93-47a1-b38a-1e407f2d0604",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/a562e99d-9120-4e97-b1dd-bcf92d4f6c44",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/c08ecf78-07d6-4848-8378-caceb6b8f29f",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/39407af9-5075-41e2-b187-482f1bdb9a2b",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/c111f2f3-2a51-42ff-8633-572183cd4cc8",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/91da34c2-baa9-45b0-84e1-c0d896709dde",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/0ec77b41-5d4c-4a05-8b97-231c4c9c5908",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/fc27e9e7-c306-4c93-824e-f75b13882299",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/56ff8821-911b-4ed4-a273-f8dee8053ed3",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/f192022a-776f-4057-b0c9-3b42b2364e43",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/ccf0fad2-f929-4055-b0f9-745934ec0193",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/01ef8625-bfc9-483d-ae83-51c4f9b2f2d3",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/f5e0d8f0-0dd1-485e-a2b5-cf942216e9e5",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/8e4f7a0f-a0b2-4242-a564-8f27b5966ca6",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    }
+  ],
+  "errors": []
+}

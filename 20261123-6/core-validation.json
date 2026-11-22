@@ -1,0 +1,447 @@
+{
+  "fixtures": [
+    {
+      "schema": "window-concord/1",
+      "appliedAt": "2026-11-22T21:04:42.494Z",
+      "originalInput": {
+        "title": "Synthetic building maintenance coordination",
+        "anchor": "2026-11-01",
+        "start": "2026-11-01",
+        "end": "2026-12-31",
+        "blackouts": [
+          "2026-11-20"
+        ],
+        "calendars": [
+          {
+            "id": "power",
+            "description": "Electrical switchboard inspection electrician power circuit panel",
+            "period": 6,
+            "phase": 1
+          },
+          {
+            "id": "air",
+            "description": "Ventilation duct filter inspection air handling HVAC",
+            "period": 8,
+            "phase": 3
+          },
+          {
+            "id": "lift",
+            "description": "Elevator lift mechanical inspection cabin hoist",
+            "period": 4,
+            "phase": 0
+          }
+        ],
+        "records": [
+          {
+            "id": "r1",
+            "group": "Shared shutdown",
+            "note": "Electrician checking the power switchboard circuit panel"
+          },
+          {
+            "id": "r2",
+            "group": "Shared shutdown",
+            "note": "HVAC air handling ventilation duct filter check"
+          },
+          {
+            "id": "r3",
+            "group": "Hoist visit",
+            "note": "Electrical power panel switchboard inspection"
+          },
+          {
+            "id": "r4",
+            "group": "Hoist visit",
+            "note": "Elevator lift hoist cabin mechanical inspection"
+          }
+        ]
+      },
+      "reviews": [
+        {
+          "index": 0,
+          "text": "Electrician checking the power switchboard circuit panel",
+          "resource": "power",
+          "aiResource": "power",
+          "evidence": [],
+          "decision": "approve",
+          "note": ""
+        },
+        {
+          "index": 1,
+          "text": "HVAC air handling ventilation duct filter check",
+          "resource": "air",
+          "aiResource": "air",
+          "evidence": [],
+          "decision": "approve",
+          "note": ""
+        },
+        {
+          "index": 2,
+          "text": "Electrical power panel switchboard inspection",
+          "resource": "power",
+          "aiResource": "lift",
+          "evidence": [],
+          "decision": "approve",
+          "note": ""
+        },
+        {
+          "index": 3,
+          "text": "Elevator lift hoist cabin mechanical inspection",
+          "resource": "lift",
+          "aiResource": "power",
+          "evidence": [],
+          "decision": "approve",
+          "note": ""
+        }
+      ],
+      "analysis": {
+        "groups": [
+          {
+            "group": "Shared shutdown",
+            "status": "ready",
+            "sources": [
+              "r1",
+              "r2"
+            ],
+            "heldSources": [],
+            "calendars": [
+              {
+                "id": "power",
+                "description": "Electrical switchboard inspection electrician power circuit panel",
+                "period": 6,
+                "phase": 1,
+                "source": "r1"
+              },
+              {
+                "id": "air",
+                "description": "Ventilation duct filter inspection air handling HVAC",
+                "period": 8,
+                "phase": 3,
+                "source": "r2"
+              }
+            ],
+            "cycleDays": 24,
+            "witnesses": [],
+            "individualNext": [
+              {
+                "source": "r1",
+                "calendar": "power",
+                "next": "2026-11-02"
+              },
+              {
+                "source": "r2",
+                "calendar": "air",
+                "next": "2026-11-04"
+              }
+            ],
+            "baselineDate": "2026-11-04",
+            "baselineViolations": [
+              "r1"
+            ],
+            "baselineBlackout": false,
+            "baselineOutsideHorizon": false,
+            "rawDates": [
+              "2026-11-20",
+              "2026-12-14"
+            ],
+            "excludedByBlackout": [
+              "2026-11-20"
+            ],
+            "dates": [
+              "2026-12-14"
+            ],
+            "next": "2026-12-14"
+          },
+          {
+            "group": "Hoist visit",
+            "status": "incompatible",
+            "sources": [
+              "r3",
+              "r4"
+            ],
+            "heldSources": [],
+            "calendars": [
+              {
+                "id": "power",
+                "description": "Electrical switchboard inspection electrician power circuit panel",
+                "period": 6,
+                "phase": 1,
+                "source": "r3"
+              },
+              {
+                "id": "lift",
+                "description": "Elevator lift mechanical inspection cabin hoist",
+                "period": 4,
+                "phase": 0,
+                "source": "r4"
+              }
+            ],
+            "cycleDays": 12,
+            "witnesses": [
+              {
+                "first": "r3",
+                "second": "r4",
+                "firstCalendar": "power",
+                "secondCalendar": "lift",
+                "gcd": 2,
+                "firstResidue": 1,
+                "secondResidue": 0
+              }
+            ],
+            "individualNext": [
+              {
+                "source": "r3",
+                "calendar": "power",
+                "next": "2026-11-02"
+              },
+              {
+                "source": "r4",
+                "calendar": "lift",
+                "next": "2026-11-01"
+              }
+            ],
+            "baselineDate": "2026-11-02",
+            "baselineViolations": [
+              "r4"
+            ],
+            "baselineBlackout": false,
+            "baselineOutsideHorizon": false,
+            "rawDates": [],
+            "excludedByBlackout": [],
+            "dates": [],
+            "next": null
+          }
+        ],
+        "ready": 1,
+        "held": 0,
+        "incompatible": 1,
+        "noWindow": 0,
+        "baselineFailures": 2,
+        "evaluatedGroups": 2,
+        "sourceCount": 4,
+        "scope": "Exact intersection of reviewed fixed-day availability cadences, not monthly/weekday recurrence. Day zero is the supplied anchor. Baseline takes the latest individual next date without rechecking others. Blackouts remove whole dates globally. Held requirements withhold their entire group. Groups are independent: no cross-group capacity, duration or live vendor availability is modeled. Dates are worksheets, not bookings."
+      }
+    },
+    {
+      "schema": "window-concord/1",
+      "appliedAt": "2026-11-22T21:04:42.494Z",
+      "originalInput": {
+        "title": "Synthetic food workshop vendor availability",
+        "anchor": "2026-11-01",
+        "start": "2026-11-01",
+        "end": "2027-01-15",
+        "blackouts": [],
+        "calendars": [
+          {
+            "id": "sanitary",
+            "description": "Kitchen hygiene sanitation food preparation cleaning inspection",
+            "period": 5,
+            "phase": 2
+          },
+          {
+            "id": "cold",
+            "description": "Refrigeration cold storage freezer temperature equipment service",
+            "period": 7,
+            "phase": 4
+          },
+          {
+            "id": "fire",
+            "description": "Fire extinguisher alarm smoke detector safety inspection",
+            "period": 10,
+            "phase": 3
+          }
+        ],
+        "records": [
+          {
+            "id": "a1",
+            "group": "Kitchen closure",
+            "note": "Food preparation kitchen sanitation hygiene inspection"
+          },
+          {
+            "id": "a2",
+            "group": "Kitchen closure",
+            "note": "Freezer refrigeration cold storage equipment service"
+          },
+          {
+            "id": "a3",
+            "group": "Safety visit",
+            "note": "Kitchen cleaning food hygiene sanitation check"
+          },
+          {
+            "id": "a4",
+            "group": "Safety visit",
+            "note": "Smoke detector fire alarm extinguisher inspection"
+          }
+        ]
+      },
+      "reviews": [
+        {
+          "index": 0,
+          "text": "Food preparation kitchen sanitation hygiene inspection",
+          "resource": "sanitary",
+          "aiResource": "sanitary",
+          "evidence": [],
+          "decision": "approve",
+          "note": ""
+        },
+        {
+          "index": 1,
+          "text": "Freezer refrigeration cold storage equipment service",
+          "resource": "cold",
+          "aiResource": "cold",
+          "evidence": [],
+          "decision": "approve",
+          "note": ""
+        },
+        {
+          "index": 2,
+          "text": "Kitchen cleaning food hygiene sanitation check",
+          "resource": "sanitary",
+          "aiResource": "fire",
+          "evidence": [],
+          "decision": "approve",
+          "note": ""
+        },
+        {
+          "index": 3,
+          "text": "Smoke detector fire alarm extinguisher inspection",
+          "resource": "fire",
+          "aiResource": "sanitary",
+          "evidence": [],
+          "decision": "approve",
+          "note": ""
+        }
+      ],
+      "analysis": {
+        "groups": [
+          {
+            "group": "Kitchen closure",
+            "status": "ready",
+            "sources": [
+              "a1",
+              "a2"
+            ],
+            "heldSources": [],
+            "calendars": [
+              {
+                "id": "sanitary",
+                "description": "Kitchen hygiene sanitation food preparation cleaning inspection",
+                "period": 5,
+                "phase": 2,
+                "source": "a1"
+              },
+              {
+                "id": "cold",
+                "description": "Refrigeration cold storage freezer temperature equipment service",
+                "period": 7,
+                "phase": 4,
+                "source": "a2"
+              }
+            ],
+            "cycleDays": 35,
+            "witnesses": [],
+            "individualNext": [
+              {
+                "source": "a1",
+                "calendar": "sanitary",
+                "next": "2026-11-03"
+              },
+              {
+                "source": "a2",
+                "calendar": "cold",
+                "next": "2026-11-05"
+              }
+            ],
+            "baselineDate": "2026-11-05",
+            "baselineViolations": [
+              "a1"
+            ],
+            "baselineBlackout": false,
+            "baselineOutsideHorizon": false,
+            "rawDates": [
+              "2026-12-03",
+              "2027-01-07"
+            ],
+            "excludedByBlackout": [],
+            "dates": [
+              "2026-12-03",
+              "2027-01-07"
+            ],
+            "next": "2026-12-03"
+          },
+          {
+            "group": "Safety visit",
+            "status": "incompatible",
+            "sources": [
+              "a3",
+              "a4"
+            ],
+            "heldSources": [],
+            "calendars": [
+              {
+                "id": "sanitary",
+                "description": "Kitchen hygiene sanitation food preparation cleaning inspection",
+                "period": 5,
+                "phase": 2,
+                "source": "a3"
+              },
+              {
+                "id": "fire",
+                "description": "Fire extinguisher alarm smoke detector safety inspection",
+                "period": 10,
+                "phase": 3,
+                "source": "a4"
+              }
+            ],
+            "cycleDays": 10,
+            "witnesses": [
+              {
+                "first": "a3",
+                "second": "a4",
+                "firstCalendar": "sanitary",
+                "secondCalendar": "fire",
+                "gcd": 5,
+                "firstResidue": 2,
+                "secondResidue": 3
+              }
+            ],
+            "individualNext": [
+              {
+                "source": "a3",
+                "calendar": "sanitary",
+                "next": "2026-11-03"
+              },
+              {
+                "source": "a4",
+                "calendar": "fire",
+                "next": "2026-11-04"
+              }
+            ],
+            "baselineDate": "2026-11-04",
+            "baselineViolations": [
+              "a3"
+            ],
+            "baselineBlackout": false,
+            "baselineOutsideHorizon": false,
+            "rawDates": [],
+            "excludedByBlackout": [],
+            "dates": [],
+            "next": null
+          }
+        ],
+        "ready": 1,
+        "held": 0,
+        "incompatible": 1,
+        "noWindow": 0,
+        "baselineFailures": 2,
+        "evaluatedGroups": 2,
+        "sourceCount": 4,
+        "scope": "Exact intersection of reviewed fixed-day availability cadences, not monthly/weekday recurrence. Day zero is the supplied anchor. Baseline takes the latest individual next date without rechecking others. Blackouts remove whole dates globally. Held requirements withhold their entire group. Groups are independent: no cross-group capacity, duration or live vendor availability is modeled. Dates are worksheets, not bookings."
+      }
+    }
+  ],
+  "oracles": 1000,
+  "checks": [
+    "1,000 independently generated date-set intersections; negative anchor offsets; pairwise residue witness verification",
+    "Strict schema/limits/date/period/phase checks; normalized vector validation",
+    "Pending reviews blocked; held requirement withholds entire group; compatible horizon misses distinguished"
+  ]
+}

@@ -1942,3 +1942,8 @@ Real local MiniLM retrieves venues from informal event notes before mandatory ti
 The unchanged 1 GB guard is retained. Deployment-only byte-identical geometry reuse additionally covers Cell & Slot (`20261029-19`), preserving source builds/compatibility URLs and the immutable shared `20261028-24` runtime. Actual old-app worker/image/STL imports/exports and portable design reopening are regression-tested.
 
 Wallclock Desk public release verified: matching Pages build/deployment, nine byte-matched gallery/app/runtime assets, both real-AI fixtures and full public workflow/maximum-batch/offline/privacy suite, independently parsed reviewed calendar exports, 810-entry gallery and affected older-app imports/exports/design reopening passed. Combined size 999,352,831 bytes remains below the unchanged guard. Physical phones and real calendar clients remain untested. No digest sent.
+
+
+## Window Concord — 20261123-6
+
+Real local MiniLM reconciles informal maintenance requirements with supplied recurring availability calendars before mandatory human review. Exact fixed-day intersections expose incompatible phases and blackout-aware common dates against latest-next shortcuts, with complete JSON/CSV/Markdown and held-aware group worksheets. Both tiny fixtures matched 8/8 simple calendar identities; 1,000 independent date-set oracles passed, not general accuracy. Holding a requirement withholds its entire group. No bookings, vendor queries or calendar changes. Warmed-page offline fresh-worker inference only; preserve immutable inference assets from `20261115-6` and `20261107-2`. No runtime-sharing rule or size-guard changes. See [workflow/privacy](20261123-6/README.md) and [observed checks](20261123-6/VALIDATION.md). No digest sent.

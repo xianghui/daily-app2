@@ -1,0 +1,298 @@
+# Synthetic food workshop vendor availability
+
+Exact intersection of reviewed fixed-day availability cadences, not monthly/weekday recurrence. Day zero is the supplied anchor. Baseline takes the latest individual next date without rechecking others. Blackouts remove whole dates globally. Held requirements withhold their entire group. Groups are independent: no cross-group capacity, duration or live vendor availability is modeled. Dates are worksheets, not bookings.
+
+ANCHOR 2026-11-01 | HORIZON 2026-11-01 through 2027-01-15 | BLACKOUTS 
+
+1 ready groups; 1 incompatible; 0 no window; 0 held. Baseline invalid for 2 of 2 fully reviewed groups.
+
+Kitchen closure [ready]
+Requirements: a1, a2
+First shared date: 2026-12-03
+Shared dates: 2026-12-03, 2027-01-07
+Latest-next baseline: 2026-11-05; violating sources: a1
+Held sources: 
+Blackout exclusions: 
+Conflict witnesses: 
+
+Safety visit [incompatible]
+Requirements: a3, a4
+First shared date: none
+Shared dates: none
+Latest-next baseline: 2026-11-04; violating sources: a3
+Held sources: 
+Blackout exclusions: 
+Conflict witnesses: a3 vs a4: phases differ modulo gcd 5 (2 vs 3)
+
+## Complete original and reviewed audit
+
+{
+  "schema": "window-concord/1",
+  "appliedAt": "2026-11-22T21:11:36.831Z",
+  "originalInput": {
+    "title": "Synthetic food workshop vendor availability",
+    "anchor": "2026-11-01",
+    "start": "2026-11-01",
+    "end": "2027-01-15",
+    "blackouts": [],
+    "calendars": [
+      {
+        "id": "sanitary",
+        "description": "Kitchen hygiene sanitation food preparation cleaning inspection",
+        "period": 5,
+        "phase": 2
+      },
+      {
+        "id": "cold",
+        "description": "Refrigeration cold storage freezer temperature equipment service",
+        "period": 7,
+        "phase": 4
+      },
+      {
+        "id": "fire",
+        "description": "Fire extinguisher alarm smoke detector safety inspection",
+        "period": 10,
+        "phase": 3
+      }
+    ],
+    "records": [
+      {
+        "id": "a1",
+        "group": "Kitchen closure",
+        "note": "Food preparation kitchen sanitation hygiene inspection"
+      },
+      {
+        "id": "a2",
+        "group": "Kitchen closure",
+        "note": "Freezer refrigeration cold storage equipment service"
+      },
+      {
+        "id": "a3",
+        "group": "Safety visit",
+        "note": "Kitchen cleaning food hygiene sanitation check"
+      },
+      {
+        "id": "a4",
+        "group": "Safety visit",
+        "note": "Smoke detector fire alarm extinguisher inspection"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "text": "Food preparation kitchen sanitation hygiene inspection",
+      "resource": "sanitary",
+      "aiResource": "sanitary",
+      "evidence": [
+        {
+          "resource": "sanitary",
+          "score": 0.9696342416739019
+        },
+        {
+          "resource": "fire",
+          "score": 0.23604289896793756
+        },
+        {
+          "resource": "cold",
+          "score": 0.18626221972883314
+        }
+      ],
+      "decision": "approve",
+      "note": "=SUM(1,2)\nReview \"complete\", preserved. 🗓️"
+    },
+    {
+      "index": 1,
+      "text": "Freezer refrigeration cold storage equipment service",
+      "resource": "cold",
+      "aiResource": "cold",
+      "evidence": [
+        {
+          "resource": "cold",
+          "score": 0.9751021741747447
+        },
+        {
+          "resource": "fire",
+          "score": 0.20363489667315887
+        },
+        {
+          "resource": "sanitary",
+          "score": 0.18686257338889206
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "text": "Kitchen cleaning food hygiene sanitation check",
+      "resource": "sanitary",
+      "aiResource": "sanitary",
+      "evidence": [
+        {
+          "resource": "sanitary",
+          "score": 0.9249222439561213
+        },
+        {
+          "resource": "fire",
+          "score": 0.15424416383291062
+        },
+        {
+          "resource": "cold",
+          "score": 0.14933773584607385
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 3,
+      "text": "Smoke detector fire alarm extinguisher inspection",
+      "resource": "fire",
+      "aiResource": "fire",
+      "evidence": [
+        {
+          "resource": "fire",
+          "score": 0.9754671006140999
+        },
+        {
+          "resource": "sanitary",
+          "score": 0.21958506074574208
+        },
+        {
+          "resource": "cold",
+          "score": 0.20678787508687138
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "analysis": {
+    "groups": [
+      {
+        "group": "Kitchen closure",
+        "status": "ready",
+        "sources": [
+          "a1",
+          "a2"
+        ],
+        "heldSources": [],
+        "calendars": [
+          {
+            "id": "sanitary",
+            "description": "Kitchen hygiene sanitation food preparation cleaning inspection",
+            "period": 5,
+            "phase": 2,
+            "source": "a1"
+          },
+          {
+            "id": "cold",
+            "description": "Refrigeration cold storage freezer temperature equipment service",
+            "period": 7,
+            "phase": 4,
+            "source": "a2"
+          }
+        ],
+        "cycleDays": 35,
+        "witnesses": [],
+        "individualNext": [
+          {
+            "source": "a1",
+            "calendar": "sanitary",
+            "next": "2026-11-03"
+          },
+          {
+            "source": "a2",
+            "calendar": "cold",
+            "next": "2026-11-05"
+          }
+        ],
+        "baselineDate": "2026-11-05",
+        "baselineViolations": [
+          "a1"
+        ],
+        "baselineBlackout": false,
+        "baselineOutsideHorizon": false,
+        "rawDates": [
+          "2026-12-03",
+          "2027-01-07"
+        ],
+        "excludedByBlackout": [],
+        "dates": [
+          "2026-12-03",
+          "2027-01-07"
+        ],
+        "next": "2026-12-03"
+      },
+      {
+        "group": "Safety visit",
+        "status": "incompatible",
+        "sources": [
+          "a3",
+          "a4"
+        ],
+        "heldSources": [],
+        "calendars": [
+          {
+            "id": "sanitary",
+            "description": "Kitchen hygiene sanitation food preparation cleaning inspection",
+            "period": 5,
+            "phase": 2,
+            "source": "a3"
+          },
+          {
+            "id": "fire",
+            "description": "Fire extinguisher alarm smoke detector safety inspection",
+            "period": 10,
+            "phase": 3,
+            "source": "a4"
+          }
+        ],
+        "cycleDays": 10,
+        "witnesses": [
+          {
+            "first": "a3",
+            "second": "a4",
+            "firstCalendar": "sanitary",
+            "secondCalendar": "fire",
+            "gcd": 5,
+            "firstResidue": 2,
+            "secondResidue": 3
+          }
+        ],
+        "individualNext": [
+          {
+            "source": "a3",
+            "calendar": "sanitary",
+            "next": "2026-11-03"
+          },
+          {
+            "source": "a4",
+            "calendar": "fire",
+            "next": "2026-11-04"
+          }
+        ],
+        "baselineDate": "2026-11-04",
+        "baselineViolations": [
+          "a3"
+        ],
+        "baselineBlackout": false,
+        "baselineOutsideHorizon": false,
+        "rawDates": [],
+        "excludedByBlackout": [],
+        "dates": [],
+        "next": null
+      }
+    ],
+    "ready": 1,
+    "held": 0,
+    "incompatible": 1,
+    "noWindow": 0,
+    "baselineFailures": 2,
+    "evaluatedGroups": 2,
+    "sourceCount": 4,
+    "scope": "Exact intersection of reviewed fixed-day availability cadences, not monthly/weekday recurrence. Day zero is the supplied anchor. Baseline takes the latest individual next date without rechecking others. Blackouts remove whole dates globally. Held requirements withhold their entire group. Groups are independent: no cross-group capacity, duration or live vendor availability is modeled. Dates are worksheets, not bookings."
+  }
+}
+

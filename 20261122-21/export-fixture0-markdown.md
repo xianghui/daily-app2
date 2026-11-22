@@ -1,0 +1,252 @@
+# Synthetic commerce lookup filters
+
+Semantic similarity is not filter identity. Any held batch withholds the whole allocation. Counts from overlapping key sets must not be added. No actual Bloom filter, backend benchmark or service changes.
+
+## Reviewed memory plan
+
+Analytical estimates, not measured latency or accuracy. Standard independent uniform hash approximation; append-only sets, disjoint distinct-key batches, truly absent query counts and fixed backend costs. No filter construction, configuration, deletion or live service access.
+
+TOTAL MEMORY: 12 KiB; distinct keys: 10000; absent queries: 145000
+
+EQUAL-MEMORY BASELINE: 1573.44 estimated backend ms / 574.97 false lookups.
+
+OPTIMIZED: 967.98 estimated backend ms / 421.53 false lookups.
+
+ALLOCATION
+catalog | 5 KiB | k=9 | estimated FPR=1.4233e-3 | sources: A | equal-memory baseline 4 KiB, k=8
+account | 3 KiB | k=12 | estimated FPR=1.1050e-5 | sources: B | equal-memory baseline 4 KiB, k=12
+media | 4 KiB | k=4 | estimated FPR=7.2699e-2 | sources: C | equal-memory baseline 4 KiB, k=4
+
+## Complete original and review audit
+
+{
+  "schema": "filter-budget/1",
+  "originalInput": {
+    "title": "Synthetic commerce lookup filters",
+    "budgetKiB": 12,
+    "filters": [
+      {
+        "id": "catalog",
+        "description": "Product catalog SKU existence and merchandise item lookup",
+        "lookupMs": 4
+      },
+      {
+        "id": "account",
+        "description": "Customer login account usernames and registered email lookup",
+        "lookupMs": 12
+      },
+      {
+        "id": "media",
+        "description": "Photograph image thumbnail asset file existence",
+        "lookupMs": 2
+      }
+    ],
+    "batches": [
+      {
+        "id": "A",
+        "filterNote": "Merchandise product SKU catalog items",
+        "distinct": 3000,
+        "absentQueries": 40000
+      },
+      {
+        "id": "B",
+        "filterNote": "Registered customer account login email names",
+        "distinct": 1000,
+        "absentQueries": 100000
+      },
+      {
+        "id": "C",
+        "filterNote": "Image photograph thumbnail asset files",
+        "distinct": 6000,
+        "absentQueries": 5000
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "id": "A",
+      "resource": "catalog",
+      "aiResource": "catalog",
+      "distinct": 3000,
+      "absentQueries": 40000,
+      "evidence": [
+        {
+          "resource": "catalog",
+          "score": 0.7799113140029262
+        },
+        {
+          "resource": "account",
+          "score": 0.10831177421012896
+        },
+        {
+          "resource": "media",
+          "score": 0.05523944968493645
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 1,
+      "id": "B",
+      "resource": "account",
+      "aiResource": "account",
+      "distinct": 1000,
+      "absentQueries": 100000,
+      "evidence": [
+        {
+          "resource": "account",
+          "score": 0.8517211481318323
+        },
+        {
+          "resource": "catalog",
+          "score": 0.04882711437619147
+        },
+        {
+          "resource": "media",
+          "score": -0.050496945816818184
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "id": "C",
+      "resource": "media",
+      "aiResource": "media",
+      "distinct": 6000,
+      "absentQueries": 5000,
+      "evidence": [
+        {
+          "resource": "media",
+          "score": 0.8887349217069457
+        },
+        {
+          "resource": "account",
+          "score": 0.03087113840415625
+        },
+        {
+          "resource": "catalog",
+          "score": 0.01681561194269757
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "warning": "Semantic similarity is not filter identity. Any held batch withholds the whole allocation. Counts from overlapping key sets must not be added. No actual Bloom filter, backend benchmark or service changes.",
+  "analysis": {
+    "status": "ready",
+    "optimal": [
+      {
+        "id": "catalog",
+        "description": "Product catalog SKU existence and merchandise item lookup",
+        "lookupMs": 4,
+        "distinct": 3000,
+        "absentQueries": 40000,
+        "sourceIDs": [
+          "A"
+        ],
+        "blocks": 5,
+        "bytes": 5120,
+        "hashes": 9,
+        "probability": 0.001423292527364833,
+        "falseLookups": 56.93170109459332,
+        "costMs": 227.7268043783733
+      },
+      {
+        "id": "account",
+        "description": "Customer login account usernames and registered email lookup",
+        "lookupMs": 12,
+        "distinct": 1000,
+        "absentQueries": 100000,
+        "sourceIDs": [
+          "B"
+        ],
+        "blocks": 3,
+        "bytes": 3072,
+        "hashes": 12,
+        "probability": 0.00001105001633400077,
+        "falseLookups": 1.105001633400077,
+        "costMs": 13.260019600800923
+      },
+      {
+        "id": "media",
+        "description": "Photograph image thumbnail asset file existence",
+        "lookupMs": 2,
+        "distinct": 6000,
+        "absentQueries": 5000,
+        "sourceIDs": [
+          "C"
+        ],
+        "blocks": 4,
+        "bytes": 4096,
+        "hashes": 4,
+        "probability": 0.07269901160905351,
+        "falseLookups": 363.49505804526757,
+        "costMs": 726.9901160905351
+      }
+    ],
+    "baseline": [
+      {
+        "id": "catalog",
+        "description": "Product catalog SKU existence and merchandise item lookup",
+        "lookupMs": 4,
+        "distinct": 3000,
+        "absentQueries": 40000,
+        "sourceIDs": [
+          "A"
+        ],
+        "blocks": 4,
+        "bytes": 4096,
+        "hashes": 8,
+        "probability": 0.005285146288933297,
+        "falseLookups": 211.40585155733186,
+        "costMs": 845.6234062293274
+      },
+      {
+        "id": "account",
+        "description": "Customer login account usernames and registered email lookup",
+        "lookupMs": 12,
+        "distinct": 1000,
+        "absentQueries": 100000,
+        "sourceIDs": [
+          "B"
+        ],
+        "blocks": 4,
+        "bytes": 4096,
+        "hashes": 12,
+        "probability": 6.912014400156737e-7,
+        "falseLookups": 0.06912014400156737,
+        "costMs": 0.8294417280188084
+      },
+      {
+        "id": "media",
+        "description": "Photograph image thumbnail asset file existence",
+        "lookupMs": 2,
+        "distinct": 6000,
+        "absentQueries": 5000,
+        "sourceIDs": [
+          "C"
+        ],
+        "blocks": 4,
+        "bytes": 4096,
+        "hashes": 4,
+        "probability": 0.07269901160905351,
+        "falseLookups": 363.49505804526757,
+        "costMs": 726.9901160905351
+      }
+    ],
+    "budgetKiB": 12,
+    "optimalMs": 967.9769400697094,
+    "baselineMs": 1573.4429640478813,
+    "optimalLookups": 421.531760773261,
+    "baselineLookups": 574.970029746601,
+    "distinct": 10000,
+    "absentQueries": 145000,
+    "scope": "Analytical estimates, not measured latency or accuracy. Standard independent uniform hash approximation; append-only sets, disjoint distinct-key batches, truly absent query counts and fixed backend costs. No filter construction, configuration, deletion or live service access."
+  }
+}
+

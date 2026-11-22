@@ -1,0 +1,567 @@
+{
+  "fixtures": [
+    {
+      "name": "Commerce lookups",
+      "actual": [
+        "catalog",
+        "account",
+        "media"
+      ],
+      "expected": [
+        "catalog",
+        "account",
+        "media"
+      ],
+      "correct": 3,
+      "analysis": {
+        "status": "ready",
+        "optimal": [
+          {
+            "id": "catalog",
+            "description": "Product catalog SKU existence and merchandise item lookup",
+            "lookupMs": 4,
+            "distinct": 3000,
+            "absentQueries": 40000,
+            "sourceIDs": [
+              "A"
+            ],
+            "blocks": 5,
+            "bytes": 5120,
+            "hashes": 9,
+            "probability": 0.001423292527364833,
+            "falseLookups": 56.93170109459332,
+            "costMs": 227.7268043783733
+          },
+          {
+            "id": "account",
+            "description": "Customer login account usernames and registered email lookup",
+            "lookupMs": 12,
+            "distinct": 1000,
+            "absentQueries": 100000,
+            "sourceIDs": [
+              "B"
+            ],
+            "blocks": 3,
+            "bytes": 3072,
+            "hashes": 12,
+            "probability": 0.00001105001633400077,
+            "falseLookups": 1.105001633400077,
+            "costMs": 13.260019600800923
+          },
+          {
+            "id": "media",
+            "description": "Photograph image thumbnail asset file existence",
+            "lookupMs": 2,
+            "distinct": 6000,
+            "absentQueries": 5000,
+            "sourceIDs": [
+              "C"
+            ],
+            "blocks": 4,
+            "bytes": 4096,
+            "hashes": 4,
+            "probability": 0.07269901160905351,
+            "falseLookups": 363.49505804526757,
+            "costMs": 726.9901160905351
+          }
+        ],
+        "baseline": [
+          {
+            "id": "catalog",
+            "description": "Product catalog SKU existence and merchandise item lookup",
+            "lookupMs": 4,
+            "distinct": 3000,
+            "absentQueries": 40000,
+            "sourceIDs": [
+              "A"
+            ],
+            "blocks": 4,
+            "bytes": 4096,
+            "hashes": 8,
+            "probability": 0.005285146288933297,
+            "falseLookups": 211.40585155733186,
+            "costMs": 845.6234062293274
+          },
+          {
+            "id": "account",
+            "description": "Customer login account usernames and registered email lookup",
+            "lookupMs": 12,
+            "distinct": 1000,
+            "absentQueries": 100000,
+            "sourceIDs": [
+              "B"
+            ],
+            "blocks": 4,
+            "bytes": 4096,
+            "hashes": 12,
+            "probability": 6.912014400156737e-7,
+            "falseLookups": 0.06912014400156737,
+            "costMs": 0.8294417280188084
+          },
+          {
+            "id": "media",
+            "description": "Photograph image thumbnail asset file existence",
+            "lookupMs": 2,
+            "distinct": 6000,
+            "absentQueries": 5000,
+            "sourceIDs": [
+              "C"
+            ],
+            "blocks": 4,
+            "bytes": 4096,
+            "hashes": 4,
+            "probability": 0.07269901160905351,
+            "falseLookups": 363.49505804526757,
+            "costMs": 726.9901160905351
+          }
+        ],
+        "budgetKiB": 12,
+        "optimalMs": 967.9769400697094,
+        "baselineMs": 1573.4429640478813,
+        "optimalLookups": 421.531760773261,
+        "baselineLookups": 574.970029746601,
+        "distinct": 10000,
+        "absentQueries": 145000,
+        "scope": "Analytical estimates, not measured latency or accuracy. Standard independent uniform hash approximation; append-only sets, disjoint distinct-key batches, truly absent query counts and fixed backend costs. No filter construction, configuration, deletion or live service access."
+      }
+    },
+    {
+      "name": "Library indexes",
+      "actual": [
+        "books",
+        "loans",
+        "books"
+      ],
+      "expected": [
+        "books",
+        "loans",
+        "books"
+      ],
+      "correct": 3,
+      "analysis": {
+        "status": "ready",
+        "optimal": [
+          {
+            "id": "books",
+            "description": "Library books ISBN published volume catalog lookup",
+            "lookupMs": 5,
+            "distinct": 12000,
+            "absentQueries": 21000,
+            "sourceIDs": [
+              "L1",
+              "L3"
+            ],
+            "blocks": 9,
+            "bytes": 9216,
+            "hashes": 4,
+            "probability": 0.05242272055684853,
+            "falseLookups": 1100.8771316938191,
+            "costMs": 5504.385658469096
+          },
+          {
+            "id": "loans",
+            "description": "Reader borrowing library loan checkout transaction lookup",
+            "lookupMs": 15,
+            "distinct": 500,
+            "absentQueries": 60000,
+            "sourceIDs": [
+              "L2"
+            ],
+            "blocks": 1,
+            "bytes": 1024,
+            "hashes": 11,
+            "probability": 0.00038229849835792713,
+            "falseLookups": 22.937909901475628,
+            "costMs": 344.0686485221344
+          }
+        ],
+        "baseline": [
+          {
+            "id": "books",
+            "description": "Library books ISBN published volume catalog lookup",
+            "lookupMs": 5,
+            "distinct": 12000,
+            "absentQueries": 21000,
+            "sourceIDs": [
+              "L1",
+              "L3"
+            ],
+            "blocks": 5,
+            "bytes": 5120,
+            "hashes": 2,
+            "probability": 0.19661790885238564,
+            "falseLookups": 4128.976085900098,
+            "costMs": 20644.88042950049
+          },
+          {
+            "id": "loans",
+            "description": "Reader borrowing library loan checkout transaction lookup",
+            "lookupMs": 15,
+            "distinct": 500,
+            "absentQueries": 60000,
+            "sourceIDs": [
+              "L2"
+            ],
+            "blocks": 5,
+            "bytes": 5120,
+            "hashes": 12,
+            "probability": 4.096850685830055e-11,
+            "falseLookups": 0.000002458110411498033,
+            "costMs": 0.00003687165617247049
+          }
+        ],
+        "budgetKiB": 10,
+        "optimalMs": 5848.45430699123,
+        "baselineMs": 20644.880466372146,
+        "optimalLookups": 1123.8150415952948,
+        "baselineLookups": 4128.9760883582085,
+        "distinct": 12500,
+        "absentQueries": 81000,
+        "scope": "Analytical estimates, not measured latency or accuracy. Standard independent uniform hash approximation; append-only sets, disjoint distinct-key batches, truly absent query counts and fixed backend costs. No filter construction, configuration, deletion or live service access."
+      }
+    }
+  ],
+  "checks": [
+    "Actual fresh-worker offline inference in already-open warmed page",
+    "Maximum 8 filters/32 batches, 40 real embeddings in 10 chunks; counts, 64 KiB and audit reimport conserved",
+    "Reviewed count changes computed output; invalid count blocks export; cancellation/retry",
+    "Holds/undo/export invalidation/downloads/clipboard; responsive labels/focus/touch/no overflow; invalid inputs/files; GET-only asset requests without content"
+  ],
+  "negationProbe": {
+    "proposed": "catalog",
+    "decision": "pending",
+    "limitation": "Unknown/negated text still selects nearest filter; review and hold required."
+  },
+  "requests": [
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261122-21/",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261122-21/assets/index-Bkr7BP-s.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261122-21/assets/index-DLzPFbOB.css",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/b73eeb97-06d7-4ec5-af00-8097b2a61b04",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "X-Xet-Cas-Uid",
+        "response-content-disposition",
+        "user_id",
+        "xip",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "xip",
+        "X-Xet-Cas-Uid",
+        "response-content-disposition",
+        "user_id",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/b6b1668e-b86e-4857-8c5a-f1ae3d583702",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/2e6e5f13-a01b-401f-85dc-dcdbdaac01e0",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/e411f40b-6416-4f76-bcf8-78f83912ca8f",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/6a938d05-dff7-4436-9131-3742cfa1b434",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/83c27ab8-2d8a-44d7-84bc-5d2601a45103",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/c7abb306-2363-4013-a4fa-81e642a73d5f",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/7531942e-5235-4ccf-a687-9bcc537c409c",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/dab35729-f9fd-445c-ad32-b5e235173b3a",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/5881f51e-6239-4b75-9098-67f8a152a880",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/bbc7d21a-91c5-42b6-b895-d5aec2888661",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/44b59577-79ce-46c1-8eaf-aee6052d50a4",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/3fb826ac-612e-4263-a52c-0d618de3b43d",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/2530cb2b-86bf-4728-a342-036046256d69",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/9cea9033-bd41-4d49-85f0-f46694a8f8ec",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/042607c4-5da0-409b-a8f0-ea55b4246ee9",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/aa17f093-1d6b-41e7-83a7-4b14855a9930",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/bedd8421-1acf-4da7-b996-be584a75b8ff",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/2889e4a1-66e3-4a4a-91d8-073d09f07864",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/cfd9341a-7737-4c2f-97dc-cda986a7f3df",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/fedadf21-c50e-470d-a7c9-739d9e9f663b",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/bcd46fa8-2275-446d-b8e3-cf7923b260e6",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    }
+  ],
+  "errors": []
+}

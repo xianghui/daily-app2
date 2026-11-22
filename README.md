@@ -1871,3 +1871,11 @@ Public release verified: matching Pages `7687927ae2024f80c8621b4dd78484a59defaec
 ## Causal Lantern — 20261122-20
 
 Local MiniLM reconciles informal distributed-event service notes before mandatory event/message review. Exact logical clocks expose happens-before paths and concurrent pairs beyond pasted-order assumptions; complete JSON/CSV/Markdown and pair witnesses preserve every event. Two small fixtures matched 12/12 simple service labels; unknown/negated notes still need holds. Logical concurrency is not simultaneous wall time and missing dependencies can hide real ordering. No service access or incident actions. Shared worker/factory from `20261115-6` and WASM from `20261107-2` must remain published. Offline scope is fresh-worker inference in an already-open warmed page. Existing sharing rules and 1 GB guard unchanged. See [workflow/privacy](20261122-20/README.md) and [observed validation](20261122-20/VALIDATION.md). No digest sent.
+
+
+## Filter Budget — 20261122-21
+
+Local MiniLM matches informal workload notes to Bloom-filter inventories before mandatory identity/count review. Exact block allocation minimizes analytical unnecessary-backend-work estimates against equal-memory sizing; complete JSON/CSV/Markdown and sizing plans preserve originals. Two synthetic fixtures matched 6/6 simple labels, not general accuracy. Uniform-hash approximation only, not a constructed filter, benchmark or configuration tool; disjoint key counts and truly absent queries are required. Shared worker/factory from `20261115-6` and WASM from `20261107-2` must remain published. Offline scope is fresh-worker inference in an already-open warmed page. Existing sharing rules and 1 GB guard unchanged. See [workflow/privacy](20261122-21/README.md) and [observed checks](20261122-21/VALIDATION.md). No digest sent.
+
+
+Public release verified: matching Pages `4cbe12f5a054d861905bf206852b74922db886b8` and workflow `45020727709` succeeded. Nine public gallery/app/runtime assets byte-match the assembled site. Both public real-AI fixtures (6/6 simple identities), complete reviewed/export/maximum-batch/offline/privacy suite, independently parsed artifacts and all 801 gallery cards passed. Combined size 999,588,409 bytes remains below the unchanged 1 GB guard. Source staging preserves and excludes unrelated recovery work. No digest sent.

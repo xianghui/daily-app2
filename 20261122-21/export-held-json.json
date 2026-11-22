@@ -1,0 +1,106 @@
+{
+  "schema": "filter-budget/1",
+  "originalInput": {
+    "title": "Synthetic library lookup filters",
+    "budgetKiB": 10,
+    "filters": [
+      {
+        "id": "books",
+        "description": "Library books ISBN published volume catalog lookup",
+        "lookupMs": 5
+      },
+      {
+        "id": "loans",
+        "description": "Reader borrowing library loan checkout transaction lookup",
+        "lookupMs": 15
+      }
+    ],
+    "batches": [
+      {
+        "id": "L1",
+        "filterNote": "Published book volumes ISBN bibliography",
+        "distinct": 10000,
+        "absentQueries": 20000
+      },
+      {
+        "id": "L2",
+        "filterNote": "Borrower loan checkout transactions",
+        "distinct": 500,
+        "absentQueries": 60000
+      },
+      {
+        "id": "L3",
+        "filterNote": "Book ISBN volumes catalog",
+        "distinct": 2000,
+        "absentQueries": 1000
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "id": "L1",
+      "resource": "books",
+      "aiResource": "books",
+      "distinct": 10000,
+      "absentQueries": 20000,
+      "evidence": [
+        {
+          "resource": "books",
+          "score": 0.7795766464117696
+        },
+        {
+          "resource": "loans",
+          "score": 0.3375852945371835
+        }
+      ],
+      "decision": "reject",
+      "note": "=SUM(1,2)\nReviewed \"source\", preserved."
+    },
+    {
+      "index": 1,
+      "id": "L2",
+      "resource": "loans",
+      "aiResource": "loans",
+      "distinct": 500,
+      "absentQueries": 60000,
+      "evidence": [
+        {
+          "resource": "loans",
+          "score": 0.7129294563374557
+        },
+        {
+          "resource": "books",
+          "score": 0.1213066684428145
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "id": "L3",
+      "resource": "books",
+      "aiResource": "books",
+      "distinct": 2000,
+      "absentQueries": 1000,
+      "evidence": [
+        {
+          "resource": "books",
+          "score": 0.8687909591680223
+        },
+        {
+          "resource": "loans",
+          "score": 0.3155988880309813
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "warning": "Semantic similarity is not filter identity. Any held batch withholds the whole allocation. Counts from overlapping key sets must not be added. No actual Bloom filter, backend benchmark or service changes.",
+  "analysis": {
+    "status": "held",
+    "reason": "Held batches: allocation withheld. All originals and reviews retained."
+  }
+}

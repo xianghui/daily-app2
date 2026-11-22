@@ -1,0 +1,230 @@
+{
+  "schema": "filter-budget/1",
+  "originalInput": {
+    "title": "Synthetic commerce lookup filters",
+    "budgetKiB": 12,
+    "filters": [
+      {
+        "id": "catalog",
+        "description": "Product catalog SKU existence and merchandise item lookup",
+        "lookupMs": 4
+      },
+      {
+        "id": "account",
+        "description": "Customer login account usernames and registered email lookup",
+        "lookupMs": 12
+      },
+      {
+        "id": "media",
+        "description": "Photograph image thumbnail asset file existence",
+        "lookupMs": 2
+      }
+    ],
+    "batches": [
+      {
+        "id": "A",
+        "filterNote": "Merchandise product SKU catalog items",
+        "distinct": 3000,
+        "absentQueries": 40000
+      },
+      {
+        "id": "B",
+        "filterNote": "Registered customer account login email names",
+        "distinct": 1000,
+        "absentQueries": 100000
+      },
+      {
+        "id": "C",
+        "filterNote": "Image photograph thumbnail asset files",
+        "distinct": 6000,
+        "absentQueries": 5000
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "id": "A",
+      "resource": "catalog",
+      "aiResource": "catalog",
+      "distinct": 100000,
+      "absentQueries": 40000,
+      "evidence": [
+        {
+          "resource": "catalog",
+          "score": 0.7799113140029262
+        },
+        {
+          "resource": "account",
+          "score": 0.10831177421012896
+        },
+        {
+          "resource": "media",
+          "score": 0.05523944968493645
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 1,
+      "id": "B",
+      "resource": "account",
+      "aiResource": "account",
+      "distinct": 1000,
+      "absentQueries": 100000,
+      "evidence": [
+        {
+          "resource": "account",
+          "score": 0.8517211481318323
+        },
+        {
+          "resource": "catalog",
+          "score": 0.04882711437619147
+        },
+        {
+          "resource": "media",
+          "score": -0.050496945816818184
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "id": "C",
+      "resource": "media",
+      "aiResource": "media",
+      "distinct": 6000,
+      "absentQueries": 5000,
+      "evidence": [
+        {
+          "resource": "media",
+          "score": 0.8887349217069457
+        },
+        {
+          "resource": "account",
+          "score": 0.03087113840415625
+        },
+        {
+          "resource": "catalog",
+          "score": 0.01681561194269757
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "warning": "Semantic similarity is not filter identity. Any held batch withholds the whole allocation. Counts from overlapping key sets must not be added. No actual Bloom filter, backend benchmark or service changes.",
+  "analysis": {
+    "status": "ready",
+    "optimal": [
+      {
+        "id": "catalog",
+        "description": "Product catalog SKU existence and merchandise item lookup",
+        "lookupMs": 4,
+        "distinct": 100000,
+        "absentQueries": 40000,
+        "sourceIDs": [
+          "A"
+        ],
+        "blocks": 9,
+        "bytes": 9216,
+        "hashes": 1,
+        "probability": 0.7423973005448677,
+        "falseLookups": 29695.89202179471,
+        "costMs": 118783.56808717884
+      },
+      {
+        "id": "account",
+        "description": "Customer login account usernames and registered email lookup",
+        "lookupMs": 12,
+        "distinct": 1000,
+        "absentQueries": 100000,
+        "sourceIDs": [
+          "B"
+        ],
+        "blocks": 2,
+        "bytes": 2048,
+        "hashes": 11,
+        "probability": 0.00038229849835792713,
+        "falseLookups": 38.22984983579271,
+        "costMs": 458.7581980295125
+      },
+      {
+        "id": "media",
+        "description": "Photograph image thumbnail asset file existence",
+        "lookupMs": 2,
+        "distinct": 6000,
+        "absentQueries": 5000,
+        "sourceIDs": [
+          "C"
+        ],
+        "blocks": 1,
+        "bytes": 1024,
+        "hashes": 1,
+        "probability": 0.519256721072024,
+        "falseLookups": 2596.28360536012,
+        "costMs": 5192.56721072024
+      }
+    ],
+    "baseline": [
+      {
+        "id": "catalog",
+        "description": "Product catalog SKU existence and merchandise item lookup",
+        "lookupMs": 4,
+        "distinct": 100000,
+        "absentQueries": 40000,
+        "sourceIDs": [
+          "A"
+        ],
+        "blocks": 4,
+        "bytes": 4096,
+        "hashes": 1,
+        "probability": 0.9527242505937095,
+        "falseLookups": 38108.97002374838,
+        "costMs": 152435.8800949935
+      },
+      {
+        "id": "account",
+        "description": "Customer login account usernames and registered email lookup",
+        "lookupMs": 12,
+        "distinct": 1000,
+        "absentQueries": 100000,
+        "sourceIDs": [
+          "B"
+        ],
+        "blocks": 4,
+        "bytes": 4096,
+        "hashes": 12,
+        "probability": 6.912014400156737e-7,
+        "falseLookups": 0.06912014400156737,
+        "costMs": 0.8294417280188084
+      },
+      {
+        "id": "media",
+        "description": "Photograph image thumbnail asset file existence",
+        "lookupMs": 2,
+        "distinct": 6000,
+        "absentQueries": 5000,
+        "sourceIDs": [
+          "C"
+        ],
+        "blocks": 4,
+        "bytes": 4096,
+        "hashes": 4,
+        "probability": 0.07269901160905351,
+        "falseLookups": 363.49505804526757,
+        "costMs": 726.9901160905351
+      }
+    ],
+    "budgetKiB": 12,
+    "optimalMs": 124434.89349592858,
+    "baselineMs": 153163.69965281207,
+    "optimalLookups": 32330.40547699062,
+    "baselineLookups": 38472.53420193764,
+    "distinct": 107000,
+    "absentQueries": 145000,
+    "scope": "Analytical estimates, not measured latency or accuracy. Standard independent uniform hash approximation; append-only sets, disjoint distinct-key batches, truly absent query counts and fixed backend costs. No filter construction, configuration, deletion or live service access."
+  }
+}

@@ -1,0 +1,271 @@
+# Synthetic archive reconstruction
+
+Exact equal-length bytewise XOR equations over GF(2). Received-share count is not independence. Recovered bytes satisfy reviewed equations but are not authenticated or checksummed. Any held share withholds all recovery; inconsistent equations also withhold all bytes. No files are read, repaired or uploaded.
+
+STATUS complete | RANK 3/3 | RECEIVED 4
+
+Count-only baseline: enough shares; false-positive sufficient claim: false
+
+A [recovered] 1020 | source XOR: s1
+
+B [recovered] ffaa | source XOR: s2 ⊕ s4
+
+C [recovered] 5566 | source XOR: s4
+
+HELD: 
+
+CONTRADICTIONS: 
+
+## Complete original and reviewed audit
+
+```json
+
+{
+  "schema": "parity-folio/1",
+  "appliedAt": "2026-11-22T22:08:05.215Z",
+  "originalInput": {
+    "title": "Synthetic archive reconstruction",
+    "blocks": [
+      "A",
+      "B",
+      "C"
+    ],
+    "recipes": [
+      {
+        "id": "cover",
+        "description": "Archive cover page source block alone",
+        "blocks": [
+          "A"
+        ]
+      },
+      {
+        "id": "pair",
+        "description": "Invoice and photograph combined XOR parity share",
+        "blocks": [
+          "B",
+          "C"
+        ]
+      },
+      {
+        "id": "tail",
+        "description": "Photograph image source block alone",
+        "blocks": [
+          "C"
+        ]
+      }
+    ],
+    "records": [
+      {
+        "id": "s1",
+        "note": "Cover page archive header original",
+        "hex": "1020"
+      },
+      {
+        "id": "s2",
+        "note": "Invoice photograph XOR combined parity",
+        "hex": "aacc"
+      },
+      {
+        "id": "s3",
+        "note": "Combined invoice and photo XOR backup",
+        "hex": "aacc"
+      },
+      {
+        "id": "s4",
+        "note": "Photograph image original source",
+        "hex": "5566"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "text": "Cover page archive header original",
+      "resource": "cover",
+      "aiResource": "cover",
+      "evidence": [
+        {
+          "resource": "cover",
+          "score": 0.6583734140297789
+        },
+        {
+          "resource": "tail",
+          "score": 0.21859803919708107
+        },
+        {
+          "resource": "pair",
+          "score": 0.027905652993990507
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 1,
+      "text": "Invoice photograph XOR combined parity",
+      "resource": "pair",
+      "aiResource": "pair",
+      "evidence": [
+        {
+          "resource": "pair",
+          "score": 0.9158826917801723
+        },
+        {
+          "resource": "tail",
+          "score": 0.32251393244758797
+        },
+        {
+          "resource": "cover",
+          "score": 0.019084474435179993
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "text": "Combined invoice and photo XOR backup",
+      "resource": "pair",
+      "aiResource": "pair",
+      "evidence": [
+        {
+          "resource": "pair",
+          "score": 0.7883912057131003
+        },
+        {
+          "resource": "tail",
+          "score": 0.3005248709530301
+        },
+        {
+          "resource": "cover",
+          "score": 0.09261112444454615
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 3,
+      "text": "Photograph image original source",
+      "resource": "tail",
+      "aiResource": "tail",
+      "evidence": [
+        {
+          "resource": "tail",
+          "score": 0.6324688194326115
+        },
+        {
+          "resource": "pair",
+          "score": 0.2650319709339188
+        },
+        {
+          "resource": "cover",
+          "score": 0.2284537229272157
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "analysis": {
+    "status": "complete",
+    "rank": 3,
+    "unknowns": 3,
+    "deficit": 0,
+    "received": 4,
+    "recovered": 3,
+    "held": [],
+    "contradictions": [],
+    "blocks": [
+      {
+        "id": "A",
+        "status": "recovered",
+        "hex": "1020",
+        "sources": [
+          "s1"
+        ]
+      },
+      {
+        "id": "B",
+        "status": "recovered",
+        "hex": "ffaa",
+        "sources": [
+          "s2",
+          "s4"
+        ]
+      },
+      {
+        "id": "C",
+        "status": "recovered",
+        "hex": "5566",
+        "sources": [
+          "s4"
+        ]
+      }
+    ],
+    "equations": [
+      {
+        "blocks": [
+          "A"
+        ],
+        "hex": "1020",
+        "sources": [
+          "s1"
+        ]
+      },
+      {
+        "blocks": [
+          "B"
+        ],
+        "hex": "ffaa",
+        "sources": [
+          "s2",
+          "s4"
+        ]
+      },
+      {
+        "blocks": [
+          "C"
+        ],
+        "hex": "5566",
+        "sources": [
+          "s4"
+        ]
+      },
+      {
+        "blocks": [],
+        "hex": "0000",
+        "sources": [
+          "s3",
+          "s2"
+        ]
+      }
+    ],
+    "steps": [
+      {
+        "pivotBlock": "A",
+        "pivotSources": [
+          "s1"
+        ]
+      },
+      {
+        "pivotBlock": "B",
+        "pivotSources": [
+          "s2"
+        ]
+      },
+      {
+        "pivotBlock": "C",
+        "pivotSources": [
+          "s4"
+        ]
+      }
+    ],
+    "baselineEnough": true,
+    "baselineFalsePositive": false,
+    "scope": "Exact equal-length bytewise XOR equations over GF(2). Received-share count is not independence. Recovered bytes satisfy reviewed equations but are not authenticated or checksummed. Any held share withholds all recovery; inconsistent equations also withhold all bytes. No files are read, repaired or uploaded."
+  }
+}
+
+```
+

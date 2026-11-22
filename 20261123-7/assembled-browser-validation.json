@@ -1,0 +1,593 @@
+{
+  "fixtures": [
+    {
+      "name": "Archive shares",
+      "actual": [
+        "cover",
+        "pair",
+        "pair",
+        "tail"
+      ],
+      "expected": [
+        "cover",
+        "pair",
+        "pair",
+        "tail"
+      ],
+      "correct": 4,
+      "analysis": {
+        "status": "complete",
+        "rank": 3,
+        "unknowns": 3,
+        "deficit": 0,
+        "received": 4,
+        "recovered": 3,
+        "held": [],
+        "contradictions": [],
+        "blocks": [
+          {
+            "id": "A",
+            "status": "recovered",
+            "hex": "1020",
+            "sources": [
+              "s1"
+            ]
+          },
+          {
+            "id": "B",
+            "status": "recovered",
+            "hex": "ffaa",
+            "sources": [
+              "s2",
+              "s4"
+            ]
+          },
+          {
+            "id": "C",
+            "status": "recovered",
+            "hex": "5566",
+            "sources": [
+              "s4"
+            ]
+          }
+        ],
+        "equations": [
+          {
+            "blocks": [
+              "A"
+            ],
+            "hex": "1020",
+            "sources": [
+              "s1"
+            ]
+          },
+          {
+            "blocks": [
+              "B"
+            ],
+            "hex": "ffaa",
+            "sources": [
+              "s2",
+              "s4"
+            ]
+          },
+          {
+            "blocks": [
+              "C"
+            ],
+            "hex": "5566",
+            "sources": [
+              "s4"
+            ]
+          },
+          {
+            "blocks": [],
+            "hex": "0000",
+            "sources": [
+              "s3",
+              "s2"
+            ]
+          }
+        ],
+        "steps": [
+          {
+            "pivotBlock": "A",
+            "pivotSources": [
+              "s1"
+            ]
+          },
+          {
+            "pivotBlock": "B",
+            "pivotSources": [
+              "s2"
+            ]
+          },
+          {
+            "pivotBlock": "C",
+            "pivotSources": [
+              "s4"
+            ]
+          }
+        ],
+        "baselineEnough": true,
+        "baselineFalsePositive": false,
+        "scope": "Exact equal-length bytewise XOR equations over GF(2). Received-share count is not independence. Recovered bytes satisfy reviewed equations but are not authenticated or checksummed. Any held share withholds all recovery; inconsistent equations also withhold all bytes. No files are read, repaired or uploaded."
+      }
+    },
+    {
+      "name": "Workshop shares",
+      "actual": [
+        "temp",
+        "mixed",
+        "mixed",
+        "mixed"
+      ],
+      "expected": [
+        "temp",
+        "mixed",
+        "mixed",
+        "mixed"
+      ],
+      "correct": 4,
+      "analysis": {
+        "status": "partial",
+        "rank": 2,
+        "unknowns": 3,
+        "deficit": 1,
+        "received": 4,
+        "recovered": 1,
+        "held": [],
+        "contradictions": [],
+        "blocks": [
+          {
+            "id": "T",
+            "status": "recovered",
+            "hex": "0102",
+            "sources": [
+              "w1"
+            ]
+          },
+          {
+            "id": "P",
+            "status": "underdetermined",
+            "hex": null,
+            "sources": []
+          },
+          {
+            "id": "H",
+            "status": "underdetermined",
+            "hex": null,
+            "sources": []
+          }
+        ],
+        "equations": [
+          {
+            "blocks": [
+              "T"
+            ],
+            "hex": "0102",
+            "sources": [
+              "w1"
+            ]
+          },
+          {
+            "blocks": [
+              "P",
+              "H"
+            ],
+            "hex": "0304",
+            "sources": [
+              "w2"
+            ]
+          },
+          {
+            "blocks": [],
+            "hex": "0000",
+            "sources": [
+              "w3",
+              "w2"
+            ]
+          },
+          {
+            "blocks": [],
+            "hex": "0000",
+            "sources": [
+              "w4",
+              "w2"
+            ]
+          }
+        ],
+        "steps": [
+          {
+            "pivotBlock": "T",
+            "pivotSources": [
+              "w1"
+            ]
+          },
+          {
+            "pivotBlock": "P",
+            "pivotSources": [
+              "w2"
+            ]
+          }
+        ],
+        "baselineEnough": true,
+        "baselineFalsePositive": true,
+        "scope": "Exact equal-length bytewise XOR equations over GF(2). Received-share count is not independence. Recovered bytes satisfy reviewed equations but are not authenticated or checksummed. Any held share withholds all recovery; inconsistent equations also withhold all bytes. No files are read, repaired or uploaded."
+      }
+    }
+  ],
+  "checks": [
+    "Identity edits change actual recovery and reset approval; pending/stale exports blocked; any held share withholds all bytes; undo/multiline note/clipboard",
+    "Actual fresh-worker offline inference in already-open warmed page",
+    "Maximum 8 recipes / 32 shares / 8 blocks / 32-byte payloads; 40 real embeddings in 10 chunks; full audit reimport",
+    "Real cancellation followed by successful retry",
+    "Real-AI contradictory share batch blocks all byte release with source witness",
+    "Actual artifacts/clipboard, labels/focus/touch/no overflow at 1440/390/320, invalid input/files, GET-only public file downloads with no content"
+  ],
+  "negationProbe": {
+    "proposed": "cover",
+    "decision": "pending",
+    "limitation": "Unknown/negated text selects nearest recipe; hold required."
+  },
+  "requests": [
+    {
+      "host": "127.0.0.1:7377",
+      "path": "/daily-app2/20261123-7/",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7377",
+      "path": "/daily-app2/20261123-7/assets/index-D81RZV6I.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7377",
+      "path": "/daily-app2/20261123-7/assets/index-CysORFBM.css",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7377",
+      "path": "/daily-app2/20261123-7/favicon.svg",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7377",
+      "path": "/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/155fa529-f2dc-4379-9f9d-8608f2abd8d3",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7377",
+      "path": "/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7377",
+      "path": "/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "user_id",
+        "response-content-disposition",
+        "X-Xet-Cas-Uid",
+        "xip",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "xip",
+        "user_id",
+        "X-Xet-Cas-Uid",
+        "response-content-disposition",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/7751ffdc-d83e-483b-9f48-1ed19c94171f",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/44d52862-af7a-4576-960b-0abf2516b182",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/280b2d68-dcfc-45e5-8349-3c2a565c0e1e",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/7104e990-5b16-4083-8b49-539b239e853a",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/376d8c7c-1571-4717-b300-d01d7f8aec12",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/c473934a-1f9a-4673-a1ae-c888e82fd00f",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/2178b412-5958-46a9-b875-89b3f1ef4fe8",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/95159b20-1794-4f81-a4dd-d44448b8cffb",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/3d9a0d15-596e-4970-9919-cacdc054726c",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/48ebc263-e22a-453f-9916-70e9bae15004",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/cc4fb467-ce6e-42f5-80a8-27813956803c",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/3c37f9e1-4620-4112-878f-ea0fdc4bf01d",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/14c9c88a-56a3-4c99-b8cd-1f11d988da0b",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/2a9bc12c-6feb-4589-ad6d-e6a6d8afff6d",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/8c83ec74-2dbb-4a45-888b-0179fcd9a4ea",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/bfb9a99b-8834-43f5-85f2-b82cf79334ce",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/ca509118-acdb-4205-aeb7-46fff5a70f54",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/231590b8-4f2e-4aad-894b-9afa57ac1c07",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/68f5b2aa-b48d-4e3c-aef6-38905632d987",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/6189ab74-e179-46a2-8419-07291c0aa596",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/3231af13-eebd-4af0-9f52-15df490fa958",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/d45cfd49-8ddd-4072-aa28-804a864e94d9",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/d8a54a19-97b3-4593-9513-352db8d964ac",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/b79d40ce-ae55-43d2-9455-7d625c4949f8",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    }
+  ],
+  "errors": []
+}

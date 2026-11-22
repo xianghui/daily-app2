@@ -1,0 +1,389 @@
+{
+  "schema": "gate-atlas/1",
+  "originalInput": {
+    "title": "Editorial release gate audit",
+    "start": "intake",
+    "finish": "published",
+    "gates": [
+      "review",
+      "signoff"
+    ],
+    "stages": [
+      {
+        "id": "intake",
+        "description": "Receive incoming article submissions"
+      },
+      {
+        "id": "review",
+        "description": "Editorial content review and corrections"
+      },
+      {
+        "id": "fast",
+        "description": "Urgent fast track for breaking news"
+      },
+      {
+        "id": "signoff",
+        "description": "Final publication approval and signoff"
+      },
+      {
+        "id": "published",
+        "description": "Publish article to the website"
+      }
+    ],
+    "handoffs": [
+      {
+        "id": "e1",
+        "from": "New article received",
+        "to": "Editor checks content and corrections"
+      },
+      {
+        "id": "e2",
+        "from": "Editorial review completed",
+        "to": "Final approval for publication"
+      },
+      {
+        "id": "e3",
+        "from": "New article received",
+        "to": "Urgent breaking news fast track"
+      },
+      {
+        "id": "e4",
+        "from": "Urgent breaking news fast track",
+        "to": "Final approval for publication"
+      },
+      {
+        "id": "e5",
+        "from": "Final approval for publication",
+        "to": "Article published online"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "handoff": "e1",
+      "from": "intake",
+      "to": "review",
+      "aiFrom": "intake",
+      "aiTo": "review",
+      "evidence": {
+        "from": [
+          {
+            "stage": "intake",
+            "score": 0.550854300244204
+          },
+          {
+            "stage": "review",
+            "score": 0.4370195150454498
+          },
+          {
+            "stage": "published",
+            "score": 0.3992920740441494
+          },
+          {
+            "stage": "fast",
+            "score": 0.36770094934814146
+          },
+          {
+            "stage": "signoff",
+            "score": 0.2112257078544085
+          }
+        ],
+        "to": [
+          {
+            "stage": "review",
+            "score": 0.6902083380751627
+          },
+          {
+            "stage": "fast",
+            "score": 0.20661248038543728
+          },
+          {
+            "stage": "published",
+            "score": 0.18565803512100718
+          },
+          {
+            "stage": "intake",
+            "score": 0.16561678374912384
+          },
+          {
+            "stage": "signoff",
+            "score": 0.14053572064860806
+          }
+        ]
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 1,
+      "handoff": "e2",
+      "from": "review",
+      "to": "signoff",
+      "aiFrom": "review",
+      "aiTo": "signoff",
+      "evidence": {
+        "from": [
+          {
+            "stage": "review",
+            "score": 0.6989805799413765
+          },
+          {
+            "stage": "signoff",
+            "score": 0.44062961080692165
+          },
+          {
+            "stage": "fast",
+            "score": 0.3298711232711036
+          },
+          {
+            "stage": "intake",
+            "score": 0.3241462068850601
+          },
+          {
+            "stage": "published",
+            "score": 0.2526029441600701
+          }
+        ],
+        "to": [
+          {
+            "stage": "signoff",
+            "score": 0.7617276080082055
+          },
+          {
+            "stage": "review",
+            "score": 0.42003509949616
+          },
+          {
+            "stage": "published",
+            "score": 0.3959736910580453
+          },
+          {
+            "stage": "intake",
+            "score": 0.3722808398902303
+          },
+          {
+            "stage": "fast",
+            "score": 0.2024853907874713
+          }
+        ]
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "handoff": "e3",
+      "from": "intake",
+      "to": "signoff",
+      "aiFrom": "intake",
+      "aiTo": "fast",
+      "evidence": {
+        "from": [
+          {
+            "stage": "intake",
+            "score": 0.5633521970912765
+          },
+          {
+            "stage": "review",
+            "score": 0.44278955771172274
+          },
+          {
+            "stage": "published",
+            "score": 0.43467941932978227
+          },
+          {
+            "stage": "fast",
+            "score": 0.3954358154062774
+          },
+          {
+            "stage": "signoff",
+            "score": 0.20720610867677638
+          }
+        ],
+        "to": [
+          {
+            "stage": "fast",
+            "score": 0.900370030215488
+          },
+          {
+            "stage": "review",
+            "score": 0.36412029225838227
+          },
+          {
+            "stage": "intake",
+            "score": 0.26879311647896786
+          },
+          {
+            "stage": "published",
+            "score": 0.21412363480276653
+          },
+          {
+            "stage": "signoff",
+            "score": 0.16483730490824305
+          }
+        ]
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 3,
+      "handoff": "e4",
+      "from": "fast",
+      "to": "signoff",
+      "aiFrom": "fast",
+      "aiTo": "signoff",
+      "evidence": {
+        "from": [
+          {
+            "stage": "fast",
+            "score": 0.900370030215488
+          },
+          {
+            "stage": "review",
+            "score": 0.36412029225838227
+          },
+          {
+            "stage": "intake",
+            "score": 0.26879311647896786
+          },
+          {
+            "stage": "published",
+            "score": 0.21412363480276653
+          },
+          {
+            "stage": "signoff",
+            "score": 0.16483730490824305
+          }
+        ],
+        "to": [
+          {
+            "stage": "signoff",
+            "score": 0.7565088985512846
+          },
+          {
+            "stage": "review",
+            "score": 0.43331130363920933
+          },
+          {
+            "stage": "published",
+            "score": 0.38577096832094215
+          },
+          {
+            "stage": "intake",
+            "score": 0.36068971739643485
+          },
+          {
+            "stage": "fast",
+            "score": 0.19921054663496224
+          }
+        ]
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 4,
+      "handoff": "e5",
+      "from": "signoff",
+      "to": "published",
+      "aiFrom": "signoff",
+      "aiTo": "published",
+      "evidence": {
+        "from": [
+          {
+            "stage": "signoff",
+            "score": 0.7565088985512846
+          },
+          {
+            "stage": "review",
+            "score": 0.43331130363920933
+          },
+          {
+            "stage": "published",
+            "score": 0.38577096832094215
+          },
+          {
+            "stage": "intake",
+            "score": 0.36068971739643485
+          },
+          {
+            "stage": "fast",
+            "score": 0.19921054663496224
+          }
+        ],
+        "to": [
+          {
+            "stage": "published",
+            "score": 0.6201369238126836
+          },
+          {
+            "stage": "intake",
+            "score": 0.4170477835880187
+          },
+          {
+            "stage": "review",
+            "score": 0.3409956319481154
+          },
+          {
+            "stage": "fast",
+            "score": 0.31515137061128634
+          },
+          {
+            "stage": "signoff",
+            "score": 0.22863648291110916
+          }
+        ]
+      },
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "warning": "Graph-only process worksheet. All reviewed arrows are assumed feasible without guards. Missing routes, conditional logic or unmodeled entries can invalidate conclusions. Similarity is not confidence; mandatory source review required. No policy, security or real-world enforcement certification.",
+  "analysis": {
+    "status": "ready",
+    "completion": {
+      "stages": [
+        "intake",
+        "signoff",
+        "published"
+      ],
+      "handoffs": [
+        "e3",
+        "e5"
+      ]
+    },
+    "gates": [
+      {
+        "id": "review",
+        "onWalk": true,
+        "kind": "bypassable",
+        "bypass": {
+          "stages": [
+            "intake",
+            "signoff",
+            "published"
+          ],
+          "handoffs": [
+            "e3",
+            "e5"
+          ]
+        }
+      },
+      {
+        "id": "signoff",
+        "onWalk": true,
+        "kind": "unavoidable",
+        "bypass": null
+      }
+    ],
+    "baselineCount": 2,
+    "mandatoryCount": 1,
+    "bypassCount": 1,
+    "unreachable": [
+      "fast"
+    ],
+    "literalMatches": 0
+  }
+}

@@ -1,0 +1,513 @@
+{
+  "schema": "gate-atlas/1",
+  "originalInput": {
+    "title": "Repair return checkpoint audit",
+    "start": "arrive",
+    "finish": "returned",
+    "gates": [
+      "diagnose",
+      "inspect",
+      "bill"
+    ],
+    "stages": [
+      {
+        "id": "arrive",
+        "description": "Receive broken equipment at repair counter"
+      },
+      {
+        "id": "diagnose",
+        "description": "Diagnose equipment fault and repair"
+      },
+      {
+        "id": "inspect",
+        "description": "Quality inspection of repaired equipment"
+      },
+      {
+        "id": "bill",
+        "description": "Payment invoice and billing counter"
+      },
+      {
+        "id": "returned",
+        "description": "Return repaired equipment to customer"
+      },
+      {
+        "id": "archive",
+        "description": "Archive obsolete paper manuals"
+      }
+    ],
+    "handoffs": [
+      {
+        "id": "r1",
+        "from": "Broken equipment received",
+        "to": "Find the fault and repair machine"
+      },
+      {
+        "id": "r2",
+        "from": "Fault diagnosis and repair",
+        "to": "Quality inspection after repair"
+      },
+      {
+        "id": "r3",
+        "from": "Quality inspection after repair",
+        "to": "Invoice and payment counter"
+      },
+      {
+        "id": "r4",
+        "from": "Invoice and payment counter",
+        "to": "Give equipment back to customer"
+      },
+      {
+        "id": "r5",
+        "from": "Quality inspection after repair",
+        "to": "Give equipment back to customer"
+      },
+      {
+        "id": "r6",
+        "from": "Quality inspection after repair",
+        "to": "Find the fault and repair machine"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "handoff": "r1",
+      "from": "arrive",
+      "to": "diagnose",
+      "aiFrom": "arrive",
+      "aiTo": "diagnose",
+      "evidence": {
+        "from": [
+          {
+            "stage": "arrive",
+            "score": 0.8078975200886007
+          },
+          {
+            "stage": "returned",
+            "score": 0.7479977750891799
+          },
+          {
+            "stage": "diagnose",
+            "score": 0.7390213477181731
+          },
+          {
+            "stage": "inspect",
+            "score": 0.5595108639127899
+          },
+          {
+            "stage": "archive",
+            "score": 0.09998826492929559
+          },
+          {
+            "stage": "bill",
+            "score": 0.06373433078820573
+          }
+        ],
+        "to": [
+          {
+            "stage": "diagnose",
+            "score": 0.662457085961764
+          },
+          {
+            "stage": "arrive",
+            "score": 0.5044339845882786
+          },
+          {
+            "stage": "returned",
+            "score": 0.4870191068875739
+          },
+          {
+            "stage": "inspect",
+            "score": 0.42541618938304726
+          },
+          {
+            "stage": "bill",
+            "score": 0.19326272200231534
+          },
+          {
+            "stage": "archive",
+            "score": 0.14147404015308737
+          }
+        ]
+      },
+      "decision": "approve",
+      "note": "=SUM(1,2)\nReviewed \"source\", preserved."
+    },
+    {
+      "index": 1,
+      "handoff": "r2",
+      "from": "diagnose",
+      "to": "inspect",
+      "aiFrom": "diagnose",
+      "aiTo": "inspect",
+      "evidence": {
+        "from": [
+          {
+            "stage": "diagnose",
+            "score": 0.7472161938070183
+          },
+          {
+            "stage": "inspect",
+            "score": 0.5341202685187291
+          },
+          {
+            "stage": "arrive",
+            "score": 0.4800207822000477
+          },
+          {
+            "stage": "returned",
+            "score": 0.47776123174262475
+          },
+          {
+            "stage": "bill",
+            "score": 0.11077592049370513
+          },
+          {
+            "stage": "archive",
+            "score": 0.11062773606603152
+          }
+        ],
+        "to": [
+          {
+            "stage": "inspect",
+            "score": 0.868589728119717
+          },
+          {
+            "stage": "returned",
+            "score": 0.5507209611645031
+          },
+          {
+            "stage": "diagnose",
+            "score": 0.5286106434629857
+          },
+          {
+            "stage": "arrive",
+            "score": 0.45762773897001885
+          },
+          {
+            "stage": "archive",
+            "score": 0.08756877979748329
+          },
+          {
+            "stage": "bill",
+            "score": 0.04838673409131838
+          }
+        ]
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "handoff": "r3",
+      "from": "inspect",
+      "to": "bill",
+      "aiFrom": "inspect",
+      "aiTo": "bill",
+      "evidence": {
+        "from": [
+          {
+            "stage": "inspect",
+            "score": 0.868589728119717
+          },
+          {
+            "stage": "returned",
+            "score": 0.5507209611645031
+          },
+          {
+            "stage": "diagnose",
+            "score": 0.5286106434629857
+          },
+          {
+            "stage": "arrive",
+            "score": 0.45762773897001885
+          },
+          {
+            "stage": "archive",
+            "score": 0.08756877979748329
+          },
+          {
+            "stage": "bill",
+            "score": 0.04838673409131838
+          }
+        ],
+        "to": [
+          {
+            "stage": "bill",
+            "score": 0.9433119587116554
+          },
+          {
+            "stage": "arrive",
+            "score": 0.32004773469986864
+          },
+          {
+            "stage": "returned",
+            "score": 0.19000282108986533
+          },
+          {
+            "stage": "inspect",
+            "score": 0.16481101333876932
+          },
+          {
+            "stage": "diagnose",
+            "score": 0.1147657938762019
+          },
+          {
+            "stage": "archive",
+            "score": 0.06785202078653223
+          }
+        ]
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 3,
+      "handoff": "r4",
+      "from": "bill",
+      "to": "returned",
+      "aiFrom": "bill",
+      "aiTo": "returned",
+      "evidence": {
+        "from": [
+          {
+            "stage": "bill",
+            "score": 0.9413217587671987
+          },
+          {
+            "stage": "arrive",
+            "score": 0.32286231369202345
+          },
+          {
+            "stage": "returned",
+            "score": 0.18361796228840396
+          },
+          {
+            "stage": "inspect",
+            "score": 0.156573329790454
+          },
+          {
+            "stage": "diagnose",
+            "score": 0.10685034528375943
+          },
+          {
+            "stage": "archive",
+            "score": 0.08829969705358587
+          }
+        ],
+        "to": [
+          {
+            "stage": "returned",
+            "score": 0.8213491951473235
+          },
+          {
+            "stage": "arrive",
+            "score": 0.6053275599819017
+          },
+          {
+            "stage": "diagnose",
+            "score": 0.5091870900050648
+          },
+          {
+            "stage": "inspect",
+            "score": 0.4512973006812629
+          },
+          {
+            "stage": "bill",
+            "score": 0.1286048599727934
+          },
+          {
+            "stage": "archive",
+            "score": 0.066128059841948
+          }
+        ]
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 4,
+      "handoff": "r5",
+      "from": "inspect",
+      "to": "returned",
+      "aiFrom": "inspect",
+      "aiTo": "returned",
+      "evidence": {
+        "from": [
+          {
+            "stage": "inspect",
+            "score": 0.8783652965274353
+          },
+          {
+            "stage": "returned",
+            "score": 0.537563437102669
+          },
+          {
+            "stage": "diagnose",
+            "score": 0.5153515172374931
+          },
+          {
+            "stage": "arrive",
+            "score": 0.4459008358362257
+          },
+          {
+            "stage": "archive",
+            "score": 0.09825420239964795
+          },
+          {
+            "stage": "bill",
+            "score": 0.04768154265697085
+          }
+        ],
+        "to": [
+          {
+            "stage": "returned",
+            "score": 0.8213491951473235
+          },
+          {
+            "stage": "arrive",
+            "score": 0.6053275599819017
+          },
+          {
+            "stage": "diagnose",
+            "score": 0.5091870900050648
+          },
+          {
+            "stage": "inspect",
+            "score": 0.4512973006812629
+          },
+          {
+            "stage": "bill",
+            "score": 0.1286048599727934
+          },
+          {
+            "stage": "archive",
+            "score": 0.066128059841948
+          }
+        ]
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 5,
+      "handoff": "r6",
+      "from": "inspect",
+      "to": "diagnose",
+      "aiFrom": "inspect",
+      "aiTo": "diagnose",
+      "evidence": {
+        "from": [
+          {
+            "stage": "inspect",
+            "score": 0.8756372254413237
+          },
+          {
+            "stage": "returned",
+            "score": 0.5394344842448296
+          },
+          {
+            "stage": "diagnose",
+            "score": 0.5240859342105114
+          },
+          {
+            "stage": "arrive",
+            "score": 0.440811095036769
+          },
+          {
+            "stage": "archive",
+            "score": 0.09574376216003676
+          },
+          {
+            "stage": "bill",
+            "score": 0.04881238689083992
+          }
+        ],
+        "to": [
+          {
+            "stage": "diagnose",
+            "score": 0.6629955974850814
+          },
+          {
+            "stage": "arrive",
+            "score": 0.5116570953950792
+          },
+          {
+            "stage": "returned",
+            "score": 0.4884644961934834
+          },
+          {
+            "stage": "inspect",
+            "score": 0.4342020692777755
+          },
+          {
+            "stage": "bill",
+            "score": 0.20044152288013117
+          },
+          {
+            "stage": "archive",
+            "score": 0.15018202362040592
+          }
+        ]
+      },
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "warning": "Graph-only process worksheet. All reviewed arrows are assumed feasible without guards. Missing routes, conditional logic or unmodeled entries can invalidate conclusions. Similarity is not confidence; mandatory source review required. No policy, security or real-world enforcement certification.",
+  "analysis": {
+    "status": "ready",
+    "completion": {
+      "stages": [
+        "arrive",
+        "diagnose",
+        "inspect",
+        "returned"
+      ],
+      "handoffs": [
+        "r1",
+        "r2",
+        "r5"
+      ]
+    },
+    "gates": [
+      {
+        "id": "diagnose",
+        "onWalk": true,
+        "kind": "unavoidable",
+        "bypass": null
+      },
+      {
+        "id": "inspect",
+        "onWalk": true,
+        "kind": "unavoidable",
+        "bypass": null
+      },
+      {
+        "id": "bill",
+        "onWalk": true,
+        "kind": "bypassable",
+        "bypass": {
+          "stages": [
+            "arrive",
+            "diagnose",
+            "inspect",
+            "returned"
+          ],
+          "handoffs": [
+            "r1",
+            "r2",
+            "r5"
+          ]
+        }
+      }
+    ],
+    "baselineCount": 3,
+    "mandatoryCount": 2,
+    "bypassCount": 1,
+    "unreachable": [
+      "archive"
+    ],
+    "literalMatches": 0
+  }
+}

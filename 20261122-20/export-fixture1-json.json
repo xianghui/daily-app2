@@ -1,0 +1,472 @@
+{
+  "schema": "causal-lantern/1",
+  "originalInput": {
+    "title": "Synthetic image publication handoff",
+    "services": [
+      {
+        "id": "editor",
+        "description": "News article editor composing headlines and written stories"
+      },
+      {
+        "id": "image",
+        "description": "Photo image processing service resizing photographs and thumbnails"
+      }
+    ],
+    "events": [
+      {
+        "id": "story-done",
+        "serviceNote": "News story headline article editor",
+        "seq": 3,
+        "kind": "local",
+        "message": ""
+      },
+      {
+        "id": "photo-ready",
+        "serviceNote": "Photo image resizing and thumbnail processing",
+        "seq": 3,
+        "kind": "send",
+        "message": "thumbnail-response"
+      },
+      {
+        "id": "request-photo",
+        "serviceNote": "Article editor writing news stories",
+        "seq": 1,
+        "kind": "send",
+        "message": "photo-request"
+      },
+      {
+        "id": "image-received",
+        "serviceNote": "Photograph resizing thumbnail image service",
+        "seq": 2,
+        "kind": "receive",
+        "message": "photo-request"
+      },
+      {
+        "id": "image-warmup",
+        "serviceNote": "Photo image resizing and thumbnail processing",
+        "seq": 1,
+        "kind": "local",
+        "message": ""
+      },
+      {
+        "id": "response-arrives",
+        "serviceNote": "Article editor writing news stories",
+        "seq": 2,
+        "kind": "receive",
+        "message": "thumbnail-response"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "id": "story-done",
+      "resource": "editor",
+      "aiResource": "editor",
+      "seq": 3,
+      "kind": "local",
+      "message": "",
+      "evidence": [
+        {
+          "resource": "editor",
+          "score": 0.8627109294959429
+        },
+        {
+          "resource": "image",
+          "score": 0.06192123544203057
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 1,
+      "id": "photo-ready",
+      "resource": "image",
+      "aiResource": "image",
+      "seq": 3,
+      "kind": "send",
+      "message": "thumbnail-response",
+      "evidence": [
+        {
+          "resource": "image",
+          "score": 0.9043255223612116
+        },
+        {
+          "resource": "editor",
+          "score": 0.07877190488596382
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "id": "request-photo",
+      "resource": "editor",
+      "aiResource": "editor",
+      "seq": 1,
+      "kind": "send",
+      "message": "photo-request",
+      "evidence": [
+        {
+          "resource": "editor",
+          "score": 0.8867797072148694
+        },
+        {
+          "resource": "image",
+          "score": 0.018209996858251275
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 3,
+      "id": "image-received",
+      "resource": "image",
+      "aiResource": "image",
+      "seq": 2,
+      "kind": "receive",
+      "message": "photo-request",
+      "evidence": [
+        {
+          "resource": "image",
+          "score": 0.9149131549631949
+        },
+        {
+          "resource": "editor",
+          "score": 0.006797013615997436
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 4,
+      "id": "image-warmup",
+      "resource": "image",
+      "aiResource": "image",
+      "seq": 1,
+      "kind": "local",
+      "message": "",
+      "evidence": [
+        {
+          "resource": "image",
+          "score": 0.9113299108388194
+        },
+        {
+          "resource": "editor",
+          "score": 0.07111873700979084
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 5,
+      "id": "response-arrives",
+      "resource": "editor",
+      "aiResource": "editor",
+      "seq": 2,
+      "kind": "receive",
+      "message": "thumbnail-response",
+      "evidence": [
+        {
+          "resource": "editor",
+          "score": 0.8867797072148694
+        },
+        {
+          "resource": "image",
+          "score": 0.018209996858251275
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "warning": "Semantic similarity is not service identity. Any held event withholds the whole causal worksheet. No server access, incident action or wall-clock reconstruction.",
+  "analysis": {
+    "status": "ready",
+    "serviceOrder": [
+      "editor",
+      "image"
+    ],
+    "events": [
+      {
+        "id": "story-done",
+        "sourceRow": 1,
+        "service": "editor",
+        "seq": 3,
+        "clock": [
+          3,
+          3
+        ]
+      },
+      {
+        "id": "photo-ready",
+        "sourceRow": 2,
+        "service": "image",
+        "seq": 3,
+        "clock": [
+          1,
+          3
+        ]
+      },
+      {
+        "id": "request-photo",
+        "sourceRow": 3,
+        "service": "editor",
+        "seq": 1,
+        "clock": [
+          1,
+          0
+        ]
+      },
+      {
+        "id": "image-received",
+        "sourceRow": 4,
+        "service": "image",
+        "seq": 2,
+        "clock": [
+          1,
+          2
+        ]
+      },
+      {
+        "id": "image-warmup",
+        "sourceRow": 5,
+        "service": "image",
+        "seq": 1,
+        "clock": [
+          0,
+          1
+        ]
+      },
+      {
+        "id": "response-arrives",
+        "sourceRow": 6,
+        "service": "editor",
+        "seq": 2,
+        "clock": [
+          2,
+          3
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "request-photo",
+        "to": "response-arrives",
+        "type": "local",
+        "label": "editor"
+      },
+      {
+        "from": "response-arrives",
+        "to": "story-done",
+        "type": "local",
+        "label": "editor"
+      },
+      {
+        "from": "image-warmup",
+        "to": "image-received",
+        "type": "local",
+        "label": "image"
+      },
+      {
+        "from": "image-received",
+        "to": "photo-ready",
+        "type": "local",
+        "label": "image"
+      },
+      {
+        "from": "photo-ready",
+        "to": "response-arrives",
+        "type": "message",
+        "label": "thumbnail-response"
+      },
+      {
+        "from": "request-photo",
+        "to": "image-received",
+        "type": "message",
+        "label": "photo-request"
+      }
+    ],
+    "pairs": [
+      {
+        "left": "story-done",
+        "right": "photo-ready",
+        "relation": "after",
+        "path": [
+          "photo-ready",
+          "response-arrives",
+          "story-done"
+        ],
+        "baseline": "left before right (source-order guess)"
+      },
+      {
+        "left": "story-done",
+        "right": "request-photo",
+        "relation": "after",
+        "path": [
+          "request-photo",
+          "response-arrives",
+          "story-done"
+        ],
+        "baseline": "left before right (source-order guess)"
+      },
+      {
+        "left": "story-done",
+        "right": "image-received",
+        "relation": "after",
+        "path": [
+          "image-received",
+          "photo-ready",
+          "response-arrives",
+          "story-done"
+        ],
+        "baseline": "left before right (source-order guess)"
+      },
+      {
+        "left": "story-done",
+        "right": "image-warmup",
+        "relation": "after",
+        "path": [
+          "image-warmup",
+          "image-received",
+          "photo-ready",
+          "response-arrives",
+          "story-done"
+        ],
+        "baseline": "left before right (source-order guess)"
+      },
+      {
+        "left": "story-done",
+        "right": "response-arrives",
+        "relation": "after",
+        "path": [
+          "response-arrives",
+          "story-done"
+        ],
+        "baseline": "left before right (source-order guess)"
+      },
+      {
+        "left": "photo-ready",
+        "right": "request-photo",
+        "relation": "after",
+        "path": [
+          "request-photo",
+          "image-received",
+          "photo-ready"
+        ],
+        "baseline": "left before right (source-order guess)"
+      },
+      {
+        "left": "photo-ready",
+        "right": "image-received",
+        "relation": "after",
+        "path": [
+          "image-received",
+          "photo-ready"
+        ],
+        "baseline": "left before right (source-order guess)"
+      },
+      {
+        "left": "photo-ready",
+        "right": "image-warmup",
+        "relation": "after",
+        "path": [
+          "image-warmup",
+          "image-received",
+          "photo-ready"
+        ],
+        "baseline": "left before right (source-order guess)"
+      },
+      {
+        "left": "photo-ready",
+        "right": "response-arrives",
+        "relation": "before",
+        "path": [
+          "photo-ready",
+          "response-arrives"
+        ],
+        "baseline": "left before right (source-order guess)"
+      },
+      {
+        "left": "request-photo",
+        "right": "image-received",
+        "relation": "before",
+        "path": [
+          "request-photo",
+          "image-received"
+        ],
+        "baseline": "left before right (source-order guess)"
+      },
+      {
+        "left": "request-photo",
+        "right": "image-warmup",
+        "relation": "concurrent",
+        "path": [],
+        "baseline": "left before right (source-order guess)"
+      },
+      {
+        "left": "request-photo",
+        "right": "response-arrives",
+        "relation": "before",
+        "path": [
+          "request-photo",
+          "response-arrives"
+        ],
+        "baseline": "left before right (source-order guess)"
+      },
+      {
+        "left": "image-received",
+        "right": "image-warmup",
+        "relation": "after",
+        "path": [
+          "image-warmup",
+          "image-received"
+        ],
+        "baseline": "left before right (source-order guess)"
+      },
+      {
+        "left": "image-received",
+        "right": "response-arrives",
+        "relation": "before",
+        "path": [
+          "image-received",
+          "photo-ready",
+          "response-arrives"
+        ],
+        "baseline": "left before right (source-order guess)"
+      },
+      {
+        "left": "image-warmup",
+        "right": "response-arrives",
+        "relation": "before",
+        "path": [
+          "image-warmup",
+          "image-received",
+          "photo-ready",
+          "response-arrives"
+        ],
+        "baseline": "left before right (source-order guess)"
+      }
+    ],
+    "linearization": [
+      "request-photo",
+      "image-warmup",
+      "image-received",
+      "photo-ready",
+      "response-arrives",
+      "story-done"
+    ],
+    "concurrent": 1,
+    "ordered": 14,
+    "inversions": 9,
+    "baselineUnsupported": 10,
+    "totalPairs": 15,
+    "messageCount": 2,
+    "scope": "Logical happens-before under complete supplied message pairs and observed local order only. Concurrent means neither event is reachable from the other; not simultaneous wall time. A topological linearization is one possible order, never a measured chronology. Missing dependencies can make real relations appear concurrent."
+  }
+}

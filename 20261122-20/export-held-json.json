@@ -1,0 +1,193 @@
+{
+  "schema": "causal-lantern/1",
+  "originalInput": {
+    "title": "Synthetic image publication handoff",
+    "services": [
+      {
+        "id": "editor",
+        "description": "News article editor composing headlines and written stories"
+      },
+      {
+        "id": "image",
+        "description": "Photo image processing service resizing photographs and thumbnails"
+      }
+    ],
+    "events": [
+      {
+        "id": "story-done",
+        "serviceNote": "News story headline article editor",
+        "seq": 3,
+        "kind": "local",
+        "message": ""
+      },
+      {
+        "id": "photo-ready",
+        "serviceNote": "Photo image resizing and thumbnail processing",
+        "seq": 3,
+        "kind": "send",
+        "message": "thumbnail-response"
+      },
+      {
+        "id": "request-photo",
+        "serviceNote": "Article editor writing news stories",
+        "seq": 1,
+        "kind": "send",
+        "message": "photo-request"
+      },
+      {
+        "id": "image-received",
+        "serviceNote": "Photograph resizing thumbnail image service",
+        "seq": 2,
+        "kind": "receive",
+        "message": "photo-request"
+      },
+      {
+        "id": "image-warmup",
+        "serviceNote": "Photo image resizing and thumbnail processing",
+        "seq": 1,
+        "kind": "local",
+        "message": ""
+      },
+      {
+        "id": "response-arrives",
+        "serviceNote": "Article editor writing news stories",
+        "seq": 2,
+        "kind": "receive",
+        "message": "thumbnail-response"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "id": "story-done",
+      "resource": "editor",
+      "aiResource": "editor",
+      "seq": 3,
+      "kind": "local",
+      "message": "",
+      "evidence": [
+        {
+          "resource": "editor",
+          "score": 0.8627109294959429
+        },
+        {
+          "resource": "image",
+          "score": 0.06192123544203057
+        }
+      ],
+      "decision": "reject",
+      "note": "=SUM(1,2)\nReviewed \"source\", preserved."
+    },
+    {
+      "index": 1,
+      "id": "photo-ready",
+      "resource": "image",
+      "aiResource": "image",
+      "seq": 3,
+      "kind": "send",
+      "message": "thumbnail-response",
+      "evidence": [
+        {
+          "resource": "image",
+          "score": 0.9043255223612116
+        },
+        {
+          "resource": "editor",
+          "score": 0.07877190488596382
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "id": "request-photo",
+      "resource": "editor",
+      "aiResource": "editor",
+      "seq": 1,
+      "kind": "send",
+      "message": "photo-request",
+      "evidence": [
+        {
+          "resource": "editor",
+          "score": 0.8867797072148694
+        },
+        {
+          "resource": "image",
+          "score": 0.018209996858251275
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 3,
+      "id": "image-received",
+      "resource": "image",
+      "aiResource": "image",
+      "seq": 2,
+      "kind": "receive",
+      "message": "photo-request",
+      "evidence": [
+        {
+          "resource": "image",
+          "score": 0.9149131549631949
+        },
+        {
+          "resource": "editor",
+          "score": 0.006797013615997436
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 4,
+      "id": "image-warmup",
+      "resource": "image",
+      "aiResource": "image",
+      "seq": 1,
+      "kind": "local",
+      "message": "",
+      "evidence": [
+        {
+          "resource": "image",
+          "score": 0.9113299108388194
+        },
+        {
+          "resource": "editor",
+          "score": 0.07111873700979084
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 5,
+      "id": "response-arrives",
+      "resource": "editor",
+      "aiResource": "editor",
+      "seq": 2,
+      "kind": "receive",
+      "message": "thumbnail-response",
+      "evidence": [
+        {
+          "resource": "editor",
+          "score": 0.8867797072148694
+        },
+        {
+          "resource": "image",
+          "score": 0.018209996858251275
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "warning": "Semantic similarity is not service identity. Any held event withholds the whole causal worksheet. No server access, incident action or wall-clock reconstruction.",
+  "analysis": {
+    "status": "held",
+    "reason": "Held events: whole causal worksheet withheld. All originals and reviews retained."
+  }
+}

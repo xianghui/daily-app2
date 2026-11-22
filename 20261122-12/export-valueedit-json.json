@@ -1,0 +1,331 @@
+{
+  "schema": "rule-lantern/1",
+  "originalInput": {
+    "title": "Parcel support rulebook",
+    "facts": [
+      {
+        "id": "damaged",
+        "description": "Parcel arrived damaged or broken"
+      },
+      {
+        "id": "late",
+        "description": "Delivery arrived later than promised"
+      },
+      {
+        "id": "expired",
+        "description": "Return request is outside the return window"
+      }
+    ],
+    "outcomes": [
+      {
+        "id": "replace",
+        "description": "Offer a replacement parcel"
+      },
+      {
+        "id": "decline",
+        "description": "Decline the return request"
+      },
+      {
+        "id": "credit",
+        "description": "Offer a delivery fee credit"
+      }
+    ],
+    "rules": [
+      {
+        "id": "broken-parcel",
+        "outcome": "replace",
+        "conditions": [
+          {
+            "fact": "Package arrived with broken contents",
+            "value": true
+          }
+        ]
+      },
+      {
+        "id": "outside-window",
+        "outcome": "decline",
+        "conditions": [
+          {
+            "fact": "Return period has expired",
+            "value": true
+          }
+        ]
+      },
+      {
+        "id": "delayed-delivery",
+        "outcome": "credit",
+        "conditions": [
+          {
+            "fact": "Delivery missed the promised date",
+            "value": true
+          },
+          {
+            "fact": "Package arrived with broken contents",
+            "value": false
+          }
+        ]
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "rule": "broken-parcel",
+      "ruleIndex": 0,
+      "condition": 0,
+      "fact": "damaged",
+      "aiFact": "damaged",
+      "value": true,
+      "evidence": [
+        {
+          "fact": "damaged",
+          "score": 0.785578764589697
+        },
+        {
+          "fact": "late",
+          "score": 0.4093376184115636
+        },
+        {
+          "fact": "expired",
+          "score": 0.07270934682498915
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 1,
+      "rule": "outside-window",
+      "ruleIndex": 1,
+      "condition": 0,
+      "fact": "expired",
+      "aiFact": "expired",
+      "value": true,
+      "evidence": [
+        {
+          "fact": "expired",
+          "score": 0.3899098866666293
+        },
+        {
+          "fact": "damaged",
+          "score": 0.1359917522030724
+        },
+        {
+          "fact": "late",
+          "score": 0.0894828001592542
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "rule": "delayed-delivery",
+      "ruleIndex": 2,
+      "condition": 0,
+      "fact": "late",
+      "aiFact": "late",
+      "value": true,
+      "evidence": [
+        {
+          "fact": "late",
+          "score": 0.8094966489681349
+        },
+        {
+          "fact": "damaged",
+          "score": 0.37826901062172397
+        },
+        {
+          "fact": "expired",
+          "score": 0.13282522159415291
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 3,
+      "rule": "delayed-delivery",
+      "ruleIndex": 2,
+      "condition": 1,
+      "fact": "damaged",
+      "aiFact": "damaged",
+      "value": true,
+      "evidence": [
+        {
+          "fact": "damaged",
+          "score": 0.7850266478409013
+        },
+        {
+          "fact": "late",
+          "score": 0.4123871472596338
+        },
+        {
+          "fact": "expired",
+          "score": 0.07353647428012118
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "warning": "Unordered Boolean rulebook worksheet, not policy enforcement. All fact combinations assumed feasible. Rules are AND conjunctions; no priority/default/unknown-value semantics. Review every AI fact mapping and truth value. Similarity is not confidence.",
+  "analysis": {
+    "status": "ready",
+    "cases": [
+      {
+        "case": "C001",
+        "facts": {
+          "damaged": false,
+          "late": false,
+          "expired": false
+        },
+        "rules": [],
+        "outcomes": [],
+        "firstOutcome": null,
+        "kind": "gap"
+      },
+      {
+        "case": "C002",
+        "facts": {
+          "damaged": true,
+          "late": false,
+          "expired": false
+        },
+        "rules": [
+          "broken-parcel"
+        ],
+        "outcomes": [
+          "replace"
+        ],
+        "firstOutcome": "replace",
+        "kind": "consistent"
+      },
+      {
+        "case": "C003",
+        "facts": {
+          "damaged": false,
+          "late": true,
+          "expired": false
+        },
+        "rules": [],
+        "outcomes": [],
+        "firstOutcome": null,
+        "kind": "gap"
+      },
+      {
+        "case": "C004",
+        "facts": {
+          "damaged": true,
+          "late": true,
+          "expired": false
+        },
+        "rules": [
+          "broken-parcel",
+          "delayed-delivery"
+        ],
+        "outcomes": [
+          "replace",
+          "credit"
+        ],
+        "firstOutcome": "replace",
+        "kind": "conflict"
+      },
+      {
+        "case": "C005",
+        "facts": {
+          "damaged": false,
+          "late": false,
+          "expired": true
+        },
+        "rules": [
+          "outside-window"
+        ],
+        "outcomes": [
+          "decline"
+        ],
+        "firstOutcome": "decline",
+        "kind": "consistent"
+      },
+      {
+        "case": "C006",
+        "facts": {
+          "damaged": true,
+          "late": false,
+          "expired": true
+        },
+        "rules": [
+          "broken-parcel",
+          "outside-window"
+        ],
+        "outcomes": [
+          "replace",
+          "decline"
+        ],
+        "firstOutcome": "replace",
+        "kind": "conflict"
+      },
+      {
+        "case": "C007",
+        "facts": {
+          "damaged": false,
+          "late": true,
+          "expired": true
+        },
+        "rules": [
+          "outside-window"
+        ],
+        "outcomes": [
+          "decline"
+        ],
+        "firstOutcome": "decline",
+        "kind": "consistent"
+      },
+      {
+        "case": "C008",
+        "facts": {
+          "damaged": true,
+          "late": true,
+          "expired": true
+        },
+        "rules": [
+          "broken-parcel",
+          "outside-window",
+          "delayed-delivery"
+        ],
+        "outcomes": [
+          "replace",
+          "decline",
+          "credit"
+        ],
+        "firstOutcome": "replace",
+        "kind": "conflict"
+      }
+    ],
+    "gaps": 2,
+    "conflicts": 3,
+    "consistent": 3,
+    "firstMatchAssigned": 6,
+    "rules": [
+      {
+        "id": "broken-parcel",
+        "outcome": "replace",
+        "matches": 4,
+        "exclusive": 1
+      },
+      {
+        "id": "outside-window",
+        "outcome": "decline",
+        "matches": 4,
+        "exclusive": 2
+      },
+      {
+        "id": "delayed-delivery",
+        "outcome": "credit",
+        "matches": 2,
+        "exclusive": 0
+      }
+    ],
+    "literalMatches": 0
+  }
+}

@@ -1,0 +1,282 @@
+{
+  "schema": "address-quilt/1",
+  "originalInput": {
+    "title": "Synthetic studio address worksheet",
+    "purposes": [
+      {
+        "id": "print",
+        "description": "Printers and print server devices"
+      },
+      {
+        "id": "guest",
+        "description": "Guest wireless internet clients"
+      },
+      {
+        "id": "camera",
+        "description": "Security camera video recording devices"
+      }
+    ],
+    "ranges": [
+      {
+        "id": "print-east",
+        "note": "Laser printers and print spooler",
+        "start": "192.0.2.4",
+        "end": "192.0.2.7"
+      },
+      {
+        "id": "print-west",
+        "note": "Office printing equipment",
+        "start": "192.0.2.12",
+        "end": "192.0.2.15"
+      },
+      {
+        "id": "visitor",
+        "note": "Visitors connecting to guest WiFi",
+        "start": "198.51.100.1",
+        "end": "198.51.100.6"
+      },
+      {
+        "id": "video",
+        "note": "Surveillance cameras recording video",
+        "start": "203.0.113.16",
+        "end": "203.0.113.23"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "id": "print-east",
+      "purpose": "print",
+      "aiPurpose": "print",
+      "start": "192.0.2.4",
+      "end": "192.0.2.6",
+      "evidence": [
+        {
+          "purpose": "print",
+          "score": 0.5063173633897206
+        },
+        {
+          "purpose": "camera",
+          "score": 0.05260890233796039
+        },
+        {
+          "purpose": "guest",
+          "score": -0.0848449839811537
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 1,
+      "id": "print-west",
+      "purpose": "print",
+      "aiPurpose": "print",
+      "start": "192.0.2.12",
+      "end": "192.0.2.15",
+      "evidence": [
+        {
+          "purpose": "print",
+          "score": 0.645167274405361
+        },
+        {
+          "purpose": "camera",
+          "score": 0.1731879660564135
+        },
+        {
+          "purpose": "guest",
+          "score": 0.06724433772222263
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "id": "visitor",
+      "purpose": "guest",
+      "aiPurpose": "guest",
+      "start": "198.51.100.1",
+      "end": "198.51.100.6",
+      "evidence": [
+        {
+          "purpose": "guest",
+          "score": 0.7295542598320944
+        },
+        {
+          "purpose": "camera",
+          "score": 0.09833407731605699
+        },
+        {
+          "purpose": "print",
+          "score": 0.0013931403136492847
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 3,
+      "id": "video",
+      "purpose": "camera",
+      "aiPurpose": "camera",
+      "start": "203.0.113.16",
+      "end": "203.0.113.23",
+      "evidence": [
+        {
+          "purpose": "camera",
+          "score": 0.7707035444397687
+        },
+        {
+          "purpose": "guest",
+          "score": 0.03856444468960222
+        },
+        {
+          "purpose": "print",
+          "score": 0.016741262628284976
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "warning": "Offline IPv4 worksheet, not firewall configuration or security certification. All addresses in each inclusive range count, including .0 and .255. No IPv6, ports, allow/deny precedence, routing or network/broadcast reservation assumptions. AI similarity is not authorization. Holds and cross-purpose overlaps withhold the entire plan.",
+  "analysis": {
+    "status": "ready",
+    "conflicts": [],
+    "groups": [
+      {
+        "purpose": "print",
+        "intervals": [
+          [
+            3221225988,
+            3221225990
+          ],
+          [
+            3221225996,
+            3221225999
+          ]
+        ],
+        "addresses": 7,
+        "cidrs": [
+          {
+            "cidr": "192.0.2.4/31",
+            "start": "192.0.2.4",
+            "end": "192.0.2.5",
+            "addresses": 2,
+            "sourceIds": [
+              "print-east"
+            ]
+          },
+          {
+            "cidr": "192.0.2.6/32",
+            "start": "192.0.2.6",
+            "end": "192.0.2.6",
+            "addresses": 1,
+            "sourceIds": [
+              "print-east"
+            ]
+          },
+          {
+            "cidr": "192.0.2.12/30",
+            "start": "192.0.2.12",
+            "end": "192.0.2.15",
+            "addresses": 4,
+            "sourceIds": [
+              "print-west"
+            ]
+          }
+        ],
+        "baseline": {
+          "cidr": "192.0.2.0/28",
+          "addresses": 16
+        },
+        "extraAddresses": 9
+      },
+      {
+        "purpose": "guest",
+        "intervals": [
+          [
+            3325256705,
+            3325256710
+          ]
+        ],
+        "addresses": 6,
+        "cidrs": [
+          {
+            "cidr": "198.51.100.1/32",
+            "start": "198.51.100.1",
+            "end": "198.51.100.1",
+            "addresses": 1,
+            "sourceIds": [
+              "visitor"
+            ]
+          },
+          {
+            "cidr": "198.51.100.2/31",
+            "start": "198.51.100.2",
+            "end": "198.51.100.3",
+            "addresses": 2,
+            "sourceIds": [
+              "visitor"
+            ]
+          },
+          {
+            "cidr": "198.51.100.4/31",
+            "start": "198.51.100.4",
+            "end": "198.51.100.5",
+            "addresses": 2,
+            "sourceIds": [
+              "visitor"
+            ]
+          },
+          {
+            "cidr": "198.51.100.6/32",
+            "start": "198.51.100.6",
+            "end": "198.51.100.6",
+            "addresses": 1,
+            "sourceIds": [
+              "visitor"
+            ]
+          }
+        ],
+        "baseline": {
+          "cidr": "198.51.100.0/29",
+          "addresses": 8
+        },
+        "extraAddresses": 2
+      },
+      {
+        "purpose": "camera",
+        "intervals": [
+          [
+            3405803792,
+            3405803799
+          ]
+        ],
+        "addresses": 8,
+        "cidrs": [
+          {
+            "cidr": "203.0.113.16/29",
+            "start": "203.0.113.16",
+            "end": "203.0.113.23",
+            "addresses": 8,
+            "sourceIds": [
+              "video"
+            ]
+          }
+        ],
+        "baseline": {
+          "cidr": "203.0.113.16/29",
+          "addresses": 8
+        },
+        "extraAddresses": 0
+      }
+    ],
+    "addresses": 21,
+    "cidrCount": 8,
+    "baselineExtraAddresses": 11,
+    "coverageVerified": true
+  }
+}

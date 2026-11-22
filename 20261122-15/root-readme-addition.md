@@ -1,0 +1,6 @@
+
+## Address Quilt — 20261122-15
+
+Local MiniLM reconciles informal device-purpose notes before mandatory IPv4 endpoint review. Exact interval union/CIDR coverage detects cross-purpose overlap witnesses and excludes unrequested addresses from a broad-subnet baseline; complete JSON/CSV/Markdown and source-linked CIDR CSV retain every original and review. Both tiny fixtures matched 8/8 intended purposes, not general accuracy; unknown/negated notes need holds. No network configuration, IPv6, usable-host or security certification claims. Shared worker/factory from `20261115-6` and WASM from `20261107-2` must remain published. Offline scope is fresh-worker inference in an already-open warmed page. Existing runtime-sharing rules and 1 GB guard unchanged. See [workflow/privacy](20261122-15/README.md) and [observed checks](20261122-15/VALIDATION.md). No digest sent.
+
+Public release verified: matching Pages `d8ab9c2f7bb4687b00d85271ab1be37579af0fc8` and workflow `44992505741` succeeded. Nine public gallery/app/worker/factory/WASM assets byte-match the combined site. Both public real-AI fixtures (8/8 simple purposes), full reviewed/export/maximum-batch/offline/privacy suite and all 796 gallery cards pass. Combined size 999,972,808 bytes below the unchanged guard. Source staging preserves and excludes unrelated recovery work. No digest sent.

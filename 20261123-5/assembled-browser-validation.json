@@ -1,0 +1,598 @@
+{
+  "fixtures": [
+    {
+      "name": "New York & London",
+      "actual": [
+        "clinic",
+        "gallery",
+        "clinic",
+        "gallery"
+      ],
+      "expected": [
+        "clinic",
+        "gallery",
+        "clinic",
+        "gallery"
+      ],
+      "correct": 4,
+      "analysis": {
+        "status": "ready",
+        "events": [
+          {
+            "id": "ny-fold",
+            "title": "Dental check-in",
+            "local": "2026-11-01T01:30",
+            "minutes": 30,
+            "venue": "clinic",
+            "zone": "America/New_York",
+            "held": false,
+            "resolution": {
+              "kind": "fold",
+              "candidates": [
+                {
+                  "utc": "2026-11-01T05:30:00.000Z",
+                  "offsetMinutes": -240
+                },
+                {
+                  "utc": "2026-11-01T06:30:00.000Z",
+                  "offsetMinutes": -300
+                }
+              ]
+            },
+            "choice": "later",
+            "issue": "",
+            "start": "2026-11-01T06:30:00.000Z",
+            "end": "2026-11-01T07:00:00.000Z",
+            "offsetMinutes": -300,
+            "naiveUtc": "2026-11-01T01:30:00.000Z"
+          },
+          {
+            "id": "uk-gap",
+            "title": "Painting exhibition setup",
+            "local": "2026-03-29T01:30",
+            "minutes": 60,
+            "venue": "gallery",
+            "zone": "Europe/London",
+            "held": true,
+            "resolution": {
+              "kind": "gap",
+              "candidates": []
+            },
+            "choice": "",
+            "issue": "",
+            "start": null,
+            "end": null,
+            "offsetMinutes": null,
+            "naiveUtc": "2026-03-29T01:30:00.000Z"
+          },
+          {
+            "id": "ny-normal",
+            "title": "Patient follow-up",
+            "local": "2026-11-02T10:00",
+            "minutes": 45,
+            "venue": "clinic",
+            "zone": "America/New_York",
+            "held": false,
+            "resolution": {
+              "kind": "unique",
+              "candidates": [
+                {
+                  "utc": "2026-11-02T15:00:00.000Z",
+                  "offsetMinutes": -300
+                }
+              ]
+            },
+            "choice": "",
+            "issue": "",
+            "start": "2026-11-02T15:00:00.000Z",
+            "end": "2026-11-02T15:45:00.000Z",
+            "offsetMinutes": -300,
+            "naiveUtc": "2026-11-02T10:00:00.000Z"
+          },
+          {
+            "id": "uk-normal",
+            "title": "Gallery opening briefing",
+            "local": "2026-11-02T10:00",
+            "minutes": 30,
+            "venue": "gallery",
+            "zone": "Europe/London",
+            "held": false,
+            "resolution": {
+              "kind": "unique",
+              "candidates": [
+                {
+                  "utc": "2026-11-02T10:00:00.000Z",
+                  "offsetMinutes": 0
+                }
+              ]
+            },
+            "choice": "",
+            "issue": "",
+            "start": "2026-11-02T10:00:00.000Z",
+            "end": "2026-11-02T10:30:00.000Z",
+            "offsetMinutes": 0,
+            "naiveUtc": "2026-11-02T10:00:00.000Z"
+          }
+        ],
+        "issues": [],
+        "conflicts": [],
+        "held": 1,
+        "folds": 1,
+        "gaps": 1,
+        "scheduled": 3,
+        "shiftedFromNaive": 2,
+        "baselineSilentGuesses": 4,
+        "scope": "Baseline appends Z to every local time and ignores venue/time-zone transitions. Counts compare these exact same original events, not measured time savings. Duration is elapsed time, not wall-clock duration. Browser IANA data defines offsets; keep browser/OS current. UTC calendar does not recur or send invitations."
+      }
+    },
+    {
+      "name": "Berlin & Sydney",
+      "actual": [
+        "studio",
+        "garden",
+        "studio",
+        "garden"
+      ],
+      "expected": [
+        "studio",
+        "garden",
+        "studio",
+        "garden"
+      ],
+      "correct": 4,
+      "analysis": {
+        "status": "ready",
+        "events": [
+          {
+            "id": "berlin-fold",
+            "title": "Podcast sound check",
+            "local": "2026-10-25T02:30",
+            "minutes": 30,
+            "venue": "studio",
+            "zone": "Europe/Berlin",
+            "held": false,
+            "resolution": {
+              "kind": "fold",
+              "candidates": [
+                {
+                  "utc": "2026-10-25T00:30:00.000Z",
+                  "offsetMinutes": 120
+                },
+                {
+                  "utc": "2026-10-25T01:30:00.000Z",
+                  "offsetMinutes": 60
+                }
+              ]
+            },
+            "choice": "later",
+            "issue": "",
+            "start": "2026-10-25T01:30:00.000Z",
+            "end": "2026-10-25T02:00:00.000Z",
+            "offsetMinutes": 60,
+            "naiveUtc": "2026-10-25T02:30:00.000Z"
+          },
+          {
+            "id": "sydney-gap",
+            "title": "Greenhouse orientation",
+            "local": "2026-10-04T02:30",
+            "minutes": 30,
+            "venue": "garden",
+            "zone": "Australia/Sydney",
+            "held": true,
+            "resolution": {
+              "kind": "gap",
+              "candidates": []
+            },
+            "choice": "",
+            "issue": "",
+            "start": null,
+            "end": null,
+            "offsetMinutes": null,
+            "naiveUtc": "2026-10-04T02:30:00.000Z"
+          },
+          {
+            "id": "berlin-normal",
+            "title": "Audio workshop",
+            "local": "2026-10-26T10:00",
+            "minutes": 60,
+            "venue": "studio",
+            "zone": "Europe/Berlin",
+            "held": false,
+            "resolution": {
+              "kind": "unique",
+              "candidates": [
+                {
+                  "utc": "2026-10-26T09:00:00.000Z",
+                  "offsetMinutes": 60
+                }
+              ]
+            },
+            "choice": "",
+            "issue": "",
+            "start": "2026-10-26T09:00:00.000Z",
+            "end": "2026-10-26T10:00:00.000Z",
+            "offsetMinutes": 60,
+            "naiveUtc": "2026-10-26T10:00:00.000Z"
+          },
+          {
+            "id": "sydney-normal",
+            "title": "Plant care workshop",
+            "local": "2026-10-05T10:00",
+            "minutes": 45,
+            "venue": "garden",
+            "zone": "Australia/Sydney",
+            "held": false,
+            "resolution": {
+              "kind": "unique",
+              "candidates": [
+                {
+                  "utc": "2026-10-04T23:00:00.000Z",
+                  "offsetMinutes": 660
+                }
+              ]
+            },
+            "choice": "",
+            "issue": "",
+            "start": "2026-10-04T23:00:00.000Z",
+            "end": "2026-10-04T23:45:00.000Z",
+            "offsetMinutes": 660,
+            "naiveUtc": "2026-10-05T10:00:00.000Z"
+          }
+        ],
+        "issues": [],
+        "conflicts": [],
+        "held": 1,
+        "folds": 1,
+        "gaps": 1,
+        "scheduled": 3,
+        "shiftedFromNaive": 3,
+        "baselineSilentGuesses": 4,
+        "scope": "Baseline appends Z to every local time and ignores venue/time-zone transitions. Counts compare these exact same original events, not measured time savings. Duration is elapsed time, not wall-clock duration. Browser IANA data defines offsets; keep browser/OS current. UTC calendar does not recur or send invitations."
+      }
+    }
+  ],
+  "checks": [
+    "Reviewed identity and occurrence edits materially change UTC output; pending review and stale exports blocked; undo/multiline note/clipboard",
+    "Actual fresh-worker offline inference in already-open warmed page",
+    "Maximum 8 venues / 32 events; 40 real embeddings in 10 chunks; complete audit reimport",
+    "Real cancellation followed by successful retry",
+    "Download/clipboard, labels/focus/touch/no overflow at 1440/390/320, invalid inputs/files, GET-only file downloads with no content"
+  ],
+  "negationProbe": {
+    "proposed": "clinic",
+    "decision": "pending",
+    "limitation": "Unknown/negated text selects nearest venue; hold required."
+  },
+  "requests": [
+    {
+      "host": "127.0.0.1:7377",
+      "path": "/daily-app2/20261123-5/",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7377",
+      "path": "/daily-app2/20261123-5/assets/index-BO4xCwuS.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7377",
+      "path": "/daily-app2/20261123-5/assets/index-DO5n24iP.css",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7377",
+      "path": "/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/bcfce7c9-48fa-4d4b-8330-ffde6f7ca908",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7377",
+      "path": "/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7377",
+      "path": "/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "xip",
+        "user_id",
+        "X-Xet-Cas-Uid",
+        "response-content-disposition",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "response-content-disposition",
+        "user_id",
+        "xip",
+        "X-Xet-Cas-Uid",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/8365a780-c6ec-44c8-9fb2-4012c51d4da5",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/c646f347-7f17-4f46-ba9b-e671c92873ad",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/f42a4fee-a97c-4e11-9800-eb592fd4b99e",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/40f4e4c4-854f-4c13-b189-9e07414ad17f",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/d66d8466-1d1f-4510-89d5-9a06aa18cb52",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/30702b21-6a57-43e9-91a0-782eec00032e",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/8424b0e4-19bd-485a-9988-5741e9d3717e",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/50803842-1428-4bd9-899a-113ed9dd47d8",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/b812b4ca-ee1b-4035-9caf-fb37a2f4815d",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/fcfc75c5-e179-4042-9bf4-fafafd186a55",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/1fe28866-315a-4de0-a934-6329cc3fd986",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/78b63101-1f1e-4a57-8125-3b41b7c12728",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/1c48ea39-5d72-4767-a169-7c097f83abe3",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/364305a7-5b8f-4485-8772-dcc91a238be9",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/80ca34f3-98e1-4ff7-ad23-4a6546ba657d",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/7a9cee20-715a-454f-b236-63b9e702bae9",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/04947411-9a4c-415b-8f6a-e0c5f8bdcf6a",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/11d8cebf-3642-41e8-9c51-5ceb1a6871f9",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/abb6406c-3c1d-4d0d-85b6-c970b512789c",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/620f1c95-f18d-421f-a3d8-3f5785c5fda5",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7377/6a776a2b-bd84-42e0-a132-ce1399c5452d",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    }
+  ],
+  "errors": []
+}

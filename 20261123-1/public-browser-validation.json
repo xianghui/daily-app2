@@ -1,0 +1,588 @@
+{
+  "fixtures": [
+    {
+      "name": "Late TTL reduction",
+      "actual": [
+        "store",
+        "mail",
+        "media"
+      ],
+      "expected": [
+        "store",
+        "mail",
+        "media"
+      ],
+      "correct": 3,
+      "analysis": {
+        "status": "ready",
+        "records": [
+          {
+            "id": "shop.example.test",
+            "service": "store",
+            "retireAt": 1000,
+            "switchAt": 900,
+            "baselineAfter": 960,
+            "safeAfter": 4200,
+            "extraWait": 3240,
+            "deadlineGap": 3200,
+            "baselinePass": true,
+            "historyPass": false,
+            "witnesses": [
+              {
+                "revision": 0,
+                "from": 0,
+                "until": 600,
+                "ttl": 3600,
+                "expiryBound": 4200
+              },
+              {
+                "revision": 1,
+                "from": 600,
+                "until": 900,
+                "ttl": 60,
+                "expiryBound": 960
+              }
+            ]
+          },
+          {
+            "id": "mail.example.test",
+            "service": "mail",
+            "retireAt": 1000,
+            "switchAt": 600,
+            "baselineAfter": 900,
+            "safeAfter": 900,
+            "extraWait": 0,
+            "deadlineGap": 0,
+            "baselinePass": true,
+            "historyPass": true,
+            "witnesses": [
+              {
+                "revision": 0,
+                "from": 0,
+                "until": 600,
+                "ttl": 300,
+                "expiryBound": 900
+              }
+            ]
+          },
+          {
+            "id": "video.example.test",
+            "service": "media",
+            "retireAt": 1800,
+            "switchAt": 1200,
+            "baselineAfter": 1800,
+            "safeAfter": 1800,
+            "extraWait": 0,
+            "deadlineGap": 0,
+            "baselinePass": true,
+            "historyPass": true,
+            "witnesses": [
+              {
+                "revision": 0,
+                "from": 0,
+                "until": 1200,
+                "ttl": 600,
+                "expiryBound": 1800
+              }
+            ]
+          }
+        ],
+        "services": [
+          {
+            "id": "store",
+            "recordIds": [
+              "shop.example.test"
+            ],
+            "safeAfter": 4200
+          },
+          {
+            "id": "mail",
+            "recordIds": [
+              "mail.example.test"
+            ],
+            "safeAfter": 900
+          },
+          {
+            "id": "media",
+            "recordIds": [
+              "video.example.test"
+            ],
+            "safeAfter": 1800
+          }
+        ],
+        "baselineRisk": 0,
+        "historyRisk": 1,
+        "missedByBaseline": 1,
+        "maxExtraWait": 3240,
+        "scope": "Hypothetical positive-answer TTL upper bounds only. All authoritative changes are simultaneous, caches honor TTL, no refresh before second 0, no serve-stale, negative caches, CNAME chains, clock skew or connections outliving DNS. Each old revision can be fetched arbitrarily close to its next change; next-change + old TTL is a conservative expiry bound. Equality clears the bound. Final new answer is permanent. This is not proof of live propagation or permission to shut down a service."
+      }
+    },
+    {
+      "name": "Waited before switching",
+      "actual": [
+        "stock",
+        "camera",
+        "pay"
+      ],
+      "expected": [
+        "stock",
+        "camera",
+        "pay"
+      ],
+      "correct": 3,
+      "analysis": {
+        "status": "ready",
+        "records": [
+          {
+            "id": "stock.example.test",
+            "service": "stock",
+            "retireAt": 2500,
+            "switchAt": 2400,
+            "baselineAfter": 2520,
+            "safeAfter": 2520,
+            "extraWait": 0,
+            "deadlineGap": 20,
+            "baselinePass": false,
+            "historyPass": false,
+            "witnesses": [
+              {
+                "revision": 0,
+                "from": 0,
+                "until": 300,
+                "ttl": 1800,
+                "expiryBound": 2100
+              },
+              {
+                "revision": 1,
+                "from": 300,
+                "until": 2400,
+                "ttl": 120,
+                "expiryBound": 2520
+              }
+            ]
+          },
+          {
+            "id": "camera.example.test",
+            "service": "camera",
+            "retireAt": 2000,
+            "switchAt": 800,
+            "baselineAfter": 800,
+            "safeAfter": 800,
+            "extraWait": 0,
+            "deadlineGap": 0,
+            "baselinePass": true,
+            "historyPass": true,
+            "witnesses": [
+              {
+                "revision": 0,
+                "from": 0,
+                "until": 100,
+                "ttl": 600,
+                "expiryBound": 700
+              },
+              {
+                "revision": 1,
+                "from": 100,
+                "until": 800,
+                "ttl": 0,
+                "expiryBound": 800
+              }
+            ]
+          },
+          {
+            "id": "pay.example.test",
+            "service": "pay",
+            "retireAt": 1500,
+            "switchAt": 600,
+            "baselineAfter": 1500,
+            "safeAfter": 1500,
+            "extraWait": 0,
+            "deadlineGap": 0,
+            "baselinePass": true,
+            "historyPass": true,
+            "witnesses": [
+              {
+                "revision": 0,
+                "from": 0,
+                "until": 600,
+                "ttl": 900,
+                "expiryBound": 1500
+              }
+            ]
+          }
+        ],
+        "services": [
+          {
+            "id": "stock",
+            "recordIds": [
+              "stock.example.test"
+            ],
+            "safeAfter": 2520
+          },
+          {
+            "id": "camera",
+            "recordIds": [
+              "camera.example.test"
+            ],
+            "safeAfter": 800
+          },
+          {
+            "id": "pay",
+            "recordIds": [
+              "pay.example.test"
+            ],
+            "safeAfter": 1500
+          }
+        ],
+        "baselineRisk": 1,
+        "historyRisk": 1,
+        "missedByBaseline": 0,
+        "maxExtraWait": 0,
+        "scope": "Hypothetical positive-answer TTL upper bounds only. All authoritative changes are simultaneous, caches honor TTL, no refresh before second 0, no serve-stale, negative caches, CNAME chains, clock skew or connections outliving DNS. Each old revision can be fetched arbitrarily close to its next change; next-change + old TTL is a conservative expiry bound. Equality clears the bound. Final new answer is permanent. This is not proof of live propagation or permission to shut down a service."
+      }
+    }
+  ],
+  "checks": [
+    "Actual fresh-worker offline inference in already-open warmed page",
+    "Maximum 8 services/32 records/256 revisions; 40 real embeddings in 10 chunks; lossless source/audit reimport",
+    "Reviewed service changes checkpoint grouping; exports invalidated; cancellation/retry",
+    "Holds/undo/export invalidation/downloads/clipboard; responsive labels/focus/touch/no overflow; invalid inputs/files; GET-only file traffic without content"
+  ],
+  "negationProbe": {
+    "proposed": "store",
+    "decision": "pending",
+    "limitation": "Unknown/negated text selects nearest service; hold required."
+  },
+  "requests": [
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261123-1/",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261123-1/assets/index-BH5t0mce.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261123-1/assets/index-DRLma26Y.css",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/9fa25620-e282-468f-8498-5c3571a8ebee",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "xip",
+        "user_id",
+        "X-Xet-Cas-Uid",
+        "response-content-disposition",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "X-Xet-Cas-Uid",
+        "response-content-disposition",
+        "user_id",
+        "xip",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/e005ad54-42c3-4ca8-9656-cfbfa323350f",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/69b0ac4e-e277-4c5d-bba2-7efe9387cf13",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/bd74f398-f5bf-4190-a2f9-07cb39d46cae",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/90e4a18e-4d46-48a0-8c06-b3acaf9c8256",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/30127ee4-06eb-4c66-a6cf-461fd2ccf92b",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/7d379cf3-76f9-46e7-9ab8-d9923186985e",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/10555b6b-6c63-4601-8a46-5dee50a1a6e7",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/d1e19fff-1509-4232-a0bc-bc2f19fd06a7",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/21d186a4-604b-4bbe-837a-cc90bab13477",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/3e29d444-0458-4755-87a8-127ebd7f83fc",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/17be551b-6a27-4116-be4e-6e6cccf7fc8d",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/65a6e52c-d7d1-40fd-a7f8-735fb0d59032",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/f54d8357-e6db-43a0-b275-501f1acf0ee5",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/6e9c596e-d29a-4ad0-b767-923ef3ff3489",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/d2c0cc33-a9aa-4b06-8cd8-c1c0f95b5608",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/59e5e0c8-28d3-4ecf-a4a1-e8d987dacae6",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/51d0c9c3-36d9-4299-8a07-94cfe4acf320",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/1e5ff321-af50-46f2-9d00-c5f9c1761ba7",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/5ab4cc7e-736a-4106-ae4d-8396035d6d18",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/6b9742ab-cbed-473d-866d-9bd8c0d7f8f4",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/9b2eb6a1-1a13-4963-84fb-38e8a63c9bd3",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    }
+  ],
+  "errors": []
+}

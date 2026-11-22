@@ -1,0 +1,156 @@
+{
+  "schema": "ttl-harbor/1",
+  "originalInput": {
+    "title": "Synthetic operations cutover",
+    "services": [
+      {
+        "id": "stock",
+        "description": "Warehouse inventory stock management service"
+      },
+      {
+        "id": "camera",
+        "description": "Security camera video monitoring service"
+      },
+      {
+        "id": "pay",
+        "description": "Payroll employee salary payment service"
+      }
+    ],
+    "records": [
+      {
+        "id": "stock.example.test",
+        "serviceNote": "Warehouse inventory stock tracking",
+        "retireAt": 2500,
+        "revisions": [
+          {
+            "at": 0,
+            "ttl": 1800,
+            "target": "old"
+          },
+          {
+            "at": 300,
+            "ttl": 120,
+            "target": "old"
+          },
+          {
+            "at": 2400,
+            "ttl": 120,
+            "target": "new"
+          }
+        ]
+      },
+      {
+        "id": "camera.example.test",
+        "serviceNote": "Security cameras video monitoring",
+        "retireAt": 2000,
+        "revisions": [
+          {
+            "at": 0,
+            "ttl": 600,
+            "target": "old"
+          },
+          {
+            "at": 100,
+            "ttl": 0,
+            "target": "old"
+          },
+          {
+            "at": 800,
+            "ttl": 0,
+            "target": "new"
+          }
+        ]
+      },
+      {
+        "id": "pay.example.test",
+        "serviceNote": "Employee payroll salary payments",
+        "retireAt": 1500,
+        "revisions": [
+          {
+            "at": 0,
+            "ttl": 900,
+            "target": "old"
+          },
+          {
+            "at": 600,
+            "ttl": 90,
+            "target": "new"
+          }
+        ]
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "text": "Warehouse inventory stock tracking",
+      "resource": "stock",
+      "aiResource": "stock",
+      "evidence": [
+        {
+          "resource": "stock",
+          "score": 0.8359302477639405
+        },
+        {
+          "resource": "pay",
+          "score": 0.1947147266526642
+        },
+        {
+          "resource": "camera",
+          "score": 0.15633195890897883
+        }
+      ],
+      "decision": "reject",
+      "note": "=SUM(1,2)\nReviewed \"history\", preserved."
+    },
+    {
+      "index": 1,
+      "text": "Security cameras video monitoring",
+      "resource": "camera",
+      "aiResource": "camera",
+      "evidence": [
+        {
+          "resource": "camera",
+          "score": 0.9222259177332396
+        },
+        {
+          "resource": "pay",
+          "score": 0.10871861404856169
+        },
+        {
+          "resource": "stock",
+          "score": 0.07429538627160845
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "text": "Employee payroll salary payments",
+      "resource": "pay",
+      "aiResource": "pay",
+      "evidence": [
+        {
+          "resource": "pay",
+          "score": 0.8710067332041478
+        },
+        {
+          "resource": "stock",
+          "score": 0.08743786039981957
+        },
+        {
+          "resource": "camera",
+          "score": 0.03543706591510945
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "warning": "Neural similarity is not service identity. Verify the complete revision history and all assumptions. No DNS lookup, configuration or shutdown is performed.",
+  "analysis": {
+    "status": "held",
+    "reason": "Held references: whole cutover worksheet withheld. All sources/reviews retained."
+  }
+}

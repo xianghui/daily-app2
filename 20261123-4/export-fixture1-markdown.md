@@ -1,0 +1,281 @@
+# Synthetic community operations SMS review
+
+Similarity is not intent or factual equivalence. Review every replacement against its original. Only explicitly supplied values and segment limits are checked; consent, opt-out wording, sender IDs and carrier billing are not verified. Nothing is sent.
+
+Common 6-byte concatenation UDH: 160/153 GSM septets or 70/67 UTF-16 code units. Extension pairs and surrogate pairs stay together. Carrier policies may differ; emoji require provider support.
+
+SEGMENT BUDGET: 4 eligible; 0 held. Same eligible records: original 8 segments → reviewed 4. All-original total 8. Exact conditional counts, not carrier charges or measured time savings.
+
+STATUS: ready
+
+c1 | approve | GSM-7 · 54 units · 1 segments
+Casey: class confirmed Saturday 14:00. Enrollment C15.
+
+m1 | approve | GSM-7 · 60 units · 1 segments
+Jamie: water off Monday 08:00-10:00 for repairs. Notice M26.
+
+c2 | approve | GSM-7 · 53 units · 1 segments
+Taylor: class confirmed Sunday 11:00. Enrollment C37.
+
+m2 | approve | GSM-7 · 62 units · 1 segments
+Jordan: water off Tuesday 12:00-14:00 for repairs. Notice M48.
+
+## Complete original and review audit
+
+{
+  "schema": "segment-post/1",
+  "originalInput": {
+    "title": "Synthetic community operations SMS review",
+    "maxSegments": 1,
+    "templates": [
+      {
+        "id": "class",
+        "purpose": "Training class enrollment confirmation for a course or workshop",
+        "body": "{name}: class confirmed {detail}. Enrollment {ref}."
+      },
+      {
+        "id": "repair",
+        "purpose": "Building maintenance water outage notice during scheduled plumbing repairs",
+        "body": "{name}: water off {detail} for repairs. Notice {ref}."
+      }
+    ],
+    "records": [
+      {
+        "id": "c1",
+        "draft": "Hello Casey. We are happy to confirm your enrollment in the upcoming training course and workshop on Saturday 14:00. Your enrollment reference is C15. We look forward to welcoming you to the class.",
+        "values": {
+          "name": "Casey",
+          "detail": "Saturday 14:00",
+          "ref": "C15"
+        }
+      },
+      {
+        "id": "m1",
+        "draft": "Dear Jamie, please note that the building water supply will be interrupted Monday 08:00-10:00 while scheduled plumbing maintenance and repairs are carried out. Your maintenance notice reference is M26.",
+        "values": {
+          "name": "Jamie",
+          "detail": "Monday 08:00-10:00",
+          "ref": "M26"
+        }
+      },
+      {
+        "id": "c2",
+        "draft": "Hello Taylor. Your registration for the training course and learning workshop on Sunday 11:00 is confirmed. Please retain your class enrollment reference C37. Thank you for signing up for this class.",
+        "values": {
+          "name": "Taylor",
+          "detail": "Sunday 11:00",
+          "ref": "C37"
+        }
+      },
+      {
+        "id": "m2",
+        "draft": "Dear Jordan, the building plumbing maintenance team will turn the water off Tuesday 12:00-14:00 for scheduled repair works. Please refer to maintenance notice M48. Thank you for your patience during this water outage.",
+        "values": {
+          "name": "Jordan",
+          "detail": "Tuesday 12:00-14:00",
+          "ref": "M48"
+        }
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "template": "class",
+      "aiTemplate": "class",
+      "evidence": [
+        {
+          "template": "class",
+          "score": 0.6591290574917616
+        },
+        {
+          "template": "repair",
+          "score": 0.06017927326104179
+        }
+      ],
+      "body": "Casey: class confirmed Saturday 14:00. Enrollment C15.",
+      "issue": "",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 1,
+      "template": "repair",
+      "aiTemplate": "repair",
+      "evidence": [
+        {
+          "template": "repair",
+          "score": 0.7203324754628293
+        },
+        {
+          "template": "class",
+          "score": 0.147858793746726
+        }
+      ],
+      "body": "Jamie: water off Monday 08:00-10:00 for repairs. Notice M26.",
+      "issue": "",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "template": "class",
+      "aiTemplate": "class",
+      "evidence": [
+        {
+          "template": "class",
+          "score": 0.676648447873226
+        },
+        {
+          "template": "repair",
+          "score": 0.08884052881191709
+        }
+      ],
+      "body": "Taylor: class confirmed Sunday 11:00. Enrollment C37.",
+      "issue": "",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 3,
+      "template": "repair",
+      "aiTemplate": "repair",
+      "evidence": [
+        {
+          "template": "repair",
+          "score": 0.7271782550845579
+        },
+        {
+          "template": "class",
+          "score": 0.039693310458886924
+        }
+      ],
+      "body": "Jordan: water off Tuesday 12:00-14:00 for repairs. Notice M48.",
+      "issue": "",
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "analysis": {
+    "status": "ready",
+    "issues": [],
+    "messages": [
+      {
+        "id": "c1",
+        "decision": "approve",
+        "body": "Casey: class confirmed Saturday 14:00. Enrollment C15.",
+        "before": {
+          "encoding": "GSM-7",
+          "units": 197,
+          "segments": 2,
+          "partUnits": [
+            153,
+            44
+          ],
+          "nonGsm": [],
+          "scope": "Common 6-byte concatenation UDH: 160/153 GSM septets or 70/67 UTF-16 code units. Extension pairs and surrogate pairs stay together. Carrier policies may differ; emoji require provider support."
+        },
+        "after": {
+          "encoding": "GSM-7",
+          "units": 54,
+          "segments": 1,
+          "partUnits": [
+            54
+          ],
+          "nonGsm": [],
+          "scope": "Common 6-byte concatenation UDH: 160/153 GSM septets or 70/67 UTF-16 code units. Extension pairs and surrogate pairs stay together. Carrier policies may differ; emoji require provider support."
+        },
+        "issues": []
+      },
+      {
+        "id": "m1",
+        "decision": "approve",
+        "body": "Jamie: water off Monday 08:00-10:00 for repairs. Notice M26.",
+        "before": {
+          "encoding": "GSM-7",
+          "units": 201,
+          "segments": 2,
+          "partUnits": [
+            153,
+            48
+          ],
+          "nonGsm": [],
+          "scope": "Common 6-byte concatenation UDH: 160/153 GSM septets or 70/67 UTF-16 code units. Extension pairs and surrogate pairs stay together. Carrier policies may differ; emoji require provider support."
+        },
+        "after": {
+          "encoding": "GSM-7",
+          "units": 60,
+          "segments": 1,
+          "partUnits": [
+            60
+          ],
+          "nonGsm": [],
+          "scope": "Common 6-byte concatenation UDH: 160/153 GSM septets or 70/67 UTF-16 code units. Extension pairs and surrogate pairs stay together. Carrier policies may differ; emoji require provider support."
+        },
+        "issues": []
+      },
+      {
+        "id": "c2",
+        "decision": "approve",
+        "body": "Taylor: class confirmed Sunday 11:00. Enrollment C37.",
+        "before": {
+          "encoding": "GSM-7",
+          "units": 199,
+          "segments": 2,
+          "partUnits": [
+            153,
+            46
+          ],
+          "nonGsm": [],
+          "scope": "Common 6-byte concatenation UDH: 160/153 GSM septets or 70/67 UTF-16 code units. Extension pairs and surrogate pairs stay together. Carrier policies may differ; emoji require provider support."
+        },
+        "after": {
+          "encoding": "GSM-7",
+          "units": 53,
+          "segments": 1,
+          "partUnits": [
+            53
+          ],
+          "nonGsm": [],
+          "scope": "Common 6-byte concatenation UDH: 160/153 GSM septets or 70/67 UTF-16 code units. Extension pairs and surrogate pairs stay together. Carrier policies may differ; emoji require provider support."
+        },
+        "issues": []
+      },
+      {
+        "id": "m2",
+        "decision": "approve",
+        "body": "Jordan: water off Tuesday 12:00-14:00 for repairs. Notice M48.",
+        "before": {
+          "encoding": "GSM-7",
+          "units": 217,
+          "segments": 2,
+          "partUnits": [
+            153,
+            64
+          ],
+          "nonGsm": [],
+          "scope": "Common 6-byte concatenation UDH: 160/153 GSM septets or 70/67 UTF-16 code units. Extension pairs and surrogate pairs stay together. Carrier policies may differ; emoji require provider support."
+        },
+        "after": {
+          "encoding": "GSM-7",
+          "units": 62,
+          "segments": 1,
+          "partUnits": [
+            62
+          ],
+          "nonGsm": [],
+          "scope": "Common 6-byte concatenation UDH: 160/153 GSM septets or 70/67 UTF-16 code units. Extension pairs and surrogate pairs stay together. Carrier policies may differ; emoji require provider support."
+        },
+        "issues": []
+      }
+    ],
+    "held": 0,
+    "eligible": 4,
+    "baselineAllSegments": 8,
+    "baselineEligibleSegments": 8,
+    "reviewedEligibleSegments": 4,
+    "scope": "Common 6-byte concatenation UDH: 160/153 GSM septets or 70/67 UTF-16 code units. Extension pairs and surrogate pairs stay together. Carrier policies may differ; emoji require provider support."
+  },
+  "warning": "Similarity is not intent or factual equivalence. Review every replacement against its original. Only explicitly supplied values and segment limits are checked; consent, opt-out wording, sender IDs and carrier billing are not verified. Nothing is sent."
+}
+

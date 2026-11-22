@@ -1,0 +1,699 @@
+{
+  "fixtures": [
+    {
+      "name": "Command language",
+      "actual": [
+        "command",
+        "target",
+        "suffix",
+        "target",
+        "suffix",
+        "suffix"
+      ],
+      "expected": [
+        "command",
+        "target",
+        "suffix",
+        "target",
+        "suffix",
+        "suffix"
+      ],
+      "correct": 6,
+      "analysis": {
+        "status": "ready",
+        "rules": [
+          {
+            "id": "C1",
+            "lhs": "command",
+            "rhs": [
+              {
+                "terminal": "copy"
+              },
+              {
+                "ref": "target"
+              },
+              {
+                "ref": "suffix"
+              }
+            ]
+          },
+          {
+            "id": "T1",
+            "lhs": "target",
+            "rhs": [
+              {
+                "terminal": "name"
+              }
+            ]
+          },
+          {
+            "id": "O1",
+            "lhs": "suffix",
+            "rhs": [
+              {
+                "terminal": "verbose"
+              }
+            ]
+          },
+          {
+            "id": "O2",
+            "lhs": "suffix",
+            "rhs": []
+          }
+        ],
+        "sets": [
+          {
+            "id": "command",
+            "nullable": false,
+            "first": [
+              "copy"
+            ],
+            "follow": [
+              "$"
+            ],
+            "productive": true,
+            "reachable": true,
+            "hasRule": true
+          },
+          {
+            "id": "target",
+            "nullable": false,
+            "first": [
+              "name"
+            ],
+            "follow": [
+              "$",
+              "verbose"
+            ],
+            "productive": true,
+            "reachable": true,
+            "hasRule": true
+          },
+          {
+            "id": "suffix",
+            "nullable": true,
+            "first": [
+              "verbose"
+            ],
+            "follow": [
+              "$"
+            ],
+            "productive": true,
+            "reachable": true,
+            "hasRule": true
+          }
+        ],
+        "predict": [
+          {
+            "rule": "C1",
+            "nullable": false,
+            "first": [
+              "copy"
+            ],
+            "lookahead": [
+              "copy"
+            ]
+          },
+          {
+            "rule": "T1",
+            "nullable": false,
+            "first": [
+              "name"
+            ],
+            "lookahead": [
+              "name"
+            ]
+          },
+          {
+            "rule": "O1",
+            "nullable": false,
+            "first": [
+              "verbose"
+            ],
+            "lookahead": [
+              "verbose"
+            ]
+          },
+          {
+            "rule": "O2",
+            "nullable": true,
+            "first": [],
+            "lookahead": [
+              "$"
+            ]
+          }
+        ],
+        "table": [
+          {
+            "nonterminal": "command",
+            "lookahead": "copy",
+            "rules": [
+              "C1"
+            ]
+          },
+          {
+            "nonterminal": "suffix",
+            "lookahead": "$",
+            "rules": [
+              "O2"
+            ]
+          },
+          {
+            "nonterminal": "suffix",
+            "lookahead": "verbose",
+            "rules": [
+              "O1"
+            ]
+          },
+          {
+            "nonterminal": "target",
+            "lookahead": "name",
+            "rules": [
+              "T1"
+            ]
+          }
+        ],
+        "conflicts": [],
+        "directConflicts": 0,
+        "ruleCount": 4,
+        "scope": "LL(1) table collisions for this reviewed token grammar, not proof of language ambiguity, full parser correctness or security. $ denotes end of input; empty rhs denotes epsilon. No grammar rewriting or code execution."
+      }
+    },
+    {
+      "name": "Menu conflict",
+      "actual": [
+        "order",
+        "drink",
+        "order",
+        "drink",
+        "drink"
+      ],
+      "expected": [
+        "order",
+        "drink",
+        "order",
+        "drink",
+        "drink"
+      ],
+      "correct": 5,
+      "analysis": {
+        "status": "ready",
+        "rules": [
+          {
+            "id": "M1",
+            "lhs": "order",
+            "rhs": [
+              {
+                "ref": "drink"
+              },
+              {
+                "terminal": "meal"
+              }
+            ]
+          },
+          {
+            "id": "M2",
+            "lhs": "order",
+            "rhs": [
+              {
+                "terminal": "meal"
+              }
+            ]
+          },
+          {
+            "id": "D1",
+            "lhs": "drink",
+            "rhs": [
+              {
+                "terminal": "tea"
+              }
+            ]
+          },
+          {
+            "id": "D2",
+            "lhs": "drink",
+            "rhs": []
+          }
+        ],
+        "sets": [
+          {
+            "id": "order",
+            "nullable": false,
+            "first": [
+              "meal",
+              "tea"
+            ],
+            "follow": [
+              "$"
+            ],
+            "productive": true,
+            "reachable": true,
+            "hasRule": true
+          },
+          {
+            "id": "drink",
+            "nullable": true,
+            "first": [
+              "tea"
+            ],
+            "follow": [
+              "meal"
+            ],
+            "productive": true,
+            "reachable": true,
+            "hasRule": true
+          }
+        ],
+        "predict": [
+          {
+            "rule": "M1",
+            "nullable": false,
+            "first": [
+              "meal",
+              "tea"
+            ],
+            "lookahead": [
+              "meal",
+              "tea"
+            ]
+          },
+          {
+            "rule": "M2",
+            "nullable": false,
+            "first": [
+              "meal"
+            ],
+            "lookahead": [
+              "meal"
+            ]
+          },
+          {
+            "rule": "D1",
+            "nullable": false,
+            "first": [
+              "tea"
+            ],
+            "lookahead": [
+              "tea"
+            ]
+          },
+          {
+            "rule": "D2",
+            "nullable": true,
+            "first": [],
+            "lookahead": [
+              "meal"
+            ]
+          }
+        ],
+        "table": [
+          {
+            "nonterminal": "drink",
+            "lookahead": "meal",
+            "rules": [
+              "D2"
+            ]
+          },
+          {
+            "nonterminal": "drink",
+            "lookahead": "tea",
+            "rules": [
+              "D1"
+            ]
+          },
+          {
+            "nonterminal": "order",
+            "lookahead": "meal",
+            "rules": [
+              "M1",
+              "M2"
+            ]
+          },
+          {
+            "nonterminal": "order",
+            "lookahead": "tea",
+            "rules": [
+              "M1"
+            ]
+          }
+        ],
+        "conflicts": [
+          {
+            "nonterminal": "order",
+            "lookahead": "meal",
+            "rules": [
+              "M1",
+              "M2"
+            ]
+          }
+        ],
+        "directConflicts": 0,
+        "ruleCount": 4,
+        "scope": "LL(1) table collisions for this reviewed token grammar, not proof of language ambiguity, full parser correctness or security. $ denotes end of input; empty rhs denotes epsilon. No grammar rewriting or code execution."
+      }
+    }
+  ],
+  "checks": [
+    "Actual fresh-worker offline inference in already-open warmed page",
+    "Maximum 8 symbols/24 eight-reference rules; 224 real embeddings in 56 chunks; lossless originals/audit reimport",
+    "Reviewed identity changes computed grammar; exports invalidated; cancellation/retry",
+    "Holds/undo/export invalidation/downloads/clipboard; responsive labels/focus/touch/no overflow; invalid inputs/files; GET-only file traffic without content"
+  ],
+  "negationProbe": {
+    "proposed": "command",
+    "decision": "pending",
+    "limitation": "Unknown/negated text selects nearest symbol; hold required."
+  },
+  "requests": [
+    {
+      "host": "127.0.0.1:7365",
+      "path": "/daily-app2/20261122-22/",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7365",
+      "path": "/daily-app2/20261122-22/assets/index-BWP7XUi7.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7365",
+      "path": "/daily-app2/20261122-22/assets/index-ClX56HdC.css",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7365",
+      "path": "/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7365/4aee58d8-7754-4df1-b6c3-9f00c0b7f275",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7365",
+      "path": "/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7365",
+      "path": "/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "X-Xet-Cas-Uid",
+        "xip",
+        "response-content-disposition",
+        "user_id",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "user_id",
+        "response-content-disposition",
+        "xip",
+        "X-Xet-Cas-Uid",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7365/ac67c9d6-47c9-4374-88ec-e9aebf9c3943",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7365/066c5f11-a855-474b-b2e8-e13cabef6d95",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7365/958d70b7-de45-4cfc-9227-0fc2297d532b",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7365/05a39380-28dc-45cd-a991-5dbda063d46c",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7365/70cf1340-baf8-4052-8a31-efba7fe0accc",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7365/191a77b3-5057-46c2-ad77-c4ac78218e78",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7365/09c85c55-7f13-47fa-95ca-143be966212b",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7365/0ec367cf-d5db-409f-ac39-36393f83e98d",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7365/102dc3fe-800d-4122-8620-157349291275",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7365/e725da2a-25ef-43e3-acb8-c3e1aed97a4c",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7365/936da3a0-287b-47e4-afd0-1d901ce5ef10",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7365/fbef471e-669d-4400-bb40-cf578b898fa5",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7365/01e2e198-bae6-4dfa-858c-0f3fc2066310",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7365/97c63051-8534-4909-8bba-d000ede660f1",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7365/2583a5d3-b6a5-4da1-829d-41e086740e59",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7365/9772bbbe-781b-46db-891f-47fad34f0fc9",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7365/3c98348c-c8ed-4739-8038-edf19aee2cc1",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7365/5f999e52-6868-4dc8-992f-3b4f06c475e5",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7365/27d6b7fe-8c31-419a-b107-e50d7e7d487b",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7365/fd4225aa-142c-4c75-a209-fd7ede627b30",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7365/44d37c49-7092-4acd-b09e-b736fb88412f",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    }
+  ],
+  "errors": []
+}

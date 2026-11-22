@@ -1,0 +1,699 @@
+{
+  "fixtures": [
+    {
+      "name": "Command language",
+      "actual": [
+        "command",
+        "target",
+        "suffix",
+        "target",
+        "suffix",
+        "suffix"
+      ],
+      "expected": [
+        "command",
+        "target",
+        "suffix",
+        "target",
+        "suffix",
+        "suffix"
+      ],
+      "correct": 6,
+      "analysis": {
+        "status": "ready",
+        "rules": [
+          {
+            "id": "C1",
+            "lhs": "command",
+            "rhs": [
+              {
+                "terminal": "copy"
+              },
+              {
+                "ref": "target"
+              },
+              {
+                "ref": "suffix"
+              }
+            ]
+          },
+          {
+            "id": "T1",
+            "lhs": "target",
+            "rhs": [
+              {
+                "terminal": "name"
+              }
+            ]
+          },
+          {
+            "id": "O1",
+            "lhs": "suffix",
+            "rhs": [
+              {
+                "terminal": "verbose"
+              }
+            ]
+          },
+          {
+            "id": "O2",
+            "lhs": "suffix",
+            "rhs": []
+          }
+        ],
+        "sets": [
+          {
+            "id": "command",
+            "nullable": false,
+            "first": [
+              "copy"
+            ],
+            "follow": [
+              "$"
+            ],
+            "productive": true,
+            "reachable": true,
+            "hasRule": true
+          },
+          {
+            "id": "target",
+            "nullable": false,
+            "first": [
+              "name"
+            ],
+            "follow": [
+              "$",
+              "verbose"
+            ],
+            "productive": true,
+            "reachable": true,
+            "hasRule": true
+          },
+          {
+            "id": "suffix",
+            "nullable": true,
+            "first": [
+              "verbose"
+            ],
+            "follow": [
+              "$"
+            ],
+            "productive": true,
+            "reachable": true,
+            "hasRule": true
+          }
+        ],
+        "predict": [
+          {
+            "rule": "C1",
+            "nullable": false,
+            "first": [
+              "copy"
+            ],
+            "lookahead": [
+              "copy"
+            ]
+          },
+          {
+            "rule": "T1",
+            "nullable": false,
+            "first": [
+              "name"
+            ],
+            "lookahead": [
+              "name"
+            ]
+          },
+          {
+            "rule": "O1",
+            "nullable": false,
+            "first": [
+              "verbose"
+            ],
+            "lookahead": [
+              "verbose"
+            ]
+          },
+          {
+            "rule": "O2",
+            "nullable": true,
+            "first": [],
+            "lookahead": [
+              "$"
+            ]
+          }
+        ],
+        "table": [
+          {
+            "nonterminal": "command",
+            "lookahead": "copy",
+            "rules": [
+              "C1"
+            ]
+          },
+          {
+            "nonterminal": "suffix",
+            "lookahead": "$",
+            "rules": [
+              "O2"
+            ]
+          },
+          {
+            "nonterminal": "suffix",
+            "lookahead": "verbose",
+            "rules": [
+              "O1"
+            ]
+          },
+          {
+            "nonterminal": "target",
+            "lookahead": "name",
+            "rules": [
+              "T1"
+            ]
+          }
+        ],
+        "conflicts": [],
+        "directConflicts": 0,
+        "ruleCount": 4,
+        "scope": "LL(1) table collisions for this reviewed token grammar, not proof of language ambiguity, full parser correctness or security. $ denotes end of input; empty rhs denotes epsilon. No grammar rewriting or code execution."
+      }
+    },
+    {
+      "name": "Menu conflict",
+      "actual": [
+        "order",
+        "drink",
+        "order",
+        "drink",
+        "drink"
+      ],
+      "expected": [
+        "order",
+        "drink",
+        "order",
+        "drink",
+        "drink"
+      ],
+      "correct": 5,
+      "analysis": {
+        "status": "ready",
+        "rules": [
+          {
+            "id": "M1",
+            "lhs": "order",
+            "rhs": [
+              {
+                "ref": "drink"
+              },
+              {
+                "terminal": "meal"
+              }
+            ]
+          },
+          {
+            "id": "M2",
+            "lhs": "order",
+            "rhs": [
+              {
+                "terminal": "meal"
+              }
+            ]
+          },
+          {
+            "id": "D1",
+            "lhs": "drink",
+            "rhs": [
+              {
+                "terminal": "tea"
+              }
+            ]
+          },
+          {
+            "id": "D2",
+            "lhs": "drink",
+            "rhs": []
+          }
+        ],
+        "sets": [
+          {
+            "id": "order",
+            "nullable": false,
+            "first": [
+              "meal",
+              "tea"
+            ],
+            "follow": [
+              "$"
+            ],
+            "productive": true,
+            "reachable": true,
+            "hasRule": true
+          },
+          {
+            "id": "drink",
+            "nullable": true,
+            "first": [
+              "tea"
+            ],
+            "follow": [
+              "meal"
+            ],
+            "productive": true,
+            "reachable": true,
+            "hasRule": true
+          }
+        ],
+        "predict": [
+          {
+            "rule": "M1",
+            "nullable": false,
+            "first": [
+              "meal",
+              "tea"
+            ],
+            "lookahead": [
+              "meal",
+              "tea"
+            ]
+          },
+          {
+            "rule": "M2",
+            "nullable": false,
+            "first": [
+              "meal"
+            ],
+            "lookahead": [
+              "meal"
+            ]
+          },
+          {
+            "rule": "D1",
+            "nullable": false,
+            "first": [
+              "tea"
+            ],
+            "lookahead": [
+              "tea"
+            ]
+          },
+          {
+            "rule": "D2",
+            "nullable": true,
+            "first": [],
+            "lookahead": [
+              "meal"
+            ]
+          }
+        ],
+        "table": [
+          {
+            "nonterminal": "drink",
+            "lookahead": "meal",
+            "rules": [
+              "D2"
+            ]
+          },
+          {
+            "nonterminal": "drink",
+            "lookahead": "tea",
+            "rules": [
+              "D1"
+            ]
+          },
+          {
+            "nonterminal": "order",
+            "lookahead": "meal",
+            "rules": [
+              "M1",
+              "M2"
+            ]
+          },
+          {
+            "nonterminal": "order",
+            "lookahead": "tea",
+            "rules": [
+              "M1"
+            ]
+          }
+        ],
+        "conflicts": [
+          {
+            "nonterminal": "order",
+            "lookahead": "meal",
+            "rules": [
+              "M1",
+              "M2"
+            ]
+          }
+        ],
+        "directConflicts": 0,
+        "ruleCount": 4,
+        "scope": "LL(1) table collisions for this reviewed token grammar, not proof of language ambiguity, full parser correctness or security. $ denotes end of input; empty rhs denotes epsilon. No grammar rewriting or code execution."
+      }
+    }
+  ],
+  "checks": [
+    "Actual fresh-worker offline inference in already-open warmed page",
+    "Maximum 8 symbols/24 eight-reference rules; 224 real embeddings in 56 chunks; lossless originals/audit reimport",
+    "Reviewed identity changes computed grammar; exports invalidated; cancellation/retry",
+    "Holds/undo/export invalidation/downloads/clipboard; responsive labels/focus/touch/no overflow; invalid inputs/files; GET-only file traffic without content"
+  ],
+  "negationProbe": {
+    "proposed": "command",
+    "decision": "pending",
+    "limitation": "Unknown/negated text selects nearest symbol; hold required."
+  },
+  "requests": [
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261122-22/",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261122-22/assets/index-BWP7XUi7.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261122-22/assets/index-ClX56HdC.css",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/e2b41f66-1925-4b58-9e0b-b043bc0b7e86",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "xip",
+        "response-content-disposition",
+        "user_id",
+        "X-Xet-Cas-Uid",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "xip",
+        "X-Xet-Cas-Uid",
+        "response-content-disposition",
+        "user_id",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/7286dd1d-cee0-4dbf-8900-f3bf1c92271d",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/e8bccfbd-4ca9-4048-a852-930dbc8c3886",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/a28f5e61-1239-4585-b5c7-6e59f2efff7a",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/2373eafc-0673-4cf0-a0cf-8c3d33e243c3",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/f7637091-d60b-41f7-bf85-6a77ba9b5052",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/d378a4b3-41b2-4047-9db6-6c66e4646351",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/88ced830-6b29-40f3-b23f-b446e79cd48e",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/db84a065-fde3-4b40-b62f-581ce7edf2b2",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/cb060cce-c1e3-4749-a905-7b086d4265a1",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/80d75bc0-c7ad-4eb1-8a87-3eae85d76175",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/60920d0a-5ac2-43d0-8a5e-17222f641444",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/61908ba6-4226-4131-b182-077e25595f01",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/57c1c16a-2cd7-4f80-8fe0-209b7eb4abf4",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/b900ba41-a1fb-4770-9433-c1afadf4ff2e",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/e791a3e0-5fc5-413c-86c5-29ed891bdd9d",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/43954def-177b-4227-a647-4f90f637f67a",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/bc96c5f3-13e3-4d24-8a08-4f95c1234737",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/aa8b539a-ab67-4d26-bc8e-50cef530d0cb",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/83609cee-4dac-458b-b97b-3b4a3db0532d",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/bbcd03eb-404c-42b2-a950-f3b1219bde45",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/05e032ba-358e-4c18-b126-d8a827c62cc1",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    }
+  ],
+  "errors": []
+}

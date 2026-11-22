@@ -1879,3 +1879,10 @@ Local MiniLM matches informal workload notes to Bloom-filter inventories before 
 
 
 Public release verified: matching Pages `4cbe12f5a054d861905bf206852b74922db886b8` and workflow `45020727709` succeeded. Nine public gallery/app/runtime assets byte-match the assembled site. Both public real-AI fixtures (6/6 simple identities), complete reviewed/export/maximum-batch/offline/privacy suite, independently parsed artifacts and all 801 gallery cards passed. Combined size 999,588,409 bytes remains below the unchanged 1 GB guard. Source staging preserves and excludes unrelated recovery work. No digest sent.
+
+
+## Grammar Harbor — 20261122-22
+
+Local MiniLM reconciles informal grammar references before mandatory symbol review. Exact nullable/FIRST/FOLLOW propagation exposes LL(1) conflicts beyond direct-first-token scans and preserves all alternatives in predictive-table CSV plus complete JSON/CSV/Markdown audits. Both tiny synthetic grammars matched 11/11 reference identities, not general accuracy; unknown/negated text needs holds. Shared worker/factory from `20261115-6` and WASM from `20261107-2` must remain published. Offline scope is fresh-worker inference in an already-open warmed page, not cold navigation. See [workflow/privacy](20261122-22/README.md) and [observed checks](20261122-22/VALIDATION.md). No digest sent.
+
+Public release verified: matching Pages `d4437f4f4f7ae9110cfa5612f7202b2b558ad941` and workflow `45026068249` succeeded. Seven public gallery/app/runtime assets byte-match assembled output. Both public real-AI fixtures (11/11 simple identities), complete reviewed/export/maximum-batch/offline/privacy suite, independently parsed artifacts and all 802 gallery cards passed. Combined size 999,852,980 bytes remains below the unchanged 1 GB guard. Unrelated pre-existing recovery edits remain preserved and excluded from this release. No digest sent.

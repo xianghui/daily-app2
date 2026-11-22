@@ -1,0 +1,161 @@
+{
+  "schema": "grammar-harbor/1",
+  "originalInput": {
+    "title": "Synthetic menu parser conflict",
+    "start": "order",
+    "nonterminals": [
+      {
+        "id": "order",
+        "description": "Restaurant meal order request"
+      },
+      {
+        "id": "drink",
+        "description": "Beverage drink selection"
+      }
+    ],
+    "rules": [
+      {
+        "id": "M1",
+        "lhs": "Restaurant meal order request",
+        "rhs": [
+          {
+            "ref": "Beverage drink selection"
+          },
+          {
+            "terminal": "meal"
+          }
+        ]
+      },
+      {
+        "id": "M2",
+        "lhs": "Restaurant meal order request",
+        "rhs": [
+          {
+            "terminal": "meal"
+          }
+        ]
+      },
+      {
+        "id": "D1",
+        "lhs": "Beverage drink selection",
+        "rhs": [
+          {
+            "terminal": "tea"
+          }
+        ]
+      },
+      {
+        "id": "D2",
+        "lhs": "Beverage drink selection",
+        "rhs": []
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "rule": 0,
+      "position": -1,
+      "text": "Restaurant meal order request",
+      "index": 0,
+      "resource": "order",
+      "aiResource": "order",
+      "evidence": [
+        {
+          "resource": "order",
+          "score": 1.0000000870793908
+        },
+        {
+          "resource": "drink",
+          "score": 0.25029047539923266
+        }
+      ],
+      "decision": "reject",
+      "note": "=SUM(1,2)\nReviewed \"source\", preserved."
+    },
+    {
+      "rule": 0,
+      "position": 0,
+      "text": "Beverage drink selection",
+      "index": 1,
+      "resource": "drink",
+      "aiResource": "drink",
+      "evidence": [
+        {
+          "resource": "drink",
+          "score": 0.9999994899551734
+        },
+        {
+          "resource": "order",
+          "score": 0.25029047539923266
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "rule": 1,
+      "position": -1,
+      "text": "Restaurant meal order request",
+      "index": 2,
+      "resource": "order",
+      "aiResource": "order",
+      "evidence": [
+        {
+          "resource": "order",
+          "score": 1.0000000870793908
+        },
+        {
+          "resource": "drink",
+          "score": 0.25029047539923266
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "rule": 2,
+      "position": -1,
+      "text": "Beverage drink selection",
+      "index": 3,
+      "resource": "drink",
+      "aiResource": "drink",
+      "evidence": [
+        {
+          "resource": "drink",
+          "score": 0.9999994899551734
+        },
+        {
+          "resource": "order",
+          "score": 0.25029047539923266
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "rule": 3,
+      "position": -1,
+      "text": "Beverage drink selection",
+      "index": 4,
+      "resource": "drink",
+      "aiResource": "drink",
+      "evidence": [
+        {
+          "resource": "drink",
+          "score": 0.9999994899551734
+        },
+        {
+          "resource": "order",
+          "score": 0.25029047539923266
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "warning": "Neural similarity is not symbol identity. Holds withhold the entire grammar audit; originals are preserved. No parser code is generated or run.",
+  "analysis": {
+    "status": "held",
+    "reason": "Held references: whole grammar audit withheld. All sources/reviews retained."
+  }
+}

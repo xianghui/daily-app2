@@ -1,0 +1,356 @@
+# Synthetic customer retirement preflight
+
+Offline hypothetical final-state worksheet only. No database connection, SQL or deletion. RESTRICT is checked after full cascade closure (deferred final-state semantics), not engine-specific immediate ordering. SET NULL assumes a nullable reference. No triggers, composite keys, external references or concurrent writes modeled. A complete manifest and human verification are essential.
+
+## Reference retirement worksheet
+
+PREVIEW BLOCKED — No post-retirement snapshot released.
+
+Direct-only baseline: 1 seeds, 2 dangling references if everything else stayed unchanged.
+
+Closure: 3 candidate retirements; 2 retained; 1 restriction blockers; 1 candidate nullings.
+
+RETIRE client: explicit seed
+
+RETIRE order: order-customer
+
+RETIRE shipment: order-customer → shipment-order
+
+BLOCK ticket-customer: surviving ticket still references client. Review the seed scope or manifest; do not silently change policy.
+
+NULL audit-order: audit → order. Verify the field is nullable. Not applied: plan blocked.
+
+Computed counts, not time savings or general accuracy. Candidate impacts are not executed.
+
+## Complete source-linked audit
+
+{
+  "schema": "cascade-folio/1",
+  "originalInput": {
+    "title": "Synthetic customer retirement preflight",
+    "records": [
+      {
+        "id": "client",
+        "description": "Customer account profile and contact information"
+      },
+      {
+        "id": "order",
+        "description": "Purchase order containing ordered products"
+      },
+      {
+        "id": "shipment",
+        "description": "Delivery shipment tracking and dispatch details"
+      },
+      {
+        "id": "ticket",
+        "description": "Customer support helpdesk ticket"
+      },
+      {
+        "id": "audit",
+        "description": "Internal audit observation note"
+      }
+    ],
+    "seeds": [
+      "client"
+    ],
+    "references": [
+      {
+        "id": "order-customer",
+        "child": "The purchase order for the bought products",
+        "parent": "The customer account and contact profile",
+        "action": "cascade"
+      },
+      {
+        "id": "shipment-order",
+        "child": "The delivery tracking and dispatch shipment",
+        "parent": "The purchase order for the bought products",
+        "action": "cascade"
+      },
+      {
+        "id": "ticket-customer",
+        "child": "The helpdesk support request ticket",
+        "parent": "The customer account and contact profile",
+        "action": "restrict"
+      },
+      {
+        "id": "audit-order",
+        "child": "The internal audit observation memo",
+        "parent": "The purchase order for the bought products",
+        "action": "set-null"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "id": "order-customer",
+      "child": "order",
+      "parent": "client",
+      "aiChild": "order",
+      "aiParent": "client",
+      "action": "cascade",
+      "childEvidence": [
+        {
+          "record": "order",
+          "score": 0.8019157497144974
+        },
+        {
+          "record": "ticket",
+          "score": 0.2600361042652124
+        },
+        {
+          "record": "shipment",
+          "score": 0.21616008880390591
+        },
+        {
+          "record": "audit",
+          "score": 0.18944131879272685
+        },
+        {
+          "record": "client",
+          "score": 0.18828896409789111
+        }
+      ],
+      "parentEvidence": [
+        {
+          "record": "client",
+          "score": 0.9026331123030396
+        },
+        {
+          "record": "ticket",
+          "score": 0.31679839748577693
+        },
+        {
+          "record": "audit",
+          "score": 0.18582596782174648
+        },
+        {
+          "record": "shipment",
+          "score": 0.16815142862971524
+        },
+        {
+          "record": "order",
+          "score": 0.13518382110766333
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 1,
+      "id": "shipment-order",
+      "child": "shipment",
+      "parent": "order",
+      "aiChild": "shipment",
+      "aiParent": "order",
+      "action": "cascade",
+      "childEvidence": [
+        {
+          "record": "shipment",
+          "score": 0.9168645934635666
+        },
+        {
+          "record": "order",
+          "score": 0.23614740707884133
+        },
+        {
+          "record": "ticket",
+          "score": 0.20446601030474246
+        },
+        {
+          "record": "audit",
+          "score": 0.14515704030462495
+        },
+        {
+          "record": "client",
+          "score": 0.13694112107321377
+        }
+      ],
+      "parentEvidence": [
+        {
+          "record": "order",
+          "score": 0.7923393072390887
+        },
+        {
+          "record": "ticket",
+          "score": 0.261025343588944
+        },
+        {
+          "record": "shipment",
+          "score": 0.21213979943085645
+        },
+        {
+          "record": "audit",
+          "score": 0.20317619047772426
+        },
+        {
+          "record": "client",
+          "score": 0.17497697288995465
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "id": "ticket-customer",
+      "child": "ticket",
+      "parent": "client",
+      "aiChild": "ticket",
+      "aiParent": "client",
+      "action": "restrict",
+      "childEvidence": [
+        {
+          "record": "ticket",
+          "score": 0.7992433054682193
+        },
+        {
+          "record": "audit",
+          "score": 0.1503465165995247
+        },
+        {
+          "record": "client",
+          "score": 0.11747822340937204
+        },
+        {
+          "record": "order",
+          "score": 0.11705334268484208
+        },
+        {
+          "record": "shipment",
+          "score": 0.10810839161254157
+        }
+      ],
+      "parentEvidence": [
+        {
+          "record": "client",
+          "score": 0.8892918951726729
+        },
+        {
+          "record": "ticket",
+          "score": 0.3205516622306348
+        },
+        {
+          "record": "audit",
+          "score": 0.20971908415423327
+        },
+        {
+          "record": "shipment",
+          "score": 0.16815507996830062
+        },
+        {
+          "record": "order",
+          "score": 0.1459719694704637
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 3,
+      "id": "audit-order",
+      "child": "audit",
+      "parent": "order",
+      "aiChild": "audit",
+      "aiParent": "order",
+      "action": "set-null",
+      "childEvidence": [
+        {
+          "record": "audit",
+          "score": 0.8233790814786023
+        },
+        {
+          "record": "shipment",
+          "score": 0.14474052413327423
+        },
+        {
+          "record": "client",
+          "score": 0.14431735858032846
+        },
+        {
+          "record": "order",
+          "score": 0.081798813588295
+        },
+        {
+          "record": "ticket",
+          "score": 0.0755618380983788
+        }
+      ],
+      "parentEvidence": [
+        {
+          "record": "order",
+          "score": 0.7925954334074755
+        },
+        {
+          "record": "ticket",
+          "score": 0.26741529695820554
+        },
+        {
+          "record": "shipment",
+          "score": 0.2126209383489828
+        },
+        {
+          "record": "audit",
+          "score": 0.20040930503147614
+        },
+        {
+          "record": "client",
+          "score": 0.181010099111538
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "warning": "Offline hypothetical final-state worksheet only. No database connection, SQL or deletion. RESTRICT is checked after full cascade closure (deferred final-state semantics), not engine-specific immediate ordering. SET NULL assumes a nullable reference. No triggers, composite keys, external references or concurrent writes modeled. A complete manifest and human verification are essential.",
+  "analysis": {
+    "status": "blocked",
+    "retired": [
+      {
+        "id": "client",
+        "seed": true,
+        "via": []
+      },
+      {
+        "id": "order",
+        "seed": false,
+        "via": [
+          "order-customer"
+        ]
+      },
+      {
+        "id": "shipment",
+        "seed": false,
+        "via": [
+          "order-customer",
+          "shipment-order"
+        ]
+      }
+    ],
+    "retained": [
+      "ticket",
+      "audit"
+    ],
+    "blockers": [
+      {
+        "reference": "ticket-customer",
+        "child": "ticket",
+        "parent": "client"
+      }
+    ],
+    "nullings": [
+      {
+        "reference": "audit-order",
+        "child": "audit",
+        "parent": "order"
+      }
+    ],
+    "directDangling": [
+      "order-customer",
+      "ticket-customer"
+    ],
+    "snapshot": null,
+    "literalEndpoints": 0
+  }
+}
+

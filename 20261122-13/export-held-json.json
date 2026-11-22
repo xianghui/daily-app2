@@ -1,0 +1,195 @@
+{
+  "schema": "cascade-folio/1",
+  "originalInput": {
+    "title": "Synthetic project retirement preflight",
+    "records": [
+      {
+        "id": "project",
+        "description": "Project workspace overview and project settings"
+      },
+      {
+        "id": "task",
+        "description": "Task checklist item and assigned work"
+      },
+      {
+        "id": "attachment",
+        "description": "Uploaded file attachment with document metadata"
+      },
+      {
+        "id": "comment",
+        "description": "Discussion comment message and author"
+      }
+    ],
+    "seeds": [
+      "project"
+    ],
+    "references": [
+      {
+        "id": "task-project",
+        "child": "The assigned work checklist task",
+        "parent": "The project workspace and its settings",
+        "action": "cascade"
+      },
+      {
+        "id": "attachment-task",
+        "child": "The uploaded document file attachment",
+        "parent": "The assigned work checklist task",
+        "action": "cascade"
+      },
+      {
+        "id": "comment-task",
+        "child": "The discussion message comment",
+        "parent": "The assigned work checklist task",
+        "action": "set-null"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "id": "task-project",
+      "child": "task",
+      "parent": "project",
+      "aiChild": "task",
+      "aiParent": "project",
+      "action": "cascade",
+      "childEvidence": [
+        {
+          "record": "task",
+          "score": 0.8820242869925742
+        },
+        {
+          "record": "project",
+          "score": 0.329539588129192
+        },
+        {
+          "record": "attachment",
+          "score": 0.06035706368622647
+        },
+        {
+          "record": "comment",
+          "score": 0.05937919383482117
+        }
+      ],
+      "parentEvidence": [
+        {
+          "record": "project",
+          "score": 0.8428574763350772
+        },
+        {
+          "record": "task",
+          "score": 0.2472229269410708
+        },
+        {
+          "record": "comment",
+          "score": 0.0639515277476032
+        },
+        {
+          "record": "attachment",
+          "score": 0.053880817669863
+        }
+      ],
+      "decision": "reject",
+      "note": "=SUM(1,2)\nReviewed \"source\", preserved."
+    },
+    {
+      "index": 1,
+      "id": "attachment-task",
+      "child": "attachment",
+      "parent": "task",
+      "aiChild": "attachment",
+      "aiParent": "task",
+      "action": "cascade",
+      "childEvidence": [
+        {
+          "record": "attachment",
+          "score": 0.7843091973254799
+        },
+        {
+          "record": "task",
+          "score": 0.07139825402670423
+        },
+        {
+          "record": "project",
+          "score": 0.060803504212866955
+        },
+        {
+          "record": "comment",
+          "score": 0.037216187027530837
+        }
+      ],
+      "parentEvidence": [
+        {
+          "record": "task",
+          "score": 0.8820242869925742
+        },
+        {
+          "record": "project",
+          "score": 0.329539588129192
+        },
+        {
+          "record": "attachment",
+          "score": 0.06035706368622647
+        },
+        {
+          "record": "comment",
+          "score": 0.05937919383482117
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "id": "comment-task",
+      "child": "comment",
+      "parent": "task",
+      "aiChild": "comment",
+      "aiParent": "task",
+      "action": "set-null",
+      "childEvidence": [
+        {
+          "record": "comment",
+          "score": 0.7278943977460003
+        },
+        {
+          "record": "project",
+          "score": 0.0816056074913834
+        },
+        {
+          "record": "task",
+          "score": 0.06978864702672893
+        },
+        {
+          "record": "attachment",
+          "score": -0.002594247351219119
+        }
+      ],
+      "parentEvidence": [
+        {
+          "record": "task",
+          "score": 0.8821563392439147
+        },
+        {
+          "record": "project",
+          "score": 0.33390170990919554
+        },
+        {
+          "record": "attachment",
+          "score": 0.0646199474590353
+        },
+        {
+          "record": "comment",
+          "score": 0.06289658380972958
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "warning": "Offline hypothetical final-state worksheet only. No database connection, SQL or deletion. RESTRICT is checked after full cascade closure (deferred final-state semantics), not engine-specific immediate ordering. SET NULL assumes a nullable reference. No triggers, composite keys, external references or concurrent writes modeled. A complete manifest and human verification are essential.",
+  "analysis": {
+    "status": "held",
+    "reason": "Held references: whole preview withheld. Every original remains in the audit."
+  }
+}

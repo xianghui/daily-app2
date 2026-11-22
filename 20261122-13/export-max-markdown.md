@@ -1,0 +1,5249 @@
+# Maximum manifest
+
+Offline hypothetical final-state worksheet only. No database connection, SQL or deletion. RESTRICT is checked after full cascade closure (deferred final-state semantics), not engine-specific immediate ordering. SET NULL assumes a nullable reference. No triggers, composite keys, external references or concurrent writes modeled. A complete manifest and human verification are essential.
+
+## Reference retirement worksheet
+
+PREVIEW READY — Hypothetical post-retirement snapshot passed reference integrity.
+
+Direct-only baseline: 1 seeds, 2 dangling references if everything else stayed unchanged.
+
+Closure: 16 candidate retirements; 0 retained; 0 restriction blockers; 0 candidate nullings.
+
+RETIRE n0: explicit seed
+
+RETIRE n1: =reference
+"0"
+
+RETIRE n2: =reference
+"0" → =reference
+"1"
+
+RETIRE n3: =reference
+"0" → =reference
+"1" → =reference
+"2"
+
+RETIRE n4: =reference
+"0" → =reference
+"1" → =reference
+"2" → =reference
+"3"
+
+RETIRE n5: =reference
+"0" → =reference
+"1" → =reference
+"2" → =reference
+"3" → =reference
+"4"
+
+RETIRE n6: =reference
+"0" → =reference
+"1" → =reference
+"2" → =reference
+"3" → =reference
+"4" → =reference
+"5"
+
+RETIRE n7: =reference
+"0" → =reference
+"1" → =reference
+"2" → =reference
+"3" → =reference
+"4" → =reference
+"5" → =reference
+"6"
+
+RETIRE n8: =reference
+"0" → =reference
+"1" → =reference
+"2" → =reference
+"3" → =reference
+"4" → =reference
+"5" → =reference
+"6" → =reference
+"7"
+
+RETIRE n9: =reference
+"0" → =reference
+"1" → =reference
+"2" → =reference
+"3" → =reference
+"4" → =reference
+"5" → =reference
+"6" → =reference
+"7" → =reference
+"8"
+
+RETIRE n10: =reference
+"0" → =reference
+"1" → =reference
+"2" → =reference
+"3" → =reference
+"4" → =reference
+"5" → =reference
+"6" → =reference
+"7" → =reference
+"8" → =reference
+"9"
+
+RETIRE n11: =reference
+"0" → =reference
+"1" → =reference
+"2" → =reference
+"3" → =reference
+"4" → =reference
+"5" → =reference
+"6" → =reference
+"7" → =reference
+"8" → =reference
+"9" → =reference
+"10"
+
+RETIRE n12: =reference
+"0" → =reference
+"1" → =reference
+"2" → =reference
+"3" → =reference
+"4" → =reference
+"5" → =reference
+"6" → =reference
+"7" → =reference
+"8" → =reference
+"9" → =reference
+"10" → =reference
+"11"
+
+RETIRE n13: =reference
+"0" → =reference
+"1" → =reference
+"2" → =reference
+"3" → =reference
+"4" → =reference
+"5" → =reference
+"6" → =reference
+"7" → =reference
+"8" → =reference
+"9" → =reference
+"10" → =reference
+"11" → =reference
+"12"
+
+RETIRE n14: =reference
+"0" → =reference
+"1" → =reference
+"2" → =reference
+"3" → =reference
+"4" → =reference
+"5" → =reference
+"6" → =reference
+"7" → =reference
+"8" → =reference
+"9" → =reference
+"10" → =reference
+"11" → =reference
+"12" → =reference
+"13"
+
+RETIRE n15: =reference
+"0" → =reference
+"1" → =reference
+"2" → =reference
+"3" → =reference
+"4" → =reference
+"5" → =reference
+"6" → =reference
+"7" → =reference
+"8" → =reference
+"9" → =reference
+"10" → =reference
+"11" → =reference
+"12" → =reference
+"13" → =reference
+"14"
+
+Computed counts, not time savings or general accuracy. Candidate impacts are not executed.
+
+## Complete source-linked audit
+
+{
+  "schema": "cascade-folio/1",
+  "originalInput": {
+    "title": "Maximum manifest",
+    "records": [
+      {
+        "id": "n0",
+        "description": "Synthetic record 0"
+      },
+      {
+        "id": "n1",
+        "description": "Synthetic record 1"
+      },
+      {
+        "id": "n2",
+        "description": "Synthetic record 2"
+      },
+      {
+        "id": "n3",
+        "description": "Synthetic record 3"
+      },
+      {
+        "id": "n4",
+        "description": "Synthetic record 4"
+      },
+      {
+        "id": "n5",
+        "description": "Synthetic record 5"
+      },
+      {
+        "id": "n6",
+        "description": "Synthetic record 6"
+      },
+      {
+        "id": "n7",
+        "description": "Synthetic record 7"
+      },
+      {
+        "id": "n8",
+        "description": "Synthetic record 8"
+      },
+      {
+        "id": "n9",
+        "description": "Synthetic record 9"
+      },
+      {
+        "id": "n10",
+        "description": "Synthetic record 10"
+      },
+      {
+        "id": "n11",
+        "description": "Synthetic record 11"
+      },
+      {
+        "id": "n12",
+        "description": "Synthetic record 12"
+      },
+      {
+        "id": "n13",
+        "description": "Synthetic record 13"
+      },
+      {
+        "id": "n14",
+        "description": "Synthetic record 14"
+      },
+      {
+        "id": "n15",
+        "description": "Synthetic record 15"
+      }
+    ],
+    "seeds": [
+      "n0"
+    ],
+    "references": [
+      {
+        "id": "=reference\n\"0\"",
+        "child": "Synthetic record 1",
+        "parent": "Synthetic record 0",
+        "action": "cascade"
+      },
+      {
+        "id": "=reference\n\"1\"",
+        "child": "Synthetic record 2",
+        "parent": "Synthetic record 1",
+        "action": "cascade"
+      },
+      {
+        "id": "=reference\n\"2\"",
+        "child": "Synthetic record 3",
+        "parent": "Synthetic record 2",
+        "action": "cascade"
+      },
+      {
+        "id": "=reference\n\"3\"",
+        "child": "Synthetic record 4",
+        "parent": "Synthetic record 3",
+        "action": "cascade"
+      },
+      {
+        "id": "=reference\n\"4\"",
+        "child": "Synthetic record 5",
+        "parent": "Synthetic record 4",
+        "action": "cascade"
+      },
+      {
+        "id": "=reference\n\"5\"",
+        "child": "Synthetic record 6",
+        "parent": "Synthetic record 5",
+        "action": "cascade"
+      },
+      {
+        "id": "=reference\n\"6\"",
+        "child": "Synthetic record 7",
+        "parent": "Synthetic record 6",
+        "action": "cascade"
+      },
+      {
+        "id": "=reference\n\"7\"",
+        "child": "Synthetic record 8",
+        "parent": "Synthetic record 7",
+        "action": "cascade"
+      },
+      {
+        "id": "=reference\n\"8\"",
+        "child": "Synthetic record 9",
+        "parent": "Synthetic record 8",
+        "action": "cascade"
+      },
+      {
+        "id": "=reference\n\"9\"",
+        "child": "Synthetic record 10",
+        "parent": "Synthetic record 9",
+        "action": "cascade"
+      },
+      {
+        "id": "=reference\n\"10\"",
+        "child": "Synthetic record 11",
+        "parent": "Synthetic record 10",
+        "action": "cascade"
+      },
+      {
+        "id": "=reference\n\"11\"",
+        "child": "Synthetic record 12",
+        "parent": "Synthetic record 11",
+        "action": "cascade"
+      },
+      {
+        "id": "=reference\n\"12\"",
+        "child": "Synthetic record 13",
+        "parent": "Synthetic record 12",
+        "action": "cascade"
+      },
+      {
+        "id": "=reference\n\"13\"",
+        "child": "Synthetic record 14",
+        "parent": "Synthetic record 13",
+        "action": "cascade"
+      },
+      {
+        "id": "=reference\n\"14\"",
+        "child": "Synthetic record 15",
+        "parent": "Synthetic record 14",
+        "action": "cascade"
+      },
+      {
+        "id": "=reference\n\"15\"",
+        "child": "Synthetic record 0",
+        "parent": "Synthetic record 15",
+        "action": "cascade"
+      },
+      {
+        "id": "=reference\n\"16\"",
+        "child": "Synthetic record 1",
+        "parent": "Synthetic record 0",
+        "action": "cascade"
+      },
+      {
+        "id": "=reference\n\"17\"",
+        "child": "Synthetic record 2",
+        "parent": "Synthetic record 1",
+        "action": "cascade"
+      },
+      {
+        "id": "=reference\n\"18\"",
+        "child": "Synthetic record 3",
+        "parent": "Synthetic record 2",
+        "action": "cascade"
+      },
+      {
+        "id": "=reference\n\"19\"",
+        "child": "Synthetic record 4",
+        "parent": "Synthetic record 3",
+        "action": "cascade"
+      },
+      {
+        "id": "=reference\n\"20\"",
+        "child": "Synthetic record 5",
+        "parent": "Synthetic record 4",
+        "action": "cascade"
+      },
+      {
+        "id": "=reference\n\"21\"",
+        "child": "Synthetic record 6",
+        "parent": "Synthetic record 5",
+        "action": "cascade"
+      },
+      {
+        "id": "=reference\n\"22\"",
+        "child": "Synthetic record 7",
+        "parent": "Synthetic record 6",
+        "action": "cascade"
+      },
+      {
+        "id": "=reference\n\"23\"",
+        "child": "Synthetic record 8",
+        "parent": "Synthetic record 7",
+        "action": "cascade"
+      },
+      {
+        "id": "=reference\n\"24\"",
+        "child": "Synthetic record 9",
+        "parent": "Synthetic record 8",
+        "action": "cascade"
+      },
+      {
+        "id": "=reference\n\"25\"",
+        "child": "Synthetic record 10",
+        "parent": "Synthetic record 9",
+        "action": "cascade"
+      },
+      {
+        "id": "=reference\n\"26\"",
+        "child": "Synthetic record 11",
+        "parent": "Synthetic record 10",
+        "action": "cascade"
+      },
+      {
+        "id": "=reference\n\"27\"",
+        "child": "Synthetic record 12",
+        "parent": "Synthetic record 11",
+        "action": "cascade"
+      },
+      {
+        "id": "=reference\n\"28\"",
+        "child": "Synthetic record 13",
+        "parent": "Synthetic record 12",
+        "action": "cascade"
+      },
+      {
+        "id": "=reference\n\"29\"",
+        "child": "Synthetic record 14",
+        "parent": "Synthetic record 13",
+        "action": "cascade"
+      },
+      {
+        "id": "=reference\n\"30\"",
+        "child": "Synthetic record 15",
+        "parent": "Synthetic record 14",
+        "action": "cascade"
+      },
+      {
+        "id": "=reference\n\"31\"",
+        "child": "Synthetic record 0",
+        "parent": "Synthetic record 15",
+        "action": "cascade"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "id": "=reference\n\"0\"",
+      "child": "n1",
+      "parent": "n0",
+      "aiChild": "n1",
+      "aiParent": "n0",
+      "action": "cascade",
+      "childEvidence": [
+        {
+          "record": "n1",
+          "score": 0.993552526952508
+        },
+        {
+          "record": "n2",
+          "score": 0.9541419164457736
+        },
+        {
+          "record": "n3",
+          "score": 0.9401863130182673
+        },
+        {
+          "record": "n4",
+          "score": 0.9362008100474979
+        },
+        {
+          "record": "n6",
+          "score": 0.8990551837692936
+        },
+        {
+          "record": "n5",
+          "score": 0.8884158900058516
+        },
+        {
+          "record": "n8",
+          "score": 0.8841627132941646
+        },
+        {
+          "record": "n12",
+          "score": 0.8839088124156035
+        },
+        {
+          "record": "n14",
+          "score": 0.8812130380724544
+        },
+        {
+          "record": "n11",
+          "score": 0.878816436026877
+        },
+        {
+          "record": "n9",
+          "score": 0.8734721707694038
+        },
+        {
+          "record": "n7",
+          "score": 0.8702254413660938
+        },
+        {
+          "record": "n10",
+          "score": 0.8612676578382065
+        },
+        {
+          "record": "n15",
+          "score": 0.8550990196203822
+        },
+        {
+          "record": "n13",
+          "score": 0.8493866296686502
+        },
+        {
+          "record": "n0",
+          "score": 0.8432626356624108
+        }
+      ],
+      "parentEvidence": [
+        {
+          "record": "n0",
+          "score": 0.993175552437253
+        },
+        {
+          "record": "n1",
+          "score": 0.8352043194270778
+        },
+        {
+          "record": "n4",
+          "score": 0.8109279043366171
+        },
+        {
+          "record": "n2",
+          "score": 0.8045193790123117
+        },
+        {
+          "record": "n3",
+          "score": 0.7985912090586057
+        },
+        {
+          "record": "n14",
+          "score": 0.7910799550058482
+        },
+        {
+          "record": "n9",
+          "score": 0.7893076775863573
+        },
+        {
+          "record": "n10",
+          "score": 0.7854802437781856
+        },
+        {
+          "record": "n5",
+          "score": 0.7851383413426258
+        },
+        {
+          "record": "n8",
+          "score": 0.7848340210312186
+        },
+        {
+          "record": "n6",
+          "score": 0.7748672601656342
+        },
+        {
+          "record": "n11",
+          "score": 0.766629259256334
+        },
+        {
+          "record": "n12",
+          "score": 0.7652682309594385
+        },
+        {
+          "record": "n15",
+          "score": 0.7536914737724687
+        },
+        {
+          "record": "n7",
+          "score": 0.7481239336537356
+        },
+        {
+          "record": "n13",
+          "score": 0.7286472759401075
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 1,
+      "id": "=reference\n\"1\"",
+      "child": "n2",
+      "parent": "n1",
+      "aiChild": "n2",
+      "aiParent": "n1",
+      "action": "cascade",
+      "childEvidence": [
+        {
+          "record": "n2",
+          "score": 0.9904335404553947
+        },
+        {
+          "record": "n1",
+          "score": 0.949918972721117
+        },
+        {
+          "record": "n3",
+          "score": 0.9304160181477159
+        },
+        {
+          "record": "n4",
+          "score": 0.925038586761667
+        },
+        {
+          "record": "n6",
+          "score": 0.8787452572580773
+        },
+        {
+          "record": "n12",
+          "score": 0.8738482714012552
+        },
+        {
+          "record": "n8",
+          "score": 0.8675677292071108
+        },
+        {
+          "record": "n5",
+          "score": 0.8593256044266924
+        },
+        {
+          "record": "n14",
+          "score": 0.8542327588740948
+        },
+        {
+          "record": "n11",
+          "score": 0.8505882764411191
+        },
+        {
+          "record": "n7",
+          "score": 0.839525213187099
+        },
+        {
+          "record": "n9",
+          "score": 0.8344303115453198
+        },
+        {
+          "record": "n15",
+          "score": 0.8310880159782791
+        },
+        {
+          "record": "n13",
+          "score": 0.8281022882236307
+        },
+        {
+          "record": "n10",
+          "score": 0.825423418231208
+        },
+        {
+          "record": "n0",
+          "score": 0.7918976759874313
+        }
+      ],
+      "parentEvidence": [
+        {
+          "record": "n1",
+          "score": 0.993552526952508
+        },
+        {
+          "record": "n2",
+          "score": 0.9541419164457736
+        },
+        {
+          "record": "n3",
+          "score": 0.9401863130182673
+        },
+        {
+          "record": "n4",
+          "score": 0.9362008100474979
+        },
+        {
+          "record": "n6",
+          "score": 0.8990551837692936
+        },
+        {
+          "record": "n5",
+          "score": 0.8884158900058516
+        },
+        {
+          "record": "n8",
+          "score": 0.8841627132941646
+        },
+        {
+          "record": "n12",
+          "score": 0.8839088124156035
+        },
+        {
+          "record": "n14",
+          "score": 0.8812130380724544
+        },
+        {
+          "record": "n11",
+          "score": 0.878816436026877
+        },
+        {
+          "record": "n9",
+          "score": 0.8734721707694038
+        },
+        {
+          "record": "n7",
+          "score": 0.8702254413660938
+        },
+        {
+          "record": "n10",
+          "score": 0.8612676578382065
+        },
+        {
+          "record": "n15",
+          "score": 0.8550990196203822
+        },
+        {
+          "record": "n13",
+          "score": 0.8493866296686502
+        },
+        {
+          "record": "n0",
+          "score": 0.8432626356624108
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "id": "=reference\n\"2\"",
+      "child": "n3",
+      "parent": "n2",
+      "aiChild": "n3",
+      "aiParent": "n2",
+      "action": "cascade",
+      "childEvidence": [
+        {
+          "record": "n3",
+          "score": 0.9911256751867876
+        },
+        {
+          "record": "n4",
+          "score": 0.9498573042165656
+        },
+        {
+          "record": "n2",
+          "score": 0.9457113620336343
+        },
+        {
+          "record": "n1",
+          "score": 0.9452446867440775
+        },
+        {
+          "record": "n6",
+          "score": 0.9045494160441014
+        },
+        {
+          "record": "n8",
+          "score": 0.8922933957173502
+        },
+        {
+          "record": "n5",
+          "score": 0.8919103291072428
+        },
+        {
+          "record": "n12",
+          "score": 0.8846399183654079
+        },
+        {
+          "record": "n9",
+          "score": 0.877242726154471
+        },
+        {
+          "record": "n11",
+          "score": 0.8692951895005087
+        },
+        {
+          "record": "n7",
+          "score": 0.8675514686912051
+        },
+        {
+          "record": "n14",
+          "score": 0.8634471092204044
+        },
+        {
+          "record": "n15",
+          "score": 0.8560188550157567
+        },
+        {
+          "record": "n13",
+          "score": 0.8529077920410414
+        },
+        {
+          "record": "n10",
+          "score": 0.8448467454715953
+        },
+        {
+          "record": "n0",
+          "score": 0.7940220278830312
+        }
+      ],
+      "parentEvidence": [
+        {
+          "record": "n2",
+          "score": 0.9870436874394225
+        },
+        {
+          "record": "n1",
+          "score": 0.9559700018290643
+        },
+        {
+          "record": "n3",
+          "score": 0.9336492210315702
+        },
+        {
+          "record": "n4",
+          "score": 0.9237742422587797
+        },
+        {
+          "record": "n6",
+          "score": 0.8794975658999787
+        },
+        {
+          "record": "n12",
+          "score": 0.8765935359275218
+        },
+        {
+          "record": "n8",
+          "score": 0.8706369598468204
+        },
+        {
+          "record": "n5",
+          "score": 0.8610004133107388
+        },
+        {
+          "record": "n14",
+          "score": 0.8594466310106109
+        },
+        {
+          "record": "n11",
+          "score": 0.8581544075361625
+        },
+        {
+          "record": "n9",
+          "score": 0.846767212527693
+        },
+        {
+          "record": "n7",
+          "score": 0.8361868729710795
+        },
+        {
+          "record": "n15",
+          "score": 0.8300620107663135
+        },
+        {
+          "record": "n10",
+          "score": 0.8296428980700818
+        },
+        {
+          "record": "n13",
+          "score": 0.8273651846673802
+        },
+        {
+          "record": "n0",
+          "score": 0.8023189353109654
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 3,
+      "id": "=reference\n\"3\"",
+      "child": "n4",
+      "parent": "n3",
+      "aiChild": "n4",
+      "aiParent": "n3",
+      "action": "cascade",
+      "childEvidence": [
+        {
+          "record": "n4",
+          "score": 0.9896704890923929
+        },
+        {
+          "record": "n3",
+          "score": 0.9412679519682238
+        },
+        {
+          "record": "n1",
+          "score": 0.9300395521403165
+        },
+        {
+          "record": "n2",
+          "score": 0.9268292932976367
+        },
+        {
+          "record": "n5",
+          "score": 0.9144070183489705
+        },
+        {
+          "record": "n6",
+          "score": 0.9124314382347776
+        },
+        {
+          "record": "n8",
+          "score": 0.9052114662257148
+        },
+        {
+          "record": "n12",
+          "score": 0.8870854489892122
+        },
+        {
+          "record": "n7",
+          "score": 0.8810150147476403
+        },
+        {
+          "record": "n9",
+          "score": 0.8784784070253615
+        },
+        {
+          "record": "n14",
+          "score": 0.8671216442152674
+        },
+        {
+          "record": "n11",
+          "score": 0.8607771269426148
+        },
+        {
+          "record": "n10",
+          "score": 0.8576248855835436
+        },
+        {
+          "record": "n15",
+          "score": 0.8572670443386802
+        },
+        {
+          "record": "n13",
+          "score": 0.8296489207026688
+        },
+        {
+          "record": "n0",
+          "score": 0.8122714866774148
+        }
+      ],
+      "parentEvidence": [
+        {
+          "record": "n3",
+          "score": 0.9911256751867876
+        },
+        {
+          "record": "n4",
+          "score": 0.9498573042165656
+        },
+        {
+          "record": "n2",
+          "score": 0.9457113620336343
+        },
+        {
+          "record": "n1",
+          "score": 0.9452446867440775
+        },
+        {
+          "record": "n6",
+          "score": 0.9045494160441014
+        },
+        {
+          "record": "n8",
+          "score": 0.8922933957173502
+        },
+        {
+          "record": "n5",
+          "score": 0.8919103291072428
+        },
+        {
+          "record": "n12",
+          "score": 0.8846399183654079
+        },
+        {
+          "record": "n9",
+          "score": 0.877242726154471
+        },
+        {
+          "record": "n11",
+          "score": 0.8692951895005087
+        },
+        {
+          "record": "n7",
+          "score": 0.8675514686912051
+        },
+        {
+          "record": "n14",
+          "score": 0.8634471092204044
+        },
+        {
+          "record": "n15",
+          "score": 0.8560188550157567
+        },
+        {
+          "record": "n13",
+          "score": 0.8529077920410414
+        },
+        {
+          "record": "n10",
+          "score": 0.8448467454715953
+        },
+        {
+          "record": "n0",
+          "score": 0.7940220278830312
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 4,
+      "id": "=reference\n\"4\"",
+      "child": "n5",
+      "parent": "n4",
+      "aiChild": "n5",
+      "aiParent": "n4",
+      "action": "cascade",
+      "childEvidence": [
+        {
+          "record": "n5",
+          "score": 0.9932601699045029
+        },
+        {
+          "record": "n6",
+          "score": 0.9177332511721562
+        },
+        {
+          "record": "n4",
+          "score": 0.9142801552239581
+        },
+        {
+          "record": "n3",
+          "score": 0.9016149749781637
+        },
+        {
+          "record": "n7",
+          "score": 0.8959227785959544
+        },
+        {
+          "record": "n10",
+          "score": 0.895804478075981
+        },
+        {
+          "record": "n8",
+          "score": 0.8949805937528889
+        },
+        {
+          "record": "n15",
+          "score": 0.8910310382002914
+        },
+        {
+          "record": "n9",
+          "score": 0.8894658880443064
+        },
+        {
+          "record": "n1",
+          "score": 0.8891923588421329
+        },
+        {
+          "record": "n12",
+          "score": 0.8831010128155232
+        },
+        {
+          "record": "n2",
+          "score": 0.8821001303940391
+        },
+        {
+          "record": "n11",
+          "score": 0.8801823037020177
+        },
+        {
+          "record": "n14",
+          "score": 0.8533219110021512
+        },
+        {
+          "record": "n13",
+          "score": 0.8243557582776277
+        },
+        {
+          "record": "n0",
+          "score": 0.792426527114556
+        }
+      ],
+      "parentEvidence": [
+        {
+          "record": "n4",
+          "score": 0.9896006508452354
+        },
+        {
+          "record": "n3",
+          "score": 0.9499355476522799
+        },
+        {
+          "record": "n2",
+          "score": 0.9347812710116024
+        },
+        {
+          "record": "n1",
+          "score": 0.9339251978456338
+        },
+        {
+          "record": "n5",
+          "score": 0.9163156952937167
+        },
+        {
+          "record": "n6",
+          "score": 0.9137367951765909
+        },
+        {
+          "record": "n8",
+          "score": 0.9051595100874039
+        },
+        {
+          "record": "n12",
+          "score": 0.8905055346206159
+        },
+        {
+          "record": "n9",
+          "score": 0.8878601615897327
+        },
+        {
+          "record": "n7",
+          "score": 0.8797319954944678
+        },
+        {
+          "record": "n14",
+          "score": 0.8714846828642446
+        },
+        {
+          "record": "n11",
+          "score": 0.8646839469321003
+        },
+        {
+          "record": "n10",
+          "score": 0.8646414740517834
+        },
+        {
+          "record": "n15",
+          "score": 0.8621331935683014
+        },
+        {
+          "record": "n13",
+          "score": 0.8331207953256938
+        },
+        {
+          "record": "n0",
+          "score": 0.81988443502052
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 5,
+      "id": "=reference\n\"5\"",
+      "child": "n6",
+      "parent": "n5",
+      "aiChild": "n6",
+      "aiParent": "n5",
+      "action": "cascade",
+      "childEvidence": [
+        {
+          "record": "n6",
+          "score": 0.9910874299547909
+        },
+        {
+          "record": "n5",
+          "score": 0.9050073367236202
+        },
+        {
+          "record": "n4",
+          "score": 0.9022633130901981
+        },
+        {
+          "record": "n3",
+          "score": 0.8961657254961168
+        },
+        {
+          "record": "n7",
+          "score": 0.8954230719480094
+        },
+        {
+          "record": "n12",
+          "score": 0.8949125879123121
+        },
+        {
+          "record": "n8",
+          "score": 0.890051685221496
+        },
+        {
+          "record": "n1",
+          "score": 0.8874160176142741
+        },
+        {
+          "record": "n2",
+          "score": 0.8808747145941066
+        },
+        {
+          "record": "n9",
+          "score": 0.8772571851279741
+        },
+        {
+          "record": "n13",
+          "score": 0.8666696436061219
+        },
+        {
+          "record": "n11",
+          "score": 0.8651235637469264
+        },
+        {
+          "record": "n10",
+          "score": 0.8490479895656712
+        },
+        {
+          "record": "n14",
+          "score": 0.8483637754137217
+        },
+        {
+          "record": "n15",
+          "score": 0.8238064287571631
+        },
+        {
+          "record": "n0",
+          "score": 0.7704644811990927
+        }
+      ],
+      "parentEvidence": [
+        {
+          "record": "n5",
+          "score": 0.9932601699045029
+        },
+        {
+          "record": "n6",
+          "score": 0.9177332511721562
+        },
+        {
+          "record": "n4",
+          "score": 0.9142801552239581
+        },
+        {
+          "record": "n3",
+          "score": 0.9016149749781637
+        },
+        {
+          "record": "n7",
+          "score": 0.8959227785959544
+        },
+        {
+          "record": "n10",
+          "score": 0.895804478075981
+        },
+        {
+          "record": "n8",
+          "score": 0.8949805937528889
+        },
+        {
+          "record": "n15",
+          "score": 0.8910310382002914
+        },
+        {
+          "record": "n9",
+          "score": 0.8894658880443064
+        },
+        {
+          "record": "n1",
+          "score": 0.8891923588421329
+        },
+        {
+          "record": "n12",
+          "score": 0.8831010128155232
+        },
+        {
+          "record": "n2",
+          "score": 0.8821001303940391
+        },
+        {
+          "record": "n11",
+          "score": 0.8801823037020177
+        },
+        {
+          "record": "n14",
+          "score": 0.8533219110021512
+        },
+        {
+          "record": "n13",
+          "score": 0.8243557582776277
+        },
+        {
+          "record": "n0",
+          "score": 0.792426527114556
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 6,
+      "id": "=reference\n\"6\"",
+      "child": "n7",
+      "parent": "n6",
+      "aiChild": "n7",
+      "aiParent": "n6",
+      "action": "cascade",
+      "childEvidence": [
+        {
+          "record": "n7",
+          "score": 0.9877147987069583
+        },
+        {
+          "record": "n8",
+          "score": 0.8997617647961591
+        },
+        {
+          "record": "n6",
+          "score": 0.8985997296047987
+        },
+        {
+          "record": "n9",
+          "score": 0.8890787713278522
+        },
+        {
+          "record": "n5",
+          "score": 0.8860350314517204
+        },
+        {
+          "record": "n14",
+          "score": 0.8772109620481077
+        },
+        {
+          "record": "n12",
+          "score": 0.870004119274507
+        },
+        {
+          "record": "n4",
+          "score": 0.8691549830942717
+        },
+        {
+          "record": "n1",
+          "score": 0.86694568964248
+        },
+        {
+          "record": "n10",
+          "score": 0.8623022803231046
+        },
+        {
+          "record": "n3",
+          "score": 0.8611101114330305
+        },
+        {
+          "record": "n11",
+          "score": 0.858755898336587
+        },
+        {
+          "record": "n13",
+          "score": 0.8534280587257196
+        },
+        {
+          "record": "n2",
+          "score": 0.8486909918461558
+        },
+        {
+          "record": "n15",
+          "score": 0.8372635573950463
+        },
+        {
+          "record": "n0",
+          "score": 0.7471591763282013
+        }
+      ],
+      "parentEvidence": [
+        {
+          "record": "n6",
+          "score": 0.9901184586544289
+        },
+        {
+          "record": "n5",
+          "score": 0.9089273771112722
+        },
+        {
+          "record": "n4",
+          "score": 0.9011712528714011
+        },
+        {
+          "record": "n7",
+          "score": 0.9002679179878749
+        },
+        {
+          "record": "n8",
+          "score": 0.8991577136478984
+        },
+        {
+          "record": "n12",
+          "score": 0.8965698987998586
+        },
+        {
+          "record": "n3",
+          "score": 0.8919088415636571
+        },
+        {
+          "record": "n9",
+          "score": 0.8869474501024258
+        },
+        {
+          "record": "n1",
+          "score": 0.8845485425203633
+        },
+        {
+          "record": "n2",
+          "score": 0.8749415487198375
+        },
+        {
+          "record": "n11",
+          "score": 0.8696567492848357
+        },
+        {
+          "record": "n13",
+          "score": 0.867483140243866
+        },
+        {
+          "record": "n10",
+          "score": 0.8627705026284886
+        },
+        {
+          "record": "n14",
+          "score": 0.852240452361774
+        },
+        {
+          "record": "n15",
+          "score": 0.8262524063893846
+        },
+        {
+          "record": "n0",
+          "score": 0.7730955363120116
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 7,
+      "id": "=reference\n\"7\"",
+      "child": "n8",
+      "parent": "n7",
+      "aiChild": "n8",
+      "aiParent": "n7",
+      "action": "cascade",
+      "childEvidence": [
+        {
+          "record": "n8",
+          "score": 0.9894849527354572
+        },
+        {
+          "record": "n9",
+          "score": 0.9113885540348406
+        },
+        {
+          "record": "n7",
+          "score": 0.9061588316263504
+        },
+        {
+          "record": "n14",
+          "score": 0.9044500831296779
+        },
+        {
+          "record": "n4",
+          "score": 0.9037462863562415
+        },
+        {
+          "record": "n6",
+          "score": 0.8968408003562587
+        },
+        {
+          "record": "n12",
+          "score": 0.8925627999938058
+        },
+        {
+          "record": "n3",
+          "score": 0.8900803598248861
+        },
+        {
+          "record": "n5",
+          "score": 0.8890325359676009
+        },
+        {
+          "record": "n1",
+          "score": 0.8854085120817906
+        },
+        {
+          "record": "n11",
+          "score": 0.8841907356734333
+        },
+        {
+          "record": "n15",
+          "score": 0.881027070563532
+        },
+        {
+          "record": "n2",
+          "score": 0.8795995622180979
+        },
+        {
+          "record": "n10",
+          "score": 0.8724326470006261
+        },
+        {
+          "record": "n13",
+          "score": 0.853295678538109
+        },
+        {
+          "record": "n0",
+          "score": 0.7842471644480082
+        }
+      ],
+      "parentEvidence": [
+        {
+          "record": "n7",
+          "score": 0.9877147987069583
+        },
+        {
+          "record": "n8",
+          "score": 0.8997617647961591
+        },
+        {
+          "record": "n6",
+          "score": 0.8985997296047987
+        },
+        {
+          "record": "n9",
+          "score": 0.8890787713278522
+        },
+        {
+          "record": "n5",
+          "score": 0.8860350314517204
+        },
+        {
+          "record": "n14",
+          "score": 0.8772109620481077
+        },
+        {
+          "record": "n12",
+          "score": 0.870004119274507
+        },
+        {
+          "record": "n4",
+          "score": 0.8691549830942717
+        },
+        {
+          "record": "n1",
+          "score": 0.86694568964248
+        },
+        {
+          "record": "n10",
+          "score": 0.8623022803231046
+        },
+        {
+          "record": "n3",
+          "score": 0.8611101114330305
+        },
+        {
+          "record": "n11",
+          "score": 0.858755898336587
+        },
+        {
+          "record": "n13",
+          "score": 0.8534280587257196
+        },
+        {
+          "record": "n2",
+          "score": 0.8486909918461558
+        },
+        {
+          "record": "n15",
+          "score": 0.8372635573950463
+        },
+        {
+          "record": "n0",
+          "score": 0.7471591763282013
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 8,
+      "id": "=reference\n\"8\"",
+      "child": "n9",
+      "parent": "n8",
+      "aiChild": "n9",
+      "aiParent": "n8",
+      "action": "cascade",
+      "childEvidence": [
+        {
+          "record": "n9",
+          "score": 0.988327336715614
+        },
+        {
+          "record": "n10",
+          "score": 0.933975907555688
+        },
+        {
+          "record": "n8",
+          "score": 0.9148534421278198
+        },
+        {
+          "record": "n7",
+          "score": 0.8971214785901123
+        },
+        {
+          "record": "n11",
+          "score": 0.8928918165364268
+        },
+        {
+          "record": "n6",
+          "score": 0.8802802114620759
+        },
+        {
+          "record": "n5",
+          "score": 0.8745691095086658
+        },
+        {
+          "record": "n3",
+          "score": 0.873477833519829
+        },
+        {
+          "record": "n4",
+          "score": 0.8733273811065324
+        },
+        {
+          "record": "n12",
+          "score": 0.8726171831475984
+        },
+        {
+          "record": "n1",
+          "score": 0.8642904408677488
+        },
+        {
+          "record": "n14",
+          "score": 0.8613088405890883
+        },
+        {
+          "record": "n13",
+          "score": 0.8537123128299238
+        },
+        {
+          "record": "n15",
+          "score": 0.8508921191722627
+        },
+        {
+          "record": "n2",
+          "score": 0.8480592201834777
+        },
+        {
+          "record": "n0",
+          "score": 0.7815503900621769
+        }
+      ],
+      "parentEvidence": [
+        {
+          "record": "n8",
+          "score": 0.9918660510754104
+        },
+        {
+          "record": "n9",
+          "score": 0.9185229368616596
+        },
+        {
+          "record": "n7",
+          "score": 0.9108857226864429
+        },
+        {
+          "record": "n14",
+          "score": 0.9097910259088695
+        },
+        {
+          "record": "n4",
+          "score": 0.9065504419345893
+        },
+        {
+          "record": "n6",
+          "score": 0.9000488342300849
+        },
+        {
+          "record": "n12",
+          "score": 0.8947724616155571
+        },
+        {
+          "record": "n3",
+          "score": 0.893678162086231
+        },
+        {
+          "record": "n5",
+          "score": 0.8912096829975497
+        },
+        {
+          "record": "n1",
+          "score": 0.8907760157338381
+        },
+        {
+          "record": "n11",
+          "score": 0.8857565434356708
+        },
+        {
+          "record": "n2",
+          "score": 0.8846765056146313
+        },
+        {
+          "record": "n15",
+          "score": 0.8832512321457227
+        },
+        {
+          "record": "n10",
+          "score": 0.8832384350846936
+        },
+        {
+          "record": "n13",
+          "score": 0.8571142059927861
+        },
+        {
+          "record": "n0",
+          "score": 0.7958304096378926
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 9,
+      "id": "=reference\n\"9\"",
+      "child": "n10",
+      "parent": "n9",
+      "aiChild": "n10",
+      "aiParent": "n9",
+      "action": "cascade",
+      "childEvidence": [
+        {
+          "record": "n10",
+          "score": 0.9895475115014791
+        },
+        {
+          "record": "n9",
+          "score": 0.9383032148372947
+        },
+        {
+          "record": "n11",
+          "score": 0.9154077602812832
+        },
+        {
+          "record": "n12",
+          "score": 0.8956067198105464
+        },
+        {
+          "record": "n5",
+          "score": 0.8952701962527969
+        },
+        {
+          "record": "n8",
+          "score": 0.8916166967032333
+        },
+        {
+          "record": "n15",
+          "score": 0.8871935639556839
+        },
+        {
+          "record": "n14",
+          "score": 0.8818554203341685
+        },
+        {
+          "record": "n7",
+          "score": 0.8741085260432303
+        },
+        {
+          "record": "n1",
+          "score": 0.8720979101492807
+        },
+        {
+          "record": "n6",
+          "score": 0.870348743370329
+        },
+        {
+          "record": "n4",
+          "score": 0.868739441260769
+        },
+        {
+          "record": "n13",
+          "score": 0.8628410213325294
+        },
+        {
+          "record": "n3",
+          "score": 0.8617378641104235
+        },
+        {
+          "record": "n2",
+          "score": 0.8544749893435359
+        },
+        {
+          "record": "n0",
+          "score": 0.788602683768325
+        }
+      ],
+      "parentEvidence": [
+        {
+          "record": "n9",
+          "score": 0.988327336715614
+        },
+        {
+          "record": "n10",
+          "score": 0.933975907555688
+        },
+        {
+          "record": "n8",
+          "score": 0.9148534421278198
+        },
+        {
+          "record": "n7",
+          "score": 0.8971214785901123
+        },
+        {
+          "record": "n11",
+          "score": 0.8928918165364268
+        },
+        {
+          "record": "n6",
+          "score": 0.8802802114620759
+        },
+        {
+          "record": "n5",
+          "score": 0.8745691095086658
+        },
+        {
+          "record": "n3",
+          "score": 0.873477833519829
+        },
+        {
+          "record": "n4",
+          "score": 0.8733273811065324
+        },
+        {
+          "record": "n12",
+          "score": 0.8726171831475984
+        },
+        {
+          "record": "n1",
+          "score": 0.8642904408677488
+        },
+        {
+          "record": "n14",
+          "score": 0.8613088405890883
+        },
+        {
+          "record": "n13",
+          "score": 0.8537123128299238
+        },
+        {
+          "record": "n15",
+          "score": 0.8508921191722627
+        },
+        {
+          "record": "n2",
+          "score": 0.8480592201834777
+        },
+        {
+          "record": "n0",
+          "score": 0.7815503900621769
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 10,
+      "id": "=reference\n\"10\"",
+      "child": "n11",
+      "parent": "n10",
+      "aiChild": "n11",
+      "aiParent": "n10",
+      "action": "cascade",
+      "childEvidence": [
+        {
+          "record": "n11",
+          "score": 0.9892132332188823
+        },
+        {
+          "record": "n12",
+          "score": 0.9321185958384773
+        },
+        {
+          "record": "n10",
+          "score": 0.9095286012625098
+        },
+        {
+          "record": "n9",
+          "score": 0.9024204434395051
+        },
+        {
+          "record": "n13",
+          "score": 0.9009371587645755
+        },
+        {
+          "record": "n8",
+          "score": 0.889664189048498
+        },
+        {
+          "record": "n15",
+          "score": 0.8848292313539604
+        },
+        {
+          "record": "n1",
+          "score": 0.8794123339069523
+        },
+        {
+          "record": "n5",
+          "score": 0.8749675946879543
+        },
+        {
+          "record": "n6",
+          "score": 0.8749213455351127
+        },
+        {
+          "record": "n3",
+          "score": 0.8697531945294705
+        },
+        {
+          "record": "n14",
+          "score": 0.8694807189454151
+        },
+        {
+          "record": "n7",
+          "score": 0.8667387441286467
+        },
+        {
+          "record": "n4",
+          "score": 0.8650588360819043
+        },
+        {
+          "record": "n2",
+          "score": 0.8649978305264834
+        },
+        {
+          "record": "n0",
+          "score": 0.7699311348153282
+        }
+      ],
+      "parentEvidence": [
+        {
+          "record": "n10",
+          "score": 0.9921222602559163
+        },
+        {
+          "record": "n9",
+          "score": 0.940888451270117
+        },
+        {
+          "record": "n11",
+          "score": 0.9136605047096068
+        },
+        {
+          "record": "n12",
+          "score": 0.8975137065271187
+        },
+        {
+          "record": "n8",
+          "score": 0.895391809988345
+        },
+        {
+          "record": "n15",
+          "score": 0.8899486395329237
+        },
+        {
+          "record": "n14",
+          "score": 0.8899104641675988
+        },
+        {
+          "record": "n5",
+          "score": 0.889386660738176
+        },
+        {
+          "record": "n7",
+          "score": 0.8768907622315528
+        },
+        {
+          "record": "n1",
+          "score": 0.8692189949922441
+        },
+        {
+          "record": "n4",
+          "score": 0.8685723563755464
+        },
+        {
+          "record": "n6",
+          "score": 0.8674132131303416
+        },
+        {
+          "record": "n13",
+          "score": 0.8633185484432936
+        },
+        {
+          "record": "n3",
+          "score": 0.8583735254057875
+        },
+        {
+          "record": "n2",
+          "score": 0.8479975924897208
+        },
+        {
+          "record": "n0",
+          "score": 0.787370654715057
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 11,
+      "id": "=reference\n\"11\"",
+      "child": "n12",
+      "parent": "n11",
+      "aiChild": "n12",
+      "aiParent": "n11",
+      "action": "cascade",
+      "childEvidence": [
+        {
+          "record": "n12",
+          "score": 0.994100875569035
+        },
+        {
+          "record": "n11",
+          "score": 0.9293791032890473
+        },
+        {
+          "record": "n14",
+          "score": 0.9154637746459775
+        },
+        {
+          "record": "n13",
+          "score": 0.9100672932752288
+        },
+        {
+          "record": "n6",
+          "score": 0.901235276387113
+        },
+        {
+          "record": "n8",
+          "score": 0.8891302900123308
+        },
+        {
+          "record": "n15",
+          "score": 0.8869131945342298
+        },
+        {
+          "record": "n2",
+          "score": 0.8818109948542175
+        },
+        {
+          "record": "n1",
+          "score": 0.880382073073429
+        },
+        {
+          "record": "n4",
+          "score": 0.8800229216769719
+        },
+        {
+          "record": "n10",
+          "score": 0.8797793790215382
+        },
+        {
+          "record": "n5",
+          "score": 0.874834695366219
+        },
+        {
+          "record": "n3",
+          "score": 0.8747198515671983
+        },
+        {
+          "record": "n7",
+          "score": 0.8727121158251182
+        },
+        {
+          "record": "n9",
+          "score": 0.865373945651788
+        },
+        {
+          "record": "n0",
+          "score": 0.7661755991273898
+        }
+      ],
+      "parentEvidence": [
+        {
+          "record": "n11",
+          "score": 0.9892132332188823
+        },
+        {
+          "record": "n12",
+          "score": 0.9321185958384773
+        },
+        {
+          "record": "n10",
+          "score": 0.9095286012625098
+        },
+        {
+          "record": "n9",
+          "score": 0.9024204434395051
+        },
+        {
+          "record": "n13",
+          "score": 0.9009371587645755
+        },
+        {
+          "record": "n8",
+          "score": 0.889664189048498
+        },
+        {
+          "record": "n15",
+          "score": 0.8848292313539604
+        },
+        {
+          "record": "n1",
+          "score": 0.8794123339069523
+        },
+        {
+          "record": "n5",
+          "score": 0.8749675946879543
+        },
+        {
+          "record": "n6",
+          "score": 0.8749213455351127
+        },
+        {
+          "record": "n3",
+          "score": 0.8697531945294705
+        },
+        {
+          "record": "n14",
+          "score": 0.8694807189454151
+        },
+        {
+          "record": "n7",
+          "score": 0.8667387441286467
+        },
+        {
+          "record": "n4",
+          "score": 0.8650588360819043
+        },
+        {
+          "record": "n2",
+          "score": 0.8649978305264834
+        },
+        {
+          "record": "n0",
+          "score": 0.7699311348153282
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 12,
+      "id": "=reference\n\"12\"",
+      "child": "n13",
+      "parent": "n12",
+      "aiChild": "n13",
+      "aiParent": "n12",
+      "action": "cascade",
+      "childEvidence": [
+        {
+          "record": "n13",
+          "score": 0.9945785449492219
+        },
+        {
+          "record": "n14",
+          "score": 0.9139524311381219
+        },
+        {
+          "record": "n12",
+          "score": 0.9137221759593783
+        },
+        {
+          "record": "n15",
+          "score": 0.9101643498212286
+        },
+        {
+          "record": "n11",
+          "score": 0.902361333726312
+        },
+        {
+          "record": "n6",
+          "score": 0.8777622566348942
+        },
+        {
+          "record": "n7",
+          "score": 0.8655469089832374
+        },
+        {
+          "record": "n10",
+          "score": 0.8604180883115471
+        },
+        {
+          "record": "n8",
+          "score": 0.8591634324691609
+        },
+        {
+          "record": "n3",
+          "score": 0.855859804565226
+        },
+        {
+          "record": "n1",
+          "score": 0.850801003701114
+        },
+        {
+          "record": "n9",
+          "score": 0.8451635082116707
+        },
+        {
+          "record": "n2",
+          "score": 0.8414592436184841
+        },
+        {
+          "record": "n4",
+          "score": 0.8254882354687203
+        },
+        {
+          "record": "n5",
+          "score": 0.8167587090356869
+        },
+        {
+          "record": "n0",
+          "score": 0.7143088672613744
+        }
+      ],
+      "parentEvidence": [
+        {
+          "record": "n12",
+          "score": 0.99307842482722
+        },
+        {
+          "record": "n11",
+          "score": 0.933047160323397
+        },
+        {
+          "record": "n14",
+          "score": 0.9267928811224688
+        },
+        {
+          "record": "n13",
+          "score": 0.9121891532035611
+        },
+        {
+          "record": "n6",
+          "score": 0.9062054985323023
+        },
+        {
+          "record": "n8",
+          "score": 0.9051657094788674
+        },
+        {
+          "record": "n4",
+          "score": 0.8949671491423388
+        },
+        {
+          "record": "n1",
+          "score": 0.8944830573126963
+        },
+        {
+          "record": "n15",
+          "score": 0.8919110609257053
+        },
+        {
+          "record": "n2",
+          "score": 0.890168439788148
+        },
+        {
+          "record": "n10",
+          "score": 0.8896569861908739
+        },
+        {
+          "record": "n3",
+          "score": 0.8893905663449436
+        },
+        {
+          "record": "n5",
+          "score": 0.885485895283079
+        },
+        {
+          "record": "n7",
+          "score": 0.883348161305715
+        },
+        {
+          "record": "n9",
+          "score": 0.8818660776082454
+        },
+        {
+          "record": "n0",
+          "score": 0.7789850441828221
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 13,
+      "id": "=reference\n\"13\"",
+      "child": "n14",
+      "parent": "n13",
+      "aiChild": "n14",
+      "aiParent": "n13",
+      "action": "cascade",
+      "childEvidence": [
+        {
+          "record": "n14",
+          "score": 0.9928684575752598
+        },
+        {
+          "record": "n15",
+          "score": 0.9187774598249104
+        },
+        {
+          "record": "n13",
+          "score": 0.9116121643952262
+        },
+        {
+          "record": "n12",
+          "score": 0.9113704109683283
+        },
+        {
+          "record": "n8",
+          "score": 0.9044122142363883
+        },
+        {
+          "record": "n7",
+          "score": 0.8835251598598592
+        },
+        {
+          "record": "n1",
+          "score": 0.8777031188607526
+        },
+        {
+          "record": "n10",
+          "score": 0.8706998242814766
+        },
+        {
+          "record": "n2",
+          "score": 0.8640635426417863
+        },
+        {
+          "record": "n3",
+          "score": 0.8603541206597537
+        },
+        {
+          "record": "n11",
+          "score": 0.860230202522228
+        },
+        {
+          "record": "n9",
+          "score": 0.8578939047747948
+        },
+        {
+          "record": "n4",
+          "score": 0.8571360562407857
+        },
+        {
+          "record": "n6",
+          "score": 0.8493407447908561
+        },
+        {
+          "record": "n5",
+          "score": 0.833251116950787
+        },
+        {
+          "record": "n0",
+          "score": 0.785433177238836
+        }
+      ],
+      "parentEvidence": [
+        {
+          "record": "n13",
+          "score": 0.9945785449492219
+        },
+        {
+          "record": "n14",
+          "score": 0.9139524311381219
+        },
+        {
+          "record": "n12",
+          "score": 0.9137221759593783
+        },
+        {
+          "record": "n15",
+          "score": 0.9101643498212286
+        },
+        {
+          "record": "n11",
+          "score": 0.902361333726312
+        },
+        {
+          "record": "n6",
+          "score": 0.8777622566348942
+        },
+        {
+          "record": "n7",
+          "score": 0.8655469089832374
+        },
+        {
+          "record": "n10",
+          "score": 0.8604180883115471
+        },
+        {
+          "record": "n8",
+          "score": 0.8591634324691609
+        },
+        {
+          "record": "n3",
+          "score": 0.855859804565226
+        },
+        {
+          "record": "n1",
+          "score": 0.850801003701114
+        },
+        {
+          "record": "n9",
+          "score": 0.8451635082116707
+        },
+        {
+          "record": "n2",
+          "score": 0.8414592436184841
+        },
+        {
+          "record": "n4",
+          "score": 0.8254882354687203
+        },
+        {
+          "record": "n5",
+          "score": 0.8167587090356869
+        },
+        {
+          "record": "n0",
+          "score": 0.7143088672613744
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 14,
+      "id": "=reference\n\"14\"",
+      "child": "n15",
+      "parent": "n14",
+      "aiChild": "n15",
+      "aiParent": "n14",
+      "action": "cascade",
+      "childEvidence": [
+        {
+          "record": "n15",
+          "score": 0.9909534899079021
+        },
+        {
+          "record": "n14",
+          "score": 0.9275429059072987
+        },
+        {
+          "record": "n13",
+          "score": 0.9130004037216489
+        },
+        {
+          "record": "n12",
+          "score": 0.8890607331551522
+        },
+        {
+          "record": "n5",
+          "score": 0.8880697600040448
+        },
+        {
+          "record": "n8",
+          "score": 0.8837458869436463
+        },
+        {
+          "record": "n11",
+          "score": 0.8826289091787113
+        },
+        {
+          "record": "n10",
+          "score": 0.8814040281685124
+        },
+        {
+          "record": "n3",
+          "score": 0.8738652317711314
+        },
+        {
+          "record": "n1",
+          "score": 0.8639401107410779
+        },
+        {
+          "record": "n4",
+          "score": 0.8608936871816276
+        },
+        {
+          "record": "n2",
+          "score": 0.8562063150901512
+        },
+        {
+          "record": "n9",
+          "score": 0.8519572661592705
+        },
+        {
+          "record": "n7",
+          "score": 0.8497316174387073
+        },
+        {
+          "record": "n6",
+          "score": 0.8432587278504254
+        },
+        {
+          "record": "n0",
+          "score": 0.7527394927644189
+        }
+      ],
+      "parentEvidence": [
+        {
+          "record": "n14",
+          "score": 0.9922078877936268
+        },
+        {
+          "record": "n15",
+          "score": 0.9263330958552696
+        },
+        {
+          "record": "n12",
+          "score": 0.9183999376568435
+        },
+        {
+          "record": "n13",
+          "score": 0.9159027611166504
+        },
+        {
+          "record": "n8",
+          "score": 0.913666212313899
+        },
+        {
+          "record": "n7",
+          "score": 0.8902541063140691
+        },
+        {
+          "record": "n1",
+          "score": 0.887465998046091
+        },
+        {
+          "record": "n10",
+          "score": 0.884912909006704
+        },
+        {
+          "record": "n2",
+          "score": 0.8772010875295795
+        },
+        {
+          "record": "n3",
+          "score": 0.8727747662554138
+        },
+        {
+          "record": "n11",
+          "score": 0.8715381760429535
+        },
+        {
+          "record": "n4",
+          "score": 0.870834215650422
+        },
+        {
+          "record": "n9",
+          "score": 0.8667077048084499
+        },
+        {
+          "record": "n6",
+          "score": 0.8590437351362883
+        },
+        {
+          "record": "n5",
+          "score": 0.8493417039171898
+        },
+        {
+          "record": "n0",
+          "score": 0.7957578213807228
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 15,
+      "id": "=reference\n\"15\"",
+      "child": "n0",
+      "parent": "n15",
+      "aiChild": "n0",
+      "aiParent": "n15",
+      "action": "cascade",
+      "childEvidence": [
+        {
+          "record": "n0",
+          "score": 0.9898787281226906
+        },
+        {
+          "record": "n1",
+          "score": 0.8580500752091643
+        },
+        {
+          "record": "n4",
+          "score": 0.8359106856932357
+        },
+        {
+          "record": "n3",
+          "score": 0.8283078896492628
+        },
+        {
+          "record": "n2",
+          "score": 0.8263367824119991
+        },
+        {
+          "record": "n9",
+          "score": 0.820318930559739
+        },
+        {
+          "record": "n14",
+          "score": 0.8180382026768259
+        },
+        {
+          "record": "n10",
+          "score": 0.8155189453990418
+        },
+        {
+          "record": "n8",
+          "score": 0.8149392706401233
+        },
+        {
+          "record": "n5",
+          "score": 0.8127303197089493
+        },
+        {
+          "record": "n6",
+          "score": 0.8034533828116259
+        },
+        {
+          "record": "n12",
+          "score": 0.794671737917347
+        },
+        {
+          "record": "n11",
+          "score": 0.7925937266690315
+        },
+        {
+          "record": "n15",
+          "score": 0.7813804294254055
+        },
+        {
+          "record": "n7",
+          "score": 0.7727119114965678
+        },
+        {
+          "record": "n13",
+          "score": 0.753264985659303
+        }
+      ],
+      "parentEvidence": [
+        {
+          "record": "n15",
+          "score": 0.9909534899079021
+        },
+        {
+          "record": "n14",
+          "score": 0.9275429059072987
+        },
+        {
+          "record": "n13",
+          "score": 0.9130004037216489
+        },
+        {
+          "record": "n12",
+          "score": 0.8890607331551522
+        },
+        {
+          "record": "n5",
+          "score": 0.8880697600040448
+        },
+        {
+          "record": "n8",
+          "score": 0.8837458869436463
+        },
+        {
+          "record": "n11",
+          "score": 0.8826289091787113
+        },
+        {
+          "record": "n10",
+          "score": 0.8814040281685124
+        },
+        {
+          "record": "n3",
+          "score": 0.8738652317711314
+        },
+        {
+          "record": "n1",
+          "score": 0.8639401107410779
+        },
+        {
+          "record": "n4",
+          "score": 0.8608936871816276
+        },
+        {
+          "record": "n2",
+          "score": 0.8562063150901512
+        },
+        {
+          "record": "n9",
+          "score": 0.8519572661592705
+        },
+        {
+          "record": "n7",
+          "score": 0.8497316174387073
+        },
+        {
+          "record": "n6",
+          "score": 0.8432587278504254
+        },
+        {
+          "record": "n0",
+          "score": 0.7527394927644189
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 16,
+      "id": "=reference\n\"16\"",
+      "child": "n1",
+      "parent": "n0",
+      "aiChild": "n1",
+      "aiParent": "n0",
+      "action": "cascade",
+      "childEvidence": [
+        {
+          "record": "n1",
+          "score": 0.993552526952508
+        },
+        {
+          "record": "n2",
+          "score": 0.9541419164457736
+        },
+        {
+          "record": "n3",
+          "score": 0.9401863130182673
+        },
+        {
+          "record": "n4",
+          "score": 0.9362008100474979
+        },
+        {
+          "record": "n6",
+          "score": 0.8990551837692936
+        },
+        {
+          "record": "n5",
+          "score": 0.8884158900058516
+        },
+        {
+          "record": "n8",
+          "score": 0.8841627132941646
+        },
+        {
+          "record": "n12",
+          "score": 0.8839088124156035
+        },
+        {
+          "record": "n14",
+          "score": 0.8812130380724544
+        },
+        {
+          "record": "n11",
+          "score": 0.878816436026877
+        },
+        {
+          "record": "n9",
+          "score": 0.8734721707694038
+        },
+        {
+          "record": "n7",
+          "score": 0.8702254413660938
+        },
+        {
+          "record": "n10",
+          "score": 0.8612676578382065
+        },
+        {
+          "record": "n15",
+          "score": 0.8550990196203822
+        },
+        {
+          "record": "n13",
+          "score": 0.8493866296686502
+        },
+        {
+          "record": "n0",
+          "score": 0.8432626356624108
+        }
+      ],
+      "parentEvidence": [
+        {
+          "record": "n0",
+          "score": 0.993175552437253
+        },
+        {
+          "record": "n1",
+          "score": 0.8352043194270778
+        },
+        {
+          "record": "n4",
+          "score": 0.8109279043366171
+        },
+        {
+          "record": "n2",
+          "score": 0.8045193790123117
+        },
+        {
+          "record": "n3",
+          "score": 0.7985912090586057
+        },
+        {
+          "record": "n14",
+          "score": 0.7910799550058482
+        },
+        {
+          "record": "n9",
+          "score": 0.7893076775863573
+        },
+        {
+          "record": "n10",
+          "score": 0.7854802437781856
+        },
+        {
+          "record": "n5",
+          "score": 0.7851383413426258
+        },
+        {
+          "record": "n8",
+          "score": 0.7848340210312186
+        },
+        {
+          "record": "n6",
+          "score": 0.7748672601656342
+        },
+        {
+          "record": "n11",
+          "score": 0.766629259256334
+        },
+        {
+          "record": "n12",
+          "score": 0.7652682309594385
+        },
+        {
+          "record": "n15",
+          "score": 0.7536914737724687
+        },
+        {
+          "record": "n7",
+          "score": 0.7481239336537356
+        },
+        {
+          "record": "n13",
+          "score": 0.7286472759401075
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 17,
+      "id": "=reference\n\"17\"",
+      "child": "n2",
+      "parent": "n1",
+      "aiChild": "n2",
+      "aiParent": "n1",
+      "action": "cascade",
+      "childEvidence": [
+        {
+          "record": "n2",
+          "score": 0.9904335404553947
+        },
+        {
+          "record": "n1",
+          "score": 0.949918972721117
+        },
+        {
+          "record": "n3",
+          "score": 0.9304160181477159
+        },
+        {
+          "record": "n4",
+          "score": 0.925038586761667
+        },
+        {
+          "record": "n6",
+          "score": 0.8787452572580773
+        },
+        {
+          "record": "n12",
+          "score": 0.8738482714012552
+        },
+        {
+          "record": "n8",
+          "score": 0.8675677292071108
+        },
+        {
+          "record": "n5",
+          "score": 0.8593256044266924
+        },
+        {
+          "record": "n14",
+          "score": 0.8542327588740948
+        },
+        {
+          "record": "n11",
+          "score": 0.8505882764411191
+        },
+        {
+          "record": "n7",
+          "score": 0.839525213187099
+        },
+        {
+          "record": "n9",
+          "score": 0.8344303115453198
+        },
+        {
+          "record": "n15",
+          "score": 0.8310880159782791
+        },
+        {
+          "record": "n13",
+          "score": 0.8281022882236307
+        },
+        {
+          "record": "n10",
+          "score": 0.825423418231208
+        },
+        {
+          "record": "n0",
+          "score": 0.7918976759874313
+        }
+      ],
+      "parentEvidence": [
+        {
+          "record": "n1",
+          "score": 0.993552526952508
+        },
+        {
+          "record": "n2",
+          "score": 0.9541419164457736
+        },
+        {
+          "record": "n3",
+          "score": 0.9401863130182673
+        },
+        {
+          "record": "n4",
+          "score": 0.9362008100474979
+        },
+        {
+          "record": "n6",
+          "score": 0.8990551837692936
+        },
+        {
+          "record": "n5",
+          "score": 0.8884158900058516
+        },
+        {
+          "record": "n8",
+          "score": 0.8841627132941646
+        },
+        {
+          "record": "n12",
+          "score": 0.8839088124156035
+        },
+        {
+          "record": "n14",
+          "score": 0.8812130380724544
+        },
+        {
+          "record": "n11",
+          "score": 0.878816436026877
+        },
+        {
+          "record": "n9",
+          "score": 0.8734721707694038
+        },
+        {
+          "record": "n7",
+          "score": 0.8702254413660938
+        },
+        {
+          "record": "n10",
+          "score": 0.8612676578382065
+        },
+        {
+          "record": "n15",
+          "score": 0.8550990196203822
+        },
+        {
+          "record": "n13",
+          "score": 0.8493866296686502
+        },
+        {
+          "record": "n0",
+          "score": 0.8432626356624108
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 18,
+      "id": "=reference\n\"18\"",
+      "child": "n3",
+      "parent": "n2",
+      "aiChild": "n3",
+      "aiParent": "n2",
+      "action": "cascade",
+      "childEvidence": [
+        {
+          "record": "n3",
+          "score": 0.9911256751867876
+        },
+        {
+          "record": "n4",
+          "score": 0.9498573042165656
+        },
+        {
+          "record": "n2",
+          "score": 0.9457113620336343
+        },
+        {
+          "record": "n1",
+          "score": 0.9452446867440775
+        },
+        {
+          "record": "n6",
+          "score": 0.9045494160441014
+        },
+        {
+          "record": "n8",
+          "score": 0.8922933957173502
+        },
+        {
+          "record": "n5",
+          "score": 0.8919103291072428
+        },
+        {
+          "record": "n12",
+          "score": 0.8846399183654079
+        },
+        {
+          "record": "n9",
+          "score": 0.877242726154471
+        },
+        {
+          "record": "n11",
+          "score": 0.8692951895005087
+        },
+        {
+          "record": "n7",
+          "score": 0.8675514686912051
+        },
+        {
+          "record": "n14",
+          "score": 0.8634471092204044
+        },
+        {
+          "record": "n15",
+          "score": 0.8560188550157567
+        },
+        {
+          "record": "n13",
+          "score": 0.8529077920410414
+        },
+        {
+          "record": "n10",
+          "score": 0.8448467454715953
+        },
+        {
+          "record": "n0",
+          "score": 0.7940220278830312
+        }
+      ],
+      "parentEvidence": [
+        {
+          "record": "n2",
+          "score": 0.9870436874394225
+        },
+        {
+          "record": "n1",
+          "score": 0.9559700018290643
+        },
+        {
+          "record": "n3",
+          "score": 0.9336492210315702
+        },
+        {
+          "record": "n4",
+          "score": 0.9237742422587797
+        },
+        {
+          "record": "n6",
+          "score": 0.8794975658999787
+        },
+        {
+          "record": "n12",
+          "score": 0.8765935359275218
+        },
+        {
+          "record": "n8",
+          "score": 0.8706369598468204
+        },
+        {
+          "record": "n5",
+          "score": 0.8610004133107388
+        },
+        {
+          "record": "n14",
+          "score": 0.8594466310106109
+        },
+        {
+          "record": "n11",
+          "score": 0.8581544075361625
+        },
+        {
+          "record": "n9",
+          "score": 0.846767212527693
+        },
+        {
+          "record": "n7",
+          "score": 0.8361868729710795
+        },
+        {
+          "record": "n15",
+          "score": 0.8300620107663135
+        },
+        {
+          "record": "n10",
+          "score": 0.8296428980700818
+        },
+        {
+          "record": "n13",
+          "score": 0.8273651846673802
+        },
+        {
+          "record": "n0",
+          "score": 0.8023189353109654
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 19,
+      "id": "=reference\n\"19\"",
+      "child": "n4",
+      "parent": "n3",
+      "aiChild": "n4",
+      "aiParent": "n3",
+      "action": "cascade",
+      "childEvidence": [
+        {
+          "record": "n4",
+          "score": 0.9896704890923929
+        },
+        {
+          "record": "n3",
+          "score": 0.9412679519682238
+        },
+        {
+          "record": "n1",
+          "score": 0.9300395521403165
+        },
+        {
+          "record": "n2",
+          "score": 0.9268292932976367
+        },
+        {
+          "record": "n5",
+          "score": 0.9144070183489705
+        },
+        {
+          "record": "n6",
+          "score": 0.9124314382347776
+        },
+        {
+          "record": "n8",
+          "score": 0.9052114662257148
+        },
+        {
+          "record": "n12",
+          "score": 0.8870854489892122
+        },
+        {
+          "record": "n7",
+          "score": 0.8810150147476403
+        },
+        {
+          "record": "n9",
+          "score": 0.8784784070253615
+        },
+        {
+          "record": "n14",
+          "score": 0.8671216442152674
+        },
+        {
+          "record": "n11",
+          "score": 0.8607771269426148
+        },
+        {
+          "record": "n10",
+          "score": 0.8576248855835436
+        },
+        {
+          "record": "n15",
+          "score": 0.8572670443386802
+        },
+        {
+          "record": "n13",
+          "score": 0.8296489207026688
+        },
+        {
+          "record": "n0",
+          "score": 0.8122714866774148
+        }
+      ],
+      "parentEvidence": [
+        {
+          "record": "n3",
+          "score": 0.9911256751867876
+        },
+        {
+          "record": "n4",
+          "score": 0.9498573042165656
+        },
+        {
+          "record": "n2",
+          "score": 0.9457113620336343
+        },
+        {
+          "record": "n1",
+          "score": 0.9452446867440775
+        },
+        {
+          "record": "n6",
+          "score": 0.9045494160441014
+        },
+        {
+          "record": "n8",
+          "score": 0.8922933957173502
+        },
+        {
+          "record": "n5",
+          "score": 0.8919103291072428
+        },
+        {
+          "record": "n12",
+          "score": 0.8846399183654079
+        },
+        {
+          "record": "n9",
+          "score": 0.877242726154471
+        },
+        {
+          "record": "n11",
+          "score": 0.8692951895005087
+        },
+        {
+          "record": "n7",
+          "score": 0.8675514686912051
+        },
+        {
+          "record": "n14",
+          "score": 0.8634471092204044
+        },
+        {
+          "record": "n15",
+          "score": 0.8560188550157567
+        },
+        {
+          "record": "n13",
+          "score": 0.8529077920410414
+        },
+        {
+          "record": "n10",
+          "score": 0.8448467454715953
+        },
+        {
+          "record": "n0",
+          "score": 0.7940220278830312
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 20,
+      "id": "=reference\n\"20\"",
+      "child": "n5",
+      "parent": "n4",
+      "aiChild": "n5",
+      "aiParent": "n4",
+      "action": "cascade",
+      "childEvidence": [
+        {
+          "record": "n5",
+          "score": 0.9932601699045029
+        },
+        {
+          "record": "n6",
+          "score": 0.9177332511721562
+        },
+        {
+          "record": "n4",
+          "score": 0.9142801552239581
+        },
+        {
+          "record": "n3",
+          "score": 0.9016149749781637
+        },
+        {
+          "record": "n7",
+          "score": 0.8959227785959544
+        },
+        {
+          "record": "n10",
+          "score": 0.895804478075981
+        },
+        {
+          "record": "n8",
+          "score": 0.8949805937528889
+        },
+        {
+          "record": "n15",
+          "score": 0.8910310382002914
+        },
+        {
+          "record": "n9",
+          "score": 0.8894658880443064
+        },
+        {
+          "record": "n1",
+          "score": 0.8891923588421329
+        },
+        {
+          "record": "n12",
+          "score": 0.8831010128155232
+        },
+        {
+          "record": "n2",
+          "score": 0.8821001303940391
+        },
+        {
+          "record": "n11",
+          "score": 0.8801823037020177
+        },
+        {
+          "record": "n14",
+          "score": 0.8533219110021512
+        },
+        {
+          "record": "n13",
+          "score": 0.8243557582776277
+        },
+        {
+          "record": "n0",
+          "score": 0.792426527114556
+        }
+      ],
+      "parentEvidence": [
+        {
+          "record": "n4",
+          "score": 0.9896006508452354
+        },
+        {
+          "record": "n3",
+          "score": 0.9499355476522799
+        },
+        {
+          "record": "n2",
+          "score": 0.9347812710116024
+        },
+        {
+          "record": "n1",
+          "score": 0.9339251978456338
+        },
+        {
+          "record": "n5",
+          "score": 0.9163156952937167
+        },
+        {
+          "record": "n6",
+          "score": 0.9137367951765909
+        },
+        {
+          "record": "n8",
+          "score": 0.9051595100874039
+        },
+        {
+          "record": "n12",
+          "score": 0.8905055346206159
+        },
+        {
+          "record": "n9",
+          "score": 0.8878601615897327
+        },
+        {
+          "record": "n7",
+          "score": 0.8797319954944678
+        },
+        {
+          "record": "n14",
+          "score": 0.8714846828642446
+        },
+        {
+          "record": "n11",
+          "score": 0.8646839469321003
+        },
+        {
+          "record": "n10",
+          "score": 0.8646414740517834
+        },
+        {
+          "record": "n15",
+          "score": 0.8621331935683014
+        },
+        {
+          "record": "n13",
+          "score": 0.8331207953256938
+        },
+        {
+          "record": "n0",
+          "score": 0.81988443502052
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 21,
+      "id": "=reference\n\"21\"",
+      "child": "n6",
+      "parent": "n5",
+      "aiChild": "n6",
+      "aiParent": "n5",
+      "action": "cascade",
+      "childEvidence": [
+        {
+          "record": "n6",
+          "score": 0.9910874299547909
+        },
+        {
+          "record": "n5",
+          "score": 0.9050073367236202
+        },
+        {
+          "record": "n4",
+          "score": 0.9022633130901981
+        },
+        {
+          "record": "n3",
+          "score": 0.8961657254961168
+        },
+        {
+          "record": "n7",
+          "score": 0.8954230719480094
+        },
+        {
+          "record": "n12",
+          "score": 0.8949125879123121
+        },
+        {
+          "record": "n8",
+          "score": 0.890051685221496
+        },
+        {
+          "record": "n1",
+          "score": 0.8874160176142741
+        },
+        {
+          "record": "n2",
+          "score": 0.8808747145941066
+        },
+        {
+          "record": "n9",
+          "score": 0.8772571851279741
+        },
+        {
+          "record": "n13",
+          "score": 0.8666696436061219
+        },
+        {
+          "record": "n11",
+          "score": 0.8651235637469264
+        },
+        {
+          "record": "n10",
+          "score": 0.8490479895656712
+        },
+        {
+          "record": "n14",
+          "score": 0.8483637754137217
+        },
+        {
+          "record": "n15",
+          "score": 0.8238064287571631
+        },
+        {
+          "record": "n0",
+          "score": 0.7704644811990927
+        }
+      ],
+      "parentEvidence": [
+        {
+          "record": "n5",
+          "score": 0.9932601699045029
+        },
+        {
+          "record": "n6",
+          "score": 0.9177332511721562
+        },
+        {
+          "record": "n4",
+          "score": 0.9142801552239581
+        },
+        {
+          "record": "n3",
+          "score": 0.9016149749781637
+        },
+        {
+          "record": "n7",
+          "score": 0.8959227785959544
+        },
+        {
+          "record": "n10",
+          "score": 0.895804478075981
+        },
+        {
+          "record": "n8",
+          "score": 0.8949805937528889
+        },
+        {
+          "record": "n15",
+          "score": 0.8910310382002914
+        },
+        {
+          "record": "n9",
+          "score": 0.8894658880443064
+        },
+        {
+          "record": "n1",
+          "score": 0.8891923588421329
+        },
+        {
+          "record": "n12",
+          "score": 0.8831010128155232
+        },
+        {
+          "record": "n2",
+          "score": 0.8821001303940391
+        },
+        {
+          "record": "n11",
+          "score": 0.8801823037020177
+        },
+        {
+          "record": "n14",
+          "score": 0.8533219110021512
+        },
+        {
+          "record": "n13",
+          "score": 0.8243557582776277
+        },
+        {
+          "record": "n0",
+          "score": 0.792426527114556
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 22,
+      "id": "=reference\n\"22\"",
+      "child": "n7",
+      "parent": "n6",
+      "aiChild": "n7",
+      "aiParent": "n6",
+      "action": "cascade",
+      "childEvidence": [
+        {
+          "record": "n7",
+          "score": 0.9877147987069583
+        },
+        {
+          "record": "n8",
+          "score": 0.8997617647961591
+        },
+        {
+          "record": "n6",
+          "score": 0.8985997296047987
+        },
+        {
+          "record": "n9",
+          "score": 0.8890787713278522
+        },
+        {
+          "record": "n5",
+          "score": 0.8860350314517204
+        },
+        {
+          "record": "n14",
+          "score": 0.8772109620481077
+        },
+        {
+          "record": "n12",
+          "score": 0.870004119274507
+        },
+        {
+          "record": "n4",
+          "score": 0.8691549830942717
+        },
+        {
+          "record": "n1",
+          "score": 0.86694568964248
+        },
+        {
+          "record": "n10",
+          "score": 0.8623022803231046
+        },
+        {
+          "record": "n3",
+          "score": 0.8611101114330305
+        },
+        {
+          "record": "n11",
+          "score": 0.858755898336587
+        },
+        {
+          "record": "n13",
+          "score": 0.8534280587257196
+        },
+        {
+          "record": "n2",
+          "score": 0.8486909918461558
+        },
+        {
+          "record": "n15",
+          "score": 0.8372635573950463
+        },
+        {
+          "record": "n0",
+          "score": 0.7471591763282013
+        }
+      ],
+      "parentEvidence": [
+        {
+          "record": "n6",
+          "score": 0.9901184586544289
+        },
+        {
+          "record": "n5",
+          "score": 0.9089273771112722
+        },
+        {
+          "record": "n4",
+          "score": 0.9011712528714011
+        },
+        {
+          "record": "n7",
+          "score": 0.9002679179878749
+        },
+        {
+          "record": "n8",
+          "score": 0.8991577136478984
+        },
+        {
+          "record": "n12",
+          "score": 0.8965698987998586
+        },
+        {
+          "record": "n3",
+          "score": 0.8919088415636571
+        },
+        {
+          "record": "n9",
+          "score": 0.8869474501024258
+        },
+        {
+          "record": "n1",
+          "score": 0.8845485425203633
+        },
+        {
+          "record": "n2",
+          "score": 0.8749415487198375
+        },
+        {
+          "record": "n11",
+          "score": 0.8696567492848357
+        },
+        {
+          "record": "n13",
+          "score": 0.867483140243866
+        },
+        {
+          "record": "n10",
+          "score": 0.8627705026284886
+        },
+        {
+          "record": "n14",
+          "score": 0.852240452361774
+        },
+        {
+          "record": "n15",
+          "score": 0.8262524063893846
+        },
+        {
+          "record": "n0",
+          "score": 0.7730955363120116
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 23,
+      "id": "=reference\n\"23\"",
+      "child": "n8",
+      "parent": "n7",
+      "aiChild": "n8",
+      "aiParent": "n7",
+      "action": "cascade",
+      "childEvidence": [
+        {
+          "record": "n8",
+          "score": 0.9894849527354572
+        },
+        {
+          "record": "n9",
+          "score": 0.9113885540348406
+        },
+        {
+          "record": "n7",
+          "score": 0.9061588316263504
+        },
+        {
+          "record": "n14",
+          "score": 0.9044500831296779
+        },
+        {
+          "record": "n4",
+          "score": 0.9037462863562415
+        },
+        {
+          "record": "n6",
+          "score": 0.8968408003562587
+        },
+        {
+          "record": "n12",
+          "score": 0.8925627999938058
+        },
+        {
+          "record": "n3",
+          "score": 0.8900803598248861
+        },
+        {
+          "record": "n5",
+          "score": 0.8890325359676009
+        },
+        {
+          "record": "n1",
+          "score": 0.8854085120817906
+        },
+        {
+          "record": "n11",
+          "score": 0.8841907356734333
+        },
+        {
+          "record": "n15",
+          "score": 0.881027070563532
+        },
+        {
+          "record": "n2",
+          "score": 0.8795995622180979
+        },
+        {
+          "record": "n10",
+          "score": 0.8724326470006261
+        },
+        {
+          "record": "n13",
+          "score": 0.853295678538109
+        },
+        {
+          "record": "n0",
+          "score": 0.7842471644480082
+        }
+      ],
+      "parentEvidence": [
+        {
+          "record": "n7",
+          "score": 0.9877147987069583
+        },
+        {
+          "record": "n8",
+          "score": 0.8997617647961591
+        },
+        {
+          "record": "n6",
+          "score": 0.8985997296047987
+        },
+        {
+          "record": "n9",
+          "score": 0.8890787713278522
+        },
+        {
+          "record": "n5",
+          "score": 0.8860350314517204
+        },
+        {
+          "record": "n14",
+          "score": 0.8772109620481077
+        },
+        {
+          "record": "n12",
+          "score": 0.870004119274507
+        },
+        {
+          "record": "n4",
+          "score": 0.8691549830942717
+        },
+        {
+          "record": "n1",
+          "score": 0.86694568964248
+        },
+        {
+          "record": "n10",
+          "score": 0.8623022803231046
+        },
+        {
+          "record": "n3",
+          "score": 0.8611101114330305
+        },
+        {
+          "record": "n11",
+          "score": 0.858755898336587
+        },
+        {
+          "record": "n13",
+          "score": 0.8534280587257196
+        },
+        {
+          "record": "n2",
+          "score": 0.8486909918461558
+        },
+        {
+          "record": "n15",
+          "score": 0.8372635573950463
+        },
+        {
+          "record": "n0",
+          "score": 0.7471591763282013
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 24,
+      "id": "=reference\n\"24\"",
+      "child": "n9",
+      "parent": "n8",
+      "aiChild": "n9",
+      "aiParent": "n8",
+      "action": "cascade",
+      "childEvidence": [
+        {
+          "record": "n9",
+          "score": 0.988327336715614
+        },
+        {
+          "record": "n10",
+          "score": 0.933975907555688
+        },
+        {
+          "record": "n8",
+          "score": 0.9148534421278198
+        },
+        {
+          "record": "n7",
+          "score": 0.8971214785901123
+        },
+        {
+          "record": "n11",
+          "score": 0.8928918165364268
+        },
+        {
+          "record": "n6",
+          "score": 0.8802802114620759
+        },
+        {
+          "record": "n5",
+          "score": 0.8745691095086658
+        },
+        {
+          "record": "n3",
+          "score": 0.873477833519829
+        },
+        {
+          "record": "n4",
+          "score": 0.8733273811065324
+        },
+        {
+          "record": "n12",
+          "score": 0.8726171831475984
+        },
+        {
+          "record": "n1",
+          "score": 0.8642904408677488
+        },
+        {
+          "record": "n14",
+          "score": 0.8613088405890883
+        },
+        {
+          "record": "n13",
+          "score": 0.8537123128299238
+        },
+        {
+          "record": "n15",
+          "score": 0.8508921191722627
+        },
+        {
+          "record": "n2",
+          "score": 0.8480592201834777
+        },
+        {
+          "record": "n0",
+          "score": 0.7815503900621769
+        }
+      ],
+      "parentEvidence": [
+        {
+          "record": "n8",
+          "score": 0.9918660510754104
+        },
+        {
+          "record": "n9",
+          "score": 0.9185229368616596
+        },
+        {
+          "record": "n7",
+          "score": 0.9108857226864429
+        },
+        {
+          "record": "n14",
+          "score": 0.9097910259088695
+        },
+        {
+          "record": "n4",
+          "score": 0.9065504419345893
+        },
+        {
+          "record": "n6",
+          "score": 0.9000488342300849
+        },
+        {
+          "record": "n12",
+          "score": 0.8947724616155571
+        },
+        {
+          "record": "n3",
+          "score": 0.893678162086231
+        },
+        {
+          "record": "n5",
+          "score": 0.8912096829975497
+        },
+        {
+          "record": "n1",
+          "score": 0.8907760157338381
+        },
+        {
+          "record": "n11",
+          "score": 0.8857565434356708
+        },
+        {
+          "record": "n2",
+          "score": 0.8846765056146313
+        },
+        {
+          "record": "n15",
+          "score": 0.8832512321457227
+        },
+        {
+          "record": "n10",
+          "score": 0.8832384350846936
+        },
+        {
+          "record": "n13",
+          "score": 0.8571142059927861
+        },
+        {
+          "record": "n0",
+          "score": 0.7958304096378926
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 25,
+      "id": "=reference\n\"25\"",
+      "child": "n10",
+      "parent": "n9",
+      "aiChild": "n10",
+      "aiParent": "n9",
+      "action": "cascade",
+      "childEvidence": [
+        {
+          "record": "n10",
+          "score": 0.9895475115014791
+        },
+        {
+          "record": "n9",
+          "score": 0.9383032148372947
+        },
+        {
+          "record": "n11",
+          "score": 0.9154077602812832
+        },
+        {
+          "record": "n12",
+          "score": 0.8956067198105464
+        },
+        {
+          "record": "n5",
+          "score": 0.8952701962527969
+        },
+        {
+          "record": "n8",
+          "score": 0.8916166967032333
+        },
+        {
+          "record": "n15",
+          "score": 0.8871935639556839
+        },
+        {
+          "record": "n14",
+          "score": 0.8818554203341685
+        },
+        {
+          "record": "n7",
+          "score": 0.8741085260432303
+        },
+        {
+          "record": "n1",
+          "score": 0.8720979101492807
+        },
+        {
+          "record": "n6",
+          "score": 0.870348743370329
+        },
+        {
+          "record": "n4",
+          "score": 0.868739441260769
+        },
+        {
+          "record": "n13",
+          "score": 0.8628410213325294
+        },
+        {
+          "record": "n3",
+          "score": 0.8617378641104235
+        },
+        {
+          "record": "n2",
+          "score": 0.8544749893435359
+        },
+        {
+          "record": "n0",
+          "score": 0.788602683768325
+        }
+      ],
+      "parentEvidence": [
+        {
+          "record": "n9",
+          "score": 0.988327336715614
+        },
+        {
+          "record": "n10",
+          "score": 0.933975907555688
+        },
+        {
+          "record": "n8",
+          "score": 0.9148534421278198
+        },
+        {
+          "record": "n7",
+          "score": 0.8971214785901123
+        },
+        {
+          "record": "n11",
+          "score": 0.8928918165364268
+        },
+        {
+          "record": "n6",
+          "score": 0.8802802114620759
+        },
+        {
+          "record": "n5",
+          "score": 0.8745691095086658
+        },
+        {
+          "record": "n3",
+          "score": 0.873477833519829
+        },
+        {
+          "record": "n4",
+          "score": 0.8733273811065324
+        },
+        {
+          "record": "n12",
+          "score": 0.8726171831475984
+        },
+        {
+          "record": "n1",
+          "score": 0.8642904408677488
+        },
+        {
+          "record": "n14",
+          "score": 0.8613088405890883
+        },
+        {
+          "record": "n13",
+          "score": 0.8537123128299238
+        },
+        {
+          "record": "n15",
+          "score": 0.8508921191722627
+        },
+        {
+          "record": "n2",
+          "score": 0.8480592201834777
+        },
+        {
+          "record": "n0",
+          "score": 0.7815503900621769
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 26,
+      "id": "=reference\n\"26\"",
+      "child": "n11",
+      "parent": "n10",
+      "aiChild": "n11",
+      "aiParent": "n10",
+      "action": "cascade",
+      "childEvidence": [
+        {
+          "record": "n11",
+          "score": 0.9892132332188823
+        },
+        {
+          "record": "n12",
+          "score": 0.9321185958384773
+        },
+        {
+          "record": "n10",
+          "score": 0.9095286012625098
+        },
+        {
+          "record": "n9",
+          "score": 0.9024204434395051
+        },
+        {
+          "record": "n13",
+          "score": 0.9009371587645755
+        },
+        {
+          "record": "n8",
+          "score": 0.889664189048498
+        },
+        {
+          "record": "n15",
+          "score": 0.8848292313539604
+        },
+        {
+          "record": "n1",
+          "score": 0.8794123339069523
+        },
+        {
+          "record": "n5",
+          "score": 0.8749675946879543
+        },
+        {
+          "record": "n6",
+          "score": 0.8749213455351127
+        },
+        {
+          "record": "n3",
+          "score": 0.8697531945294705
+        },
+        {
+          "record": "n14",
+          "score": 0.8694807189454151
+        },
+        {
+          "record": "n7",
+          "score": 0.8667387441286467
+        },
+        {
+          "record": "n4",
+          "score": 0.8650588360819043
+        },
+        {
+          "record": "n2",
+          "score": 0.8649978305264834
+        },
+        {
+          "record": "n0",
+          "score": 0.7699311348153282
+        }
+      ],
+      "parentEvidence": [
+        {
+          "record": "n10",
+          "score": 0.9921222602559163
+        },
+        {
+          "record": "n9",
+          "score": 0.940888451270117
+        },
+        {
+          "record": "n11",
+          "score": 0.9136605047096068
+        },
+        {
+          "record": "n12",
+          "score": 0.8975137065271187
+        },
+        {
+          "record": "n8",
+          "score": 0.895391809988345
+        },
+        {
+          "record": "n15",
+          "score": 0.8899486395329237
+        },
+        {
+          "record": "n14",
+          "score": 0.8899104641675988
+        },
+        {
+          "record": "n5",
+          "score": 0.889386660738176
+        },
+        {
+          "record": "n7",
+          "score": 0.8768907622315528
+        },
+        {
+          "record": "n1",
+          "score": 0.8692189949922441
+        },
+        {
+          "record": "n4",
+          "score": 0.8685723563755464
+        },
+        {
+          "record": "n6",
+          "score": 0.8674132131303416
+        },
+        {
+          "record": "n13",
+          "score": 0.8633185484432936
+        },
+        {
+          "record": "n3",
+          "score": 0.8583735254057875
+        },
+        {
+          "record": "n2",
+          "score": 0.8479975924897208
+        },
+        {
+          "record": "n0",
+          "score": 0.787370654715057
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 27,
+      "id": "=reference\n\"27\"",
+      "child": "n12",
+      "parent": "n11",
+      "aiChild": "n12",
+      "aiParent": "n11",
+      "action": "cascade",
+      "childEvidence": [
+        {
+          "record": "n12",
+          "score": 0.994100875569035
+        },
+        {
+          "record": "n11",
+          "score": 0.9293791032890473
+        },
+        {
+          "record": "n14",
+          "score": 0.9154637746459775
+        },
+        {
+          "record": "n13",
+          "score": 0.9100672932752288
+        },
+        {
+          "record": "n6",
+          "score": 0.901235276387113
+        },
+        {
+          "record": "n8",
+          "score": 0.8891302900123308
+        },
+        {
+          "record": "n15",
+          "score": 0.8869131945342298
+        },
+        {
+          "record": "n2",
+          "score": 0.8818109948542175
+        },
+        {
+          "record": "n1",
+          "score": 0.880382073073429
+        },
+        {
+          "record": "n4",
+          "score": 0.8800229216769719
+        },
+        {
+          "record": "n10",
+          "score": 0.8797793790215382
+        },
+        {
+          "record": "n5",
+          "score": 0.874834695366219
+        },
+        {
+          "record": "n3",
+          "score": 0.8747198515671983
+        },
+        {
+          "record": "n7",
+          "score": 0.8727121158251182
+        },
+        {
+          "record": "n9",
+          "score": 0.865373945651788
+        },
+        {
+          "record": "n0",
+          "score": 0.7661755991273898
+        }
+      ],
+      "parentEvidence": [
+        {
+          "record": "n11",
+          "score": 0.9892132332188823
+        },
+        {
+          "record": "n12",
+          "score": 0.9321185958384773
+        },
+        {
+          "record": "n10",
+          "score": 0.9095286012625098
+        },
+        {
+          "record": "n9",
+          "score": 0.9024204434395051
+        },
+        {
+          "record": "n13",
+          "score": 0.9009371587645755
+        },
+        {
+          "record": "n8",
+          "score": 0.889664189048498
+        },
+        {
+          "record": "n15",
+          "score": 0.8848292313539604
+        },
+        {
+          "record": "n1",
+          "score": 0.8794123339069523
+        },
+        {
+          "record": "n5",
+          "score": 0.8749675946879543
+        },
+        {
+          "record": "n6",
+          "score": 0.8749213455351127
+        },
+        {
+          "record": "n3",
+          "score": 0.8697531945294705
+        },
+        {
+          "record": "n14",
+          "score": 0.8694807189454151
+        },
+        {
+          "record": "n7",
+          "score": 0.8667387441286467
+        },
+        {
+          "record": "n4",
+          "score": 0.8650588360819043
+        },
+        {
+          "record": "n2",
+          "score": 0.8649978305264834
+        },
+        {
+          "record": "n0",
+          "score": 0.7699311348153282
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 28,
+      "id": "=reference\n\"28\"",
+      "child": "n13",
+      "parent": "n12",
+      "aiChild": "n13",
+      "aiParent": "n12",
+      "action": "cascade",
+      "childEvidence": [
+        {
+          "record": "n13",
+          "score": 0.9945785449492219
+        },
+        {
+          "record": "n14",
+          "score": 0.9139524311381219
+        },
+        {
+          "record": "n12",
+          "score": 0.9137221759593783
+        },
+        {
+          "record": "n15",
+          "score": 0.9101643498212286
+        },
+        {
+          "record": "n11",
+          "score": 0.902361333726312
+        },
+        {
+          "record": "n6",
+          "score": 0.8777622566348942
+        },
+        {
+          "record": "n7",
+          "score": 0.8655469089832374
+        },
+        {
+          "record": "n10",
+          "score": 0.8604180883115471
+        },
+        {
+          "record": "n8",
+          "score": 0.8591634324691609
+        },
+        {
+          "record": "n3",
+          "score": 0.855859804565226
+        },
+        {
+          "record": "n1",
+          "score": 0.850801003701114
+        },
+        {
+          "record": "n9",
+          "score": 0.8451635082116707
+        },
+        {
+          "record": "n2",
+          "score": 0.8414592436184841
+        },
+        {
+          "record": "n4",
+          "score": 0.8254882354687203
+        },
+        {
+          "record": "n5",
+          "score": 0.8167587090356869
+        },
+        {
+          "record": "n0",
+          "score": 0.7143088672613744
+        }
+      ],
+      "parentEvidence": [
+        {
+          "record": "n12",
+          "score": 0.99307842482722
+        },
+        {
+          "record": "n11",
+          "score": 0.933047160323397
+        },
+        {
+          "record": "n14",
+          "score": 0.9267928811224688
+        },
+        {
+          "record": "n13",
+          "score": 0.9121891532035611
+        },
+        {
+          "record": "n6",
+          "score": 0.9062054985323023
+        },
+        {
+          "record": "n8",
+          "score": 0.9051657094788674
+        },
+        {
+          "record": "n4",
+          "score": 0.8949671491423388
+        },
+        {
+          "record": "n1",
+          "score": 0.8944830573126963
+        },
+        {
+          "record": "n15",
+          "score": 0.8919110609257053
+        },
+        {
+          "record": "n2",
+          "score": 0.890168439788148
+        },
+        {
+          "record": "n10",
+          "score": 0.8896569861908739
+        },
+        {
+          "record": "n3",
+          "score": 0.8893905663449436
+        },
+        {
+          "record": "n5",
+          "score": 0.885485895283079
+        },
+        {
+          "record": "n7",
+          "score": 0.883348161305715
+        },
+        {
+          "record": "n9",
+          "score": 0.8818660776082454
+        },
+        {
+          "record": "n0",
+          "score": 0.7789850441828221
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 29,
+      "id": "=reference\n\"29\"",
+      "child": "n14",
+      "parent": "n13",
+      "aiChild": "n14",
+      "aiParent": "n13",
+      "action": "cascade",
+      "childEvidence": [
+        {
+          "record": "n14",
+          "score": 0.9928684575752598
+        },
+        {
+          "record": "n15",
+          "score": 0.9187774598249104
+        },
+        {
+          "record": "n13",
+          "score": 0.9116121643952262
+        },
+        {
+          "record": "n12",
+          "score": 0.9113704109683283
+        },
+        {
+          "record": "n8",
+          "score": 0.9044122142363883
+        },
+        {
+          "record": "n7",
+          "score": 0.8835251598598592
+        },
+        {
+          "record": "n1",
+          "score": 0.8777031188607526
+        },
+        {
+          "record": "n10",
+          "score": 0.8706998242814766
+        },
+        {
+          "record": "n2",
+          "score": 0.8640635426417863
+        },
+        {
+          "record": "n3",
+          "score": 0.8603541206597537
+        },
+        {
+          "record": "n11",
+          "score": 0.860230202522228
+        },
+        {
+          "record": "n9",
+          "score": 0.8578939047747948
+        },
+        {
+          "record": "n4",
+          "score": 0.8571360562407857
+        },
+        {
+          "record": "n6",
+          "score": 0.8493407447908561
+        },
+        {
+          "record": "n5",
+          "score": 0.833251116950787
+        },
+        {
+          "record": "n0",
+          "score": 0.785433177238836
+        }
+      ],
+      "parentEvidence": [
+        {
+          "record": "n13",
+          "score": 0.9945785449492219
+        },
+        {
+          "record": "n14",
+          "score": 0.9139524311381219
+        },
+        {
+          "record": "n12",
+          "score": 0.9137221759593783
+        },
+        {
+          "record": "n15",
+          "score": 0.9101643498212286
+        },
+        {
+          "record": "n11",
+          "score": 0.902361333726312
+        },
+        {
+          "record": "n6",
+          "score": 0.8777622566348942
+        },
+        {
+          "record": "n7",
+          "score": 0.8655469089832374
+        },
+        {
+          "record": "n10",
+          "score": 0.8604180883115471
+        },
+        {
+          "record": "n8",
+          "score": 0.8591634324691609
+        },
+        {
+          "record": "n3",
+          "score": 0.855859804565226
+        },
+        {
+          "record": "n1",
+          "score": 0.850801003701114
+        },
+        {
+          "record": "n9",
+          "score": 0.8451635082116707
+        },
+        {
+          "record": "n2",
+          "score": 0.8414592436184841
+        },
+        {
+          "record": "n4",
+          "score": 0.8254882354687203
+        },
+        {
+          "record": "n5",
+          "score": 0.8167587090356869
+        },
+        {
+          "record": "n0",
+          "score": 0.7143088672613744
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 30,
+      "id": "=reference\n\"30\"",
+      "child": "n15",
+      "parent": "n14",
+      "aiChild": "n15",
+      "aiParent": "n14",
+      "action": "cascade",
+      "childEvidence": [
+        {
+          "record": "n15",
+          "score": 0.9909534899079021
+        },
+        {
+          "record": "n14",
+          "score": 0.9275429059072987
+        },
+        {
+          "record": "n13",
+          "score": 0.9130004037216489
+        },
+        {
+          "record": "n12",
+          "score": 0.8890607331551522
+        },
+        {
+          "record": "n5",
+          "score": 0.8880697600040448
+        },
+        {
+          "record": "n8",
+          "score": 0.8837458869436463
+        },
+        {
+          "record": "n11",
+          "score": 0.8826289091787113
+        },
+        {
+          "record": "n10",
+          "score": 0.8814040281685124
+        },
+        {
+          "record": "n3",
+          "score": 0.8738652317711314
+        },
+        {
+          "record": "n1",
+          "score": 0.8639401107410779
+        },
+        {
+          "record": "n4",
+          "score": 0.8608936871816276
+        },
+        {
+          "record": "n2",
+          "score": 0.8562063150901512
+        },
+        {
+          "record": "n9",
+          "score": 0.8519572661592705
+        },
+        {
+          "record": "n7",
+          "score": 0.8497316174387073
+        },
+        {
+          "record": "n6",
+          "score": 0.8432587278504254
+        },
+        {
+          "record": "n0",
+          "score": 0.7527394927644189
+        }
+      ],
+      "parentEvidence": [
+        {
+          "record": "n14",
+          "score": 0.9922078877936268
+        },
+        {
+          "record": "n15",
+          "score": 0.9263330958552696
+        },
+        {
+          "record": "n12",
+          "score": 0.9183999376568435
+        },
+        {
+          "record": "n13",
+          "score": 0.9159027611166504
+        },
+        {
+          "record": "n8",
+          "score": 0.913666212313899
+        },
+        {
+          "record": "n7",
+          "score": 0.8902541063140691
+        },
+        {
+          "record": "n1",
+          "score": 0.887465998046091
+        },
+        {
+          "record": "n10",
+          "score": 0.884912909006704
+        },
+        {
+          "record": "n2",
+          "score": 0.8772010875295795
+        },
+        {
+          "record": "n3",
+          "score": 0.8727747662554138
+        },
+        {
+          "record": "n11",
+          "score": 0.8715381760429535
+        },
+        {
+          "record": "n4",
+          "score": 0.870834215650422
+        },
+        {
+          "record": "n9",
+          "score": 0.8667077048084499
+        },
+        {
+          "record": "n6",
+          "score": 0.8590437351362883
+        },
+        {
+          "record": "n5",
+          "score": 0.8493417039171898
+        },
+        {
+          "record": "n0",
+          "score": 0.7957578213807228
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 31,
+      "id": "=reference\n\"31\"",
+      "child": "n0",
+      "parent": "n15",
+      "aiChild": "n0",
+      "aiParent": "n15",
+      "action": "cascade",
+      "childEvidence": [
+        {
+          "record": "n0",
+          "score": 0.9898787281226906
+        },
+        {
+          "record": "n1",
+          "score": 0.8580500752091643
+        },
+        {
+          "record": "n4",
+          "score": 0.8359106856932357
+        },
+        {
+          "record": "n3",
+          "score": 0.8283078896492628
+        },
+        {
+          "record": "n2",
+          "score": 0.8263367824119991
+        },
+        {
+          "record": "n9",
+          "score": 0.820318930559739
+        },
+        {
+          "record": "n14",
+          "score": 0.8180382026768259
+        },
+        {
+          "record": "n10",
+          "score": 0.8155189453990418
+        },
+        {
+          "record": "n8",
+          "score": 0.8149392706401233
+        },
+        {
+          "record": "n5",
+          "score": 0.8127303197089493
+        },
+        {
+          "record": "n6",
+          "score": 0.8034533828116259
+        },
+        {
+          "record": "n12",
+          "score": 0.794671737917347
+        },
+        {
+          "record": "n11",
+          "score": 0.7925937266690315
+        },
+        {
+          "record": "n15",
+          "score": 0.7813804294254055
+        },
+        {
+          "record": "n7",
+          "score": 0.7727119114965678
+        },
+        {
+          "record": "n13",
+          "score": 0.753264985659303
+        }
+      ],
+      "parentEvidence": [
+        {
+          "record": "n15",
+          "score": 0.9909534899079021
+        },
+        {
+          "record": "n14",
+          "score": 0.9275429059072987
+        },
+        {
+          "record": "n13",
+          "score": 0.9130004037216489
+        },
+        {
+          "record": "n12",
+          "score": 0.8890607331551522
+        },
+        {
+          "record": "n5",
+          "score": 0.8880697600040448
+        },
+        {
+          "record": "n8",
+          "score": 0.8837458869436463
+        },
+        {
+          "record": "n11",
+          "score": 0.8826289091787113
+        },
+        {
+          "record": "n10",
+          "score": 0.8814040281685124
+        },
+        {
+          "record": "n3",
+          "score": 0.8738652317711314
+        },
+        {
+          "record": "n1",
+          "score": 0.8639401107410779
+        },
+        {
+          "record": "n4",
+          "score": 0.8608936871816276
+        },
+        {
+          "record": "n2",
+          "score": 0.8562063150901512
+        },
+        {
+          "record": "n9",
+          "score": 0.8519572661592705
+        },
+        {
+          "record": "n7",
+          "score": 0.8497316174387073
+        },
+        {
+          "record": "n6",
+          "score": 0.8432587278504254
+        },
+        {
+          "record": "n0",
+          "score": 0.7527394927644189
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "warning": "Offline hypothetical final-state worksheet only. No database connection, SQL or deletion. RESTRICT is checked after full cascade closure (deferred final-state semantics), not engine-specific immediate ordering. SET NULL assumes a nullable reference. No triggers, composite keys, external references or concurrent writes modeled. A complete manifest and human verification are essential.",
+  "analysis": {
+    "status": "ready",
+    "retired": [
+      {
+        "id": "n0",
+        "seed": true,
+        "via": []
+      },
+      {
+        "id": "n1",
+        "seed": false,
+        "via": [
+          "=reference\n\"0\""
+        ]
+      },
+      {
+        "id": "n2",
+        "seed": false,
+        "via": [
+          "=reference\n\"0\"",
+          "=reference\n\"1\""
+        ]
+      },
+      {
+        "id": "n3",
+        "seed": false,
+        "via": [
+          "=reference\n\"0\"",
+          "=reference\n\"1\"",
+          "=reference\n\"2\""
+        ]
+      },
+      {
+        "id": "n4",
+        "seed": false,
+        "via": [
+          "=reference\n\"0\"",
+          "=reference\n\"1\"",
+          "=reference\n\"2\"",
+          "=reference\n\"3\""
+        ]
+      },
+      {
+        "id": "n5",
+        "seed": false,
+        "via": [
+          "=reference\n\"0\"",
+          "=reference\n\"1\"",
+          "=reference\n\"2\"",
+          "=reference\n\"3\"",
+          "=reference\n\"4\""
+        ]
+      },
+      {
+        "id": "n6",
+        "seed": false,
+        "via": [
+          "=reference\n\"0\"",
+          "=reference\n\"1\"",
+          "=reference\n\"2\"",
+          "=reference\n\"3\"",
+          "=reference\n\"4\"",
+          "=reference\n\"5\""
+        ]
+      },
+      {
+        "id": "n7",
+        "seed": false,
+        "via": [
+          "=reference\n\"0\"",
+          "=reference\n\"1\"",
+          "=reference\n\"2\"",
+          "=reference\n\"3\"",
+          "=reference\n\"4\"",
+          "=reference\n\"5\"",
+          "=reference\n\"6\""
+        ]
+      },
+      {
+        "id": "n8",
+        "seed": false,
+        "via": [
+          "=reference\n\"0\"",
+          "=reference\n\"1\"",
+          "=reference\n\"2\"",
+          "=reference\n\"3\"",
+          "=reference\n\"4\"",
+          "=reference\n\"5\"",
+          "=reference\n\"6\"",
+          "=reference\n\"7\""
+        ]
+      },
+      {
+        "id": "n9",
+        "seed": false,
+        "via": [
+          "=reference\n\"0\"",
+          "=reference\n\"1\"",
+          "=reference\n\"2\"",
+          "=reference\n\"3\"",
+          "=reference\n\"4\"",
+          "=reference\n\"5\"",
+          "=reference\n\"6\"",
+          "=reference\n\"7\"",
+          "=reference\n\"8\""
+        ]
+      },
+      {
+        "id": "n10",
+        "seed": false,
+        "via": [
+          "=reference\n\"0\"",
+          "=reference\n\"1\"",
+          "=reference\n\"2\"",
+          "=reference\n\"3\"",
+          "=reference\n\"4\"",
+          "=reference\n\"5\"",
+          "=reference\n\"6\"",
+          "=reference\n\"7\"",
+          "=reference\n\"8\"",
+          "=reference\n\"9\""
+        ]
+      },
+      {
+        "id": "n11",
+        "seed": false,
+        "via": [
+          "=reference\n\"0\"",
+          "=reference\n\"1\"",
+          "=reference\n\"2\"",
+          "=reference\n\"3\"",
+          "=reference\n\"4\"",
+          "=reference\n\"5\"",
+          "=reference\n\"6\"",
+          "=reference\n\"7\"",
+          "=reference\n\"8\"",
+          "=reference\n\"9\"",
+          "=reference\n\"10\""
+        ]
+      },
+      {
+        "id": "n12",
+        "seed": false,
+        "via": [
+          "=reference\n\"0\"",
+          "=reference\n\"1\"",
+          "=reference\n\"2\"",
+          "=reference\n\"3\"",
+          "=reference\n\"4\"",
+          "=reference\n\"5\"",
+          "=reference\n\"6\"",
+          "=reference\n\"7\"",
+          "=reference\n\"8\"",
+          "=reference\n\"9\"",
+          "=reference\n\"10\"",
+          "=reference\n\"11\""
+        ]
+      },
+      {
+        "id": "n13",
+        "seed": false,
+        "via": [
+          "=reference\n\"0\"",
+          "=reference\n\"1\"",
+          "=reference\n\"2\"",
+          "=reference\n\"3\"",
+          "=reference\n\"4\"",
+          "=reference\n\"5\"",
+          "=reference\n\"6\"",
+          "=reference\n\"7\"",
+          "=reference\n\"8\"",
+          "=reference\n\"9\"",
+          "=reference\n\"10\"",
+          "=reference\n\"11\"",
+          "=reference\n\"12\""
+        ]
+      },
+      {
+        "id": "n14",
+        "seed": false,
+        "via": [
+          "=reference\n\"0\"",
+          "=reference\n\"1\"",
+          "=reference\n\"2\"",
+          "=reference\n\"3\"",
+          "=reference\n\"4\"",
+          "=reference\n\"5\"",
+          "=reference\n\"6\"",
+          "=reference\n\"7\"",
+          "=reference\n\"8\"",
+          "=reference\n\"9\"",
+          "=reference\n\"10\"",
+          "=reference\n\"11\"",
+          "=reference\n\"12\"",
+          "=reference\n\"13\""
+        ]
+      },
+      {
+        "id": "n15",
+        "seed": false,
+        "via": [
+          "=reference\n\"0\"",
+          "=reference\n\"1\"",
+          "=reference\n\"2\"",
+          "=reference\n\"3\"",
+          "=reference\n\"4\"",
+          "=reference\n\"5\"",
+          "=reference\n\"6\"",
+          "=reference\n\"7\"",
+          "=reference\n\"8\"",
+          "=reference\n\"9\"",
+          "=reference\n\"10\"",
+          "=reference\n\"11\"",
+          "=reference\n\"12\"",
+          "=reference\n\"13\"",
+          "=reference\n\"14\""
+        ]
+      }
+    ],
+    "retained": [],
+    "blockers": [],
+    "nullings": [],
+    "directDangling": [
+      "=reference\n\"0\"",
+      "=reference\n\"16\""
+    ],
+    "snapshot": {
+      "records": [],
+      "references": []
+    },
+    "literalEndpoints": 0
+  }
+}
+

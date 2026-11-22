@@ -1,0 +1,176 @@
+{
+  "fixtures": [
+    {
+      "status": "ready",
+      "plans": [
+        {
+          "system": "inventory",
+          "target": 6,
+          "status": "complete",
+          "totalMB": 102,
+          "chain": [
+            {
+              "step": 1,
+              "id": "stock-full",
+              "from": null,
+              "to": 2,
+              "size": 80,
+              "sourceIndex": 0
+            },
+            {
+              "step": 2,
+              "id": "stock-step-a",
+              "from": 2,
+              "to": 4,
+              "size": 10,
+              "sourceIndex": 2
+            },
+            {
+              "step": 3,
+              "id": "stock-step-b",
+              "from": 4,
+              "to": 6,
+              "size": 12,
+              "sourceIndex": 3
+            }
+          ],
+          "reachableVersions": [
+            2,
+            4,
+            6
+          ],
+          "baseline": {
+            "archive": "stock-shortcut",
+            "size": 70,
+            "complete": false,
+            "description": "Newest-file-only baseline selects greatest to ≤target; source-order ties. A delta alone is not a restore chain."
+          },
+          "missingBases": [],
+          "unused": [
+            "stock-shortcut"
+          ]
+        },
+        {
+          "system": "orders",
+          "target": 4,
+          "status": "complete",
+          "totalMB": 48,
+          "chain": [
+            {
+              "step": 1,
+              "id": "orders-full",
+              "from": null,
+              "to": 1,
+              "size": 40,
+              "sourceIndex": 4
+            },
+            {
+              "step": 2,
+              "id": "orders-delta",
+              "from": 1,
+              "to": 4,
+              "size": 8,
+              "sourceIndex": 5
+            }
+          ],
+          "reachableVersions": [
+            1,
+            4
+          ],
+          "baseline": {
+            "archive": "orders-delta",
+            "size": 8,
+            "complete": false,
+            "description": "Newest-file-only baseline selects greatest to ≤target; source-order ties. A delta alone is not a restore chain."
+          },
+          "missingBases": [],
+          "unused": []
+        }
+      ],
+      "complete": 2,
+      "totalSystems": 2,
+      "totalMB": 150,
+      "baselineComplete": 0,
+      "scope": "Hypothetical metadata only: full snapshots and forward exact-base deltas. MB is the supplied integer transfer size, not measured restore time. No file validity, checksums, retention or engine compatibility verification."
+    },
+    {
+      "status": "ready",
+      "plans": [
+        {
+          "system": "articles",
+          "target": 5,
+          "status": "gap",
+          "totalMB": null,
+          "chain": [],
+          "reachableVersions": [
+            1
+          ],
+          "baseline": {
+            "archive": "story-delta",
+            "size": 6,
+            "complete": false,
+            "description": "Newest-file-only baseline selects greatest to ≤target; source-order ties. A delta alone is not a restore chain."
+          },
+          "missingBases": [
+            {
+              "archive": "story-delta",
+              "requires": 3,
+              "sourceIndex": 1
+            }
+          ],
+          "unused": [
+            "story-full",
+            "story-delta"
+          ]
+        },
+        {
+          "system": "images",
+          "target": 7,
+          "status": "complete",
+          "totalMB": 75,
+          "chain": [
+            {
+              "step": 1,
+              "id": "image-new-full",
+              "from": null,
+              "to": 6,
+              "size": 60,
+              "sourceIndex": 4
+            },
+            {
+              "step": 2,
+              "id": "image-new-delta",
+              "from": 6,
+              "to": 7,
+              "size": 15,
+              "sourceIndex": 5
+            }
+          ],
+          "reachableVersions": [
+            2,
+            6,
+            7
+          ],
+          "baseline": {
+            "archive": "image-old-delta",
+            "size": 50,
+            "complete": false,
+            "description": "Newest-file-only baseline selects greatest to ≤target; source-order ties. A delta alone is not a restore chain."
+          },
+          "missingBases": [],
+          "unused": [
+            "image-old-full",
+            "image-old-delta"
+          ]
+        }
+      ],
+      "complete": 1,
+      "totalSystems": 2,
+      "totalMB": 75,
+      "baselineComplete": 0,
+      "scope": "Hypothetical metadata only: full snapshots and forward exact-base deltas. MB is the supplied integer transfer size, not measured restore time. No file validity, checksums, retention or engine compatibility verification."
+    }
+  ],
+  "randomDagsComparedWithExhaustiveEnumeration": 120,
+  "inputAndSchemaGuards": true
+}

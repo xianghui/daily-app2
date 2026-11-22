@@ -1859,3 +1859,10 @@ Local MiniLM reconciles informal exact-record access notes before mandatory acce
 
 
 Public release verified: matching Pages `a163aca93c8b87b09eaf67043bcfd8693a735f41` and workflow `45006112836` succeeded. Nine public gallery/app/worker/factory/WASM assets byte-match the combined site. Both public real-AI fixtures (12/12 simple record notes), full reviewed/export/maximum-batch/offline/privacy suite, independently parsed artifacts, all 798 gallery cards and the affected older app’s real worker/image/STL import/export regression passed. Combined size 998,792,100 bytes is below the unchanged 1 GB guard. Source staging excludes and preserves unrelated recovery work. No digest sent.
+
+
+## Restore Trail — 20261122-19
+
+Local MiniLM reconciles informal backup archive descriptions before mandatory system/dependency review. Exact forward-version paths expose missing bases and minimum-transfer full-plus-delta chains beyond newest-file-only selection; complete JSON/CSV/Markdown and ordered manifests retain every archive. Both tiny fixtures matched 12/12 simple system notes; unknown/negated descriptions still need holds. Metadata paths do not prove actual restorability. No storage access or restores. Shared worker/factory from `20261115-6` and WASM from `20261107-2` must remain published. Offline scope is fresh-worker inference in an already-open warmed page. Existing deployment sharing rules and 1 GB guard unchanged. See [workflow/privacy](20261122-19/README.md) and [observed validation](20261122-19/VALIDATION.md). No digest sent.
+
+Public release verified: matching Pages `7687927ae2024f80c8621b4dd78484a59defaec4` and workflow `45011039396` succeeded. Nine public gallery/app/worker/factory/WASM assets byte-match the combined site. Both public real-AI fixtures (12/12 simple system notes), complete reviewed/export/maximum-batch/offline/privacy checks, independently parsed artifacts and all 799 gallery cards passed. Combined size 999,057,322 bytes remains below the unchanged guard. Source staging excludes and preserves unrelated recovery work. No digest sent.

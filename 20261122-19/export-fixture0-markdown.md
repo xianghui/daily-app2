@@ -1,0 +1,318 @@
+# Synthetic workshop snapshots
+
+Semantic similarity is not system identity. Any held archive withholds the whole plan. Metadata cannot prove backups are restorable. No storage access or restoration.
+
+## Reviewed backup-chain worksheet
+
+Hypothetical metadata only: full snapshots and forward exact-base deltas. MB is the supplied integer transfer size, not measured restore time. No file validity, checksums, retention or engine compatibility verification.
+
+COMPLETE TARGETS: 2/2; newest-file-only baseline: 0/2
+
+TRANSFER SIZE: 150 MB across complete targets only. Gapped targets are not included.
+
+SYSTEM inventory → snapshot 6 [complete]
+Newest-file-only: stock-shortcut / incomplete
+1. stock-full | FULL → 2 | 80 MB | source row 1
+2. stock-step-a | 2 → 4 | 10 MB | source row 3
+3. stock-step-b | 4 → 6 | 12 MB | source row 4
+Reachable snapshots: 2, 4, 6
+Unavailable base witnesses: none
+Unused archive IDs retained: stock-shortcut
+
+SYSTEM orders → snapshot 4 [complete]
+Newest-file-only: orders-delta / incomplete
+1. orders-full | FULL → 1 | 40 MB | source row 5
+2. orders-delta | 1 → 4 | 8 MB | source row 6
+Reachable snapshots: 1, 4
+Unavailable base witnesses: none
+Unused archive IDs retained: 
+
+Costs and counts describe supplied metadata, not measured productivity or model accuracy.
+
+## Complete original and review audit
+
+{
+  "schema": "restore-trail/1",
+  "originalInput": {
+    "title": "Synthetic workshop snapshots",
+    "systems": [
+      {
+        "id": "inventory",
+        "description": "Warehouse inventory stock quantities",
+        "target": 6
+      },
+      {
+        "id": "orders",
+        "description": "Customer sales order transactions",
+        "target": 4
+      }
+    ],
+    "archives": [
+      {
+        "id": "stock-full",
+        "systemNote": "Warehouse stock quantity inventory",
+        "from": null,
+        "to": 2,
+        "size": 80
+      },
+      {
+        "id": "stock-shortcut",
+        "systemNote": "Warehouse inventory on hand",
+        "from": 2,
+        "to": 6,
+        "size": 70
+      },
+      {
+        "id": "stock-step-a",
+        "systemNote": "Warehouse stock quantity inventory",
+        "from": 2,
+        "to": 4,
+        "size": 10
+      },
+      {
+        "id": "stock-step-b",
+        "systemNote": "Warehouse inventory on hand",
+        "from": 4,
+        "to": 6,
+        "size": 12
+      },
+      {
+        "id": "orders-full",
+        "systemNote": "Customer sales order transactions",
+        "from": null,
+        "to": 1,
+        "size": 40
+      },
+      {
+        "id": "orders-delta",
+        "systemNote": "Customer order sales transactions",
+        "from": 1,
+        "to": 4,
+        "size": 8
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "id": "stock-full",
+      "resource": "inventory",
+      "aiResource": "inventory",
+      "from": null,
+      "to": 2,
+      "size": 80,
+      "evidence": [
+        {
+          "resource": "inventory",
+          "score": 0.9639924146528034
+        },
+        {
+          "resource": "orders",
+          "score": 0.257298162043855
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 1,
+      "id": "stock-shortcut",
+      "resource": "inventory",
+      "aiResource": "inventory",
+      "from": 2,
+      "to": 6,
+      "size": 70,
+      "evidence": [
+        {
+          "resource": "inventory",
+          "score": 0.8564056717547953
+        },
+        {
+          "resource": "orders",
+          "score": 0.24219133010218652
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "id": "stock-step-a",
+      "resource": "inventory",
+      "aiResource": "inventory",
+      "from": 2,
+      "to": 4,
+      "size": 10,
+      "evidence": [
+        {
+          "resource": "inventory",
+          "score": 0.962832685929452
+        },
+        {
+          "resource": "orders",
+          "score": 0.2585894126588126
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 3,
+      "id": "stock-step-b",
+      "resource": "inventory",
+      "aiResource": "inventory",
+      "from": 4,
+      "to": 6,
+      "size": 12,
+      "evidence": [
+        {
+          "resource": "inventory",
+          "score": 0.8577148931465255
+        },
+        {
+          "resource": "orders",
+          "score": 0.2466806957103678
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 4,
+      "id": "orders-full",
+      "resource": "orders",
+      "aiResource": "orders",
+      "from": null,
+      "to": 1,
+      "size": 40,
+      "evidence": [
+        {
+          "resource": "orders",
+          "score": 0.9932039400824859
+        },
+        {
+          "resource": "inventory",
+          "score": 0.26489100026471185
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 5,
+      "id": "orders-delta",
+      "resource": "orders",
+      "aiResource": "orders",
+      "from": 1,
+      "to": 4,
+      "size": 8,
+      "evidence": [
+        {
+          "resource": "orders",
+          "score": 0.9733744549745109
+        },
+        {
+          "resource": "inventory",
+          "score": 0.30701920854219583
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "warning": "Semantic similarity is not system identity. Any held archive withholds the whole plan. Metadata cannot prove backups are restorable. No storage access or restoration.",
+  "analysis": {
+    "status": "ready",
+    "plans": [
+      {
+        "system": "inventory",
+        "target": 6,
+        "status": "complete",
+        "totalMB": 102,
+        "chain": [
+          {
+            "step": 1,
+            "id": "stock-full",
+            "from": null,
+            "to": 2,
+            "size": 80,
+            "sourceIndex": 0
+          },
+          {
+            "step": 2,
+            "id": "stock-step-a",
+            "from": 2,
+            "to": 4,
+            "size": 10,
+            "sourceIndex": 2
+          },
+          {
+            "step": 3,
+            "id": "stock-step-b",
+            "from": 4,
+            "to": 6,
+            "size": 12,
+            "sourceIndex": 3
+          }
+        ],
+        "reachableVersions": [
+          2,
+          4,
+          6
+        ],
+        "baseline": {
+          "archive": "stock-shortcut",
+          "size": 70,
+          "complete": false,
+          "description": "Newest-file-only baseline selects greatest to ≤target; source-order ties. A delta alone is not a restore chain."
+        },
+        "missingBases": [],
+        "unused": [
+          "stock-shortcut"
+        ]
+      },
+      {
+        "system": "orders",
+        "target": 4,
+        "status": "complete",
+        "totalMB": 48,
+        "chain": [
+          {
+            "step": 1,
+            "id": "orders-full",
+            "from": null,
+            "to": 1,
+            "size": 40,
+            "sourceIndex": 4
+          },
+          {
+            "step": 2,
+            "id": "orders-delta",
+            "from": 1,
+            "to": 4,
+            "size": 8,
+            "sourceIndex": 5
+          }
+        ],
+        "reachableVersions": [
+          1,
+          4
+        ],
+        "baseline": {
+          "archive": "orders-delta",
+          "size": 8,
+          "complete": false,
+          "description": "Newest-file-only baseline selects greatest to ≤target; source-order ties. A delta alone is not a restore chain."
+        },
+        "missingBases": [],
+        "unused": []
+      }
+    ],
+    "complete": 2,
+    "totalSystems": 2,
+    "totalMB": 150,
+    "baselineComplete": 0,
+    "scope": "Hypothetical metadata only: full snapshots and forward exact-base deltas. MB is the supplied integer transfer size, not measured restore time. No file validity, checksums, retention or engine compatibility verification."
+  }
+}
+

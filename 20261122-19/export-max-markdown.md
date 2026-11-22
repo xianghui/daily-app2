@@ -1,0 +1,2296 @@
+# Maximum backup metadata
+
+Semantic similarity is not system identity. Any held archive withholds the whole plan. Metadata cannot prove backups are restorable. No storage access or restoration.
+
+## Reviewed backup-chain worksheet
+
+Hypothetical metadata only: full snapshots and forward exact-base deltas. MB is the supplied integer transfer size, not measured restore time. No file validity, checksums, retention or engine compatibility verification.
+
+COMPLETE TARGETS: 8/8; newest-file-only baseline: 0/8
+
+TRANSFER SIZE: 528 MB across complete targets only. Gapped targets are not included.
+
+SYSTEM r0 → snapshot 3 [complete]
+Newest-file-only: =row
+"3" / incomplete
+1. =row
+"0" | FULL → 0 | 1 MB | source row 1
+2. =row
+"1" | 0 → 1 | 2 MB | source row 2
+3. =row
+"2" | 1 → 2 | 3 MB | source row 3
+4. =row
+"3" | 2 → 3 | 4 MB | source row 4
+Reachable snapshots: 0, 1, 2, 3
+Unavailable base witnesses: none
+Unused archive IDs retained: 
+
+SYSTEM r1 → snapshot 3 [complete]
+Newest-file-only: =row
+"7" / incomplete
+1. =row
+"4" | FULL → 0 | 5 MB | source row 5
+2. =row
+"5" | 0 → 1 | 6 MB | source row 6
+3. =row
+"6" | 1 → 2 | 7 MB | source row 7
+4. =row
+"7" | 2 → 3 | 8 MB | source row 8
+Reachable snapshots: 0, 1, 2, 3
+Unavailable base witnesses: none
+Unused archive IDs retained: 
+
+SYSTEM r2 → snapshot 3 [complete]
+Newest-file-only: =row
+"11" / incomplete
+1. =row
+"8" | FULL → 0 | 9 MB | source row 9
+2. =row
+"9" | 0 → 1 | 10 MB | source row 10
+3. =row
+"10" | 1 → 2 | 11 MB | source row 11
+4. =row
+"11" | 2 → 3 | 12 MB | source row 12
+Reachable snapshots: 0, 1, 2, 3
+Unavailable base witnesses: none
+Unused archive IDs retained: 
+
+SYSTEM r3 → snapshot 3 [complete]
+Newest-file-only: =row
+"15" / incomplete
+1. =row
+"12" | FULL → 0 | 13 MB | source row 13
+2. =row
+"13" | 0 → 1 | 14 MB | source row 14
+3. =row
+"14" | 1 → 2 | 15 MB | source row 15
+4. =row
+"15" | 2 → 3 | 16 MB | source row 16
+Reachable snapshots: 0, 1, 2, 3
+Unavailable base witnesses: none
+Unused archive IDs retained: 
+
+SYSTEM r4 → snapshot 3 [complete]
+Newest-file-only: =row
+"19" / incomplete
+1. =row
+"16" | FULL → 0 | 17 MB | source row 17
+2. =row
+"17" | 0 → 1 | 18 MB | source row 18
+3. =row
+"18" | 1 → 2 | 19 MB | source row 19
+4. =row
+"19" | 2 → 3 | 20 MB | source row 20
+Reachable snapshots: 0, 1, 2, 3
+Unavailable base witnesses: none
+Unused archive IDs retained: 
+
+SYSTEM r5 → snapshot 3 [complete]
+Newest-file-only: =row
+"23" / incomplete
+1. =row
+"20" | FULL → 0 | 21 MB | source row 21
+2. =row
+"21" | 0 → 1 | 22 MB | source row 22
+3. =row
+"22" | 1 → 2 | 23 MB | source row 23
+4. =row
+"23" | 2 → 3 | 24 MB | source row 24
+Reachable snapshots: 0, 1, 2, 3
+Unavailable base witnesses: none
+Unused archive IDs retained: 
+
+SYSTEM r6 → snapshot 3 [complete]
+Newest-file-only: =row
+"27" / incomplete
+1. =row
+"24" | FULL → 0 | 25 MB | source row 25
+2. =row
+"25" | 0 → 1 | 26 MB | source row 26
+3. =row
+"26" | 1 → 2 | 27 MB | source row 27
+4. =row
+"27" | 2 → 3 | 28 MB | source row 28
+Reachable snapshots: 0, 1, 2, 3
+Unavailable base witnesses: none
+Unused archive IDs retained: 
+
+SYSTEM r7 → snapshot 3 [complete]
+Newest-file-only: =row
+"31" / incomplete
+1. =row
+"28" | FULL → 0 | 29 MB | source row 29
+2. =row
+"29" | 0 → 1 | 30 MB | source row 30
+3. =row
+"30" | 1 → 2 | 31 MB | source row 31
+4. =row
+"31" | 2 → 3 | 32 MB | source row 32
+Reachable snapshots: 0, 1, 2, 3
+Unavailable base witnesses: none
+Unused archive IDs retained: 
+
+Costs and counts describe supplied metadata, not measured productivity or model accuracy.
+
+## Complete original and review audit
+
+{
+  "schema": "restore-trail/1",
+  "originalInput": {
+    "title": "Maximum backup metadata",
+    "systems": [
+      {
+        "id": "r0",
+        "description": "Synthetic system 0",
+        "target": 3
+      },
+      {
+        "id": "r1",
+        "description": "Synthetic system 1",
+        "target": 3
+      },
+      {
+        "id": "r2",
+        "description": "Synthetic system 2",
+        "target": 3
+      },
+      {
+        "id": "r3",
+        "description": "Synthetic system 3",
+        "target": 3
+      },
+      {
+        "id": "r4",
+        "description": "Synthetic system 4",
+        "target": 3
+      },
+      {
+        "id": "r5",
+        "description": "Synthetic system 5",
+        "target": 3
+      },
+      {
+        "id": "r6",
+        "description": "Synthetic system 6",
+        "target": 3
+      },
+      {
+        "id": "r7",
+        "description": "Synthetic system 7",
+        "target": 3
+      }
+    ],
+    "archives": [
+      {
+        "id": "=row\n\"0\"",
+        "systemNote": "Synthetic system 0",
+        "from": null,
+        "to": 0,
+        "size": 1
+      },
+      {
+        "id": "=row\n\"1\"",
+        "systemNote": "Synthetic system 0",
+        "from": 0,
+        "to": 1,
+        "size": 2
+      },
+      {
+        "id": "=row\n\"2\"",
+        "systemNote": "Synthetic system 0",
+        "from": 1,
+        "to": 2,
+        "size": 3
+      },
+      {
+        "id": "=row\n\"3\"",
+        "systemNote": "Synthetic system 0",
+        "from": 2,
+        "to": 3,
+        "size": 4
+      },
+      {
+        "id": "=row\n\"4\"",
+        "systemNote": "Synthetic system 1",
+        "from": null,
+        "to": 0,
+        "size": 5
+      },
+      {
+        "id": "=row\n\"5\"",
+        "systemNote": "Synthetic system 1",
+        "from": 0,
+        "to": 1,
+        "size": 6
+      },
+      {
+        "id": "=row\n\"6\"",
+        "systemNote": "Synthetic system 1",
+        "from": 1,
+        "to": 2,
+        "size": 7
+      },
+      {
+        "id": "=row\n\"7\"",
+        "systemNote": "Synthetic system 1",
+        "from": 2,
+        "to": 3,
+        "size": 8
+      },
+      {
+        "id": "=row\n\"8\"",
+        "systemNote": "Synthetic system 2",
+        "from": null,
+        "to": 0,
+        "size": 9
+      },
+      {
+        "id": "=row\n\"9\"",
+        "systemNote": "Synthetic system 2",
+        "from": 0,
+        "to": 1,
+        "size": 10
+      },
+      {
+        "id": "=row\n\"10\"",
+        "systemNote": "Synthetic system 2",
+        "from": 1,
+        "to": 2,
+        "size": 11
+      },
+      {
+        "id": "=row\n\"11\"",
+        "systemNote": "Synthetic system 2",
+        "from": 2,
+        "to": 3,
+        "size": 12
+      },
+      {
+        "id": "=row\n\"12\"",
+        "systemNote": "Synthetic system 3",
+        "from": null,
+        "to": 0,
+        "size": 13
+      },
+      {
+        "id": "=row\n\"13\"",
+        "systemNote": "Synthetic system 3",
+        "from": 0,
+        "to": 1,
+        "size": 14
+      },
+      {
+        "id": "=row\n\"14\"",
+        "systemNote": "Synthetic system 3",
+        "from": 1,
+        "to": 2,
+        "size": 15
+      },
+      {
+        "id": "=row\n\"15\"",
+        "systemNote": "Synthetic system 3",
+        "from": 2,
+        "to": 3,
+        "size": 16
+      },
+      {
+        "id": "=row\n\"16\"",
+        "systemNote": "Synthetic system 4",
+        "from": null,
+        "to": 0,
+        "size": 17
+      },
+      {
+        "id": "=row\n\"17\"",
+        "systemNote": "Synthetic system 4",
+        "from": 0,
+        "to": 1,
+        "size": 18
+      },
+      {
+        "id": "=row\n\"18\"",
+        "systemNote": "Synthetic system 4",
+        "from": 1,
+        "to": 2,
+        "size": 19
+      },
+      {
+        "id": "=row\n\"19\"",
+        "systemNote": "Synthetic system 4",
+        "from": 2,
+        "to": 3,
+        "size": 20
+      },
+      {
+        "id": "=row\n\"20\"",
+        "systemNote": "Synthetic system 5",
+        "from": null,
+        "to": 0,
+        "size": 21
+      },
+      {
+        "id": "=row\n\"21\"",
+        "systemNote": "Synthetic system 5",
+        "from": 0,
+        "to": 1,
+        "size": 22
+      },
+      {
+        "id": "=row\n\"22\"",
+        "systemNote": "Synthetic system 5",
+        "from": 1,
+        "to": 2,
+        "size": 23
+      },
+      {
+        "id": "=row\n\"23\"",
+        "systemNote": "Synthetic system 5",
+        "from": 2,
+        "to": 3,
+        "size": 24
+      },
+      {
+        "id": "=row\n\"24\"",
+        "systemNote": "Synthetic system 6",
+        "from": null,
+        "to": 0,
+        "size": 25
+      },
+      {
+        "id": "=row\n\"25\"",
+        "systemNote": "Synthetic system 6",
+        "from": 0,
+        "to": 1,
+        "size": 26
+      },
+      {
+        "id": "=row\n\"26\"",
+        "systemNote": "Synthetic system 6",
+        "from": 1,
+        "to": 2,
+        "size": 27
+      },
+      {
+        "id": "=row\n\"27\"",
+        "systemNote": "Synthetic system 6",
+        "from": 2,
+        "to": 3,
+        "size": 28
+      },
+      {
+        "id": "=row\n\"28\"",
+        "systemNote": "Synthetic system 7",
+        "from": null,
+        "to": 0,
+        "size": 29
+      },
+      {
+        "id": "=row\n\"29\"",
+        "systemNote": "Synthetic system 7",
+        "from": 0,
+        "to": 1,
+        "size": 30
+      },
+      {
+        "id": "=row\n\"30\"",
+        "systemNote": "Synthetic system 7",
+        "from": 1,
+        "to": 2,
+        "size": 31
+      },
+      {
+        "id": "=row\n\"31\"",
+        "systemNote": "Synthetic system 7",
+        "from": 2,
+        "to": 3,
+        "size": 32
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "id": "=row\n\"0\"",
+      "resource": "r0",
+      "aiResource": "r0",
+      "from": null,
+      "to": 0,
+      "size": 1,
+      "evidence": [
+        {
+          "resource": "r0",
+          "score": 0.9931292263690391
+        },
+        {
+          "resource": "r1",
+          "score": 0.865993005330153
+        },
+        {
+          "resource": "r2",
+          "score": 0.8504527224460331
+        },
+        {
+          "resource": "r4",
+          "score": 0.8388242735953128
+        },
+        {
+          "resource": "r6",
+          "score": 0.835015583594331
+        },
+        {
+          "resource": "r5",
+          "score": 0.8186582449376613
+        },
+        {
+          "resource": "r3",
+          "score": 0.8185868632217229
+        },
+        {
+          "resource": "r7",
+          "score": 0.7984383146766847
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 1,
+      "id": "=row\n\"1\"",
+      "resource": "r0",
+      "aiResource": "r0",
+      "from": 0,
+      "to": 1,
+      "size": 2,
+      "evidence": [
+        {
+          "resource": "r0",
+          "score": 0.9931292263690391
+        },
+        {
+          "resource": "r1",
+          "score": 0.865993005330153
+        },
+        {
+          "resource": "r2",
+          "score": 0.8504527224460331
+        },
+        {
+          "resource": "r4",
+          "score": 0.8388242735953128
+        },
+        {
+          "resource": "r6",
+          "score": 0.835015583594331
+        },
+        {
+          "resource": "r5",
+          "score": 0.8186582449376613
+        },
+        {
+          "resource": "r3",
+          "score": 0.8185868632217229
+        },
+        {
+          "resource": "r7",
+          "score": 0.7984383146766847
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "id": "=row\n\"2\"",
+      "resource": "r0",
+      "aiResource": "r0",
+      "from": 1,
+      "to": 2,
+      "size": 3,
+      "evidence": [
+        {
+          "resource": "r0",
+          "score": 0.9931292263690391
+        },
+        {
+          "resource": "r1",
+          "score": 0.865993005330153
+        },
+        {
+          "resource": "r2",
+          "score": 0.8504527224460331
+        },
+        {
+          "resource": "r4",
+          "score": 0.8388242735953128
+        },
+        {
+          "resource": "r6",
+          "score": 0.835015583594331
+        },
+        {
+          "resource": "r5",
+          "score": 0.8186582449376613
+        },
+        {
+          "resource": "r3",
+          "score": 0.8185868632217229
+        },
+        {
+          "resource": "r7",
+          "score": 0.7984383146766847
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 3,
+      "id": "=row\n\"3\"",
+      "resource": "r0",
+      "aiResource": "r0",
+      "from": 2,
+      "to": 3,
+      "size": 4,
+      "evidence": [
+        {
+          "resource": "r0",
+          "score": 0.9931292263690391
+        },
+        {
+          "resource": "r1",
+          "score": 0.865993005330153
+        },
+        {
+          "resource": "r2",
+          "score": 0.8504527224460331
+        },
+        {
+          "resource": "r4",
+          "score": 0.8388242735953128
+        },
+        {
+          "resource": "r6",
+          "score": 0.835015583594331
+        },
+        {
+          "resource": "r5",
+          "score": 0.8186582449376613
+        },
+        {
+          "resource": "r3",
+          "score": 0.8185868632217229
+        },
+        {
+          "resource": "r7",
+          "score": 0.7984383146766847
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 4,
+      "id": "=row\n\"4\"",
+      "resource": "r1",
+      "aiResource": "r1",
+      "from": null,
+      "to": 0,
+      "size": 5,
+      "evidence": [
+        {
+          "resource": "r1",
+          "score": 0.9924774928428052
+        },
+        {
+          "resource": "r2",
+          "score": 0.9513759418629613
+        },
+        {
+          "resource": "r3",
+          "score": 0.9273242246421196
+        },
+        {
+          "resource": "r4",
+          "score": 0.9111892316254621
+        },
+        {
+          "resource": "r6",
+          "score": 0.9033368680955247
+        },
+        {
+          "resource": "r5",
+          "score": 0.8973075353978733
+        },
+        {
+          "resource": "r7",
+          "score": 0.888214363999536
+        },
+        {
+          "resource": "r0",
+          "score": 0.8514767090855546
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 5,
+      "id": "=row\n\"5\"",
+      "resource": "r1",
+      "aiResource": "r1",
+      "from": 0,
+      "to": 1,
+      "size": 6,
+      "evidence": [
+        {
+          "resource": "r1",
+          "score": 0.9924774928428052
+        },
+        {
+          "resource": "r2",
+          "score": 0.9513759418629613
+        },
+        {
+          "resource": "r3",
+          "score": 0.9273242246421196
+        },
+        {
+          "resource": "r4",
+          "score": 0.9111892316254621
+        },
+        {
+          "resource": "r6",
+          "score": 0.9033368680955247
+        },
+        {
+          "resource": "r5",
+          "score": 0.8973075353978733
+        },
+        {
+          "resource": "r7",
+          "score": 0.888214363999536
+        },
+        {
+          "resource": "r0",
+          "score": 0.8514767090855546
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 6,
+      "id": "=row\n\"6\"",
+      "resource": "r1",
+      "aiResource": "r1",
+      "from": 1,
+      "to": 2,
+      "size": 7,
+      "evidence": [
+        {
+          "resource": "r1",
+          "score": 0.9924774928428052
+        },
+        {
+          "resource": "r2",
+          "score": 0.9513759418629613
+        },
+        {
+          "resource": "r3",
+          "score": 0.9273242246421196
+        },
+        {
+          "resource": "r4",
+          "score": 0.9111892316254621
+        },
+        {
+          "resource": "r6",
+          "score": 0.9033368680955247
+        },
+        {
+          "resource": "r5",
+          "score": 0.8973075353978733
+        },
+        {
+          "resource": "r7",
+          "score": 0.888214363999536
+        },
+        {
+          "resource": "r0",
+          "score": 0.8514767090855546
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 7,
+      "id": "=row\n\"7\"",
+      "resource": "r1",
+      "aiResource": "r1",
+      "from": 2,
+      "to": 3,
+      "size": 8,
+      "evidence": [
+        {
+          "resource": "r1",
+          "score": 0.9924774928428052
+        },
+        {
+          "resource": "r2",
+          "score": 0.9513759418629613
+        },
+        {
+          "resource": "r3",
+          "score": 0.9273242246421196
+        },
+        {
+          "resource": "r4",
+          "score": 0.9111892316254621
+        },
+        {
+          "resource": "r6",
+          "score": 0.9033368680955247
+        },
+        {
+          "resource": "r5",
+          "score": 0.8973075353978733
+        },
+        {
+          "resource": "r7",
+          "score": 0.888214363999536
+        },
+        {
+          "resource": "r0",
+          "score": 0.8514767090855546
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 8,
+      "id": "=row\n\"8\"",
+      "resource": "r2",
+      "aiResource": "r2",
+      "from": null,
+      "to": 0,
+      "size": 9,
+      "evidence": [
+        {
+          "resource": "r2",
+          "score": 0.9909635779951932
+        },
+        {
+          "resource": "r1",
+          "score": 0.9397132829464744
+        },
+        {
+          "resource": "r3",
+          "score": 0.9223467739218173
+        },
+        {
+          "resource": "r4",
+          "score": 0.910820896460129
+        },
+        {
+          "resource": "r6",
+          "score": 0.8927174773663774
+        },
+        {
+          "resource": "r7",
+          "score": 0.8845961116095679
+        },
+        {
+          "resource": "r5",
+          "score": 0.8820687360496975
+        },
+        {
+          "resource": "r0",
+          "score": 0.8160335717846294
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 9,
+      "id": "=row\n\"9\"",
+      "resource": "r2",
+      "aiResource": "r2",
+      "from": 0,
+      "to": 1,
+      "size": 10,
+      "evidence": [
+        {
+          "resource": "r2",
+          "score": 0.9909635779951932
+        },
+        {
+          "resource": "r1",
+          "score": 0.9397132829464744
+        },
+        {
+          "resource": "r3",
+          "score": 0.9223467739218173
+        },
+        {
+          "resource": "r4",
+          "score": 0.910820896460129
+        },
+        {
+          "resource": "r6",
+          "score": 0.8927174773663774
+        },
+        {
+          "resource": "r7",
+          "score": 0.8845961116095679
+        },
+        {
+          "resource": "r5",
+          "score": 0.8820687360496975
+        },
+        {
+          "resource": "r0",
+          "score": 0.8160335717846294
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 10,
+      "id": "=row\n\"10\"",
+      "resource": "r2",
+      "aiResource": "r2",
+      "from": 1,
+      "to": 2,
+      "size": 11,
+      "evidence": [
+        {
+          "resource": "r2",
+          "score": 0.9909635779951932
+        },
+        {
+          "resource": "r1",
+          "score": 0.9397132829464744
+        },
+        {
+          "resource": "r3",
+          "score": 0.9223467739218173
+        },
+        {
+          "resource": "r4",
+          "score": 0.910820896460129
+        },
+        {
+          "resource": "r6",
+          "score": 0.8927174773663774
+        },
+        {
+          "resource": "r7",
+          "score": 0.8845961116095679
+        },
+        {
+          "resource": "r5",
+          "score": 0.8820687360496975
+        },
+        {
+          "resource": "r0",
+          "score": 0.8160335717846294
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 11,
+      "id": "=row\n\"11\"",
+      "resource": "r2",
+      "aiResource": "r2",
+      "from": 2,
+      "to": 3,
+      "size": 12,
+      "evidence": [
+        {
+          "resource": "r2",
+          "score": 0.9909635779951932
+        },
+        {
+          "resource": "r1",
+          "score": 0.9397132829464744
+        },
+        {
+          "resource": "r3",
+          "score": 0.9223467739218173
+        },
+        {
+          "resource": "r4",
+          "score": 0.910820896460129
+        },
+        {
+          "resource": "r6",
+          "score": 0.8927174773663774
+        },
+        {
+          "resource": "r7",
+          "score": 0.8845961116095679
+        },
+        {
+          "resource": "r5",
+          "score": 0.8820687360496975
+        },
+        {
+          "resource": "r0",
+          "score": 0.8160335717846294
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 12,
+      "id": "=row\n\"12\"",
+      "resource": "r3",
+      "aiResource": "r3",
+      "from": null,
+      "to": 0,
+      "size": 13,
+      "evidence": [
+        {
+          "resource": "r3",
+          "score": 0.988951576804284
+        },
+        {
+          "resource": "r2",
+          "score": 0.925329067951953
+        },
+        {
+          "resource": "r1",
+          "score": 0.9225736729736936
+        },
+        {
+          "resource": "r4",
+          "score": 0.9208880085710061
+        },
+        {
+          "resource": "r6",
+          "score": 0.9034248143409535
+        },
+        {
+          "resource": "r5",
+          "score": 0.8967557698786706
+        },
+        {
+          "resource": "r7",
+          "score": 0.8818134194965718
+        },
+        {
+          "resource": "r0",
+          "score": 0.8001857224915343
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 13,
+      "id": "=row\n\"13\"",
+      "resource": "r3",
+      "aiResource": "r3",
+      "from": 0,
+      "to": 1,
+      "size": 14,
+      "evidence": [
+        {
+          "resource": "r3",
+          "score": 0.988951576804284
+        },
+        {
+          "resource": "r2",
+          "score": 0.925329067951953
+        },
+        {
+          "resource": "r1",
+          "score": 0.9225736729736936
+        },
+        {
+          "resource": "r4",
+          "score": 0.9208880085710061
+        },
+        {
+          "resource": "r6",
+          "score": 0.9034248143409535
+        },
+        {
+          "resource": "r5",
+          "score": 0.8967557698786706
+        },
+        {
+          "resource": "r7",
+          "score": 0.8818134194965718
+        },
+        {
+          "resource": "r0",
+          "score": 0.8001857224915343
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 14,
+      "id": "=row\n\"14\"",
+      "resource": "r3",
+      "aiResource": "r3",
+      "from": 1,
+      "to": 2,
+      "size": 15,
+      "evidence": [
+        {
+          "resource": "r3",
+          "score": 0.988951576804284
+        },
+        {
+          "resource": "r2",
+          "score": 0.925329067951953
+        },
+        {
+          "resource": "r1",
+          "score": 0.9225736729736936
+        },
+        {
+          "resource": "r4",
+          "score": 0.9208880085710061
+        },
+        {
+          "resource": "r6",
+          "score": 0.9034248143409535
+        },
+        {
+          "resource": "r5",
+          "score": 0.8967557698786706
+        },
+        {
+          "resource": "r7",
+          "score": 0.8818134194965718
+        },
+        {
+          "resource": "r0",
+          "score": 0.8001857224915343
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 15,
+      "id": "=row\n\"15\"",
+      "resource": "r3",
+      "aiResource": "r3",
+      "from": 2,
+      "to": 3,
+      "size": 16,
+      "evidence": [
+        {
+          "resource": "r3",
+          "score": 0.988951576804284
+        },
+        {
+          "resource": "r2",
+          "score": 0.925329067951953
+        },
+        {
+          "resource": "r1",
+          "score": 0.9225736729736936
+        },
+        {
+          "resource": "r4",
+          "score": 0.9208880085710061
+        },
+        {
+          "resource": "r6",
+          "score": 0.9034248143409535
+        },
+        {
+          "resource": "r5",
+          "score": 0.8967557698786706
+        },
+        {
+          "resource": "r7",
+          "score": 0.8818134194965718
+        },
+        {
+          "resource": "r0",
+          "score": 0.8001857224915343
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 16,
+      "id": "=row\n\"16\"",
+      "resource": "r4",
+      "aiResource": "r4",
+      "from": null,
+      "to": 0,
+      "size": 17,
+      "evidence": [
+        {
+          "resource": "r4",
+          "score": 0.9929474801134965
+        },
+        {
+          "resource": "r3",
+          "score": 0.9268901769645664
+        },
+        {
+          "resource": "r2",
+          "score": 0.9133209740342916
+        },
+        {
+          "resource": "r5",
+          "score": 0.9088269681473018
+        },
+        {
+          "resource": "r6",
+          "score": 0.9044085159793382
+        },
+        {
+          "resource": "r1",
+          "score": 0.9002608129355302
+        },
+        {
+          "resource": "r7",
+          "score": 0.8838346065166973
+        },
+        {
+          "resource": "r0",
+          "score": 0.8202734317728524
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 17,
+      "id": "=row\n\"17\"",
+      "resource": "r4",
+      "aiResource": "r4",
+      "from": 0,
+      "to": 1,
+      "size": 18,
+      "evidence": [
+        {
+          "resource": "r4",
+          "score": 0.9929474801134965
+        },
+        {
+          "resource": "r3",
+          "score": 0.9268901769645664
+        },
+        {
+          "resource": "r2",
+          "score": 0.9133209740342916
+        },
+        {
+          "resource": "r5",
+          "score": 0.9088269681473018
+        },
+        {
+          "resource": "r6",
+          "score": 0.9044085159793382
+        },
+        {
+          "resource": "r1",
+          "score": 0.9002608129355302
+        },
+        {
+          "resource": "r7",
+          "score": 0.8838346065166973
+        },
+        {
+          "resource": "r0",
+          "score": 0.8202734317728524
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 18,
+      "id": "=row\n\"18\"",
+      "resource": "r4",
+      "aiResource": "r4",
+      "from": 1,
+      "to": 2,
+      "size": 19,
+      "evidence": [
+        {
+          "resource": "r4",
+          "score": 0.9929474801134965
+        },
+        {
+          "resource": "r3",
+          "score": 0.9268901769645664
+        },
+        {
+          "resource": "r2",
+          "score": 0.9133209740342916
+        },
+        {
+          "resource": "r5",
+          "score": 0.9088269681473018
+        },
+        {
+          "resource": "r6",
+          "score": 0.9044085159793382
+        },
+        {
+          "resource": "r1",
+          "score": 0.9002608129355302
+        },
+        {
+          "resource": "r7",
+          "score": 0.8838346065166973
+        },
+        {
+          "resource": "r0",
+          "score": 0.8202734317728524
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 19,
+      "id": "=row\n\"19\"",
+      "resource": "r4",
+      "aiResource": "r4",
+      "from": 2,
+      "to": 3,
+      "size": 20,
+      "evidence": [
+        {
+          "resource": "r4",
+          "score": 0.9929474801134965
+        },
+        {
+          "resource": "r3",
+          "score": 0.9268901769645664
+        },
+        {
+          "resource": "r2",
+          "score": 0.9133209740342916
+        },
+        {
+          "resource": "r5",
+          "score": 0.9088269681473018
+        },
+        {
+          "resource": "r6",
+          "score": 0.9044085159793382
+        },
+        {
+          "resource": "r1",
+          "score": 0.9002608129355302
+        },
+        {
+          "resource": "r7",
+          "score": 0.8838346065166973
+        },
+        {
+          "resource": "r0",
+          "score": 0.8202734317728524
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 20,
+      "id": "=row\n\"20\"",
+      "resource": "r5",
+      "aiResource": "r5",
+      "from": null,
+      "to": 0,
+      "size": 21,
+      "evidence": [
+        {
+          "resource": "r5",
+          "score": 0.9909140892405954
+        },
+        {
+          "resource": "r6",
+          "score": 0.9294118025789928
+        },
+        {
+          "resource": "r4",
+          "score": 0.917904984934125
+        },
+        {
+          "resource": "r7",
+          "score": 0.9177845808560199
+        },
+        {
+          "resource": "r3",
+          "score": 0.9140511424803047
+        },
+        {
+          "resource": "r1",
+          "score": 0.9125981998137414
+        },
+        {
+          "resource": "r2",
+          "score": 0.9107574377197276
+        },
+        {
+          "resource": "r0",
+          "score": 0.8214395747574996
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 21,
+      "id": "=row\n\"21\"",
+      "resource": "r5",
+      "aiResource": "r5",
+      "from": 0,
+      "to": 1,
+      "size": 22,
+      "evidence": [
+        {
+          "resource": "r5",
+          "score": 0.9909140892405954
+        },
+        {
+          "resource": "r6",
+          "score": 0.9294118025789928
+        },
+        {
+          "resource": "r4",
+          "score": 0.917904984934125
+        },
+        {
+          "resource": "r7",
+          "score": 0.9177845808560199
+        },
+        {
+          "resource": "r3",
+          "score": 0.9140511424803047
+        },
+        {
+          "resource": "r1",
+          "score": 0.9125981998137414
+        },
+        {
+          "resource": "r2",
+          "score": 0.9107574377197276
+        },
+        {
+          "resource": "r0",
+          "score": 0.8214395747574996
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 22,
+      "id": "=row\n\"22\"",
+      "resource": "r5",
+      "aiResource": "r5",
+      "from": 1,
+      "to": 2,
+      "size": 23,
+      "evidence": [
+        {
+          "resource": "r5",
+          "score": 0.9909140892405954
+        },
+        {
+          "resource": "r6",
+          "score": 0.9294118025789928
+        },
+        {
+          "resource": "r4",
+          "score": 0.917904984934125
+        },
+        {
+          "resource": "r7",
+          "score": 0.9177845808560199
+        },
+        {
+          "resource": "r3",
+          "score": 0.9140511424803047
+        },
+        {
+          "resource": "r1",
+          "score": 0.9125981998137414
+        },
+        {
+          "resource": "r2",
+          "score": 0.9107574377197276
+        },
+        {
+          "resource": "r0",
+          "score": 0.8214395747574996
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 23,
+      "id": "=row\n\"23\"",
+      "resource": "r5",
+      "aiResource": "r5",
+      "from": 2,
+      "to": 3,
+      "size": 24,
+      "evidence": [
+        {
+          "resource": "r5",
+          "score": 0.9909140892405954
+        },
+        {
+          "resource": "r6",
+          "score": 0.9294118025789928
+        },
+        {
+          "resource": "r4",
+          "score": 0.917904984934125
+        },
+        {
+          "resource": "r7",
+          "score": 0.9177845808560199
+        },
+        {
+          "resource": "r3",
+          "score": 0.9140511424803047
+        },
+        {
+          "resource": "r1",
+          "score": 0.9125981998137414
+        },
+        {
+          "resource": "r2",
+          "score": 0.9107574377197276
+        },
+        {
+          "resource": "r0",
+          "score": 0.8214395747574996
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 24,
+      "id": "=row\n\"24\"",
+      "resource": "r6",
+      "aiResource": "r6",
+      "from": null,
+      "to": 0,
+      "size": 25,
+      "evidence": [
+        {
+          "resource": "r6",
+          "score": 0.9917928029108684
+        },
+        {
+          "resource": "r5",
+          "score": 0.9153794195567942
+        },
+        {
+          "resource": "r7",
+          "score": 0.9123167810786388
+        },
+        {
+          "resource": "r4",
+          "score": 0.9073223592235405
+        },
+        {
+          "resource": "r3",
+          "score": 0.9038662433331963
+        },
+        {
+          "resource": "r2",
+          "score": 0.8966085818674868
+        },
+        {
+          "resource": "r1",
+          "score": 0.8910289661016333
+        },
+        {
+          "resource": "r0",
+          "score": 0.8119220452450312
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 25,
+      "id": "=row\n\"25\"",
+      "resource": "r6",
+      "aiResource": "r6",
+      "from": 0,
+      "to": 1,
+      "size": 26,
+      "evidence": [
+        {
+          "resource": "r6",
+          "score": 0.9917928029108684
+        },
+        {
+          "resource": "r5",
+          "score": 0.9153794195567942
+        },
+        {
+          "resource": "r7",
+          "score": 0.9123167810786388
+        },
+        {
+          "resource": "r4",
+          "score": 0.9073223592235405
+        },
+        {
+          "resource": "r3",
+          "score": 0.9038662433331963
+        },
+        {
+          "resource": "r2",
+          "score": 0.8966085818674868
+        },
+        {
+          "resource": "r1",
+          "score": 0.8910289661016333
+        },
+        {
+          "resource": "r0",
+          "score": 0.8119220452450312
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 26,
+      "id": "=row\n\"26\"",
+      "resource": "r6",
+      "aiResource": "r6",
+      "from": 1,
+      "to": 2,
+      "size": 27,
+      "evidence": [
+        {
+          "resource": "r6",
+          "score": 0.9917928029108684
+        },
+        {
+          "resource": "r5",
+          "score": 0.9153794195567942
+        },
+        {
+          "resource": "r7",
+          "score": 0.9123167810786388
+        },
+        {
+          "resource": "r4",
+          "score": 0.9073223592235405
+        },
+        {
+          "resource": "r3",
+          "score": 0.9038662433331963
+        },
+        {
+          "resource": "r2",
+          "score": 0.8966085818674868
+        },
+        {
+          "resource": "r1",
+          "score": 0.8910289661016333
+        },
+        {
+          "resource": "r0",
+          "score": 0.8119220452450312
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 27,
+      "id": "=row\n\"27\"",
+      "resource": "r6",
+      "aiResource": "r6",
+      "from": 2,
+      "to": 3,
+      "size": 28,
+      "evidence": [
+        {
+          "resource": "r6",
+          "score": 0.9917928029108684
+        },
+        {
+          "resource": "r5",
+          "score": 0.9153794195567942
+        },
+        {
+          "resource": "r7",
+          "score": 0.9123167810786388
+        },
+        {
+          "resource": "r4",
+          "score": 0.9073223592235405
+        },
+        {
+          "resource": "r3",
+          "score": 0.9038662433331963
+        },
+        {
+          "resource": "r2",
+          "score": 0.8966085818674868
+        },
+        {
+          "resource": "r1",
+          "score": 0.8910289661016333
+        },
+        {
+          "resource": "r0",
+          "score": 0.8119220452450312
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 28,
+      "id": "=row\n\"28\"",
+      "resource": "r7",
+      "aiResource": "r7",
+      "from": null,
+      "to": 0,
+      "size": 29,
+      "evidence": [
+        {
+          "resource": "r7",
+          "score": 0.9882977819437552
+        },
+        {
+          "resource": "r5",
+          "score": 0.9108798971899583
+        },
+        {
+          "resource": "r6",
+          "score": 0.9106320727242198
+        },
+        {
+          "resource": "r3",
+          "score": 0.8901636717213895
+        },
+        {
+          "resource": "r4",
+          "score": 0.8899231520209324
+        },
+        {
+          "resource": "r2",
+          "score": 0.8855537661064228
+        },
+        {
+          "resource": "r1",
+          "score": 0.8823738290147933
+        },
+        {
+          "resource": "r0",
+          "score": 0.7762455925063433
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 29,
+      "id": "=row\n\"29\"",
+      "resource": "r7",
+      "aiResource": "r7",
+      "from": 0,
+      "to": 1,
+      "size": 30,
+      "evidence": [
+        {
+          "resource": "r7",
+          "score": 0.9882977819437552
+        },
+        {
+          "resource": "r5",
+          "score": 0.9108798971899583
+        },
+        {
+          "resource": "r6",
+          "score": 0.9106320727242198
+        },
+        {
+          "resource": "r3",
+          "score": 0.8901636717213895
+        },
+        {
+          "resource": "r4",
+          "score": 0.8899231520209324
+        },
+        {
+          "resource": "r2",
+          "score": 0.8855537661064228
+        },
+        {
+          "resource": "r1",
+          "score": 0.8823738290147933
+        },
+        {
+          "resource": "r0",
+          "score": 0.7762455925063433
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 30,
+      "id": "=row\n\"30\"",
+      "resource": "r7",
+      "aiResource": "r7",
+      "from": 1,
+      "to": 2,
+      "size": 31,
+      "evidence": [
+        {
+          "resource": "r7",
+          "score": 0.9882977819437552
+        },
+        {
+          "resource": "r5",
+          "score": 0.9108798971899583
+        },
+        {
+          "resource": "r6",
+          "score": 0.9106320727242198
+        },
+        {
+          "resource": "r3",
+          "score": 0.8901636717213895
+        },
+        {
+          "resource": "r4",
+          "score": 0.8899231520209324
+        },
+        {
+          "resource": "r2",
+          "score": 0.8855537661064228
+        },
+        {
+          "resource": "r1",
+          "score": 0.8823738290147933
+        },
+        {
+          "resource": "r0",
+          "score": 0.7762455925063433
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 31,
+      "id": "=row\n\"31\"",
+      "resource": "r7",
+      "aiResource": "r7",
+      "from": 2,
+      "to": 3,
+      "size": 32,
+      "evidence": [
+        {
+          "resource": "r7",
+          "score": 0.9882977819437552
+        },
+        {
+          "resource": "r5",
+          "score": 0.9108798971899583
+        },
+        {
+          "resource": "r6",
+          "score": 0.9106320727242198
+        },
+        {
+          "resource": "r3",
+          "score": 0.8901636717213895
+        },
+        {
+          "resource": "r4",
+          "score": 0.8899231520209324
+        },
+        {
+          "resource": "r2",
+          "score": 0.8855537661064228
+        },
+        {
+          "resource": "r1",
+          "score": 0.8823738290147933
+        },
+        {
+          "resource": "r0",
+          "score": 0.7762455925063433
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "warning": "Semantic similarity is not system identity. Any held archive withholds the whole plan. Metadata cannot prove backups are restorable. No storage access or restoration.",
+  "analysis": {
+    "status": "ready",
+    "plans": [
+      {
+        "system": "r0",
+        "target": 3,
+        "status": "complete",
+        "totalMB": 10,
+        "chain": [
+          {
+            "step": 1,
+            "id": "=row\n\"0\"",
+            "from": null,
+            "to": 0,
+            "size": 1,
+            "sourceIndex": 0
+          },
+          {
+            "step": 2,
+            "id": "=row\n\"1\"",
+            "from": 0,
+            "to": 1,
+            "size": 2,
+            "sourceIndex": 1
+          },
+          {
+            "step": 3,
+            "id": "=row\n\"2\"",
+            "from": 1,
+            "to": 2,
+            "size": 3,
+            "sourceIndex": 2
+          },
+          {
+            "step": 4,
+            "id": "=row\n\"3\"",
+            "from": 2,
+            "to": 3,
+            "size": 4,
+            "sourceIndex": 3
+          }
+        ],
+        "reachableVersions": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "baseline": {
+          "archive": "=row\n\"3\"",
+          "size": 4,
+          "complete": false,
+          "description": "Newest-file-only baseline selects greatest to ≤target; source-order ties. A delta alone is not a restore chain."
+        },
+        "missingBases": [],
+        "unused": []
+      },
+      {
+        "system": "r1",
+        "target": 3,
+        "status": "complete",
+        "totalMB": 26,
+        "chain": [
+          {
+            "step": 1,
+            "id": "=row\n\"4\"",
+            "from": null,
+            "to": 0,
+            "size": 5,
+            "sourceIndex": 4
+          },
+          {
+            "step": 2,
+            "id": "=row\n\"5\"",
+            "from": 0,
+            "to": 1,
+            "size": 6,
+            "sourceIndex": 5
+          },
+          {
+            "step": 3,
+            "id": "=row\n\"6\"",
+            "from": 1,
+            "to": 2,
+            "size": 7,
+            "sourceIndex": 6
+          },
+          {
+            "step": 4,
+            "id": "=row\n\"7\"",
+            "from": 2,
+            "to": 3,
+            "size": 8,
+            "sourceIndex": 7
+          }
+        ],
+        "reachableVersions": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "baseline": {
+          "archive": "=row\n\"7\"",
+          "size": 8,
+          "complete": false,
+          "description": "Newest-file-only baseline selects greatest to ≤target; source-order ties. A delta alone is not a restore chain."
+        },
+        "missingBases": [],
+        "unused": []
+      },
+      {
+        "system": "r2",
+        "target": 3,
+        "status": "complete",
+        "totalMB": 42,
+        "chain": [
+          {
+            "step": 1,
+            "id": "=row\n\"8\"",
+            "from": null,
+            "to": 0,
+            "size": 9,
+            "sourceIndex": 8
+          },
+          {
+            "step": 2,
+            "id": "=row\n\"9\"",
+            "from": 0,
+            "to": 1,
+            "size": 10,
+            "sourceIndex": 9
+          },
+          {
+            "step": 3,
+            "id": "=row\n\"10\"",
+            "from": 1,
+            "to": 2,
+            "size": 11,
+            "sourceIndex": 10
+          },
+          {
+            "step": 4,
+            "id": "=row\n\"11\"",
+            "from": 2,
+            "to": 3,
+            "size": 12,
+            "sourceIndex": 11
+          }
+        ],
+        "reachableVersions": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "baseline": {
+          "archive": "=row\n\"11\"",
+          "size": 12,
+          "complete": false,
+          "description": "Newest-file-only baseline selects greatest to ≤target; source-order ties. A delta alone is not a restore chain."
+        },
+        "missingBases": [],
+        "unused": []
+      },
+      {
+        "system": "r3",
+        "target": 3,
+        "status": "complete",
+        "totalMB": 58,
+        "chain": [
+          {
+            "step": 1,
+            "id": "=row\n\"12\"",
+            "from": null,
+            "to": 0,
+            "size": 13,
+            "sourceIndex": 12
+          },
+          {
+            "step": 2,
+            "id": "=row\n\"13\"",
+            "from": 0,
+            "to": 1,
+            "size": 14,
+            "sourceIndex": 13
+          },
+          {
+            "step": 3,
+            "id": "=row\n\"14\"",
+            "from": 1,
+            "to": 2,
+            "size": 15,
+            "sourceIndex": 14
+          },
+          {
+            "step": 4,
+            "id": "=row\n\"15\"",
+            "from": 2,
+            "to": 3,
+            "size": 16,
+            "sourceIndex": 15
+          }
+        ],
+        "reachableVersions": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "baseline": {
+          "archive": "=row\n\"15\"",
+          "size": 16,
+          "complete": false,
+          "description": "Newest-file-only baseline selects greatest to ≤target; source-order ties. A delta alone is not a restore chain."
+        },
+        "missingBases": [],
+        "unused": []
+      },
+      {
+        "system": "r4",
+        "target": 3,
+        "status": "complete",
+        "totalMB": 74,
+        "chain": [
+          {
+            "step": 1,
+            "id": "=row\n\"16\"",
+            "from": null,
+            "to": 0,
+            "size": 17,
+            "sourceIndex": 16
+          },
+          {
+            "step": 2,
+            "id": "=row\n\"17\"",
+            "from": 0,
+            "to": 1,
+            "size": 18,
+            "sourceIndex": 17
+          },
+          {
+            "step": 3,
+            "id": "=row\n\"18\"",
+            "from": 1,
+            "to": 2,
+            "size": 19,
+            "sourceIndex": 18
+          },
+          {
+            "step": 4,
+            "id": "=row\n\"19\"",
+            "from": 2,
+            "to": 3,
+            "size": 20,
+            "sourceIndex": 19
+          }
+        ],
+        "reachableVersions": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "baseline": {
+          "archive": "=row\n\"19\"",
+          "size": 20,
+          "complete": false,
+          "description": "Newest-file-only baseline selects greatest to ≤target; source-order ties. A delta alone is not a restore chain."
+        },
+        "missingBases": [],
+        "unused": []
+      },
+      {
+        "system": "r5",
+        "target": 3,
+        "status": "complete",
+        "totalMB": 90,
+        "chain": [
+          {
+            "step": 1,
+            "id": "=row\n\"20\"",
+            "from": null,
+            "to": 0,
+            "size": 21,
+            "sourceIndex": 20
+          },
+          {
+            "step": 2,
+            "id": "=row\n\"21\"",
+            "from": 0,
+            "to": 1,
+            "size": 22,
+            "sourceIndex": 21
+          },
+          {
+            "step": 3,
+            "id": "=row\n\"22\"",
+            "from": 1,
+            "to": 2,
+            "size": 23,
+            "sourceIndex": 22
+          },
+          {
+            "step": 4,
+            "id": "=row\n\"23\"",
+            "from": 2,
+            "to": 3,
+            "size": 24,
+            "sourceIndex": 23
+          }
+        ],
+        "reachableVersions": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "baseline": {
+          "archive": "=row\n\"23\"",
+          "size": 24,
+          "complete": false,
+          "description": "Newest-file-only baseline selects greatest to ≤target; source-order ties. A delta alone is not a restore chain."
+        },
+        "missingBases": [],
+        "unused": []
+      },
+      {
+        "system": "r6",
+        "target": 3,
+        "status": "complete",
+        "totalMB": 106,
+        "chain": [
+          {
+            "step": 1,
+            "id": "=row\n\"24\"",
+            "from": null,
+            "to": 0,
+            "size": 25,
+            "sourceIndex": 24
+          },
+          {
+            "step": 2,
+            "id": "=row\n\"25\"",
+            "from": 0,
+            "to": 1,
+            "size": 26,
+            "sourceIndex": 25
+          },
+          {
+            "step": 3,
+            "id": "=row\n\"26\"",
+            "from": 1,
+            "to": 2,
+            "size": 27,
+            "sourceIndex": 26
+          },
+          {
+            "step": 4,
+            "id": "=row\n\"27\"",
+            "from": 2,
+            "to": 3,
+            "size": 28,
+            "sourceIndex": 27
+          }
+        ],
+        "reachableVersions": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "baseline": {
+          "archive": "=row\n\"27\"",
+          "size": 28,
+          "complete": false,
+          "description": "Newest-file-only baseline selects greatest to ≤target; source-order ties. A delta alone is not a restore chain."
+        },
+        "missingBases": [],
+        "unused": []
+      },
+      {
+        "system": "r7",
+        "target": 3,
+        "status": "complete",
+        "totalMB": 122,
+        "chain": [
+          {
+            "step": 1,
+            "id": "=row\n\"28\"",
+            "from": null,
+            "to": 0,
+            "size": 29,
+            "sourceIndex": 28
+          },
+          {
+            "step": 2,
+            "id": "=row\n\"29\"",
+            "from": 0,
+            "to": 1,
+            "size": 30,
+            "sourceIndex": 29
+          },
+          {
+            "step": 3,
+            "id": "=row\n\"30\"",
+            "from": 1,
+            "to": 2,
+            "size": 31,
+            "sourceIndex": 30
+          },
+          {
+            "step": 4,
+            "id": "=row\n\"31\"",
+            "from": 2,
+            "to": 3,
+            "size": 32,
+            "sourceIndex": 31
+          }
+        ],
+        "reachableVersions": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "baseline": {
+          "archive": "=row\n\"31\"",
+          "size": 32,
+          "complete": false,
+          "description": "Newest-file-only baseline selects greatest to ≤target; source-order ties. A delta alone is not a restore chain."
+        },
+        "missingBases": [],
+        "unused": []
+      }
+    ],
+    "complete": 8,
+    "totalSystems": 8,
+    "totalMB": 528,
+    "baselineComplete": 0,
+    "scope": "Hypothetical metadata only: full snapshots and forward exact-base deltas. MB is the supplied integer transfer size, not measured restore time. No file validity, checksums, retention or engine compatibility verification."
+  }
+}
+

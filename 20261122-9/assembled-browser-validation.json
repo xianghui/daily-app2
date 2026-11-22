@@ -1,0 +1,877 @@
+{
+  "fixtures": [
+    {
+      "name": "Campus archive",
+      "actual": [
+        "library",
+        "library",
+        "science",
+        "arts",
+        "arts",
+        "science"
+      ],
+      "expected": [
+        "library",
+        "library",
+        "science",
+        "arts",
+        "arts",
+        "science"
+      ],
+      "correct": 6,
+      "analysis": {
+        "status": "ready",
+        "failureScenarioCount": 3,
+        "baseline": {
+          "safeStripes": 0,
+          "stripes": [
+            {
+              "stripe": "photos",
+              "data": 2,
+              "parity": 1,
+              "safe": false,
+              "worstLoss": 2,
+              "cases": [
+                {
+                  "failed": [
+                    "library"
+                  ],
+                  "lost": 2
+                },
+                {
+                  "failed": [
+                    "science"
+                  ],
+                  "lost": 1
+                },
+                {
+                  "failed": [
+                    "arts"
+                  ],
+                  "lost": 0
+                }
+              ]
+            },
+            {
+              "stripe": "audio",
+              "data": 2,
+              "parity": 1,
+              "safe": false,
+              "worstLoss": 2,
+              "cases": [
+                {
+                  "failed": [
+                    "library"
+                  ],
+                  "lost": 0
+                },
+                {
+                  "failed": [
+                    "science"
+                  ],
+                  "lost": 1
+                },
+                {
+                  "failed": [
+                    "arts"
+                  ],
+                  "lost": 2
+                }
+              ]
+            }
+          ],
+          "loads": [
+            {
+              "domain": "library",
+              "used": 2,
+              "capacity": 3
+            },
+            {
+              "domain": "science",
+              "used": 2,
+              "capacity": 3
+            },
+            {
+              "domain": "arts",
+              "used": 2,
+              "capacity": 3
+            }
+          ],
+          "capacitySafe": true
+        },
+        "plan": {
+          "safeStripes": 2,
+          "stripes": [
+            {
+              "stripe": "photos",
+              "data": 2,
+              "parity": 1,
+              "safe": true,
+              "worstLoss": 1,
+              "cases": [
+                {
+                  "failed": [
+                    "library"
+                  ],
+                  "lost": 1
+                },
+                {
+                  "failed": [
+                    "science"
+                  ],
+                  "lost": 1
+                },
+                {
+                  "failed": [
+                    "arts"
+                  ],
+                  "lost": 1
+                }
+              ]
+            },
+            {
+              "stripe": "audio",
+              "data": 2,
+              "parity": 1,
+              "safe": true,
+              "worstLoss": 1,
+              "cases": [
+                {
+                  "failed": [
+                    "library"
+                  ],
+                  "lost": 1
+                },
+                {
+                  "failed": [
+                    "science"
+                  ],
+                  "lost": 1
+                },
+                {
+                  "failed": [
+                    "arts"
+                  ],
+                  "lost": 1
+                }
+              ]
+            }
+          ],
+          "loads": [
+            {
+              "domain": "library",
+              "used": 2,
+              "capacity": 3
+            },
+            {
+              "domain": "science",
+              "used": 2,
+              "capacity": 3
+            },
+            {
+              "domain": "arts",
+              "used": 2,
+              "capacity": 3
+            }
+          ],
+          "capacitySafe": true,
+          "cost": 3,
+          "moves": 2,
+          "placements": [
+            {
+              "shard": "P1",
+              "stripe": "photos",
+              "from": "library",
+              "to": "library",
+              "moved": false,
+              "cost": 0,
+              "pinned": false
+            },
+            {
+              "shard": "P2",
+              "stripe": "photos",
+              "from": "library",
+              "to": "arts",
+              "moved": true,
+              "cost": 2,
+              "pinned": false
+            },
+            {
+              "shard": "P3",
+              "stripe": "photos",
+              "from": "science",
+              "to": "science",
+              "moved": false,
+              "cost": 0,
+              "pinned": false
+            },
+            {
+              "shard": "A1",
+              "stripe": "audio",
+              "from": "arts",
+              "to": "arts",
+              "moved": false,
+              "cost": 0,
+              "pinned": false
+            },
+            {
+              "shard": "A2",
+              "stripe": "audio",
+              "from": "arts",
+              "to": "library",
+              "moved": true,
+              "cost": 1,
+              "pinned": false
+            },
+            {
+              "shard": "A3",
+              "stripe": "audio",
+              "from": "science",
+              "to": "science",
+              "moved": false,
+              "cost": 0,
+              "pinned": false
+            }
+          ]
+        },
+        "searchNodes": 20,
+        "literalMatches": 0,
+        "shardCount": 6
+      }
+    },
+    {
+      "name": "Regional snapshots",
+      "actual": [
+        "coast",
+        "coast",
+        "mountain",
+        "desert"
+      ],
+      "expected": [
+        "coast",
+        "coast",
+        "mountain",
+        "desert"
+      ],
+      "correct": 4,
+      "analysis": {
+        "status": "ready",
+        "failureScenarioCount": 10,
+        "baseline": {
+          "safeStripes": 0,
+          "stripes": [
+            {
+              "stripe": "snapshot",
+              "data": 2,
+              "parity": 2,
+              "safe": false,
+              "worstLoss": 3,
+              "cases": [
+                {
+                  "failed": [
+                    "coast"
+                  ],
+                  "lost": 2
+                },
+                {
+                  "failed": [
+                    "mountain"
+                  ],
+                  "lost": 1
+                },
+                {
+                  "failed": [
+                    "coast",
+                    "mountain"
+                  ],
+                  "lost": 3
+                },
+                {
+                  "failed": [
+                    "desert"
+                  ],
+                  "lost": 1
+                },
+                {
+                  "failed": [
+                    "coast",
+                    "desert"
+                  ],
+                  "lost": 3
+                },
+                {
+                  "failed": [
+                    "mountain",
+                    "desert"
+                  ],
+                  "lost": 2
+                },
+                {
+                  "failed": [
+                    "forest"
+                  ],
+                  "lost": 0
+                },
+                {
+                  "failed": [
+                    "coast",
+                    "forest"
+                  ],
+                  "lost": 2
+                },
+                {
+                  "failed": [
+                    "mountain",
+                    "forest"
+                  ],
+                  "lost": 1
+                },
+                {
+                  "failed": [
+                    "desert",
+                    "forest"
+                  ],
+                  "lost": 1
+                }
+              ]
+            }
+          ],
+          "loads": [
+            {
+              "domain": "coast",
+              "used": 2,
+              "capacity": 3
+            },
+            {
+              "domain": "mountain",
+              "used": 1,
+              "capacity": 3
+            },
+            {
+              "domain": "desert",
+              "used": 1,
+              "capacity": 3
+            },
+            {
+              "domain": "forest",
+              "used": 0,
+              "capacity": 3
+            }
+          ],
+          "capacitySafe": true
+        },
+        "plan": {
+          "safeStripes": 1,
+          "stripes": [
+            {
+              "stripe": "snapshot",
+              "data": 2,
+              "parity": 2,
+              "safe": true,
+              "worstLoss": 2,
+              "cases": [
+                {
+                  "failed": [
+                    "coast"
+                  ],
+                  "lost": 1
+                },
+                {
+                  "failed": [
+                    "mountain"
+                  ],
+                  "lost": 1
+                },
+                {
+                  "failed": [
+                    "coast",
+                    "mountain"
+                  ],
+                  "lost": 2
+                },
+                {
+                  "failed": [
+                    "desert"
+                  ],
+                  "lost": 1
+                },
+                {
+                  "failed": [
+                    "coast",
+                    "desert"
+                  ],
+                  "lost": 2
+                },
+                {
+                  "failed": [
+                    "mountain",
+                    "desert"
+                  ],
+                  "lost": 2
+                },
+                {
+                  "failed": [
+                    "forest"
+                  ],
+                  "lost": 1
+                },
+                {
+                  "failed": [
+                    "coast",
+                    "forest"
+                  ],
+                  "lost": 2
+                },
+                {
+                  "failed": [
+                    "mountain",
+                    "forest"
+                  ],
+                  "lost": 2
+                },
+                {
+                  "failed": [
+                    "desert",
+                    "forest"
+                  ],
+                  "lost": 2
+                }
+              ]
+            }
+          ],
+          "loads": [
+            {
+              "domain": "coast",
+              "used": 1,
+              "capacity": 3
+            },
+            {
+              "domain": "mountain",
+              "used": 1,
+              "capacity": 3
+            },
+            {
+              "domain": "desert",
+              "used": 1,
+              "capacity": 3
+            },
+            {
+              "domain": "forest",
+              "used": 1,
+              "capacity": 3
+            }
+          ],
+          "capacitySafe": true,
+          "cost": 2,
+          "moves": 1,
+          "placements": [
+            {
+              "shard": "S1",
+              "stripe": "snapshot",
+              "from": "coast",
+              "to": "coast",
+              "moved": false,
+              "cost": 0,
+              "pinned": true
+            },
+            {
+              "shard": "S2",
+              "stripe": "snapshot",
+              "from": "coast",
+              "to": "forest",
+              "moved": true,
+              "cost": 2,
+              "pinned": false
+            },
+            {
+              "shard": "S3",
+              "stripe": "snapshot",
+              "from": "mountain",
+              "to": "mountain",
+              "moved": false,
+              "cost": 0,
+              "pinned": false
+            },
+            {
+              "shard": "S4",
+              "stripe": "snapshot",
+              "from": "desert",
+              "to": "desert",
+              "moved": false,
+              "cost": 0,
+              "pinned": false
+            }
+          ]
+        },
+        "searchNodes": 16,
+        "literalMatches": 0,
+        "shardCount": 4
+      }
+    }
+  ],
+  "checks": [
+    "Fresh-worker real inference with all network disabled in warmed open page",
+    "Maximum 10 shards, 4 domains / 10 outage subsets; 14 embeddings in 4 chunks; audit JSON original-source reimport",
+    "Cancel then real retry; source changes invalidate prior suggestions",
+    "Review/undo/hold/infeasibility/export invalidation, artifacts/clipboard, labels/focus/touch, desktop/390/320 no overflow, GET-only downloads, no user content in URLs/bodies, explicit model load"
+  ],
+  "negationProbe": {
+    "source": "Not in the university library basement; location unknown. Do not assume library.",
+    "proposed": "library",
+    "decision": "pending",
+    "limitation": "Nearest similarity does not establish a real location; this source must be held."
+  },
+  "requests": [
+    {
+      "host": "127.0.0.1:7329",
+      "path": "/daily-app2/20261122-9/",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7329",
+      "path": "/daily-app2/20261122-9/assets/index-BbGhjwtR.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7329",
+      "path": "/daily-app2/20261122-9/assets/index-KULq5oV7.css",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7329",
+      "path": "/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7329/3cd164b5-3f00-4430-b884-fea832c5fd49",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7329",
+      "path": "/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7329",
+      "path": "/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "user_id",
+        "xip",
+        "X-Xet-Cas-Uid",
+        "response-content-disposition",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "user_id",
+        "response-content-disposition",
+        "X-Xet-Cas-Uid",
+        "xip",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7329/2de749fd-5771-4b82-90a7-933945ebd113",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7329/b661b051-f525-4b48-b9ec-58e355669c67",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7329/5a7d36f2-d14b-4168-b408-6b6e4271cf00",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7329/8a68a818-d91d-4c8f-826d-239dd810d77e",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7329/581515b5-0494-44a7-8941-7d75f31baafd",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7329/fbda0ec3-61ca-4611-89ab-c417f6049ed4",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7329/ae40e288-c998-449b-8038-6029311bb4f9",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7329/f7d10753-4cee-4d4c-a114-e670988a8c13",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7329/a8bd7db1-5ac4-41b7-9802-52af3d53d00c",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7329/7901c7b6-878d-4944-a9a6-152f38823ed7",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7329/225cb083-f95e-44a2-bfa8-440ada7bf5f7",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7329/9807165b-fd7a-41c4-8cf2-25cddeb5467f",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7329/6e877ebc-65bf-4428-88bf-a340a8121f4b",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7329/8cac3f12-2a72-4e87-a812-f4bc04c244f1",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7329/275f9799-b0bd-4097-870f-15fea39cae4d",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7329/04e27e7d-764a-41c7-8147-63b8d0376d63",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7329/0ff1a4c2-4f61-44c0-99da-e9fd56358747",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7329/cbae6aca-77cd-4457-a17f-8f76ecf26d77",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7329/12aad40f-5d4e-4ea5-acee-e8f8fedea45c",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7329/7fe76b2e-f135-4960-82e1-599e79fd654e",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7329/db8867c0-3dff-40d9-9a99-6a73e97f6993",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7329/0241c783-8dbd-4121-88c1-f8a1282186fb",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7329/7e73dc0f-90ea-4625-ac83-96cfdb897048",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7329/5475131d-5f36-4e72-b7a0-8228251f470d",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    }
+  ],
+  "errors": []
+}

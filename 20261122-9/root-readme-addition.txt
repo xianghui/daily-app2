@@ -1,0 +1,7 @@
+
+
+## Shard Shelter — 20261122-9
+
+Local MiniLM reconciles informal shard location notes to failure domains before mandatory review. Exact bounded assignment minimizes supplied relocation cost under equal-slot capacities, pins and every up-to-two-domain outage; compare current stripe-loss witnesses and export complete JSON/CSV/Markdown. Both tiny fixtures matched all 10 intended locations; a negated unknown location still needs a hold. This assumes ideal MDS coding and independent domains; it is a final-state worksheet, not a migration sequence or real durability guarantee. Reuses immutable worker/factory from `20261115-6` and WASM from `20261107-2`; preserve these dependencies. Offline scope is fresh-worker inference in an already-open warmed page. Existing deploy-only byte-identical geometry runtime sharing now includes `20261029-9`, preserving original source builds and compatibility URLs. See [workflow/privacy](20261122-9/README.md) and [observed validation](20261122-9/VALIDATION.md). No digest sent.
+
+Public release verified: matching Pages `e6e2ef9574db98bb5ec88ed836ff6e798feb0f2c` and workflow `44965251327` succeeded. Seven public asset byte matches, both real-AI fixtures (10/10 simple location links), the complete review/export/offline/privacy suite, all 790 gallery cards and the affected legacy app’s real worker/import/export regression passed. Combined size 999,569,392 bytes remains below the unchanged guard. Source staging excludes unrelated pre-existing recovery work; no digest sent.

@@ -1,0 +1,426 @@
+{
+  "schema": "shard-shelter/1",
+  "originalInput": {
+    "title": "Regional snapshot double-site scenario",
+    "failures": 2,
+    "domains": [
+      {
+        "id": "coast",
+        "description": "Coastal ocean port data center",
+        "capacity": 3
+      },
+      {
+        "id": "mountain",
+        "description": "Mountain highland data center",
+        "capacity": 3
+      },
+      {
+        "id": "desert",
+        "description": "Desert arid inland data center",
+        "capacity": 3
+      },
+      {
+        "id": "forest",
+        "description": "Forest woodland data center",
+        "capacity": 3
+      }
+    ],
+    "stripes": [
+      {
+        "id": "snapshot",
+        "data": 2,
+        "parity": 2
+      }
+    ],
+    "shards": [
+      {
+        "id": "S1",
+        "stripe": "snapshot",
+        "location": "Ocean coastal port servers",
+        "moveCost": 4,
+        "pinned": true
+      },
+      {
+        "id": "S2",
+        "stripe": "snapshot",
+        "location": "Coast beside the ocean port",
+        "moveCost": 2,
+        "pinned": false
+      },
+      {
+        "id": "S3",
+        "stripe": "snapshot",
+        "location": "Highland mountain servers",
+        "moveCost": 3,
+        "pinned": false
+      },
+      {
+        "id": "S4",
+        "stripe": "snapshot",
+        "location": "Arid desert inland facility",
+        "moveCost": 5,
+        "pinned": false
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "shard": "S1",
+      "domain": "coast",
+      "aiDomain": "coast",
+      "evidence": [
+        {
+          "domain": "coast",
+          "score": 0.7983515244784838
+        },
+        {
+          "domain": "desert",
+          "score": 0.2694975256954924
+        },
+        {
+          "domain": "mountain",
+          "score": 0.22543124384570595
+        },
+        {
+          "domain": "forest",
+          "score": 0.14781315686063268
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 1,
+      "shard": "S2",
+      "domain": "coast",
+      "aiDomain": "coast",
+      "evidence": [
+        {
+          "domain": "coast",
+          "score": 0.644138331253634
+        },
+        {
+          "domain": "desert",
+          "score": 0.21553478664068207
+        },
+        {
+          "domain": "mountain",
+          "score": 0.15253517114586854
+        },
+        {
+          "domain": "forest",
+          "score": 0.054050010779452595
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "shard": "S3",
+      "domain": "mountain",
+      "aiDomain": "mountain",
+      "evidence": [
+        {
+          "domain": "mountain",
+          "score": 0.7167587057172128
+        },
+        {
+          "domain": "forest",
+          "score": 0.36871219020885904
+        },
+        {
+          "domain": "desert",
+          "score": 0.3166744064252858
+        },
+        {
+          "domain": "coast",
+          "score": 0.2359514358512378
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 3,
+      "shard": "S4",
+      "domain": "desert",
+      "aiDomain": "desert",
+      "evidence": [
+        {
+          "domain": "desert",
+          "score": 0.7483101341999242
+        },
+        {
+          "domain": "mountain",
+          "score": 0.2940238607185671
+        },
+        {
+          "domain": "coast",
+          "score": 0.23718590246625765
+        },
+        {
+          "domain": "forest",
+          "score": 0.22985652543515372
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "warning": "Planning scenario only. Assumes an ideal MDS erasure code, equal-slot shards, independent complete failure domains and no other failures. Does not encode, copy, delete or verify stored data. Final layouts are not migration sequences; transient moves need a separate copy-before-delete plan.",
+  "analysis": {
+    "status": "ready",
+    "failureScenarioCount": 10,
+    "baseline": {
+      "safeStripes": 0,
+      "stripes": [
+        {
+          "stripe": "snapshot",
+          "data": 2,
+          "parity": 2,
+          "safe": false,
+          "worstLoss": 3,
+          "cases": [
+            {
+              "failed": [
+                "coast"
+              ],
+              "lost": 2
+            },
+            {
+              "failed": [
+                "mountain"
+              ],
+              "lost": 1
+            },
+            {
+              "failed": [
+                "coast",
+                "mountain"
+              ],
+              "lost": 3
+            },
+            {
+              "failed": [
+                "desert"
+              ],
+              "lost": 1
+            },
+            {
+              "failed": [
+                "coast",
+                "desert"
+              ],
+              "lost": 3
+            },
+            {
+              "failed": [
+                "mountain",
+                "desert"
+              ],
+              "lost": 2
+            },
+            {
+              "failed": [
+                "forest"
+              ],
+              "lost": 0
+            },
+            {
+              "failed": [
+                "coast",
+                "forest"
+              ],
+              "lost": 2
+            },
+            {
+              "failed": [
+                "mountain",
+                "forest"
+              ],
+              "lost": 1
+            },
+            {
+              "failed": [
+                "desert",
+                "forest"
+              ],
+              "lost": 1
+            }
+          ]
+        }
+      ],
+      "loads": [
+        {
+          "domain": "coast",
+          "used": 2,
+          "capacity": 3
+        },
+        {
+          "domain": "mountain",
+          "used": 1,
+          "capacity": 3
+        },
+        {
+          "domain": "desert",
+          "used": 1,
+          "capacity": 3
+        },
+        {
+          "domain": "forest",
+          "used": 0,
+          "capacity": 3
+        }
+      ],
+      "capacitySafe": true
+    },
+    "plan": {
+      "safeStripes": 1,
+      "stripes": [
+        {
+          "stripe": "snapshot",
+          "data": 2,
+          "parity": 2,
+          "safe": true,
+          "worstLoss": 2,
+          "cases": [
+            {
+              "failed": [
+                "coast"
+              ],
+              "lost": 1
+            },
+            {
+              "failed": [
+                "mountain"
+              ],
+              "lost": 1
+            },
+            {
+              "failed": [
+                "coast",
+                "mountain"
+              ],
+              "lost": 2
+            },
+            {
+              "failed": [
+                "desert"
+              ],
+              "lost": 1
+            },
+            {
+              "failed": [
+                "coast",
+                "desert"
+              ],
+              "lost": 2
+            },
+            {
+              "failed": [
+                "mountain",
+                "desert"
+              ],
+              "lost": 2
+            },
+            {
+              "failed": [
+                "forest"
+              ],
+              "lost": 1
+            },
+            {
+              "failed": [
+                "coast",
+                "forest"
+              ],
+              "lost": 2
+            },
+            {
+              "failed": [
+                "mountain",
+                "forest"
+              ],
+              "lost": 2
+            },
+            {
+              "failed": [
+                "desert",
+                "forest"
+              ],
+              "lost": 2
+            }
+          ]
+        }
+      ],
+      "loads": [
+        {
+          "domain": "coast",
+          "used": 1,
+          "capacity": 3
+        },
+        {
+          "domain": "mountain",
+          "used": 1,
+          "capacity": 3
+        },
+        {
+          "domain": "desert",
+          "used": 1,
+          "capacity": 3
+        },
+        {
+          "domain": "forest",
+          "used": 1,
+          "capacity": 3
+        }
+      ],
+      "capacitySafe": true,
+      "cost": 2,
+      "moves": 1,
+      "placements": [
+        {
+          "shard": "S1",
+          "stripe": "snapshot",
+          "from": "coast",
+          "to": "coast",
+          "moved": false,
+          "cost": 0,
+          "pinned": true
+        },
+        {
+          "shard": "S2",
+          "stripe": "snapshot",
+          "from": "coast",
+          "to": "forest",
+          "moved": true,
+          "cost": 2,
+          "pinned": false
+        },
+        {
+          "shard": "S3",
+          "stripe": "snapshot",
+          "from": "mountain",
+          "to": "mountain",
+          "moved": false,
+          "cost": 0,
+          "pinned": false
+        },
+        {
+          "shard": "S4",
+          "stripe": "snapshot",
+          "from": "desert",
+          "to": "desert",
+          "moved": false,
+          "cost": 0,
+          "pinned": false
+        }
+      ]
+    },
+    "searchNodes": 16,
+    "literalMatches": 0,
+    "shardCount": 4
+  }
+}

@@ -1,0 +1,219 @@
+{
+  "schema": "shard-shelter/1",
+  "originalInput": {
+    "title": "Campus archive rack-outage drill",
+    "failures": 1,
+    "domains": [
+      {
+        "id": "library",
+        "description": "University library basement storage room",
+        "capacity": 3
+      },
+      {
+        "id": "science",
+        "description": "Science building laboratory server room",
+        "capacity": 3
+      },
+      {
+        "id": "arts",
+        "description": "Arts building media studio storage",
+        "capacity": 3
+      }
+    ],
+    "stripes": [
+      {
+        "id": "photos",
+        "data": 2,
+        "parity": 1
+      },
+      {
+        "id": "audio",
+        "data": 2,
+        "parity": 1
+      }
+    ],
+    "shards": [
+      {
+        "id": "P1",
+        "stripe": "photos",
+        "location": "Not in the university library basement; location unknown. Do not assume library.",
+        "moveCost": 5,
+        "pinned": true
+      },
+      {
+        "id": "P2",
+        "stripe": "photos",
+        "location": "Basement of university library",
+        "moveCost": 2,
+        "pinned": true
+      },
+      {
+        "id": "P3",
+        "stripe": "photos",
+        "location": "Science laboratory server storage",
+        "moveCost": 3,
+        "pinned": true
+      },
+      {
+        "id": "A1",
+        "stripe": "audio",
+        "location": "Arts media studio storage",
+        "moveCost": 4,
+        "pinned": true
+      },
+      {
+        "id": "A2",
+        "stripe": "audio",
+        "location": "Media studio in arts building",
+        "moveCost": 1,
+        "pinned": true
+      },
+      {
+        "id": "A3",
+        "stripe": "audio",
+        "location": "Science laboratory server storage",
+        "moveCost": 3,
+        "pinned": true
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "shard": "P1",
+      "domain": "library",
+      "aiDomain": "library",
+      "evidence": [
+        {
+          "domain": "library",
+          "score": 0.5639114575232869
+        },
+        {
+          "domain": "science",
+          "score": 0.2537486230191214
+        },
+        {
+          "domain": "arts",
+          "score": 0.19368067209597908
+        }
+      ],
+      "decision": "reject",
+      "note": ""
+    },
+    {
+      "index": 1,
+      "shard": "P2",
+      "domain": "library",
+      "aiDomain": "library",
+      "evidence": [
+        {
+          "domain": "library",
+          "score": 0.8069724213635987
+        },
+        {
+          "domain": "science",
+          "score": 0.40692535463922963
+        },
+        {
+          "domain": "arts",
+          "score": 0.29467060248679355
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "shard": "P3",
+      "domain": "science",
+      "aiDomain": "science",
+      "evidence": [
+        {
+          "domain": "science",
+          "score": 0.6903295138501464
+        },
+        {
+          "domain": "library",
+          "score": 0.4840610441278264
+        },
+        {
+          "domain": "arts",
+          "score": 0.4696990113611531
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 3,
+      "shard": "A1",
+      "domain": "arts",
+      "aiDomain": "arts",
+      "evidence": [
+        {
+          "domain": "arts",
+          "score": 0.9412436065162647
+        },
+        {
+          "domain": "library",
+          "score": 0.4190345698114061
+        },
+        {
+          "domain": "science",
+          "score": 0.22008651259182457
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 4,
+      "shard": "A2",
+      "domain": "arts",
+      "aiDomain": "arts",
+      "evidence": [
+        {
+          "domain": "arts",
+          "score": 0.7768488116620822
+        },
+        {
+          "domain": "science",
+          "score": 0.3798223946425501
+        },
+        {
+          "domain": "library",
+          "score": 0.29691238548575244
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 5,
+      "shard": "A3",
+      "domain": "science",
+      "aiDomain": "science",
+      "evidence": [
+        {
+          "domain": "science",
+          "score": 0.6733615288181486
+        },
+        {
+          "domain": "library",
+          "score": 0.4846389563168671
+        },
+        {
+          "domain": "arts",
+          "score": 0.473816414851112
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "warning": "Planning scenario only. Assumes an ideal MDS erasure code, equal-slot shards, independent complete failure domains and no other failures. Does not encode, copy, delete or verify stored data. Final layouts are not migration sequences; transient moves need a separate copy-before-delete plan.",
+  "analysis": {
+    "status": "held",
+    "reason": "Held locations: placement withheld. All originals retained."
+  }
+}

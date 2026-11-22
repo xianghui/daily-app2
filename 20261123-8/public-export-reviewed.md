@@ -1,0 +1,226 @@
+# Synthetic makerspace card batch
+
+bench-1 [ready] recycle · 22 columns / 6 lines
+Review "paper",
+then recycle.
+
+Keep every
+word & sign.
+
+bench-2 [ready] tools · 24 columns / 6 lines
+Borrow tools at the
+counter. Return each
+tool to its marked
+place when finished.
+
+bench-3 [ready] recycle · 22 columns / 6 lines
+Sort paper and plastic
+into the marked
+bins. Keep food waste
+out of recycling.
+
+## Lossless source and review audit
+
+```json
+
+{
+  "schema": "linecraft-desk/1",
+  "appliedAt": "2026-11-22T23:17:40.484Z",
+  "originalInput": {
+    "title": "Synthetic makerspace card batch",
+    "profiles": [
+      {
+        "id": "tools",
+        "description": "Tool checkout borrowing workshop equipment return borrowed hand tools",
+        "columns": 24,
+        "maxLines": 6
+      },
+      {
+        "id": "recycle",
+        "description": "Sorting waste recycling paper cardboard plastic into separate bins",
+        "columns": 22,
+        "maxLines": 6
+      },
+      {
+        "id": "booking",
+        "description": "Reserving rooms meeting spaces calendar availability bookings",
+        "columns": 30,
+        "maxLines": 5
+      }
+    ],
+    "records": [
+      {
+        "id": "bench-1",
+        "note": "Separate cardboard and paper recycling from other waste",
+        "copy": "Please flatten cardboard boxes before placing them in the paper recycling bin."
+      },
+      {
+        "id": "bench-2",
+        "note": "Borrowing and returning workshop hand tools at the checkout counter",
+        "copy": "Borrow tools at the counter. Return each tool to its marked place when finished."
+      },
+      {
+        "id": "bench-3",
+        "note": "Waste sorting into paper and plastic recycling bins",
+        "copy": "Sort paper and plastic into the marked bins. Keep food waste out of recycling."
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "text": "Separate cardboard and paper recycling from other waste",
+      "resource": "recycle",
+      "aiResource": "recycle",
+      "evidence": [
+        {
+          "resource": "recycle",
+          "score": 0.7879752706312679
+        },
+        {
+          "resource": "tools",
+          "score": 0.26115493280865476
+        },
+        {
+          "resource": "booking",
+          "score": 0.19185816418707202
+        }
+      ],
+      "copy": "Review \"paper\", then recycle.\n\nKeep every word & sign.",
+      "decision": "approve",
+      "note": "=SUM(1,2)\nReview \"complete\", preserved."
+    },
+    {
+      "index": 1,
+      "text": "Borrowing and returning workshop hand tools at the checkout counter",
+      "resource": "tools",
+      "aiResource": "tools",
+      "evidence": [
+        {
+          "resource": "tools",
+          "score": 0.8371971157632165
+        },
+        {
+          "resource": "recycle",
+          "score": 0.3150930448290126
+        },
+        {
+          "resource": "booking",
+          "score": 0.2303849506194518
+        }
+      ],
+      "copy": "Borrow tools at the counter. Return each tool to its marked place when finished.",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "text": "Waste sorting into paper and plastic recycling bins",
+      "resource": "recycle",
+      "aiResource": "recycle",
+      "evidence": [
+        {
+          "resource": "recycle",
+          "score": 0.691077358817386
+        },
+        {
+          "resource": "tools",
+          "score": 0.26133511549933336
+        },
+        {
+          "resource": "booking",
+          "score": 0.17375617784615838
+        }
+      ],
+      "copy": "Sort paper and plastic into the marked bins. Keep food waste out of recycling.",
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "analysis": {
+    "cards": [
+      {
+        "id": "bench-1",
+        "profile": "recycle",
+        "columns": 22,
+        "maxLines": 6,
+        "status": "ready",
+        "error": null,
+        "reviewedCopy": "Review \"paper\", then recycle.\n\nKeep every word & sign.",
+        "lines": [
+          "Review \"paper\",",
+          "then recycle.",
+          "",
+          "Keep every",
+          "word & sign."
+        ],
+        "greedy": [
+          "Review \"paper\", then",
+          "recycle.",
+          "",
+          "Keep every word &",
+          "sign."
+        ],
+        "score": 858,
+        "greedyScore": 998,
+        "wordCount": 9
+      },
+      {
+        "id": "bench-2",
+        "profile": "tools",
+        "columns": 24,
+        "maxLines": 6,
+        "status": "ready",
+        "error": null,
+        "reviewedCopy": "Borrow tools at the counter. Return each tool to its marked place when finished.",
+        "lines": [
+          "Borrow tools at the",
+          "counter. Return each",
+          "tool to its marked",
+          "place when finished."
+        ],
+        "greedy": [
+          "Borrow tools at the",
+          "counter. Return each",
+          "tool to its marked place",
+          "when finished."
+        ],
+        "score": 93,
+        "greedyScore": 141,
+        "wordCount": 14
+      },
+      {
+        "id": "bench-3",
+        "profile": "recycle",
+        "columns": 22,
+        "maxLines": 6,
+        "status": "ready",
+        "error": null,
+        "reviewedCopy": "Sort paper and plastic into the marked bins. Keep food waste out of recycling.",
+        "lines": [
+          "Sort paper and plastic",
+          "into the marked",
+          "bins. Keep food waste",
+          "out of recycling."
+        ],
+        "greedy": [
+          "Sort paper and plastic",
+          "into the marked bins.",
+          "Keep food waste out of",
+          "recycling."
+        ],
+        "score": 75,
+        "greedyScore": 145,
+        "wordCount": 14
+      }
+    ],
+    "ready": 3,
+    "held": 0,
+    "blocked": 0,
+    "score": 1026,
+    "greedyScore": 1284
+  }
+}
+
+```
+

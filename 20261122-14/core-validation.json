@@ -1,0 +1,159 @@
+{
+  "fixtures": [
+    {
+      "fixture": "Two-resource trap",
+      "status": "ready",
+      "places": [
+        "a-ready",
+        "a-holds",
+        "a-done",
+        "b-ready",
+        "b-holds",
+        "b-done",
+        "printer",
+        "scanner"
+      ],
+      "stateBound": 256,
+      "reachableStates": 9,
+      "enabledFirings": 10,
+      "enabledInitially": [
+        "A-pick",
+        "B-pick"
+      ],
+      "initialDeadlock": false,
+      "completionReachable": true,
+      "shortestCompletion": {
+        "marking": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1
+        ],
+        "path": [
+          "A-pick",
+          "A-finish",
+          "B-pick",
+          "B-finish"
+        ]
+      },
+      "deadlocks": [
+        {
+          "marking": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "path": [
+            "A-pick",
+            "B-pick"
+          ],
+          "blocked": [
+            {
+              "transition": "A-pick",
+              "missing": [
+                {
+                  "place": "a-ready",
+                  "need": 1,
+                  "have": 0
+                },
+                {
+                  "place": "printer",
+                  "need": 1,
+                  "have": 0
+                }
+              ],
+              "capacityBlocked": [
+                "a-holds"
+              ]
+            },
+            {
+              "transition": "A-finish",
+              "missing": [
+                {
+                  "place": "scanner",
+                  "need": 1,
+                  "have": 0
+                }
+              ],
+              "capacityBlocked": []
+            },
+            {
+              "transition": "B-pick",
+              "missing": [
+                {
+                  "place": "b-ready",
+                  "need": 1,
+                  "have": 0
+                },
+                {
+                  "place": "scanner",
+                  "need": 1,
+                  "have": 0
+                }
+              ],
+              "capacityBlocked": [
+                "b-holds"
+              ]
+            },
+            {
+              "transition": "B-finish",
+              "missing": [
+                {
+                  "place": "printer",
+                  "need": 1,
+                  "have": 0
+                }
+              ],
+              "capacityBlocked": []
+            }
+          ]
+        }
+      ],
+      "neverEnabled": []
+    },
+    {
+      "fixture": "Editorial handoff",
+      "status": "ready",
+      "places": [
+        "draft",
+        "review",
+        "approved",
+        "published"
+      ],
+      "stateBound": 16,
+      "reachableStates": 4,
+      "enabledFirings": 4,
+      "enabledInitially": [
+        "assign"
+      ],
+      "initialDeadlock": false,
+      "completionReachable": true,
+      "shortestCompletion": {
+        "marking": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "path": [
+          "assign",
+          "approve",
+          "publish"
+        ]
+      },
+      "deadlocks": [],
+      "neverEnabled": []
+    }
+  ],
+  "independentRandomSystems": 250,
+  "boundedTokensAndShortestPaths": true
+}

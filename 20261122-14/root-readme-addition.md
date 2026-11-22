@@ -1,0 +1,7 @@
+
+
+## Token Passage — 20261122-14
+
+Local MiniLM reconciles informal token-flow notes before mandatory place/count review. Bounded capacity-constrained state exploration exposes reachable terminal workflow deadlocks beyond initially enabled actions, and exports complete JSON/CSV/Markdown with shortest-path state worksheets. Both tiny fixtures matched 24/24 simple arc identities, not a general accuracy claim; unknown/negated places still need holds. No workflow execution, fairness or livelock certification. Reuses immutable worker/factory from `20261115-6` and WASM from `20261107-2`; preserve these dependencies. Offline scope is fresh-worker inference in an already-open warmed page. Existing deploy-only geometry reuse additionally covers `20261029-11`, retaining source builds and compatibility URLs. The 1 GB guard is unchanged. See [workflow/privacy](20261122-14/README.md) and [observed validation](20261122-14/VALIDATION.md). No digest sent.
+
+Public release verified: matching Pages `2f76e336964fd07e1c2e4f7defcca59fca9fb401` and workflow `44988145491` succeeded. Seven public gallery/app/worker/factory/WASM assets byte-match the assembled site. Both public real-AI fixtures (24/24 simple arc identities), full reviewed/export/maximum-batch/offline/privacy suite, independently parsed artifacts, all 795 gallery cards and the affected older app’s worker/image/STL import/export regression passed. Combined size 999,718,378 bytes remains below the unchanged 1 GB guard. Source staging preserves and excludes unrelated pre-existing recovery work. No digest sent.

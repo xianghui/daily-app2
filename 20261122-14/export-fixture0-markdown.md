@@ -1,0 +1,1173 @@
+# Synthetic two-job resource trap
+
+Bounded capacity-constrained Petri-net worksheet, not workflow execution or real-system safety certification. Atomic transitions, integer tokens, no time, fairness or hidden actions. Capacity overflow disables a firing. Goal means at least the supplied counts, not that all other places are empty. Terminal non-goal markings are deadlocks; livelocks are not classified. Holds withhold the whole analysis.
+
+## Reviewed reachability worksheet
+
+INITIAL-ONLY BASELINE: 2 enabled actions; not a terminal deadlock.
+
+EXHAUSTIVE CHECK: 9 reachable markings of 256 capacity-bounded possibilities; 1 reachable non-goal terminal deadlocks.
+
+COMPLETION: reachable via A-pick → A-finish → B-pick → B-finish.
+
+Never-enabled actions: none.
+
+DEADLOCK 1: A-pick → B-pick
+Tokens: a-ready=0, a-holds=1, a-done=0, b-ready=0, b-holds=1, b-done=0, printer=0, scanner=0
+A-pick: a-ready needs 1, has 0; printer needs 1, has 0; a-holds would overflow
+A-finish: scanner needs 1, has 0
+B-pick: b-ready needs 1, has 0; scanner needs 1, has 0; b-holds would overflow
+B-finish: printer needs 1, has 0
+
+Counts computed from the manifest, not time savings or general model accuracy.
+
+## Complete source-linked audit
+
+{
+  "schema": "token-passage/1",
+  "originalInput": {
+    "title": "Synthetic two-job resource trap",
+    "places": [
+      {
+        "id": "a-ready",
+        "description": "Job A ready to start",
+        "initial": 1,
+        "capacity": 1
+      },
+      {
+        "id": "a-holds",
+        "description": "Job A holding the printer",
+        "initial": 0,
+        "capacity": 1
+      },
+      {
+        "id": "a-done",
+        "description": "Job A completed",
+        "initial": 0,
+        "capacity": 1
+      },
+      {
+        "id": "b-ready",
+        "description": "Job B ready to start",
+        "initial": 1,
+        "capacity": 1
+      },
+      {
+        "id": "b-holds",
+        "description": "Job B holding the scanner",
+        "initial": 0,
+        "capacity": 1
+      },
+      {
+        "id": "b-done",
+        "description": "Job B completed",
+        "initial": 0,
+        "capacity": 1
+      },
+      {
+        "id": "printer",
+        "description": "Available printer resource",
+        "initial": 1,
+        "capacity": 1
+      },
+      {
+        "id": "scanner",
+        "description": "Available scanner resource",
+        "initial": 1,
+        "capacity": 1
+      }
+    ],
+    "goals": [
+      {
+        "place": "a-done",
+        "count": 1
+      },
+      {
+        "place": "b-done",
+        "count": 1
+      }
+    ],
+    "transitions": [
+      {
+        "id": "A-pick",
+        "consume": [
+          {
+            "place": "Job A is ready to start",
+            "count": 1
+          },
+          {
+            "place": "Available printer resource",
+            "count": 1
+          }
+        ],
+        "produce": [
+          {
+            "place": "Job A is holding the printer",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "id": "A-finish",
+        "consume": [
+          {
+            "place": "Job A is holding the printer",
+            "count": 1
+          },
+          {
+            "place": "Available scanner resource",
+            "count": 1
+          }
+        ],
+        "produce": [
+          {
+            "place": "Job A is completed",
+            "count": 1
+          },
+          {
+            "place": "Available printer resource",
+            "count": 1
+          },
+          {
+            "place": "Available scanner resource",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "id": "B-pick",
+        "consume": [
+          {
+            "place": "Job B is ready to start",
+            "count": 1
+          },
+          {
+            "place": "Available scanner resource",
+            "count": 1
+          }
+        ],
+        "produce": [
+          {
+            "place": "Job B is holding the scanner",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "id": "B-finish",
+        "consume": [
+          {
+            "place": "Job B is holding the scanner",
+            "count": 1
+          },
+          {
+            "place": "Available printer resource",
+            "count": 1
+          }
+        ],
+        "produce": [
+          {
+            "place": "Job B is completed",
+            "count": 1
+          },
+          {
+            "place": "Available scanner resource",
+            "count": 1
+          },
+          {
+            "place": "Available printer resource",
+            "count": 1
+          }
+        ]
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "transition": "A-pick",
+      "side": "consume",
+      "slot": 0,
+      "place": "a-ready",
+      "aiPlace": "a-ready",
+      "count": 1,
+      "evidence": [
+        {
+          "place": "a-ready",
+          "score": 0.8504465901671987
+        },
+        {
+          "place": "b-ready",
+          "score": 0.8477051277497724
+        },
+        {
+          "place": "a-done",
+          "score": 0.6055541344430044
+        },
+        {
+          "place": "b-done",
+          "score": 0.5783120926222481
+        },
+        {
+          "place": "b-holds",
+          "score": 0.507664449221652
+        },
+        {
+          "place": "a-holds",
+          "score": 0.38226264599852283
+        },
+        {
+          "place": "scanner",
+          "score": 0.13260269809445568
+        },
+        {
+          "place": "printer",
+          "score": 0.12320708147583279
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 1,
+      "transition": "A-pick",
+      "side": "consume",
+      "slot": 1,
+      "place": "printer",
+      "aiPlace": "printer",
+      "count": 1,
+      "evidence": [
+        {
+          "place": "printer",
+          "score": 0.9927745884433599
+        },
+        {
+          "place": "scanner",
+          "score": 0.641824316664179
+        },
+        {
+          "place": "a-holds",
+          "score": 0.542073475684032
+        },
+        {
+          "place": "b-holds",
+          "score": 0.24562073472277807
+        },
+        {
+          "place": "a-done",
+          "score": 0.09689720351397388
+        },
+        {
+          "place": "b-ready",
+          "score": 0.0853117487814034
+        },
+        {
+          "place": "a-ready",
+          "score": 0.0846104989611948
+        },
+        {
+          "place": "b-done",
+          "score": 0.06933736642824305
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "transition": "A-pick",
+      "side": "produce",
+      "slot": 0,
+      "place": "a-holds",
+      "aiPlace": "a-holds",
+      "count": 1,
+      "evidence": [
+        {
+          "place": "a-holds",
+          "score": 0.9433695281266515
+        },
+        {
+          "place": "b-holds",
+          "score": 0.6615224311478156
+        },
+        {
+          "place": "printer",
+          "score": 0.5391204588476627
+        },
+        {
+          "place": "a-done",
+          "score": 0.45895083402872244
+        },
+        {
+          "place": "b-done",
+          "score": 0.4123129573572592
+        },
+        {
+          "place": "b-ready",
+          "score": 0.38729997807168115
+        },
+        {
+          "place": "a-ready",
+          "score": 0.36713591084127095
+        },
+        {
+          "place": "scanner",
+          "score": 0.2355207688965968
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 3,
+      "transition": "A-finish",
+      "side": "consume",
+      "slot": 0,
+      "place": "a-holds",
+      "aiPlace": "a-holds",
+      "count": 1,
+      "evidence": [
+        {
+          "place": "a-holds",
+          "score": 0.9433695281266515
+        },
+        {
+          "place": "b-holds",
+          "score": 0.6615224311478156
+        },
+        {
+          "place": "printer",
+          "score": 0.5391204588476627
+        },
+        {
+          "place": "a-done",
+          "score": 0.45895083402872244
+        },
+        {
+          "place": "b-done",
+          "score": 0.4123129573572592
+        },
+        {
+          "place": "b-ready",
+          "score": 0.38729997807168115
+        },
+        {
+          "place": "a-ready",
+          "score": 0.36713591084127095
+        },
+        {
+          "place": "scanner",
+          "score": 0.2355207688965968
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 4,
+      "transition": "A-finish",
+      "side": "consume",
+      "slot": 1,
+      "place": "scanner",
+      "aiPlace": "scanner",
+      "count": 1,
+      "evidence": [
+        {
+          "place": "scanner",
+          "score": 0.993178326971973
+        },
+        {
+          "place": "printer",
+          "score": 0.625884451684393
+        },
+        {
+          "place": "b-holds",
+          "score": 0.5270229602993292
+        },
+        {
+          "place": "a-holds",
+          "score": 0.2364496487197801
+        },
+        {
+          "place": "a-done",
+          "score": 0.11800223964501769
+        },
+        {
+          "place": "a-ready",
+          "score": 0.09496919983456689
+        },
+        {
+          "place": "b-ready",
+          "score": 0.08848997711304338
+        },
+        {
+          "place": "b-done",
+          "score": 0.06748037070152897
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 5,
+      "transition": "A-finish",
+      "side": "produce",
+      "slot": 0,
+      "place": "a-done",
+      "aiPlace": "a-done",
+      "count": 1,
+      "evidence": [
+        {
+          "place": "a-done",
+          "score": 0.8691052601652342
+        },
+        {
+          "place": "b-done",
+          "score": 0.8234763124847132
+        },
+        {
+          "place": "b-ready",
+          "score": 0.6332017626854337
+        },
+        {
+          "place": "a-ready",
+          "score": 0.5760784200114489
+        },
+        {
+          "place": "b-holds",
+          "score": 0.5489198419295905
+        },
+        {
+          "place": "a-holds",
+          "score": 0.41793998614056693
+        },
+        {
+          "place": "scanner",
+          "score": 0.10020119528075887
+        },
+        {
+          "place": "printer",
+          "score": 0.09991281331561629
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 6,
+      "transition": "A-finish",
+      "side": "produce",
+      "slot": 1,
+      "place": "printer",
+      "aiPlace": "printer",
+      "count": 1,
+      "evidence": [
+        {
+          "place": "printer",
+          "score": 0.9901210512086593
+        },
+        {
+          "place": "scanner",
+          "score": 0.6369897916339226
+        },
+        {
+          "place": "a-holds",
+          "score": 0.518509114454357
+        },
+        {
+          "place": "b-holds",
+          "score": 0.23907511501354678
+        },
+        {
+          "place": "a-done",
+          "score": 0.08978033615041292
+        },
+        {
+          "place": "a-ready",
+          "score": 0.08139568006730342
+        },
+        {
+          "place": "b-ready",
+          "score": 0.08105289316637758
+        },
+        {
+          "place": "b-done",
+          "score": 0.062350949568576654
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 7,
+      "transition": "A-finish",
+      "side": "produce",
+      "slot": 2,
+      "place": "scanner",
+      "aiPlace": "scanner",
+      "count": 1,
+      "evidence": [
+        {
+          "place": "scanner",
+          "score": 0.993178326971973
+        },
+        {
+          "place": "printer",
+          "score": 0.625884451684393
+        },
+        {
+          "place": "b-holds",
+          "score": 0.5270229602993292
+        },
+        {
+          "place": "a-holds",
+          "score": 0.2364496487197801
+        },
+        {
+          "place": "a-done",
+          "score": 0.11800223964501769
+        },
+        {
+          "place": "a-ready",
+          "score": 0.09496919983456689
+        },
+        {
+          "place": "b-ready",
+          "score": 0.08848997711304338
+        },
+        {
+          "place": "b-done",
+          "score": 0.06748037070152897
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 8,
+      "transition": "B-pick",
+      "side": "consume",
+      "slot": 0,
+      "place": "b-ready",
+      "aiPlace": "b-ready",
+      "count": 1,
+      "evidence": [
+        {
+          "place": "b-ready",
+          "score": 0.9378382732525593
+        },
+        {
+          "place": "b-done",
+          "score": 0.7322955952237973
+        },
+        {
+          "place": "a-ready",
+          "score": 0.7027527762707622
+        },
+        {
+          "place": "b-holds",
+          "score": 0.5748328556285146
+        },
+        {
+          "place": "a-done",
+          "score": 0.5586716826950003
+        },
+        {
+          "place": "a-holds",
+          "score": 0.3405609355522497
+        },
+        {
+          "place": "printer",
+          "score": 0.07541882507619724
+        },
+        {
+          "place": "scanner",
+          "score": 0.06639386950065591
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 9,
+      "transition": "B-pick",
+      "side": "consume",
+      "slot": 1,
+      "place": "scanner",
+      "aiPlace": "scanner",
+      "count": 1,
+      "evidence": [
+        {
+          "place": "scanner",
+          "score": 0.9905517952399348
+        },
+        {
+          "place": "printer",
+          "score": 0.608639976371373
+        },
+        {
+          "place": "b-holds",
+          "score": 0.5436300501417811
+        },
+        {
+          "place": "a-holds",
+          "score": 0.24487170504758152
+        },
+        {
+          "place": "a-done",
+          "score": 0.11327403112004761
+        },
+        {
+          "place": "a-ready",
+          "score": 0.09183830995706584
+        },
+        {
+          "place": "b-ready",
+          "score": 0.0846659767123514
+        },
+        {
+          "place": "b-done",
+          "score": 0.06519638015984357
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 10,
+      "transition": "B-pick",
+      "side": "produce",
+      "slot": 0,
+      "place": "b-holds",
+      "aiPlace": "b-holds",
+      "count": 1,
+      "evidence": [
+        {
+          "place": "b-holds",
+          "score": 0.9698620371107057
+        },
+        {
+          "place": "b-done",
+          "score": 0.5817991682898822
+        },
+        {
+          "place": "a-holds",
+          "score": 0.5786616032911145
+        },
+        {
+          "place": "b-ready",
+          "score": 0.5398388879418559
+        },
+        {
+          "place": "a-done",
+          "score": 0.4959507643807295
+        },
+        {
+          "place": "scanner",
+          "score": 0.4656056697563199
+        },
+        {
+          "place": "a-ready",
+          "score": 0.3667393794000482
+        },
+        {
+          "place": "printer",
+          "score": 0.2058857396905215
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 11,
+      "transition": "B-finish",
+      "side": "consume",
+      "slot": 0,
+      "place": "b-holds",
+      "aiPlace": "b-holds",
+      "count": 1,
+      "evidence": [
+        {
+          "place": "b-holds",
+          "score": 0.9698620371107057
+        },
+        {
+          "place": "b-done",
+          "score": 0.5817991682898822
+        },
+        {
+          "place": "a-holds",
+          "score": 0.5786616032911145
+        },
+        {
+          "place": "b-ready",
+          "score": 0.5398388879418559
+        },
+        {
+          "place": "a-done",
+          "score": 0.4959507643807295
+        },
+        {
+          "place": "scanner",
+          "score": 0.4656056697563199
+        },
+        {
+          "place": "a-ready",
+          "score": 0.3667393794000482
+        },
+        {
+          "place": "printer",
+          "score": 0.2058857396905215
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 12,
+      "transition": "B-finish",
+      "side": "consume",
+      "slot": 1,
+      "place": "printer",
+      "aiPlace": "printer",
+      "count": 1,
+      "evidence": [
+        {
+          "place": "printer",
+          "score": 0.9928384591648157
+        },
+        {
+          "place": "scanner",
+          "score": 0.6372859383285827
+        },
+        {
+          "place": "a-holds",
+          "score": 0.5432185312196707
+        },
+        {
+          "place": "b-holds",
+          "score": 0.24716330424628968
+        },
+        {
+          "place": "a-done",
+          "score": 0.10072184212660984
+        },
+        {
+          "place": "a-ready",
+          "score": 0.07460322956087796
+        },
+        {
+          "place": "b-ready",
+          "score": 0.06930110778956868
+        },
+        {
+          "place": "b-done",
+          "score": 0.06802739515346892
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 13,
+      "transition": "B-finish",
+      "side": "produce",
+      "slot": 0,
+      "place": "b-done",
+      "aiPlace": "b-done",
+      "count": 1,
+      "evidence": [
+        {
+          "place": "b-done",
+          "score": 0.9291283560026131
+        },
+        {
+          "place": "a-done",
+          "score": 0.7864738082929186
+        },
+        {
+          "place": "b-ready",
+          "score": 0.7605196731292623
+        },
+        {
+          "place": "b-holds",
+          "score": 0.6172337962739721
+        },
+        {
+          "place": "a-ready",
+          "score": 0.501688895656479
+        },
+        {
+          "place": "a-holds",
+          "score": 0.3608492460452087
+        },
+        {
+          "place": "printer",
+          "score": 0.05779873088657518
+        },
+        {
+          "place": "scanner",
+          "score": 0.05337692890632393
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 14,
+      "transition": "B-finish",
+      "side": "produce",
+      "slot": 1,
+      "place": "scanner",
+      "aiPlace": "scanner",
+      "count": 1,
+      "evidence": [
+        {
+          "place": "scanner",
+          "score": 0.9917232906945807
+        },
+        {
+          "place": "printer",
+          "score": 0.6133857698261499
+        },
+        {
+          "place": "b-holds",
+          "score": 0.5417565154940592
+        },
+        {
+          "place": "a-holds",
+          "score": 0.23975892173934568
+        },
+        {
+          "place": "a-done",
+          "score": 0.11758299756930823
+        },
+        {
+          "place": "a-ready",
+          "score": 0.09593018151299096
+        },
+        {
+          "place": "b-ready",
+          "score": 0.09137366805688334
+        },
+        {
+          "place": "b-done",
+          "score": 0.07021373360547302
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 15,
+      "transition": "B-finish",
+      "side": "produce",
+      "slot": 2,
+      "place": "printer",
+      "aiPlace": "printer",
+      "count": 1,
+      "evidence": [
+        {
+          "place": "printer",
+          "score": 0.9928384591648157
+        },
+        {
+          "place": "scanner",
+          "score": 0.6372859383285827
+        },
+        {
+          "place": "a-holds",
+          "score": 0.5432185312196707
+        },
+        {
+          "place": "b-holds",
+          "score": 0.24716330424628968
+        },
+        {
+          "place": "a-done",
+          "score": 0.10072184212660984
+        },
+        {
+          "place": "a-ready",
+          "score": 0.07460322956087796
+        },
+        {
+          "place": "b-ready",
+          "score": 0.06930110778956868
+        },
+        {
+          "place": "b-done",
+          "score": 0.06802739515346892
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "warning": "Bounded capacity-constrained Petri-net worksheet, not workflow execution or real-system safety certification. Atomic transitions, integer tokens, no time, fairness or hidden actions. Capacity overflow disables a firing. Goal means at least the supplied counts, not that all other places are empty. Terminal non-goal markings are deadlocks; livelocks are not classified. Holds withhold the whole analysis.",
+  "analysis": {
+    "status": "ready",
+    "places": [
+      "a-ready",
+      "a-holds",
+      "a-done",
+      "b-ready",
+      "b-holds",
+      "b-done",
+      "printer",
+      "scanner"
+    ],
+    "stateBound": 256,
+    "reachableStates": 9,
+    "enabledFirings": 10,
+    "enabledInitially": [
+      "A-pick",
+      "B-pick"
+    ],
+    "initialDeadlock": false,
+    "completionReachable": true,
+    "shortestCompletion": {
+      "marking": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "path": [
+        "A-pick",
+        "A-finish",
+        "B-pick",
+        "B-finish"
+      ]
+    },
+    "deadlocks": [
+      {
+        "marking": [
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        "path": [
+          "A-pick",
+          "B-pick"
+        ],
+        "blocked": [
+          {
+            "transition": "A-pick",
+            "missing": [
+              {
+                "place": "a-ready",
+                "need": 1,
+                "have": 0
+              },
+              {
+                "place": "printer",
+                "need": 1,
+                "have": 0
+              }
+            ],
+            "capacityBlocked": [
+              "a-holds"
+            ]
+          },
+          {
+            "transition": "A-finish",
+            "missing": [
+              {
+                "place": "scanner",
+                "need": 1,
+                "have": 0
+              }
+            ],
+            "capacityBlocked": []
+          },
+          {
+            "transition": "B-pick",
+            "missing": [
+              {
+                "place": "b-ready",
+                "need": 1,
+                "have": 0
+              },
+              {
+                "place": "scanner",
+                "need": 1,
+                "have": 0
+              }
+            ],
+            "capacityBlocked": [
+              "b-holds"
+            ]
+          },
+          {
+            "transition": "B-finish",
+            "missing": [
+              {
+                "place": "printer",
+                "need": 1,
+                "have": 0
+              }
+            ],
+            "capacityBlocked": []
+          }
+        ]
+      }
+    ],
+    "neverEnabled": [],
+    "states": [
+      {
+        "marking": [
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          1
+        ],
+        "path": []
+      },
+      {
+        "marking": [
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "path": [
+          "A-pick"
+        ]
+      },
+      {
+        "marking": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0
+        ],
+        "path": [
+          "B-pick"
+        ]
+      },
+      {
+        "marking": [
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1
+        ],
+        "path": [
+          "A-pick",
+          "A-finish"
+        ]
+      },
+      {
+        "marking": [
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        "path": [
+          "A-pick",
+          "B-pick"
+        ]
+      },
+      {
+        "marking": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1
+        ],
+        "path": [
+          "B-pick",
+          "B-finish"
+        ]
+      },
+      {
+        "marking": [
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0
+        ],
+        "path": [
+          "A-pick",
+          "A-finish",
+          "B-pick"
+        ]
+      },
+      {
+        "marking": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1
+        ],
+        "path": [
+          "B-pick",
+          "B-finish",
+          "A-pick"
+        ]
+      },
+      {
+        "marking": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1
+        ],
+        "path": [
+          "A-pick",
+          "A-finish",
+          "B-pick",
+          "B-finish"
+        ]
+      }
+    ]
+  }
+}
+

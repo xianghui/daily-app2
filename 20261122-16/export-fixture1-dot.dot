@@ -1,0 +1,14 @@
+digraph reviewed {
+  rankdir=LR;
+  start [shape=point];
+  start -> Q1;
+  Q1 [label="Q1 | pending | request"];
+  Q2 [label="Q2 | pending | verified"];
+  Q3 [label="Q3 | done | issued"];
+  Q1 -> Q2 [label="advance"];
+  Q1 -> Q1 [label="reset"];
+  Q2 -> Q3 [label="advance"];
+  Q2 -> Q1 [label="reset"];
+  Q3 -> Q3 [label="advance"];
+  Q3 -> Q1 [label="reset"];
+}

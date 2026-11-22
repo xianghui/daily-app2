@@ -1,0 +1,11 @@
+digraph reviewed {
+  rankdir=LR;
+  start [shape=point];
+  start -> Q1;
+  Q1 [label="Q1 | pending | intake, retry"];
+  Q2 [label="Q2 | resolved | resolved, archived"];
+  Q1 -> Q2 [label="valid"];
+  Q1 -> Q1 [label="invalid"];
+  Q2 -> Q2 [label="valid"];
+  Q2 -> Q2 [label="invalid"];
+}

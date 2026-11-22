@@ -1,0 +1,8 @@
+
+
+## State Orchard — 20261122-16
+
+Local MiniLM reconciles informal routing endpoints before mandatory transition/outcome review. Exact Moore-machine partition refinement preserves every future visible event response, compares catalog/reachable/minimal state counts and exports reduced DOT plus complete JSON/CSV/Markdown and shortest distinguishing tests. Both tiny fixtures matched 32/32 endpoint labels, not general accuracy; unknown/negated notes still need holds. No workflow execution, hidden effects or nondeterministic behavior claims. Shared worker/factory from `20261115-6` and WASM from `20261107-2` must remain published. Offline scope is fresh-worker inference in an already-open warmed page. Existing deploy-only byte-identical geometry reuse additionally covers `20261029-12`, retaining source builds and compatibility URLs. The 1 GB guard is unchanged. See [workflow/privacy](20261122-16/README.md) and [observed checks](20261122-16/VALIDATION.md). No digest sent.
+
+
+Public release verified: matching Pages `f5453356435b3a3519ab7978aa28b3217a7696ed` and workflow `44996946423` succeeded. Seven public gallery/app/worker/factory/WASM assets byte-match the combined site. Both public real-AI fixtures (32/32 endpoint occurrences across eight repeated short phrasings), complete reviewed/export/maximum-batch/offline/privacy checks, all 797 gallery cards and the affected older app’s real worker/image/STL import/export regression passed. Combined size 999,681,689 bytes remains below the unchanged 1 GB guard. Source staging excludes and preserves unrelated recovery work. No digest sent.

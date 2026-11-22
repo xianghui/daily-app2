@@ -1,0 +1,574 @@
+{
+  "schema": "state-orchard/1",
+  "originalInput": {
+    "title": "Synthetic Library ladder",
+    "start": "request",
+    "states": [
+      {
+        "id": "request",
+        "description": "Book borrowing request received at library desk",
+        "outcome": "pending"
+      },
+      {
+        "id": "verified",
+        "description": "Library borrower identity check verified",
+        "outcome": "pending"
+      },
+      {
+        "id": "blocked",
+        "description": "Library borrowing blocked by overdue books",
+        "outcome": "pending"
+      },
+      {
+        "id": "issued",
+        "description": "Library book loan issued and checkout complete",
+        "outcome": "done"
+      }
+    ],
+    "events": [
+      "advance",
+      "reset"
+    ],
+    "transitions": [
+      {
+        "id": "t1",
+        "fromNote": "Book borrowing request at library desk",
+        "event": "advance",
+        "toNote": "Library borrower identity verified"
+      },
+      {
+        "id": "t2",
+        "fromNote": "Book borrowing request at library desk",
+        "event": "reset",
+        "toNote": "Book borrowing request at library desk"
+      },
+      {
+        "id": "t3",
+        "fromNote": "Library borrower identity verified",
+        "event": "advance",
+        "toNote": "Book loan issued checkout completed"
+      },
+      {
+        "id": "t4",
+        "fromNote": "Library borrower identity verified",
+        "event": "reset",
+        "toNote": "Book borrowing request at library desk"
+      },
+      {
+        "id": "t5",
+        "fromNote": "Borrowing blocked due to overdue books",
+        "event": "advance",
+        "toNote": "Borrowing blocked due to overdue books"
+      },
+      {
+        "id": "t6",
+        "fromNote": "Borrowing blocked due to overdue books",
+        "event": "reset",
+        "toNote": "Book borrowing request at library desk"
+      },
+      {
+        "id": "t7",
+        "fromNote": "Book loan issued checkout completed",
+        "event": "advance",
+        "toNote": "Book loan issued checkout completed"
+      },
+      {
+        "id": "t8",
+        "fromNote": "Book loan issued checkout completed",
+        "event": "reset",
+        "toNote": "Book borrowing request at library desk"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "id": "t1",
+      "from": "request",
+      "to": "verified",
+      "aiFrom": "request",
+      "aiTo": "verified",
+      "event": "advance",
+      "fromEvidence": [
+        {
+          "state": "request",
+          "score": 0.9639866141101963
+        },
+        {
+          "state": "blocked",
+          "score": 0.7101665088280354
+        },
+        {
+          "state": "issued",
+          "score": 0.630361829192357
+        },
+        {
+          "state": "verified",
+          "score": 0.4166502637361902
+        }
+      ],
+      "toEvidence": [
+        {
+          "state": "verified",
+          "score": 0.9432464237368577
+        },
+        {
+          "state": "request",
+          "score": 0.5417092460375198
+        },
+        {
+          "state": "issued",
+          "score": 0.49864595272539775
+        },
+        {
+          "state": "blocked",
+          "score": 0.46978137411196297
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 1,
+      "id": "t2",
+      "from": "request",
+      "to": "request",
+      "aiFrom": "request",
+      "aiTo": "request",
+      "event": "reset",
+      "fromEvidence": [
+        {
+          "state": "request",
+          "score": 0.9639866141101963
+        },
+        {
+          "state": "blocked",
+          "score": 0.7101665088280354
+        },
+        {
+          "state": "issued",
+          "score": 0.630361829192357
+        },
+        {
+          "state": "verified",
+          "score": 0.4166502637361902
+        }
+      ],
+      "toEvidence": [
+        {
+          "state": "request",
+          "score": 0.9639866141101963
+        },
+        {
+          "state": "blocked",
+          "score": 0.7101665088280354
+        },
+        {
+          "state": "issued",
+          "score": 0.630361829192357
+        },
+        {
+          "state": "verified",
+          "score": 0.4166502637361902
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "id": "t3",
+      "from": "verified",
+      "to": "issued",
+      "aiFrom": "verified",
+      "aiTo": "issued",
+      "event": "advance",
+      "fromEvidence": [
+        {
+          "state": "verified",
+          "score": 0.9420177111361272
+        },
+        {
+          "state": "request",
+          "score": 0.5372165060355759
+        },
+        {
+          "state": "issued",
+          "score": 0.5028950849264744
+        },
+        {
+          "state": "blocked",
+          "score": 0.4637059490073232
+        }
+      ],
+      "toEvidence": [
+        {
+          "state": "issued",
+          "score": 0.8568492333476239
+        },
+        {
+          "state": "request",
+          "score": 0.532698433367298
+        },
+        {
+          "state": "blocked",
+          "score": 0.4642713961984083
+        },
+        {
+          "state": "verified",
+          "score": 0.428697883879585
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 3,
+      "id": "t4",
+      "from": "verified",
+      "to": "request",
+      "aiFrom": "verified",
+      "aiTo": "request",
+      "event": "reset",
+      "fromEvidence": [
+        {
+          "state": "verified",
+          "score": 0.9420177111361272
+        },
+        {
+          "state": "request",
+          "score": 0.5372165060355759
+        },
+        {
+          "state": "issued",
+          "score": 0.5028950849264744
+        },
+        {
+          "state": "blocked",
+          "score": 0.4637059490073232
+        }
+      ],
+      "toEvidence": [
+        {
+          "state": "request",
+          "score": 0.9649384931945086
+        },
+        {
+          "state": "blocked",
+          "score": 0.7068628178902147
+        },
+        {
+          "state": "issued",
+          "score": 0.6257116733505067
+        },
+        {
+          "state": "verified",
+          "score": 0.42899338276405596
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 4,
+      "id": "t5",
+      "from": "blocked",
+      "to": "blocked",
+      "aiFrom": "blocked",
+      "aiTo": "blocked",
+      "event": "advance",
+      "fromEvidence": [
+        {
+          "state": "blocked",
+          "score": 0.9106623266450455
+        },
+        {
+          "state": "request",
+          "score": 0.6634775836861722
+        },
+        {
+          "state": "issued",
+          "score": 0.5792589810720654
+        },
+        {
+          "state": "verified",
+          "score": 0.3660401681973907
+        }
+      ],
+      "toEvidence": [
+        {
+          "state": "blocked",
+          "score": 0.9106623266450455
+        },
+        {
+          "state": "request",
+          "score": 0.6634775836861722
+        },
+        {
+          "state": "issued",
+          "score": 0.5792589810720654
+        },
+        {
+          "state": "verified",
+          "score": 0.3660401681973907
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 5,
+      "id": "t6",
+      "from": "blocked",
+      "to": "request",
+      "aiFrom": "blocked",
+      "aiTo": "request",
+      "event": "reset",
+      "fromEvidence": [
+        {
+          "state": "blocked",
+          "score": 0.9106623266450455
+        },
+        {
+          "state": "request",
+          "score": 0.6634775836861722
+        },
+        {
+          "state": "issued",
+          "score": 0.5792589810720654
+        },
+        {
+          "state": "verified",
+          "score": 0.3660401681973907
+        }
+      ],
+      "toEvidence": [
+        {
+          "state": "request",
+          "score": 0.9519063861254338
+        },
+        {
+          "state": "blocked",
+          "score": 0.7037486515907246
+        },
+        {
+          "state": "issued",
+          "score": 0.6295180588931033
+        },
+        {
+          "state": "verified",
+          "score": 0.41691876564924724
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 6,
+      "id": "t7",
+      "from": "issued",
+      "to": "issued",
+      "aiFrom": "issued",
+      "aiTo": "issued",
+      "event": "advance",
+      "fromEvidence": [
+        {
+          "state": "issued",
+          "score": 0.8690660533505737
+        },
+        {
+          "state": "request",
+          "score": 0.5493762950145663
+        },
+        {
+          "state": "blocked",
+          "score": 0.4830378866976097
+        },
+        {
+          "state": "verified",
+          "score": 0.4383437716122849
+        }
+      ],
+      "toEvidence": [
+        {
+          "state": "issued",
+          "score": 0.8690660533505737
+        },
+        {
+          "state": "request",
+          "score": 0.5493762950145663
+        },
+        {
+          "state": "blocked",
+          "score": 0.4830378866976097
+        },
+        {
+          "state": "verified",
+          "score": 0.4383437716122849
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 7,
+      "id": "t8",
+      "from": "issued",
+      "to": "request",
+      "aiFrom": "issued",
+      "aiTo": "request",
+      "event": "reset",
+      "fromEvidence": [
+        {
+          "state": "issued",
+          "score": 0.8690660533505737
+        },
+        {
+          "state": "request",
+          "score": 0.5493762950145663
+        },
+        {
+          "state": "blocked",
+          "score": 0.4830378866976097
+        },
+        {
+          "state": "verified",
+          "score": 0.4383437716122849
+        }
+      ],
+      "toEvidence": [
+        {
+          "state": "request",
+          "score": 0.9642670735822074
+        },
+        {
+          "state": "blocked",
+          "score": 0.722116983272903
+        },
+        {
+          "state": "issued",
+          "score": 0.6470367548602005
+        },
+        {
+          "state": "verified",
+          "score": 0.4292408129098243
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "warning": "Reviewed deterministic Moore-machine worksheet only. Visible outputs must completely describe behavior you intend to preserve. No hidden state, timing, side effects, probabilities, guards or nondeterminism. AI similarity is not identity proof. No system changes.",
+  "analysis": {
+    "status": "ready",
+    "baselineStates": 4,
+    "reachableStates": 3,
+    "minimalStateCount": 3,
+    "mergedReachableStates": 0,
+    "unreachable": [
+      "blocked"
+    ],
+    "start": "Q1",
+    "states": [
+      {
+        "id": "Q1",
+        "outcome": "pending",
+        "members": [
+          "request"
+        ]
+      },
+      {
+        "id": "Q2",
+        "outcome": "pending",
+        "members": [
+          "verified"
+        ]
+      },
+      {
+        "id": "Q3",
+        "outcome": "done",
+        "members": [
+          "issued"
+        ]
+      }
+    ],
+    "transitions": [
+      {
+        "from": "Q1",
+        "event": "advance",
+        "to": "Q2",
+        "sourceIds": [
+          "t1"
+        ]
+      },
+      {
+        "from": "Q1",
+        "event": "reset",
+        "to": "Q1",
+        "sourceIds": [
+          "t2"
+        ]
+      },
+      {
+        "from": "Q2",
+        "event": "advance",
+        "to": "Q3",
+        "sourceIds": [
+          "t3"
+        ]
+      },
+      {
+        "from": "Q2",
+        "event": "reset",
+        "to": "Q1",
+        "sourceIds": [
+          "t4"
+        ]
+      },
+      {
+        "from": "Q3",
+        "event": "advance",
+        "to": "Q3",
+        "sourceIds": [
+          "t7"
+        ]
+      },
+      {
+        "from": "Q3",
+        "event": "reset",
+        "to": "Q1",
+        "sourceIds": [
+          "t8"
+        ]
+      }
+    ],
+    "tests": [
+      {
+        "left": "Q1",
+        "right": "Q2",
+        "events": [
+          "advance"
+        ],
+        "leftOutcome": "pending",
+        "rightOutcome": "done"
+      },
+      {
+        "left": "Q1",
+        "right": "Q3",
+        "events": [],
+        "leftOutcome": "pending",
+        "rightOutcome": "done"
+      },
+      {
+        "left": "Q2",
+        "right": "Q3",
+        "events": [],
+        "leftOutcome": "pending",
+        "rightOutcome": "done"
+      }
+    ],
+    "refinementRounds": 2,
+    "equivalenceVerified": true,
+    "minimalityVerified": true
+  }
+}

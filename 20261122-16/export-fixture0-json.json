@@ -1,0 +1,539 @@
+{
+  "schema": "state-orchard/1",
+  "originalInput": {
+    "title": "Synthetic Support twins",
+    "start": "intake",
+    "states": [
+      {
+        "id": "intake",
+        "description": "New customer support request intake",
+        "outcome": "pending"
+      },
+      {
+        "id": "retry",
+        "description": "Customer support request returned for another attempt",
+        "outcome": "pending"
+      },
+      {
+        "id": "resolved",
+        "description": "Customer support issue resolved successfully",
+        "outcome": "resolved"
+      },
+      {
+        "id": "archived",
+        "description": "Successfully resolved support ticket stored in archive",
+        "outcome": "resolved"
+      }
+    ],
+    "events": [
+      "valid",
+      "invalid"
+    ],
+    "transitions": [
+      {
+        "id": "t1",
+        "fromNote": "New customer support request received",
+        "event": "valid",
+        "toNote": "Support issue successfully resolved"
+      },
+      {
+        "id": "t2",
+        "fromNote": "New customer support request received",
+        "event": "invalid",
+        "toNote": "Customer support request returned to retry"
+      },
+      {
+        "id": "t3",
+        "fromNote": "Customer support request returned to retry",
+        "event": "valid",
+        "toNote": "Resolved support ticket filed in archive"
+      },
+      {
+        "id": "t4",
+        "fromNote": "Customer support request returned to retry",
+        "event": "invalid",
+        "toNote": "New customer support request received"
+      },
+      {
+        "id": "t5",
+        "fromNote": "Support issue successfully resolved",
+        "event": "valid",
+        "toNote": "Support issue successfully resolved"
+      },
+      {
+        "id": "t6",
+        "fromNote": "Support issue successfully resolved",
+        "event": "invalid",
+        "toNote": "Support issue successfully resolved"
+      },
+      {
+        "id": "t7",
+        "fromNote": "Resolved support ticket filed in archive",
+        "event": "valid",
+        "toNote": "Resolved support ticket filed in archive"
+      },
+      {
+        "id": "t8",
+        "fromNote": "Resolved support ticket filed in archive",
+        "event": "invalid",
+        "toNote": "Resolved support ticket filed in archive"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "id": "t1",
+      "from": "intake",
+      "to": "resolved",
+      "aiFrom": "intake",
+      "aiTo": "resolved",
+      "event": "valid",
+      "fromEvidence": [
+        {
+          "state": "intake",
+          "score": 0.8032305475928034
+        },
+        {
+          "state": "retry",
+          "score": 0.7890250631704264
+        },
+        {
+          "state": "resolved",
+          "score": 0.627867203032751
+        },
+        {
+          "state": "archived",
+          "score": 0.31363702888614764
+        }
+      ],
+      "toEvidence": [
+        {
+          "state": "resolved",
+          "score": 0.798446819954154
+        },
+        {
+          "state": "archived",
+          "score": 0.5480859881809164
+        },
+        {
+          "state": "retry",
+          "score": 0.46430899037733836
+        },
+        {
+          "state": "intake",
+          "score": 0.3136609781444449
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 1,
+      "id": "t2",
+      "from": "intake",
+      "to": "retry",
+      "aiFrom": "intake",
+      "aiTo": "retry",
+      "event": "invalid",
+      "fromEvidence": [
+        {
+          "state": "intake",
+          "score": 0.8032305475928034
+        },
+        {
+          "state": "retry",
+          "score": 0.7890250631704264
+        },
+        {
+          "state": "resolved",
+          "score": 0.627867203032751
+        },
+        {
+          "state": "archived",
+          "score": 0.31363702888614764
+        }
+      ],
+      "toEvidence": [
+        {
+          "state": "retry",
+          "score": 0.8267342760174995
+        },
+        {
+          "state": "resolved",
+          "score": 0.5837219260891539
+        },
+        {
+          "state": "intake",
+          "score": 0.5251639727522245
+        },
+        {
+          "state": "archived",
+          "score": 0.36723761362100477
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "id": "t3",
+      "from": "retry",
+      "to": "archived",
+      "aiFrom": "retry",
+      "aiTo": "archived",
+      "event": "valid",
+      "fromEvidence": [
+        {
+          "state": "retry",
+          "score": 0.8289235552328078
+        },
+        {
+          "state": "resolved",
+          "score": 0.5874417332409861
+        },
+        {
+          "state": "intake",
+          "score": 0.5318405383972078
+        },
+        {
+          "state": "archived",
+          "score": 0.3875936644035509
+        }
+      ],
+      "toEvidence": [
+        {
+          "state": "archived",
+          "score": 0.9154705461461956
+        },
+        {
+          "state": "resolved",
+          "score": 0.4951561045116883
+        },
+        {
+          "state": "retry",
+          "score": 0.3480064939775551
+        },
+        {
+          "state": "intake",
+          "score": 0.21982168731550022
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 3,
+      "id": "t4",
+      "from": "retry",
+      "to": "intake",
+      "aiFrom": "retry",
+      "aiTo": "intake",
+      "event": "invalid",
+      "fromEvidence": [
+        {
+          "state": "retry",
+          "score": 0.8289235552328078
+        },
+        {
+          "state": "resolved",
+          "score": 0.5874417332409861
+        },
+        {
+          "state": "intake",
+          "score": 0.5318405383972078
+        },
+        {
+          "state": "archived",
+          "score": 0.3875936644035509
+        }
+      ],
+      "toEvidence": [
+        {
+          "state": "intake",
+          "score": 0.8108029986482241
+        },
+        {
+          "state": "retry",
+          "score": 0.7940049488591254
+        },
+        {
+          "state": "resolved",
+          "score": 0.6273098720691365
+        },
+        {
+          "state": "archived",
+          "score": 0.31568413367160236
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 4,
+      "id": "t5",
+      "from": "resolved",
+      "to": "resolved",
+      "aiFrom": "resolved",
+      "aiTo": "resolved",
+      "event": "valid",
+      "fromEvidence": [
+        {
+          "state": "resolved",
+          "score": 0.8074602244156459
+        },
+        {
+          "state": "archived",
+          "score": 0.5590567875190334
+        },
+        {
+          "state": "retry",
+          "score": 0.48615750875076014
+        },
+        {
+          "state": "intake",
+          "score": 0.3431426892990604
+        }
+      ],
+      "toEvidence": [
+        {
+          "state": "resolved",
+          "score": 0.8074602244156459
+        },
+        {
+          "state": "archived",
+          "score": 0.5590567875190334
+        },
+        {
+          "state": "retry",
+          "score": 0.48615750875076014
+        },
+        {
+          "state": "intake",
+          "score": 0.3431426892990604
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 5,
+      "id": "t6",
+      "from": "resolved",
+      "to": "resolved",
+      "aiFrom": "resolved",
+      "aiTo": "resolved",
+      "event": "invalid",
+      "fromEvidence": [
+        {
+          "state": "resolved",
+          "score": 0.8074602244156459
+        },
+        {
+          "state": "archived",
+          "score": 0.5590567875190334
+        },
+        {
+          "state": "retry",
+          "score": 0.48615750875076014
+        },
+        {
+          "state": "intake",
+          "score": 0.3431426892990604
+        }
+      ],
+      "toEvidence": [
+        {
+          "state": "resolved",
+          "score": 0.8074602244156459
+        },
+        {
+          "state": "archived",
+          "score": 0.5590567875190334
+        },
+        {
+          "state": "retry",
+          "score": 0.48615750875076014
+        },
+        {
+          "state": "intake",
+          "score": 0.3431426892990604
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 6,
+      "id": "t7",
+      "from": "archived",
+      "to": "archived",
+      "aiFrom": "archived",
+      "aiTo": "archived",
+      "event": "valid",
+      "fromEvidence": [
+        {
+          "state": "archived",
+          "score": 0.9320776648255369
+        },
+        {
+          "state": "resolved",
+          "score": 0.4938992386405184
+        },
+        {
+          "state": "retry",
+          "score": 0.33921935111457624
+        },
+        {
+          "state": "intake",
+          "score": 0.23580248959014635
+        }
+      ],
+      "toEvidence": [
+        {
+          "state": "archived",
+          "score": 0.9320776648255369
+        },
+        {
+          "state": "resolved",
+          "score": 0.4938992386405184
+        },
+        {
+          "state": "retry",
+          "score": 0.33921935111457624
+        },
+        {
+          "state": "intake",
+          "score": 0.23580248959014635
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 7,
+      "id": "t8",
+      "from": "archived",
+      "to": "archived",
+      "aiFrom": "archived",
+      "aiTo": "archived",
+      "event": "invalid",
+      "fromEvidence": [
+        {
+          "state": "archived",
+          "score": 0.9320776648255369
+        },
+        {
+          "state": "resolved",
+          "score": 0.4938992386405184
+        },
+        {
+          "state": "retry",
+          "score": 0.33921935111457624
+        },
+        {
+          "state": "intake",
+          "score": 0.23580248959014635
+        }
+      ],
+      "toEvidence": [
+        {
+          "state": "archived",
+          "score": 0.9320776648255369
+        },
+        {
+          "state": "resolved",
+          "score": 0.4938992386405184
+        },
+        {
+          "state": "retry",
+          "score": 0.33921935111457624
+        },
+        {
+          "state": "intake",
+          "score": 0.23580248959014635
+        }
+      ],
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "warning": "Reviewed deterministic Moore-machine worksheet only. Visible outputs must completely describe behavior you intend to preserve. No hidden state, timing, side effects, probabilities, guards or nondeterminism. AI similarity is not identity proof. No system changes.",
+  "analysis": {
+    "status": "ready",
+    "baselineStates": 4,
+    "reachableStates": 4,
+    "minimalStateCount": 2,
+    "mergedReachableStates": 2,
+    "unreachable": [],
+    "start": "Q1",
+    "states": [
+      {
+        "id": "Q1",
+        "outcome": "pending",
+        "members": [
+          "intake",
+          "retry"
+        ]
+      },
+      {
+        "id": "Q2",
+        "outcome": "resolved",
+        "members": [
+          "resolved",
+          "archived"
+        ]
+      }
+    ],
+    "transitions": [
+      {
+        "from": "Q1",
+        "event": "valid",
+        "to": "Q2",
+        "sourceIds": [
+          "t1",
+          "t3"
+        ]
+      },
+      {
+        "from": "Q1",
+        "event": "invalid",
+        "to": "Q1",
+        "sourceIds": [
+          "t2",
+          "t4"
+        ]
+      },
+      {
+        "from": "Q2",
+        "event": "valid",
+        "to": "Q2",
+        "sourceIds": [
+          "t5",
+          "t7"
+        ]
+      },
+      {
+        "from": "Q2",
+        "event": "invalid",
+        "to": "Q2",
+        "sourceIds": [
+          "t6",
+          "t8"
+        ]
+      }
+    ],
+    "tests": [
+      {
+        "left": "Q1",
+        "right": "Q2",
+        "events": [],
+        "leftOutcome": "pending",
+        "rightOutcome": "resolved"
+      }
+    ],
+    "refinementRounds": 1,
+    "equivalenceVerified": true,
+    "minimalityVerified": true
+  }
+}

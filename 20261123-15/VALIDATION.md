@@ -1,0 +1,24 @@
+# Frame Harbor — observed validation
+
+## Local production bundle
+
+- React + Vite predeploy passed. React/ReactDOM pinned to patched 19.2.9 to keep the app small without changing the collection’s size guard; Terser production minification. No new runtime-sharing rules or old app changes.
+- Desktop Chrome, WASM CPU with GPU disabled: actual MiniLM inference matched **12/12** intended presets across campaign and editorial synthetic fixtures (six each). Not a general accuracy claim.
+- Campaign: five ready, one upscale block, three centered crops clip supplied subjects; three shifts retain them. Editorial: five ready, one impossible box-fit block, five centered crops clip; four shifts retain boxes, one withheld. Honest comparison uses reviewed presets and approved upscale-eligible sources only.
+- A deliberately negated shop note misrouted to square. It remained pending and was held. This is semantic retrieval, not negation understanding or vision; review is mandatory.
+- 1,200 independently exhaustive small-integer geometry oracles verify feasible/infeasible status, maximum area, exact ratio, in-bounds subject containment and minimum Manhattan shift. `core-validation.json`.
+- Real maximum batch: 8 profiles + 24 records = 32 embeddings in eight chunks. No lost records; complete audit reimport restores all originals. Two materially different known-answer batches exercised actual model outputs, not mocks.
+- Real cancel/retry, cold model-download cancel/retry, input change and superseded runs passed. Delayed file reads and worker-source fetches cannot overwrite newer input; old malformed worker results cannot overwrite newer real inference.
+- Defensive tests: initial host/network failure with real retry; unavailable WASM; worker download/construction/runtime errors; malformed vectors/messages; timeout; late messages after cancellation/input changes. Fault injection only for failure paths; successful inference remains real.
+- Review/edit/hold/undo, approval reset on geometry/preset changes, applied-export invalidation, invalid geometry, empty/invalid/oversized JSON, unsupported/oversized imports passed. Downloaded complete JSON/CSV/Markdown and release CSV parsed independently in Python; original inputs, reviewed geometry, formula-leading multiline notes and all records survive. Clipboard readback verified.
+- Explicit cold load before AI makes no model-host request. Recorded inference requests are GET-only static downloads without content-bearing bodies or note text in URLs. Saved audit strips CDN query values. Source/integrations inspected; bundle credential-pattern scan recorded separately.
+- Offline test blocks **all network**, then creates a fresh worker and runs real inference in an already-open warmed production page. Cold offline startup/navigation/reload is not promised or tested.
+- 1440/390/320px viewports: no horizontal overflow; all form controls labeled, visible focus and ≥44px action targets. Normal viewport hero/review/result screenshots recorded and inspected. Physical phones and other browser engines are untested.
+
+## Combined/public verification
+
+Assembly and final public release observations are recorded below when completed; local success alone does not establish publication. Public runtime dependencies must byte-match local assembly; rerun both real-model fixtures, reviewed export/offline/privacy suite and gallery/categories on the live URL.
+
+Combined-site verification passed: **820** gallery cards with earlier categories preserved; **999,987,009 bytes** below unchanged 1 GB guard; seven served gallery/app/runtime assets byte-matched. Final React 19.2.9 production bundle passed both real-model fixtures, all reviewed artifacts, maximum batch, offline/privacy/responsive suite and rerun defensive/race/cold-download tests. Fresh browser-context hero screenshots avoid a disabled-GPU viewport-resize screenshot compositor artifact; DOM has one header, and fresh 1440/390/320 screenshots and review/results were inspected. No legacy app source/runtime-sharing rule changes.
+
+Public release verified: matching built Pages commit `bb0a6d0a37ba63b77aeb30583038a768383ebdc7`, successful workflow `45122363452`, seven public app/gallery/runtime byte matches, both real-model fixtures and the complete reviewed/export/maximum-batch/offline/privacy suite passed. Independent downloaded-artifact parsing and all **820** gallery cards passed. A separate live real-AI probe changed only the note, holding source geometry fixed: story → square changed the reviewed crop from 2250×4000 to 3000×3000, confirming AI materially affects the manifest. Public fresh-context phone screenshots were inspected. Site **999,987,009 bytes** is below the unchanged size guard. Physical phones, other browser engines and cold offline startup remain untested.

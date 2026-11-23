@@ -1,0 +1,101 @@
+{
+  "version": 1,
+  "originalInput": {
+    "plans": [
+      {
+        "id": "campaign",
+        "description": "Public marketing landing pages: discard only approved campaign attribution parameters; query field order is irrelevant, repeated-value order matters.",
+        "mode": "form",
+        "drop": [
+          "utm_source",
+          "utm_medium",
+          "utm_campaign"
+        ],
+        "sort": true
+      },
+      {
+        "id": "catalog",
+        "description": "Product catalog filters and search: preserve all query values and repeated filter order; query field names may be sorted.",
+        "mode": "form",
+        "drop": [],
+        "sort": true
+      },
+      {
+        "id": "signed",
+        "description": "Cryptographically signed download links: preserve the exact URL bytes, query order and percent encoding; changing any part can invalidate the signature.",
+        "mode": "opaque",
+        "drop": [],
+        "sort": false
+      }
+    ],
+    "records": [
+      {
+        "id": "same",
+        "context": "Cryptographically signed download links: preserve the exact URL bytes, query order and percent encoding; changing any part can invalidate the signature.",
+        "raw": "https://example.test/file?z=2&utm_source=email&a=%2f"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "same",
+      "system": "signed",
+      "raw": "https://example.test/file?z=2&utm_source=email&a=%2f",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "signed",
+          "similarity": 1.0000001464823272
+        },
+        {
+          "system": "campaign",
+          "similarity": 0.21111891612466605
+        },
+        {
+          "system": "catalog",
+          "similarity": 0.06621622215093728
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "same",
+      "system": "signed",
+      "raw": "https://example.test/file?z=2&utm_source=email&a=%2f",
+      "canonical": "https://example.test/file?z=2&utm_source=email&a=%2f",
+      "baseline": "https://example.test/file",
+      "changed": false,
+      "removed": [],
+      "pairs": [
+        [
+          "z",
+          "2"
+        ],
+        [
+          "utm_source",
+          "email"
+        ],
+        [
+          "a",
+          "/"
+        ]
+      ],
+      "protectedDifference": true,
+      "exactVerified": true,
+      "status": "ready"
+    }
+  ],
+  "collisions": [],
+  "metrics": {
+    "records": 1,
+    "ready": 1,
+    "held": 0,
+    "blocked": 0,
+    "collisionRows": 0,
+    "exactChecks": 1,
+    "changed": 0,
+    "lostDistinctions": 0
+  }
+}

@@ -1,0 +1,327 @@
+{
+  "version": 1,
+  "originalInput": {
+    "plans": [
+      {
+        "id": "campaign",
+        "description": "Public marketing landing pages: discard only approved campaign attribution parameters; query field order is irrelevant, repeated-value order matters.",
+        "mode": "form",
+        "drop": [
+          "utm_source",
+          "utm_medium",
+          "utm_campaign"
+        ],
+        "sort": true
+      },
+      {
+        "id": "catalog",
+        "description": "Product catalog filters and search: preserve all query values and repeated filter order; query field names may be sorted.",
+        "mode": "form",
+        "drop": [],
+        "sort": true
+      },
+      {
+        "id": "signed",
+        "description": "Cryptographically signed download links: preserve the exact URL bytes, query order and percent encoding; changing any part can invalidate the signature.",
+        "mode": "opaque",
+        "drop": [],
+        "sort": false
+      }
+    ],
+    "records": [
+      {
+        "id": "ad-a",
+        "context": "Marketing newsletter attribution links for public campaign landing pages. Remove approved campaign tags, retain content selection.",
+        "raw": "https://example.test/guide?utm_source=mail&lang=en"
+      },
+      {
+        "id": "ad-b",
+        "context": "Marketing newsletter attribution links for public campaign landing pages. Remove approved campaign tags, retain content selection.",
+        "raw": "https://example.test/guide?lang=en&utm_medium=email"
+      },
+      {
+        "id": "filter-red",
+        "context": "Ecommerce catalog search filter URLs. Every query value affects which products are shown. Preserve repeated filter order.",
+        "raw": "https://example.test/shop?size=M&color=red"
+      },
+      {
+        "id": "filter-blue",
+        "context": "Ecommerce catalog search filter URLs. Every query value affects which products are shown. Preserve repeated filter order.",
+        "raw": "https://example.test/shop?color=blue&size=M"
+      },
+      {
+        "id": "signed-order",
+        "context": "Private expiring signed download URLs. A cryptographic signature covers exact URL bytes and query parameter order.",
+        "raw": "https://example.test/file?z=2&a=%2f&sig=abc"
+      },
+      {
+        "id": "bad-escape",
+        "context": "Ecommerce catalog search filter URLs. Every query value affects which products are shown. Preserve repeated filter order.",
+        "raw": "https://example.test/shop?q=%GG"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "ad-a",
+      "system": "signed",
+      "raw": "https://example.test/guide?utm_source=mail&lang=en",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "campaign",
+          "similarity": 0.6355232819679076
+        },
+        {
+          "system": "signed",
+          "similarity": 0.3256368884040793
+        },
+        {
+          "system": "catalog",
+          "similarity": 0.03540123120711368
+        }
+      ]
+    },
+    {
+      "id": "ad-b",
+      "system": "campaign",
+      "raw": "https://example.test/guide?lang=en&utm_medium=email",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "campaign",
+          "similarity": 0.6407689195283988
+        },
+        {
+          "system": "signed",
+          "similarity": 0.3152888244967771
+        },
+        {
+          "system": "catalog",
+          "similarity": 0.02534910426738229
+        }
+      ]
+    },
+    {
+      "id": "filter-red",
+      "system": "catalog",
+      "raw": "https://example.test/shop?size=M&color=red",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "catalog",
+          "similarity": 0.8065321900753034
+        },
+        {
+          "system": "campaign",
+          "similarity": 0.42428939517374775
+        },
+        {
+          "system": "signed",
+          "similarity": 0.15909097204009737
+        }
+      ]
+    },
+    {
+      "id": "filter-blue",
+      "system": "catalog",
+      "raw": "https://example.test/shop?color=blue&size=M",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "catalog",
+          "similarity": 0.8065321900753034
+        },
+        {
+          "system": "campaign",
+          "similarity": 0.42428939517374775
+        },
+        {
+          "system": "signed",
+          "similarity": 0.15909097204009737
+        }
+      ]
+    },
+    {
+      "id": "signed-order",
+      "system": "signed",
+      "raw": "https://example.test/file?z=2&a=%2f&sig=abc",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "signed",
+          "similarity": 0.7140590269201716
+        },
+        {
+          "system": "campaign",
+          "similarity": 0.23926073405876935
+        },
+        {
+          "system": "catalog",
+          "similarity": 0.13571947055714578
+        }
+      ]
+    },
+    {
+      "id": "bad-escape",
+      "system": "catalog",
+      "raw": "https://example.test/shop?q=%GG",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "catalog",
+          "similarity": 0.7898795397830218
+        },
+        {
+          "system": "campaign",
+          "similarity": 0.4226250968859936
+        },
+        {
+          "system": "signed",
+          "similarity": 0.1689346463338898
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "ad-a",
+      "system": "signed",
+      "raw": "https://example.test/guide?utm_source=mail&lang=en",
+      "canonical": "https://example.test/guide?utm_source=mail&lang=en",
+      "baseline": "https://example.test/guide",
+      "changed": false,
+      "removed": [],
+      "pairs": [
+        [
+          "utm_source",
+          "mail"
+        ],
+        [
+          "lang",
+          "en"
+        ]
+      ],
+      "protectedDifference": true,
+      "exactVerified": true,
+      "status": "ready"
+    },
+    {
+      "id": "ad-b",
+      "system": "campaign",
+      "raw": "https://example.test/guide?lang=en&utm_medium=email",
+      "canonical": "https://example.test/guide?lang=en",
+      "baseline": "https://example.test/guide",
+      "changed": true,
+      "removed": [
+        [
+          "utm_medium",
+          "email"
+        ]
+      ],
+      "pairs": [
+        [
+          "lang",
+          "en"
+        ]
+      ],
+      "protectedDifference": true,
+      "exactVerified": true,
+      "status": "ready"
+    },
+    {
+      "id": "filter-red",
+      "system": "catalog",
+      "raw": "https://example.test/shop?size=M&color=red",
+      "canonical": "https://example.test/shop?color=red&size=M",
+      "baseline": "https://example.test/shop",
+      "changed": true,
+      "removed": [],
+      "pairs": [
+        [
+          "color",
+          "red"
+        ],
+        [
+          "size",
+          "M"
+        ]
+      ],
+      "protectedDifference": true,
+      "exactVerified": true,
+      "status": "ready"
+    },
+    {
+      "id": "filter-blue",
+      "system": "catalog",
+      "raw": "https://example.test/shop?color=blue&size=M",
+      "canonical": "https://example.test/shop?color=blue&size=M",
+      "baseline": "https://example.test/shop",
+      "changed": false,
+      "removed": [],
+      "pairs": [
+        [
+          "color",
+          "blue"
+        ],
+        [
+          "size",
+          "M"
+        ]
+      ],
+      "protectedDifference": true,
+      "exactVerified": true,
+      "status": "ready"
+    },
+    {
+      "id": "signed-order",
+      "system": "signed",
+      "raw": "https://example.test/file?z=2&a=%2f&sig=abc",
+      "canonical": "https://example.test/file?z=2&a=%2f&sig=abc",
+      "baseline": "https://example.test/file",
+      "changed": false,
+      "removed": [],
+      "pairs": [
+        [
+          "z",
+          "2"
+        ],
+        [
+          "a",
+          "/"
+        ],
+        [
+          "sig",
+          "abc"
+        ]
+      ],
+      "protectedDifference": true,
+      "exactVerified": true,
+      "status": "ready"
+    },
+    {
+      "id": "bad-escape",
+      "system": "catalog",
+      "raw": "https://example.test/shop?q=%GG",
+      "status": "blocked",
+      "reason": "Use an ASCII HTTP(S) URL ≤600, percent-encode spaces/Unicode; no malformed escapes or backslashes."
+    }
+  ],
+  "collisions": [],
+  "metrics": {
+    "records": 6,
+    "ready": 5,
+    "held": 0,
+    "blocked": 1,
+    "collisionRows": 0,
+    "exactChecks": 5,
+    "changed": 2,
+    "lostDistinctions": 2
+  }
+}

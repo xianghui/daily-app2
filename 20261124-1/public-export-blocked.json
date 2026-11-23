@@ -1,0 +1,326 @@
+{
+  "version": 1,
+  "originalInput": {
+    "plans": [
+      {
+        "id": "hours",
+        "description": "Payroll timesheet export records elapsed work as decimal hours, with fractions of an hour",
+        "format": "decimal-hours"
+      },
+      {
+        "id": "clock",
+        "description": "Project planning estimates elapsed hours and minutes in H:MM clock notation",
+        "format": "hours-minutes"
+      },
+      {
+        "id": "stopwatch",
+        "description": "Stopwatch lap timings for short tasks are elapsed minutes and seconds in M:SS notation",
+        "format": "minutes-seconds"
+      },
+      {
+        "id": "iso",
+        "description": "Machine API uses ISO 8601 duration strings with P and T designators for days hours minutes seconds",
+        "format": "iso"
+      }
+    ],
+    "records": [
+      {
+        "id": "short-check",
+        "context": "Lap stopwatch timings for short tasks use minutes followed by a colon and seconds.",
+        "raw": "12:05.250"
+      },
+      {
+        "id": "shift",
+        "context": "Project planners write elapsed hours followed by a colon and minutes, not time of day.",
+        "raw": "27:15"
+      },
+      {
+        "id": "fractional-work",
+        "context": "The payroll timesheet system exports labor in decimal hours; the fractional part is a fraction of one hour.",
+        "raw": "0.125"
+      },
+      {
+        "id": "overnight-api",
+        "context": "The machine API provides ISO 8601 durations with P and T component designators.",
+        "raw": "P1DT2H3M4.005S"
+      },
+      {
+        "id": "negative",
+        "context": "The payroll timesheet system exports labor in decimal hours; the fractional part is a fraction of one hour.",
+        "raw": "-1.5"
+      },
+      {
+        "id": "empty-iso",
+        "context": "The machine API provides ISO 8601 durations with P and T component designators.",
+        "raw": "PT"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "short-check",
+      "system": "stopwatch",
+      "raw": "2:03.5",
+      "decision": "approve",
+      "note": "=SUM(1,2)\nReviewed \"source\", exactly.",
+      "evidence": [
+        {
+          "system": "stopwatch",
+          "similarity": 0.7774512613583023
+        },
+        {
+          "system": "iso",
+          "similarity": 0.42736483685992943
+        },
+        {
+          "system": "clock",
+          "similarity": 0.42682144578583875
+        },
+        {
+          "system": "hours",
+          "similarity": 0.24561427080237272
+        }
+      ]
+    },
+    {
+      "id": "shift",
+      "system": "clock",
+      "raw": "zz",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "clock",
+          "similarity": 0.7275520458725591
+        },
+        {
+          "system": "iso",
+          "similarity": 0.4714118061721354
+        },
+        {
+          "system": "stopwatch",
+          "similarity": 0.44867779716914463
+        },
+        {
+          "system": "hours",
+          "similarity": 0.41189445978612715
+        }
+      ]
+    },
+    {
+      "id": "fractional-work",
+      "system": "hours",
+      "raw": "0.125",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "hours",
+          "similarity": 0.8264705571349633
+        },
+        {
+          "system": "clock",
+          "similarity": 0.4025980607192543
+        },
+        {
+          "system": "stopwatch",
+          "similarity": 0.29394028585611365
+        },
+        {
+          "system": "iso",
+          "similarity": 0.28773900123874063
+        }
+      ]
+    },
+    {
+      "id": "overnight-api",
+      "system": "iso",
+      "raw": "P1DT2H3M4.005S",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "iso",
+          "similarity": 0.7690652352555556
+        },
+        {
+          "system": "stopwatch",
+          "similarity": 0.4040485047610791
+        },
+        {
+          "system": "clock",
+          "similarity": 0.3999026398245594
+        },
+        {
+          "system": "hours",
+          "similarity": 0.19022836310445757
+        }
+      ]
+    },
+    {
+      "id": "negative",
+      "system": "hours",
+      "raw": "-1.5",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "hours",
+          "similarity": 0.8289160499103504
+        },
+        {
+          "system": "clock",
+          "similarity": 0.3988511207839301
+        },
+        {
+          "system": "stopwatch",
+          "similarity": 0.2993392448904198
+        },
+        {
+          "system": "iso",
+          "similarity": 0.2892756167651454
+        }
+      ]
+    },
+    {
+      "id": "empty-iso",
+      "system": "iso",
+      "raw": "PT",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "iso",
+          "similarity": 0.7711295879140401
+        },
+        {
+          "system": "stopwatch",
+          "similarity": 0.3980604213230609
+        },
+        {
+          "system": "clock",
+          "similarity": 0.3941125117387232
+        },
+        {
+          "system": "hours",
+          "similarity": 0.1819171419217018
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "short-check",
+      "system": "stopwatch",
+      "raw": "2:03.5",
+      "format": "minutes-seconds",
+      "milliseconds": 123500,
+      "seconds": "123.5",
+      "canonical": "PT123.5S",
+      "parts": [
+        {
+          "component": "minutes",
+          "value": "2",
+          "milliseconds": 120000
+        },
+        {
+          "component": "seconds",
+          "value": "03.5",
+          "milliseconds": 3500
+        }
+      ],
+      "baselineSeconds": "7200",
+      "differentFromBaseline": true,
+      "exactVerified": true,
+      "status": "ready"
+    },
+    {
+      "id": "shift",
+      "system": "clock",
+      "raw": "zz",
+      "format": "hours-minutes",
+      "status": "blocked",
+      "reason": "Use H:MM, minutes 00–59; no seconds or time-of-day rollover."
+    },
+    {
+      "id": "fractional-work",
+      "system": "hours",
+      "raw": "0.125",
+      "format": "decimal-hours",
+      "milliseconds": 450000,
+      "seconds": "450",
+      "canonical": "PT450S",
+      "parts": [
+        {
+          "component": "decimal hours",
+          "value": "0.125",
+          "milliseconds": 450000
+        }
+      ],
+      "baselineSeconds": "450",
+      "differentFromBaseline": false,
+      "exactVerified": true,
+      "status": "ready"
+    },
+    {
+      "id": "overnight-api",
+      "system": "iso",
+      "raw": "P1DT2H3M4.005S",
+      "format": "iso",
+      "milliseconds": 93784005,
+      "seconds": "93784.005",
+      "canonical": "PT93784.005S",
+      "parts": [
+        {
+          "component": "days",
+          "value": "1",
+          "milliseconds": 86400000
+        },
+        {
+          "component": "hours",
+          "value": "2",
+          "milliseconds": 7200000
+        },
+        {
+          "component": "minutes",
+          "value": "3",
+          "milliseconds": 180000
+        },
+        {
+          "component": "seconds",
+          "value": "4.005",
+          "milliseconds": 4005
+        }
+      ],
+      "baselineSeconds": null,
+      "differentFromBaseline": true,
+      "exactVerified": true,
+      "status": "ready"
+    },
+    {
+      "id": "negative",
+      "system": "hours",
+      "raw": "-1.5",
+      "format": "decimal-hours",
+      "status": "blocked",
+      "reason": "Decimal hours need unsigned digits, dot fractions ≤6 places, no whitespace or units."
+    },
+    {
+      "id": "empty-iso",
+      "system": "iso",
+      "raw": "PT",
+      "format": "iso",
+      "status": "blocked",
+      "reason": "Use fixed ISO P[nD][T[nH][nM][n[.sss]S]]. No years, calendar months, weeks, signs or empty T."
+    }
+  ],
+  "metrics": {
+    "records": 6,
+    "ready": 3,
+    "held": 0,
+    "blocked": 3,
+    "exactChecks": 3,
+    "changedInterpretations": 2,
+    "totalSeconds": "94357.505"
+  }
+}

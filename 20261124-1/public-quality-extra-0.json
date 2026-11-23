@@ -1,0 +1,267 @@
+{
+  "version": 1,
+  "originalInput": {
+    "plans": [
+      {
+        "id": "hours",
+        "description": "Payroll timesheet export records elapsed work as decimal hours, with fractions of an hour",
+        "format": "decimal-hours"
+      },
+      {
+        "id": "clock",
+        "description": "Project planning estimates elapsed hours and minutes in H:MM clock notation",
+        "format": "hours-minutes"
+      },
+      {
+        "id": "stopwatch",
+        "description": "Stopwatch lap timings for short tasks are elapsed minutes and seconds in M:SS notation",
+        "format": "minutes-seconds"
+      },
+      {
+        "id": "iso",
+        "description": "Machine API uses ISO 8601 duration strings with P and T designators for days hours minutes seconds",
+        "format": "iso"
+      }
+    ],
+    "records": [
+      {
+        "id": "bench",
+        "context": "A technician timed each quick bench check with a lap timer, recording minutes before the colon and seconds after it.",
+        "raw": "3:20.125"
+      },
+      {
+        "id": "work-package",
+        "context": "Maintenance planners list multi-hour work packages, using hours to the left of the colon and minutes to its right.",
+        "raw": "36:45"
+      },
+      {
+        "id": "hr",
+        "context": "HR time tracking gives hours as a decimal quantity: a quarter-hour is .25, not 25 minutes.",
+        "raw": "2.25"
+      },
+      {
+        "id": "integration",
+        "context": "The integration event carries a machine-readable elapsed interval encoded with ISO-8601 P/T/H/M/S duration notation.",
+        "raw": "PT5M6.007S"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "bench",
+      "system": "stopwatch",
+      "raw": "3:20.125",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "stopwatch",
+          "similarity": 0.3949235420496846
+        },
+        {
+          "system": "iso",
+          "similarity": 0.283823831623026
+        },
+        {
+          "system": "hours",
+          "similarity": 0.2091074826230489
+        },
+        {
+          "system": "clock",
+          "similarity": 0.19955968282681624
+        }
+      ]
+    },
+    {
+      "id": "work-package",
+      "system": "clock",
+      "raw": "36:45",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "clock",
+          "similarity": 0.5094266108691533
+        },
+        {
+          "system": "hours",
+          "similarity": 0.3490284304021653
+        },
+        {
+          "system": "iso",
+          "similarity": 0.3442989885827996
+        },
+        {
+          "system": "stopwatch",
+          "similarity": 0.26778304109913653
+        }
+      ]
+    },
+    {
+      "id": "hr",
+      "system": "hours",
+      "raw": "2.25",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "hours",
+          "similarity": 0.5596641956103796
+        },
+        {
+          "system": "clock",
+          "similarity": 0.46876103726626184
+        },
+        {
+          "system": "iso",
+          "similarity": 0.3631357166349782
+        },
+        {
+          "system": "stopwatch",
+          "similarity": 0.36220403019198555
+        }
+      ]
+    },
+    {
+      "id": "integration",
+      "system": "iso",
+      "raw": "PT5M6.007S",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "iso",
+          "similarity": 0.4939226570811034
+        },
+        {
+          "system": "stopwatch",
+          "similarity": 0.4426755229823439
+        },
+        {
+          "system": "clock",
+          "similarity": 0.37383459292454874
+        },
+        {
+          "system": "hours",
+          "similarity": 0.21044084381561476
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "bench",
+      "system": "stopwatch",
+      "raw": "3:20.125",
+      "format": "minutes-seconds",
+      "milliseconds": 200125,
+      "seconds": "200.125",
+      "canonical": "PT200.125S",
+      "parts": [
+        {
+          "component": "minutes",
+          "value": "3",
+          "milliseconds": 180000
+        },
+        {
+          "component": "seconds",
+          "value": "20.125",
+          "milliseconds": 20125
+        }
+      ],
+      "baselineSeconds": "10800",
+      "differentFromBaseline": true,
+      "exactVerified": true,
+      "status": "ready"
+    },
+    {
+      "id": "work-package",
+      "system": "clock",
+      "raw": "36:45",
+      "format": "hours-minutes",
+      "milliseconds": 132300000,
+      "seconds": "132300",
+      "canonical": "PT132300S",
+      "parts": [
+        {
+          "component": "hours",
+          "value": "36",
+          "milliseconds": 129600000
+        },
+        {
+          "component": "minutes",
+          "value": "45",
+          "milliseconds": 2700000
+        }
+      ],
+      "baselineSeconds": "129600",
+      "differentFromBaseline": true,
+      "exactVerified": true,
+      "status": "ready"
+    },
+    {
+      "id": "hr",
+      "system": "hours",
+      "raw": "2.25",
+      "format": "decimal-hours",
+      "milliseconds": 8100000,
+      "seconds": "8100",
+      "canonical": "PT8100S",
+      "parts": [
+        {
+          "component": "decimal hours",
+          "value": "2.25",
+          "milliseconds": 8100000
+        }
+      ],
+      "baselineSeconds": "8100",
+      "differentFromBaseline": false,
+      "exactVerified": true,
+      "status": "ready"
+    },
+    {
+      "id": "integration",
+      "system": "iso",
+      "raw": "PT5M6.007S",
+      "format": "iso",
+      "milliseconds": 306007,
+      "seconds": "306.007",
+      "canonical": "PT306.007S",
+      "parts": [
+        {
+          "component": "days",
+          "value": "0",
+          "milliseconds": 0
+        },
+        {
+          "component": "hours",
+          "value": "0",
+          "milliseconds": 0
+        },
+        {
+          "component": "minutes",
+          "value": "5",
+          "milliseconds": 300000
+        },
+        {
+          "component": "seconds",
+          "value": "6.007",
+          "milliseconds": 6007
+        }
+      ],
+      "baselineSeconds": null,
+      "differentFromBaseline": true,
+      "exactVerified": true,
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 4,
+    "ready": 4,
+    "held": 0,
+    "blocked": 0,
+    "exactChecks": 4,
+    "changedInterpretations": 3,
+    "totalSeconds": "140906.132"
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "version": 1,
+  "originalInput": {
+    "plans": [
+      {
+        "id": "hours",
+        "description": "Payroll timesheet export records elapsed work as decimal hours, with fractions of an hour",
+        "format": "decimal-hours"
+      },
+      {
+        "id": "clock",
+        "description": "Project planning estimates elapsed hours and minutes in H:MM clock notation",
+        "format": "hours-minutes"
+      },
+      {
+        "id": "stopwatch",
+        "description": "Stopwatch lap timings for short tasks are elapsed minutes and seconds in M:SS notation",
+        "format": "minutes-seconds"
+      },
+      {
+        "id": "iso",
+        "description": "Machine API uses ISO 8601 duration strings with P and T designators for days hours minutes seconds",
+        "format": "iso"
+      }
+    ],
+    "records": [
+      {
+        "id": "same",
+        "context": "Project planning estimates elapsed hours and minutes in H:MM clock notation",
+        "raw": "1:30"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "same",
+      "system": "clock",
+      "raw": "1:30",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "clock",
+          "similarity": 0.9940670858087185
+        },
+        {
+          "system": "stopwatch",
+          "similarity": 0.47489709078023995
+        },
+        {
+          "system": "iso",
+          "similarity": 0.45121843153170826
+        },
+        {
+          "system": "hours",
+          "similarity": 0.4386539159099525
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "same",
+      "system": "clock",
+      "raw": "1:30",
+      "format": "hours-minutes",
+      "milliseconds": 5400000,
+      "seconds": "5400",
+      "canonical": "PT5400S",
+      "parts": [
+        {
+          "component": "hours",
+          "value": "1",
+          "milliseconds": 3600000
+        },
+        {
+          "component": "minutes",
+          "value": "30",
+          "milliseconds": 1800000
+        }
+      ],
+      "baselineSeconds": "3600",
+      "differentFromBaseline": true,
+      "exactVerified": true,
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 1,
+    "ready": 1,
+    "held": 0,
+    "blocked": 0,
+    "exactChecks": 1,
+    "changedInterpretations": 1,
+    "totalSeconds": "5400"
+  }
+}

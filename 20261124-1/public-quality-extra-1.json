@@ -1,0 +1,267 @@
+{
+  "version": 1,
+  "originalInput": {
+    "plans": [
+      {
+        "id": "hours",
+        "description": "Payroll timesheet export records elapsed work as decimal hours, with fractions of an hour",
+        "format": "decimal-hours"
+      },
+      {
+        "id": "clock",
+        "description": "Project planning estimates elapsed hours and minutes in H:MM clock notation",
+        "format": "hours-minutes"
+      },
+      {
+        "id": "stopwatch",
+        "description": "Stopwatch lap timings for short tasks are elapsed minutes and seconds in M:SS notation",
+        "format": "minutes-seconds"
+      },
+      {
+        "id": "iso",
+        "description": "Machine API uses ISO 8601 duration strings with P and T designators for days hours minutes seconds",
+        "format": "iso"
+      }
+    ],
+    "records": [
+      {
+        "id": "contractor",
+        "context": "Contractor export stores worked hours using a dot and base-ten fractional hours rather than a colon.",
+        "raw": "0.1"
+      },
+      {
+        "id": "video-check",
+        "context": "Short stopwatch measurements are written as minutes then seconds, for instance two minutes ten seconds is 2:10.",
+        "raw": "2:10"
+      },
+      {
+        "id": "day-job",
+        "context": "Elapsed labor estimate uses an hour count and a two-digit minute field, separated by a colon; this is not a clock time.",
+        "raw": "48:05"
+      },
+      {
+        "id": "job-api",
+        "context": "Scheduled-job API returns a duration in ISO 8601 notation, e.g. P2DT3H indicates elapsed days and hours.",
+        "raw": "P2DT3H"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "contractor",
+      "system": "hours",
+      "raw": "0.1",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "hours",
+          "similarity": 0.6225065127260742
+        },
+        {
+          "system": "clock",
+          "similarity": 0.4797609978441496
+        },
+        {
+          "system": "iso",
+          "similarity": 0.4304287698700974
+        },
+        {
+          "system": "stopwatch",
+          "similarity": 0.330053605728943
+        }
+      ]
+    },
+    {
+      "id": "video-check",
+      "system": "stopwatch",
+      "raw": "2:10",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "stopwatch",
+          "similarity": 0.7261586761580268
+        },
+        {
+          "system": "clock",
+          "similarity": 0.45041537663975445
+        },
+        {
+          "system": "iso",
+          "similarity": 0.40011452559869237
+        },
+        {
+          "system": "hours",
+          "similarity": 0.3123013490768016
+        }
+      ]
+    },
+    {
+      "id": "day-job",
+      "system": "clock",
+      "raw": "48:05",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "clock",
+          "similarity": 0.5847478067471189
+        },
+        {
+          "system": "hours",
+          "similarity": 0.5521072099143456
+        },
+        {
+          "system": "iso",
+          "similarity": 0.4231658322391579
+        },
+        {
+          "system": "stopwatch",
+          "similarity": 0.4136225475730637
+        }
+      ]
+    },
+    {
+      "id": "job-api",
+      "system": "iso",
+      "raw": "P2DT3H",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "iso",
+          "similarity": 0.6822975754755466
+        },
+        {
+          "system": "clock",
+          "similarity": 0.4255407061832897
+        },
+        {
+          "system": "stopwatch",
+          "similarity": 0.358135204422353
+        },
+        {
+          "system": "hours",
+          "similarity": 0.33023290858170684
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "contractor",
+      "system": "hours",
+      "raw": "0.1",
+      "format": "decimal-hours",
+      "milliseconds": 360000,
+      "seconds": "360",
+      "canonical": "PT360S",
+      "parts": [
+        {
+          "component": "decimal hours",
+          "value": "0.1",
+          "milliseconds": 360000
+        }
+      ],
+      "baselineSeconds": "360",
+      "differentFromBaseline": false,
+      "exactVerified": true,
+      "status": "ready"
+    },
+    {
+      "id": "video-check",
+      "system": "stopwatch",
+      "raw": "2:10",
+      "format": "minutes-seconds",
+      "milliseconds": 130000,
+      "seconds": "130",
+      "canonical": "PT130S",
+      "parts": [
+        {
+          "component": "minutes",
+          "value": "2",
+          "milliseconds": 120000
+        },
+        {
+          "component": "seconds",
+          "value": "10",
+          "milliseconds": 10000
+        }
+      ],
+      "baselineSeconds": "7200",
+      "differentFromBaseline": true,
+      "exactVerified": true,
+      "status": "ready"
+    },
+    {
+      "id": "day-job",
+      "system": "clock",
+      "raw": "48:05",
+      "format": "hours-minutes",
+      "milliseconds": 173100000,
+      "seconds": "173100",
+      "canonical": "PT173100S",
+      "parts": [
+        {
+          "component": "hours",
+          "value": "48",
+          "milliseconds": 172800000
+        },
+        {
+          "component": "minutes",
+          "value": "05",
+          "milliseconds": 300000
+        }
+      ],
+      "baselineSeconds": "172800",
+      "differentFromBaseline": true,
+      "exactVerified": true,
+      "status": "ready"
+    },
+    {
+      "id": "job-api",
+      "system": "iso",
+      "raw": "P2DT3H",
+      "format": "iso",
+      "milliseconds": 183600000,
+      "seconds": "183600",
+      "canonical": "PT183600S",
+      "parts": [
+        {
+          "component": "days",
+          "value": "2",
+          "milliseconds": 172800000
+        },
+        {
+          "component": "hours",
+          "value": "3",
+          "milliseconds": 10800000
+        },
+        {
+          "component": "minutes",
+          "value": "0",
+          "milliseconds": 0
+        },
+        {
+          "component": "seconds",
+          "value": "0",
+          "milliseconds": 0
+        }
+      ],
+      "baselineSeconds": null,
+      "differentFromBaseline": true,
+      "exactVerified": true,
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 4,
+    "ready": 4,
+    "held": 0,
+    "blocked": 0,
+    "exactChecks": 4,
+    "changedInterpretations": 3,
+    "totalSeconds": "357190"
+  }
+}

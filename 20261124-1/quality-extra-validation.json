@@ -1,0 +1,86 @@
+[
+  {
+    "records": [
+      {
+        "id": "bench",
+        "context": "A technician timed each quick bench check with a lap timer, recording minutes before the colon and seconds after it.",
+        "raw": "3:20.125"
+      },
+      {
+        "id": "work-package",
+        "context": "Maintenance planners list multi-hour work packages, using hours to the left of the colon and minutes to its right.",
+        "raw": "36:45"
+      },
+      {
+        "id": "hr",
+        "context": "HR time tracking gives hours as a decimal quantity: a quarter-hour is .25, not 25 minutes.",
+        "raw": "2.25"
+      },
+      {
+        "id": "integration",
+        "context": "The integration event carries a machine-readable elapsed interval encoded with ISO-8601 P/T/H/M/S duration notation.",
+        "raw": "PT5M6.007S"
+      }
+    ],
+    "actual": [
+      "stopwatch",
+      "clock",
+      "hours",
+      "iso"
+    ],
+    "expected": [
+      "stopwatch",
+      "clock",
+      "hours",
+      "iso"
+    ],
+    "seconds": [
+      "200.125",
+      "132300",
+      "8100",
+      "306.007"
+    ]
+  },
+  {
+    "records": [
+      {
+        "id": "contractor",
+        "context": "Contractor export stores worked hours using a dot and base-ten fractional hours rather than a colon.",
+        "raw": "0.1"
+      },
+      {
+        "id": "video-check",
+        "context": "Short stopwatch measurements are written as minutes then seconds, for instance two minutes ten seconds is 2:10.",
+        "raw": "2:10"
+      },
+      {
+        "id": "day-job",
+        "context": "Elapsed labor estimate uses an hour count and a two-digit minute field, separated by a colon; this is not a clock time.",
+        "raw": "48:05"
+      },
+      {
+        "id": "job-api",
+        "context": "Scheduled-job API returns a duration in ISO 8601 notation, e.g. P2DT3H indicates elapsed days and hours.",
+        "raw": "P2DT3H"
+      }
+    ],
+    "actual": [
+      "hours",
+      "stopwatch",
+      "clock",
+      "iso"
+    ],
+    "expected": [
+      "hours",
+      "stopwatch",
+      "clock",
+      "iso"
+    ],
+    "seconds": [
+      "360",
+      "130",
+      "173100",
+      "183600"
+    ]
+  }
+]

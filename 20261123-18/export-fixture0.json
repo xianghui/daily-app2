@@ -1,0 +1,155 @@
+{
+  "version": 1,
+  "originalInput": {
+    "profiles": [
+      {
+        "id": "latlon",
+        "description": "Geographic WGS84 latitude then longitude in signed decimal degrees, latitude first"
+      },
+      {
+        "id": "lonlat",
+        "description": "Geographic WGS84 longitude then latitude in signed decimal degrees, longitude first GeoJSON order"
+      },
+      {
+        "id": "dms",
+        "description": "Geographic WGS84 compass coordinates in degrees minutes seconds with N S E W hemisphere letters; axis identity from hemisphere"
+      }
+    ],
+    "records": [
+      {
+        "id": "orchid",
+        "context": "WGS84 signed decimal degrees latitude first then longitude field notebook",
+        "value": "1.3521 | 103.8198"
+      },
+      {
+        "id": "canal",
+        "context": "WGS84 decimal degrees longitude first then latitude GeoJSON export",
+        "value": "4.895168 | 52.370216"
+      },
+      {
+        "id": "bad-minute",
+        "context": "WGS84 degrees minutes seconds latitude first then longitude compass hemispheres",
+        "value": "51 60 0 N | 0 7 39 W"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "orchid",
+      "system": "latlon",
+      "value": "1.3521 | 103.8198",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "latlon",
+          "similarity": 0.8743415836421976
+        },
+        {
+          "system": "lonlat",
+          "similarity": 0.7537274470353094
+        },
+        {
+          "system": "dms",
+          "similarity": 0.5364933656517965
+        }
+      ]
+    },
+    {
+      "id": "canal",
+      "system": "lonlat",
+      "value": "4.895168 | 52.370216",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "lonlat",
+          "similarity": 0.8222036082738683
+        },
+        {
+          "system": "latlon",
+          "similarity": 0.7288986291349262
+        },
+        {
+          "system": "dms",
+          "similarity": 0.4554348364790705
+        }
+      ]
+    },
+    {
+      "id": "bad-minute",
+      "system": "dms",
+      "value": "51 60 0 N | 0 7 39 W",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "dms",
+          "similarity": 0.8915531851535305
+        },
+        {
+          "system": "latlon",
+          "similarity": 0.704770654120343
+        },
+        {
+          "system": "lonlat",
+          "similarity": 0.5840599783011521
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "orchid",
+      "value": "1.3521 | 103.8198",
+      "system": "latlon",
+      "status": "ready",
+      "coordinates": [
+        103.8198,
+        1.3521
+      ],
+      "display": "103.8198, 1.3521 [longitude, latitude]",
+      "precision": "Rounded to 9 decimal places; source precision is not increased.",
+      "baseline": {
+        "error": "lat outside ±90 degrees."
+      },
+      "changed": true
+    },
+    {
+      "id": "canal",
+      "value": "4.895168 | 52.370216",
+      "system": "lonlat",
+      "status": "ready",
+      "coordinates": [
+        4.895168,
+        52.370216
+      ],
+      "display": "4.895168, 52.370216 [longitude, latitude]",
+      "precision": "Rounded to 9 decimal places; source precision is not increased.",
+      "baseline": {
+        "coordinates": [
+          4.895168,
+          52.370216
+        ],
+        "display": "4.895168, 52.370216 [longitude, latitude]",
+        "precision": "Rounded to 9 decimal places; source precision is not increased."
+      },
+      "changed": false
+    },
+    {
+      "id": "bad-minute",
+      "value": "51 60 0 N | 0 7 39 W",
+      "system": "dms",
+      "status": "blocked",
+      "error": "DMS ranges invalid: minutes/seconds <60 and lat ≤90 degrees."
+    }
+  ],
+  "metrics": {
+    "records": 3,
+    "ready": 2,
+    "held": 0,
+    "blocked": 1,
+    "different": 1,
+    "baselineBlocked": 1
+  }
+}

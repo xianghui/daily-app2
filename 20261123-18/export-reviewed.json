@@ -1,0 +1,159 @@
+{
+  "version": 1,
+  "originalInput": {
+    "profiles": [
+      {
+        "id": "latlon",
+        "description": "Geographic WGS84 latitude then longitude in signed decimal degrees, latitude first"
+      },
+      {
+        "id": "lonlat",
+        "description": "Geographic WGS84 longitude then latitude in signed decimal degrees, longitude first GeoJSON order"
+      },
+      {
+        "id": "dms",
+        "description": "Geographic WGS84 compass coordinates in degrees minutes seconds with N S E W hemisphere letters; axis identity from hemisphere"
+      }
+    ],
+    "records": [
+      {
+        "id": "harbor",
+        "context": "WGS84 degrees minutes seconds latitude then longitude compass hemisphere notation",
+        "value": "33 51 35.9 S | 151 12 40 E"
+      },
+      {
+        "id": "museum",
+        "context": "WGS84 degrees minutes seconds longitude then latitude compass hemisphere notation",
+        "value": "73 59 11 W | 40 44 55 N"
+      },
+      {
+        "id": "trail",
+        "context": "WGS84 signed decimal degrees latitude first then longitude",
+        "value": "-45.0312 | 168.6626"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "harbor",
+      "system": "dms",
+      "value": "33 51 0 S | 151 12 0 E",
+      "decision": "approve",
+      "note": "=SUM(1,2)\nReviewed \"source\", exactly.",
+      "evidence": [
+        {
+          "system": "dms",
+          "similarity": 0.8711197901638724
+        },
+        {
+          "system": "latlon",
+          "similarity": 0.6816867927482011
+        },
+        {
+          "system": "lonlat",
+          "similarity": 0.5699258414398778
+        }
+      ]
+    },
+    {
+      "id": "museum",
+      "system": "dms",
+      "value": "73 59 11 W | 40 44 55 N",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "dms",
+          "similarity": 0.8667360376093687
+        },
+        {
+          "system": "latlon",
+          "similarity": 0.6945906393076946
+        },
+        {
+          "system": "lonlat",
+          "similarity": 0.5836449052702442
+        }
+      ]
+    },
+    {
+      "id": "trail",
+      "system": "latlon",
+      "value": "-45.0312 | 168.6626",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "latlon",
+          "similarity": 0.9613375827527426
+        },
+        {
+          "system": "lonlat",
+          "similarity": 0.8379478468042587
+        },
+        {
+          "system": "dms",
+          "similarity": 0.5976572731931906
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "harbor",
+      "value": "33 51 0 S | 151 12 0 E",
+      "system": "dms",
+      "status": "ready",
+      "coordinates": [
+        151.2,
+        -33.85
+      ],
+      "display": "151.2, -33.85 [longitude, latitude]",
+      "precision": "Rounded to 9 decimal places; source precision is not increased.",
+      "baseline": {
+        "error": "Decimal axes require signed numbers with a period, not DMS or exponent notation."
+      },
+      "changed": true
+    },
+    {
+      "id": "museum",
+      "value": "73 59 11 W | 40 44 55 N",
+      "system": "dms",
+      "status": "ready",
+      "coordinates": [
+        -73.986388889,
+        40.748611111
+      ],
+      "display": "-73.986388889, 40.748611111 [longitude, latitude]",
+      "precision": "Rounded to 9 decimal places; source precision is not increased.",
+      "baseline": {
+        "error": "Decimal axes require signed numbers with a period, not DMS or exponent notation."
+      },
+      "changed": true
+    },
+    {
+      "id": "trail",
+      "value": "-45.0312 | 168.6626",
+      "system": "latlon",
+      "status": "ready",
+      "coordinates": [
+        168.6626,
+        -45.0312
+      ],
+      "display": "168.6626, -45.0312 [longitude, latitude]",
+      "precision": "Rounded to 9 decimal places; source precision is not increased.",
+      "baseline": {
+        "error": "lat outside ±90 degrees."
+      },
+      "changed": true
+    }
+  ],
+  "metrics": {
+    "records": 3,
+    "ready": 3,
+    "held": 0,
+    "blocked": 0,
+    "different": 3,
+    "baselineBlocked": 3
+  }
+}

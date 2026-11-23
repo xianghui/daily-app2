@@ -1,0 +1,10 @@
+import a from 'node:assert/strict';import fs from 'node:fs';import{plans,examples,decode,parse,suggest,analyze,comparable}from './src/core.js';
+let checks=0;function eq(x,y){a.deepEqual(x,y);checks++}function bad(f){a.throws(f);checks++}
+for(const e of examples){parse(JSON.stringify(e.data));const rows=e.data.records.map((r,i)=>({...r,system:e.expected[i],decision:'approve',note:''}));eq(analyze(e.data,rows).checks.map(c=>c.status==='ready'?c.value:'blocked'),e.values)}
+for(const raw of['',' ','.1','1.','1e3','NaN','Infinity','0x10','1,23','1234,567','1,,234','1,234,56','1 234.5','(12)','−1','1\n','１２','1.0000000','1.2.3'])bad(()=>decode(raw,plans[0]));
+for(const [raw,value]of[['+001.20','1.20'],['-0.00','0.00'],['-00012.3000','-12.3000'],['123456789012345678901234567890.000001','123456789012345678901234567890.000001']])eq(decode(raw,plans[0]).value,value);
+for(const s of['1.00','-0.0','1e+21','1.23e-7','1.234e+3','123000e-3'])eq(comparable(s),({'1.00':'1','-0.0':'0','1e+21':'1000000000000000000000','1.23e-7':'0.000000123','1.234e+3':'1234','123000e-3':'123'})[s]);
+const d=examples[0].data;for(const v of[null,[],Array(9).fill(Array(384).fill(0)),Array(9).fill(Array(384).fill(NaN)),Array(9).fill([1])])bad(()=>suggest(d,v));bad(()=>analyze(d,[]));bad(()=>parse(JSON.stringify({...d,records:[{...d.records[0],raw:123}]})));bad(()=>parse(JSON.stringify({...d,plans:[{...plans[0],scale:7},plans[1]]})));
+// Generate independent-oracle cases: Python Decimal verifies numeric value, source precision and grouping.
+let cases=[];for(let i=0;i<1200;i++){const p=plans[i%3],integer=String(10000000000000000n+BigInt(i)*987654321n),fraction=String(i%1000000).padStart(6,'0'),sign=i%2?'-':'';let grouped=integer.replace(/\B(?=(\d{3})+(?!\d))/g,p.group),raw=sign+grouped+p.decimal+fraction;const actual=decode(raw,p);cases.push({raw,plan:p,expected:sign+integer+'.'+fraction,actual:actual.value});eq(actual.value,sign+integer+'.'+fraction)}
+fs.writeFileSync('decimal-oracle-cases.json',JSON.stringify(cases));fs.writeFileSync('core-validation.json',JSON.stringify({checks,independentOracleCases:cases.length}));console.log('PASS core',checks);

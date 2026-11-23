@@ -1,0 +1,27 @@
+# Observed validation — Decimal Harbor
+
+## Local production bundle
+
+- React/Vite production build and required per-app `npm run predeploy` passed. Shared worker, factory and WASM were inspected for the actual embedding protocol, four-text batching, normalized mean pooling, CPU backend and cache paths; hashes are in runtime-provenance.json.
+- Current headless desktop Chrome with GPU disabled ran real MiniLM inference on two different synthetic batches. Regional imports matched US/DE/FR/US/DE/FR; precision rechecks matched DE/FR/US/US/DE/FR: **12/12 tiny fixture convention labels**, not general accuracy.
+- First fixture produced six exact expected decimal strings, including `9007199254740993.25` beyond safe integer precision. Second produced three exact values and blocked malformed grouping, seven fractional digits beyond scale six, and ordinary space where U+202F is required.
+- Same raw `1,234`, changing only source context from US to DE, changed real AI profile and deterministic result from `1234` to `1.234`. Numeric parser alone cannot resolve the source convention. A negated competing-region probe incorrectly selected DE instead of US (browser-validation.json); similarity is not logical entailment. Mandatory human review remains necessary.
+- 1,239 core assertions passed, including strict syntax, negative/zero normalization, exponent-form baseline expansion, invalid profiles, malformed vectors and review schema checks. Python Decimal independently checked 1,200 generated large signed/grouped/fractional cases. This is an arithmetic/parser check, not model accuracy.
+- Actual downloaded JSON/CSV/Markdown/decimal JSON were independently parsed using Python csv/Decimal. Complete source/review conservation, current edited value, multiline formula-like note, quote/newline escaping, holds/blockers, ready-only release, string types and computed baseline metrics checked. 1,290 initial independent checks passed (includes generated cases).
+- 24-record maximum batch, multi-chunk inference, lossless full audit reimport, renewed reviews, edits invalidating exports, reject/hold, undo and actual clipboard passed. Cancellation during inference and during worker fetch, then retry, passed.
+- Fault-injected unsupported Worker, construction error, worker error, malformed vectors, timeout and stale error fail closed without fabricated results. Delayed valid mocked response could not replace a newer **real** run. Delayed File.text could not replace newly edited input. Actual worker-download network abort and actual model-host abort failed closed; real inference recovered after removing the block. Mocks were used only for defensive scenarios, never successful AI evidence.
+- Requests captured from production startup through processing: no model-host traffic before explicit run; only GET public file downloads, no request bodies or source-context URL content. Persisted network logs omit signed query values. Credential-pattern scan supplements source review; not exhaustive secret detection.
+- After online loading, all network disabled, old worker terminated and a fresh worker performed real inference in the already-open warmed page. **Cold offline app-shell navigation/reload is not claimed or tested.**
+- 1440/390/320 widths: labels, controls ≥44 px, keyboard focus and no horizontal overflow checked. Initial long decimal result overflow was found, fixed with shrinkable grid cells and wrapped exact strings, then suite rerun. Hero/review/result screenshots inspected; physical phones and other engines untested.
+
+## Collection and publication
+
+Gallery inline-script compilation, unique new ai-utility entry, older entries/categories, assembled production assets, unchanged site size guard, public Pages commit and public real-AI workflow are recorded below after completion. No digest is sent by this builder.
+
+## Known limitations
+
+Embedding similarity does not establish source provenance or handle negation reliably. Description quality and supplied profile correctness matter. Only explicit grouping/decimal grammar is supported; no currency, percentage, exponent, implicit trimming or precision rounding. Output decimals remain strings. Arbitrary user formats and downstream importers are untested. One synthetic probe or exact arithmetic check does not certify source data or general AI accuracy. Several hundred MB RAM and current desktop browser recommended; no every-phone claim.
+
+Assembled production checks passed: all **826** gallery cards retained, every inline script compiled, seven app/gallery/shared-runtime byte matches, both real-AI fixtures and complete workflow/privacy/offline/max-batch/responsive suite rerun against deploy/. Independent assembled downloads passed 1,290 checks. Combined site **999,927,933 bytes**, unchanged <1,000,000,000 guard; no new sharing rules. Computed parseFloat disagreements were 6/6 ready normal-import rows and 2/3 ready recheck rows; these are exact value comparisons, not accuracy claims.
+
+Public release verified: Pages commit `3445af1633ad5bd3c573b6e69b96822f2731ebae` and workflow `45171550480` succeeded. Seven public app/gallery/runtime byte matches, both real-model fixtures, context-only AI-impact and complete reviewed/export/max-batch/offline/privacy suite passed. Public downloads independently passed 1,290 checks, and all 826 gallery cards remain intact. Combined site **999,927,933 bytes**, below the unchanged guard. Pre-existing unrelated recovery work remains outside this source commit. No digest sent.

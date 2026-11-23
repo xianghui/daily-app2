@@ -1,0 +1,264 @@
+{
+  "version": 1,
+  "originalInput": {
+    "plans": [
+      {
+        "id": "us",
+        "description": "United States Boston American US sales accounting spreadsheet number convention",
+        "decimal": ".",
+        "group": ",",
+        "scale": 6
+      },
+      {
+        "id": "de",
+        "description": "Germany Berlin German DE warehouse measurement spreadsheet number convention",
+        "decimal": ",",
+        "group": ".",
+        "scale": 6
+      },
+      {
+        "id": "fr",
+        "description": "France Paris French FR laboratory sample spreadsheet number convention",
+        "decimal": ",",
+        "group": " ",
+        "scale": 6
+      }
+    ],
+    "records": [
+      {
+        "id": "boston",
+        "context": "United States Boston American US sales accounting export",
+        "raw": "1,234.50"
+      },
+      {
+        "id": "berlin",
+        "context": "Germany Berlin German DE warehouse measurement export",
+        "raw": "1.234,50"
+      },
+      {
+        "id": "paris",
+        "context": "France Paris French FR laboratory sample export",
+        "raw": "1 234,50"
+      },
+      {
+        "id": "us-small",
+        "context": "American US Boston sales accounting sheet",
+        "raw": "1,234"
+      },
+      {
+        "id": "de-small",
+        "context": "German Germany Berlin warehouse measurements sheet",
+        "raw": "1,234"
+      },
+      {
+        "id": "fr-large",
+        "context": "French France Paris laboratory sample readings",
+        "raw": "9007199254740993,25"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "boston",
+      "system": "us",
+      "raw": "1,234.50",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "us",
+          "similarity": 0.6986427498027951
+        },
+        {
+          "system": "de",
+          "similarity": 0.3106396566320443
+        },
+        {
+          "system": "fr",
+          "similarity": 0.16025033257788168
+        }
+      ]
+    },
+    {
+      "id": "berlin",
+      "system": "de",
+      "raw": "1.234,50",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "de",
+          "similarity": 0.7015914170784794
+        },
+        {
+          "system": "us",
+          "similarity": 0.2588704224626472
+        },
+        {
+          "system": "fr",
+          "similarity": 0.2570971635964976
+        }
+      ]
+    },
+    {
+      "id": "paris",
+      "system": "fr",
+      "raw": "1 234,50",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "fr",
+          "similarity": 0.71848268044518
+        },
+        {
+          "system": "de",
+          "similarity": 0.30185090891672556
+        },
+        {
+          "system": "us",
+          "similarity": 0.18386633391783685
+        }
+      ]
+    },
+    {
+      "id": "us-small",
+      "system": "us",
+      "raw": "1,234",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "us",
+          "similarity": 0.8004772479253022
+        },
+        {
+          "system": "de",
+          "similarity": 0.43374489418006706
+        },
+        {
+          "system": "fr",
+          "similarity": 0.3074367644168783
+        }
+      ]
+    },
+    {
+      "id": "de-small",
+      "system": "de",
+      "raw": "1,234",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "de",
+          "similarity": 0.7473644964533702
+        },
+        {
+          "system": "fr",
+          "similarity": 0.2915147241438741
+        },
+        {
+          "system": "us",
+          "similarity": 0.27287607986131507
+        }
+      ]
+    },
+    {
+      "id": "fr-large",
+      "system": "fr",
+      "raw": "9007199254740993,25",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "fr",
+          "similarity": 0.7261864874573296
+        },
+        {
+          "system": "de",
+          "similarity": 0.2675094232408385
+        },
+        {
+          "system": "us",
+          "similarity": 0.0771637561311107
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "boston",
+      "system": "us",
+      "raw": "1,234.50",
+      "baseline": "1",
+      "status": "ready",
+      "value": "1234.50",
+      "fractionDigits": 2,
+      "grouped": true,
+      "baselineDiffers": true
+    },
+    {
+      "id": "berlin",
+      "system": "de",
+      "raw": "1.234,50",
+      "baseline": "1.234",
+      "status": "ready",
+      "value": "1234.50",
+      "fractionDigits": 2,
+      "grouped": true,
+      "baselineDiffers": true
+    },
+    {
+      "id": "paris",
+      "system": "fr",
+      "raw": "1 234,50",
+      "baseline": "1",
+      "status": "ready",
+      "value": "1234.50",
+      "fractionDigits": 2,
+      "grouped": true,
+      "baselineDiffers": true
+    },
+    {
+      "id": "us-small",
+      "system": "us",
+      "raw": "1,234",
+      "baseline": "1",
+      "status": "ready",
+      "value": "1234",
+      "fractionDigits": 0,
+      "grouped": true,
+      "baselineDiffers": true
+    },
+    {
+      "id": "de-small",
+      "system": "de",
+      "raw": "1,234",
+      "baseline": "1",
+      "status": "ready",
+      "value": "1.234",
+      "fractionDigits": 3,
+      "grouped": false,
+      "baselineDiffers": true
+    },
+    {
+      "id": "fr-large",
+      "system": "fr",
+      "raw": "9007199254740993,25",
+      "baseline": "9007199254740992",
+      "status": "ready",
+      "value": "9007199254740993.25",
+      "fractionDigits": 2,
+      "grouped": false,
+      "baselineDiffers": true
+    }
+  ],
+  "metrics": {
+    "records": 6,
+    "ready": 6,
+    "held": 0,
+    "blocked": 0,
+    "baselineDisagreements": 6,
+    "baselineUnavailable": 0
+  }
+}

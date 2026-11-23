@@ -1,0 +1,252 @@
+{
+  "version": 1,
+  "originalInput": {
+    "plans": [
+      {
+        "id": "us",
+        "description": "United States Boston American US sales accounting spreadsheet number convention",
+        "decimal": ".",
+        "group": ",",
+        "scale": 6
+      },
+      {
+        "id": "de",
+        "description": "Germany Berlin German DE warehouse measurement spreadsheet number convention",
+        "decimal": ",",
+        "group": ".",
+        "scale": 6
+      },
+      {
+        "id": "fr",
+        "description": "France Paris French FR laboratory sample spreadsheet number convention",
+        "decimal": ",",
+        "group": " ",
+        "scale": 6
+      }
+    ],
+    "records": [
+      {
+        "id": "credit",
+        "context": "Germany Berlin German warehouse measurement spreadsheet",
+        "raw": "-2.400,125"
+      },
+      {
+        "id": "sample",
+        "context": "France Paris French laboratory sample spreadsheet",
+        "raw": "+0,000125"
+      },
+      {
+        "id": "sales",
+        "context": "United States American Boston sales accounting spreadsheet",
+        "raw": "-0.00"
+      },
+      {
+        "id": "group-error",
+        "context": "United States Boston American sales accounting export",
+        "raw": "12,34.50"
+      },
+      {
+        "id": "too-precise",
+        "context": "Germany Berlin German warehouse measurement export",
+        "raw": "1,1234567"
+      },
+      {
+        "id": "space-error",
+        "context": "France Paris French laboratory sample export",
+        "raw": "1 234,50"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "credit",
+      "system": "de",
+      "raw": "-3.210,25",
+      "decision": "approve",
+      "note": "=SUM(1,2)\nReviewed \"source\", exactly.",
+      "evidence": [
+        {
+          "system": "de",
+          "similarity": 0.8050997181629336
+        },
+        {
+          "system": "fr",
+          "similarity": 0.382859837791674
+        },
+        {
+          "system": "us",
+          "similarity": 0.34996451750473667
+        }
+      ]
+    },
+    {
+      "id": "sample",
+      "system": "fr",
+      "raw": "nonsense",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "fr",
+          "similarity": 0.8291808593543735
+        },
+        {
+          "system": "de",
+          "similarity": 0.412556467930922
+        },
+        {
+          "system": "us",
+          "similarity": 0.2957851262589984
+        }
+      ]
+    },
+    {
+      "id": "sales",
+      "system": "us",
+      "raw": "-0.00",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "us",
+          "similarity": 0.8444970998319173
+        },
+        {
+          "system": "de",
+          "similarity": 0.4731144641453224
+        },
+        {
+          "system": "fr",
+          "similarity": 0.3183436047581535
+        }
+      ]
+    },
+    {
+      "id": "group-error",
+      "system": "us",
+      "raw": "12,34.50",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "us",
+          "similarity": 0.6937393092919827
+        },
+        {
+          "system": "de",
+          "similarity": 0.31254140972785427
+        },
+        {
+          "system": "fr",
+          "similarity": 0.14912010202977125
+        }
+      ]
+    },
+    {
+      "id": "too-precise",
+      "system": "de",
+      "raw": "1,1234567",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "de",
+          "similarity": 0.6884079742512175
+        },
+        {
+          "system": "fr",
+          "similarity": 0.24586663929483965
+        },
+        {
+          "system": "us",
+          "similarity": 0.2438935042844754
+        }
+      ]
+    },
+    {
+      "id": "space-error",
+      "system": "fr",
+      "raw": "1 234,50",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "fr",
+          "similarity": 0.6967678351142295
+        },
+        {
+          "system": "de",
+          "similarity": 0.30711963325305713
+        },
+        {
+          "system": "us",
+          "similarity": 0.20024696847944376
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "credit",
+      "system": "de",
+      "raw": "-3.210,25",
+      "baseline": "-3.21",
+      "status": "ready",
+      "value": "-3210.25",
+      "fractionDigits": 2,
+      "grouped": true,
+      "baselineDiffers": true
+    },
+    {
+      "id": "sample",
+      "system": "fr",
+      "raw": "nonsense",
+      "baseline": null,
+      "status": "blocked",
+      "reason": "Unsupported character or separator. No whitespace trimming, exponents, currency, percentages or parentheses."
+    },
+    {
+      "id": "sales",
+      "system": "us",
+      "raw": "-0.00",
+      "baseline": "0",
+      "status": "ready",
+      "value": "0.00",
+      "fractionDigits": 2,
+      "grouped": false,
+      "baselineDiffers": false
+    },
+    {
+      "id": "group-error",
+      "system": "us",
+      "raw": "12,34.50",
+      "baseline": "12",
+      "status": "blocked",
+      "reason": "Invalid thousands grouping: first group 1–3 digits, all following groups exactly 3."
+    },
+    {
+      "id": "too-precise",
+      "system": "de",
+      "raw": "1,1234567",
+      "baseline": "1",
+      "status": "blocked",
+      "reason": "Fraction exceeds reviewed scale; rounding is never automatic."
+    },
+    {
+      "id": "space-error",
+      "system": "fr",
+      "raw": "1 234,50",
+      "baseline": "1",
+      "status": "blocked",
+      "reason": "Unsupported character or separator. No whitespace trimming, exponents, currency, percentages or parentheses."
+    }
+  ],
+  "metrics": {
+    "records": 6,
+    "ready": 2,
+    "held": 0,
+    "blocked": 4,
+    "baselineDisagreements": 1,
+    "baselineUnavailable": 0
+  }
+}

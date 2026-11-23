@@ -1,0 +1,124 @@
+{
+  "version": 1,
+  "originalInput": {
+    "plans": [
+      {
+        "id": "mail",
+        "description": "Newsletter mailing list unsubscribe opt out flag; destination is permission to send marketing email",
+        "field": "marketing_allowed",
+        "trueTokens": [
+          "0",
+          "false",
+          "no"
+        ],
+        "falseTokens": [
+          "1",
+          "true",
+          "yes"
+        ],
+        "nullTokens": [
+          "",
+          "unknown"
+        ],
+        "trim": true,
+        "caseFold": true
+      },
+      {
+        "id": "device",
+        "description": "Equipment machine enabled active status flag; destination is device enabled for operation",
+        "field": "device_enabled",
+        "trueTokens": [
+          "1",
+          "true",
+          "on",
+          "enabled"
+        ],
+        "falseTokens": [
+          "0",
+          "false",
+          "off",
+          "disabled"
+        ],
+        "nullTokens": [
+          "",
+          "unknown"
+        ],
+        "trim": true,
+        "caseFold": true
+      },
+      {
+        "id": "inspection",
+        "description": "Quality inspection acceptance test result pass fail flag; destination is inspection passed",
+        "field": "inspection_passed",
+        "trueTokens": [
+          "pass",
+          "ok"
+        ],
+        "falseTokens": [
+          "fail",
+          "reject"
+        ],
+        "nullTokens": [
+          "",
+          "pending",
+          "unknown"
+        ],
+        "trim": true,
+        "caseFold": true
+      }
+    ],
+    "records": [
+      {
+        "id": "same",
+        "context": "Newsletter mailing list unsubscribe opt out flag; destination is permission to send marketing email",
+        "raw": "true"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "same",
+      "system": "mail",
+      "raw": "true",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "mail",
+          "similarity": 1.0000005666963883
+        },
+        {
+          "system": "device",
+          "similarity": 0.26809027290002657
+        },
+        {
+          "system": "inspection",
+          "similarity": 0.2574123109777892
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "same",
+      "system": "mail",
+      "field": "marketing_allowed",
+      "raw": "true",
+      "baseline": true,
+      "status": "ready",
+      "value": false,
+      "token": "true",
+      "matchedClass": "falseTokens"
+    }
+  ],
+  "metrics": {
+    "records": 1,
+    "ready": 1,
+    "held": 0,
+    "blocked": 0,
+    "true": 0,
+    "false": 1,
+    "null": 0,
+    "baselineDisagreements": 1
+  }
+}

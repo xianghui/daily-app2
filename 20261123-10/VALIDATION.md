@@ -1,0 +1,28 @@
+# Observed validation — Glyph Ledger, 2026-11-23
+
+## Actual production-bundle browser checks (Chrome, CPU WASM)
+
+- Real default `Xenova/all-MiniLM-L6-v2` q8 loaded in a module worker, GPU disabled. No mocked model in successful workflow tests. Directory migration: **6/6** intended namespaces; Warehouse intake: **6/6**. Both source batches have 0 raw duplicate pairs and 2 normalized duplicate pairs, 4 collision-blocked records and 2 release-ready records. These are tiny deliberately clear fixtures, not universal accuracy.
+- A negated/instruction-like purpose probe is recorded in `browser-validation.json`. It proposed `logins` instead of the intended `names`: a documented failure. It remains pending for human review and cannot obtain credentials or cause external actions. Nearest embedding retrieval is not negation understanding, field identity or security assurance.
+- Full 8-profile / 24-record batch: 32 real embedding texts in eight chunks, all 24 records survive audits/reimport. Real cancel followed by retry succeeds; a cold model-weight request was also intercepted/delayed, cancellation left no output and a subsequent real retry succeeded. Actual fresh-worker real inference with all network disabled succeeds in the already-open warmed page. **Offline cold navigation/reload is not tested or claimed.**
+- Review required before apply; value/namespace edits reset approval; collision resolution, hold, undo, multiline notes, source preservation, applied-export invalidation and clipboard tested. A multiline source value is retained but correctly blocked for an internal control character.
+- Downloaded JSON, CSV, Markdown and ready-only Release CSV independently parsed with Python JSON/CSV parsers. Every source/review/check row reconciles; reviewed AB-99 and quoted/comma/multiline formula-like notes survive. Original fullwidth value remains intact. CSV adds documented formula guards; JSON is lossless. Maximum-batch audit reimport restores original input and requires a new review.
+- 37 deterministic core checks cover NFC composed/decomposed accents, fullwidth and ligature NFKC conversion, lower/uppercase and expansions, dotted-I behavior, whitespace, controls/format characters/lone surrogates, cross-namespace separation, raw duplicate counts, collisions, holds, invalid schemas and malformed vectors.
+- Ten defensive browser modes: model-host network failure/recovery with real retry, unavailable WASM, worker download failure, unsupported module workers, malformed vectors/envelope, timeout, worker errors, late cancel and late input. No fake output. Fault injection is used only for defensive branches. Separate delayed file-read/worker-fetch races and superseded-result checks prove an old run cannot replace new source or newer real inference.
+- GET-only file-download traffic from production startup through inference; no request bodies or source notes/values in URLs. No model-host downloads before explicit user action. Public runtime dependency hashes match. Built text assets scanned for credential patterns; manual architecture review found no key/provider/telemetry path. This is not a claim that a pattern scan alone proves absence of every possible secret.
+- 1440px desktop and 390/320px narrow layouts: no horizontal overflow, visible labeled inputs, focusable controls, minimum 44px buttons/inputs/selects/summary; screenshots include hero, review and applied results. Physical phones, other browsers and screen readers are not tested.
+
+## Combined site
+
+- Root `npm run predeploy`: 815 apps assembled, zero build failures/skips. Newest gallery entry exactly once as `ai-utility`; every pre-existing entry retained. All inline scripts compiled using `new Function`; missing scripts fail the check. Browser verifies 815 cards, AI Utilities first, legacy STL/games categories and search/link behavior.
+- Assembly remains below the unchanged conservative 1 GB guard. `assembly-validation.json` records actual bytes. This app shares the immutable same-origin embedding worker/WASM; root dedupe additionally removes one byte-identical 541,470-byte geometry WASM from published `20261029-21`, referencing existing `20261028-24`. Source builds and compatibility URLs are preserved.
+- The affected older app's **real shared geometry worker**, default generation, PNG and STL imports, downloaded binary STL validity, preview/export fingerprint equality and portable JSON restoration passed against the assembled site. See `assembled-legacy-validation.json`.
+
+## Limitations
+
+NFKC/case conversion can remove important distinctions; this is a reviewed import plan, not an identity resolver or merge command. JavaScript lowercase is not full case folding, and policies do not model database collations or homoglyphs. Collisions outside the current supplied batch are unknown. Control/format rejection deliberately blocks some otherwise valid names. Similarity scores are not confidence. No accuracy, percentage productivity or measured elapsed-time improvement is claimed.
+
+Public hosting/runtime verification is recorded separately after publication; do not infer success from a branch push alone.
+
+
+Public release verified: Pages commit `0386f28c49f5436f85613e6b86949c4ba6ee87a0`, workflow `45092881555`, seven public app/gallery/runtime byte matches and four affected legacy asset matches. Both real-AI fixtures, maximum batch, review/edit/hold/undo, offline fresh-worker inference, privacy/network and exported-artifact checks pass on the public production site. Public gallery retains 815 apps. Combined assembly is **999,591,365 bytes**, below the unchanged size guard. Affected older app public real worker/import/export/JSON round-trip passed. No digest sent.

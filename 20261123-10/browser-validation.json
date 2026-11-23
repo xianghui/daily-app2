@@ -1,0 +1,564 @@
+{
+  "fixtures": [
+    {
+      "name": "Directory migration",
+      "actual": [
+        "names",
+        "names",
+        "logins",
+        "logins",
+        "names",
+        "logins"
+      ],
+      "expected": [
+        "names",
+        "names",
+        "logins",
+        "logins",
+        "names",
+        "logins"
+      ],
+      "correct": 6,
+      "analysis": {
+        "checks": [
+          {
+            "id": "n1",
+            "profile": "names",
+            "policy": "nfc",
+            "reviewedValue": "Café",
+            "normalized": "Café",
+            "status": "collision",
+            "changed": false,
+            "reason": "Normalized key collides within this namespace. Hold a source or edit from verified evidence; never auto-merge.",
+            "codepoints": "U+0043 U+0061 U+0066 U+00E9"
+          },
+          {
+            "id": "n2",
+            "profile": "names",
+            "policy": "nfc",
+            "reviewedValue": "Café",
+            "normalized": "Café",
+            "status": "collision",
+            "changed": true,
+            "reason": "Normalized key collides within this namespace. Hold a source or edit from verified evidence; never auto-merge.",
+            "codepoints": "U+0043 U+0061 U+0066 U+00E9"
+          },
+          {
+            "id": "u1",
+            "profile": "logins",
+            "policy": "nfkc-lower",
+            "reviewedValue": "ＡＬＩＣＥ",
+            "normalized": "alice",
+            "status": "collision",
+            "changed": true,
+            "reason": "Normalized key collides within this namespace. Hold a source or edit from verified evidence; never auto-merge.",
+            "codepoints": "U+0061 U+006C U+0069 U+0063 U+0065"
+          },
+          {
+            "id": "u2",
+            "profile": "logins",
+            "policy": "nfkc-lower",
+            "reviewedValue": "alice",
+            "normalized": "alice",
+            "status": "collision",
+            "changed": false,
+            "reason": "Normalized key collides within this namespace. Hold a source or edit from verified evidence; never auto-merge.",
+            "codepoints": "U+0061 U+006C U+0069 U+0063 U+0065"
+          },
+          {
+            "id": "n3",
+            "profile": "names",
+            "policy": "nfc",
+            "reviewedValue": "Lina",
+            "normalized": "Lina",
+            "status": "valid",
+            "changed": false,
+            "reason": "Value unchanged under reviewed policy.",
+            "codepoints": "U+004C U+0069 U+006E U+0061"
+          },
+          {
+            "id": "u3",
+            "profile": "logins",
+            "policy": "nfkc-lower",
+            "reviewedValue": " robin ",
+            "normalized": "robin",
+            "status": "valid",
+            "changed": true,
+            "reason": "Proposed trim/Unicode/case transformation. Check that distinctions may safely be removed.",
+            "codepoints": "U+0072 U+006F U+0062 U+0069 U+006E"
+          }
+        ],
+        "collisions": [
+          [
+            "n1",
+            "n2"
+          ],
+          [
+            "u1",
+            "u2"
+          ]
+        ],
+        "rawCollisions": [],
+        "rawDuplicatePairs": 0,
+        "normalizedDuplicatePairs": 2,
+        "newDuplicatePairs": 2,
+        "ready": 2,
+        "held": 0,
+        "blocked": 4,
+        "changed": 3
+      }
+    },
+    {
+      "name": "Warehouse intake",
+      "actual": [
+        "stock",
+        "stock",
+        "stock",
+        "stock",
+        "logins",
+        "names"
+      ],
+      "expected": [
+        "stock",
+        "stock",
+        "stock",
+        "stock",
+        "logins",
+        "names"
+      ],
+      "correct": 6,
+      "analysis": {
+        "checks": [
+          {
+            "id": "s1",
+            "profile": "stock",
+            "policy": "nfkc-upper",
+            "reviewedValue": "ＡＢ-１２",
+            "normalized": "AB-12",
+            "status": "collision",
+            "changed": true,
+            "reason": "Normalized key collides within this namespace. Hold a source or edit from verified evidence; never auto-merge.",
+            "codepoints": "U+0041 U+0042 U+002D U+0031 U+0032"
+          },
+          {
+            "id": "s2",
+            "profile": "stock",
+            "policy": "nfkc-upper",
+            "reviewedValue": "ab-12",
+            "normalized": "AB-12",
+            "status": "collision",
+            "changed": true,
+            "reason": "Normalized key collides within this namespace. Hold a source or edit from verified evidence; never auto-merge.",
+            "codepoints": "U+0041 U+0042 U+002D U+0031 U+0032"
+          },
+          {
+            "id": "s3",
+            "profile": "stock",
+            "policy": "nfkc-upper",
+            "reviewedValue": "ﬀ-03",
+            "normalized": "FF-03",
+            "status": "collision",
+            "changed": true,
+            "reason": "Normalized key collides within this namespace. Hold a source or edit from verified evidence; never auto-merge.",
+            "codepoints": "U+0046 U+0046 U+002D U+0030 U+0033"
+          },
+          {
+            "id": "s4",
+            "profile": "stock",
+            "policy": "nfkc-upper",
+            "reviewedValue": "FF-03",
+            "normalized": "FF-03",
+            "status": "collision",
+            "changed": false,
+            "reason": "Normalized key collides within this namespace. Hold a source or edit from verified evidence; never auto-merge.",
+            "codepoints": "U+0046 U+0046 U+002D U+0030 U+0033"
+          },
+          {
+            "id": "s5",
+            "profile": "logins",
+            "policy": "nfkc-lower",
+            "reviewedValue": "pilot",
+            "normalized": "pilot",
+            "status": "valid",
+            "changed": false,
+            "reason": "Value unchanged under reviewed policy.",
+            "codepoints": "U+0070 U+0069 U+006C U+006F U+0074"
+          },
+          {
+            "id": "s6",
+            "profile": "names",
+            "policy": "nfc",
+            "reviewedValue": "Mira",
+            "normalized": "Mira",
+            "status": "valid",
+            "changed": false,
+            "reason": "Value unchanged under reviewed policy.",
+            "codepoints": "U+004D U+0069 U+0072 U+0061"
+          }
+        ],
+        "collisions": [
+          [
+            "s1",
+            "s2"
+          ],
+          [
+            "s3",
+            "s4"
+          ]
+        ],
+        "rawCollisions": [],
+        "rawDuplicatePairs": 0,
+        "normalizedDuplicatePairs": 2,
+        "newDuplicatePairs": 2,
+        "ready": 2,
+        "held": 0,
+        "blocked": 4,
+        "changed": 3
+      }
+    }
+  ],
+  "checks": [
+    "Review edits, approval reset, collision resolution, holds, original values retained, multiline notes, undo and clipboard",
+    "Actual fresh-worker offline inference in already-open warmed production page",
+    "Maximum 8 profiles / 24 records / 32 real embeddings in eight chunks and complete audit reimport",
+    "Real cancel and successful retry",
+    "Downloads/copy, labels/focus/44px controls, desktop/phone no overflow, bad inputs/files, GET-only file downloads without content"
+  ],
+  "negationProbe": {
+    "proposed": "logins",
+    "decision": "pending",
+    "intended": "names"
+  },
+  "requests": [
+    {
+      "host": "127.0.0.1:7383",
+      "path": "/daily-app2/20261123-10/",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7383",
+      "path": "/daily-app2/20261123-10/assets/index-Dl8FlCSW.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7383",
+      "path": "/daily-app2/20261123-10/assets/index-BLnhIawx.css",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7383",
+      "path": "/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7383/e4b0ae9c-54e5-4817-bb6e-a1a9abb32212",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7383",
+      "path": "/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7383",
+      "path": "/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "user_id",
+        "X-Xet-Cas-Uid",
+        "xip",
+        "response-content-disposition",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "X-Xet-Cas-Uid",
+        "user_id",
+        "response-content-disposition",
+        "xip",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7383/dff4b6ea-c687-4ff7-a652-7419b4d672df",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7383/2e9a2997-e257-446d-9c14-cde33cf1fd36",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7383/7cfd6a3d-34f2-4e9e-b345-da7fdca142b8",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7383/37e9dbfe-c35a-4b57-a360-737f77e7357e",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7383/7a9779e2-bd80-4d5b-a33d-6038a7e8ac5d",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7383/82b8ce4c-b132-49f8-8302-a49dabca8dc1",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7383/1f6833cb-4dfb-4d54-9353-e96e625f3a23",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7383/0a25c582-afba-4585-bd20-59c8e8194f1b",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7383/4c2f938a-2e6f-4a79-beb5-0fa94861abc5",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7383/1e6ea87c-d200-438d-a561-711332ef9933",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7383/c241dc30-f748-4541-99be-38c547e31c8c",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7383/22c8b861-0eb0-40b1-bfe2-17e311dbcac4",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7383/70b28fef-e964-47ac-b61f-51442ac9d2f9",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7383/07c9c0cd-20af-40d1-89f1-738cfa1bba56",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7383/26ea1fb4-7e96-4ed9-b11d-be7c667ec1dd",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7383/ada1d513-711e-4b3f-b82e-bcdb3ef23e9a",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7383/6ef69eb8-a992-4802-bdc8-8065f54298d9",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7383/d15168b8-3529-48dc-bcda-cc75214a9b37",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7383/b0af421b-924e-4956-affc-19c1156ff410",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7383/0b9e6426-2007-493f-92aa-10dd7e7b8335",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7383/e596f8aa-fa3c-4828-afc6-533d9921bb4f",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    }
+  ],
+  "errors": []
+}

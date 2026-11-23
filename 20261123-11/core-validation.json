@@ -1,0 +1,220 @@
+{
+  "oracleCases": 2000,
+  "observed": [
+    {
+      "checks": [
+        {
+          "index": 0,
+          "id": "t1",
+          "profile": "sensor",
+          "bits": 8,
+          "value": 254,
+          "reference": 250,
+          "status": "newer",
+          "delta": 4,
+          "wrap": false,
+          "reason": "Forward within the half-range; advances the reviewed reference.",
+          "rawAccepted": true
+        },
+        {
+          "index": 1,
+          "id": "b1",
+          "profile": "build",
+          "bits": 16,
+          "value": 65535,
+          "reference": 65530,
+          "status": "newer",
+          "delta": 5,
+          "wrap": false,
+          "reason": "Forward within the half-range; advances the reviewed reference.",
+          "rawAccepted": true
+        },
+        {
+          "index": 2,
+          "id": "t2",
+          "profile": "sensor",
+          "bits": 8,
+          "value": 2,
+          "reference": 254,
+          "status": "newer",
+          "delta": 4,
+          "wrap": true,
+          "reason": "Forward within the half-range; advances the reviewed reference.",
+          "rawAccepted": false
+        },
+        {
+          "index": 3,
+          "id": "b2",
+          "profile": "build",
+          "bits": 16,
+          "value": 3,
+          "reference": 65535,
+          "status": "newer",
+          "delta": 4,
+          "wrap": true,
+          "reason": "Forward within the half-range; advances the reviewed reference.",
+          "rawAccepted": false
+        },
+        {
+          "index": 4,
+          "id": "t3",
+          "profile": "sensor",
+          "bits": 8,
+          "value": 1,
+          "reference": 2,
+          "status": "stale",
+          "delta": 255,
+          "wrap": false,
+          "reason": "Behind the current reference under the half-range assumption; does not advance.",
+          "rawAccepted": false
+        },
+        {
+          "index": 5,
+          "id": "b3",
+          "profile": "build",
+          "bits": 16,
+          "value": 32771,
+          "reference": 3,
+          "status": "ambiguous",
+          "delta": 32768,
+          "wrap": false,
+          "reason": "Exactly half the number space; ordering is undefined. Does not advance.",
+          "rawAccepted": false
+        }
+      ],
+      "streams": [
+        {
+          "id": "sensor",
+          "bits": 8,
+          "start": 250,
+          "end": 2,
+          "withheld": false,
+          "records": 3
+        },
+        {
+          "id": "build",
+          "bits": 16,
+          "start": 65530,
+          "end": 3,
+          "withheld": false,
+          "records": 3
+        }
+      ],
+      "accepted": 4,
+      "rawAccepted": 2,
+      "wraps": 2,
+      "disagreements": 2,
+      "held": 0,
+      "ambiguous": 1,
+      "invalid": 0
+    },
+    {
+      "checks": [
+        {
+          "index": 0,
+          "id": "t4",
+          "profile": "sensor",
+          "bits": 8,
+          "value": 122,
+          "reference": 250,
+          "status": "ambiguous",
+          "delta": 128,
+          "wrap": false,
+          "reason": "Exactly half the number space; ordering is undefined. Does not advance.",
+          "rawAccepted": false
+        },
+        {
+          "index": 1,
+          "id": "b4",
+          "profile": "build",
+          "bits": 16,
+          "value": 4,
+          "reference": 65530,
+          "status": "newer",
+          "delta": 10,
+          "wrap": true,
+          "reason": "Forward within the half-range; advances the reviewed reference.",
+          "rawAccepted": false
+        },
+        {
+          "index": 2,
+          "id": "t5",
+          "profile": "sensor",
+          "bits": 8,
+          "value": 249,
+          "reference": 250,
+          "status": "stale",
+          "delta": 255,
+          "wrap": false,
+          "reason": "Behind the current reference under the half-range assumption; does not advance.",
+          "rawAccepted": false
+        },
+        {
+          "index": 3,
+          "id": "b5",
+          "profile": "build",
+          "bits": 16,
+          "value": 4,
+          "reference": 4,
+          "status": "duplicate",
+          "delta": 0,
+          "wrap": false,
+          "reason": "Same as the current reference; does not advance.",
+          "rawAccepted": false
+        },
+        {
+          "index": 4,
+          "id": "t6",
+          "profile": "sensor",
+          "bits": 8,
+          "value": 250,
+          "reference": 250,
+          "status": "duplicate",
+          "delta": 0,
+          "wrap": false,
+          "reason": "Same as the current reference; does not advance.",
+          "rawAccepted": false
+        },
+        {
+          "index": 5,
+          "id": "b6",
+          "profile": "build",
+          "bits": 16,
+          "value": 5,
+          "reference": 4,
+          "status": "newer",
+          "delta": 1,
+          "wrap": false,
+          "reason": "Forward within the half-range; advances the reviewed reference.",
+          "rawAccepted": false
+        }
+      ],
+      "streams": [
+        {
+          "id": "sensor",
+          "bits": 8,
+          "start": 250,
+          "end": 250,
+          "withheld": false,
+          "records": 3
+        },
+        {
+          "id": "build",
+          "bits": 16,
+          "start": 65530,
+          "end": 5,
+          "withheld": false,
+          "records": 3
+        }
+      ],
+      "accepted": 2,
+      "rawAccepted": 0,
+      "wraps": 1,
+      "disagreements": 2,
+      "held": 0,
+      "ambiguous": 1,
+      "invalid": 0
+    }
+  ],
+  "passed": true
+}

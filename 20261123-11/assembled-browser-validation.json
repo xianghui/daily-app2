@@ -1,0 +1,602 @@
+{
+  "fixtures": [
+    {
+      "name": "Wraparound handoff",
+      "actual": [
+        "sensor",
+        "build",
+        "sensor",
+        "build",
+        "sensor",
+        "build"
+      ],
+      "expected": [
+        "sensor",
+        "build",
+        "sensor",
+        "build",
+        "sensor",
+        "build"
+      ],
+      "correct": 6,
+      "analysis": {
+        "checks": [
+          {
+            "index": 0,
+            "id": "t1",
+            "profile": "sensor",
+            "bits": 8,
+            "value": 254,
+            "reference": 250,
+            "status": "newer",
+            "delta": 4,
+            "wrap": false,
+            "reason": "Forward within the half-range; advances the reviewed reference.",
+            "rawAccepted": true
+          },
+          {
+            "index": 1,
+            "id": "b1",
+            "profile": "build",
+            "bits": 16,
+            "value": 65535,
+            "reference": 65530,
+            "status": "newer",
+            "delta": 5,
+            "wrap": false,
+            "reason": "Forward within the half-range; advances the reviewed reference.",
+            "rawAccepted": true
+          },
+          {
+            "index": 2,
+            "id": "t2",
+            "profile": "sensor",
+            "bits": 8,
+            "value": 2,
+            "reference": 254,
+            "status": "newer",
+            "delta": 4,
+            "wrap": true,
+            "reason": "Forward within the half-range; advances the reviewed reference.",
+            "rawAccepted": false
+          },
+          {
+            "index": 3,
+            "id": "b2",
+            "profile": "build",
+            "bits": 16,
+            "value": 3,
+            "reference": 65535,
+            "status": "newer",
+            "delta": 4,
+            "wrap": true,
+            "reason": "Forward within the half-range; advances the reviewed reference.",
+            "rawAccepted": false
+          },
+          {
+            "index": 4,
+            "id": "t3",
+            "profile": "sensor",
+            "bits": 8,
+            "value": 1,
+            "reference": 2,
+            "status": "stale",
+            "delta": 255,
+            "wrap": false,
+            "reason": "Behind the current reference under the half-range assumption; does not advance.",
+            "rawAccepted": false
+          },
+          {
+            "index": 5,
+            "id": "b3",
+            "profile": "build",
+            "bits": 16,
+            "value": 32771,
+            "reference": 3,
+            "status": "ambiguous",
+            "delta": 32768,
+            "wrap": false,
+            "reason": "Exactly half the number space; ordering is undefined. Does not advance.",
+            "rawAccepted": false
+          }
+        ],
+        "streams": [
+          {
+            "id": "sensor",
+            "bits": 8,
+            "start": 250,
+            "end": 2,
+            "withheld": false,
+            "records": 3
+          },
+          {
+            "id": "build",
+            "bits": 16,
+            "start": 65530,
+            "end": 3,
+            "withheld": false,
+            "records": 3
+          }
+        ],
+        "accepted": 4,
+        "rawAccepted": 2,
+        "wraps": 2,
+        "disagreements": 2,
+        "held": 0,
+        "ambiguous": 1,
+        "invalid": 0
+      }
+    },
+    {
+      "name": "Replays and ambiguity",
+      "actual": [
+        "sensor",
+        "build",
+        "sensor",
+        "build",
+        "sensor",
+        "build"
+      ],
+      "expected": [
+        "sensor",
+        "build",
+        "sensor",
+        "build",
+        "sensor",
+        "build"
+      ],
+      "correct": 6,
+      "analysis": {
+        "checks": [
+          {
+            "index": 0,
+            "id": "t4",
+            "profile": "sensor",
+            "bits": 8,
+            "value": 122,
+            "reference": 250,
+            "status": "ambiguous",
+            "delta": 128,
+            "wrap": false,
+            "reason": "Exactly half the number space; ordering is undefined. Does not advance.",
+            "rawAccepted": false
+          },
+          {
+            "index": 1,
+            "id": "b4",
+            "profile": "build",
+            "bits": 16,
+            "value": 4,
+            "reference": 65530,
+            "status": "newer",
+            "delta": 10,
+            "wrap": true,
+            "reason": "Forward within the half-range; advances the reviewed reference.",
+            "rawAccepted": false
+          },
+          {
+            "index": 2,
+            "id": "t5",
+            "profile": "sensor",
+            "bits": 8,
+            "value": 249,
+            "reference": 250,
+            "status": "stale",
+            "delta": 255,
+            "wrap": false,
+            "reason": "Behind the current reference under the half-range assumption; does not advance.",
+            "rawAccepted": false
+          },
+          {
+            "index": 3,
+            "id": "b5",
+            "profile": "build",
+            "bits": 16,
+            "value": 4,
+            "reference": 4,
+            "status": "duplicate",
+            "delta": 0,
+            "wrap": false,
+            "reason": "Same as the current reference; does not advance.",
+            "rawAccepted": false
+          },
+          {
+            "index": 4,
+            "id": "t6",
+            "profile": "sensor",
+            "bits": 8,
+            "value": 250,
+            "reference": 250,
+            "status": "duplicate",
+            "delta": 0,
+            "wrap": false,
+            "reason": "Same as the current reference; does not advance.",
+            "rawAccepted": false
+          },
+          {
+            "index": 5,
+            "id": "b6",
+            "profile": "build",
+            "bits": 16,
+            "value": 5,
+            "reference": 4,
+            "status": "newer",
+            "delta": 1,
+            "wrap": false,
+            "reason": "Forward within the half-range; advances the reviewed reference.",
+            "rawAccepted": false
+          }
+        ],
+        "streams": [
+          {
+            "id": "sensor",
+            "bits": 8,
+            "start": 250,
+            "end": 250,
+            "withheld": false,
+            "records": 3
+          },
+          {
+            "id": "build",
+            "bits": 16,
+            "start": 65530,
+            "end": 5,
+            "withheld": false,
+            "records": 3
+          }
+        ],
+        "accepted": 2,
+        "rawAccepted": 0,
+        "wraps": 1,
+        "disagreements": 2,
+        "held": 0,
+        "ambiguous": 1,
+        "invalid": 0
+      }
+    }
+  ],
+  "checks": [
+    "Review edits, approval reset, holds gate full stream, original values, multiline notes, undo and clipboard",
+    "Actual fresh-worker offline inference in already-open warmed production page",
+    "Maximum 8 profiles / 24 records / 32 real embeddings in eight chunks and audit reimport",
+    "Real cancel and successful retry",
+    "Artifacts, labels/focus/44px controls, desktop/phone no overflow, bad inputs/files, GET-only downloads without content"
+  ],
+  "negationProbe": {
+    "proposed": "build",
+    "decision": "pending",
+    "intended": "sensor"
+  },
+  "requests": [
+    {
+      "host": "127.0.0.1:7392",
+      "path": "/daily-app2/20261123-11/",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7392",
+      "path": "/daily-app2/20261123-11/assets/index-X0QZmDkY.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7392",
+      "path": "/daily-app2/20261123-11/assets/index-BhoGTWRp.css",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7392",
+      "path": "/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/6700b9a9-5d67-4f06-a1cc-dbbda5fc90c8",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7392",
+      "path": "/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7392",
+      "path": "/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "X-Xet-Cas-Uid",
+        "response-content-disposition",
+        "xip",
+        "user_id",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "xip",
+        "response-content-disposition",
+        "X-Xet-Cas-Uid",
+        "user_id",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/01ffec84-2cb4-45ff-ac91-82c6271bcdc6",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/9d191f8d-6f82-45f0-91a0-4295caf4917f",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/9f6e67e9-ac69-4ffc-a1ae-bae3d8241d8a",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/fd51ed57-b314-4ba3-a11e-a37b19f5b0a3",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/55f0a30b-46c5-4c49-96bf-c56df9f29a5d",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/2cec0ca6-acd6-4dbe-bc39-90122954ff90",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/42381ce9-9a90-48b6-9beb-92f2ecfe85c8",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/87b44970-0997-4836-8af3-6db1cf1f8003",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/24c7a9ec-e9d3-4799-b61c-25a49aa54f45",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/d6595a43-3b3a-4949-918c-e0e26a757327",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/4810054d-40eb-4ff9-a012-43c2e4427285",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/5d305875-c505-40dc-b90d-252c461cf559",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/59368df7-a7c9-4acb-b22c-43767a56abd6",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/6b3bd136-ca41-4e3f-8406-9e3f67703b5c",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/17f7ea26-3626-471b-9ac2-836ec90015c6",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/0f063b3c-bd68-4600-a7ed-09f921c018e2",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/be29bbc4-ee3b-4b9b-8c1c-ce3df99eb464",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/7b873402-a3e4-43a5-916f-ffef00986808",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/5276d5fd-c8ae-42ef-8cb9-e6d3f7194c37",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/5ec8a912-75a6-4b80-81ff-64d08ae302f7",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/a499e03b-2cb6-4578-b5ae-52954dadc941",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    }
+  ],
+  "errors": []
+}

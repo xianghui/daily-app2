@@ -1,0 +1,276 @@
+{
+  "schema": "serial-compass/1",
+  "appliedAt": "2026-11-23T02:09:46.185Z",
+  "originalInput": {
+    "title": "Synthetic mixed telemetry handoff",
+    "profiles": [
+      {
+        "id": "sensor",
+        "description": "Environmental sensor telemetry temperature humidity sample counter",
+        "bits": 8,
+        "start": 250
+      },
+      {
+        "id": "build",
+        "description": "Software build job execution pipeline event sequence counter",
+        "bits": 16,
+        "start": 65530
+      }
+    ],
+    "records": [
+      {
+        "id": "t1",
+        "note": "Environmental temperature sensor telemetry sample",
+        "value": 254
+      },
+      {
+        "id": "b1",
+        "note": "Software pipeline build job execution event",
+        "value": 65535
+      },
+      {
+        "id": "t2",
+        "note": "Humidity temperature environmental sensor telemetry sample",
+        "value": 2
+      },
+      {
+        "id": "b2",
+        "note": "Build pipeline software job execution event counter",
+        "value": 3
+      },
+      {
+        "id": "t3",
+        "note": "Temperature environmental sensor sample telemetry",
+        "value": 1
+      },
+      {
+        "id": "b3",
+        "note": "Software job build pipeline execution event",
+        "value": 32771
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "text": "Environmental temperature sensor telemetry sample",
+      "resource": "sensor",
+      "aiResource": "sensor",
+      "evidence": [
+        {
+          "resource": "sensor",
+          "score": 0.802582064480572
+        },
+        {
+          "resource": "build",
+          "score": 0.0981265448852662
+        }
+      ],
+      "value": 256,
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 1,
+      "text": "Software pipeline build job execution event",
+      "resource": "build",
+      "aiResource": "build",
+      "evidence": [
+        {
+          "resource": "build",
+          "score": 0.8454891049985589
+        },
+        {
+          "resource": "sensor",
+          "score": 0.02236780563255431
+        }
+      ],
+      "value": 65535,
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "text": "Humidity temperature environmental sensor telemetry sample",
+      "resource": "sensor",
+      "aiResource": "sensor",
+      "evidence": [
+        {
+          "resource": "sensor",
+          "score": 0.9184960633359188
+        },
+        {
+          "resource": "build",
+          "score": 0.061501466312023884
+        }
+      ],
+      "value": 2,
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 3,
+      "text": "Build pipeline software job execution event counter",
+      "resource": "build",
+      "aiResource": "build",
+      "evidence": [
+        {
+          "resource": "build",
+          "score": 0.9390245901917577
+        },
+        {
+          "resource": "sensor",
+          "score": 0.2258715691825096
+        }
+      ],
+      "value": 3,
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 4,
+      "text": "Temperature environmental sensor sample telemetry",
+      "resource": "sensor",
+      "aiResource": "sensor",
+      "evidence": [
+        {
+          "resource": "sensor",
+          "score": 0.8067803417841282
+        },
+        {
+          "resource": "build",
+          "score": 0.12198676468272254
+        }
+      ],
+      "value": 1,
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 5,
+      "text": "Software job build pipeline execution event",
+      "resource": "build",
+      "aiResource": "build",
+      "evidence": [
+        {
+          "resource": "build",
+          "score": 0.8396346368502149
+        },
+        {
+          "resource": "sensor",
+          "score": 0.020546130761670816
+        }
+      ],
+      "value": 32771,
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "analysis": {
+    "checks": [
+      {
+        "index": 0,
+        "id": "t1",
+        "profile": "sensor",
+        "bits": 8,
+        "value": 256,
+        "reference": 250,
+        "status": "invalid",
+        "delta": null,
+        "wrap": false,
+        "reason": "Counter outside this stream’s unsigned bit range. Repair only from source evidence.",
+        "rawAccepted": false
+      },
+      {
+        "index": 1,
+        "id": "b1",
+        "profile": "build",
+        "bits": 16,
+        "value": 65535,
+        "reference": 65530,
+        "status": "newer",
+        "delta": 5,
+        "wrap": false,
+        "reason": "Forward within the half-range; advances the reviewed reference.",
+        "rawAccepted": true
+      },
+      {
+        "index": 2,
+        "id": "t2",
+        "profile": "sensor",
+        "bits": 8,
+        "value": 2,
+        "reference": 250,
+        "status": "newer",
+        "delta": 8,
+        "wrap": true,
+        "reason": "Forward within the half-range; advances the reviewed reference.",
+        "rawAccepted": false
+      },
+      {
+        "index": 3,
+        "id": "b2",
+        "profile": "build",
+        "bits": 16,
+        "value": 3,
+        "reference": 65535,
+        "status": "newer",
+        "delta": 4,
+        "wrap": true,
+        "reason": "Forward within the half-range; advances the reviewed reference.",
+        "rawAccepted": false
+      },
+      {
+        "index": 4,
+        "id": "t3",
+        "profile": "sensor",
+        "bits": 8,
+        "value": 1,
+        "reference": 2,
+        "status": "stale",
+        "delta": 255,
+        "wrap": false,
+        "reason": "Behind the current reference under the half-range assumption; does not advance.",
+        "rawAccepted": false
+      },
+      {
+        "index": 5,
+        "id": "b3",
+        "profile": "build",
+        "bits": 16,
+        "value": 32771,
+        "reference": 3,
+        "status": "ambiguous",
+        "delta": 32768,
+        "wrap": false,
+        "reason": "Exactly half the number space; ordering is undefined. Does not advance.",
+        "rawAccepted": false
+      }
+    ],
+    "streams": [
+      {
+        "id": "sensor",
+        "bits": 8,
+        "start": 250,
+        "end": 2,
+        "withheld": false,
+        "records": 3
+      },
+      {
+        "id": "build",
+        "bits": 16,
+        "start": 65530,
+        "end": 3,
+        "withheld": false,
+        "records": 3
+      }
+    ],
+    "accepted": 3,
+    "rawAccepted": 1,
+    "wraps": 2,
+    "disagreements": 2,
+    "held": 0,
+    "ambiguous": 1,
+    "invalid": 1
+  }
+}

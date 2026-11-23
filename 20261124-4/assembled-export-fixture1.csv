@@ -1,0 +1,11 @@
+"id","source_context","original_payload","reviewed_payload","profile","decision","status","bytes","hex","canonical_base64","permissive_hex","reason","review_note"
+"json-body","JSON API integration: binary blob payload contract requires conventional plus/slash Base64 alphabet, equals padding and no whitespace.","SGVsbG8=","SGVsbG8=","api-blob","approve","ready","5","48656c6c6f","SGVsbG8=","48656c6c6f","",""
+"query-body","Browser URL query attachment identifier uses dash/underscore URL-safe Base64 without trailing equals padding.","SGVsbG8","SGVsbG8","url-field","approve","ready","5","48656c6c6f","SGVsbG8","48656c6c6f","",""
+"mail-body","Mail transfer MIME attachment content: standard Base64 body with padded final quantum and CRLF folded lines.","AAEC
+AwQ=","AAEC
+AwQ=","mail-part","approve","ready","5","0001020304","AAECAwQ=","0001020304","",""
+"url-wrong-alphabet","Web link query binary ID is encoded using unpadded URL-safe dash and underscore alphabet.","'+/8","'+/8","url-field","approve","blocked","","","","fbff","URL-safe contract requires dash/underscore alphabet and forbids equals padding.",""
+"mail-lone-lf","Email MIME attachment encoded body with standard alphabet, equals padding and CRLF line folding up to 76 characters.","Zm9v
+YmFy","Zm9v
+YmFy","mail-part","approve","blocked","","","","666f6f626172","MIME contract requires nonempty lines ≤76 characters separated only by CRLF.",""
+"api-truncated","Strict JSON API Base64 binary blob: conventional plus slash alphabet, required padding and no line wrapping.","Zg","Zg","api-blob","approve","blocked","","","","66","Standard contract requires plus/slash alphabet, complete quanta and exact equals padding.",""

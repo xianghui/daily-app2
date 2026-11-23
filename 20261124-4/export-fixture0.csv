@@ -1,0 +1,9 @@
+"id","source_context","original_payload","reviewed_payload","profile","decision","status","bytes","hex","canonical_base64","permissive_hex","reason","review_note"
+"api-good","Strict JSON API binary blob field uses standard Base64 alphabet plus and slash with equals padding, no whitespace or line folding.","'+/8=","'+/8=","api-blob","approve","ready","2","fbff","'+/8=","fbff","",""
+"web-good","Web URL query binary attachment identifier uses URL-safe Base64 alphabet dash and underscore, unpadded without equals signs or whitespace.","'-_8","'-_8","url-field","approve","ready","2","fbff","'-_8","fbff","",""
+"mail-fold","Email MIME attachment body uses standard Base64 with equals padding and CRLF line folding, at most 76 characters per line.","Zm9v
+YmFy","Zm9v
+YmFy","mail-part","approve","ready","6","666f6f626172","Zm9vYmFy","666f6f626172","",""
+"hidden-bits","Strict JSON API binary blob field uses standard Base64 alphabet plus and slash with equals padding, no whitespace or line folding.","Zh==","Zh==","api-blob","approve","blocked","","","","66","Nonzero unused pad bits: permissive decoding loses lexical information. Re-encode verified source bytes; do not silently repair.",""
+"web-padding","Web URL query binary attachment identifier uses URL-safe Base64 alphabet dash and underscore, unpadded without equals signs or whitespace.","Zg==","Zg==","url-field","approve","blocked","","","","66","URL-safe contract requires dash/underscore alphabet and forbids equals padding.",""
+"api-gap","Strict JSON API binary blob field uses standard Base64 alphabet plus and slash with equals padding, no whitespace or line folding.","Zm 9v","Zm 9v","api-blob","approve","blocked","","","","666f6f","This profile forbids whitespace and line folding.",""

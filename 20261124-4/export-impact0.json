@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "app": "Radix Quay",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "api-blob",
+        "description": "Strict JSON API binary blob field uses standard Base64 alphabet plus and slash with equals padding, no whitespace or line folding.",
+        "mode": "standard"
+      },
+      {
+        "id": "url-field",
+        "description": "Web URL query binary attachment identifier uses URL-safe Base64 alphabet dash and underscore, unpadded without equals signs or whitespace.",
+        "mode": "url"
+      },
+      {
+        "id": "mail-part",
+        "description": "Email MIME attachment body uses standard Base64 with equals padding and CRLF line folding, at most 76 characters per line.",
+        "mode": "mime"
+      }
+    ],
+    "records": [
+      {
+        "id": "same",
+        "context": "Strict JSON API binary blob field uses standard Base64 alphabet plus and slash with equals padding, no whitespace or line folding.",
+        "raw": "Zm9v\r\nYmFy"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "same",
+      "system": "api-blob",
+      "raw": "Zm9v\r\nYmFy",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "api-blob",
+          "similarity": 0.9999994838451198
+        },
+        {
+          "system": "url-field",
+          "similarity": 0.531143795359615
+        },
+        {
+          "system": "mail-part",
+          "similarity": 0.5147016625026962
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "same",
+      "system": "api-blob",
+      "raw": "Zm9v\r\nYmFy",
+      "status": "blocked",
+      "baseline": "666f6f626172",
+      "reason": "This profile forbids whitespace and line folding."
+    }
+  ],
+  "metrics": {
+    "records": 1,
+    "ready": 0,
+    "held": 0,
+    "blocked": 1,
+    "approved": 1,
+    "readyBytes": 0,
+    "baselineAccepted": 1,
+    "permissiveOnly": 1,
+    "roundTrips": 0
+  }
+}

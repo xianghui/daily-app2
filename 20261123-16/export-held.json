@@ -1,0 +1,159 @@
+{
+  "version": 1,
+  "originalInput": {
+    "profiles": [
+      {
+        "id": "excel1900",
+        "description": "Windows Microsoft Excel workbook using the 1900 date system, spreadsheet day serial numbers since January 1900"
+      },
+      {
+        "id": "excel1904",
+        "description": "Older Macintosh Excel workbook explicitly using the 1904 date system, spreadsheet day serials since January 1904"
+      },
+      {
+        "id": "unixSeconds",
+        "description": "Unix POSIX event log timestamps measured in seconds since January 1 1970 UTC"
+      },
+      {
+        "id": "unixMillis",
+        "description": "JavaScript Date.now browser telemetry timestamps in milliseconds since January 1 1970 UTC"
+      }
+    ],
+    "records": [
+      {
+        "id": "api",
+        "context": "POSIX Unix server timestamp in seconds since the epoch",
+        "value": "1704067200"
+      },
+      {
+        "id": "browser",
+        "context": "JavaScript browser Date.now timestamp in milliseconds since the epoch",
+        "value": "1704110400123"
+      },
+      {
+        "id": "archive",
+        "context": "Macintosh Excel workbook explicitly using the 1904 date system",
+        "value": "0"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "api",
+      "system": "unixSeconds",
+      "value": "1704153600",
+      "decision": "hold",
+      "note": "=SUM(1,2)\nReviewed \"source\", exactly.",
+      "evidence": [
+        {
+          "system": "unixSeconds",
+          "similarity": 0.7163322663370516
+        },
+        {
+          "system": "unixMillis",
+          "similarity": 0.40387776258501146
+        },
+        {
+          "system": "excel1904",
+          "similarity": 0.27001218044082864
+        },
+        {
+          "system": "excel1900",
+          "similarity": 0.2465205754023097
+        }
+      ]
+    },
+    {
+      "id": "browser",
+      "system": "unixMillis",
+      "value": "1704110400123",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "unixMillis",
+          "similarity": 0.8152552668819842
+        },
+        {
+          "system": "unixSeconds",
+          "similarity": 0.4636743372901591
+        },
+        {
+          "system": "excel1900",
+          "similarity": 0.29176940971094467
+        },
+        {
+          "system": "excel1904",
+          "similarity": 0.28198559150980684
+        }
+      ]
+    },
+    {
+      "id": "archive",
+      "system": "excel1904",
+      "value": "0",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "excel1904",
+          "similarity": 0.8967557324486757
+        },
+        {
+          "system": "excel1900",
+          "similarity": 0.816331835157582
+        },
+        {
+          "system": "unixSeconds",
+          "similarity": 0.41957045406662075
+        },
+        {
+          "system": "unixMillis",
+          "similarity": 0.28525077694756334
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "api",
+      "status": "held",
+      "reason": "Reviewer hold",
+      "value": "1704153600",
+      "system": "unixSeconds"
+    },
+    {
+      "id": "browser",
+      "value": "1704110400123",
+      "system": "unixMillis",
+      "status": "ready",
+      "iso": "2024-01-01T12:00:00.123Z",
+      "epochMilliseconds": 1704110400123,
+      "precision": "Exact millisecond UTC instant.",
+      "baseline": {
+        "error": "Spreadsheet serial outside supported nonnegative date range."
+      },
+      "changed": true
+    },
+    {
+      "id": "archive",
+      "value": "0",
+      "system": "excel1904",
+      "status": "ready",
+      "iso": "1904-01-01T00:00:00.000Z",
+      "epochMilliseconds": -2082844800000,
+      "precision": "Rounded to nearest millisecond from day serial; timezone not inferred.",
+      "baseline": {
+        "error": "Resolved date must be within 1900–2100 UTC."
+      },
+      "changed": true
+    }
+  ],
+  "metrics": {
+    "records": 3,
+    "ready": 2,
+    "held": 1,
+    "blocked": 0,
+    "different": 2
+  }
+}

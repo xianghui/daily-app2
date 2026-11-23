@@ -1,0 +1,1 @@
+const{chromium}=require('/Users/hsianghui/.openclaw/workspace/node_modules/playwright');(async()=>{let b=await chromium.launch({channel:'chrome',headless:true}),p=await b.newPage();await p.goto('http://127.0.0.1:7393/daily-app2/');console.log(await p.locator('a').evaluateAll(a=>a.slice(0,10).map(e=>({text:e.innerText,href:e.getAttribute('href')}))));await b.close()})();

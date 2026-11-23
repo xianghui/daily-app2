@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "originalInput": {
+    "profiles": [
+      {
+        "id": "excel1900",
+        "description": "Windows Microsoft Excel workbook using the 1900 date system, spreadsheet day serial numbers since January 1900"
+      },
+      {
+        "id": "excel1904",
+        "description": "Older Macintosh Excel workbook explicitly using the 1904 date system, spreadsheet day serials since January 1904"
+      },
+      {
+        "id": "unixSeconds",
+        "description": "Unix POSIX event log timestamps measured in seconds since January 1 1970 UTC"
+      },
+      {
+        "id": "unixMillis",
+        "description": "JavaScript Date.now browser telemetry timestamps in milliseconds since January 1 1970 UTC"
+      }
+    ],
+    "records": [
+      {
+        "id": "win",
+        "context": "Windows Excel workbook explicitly configured with the 1900 date system",
+        "value": "45292"
+      },
+      {
+        "id": "mac",
+        "context": "Older Macintosh Excel workbook using the 1904 date system",
+        "value": "43830.5"
+      },
+      {
+        "id": "ghost",
+        "context": "Windows Microsoft Excel 1900 date system spreadsheet",
+        "value": "60"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "win",
+      "system": "excel1900",
+      "value": "45292",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "excel1900",
+          "similarity": 0.8487562343021816
+        },
+        {
+          "system": "excel1904",
+          "similarity": 0.739696108513537
+        },
+        {
+          "system": "unixSeconds",
+          "similarity": 0.35828053019740436
+        },
+        {
+          "system": "unixMillis",
+          "similarity": 0.29658222960820224
+        }
+      ]
+    },
+    {
+      "id": "mac",
+      "system": "excel1904",
+      "value": "43830.5",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "excel1904",
+          "similarity": 0.9257400436818941
+        },
+        {
+          "system": "excel1900",
+          "similarity": 0.811035554821738
+        },
+        {
+          "system": "unixSeconds",
+          "similarity": 0.4282551216190963
+        },
+        {
+          "system": "unixMillis",
+          "similarity": 0.3155547930700318
+        }
+      ]
+    },
+    {
+      "id": "ghost",
+      "system": "excel1900",
+      "value": "60",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "excel1900",
+          "similarity": 0.8634730583412469
+        },
+        {
+          "system": "excel1904",
+          "similarity": 0.7506136020899339
+        },
+        {
+          "system": "unixSeconds",
+          "similarity": 0.345417245906069
+        },
+        {
+          "system": "unixMillis",
+          "similarity": 0.3177389858599176
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "win",
+      "value": "45292",
+      "system": "excel1900",
+      "status": "ready",
+      "iso": "2024-01-01T00:00:00.000Z",
+      "epochMilliseconds": 1704067200000,
+      "precision": "Rounded to nearest millisecond from day serial; timezone not inferred.",
+      "baseline": {
+        "iso": "2024-01-01T00:00:00.000Z",
+        "epochMilliseconds": 1704067200000,
+        "precision": "Rounded to nearest millisecond from day serial; timezone not inferred."
+      },
+      "changed": false
+    },
+    {
+      "id": "mac",
+      "value": "43830.5",
+      "system": "excel1904",
+      "status": "ready",
+      "iso": "2024-01-01T12:00:00.000Z",
+      "epochMilliseconds": 1704110400000,
+      "precision": "Rounded to nearest millisecond from day serial; timezone not inferred.",
+      "baseline": {
+        "iso": "2019-12-31T12:00:00.000Z",
+        "epochMilliseconds": 1577793600000,
+        "precision": "Rounded to nearest millisecond from day serial; timezone not inferred."
+      },
+      "changed": true
+    },
+    {
+      "id": "ghost",
+      "value": "60",
+      "system": "excel1900",
+      "status": "blocked",
+      "error": "Excel serial day 60 is fictitious 1900-02-29. Resolve at source; never silently shift.",
+      "baseline": {
+        "error": "Excel serial day 60 is fictitious 1900-02-29. Resolve at source; never silently shift."
+      },
+      "changed": false
+    }
+  ],
+  "metrics": {
+    "records": 3,
+    "ready": 2,
+    "held": 0,
+    "blocked": 1,
+    "different": 1
+  }
+}

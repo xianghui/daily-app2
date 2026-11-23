@@ -1,0 +1,37 @@
+# Path Haven
+
+1. "device" · blocked
+   Source: {"id":"device","context":"Microsoft Windows desktop NTFS shared drive Explorer","raw":"docs/CON.txt"}
+   Review: {"id":"device","system":"win","raw":"docs/CON.txt","decision":"approve","note":"","evidence":[{"system":"win","similarity":0.7607421397450617},{"system":"unix","similarity":-0.004081083122248124}]}
+   Path check: {"id":"device","system":"win","raw":"docs/CON.txt","kind":"windows","status":"blocked","reason":"Reserved Windows device filename."}
+
+2. "trailing" · blocked
+   Source: {"id":"trailing","context":"Microsoft Windows Explorer office desktop shared drive","raw":"reports/draft. "}
+   Review: {"id":"trailing","system":"win","raw":"reports/draft. ","decision":"approve","note":"","evidence":[{"system":"win","similarity":0.7306805168212818},{"system":"unix","similarity":-0.02542346668916108}]}
+   Path check: {"id":"trailing","system":"win","raw":"reports/draft. ","kind":"windows","status":"blocked","reason":"Windows trailing dot/space is blocked, not silently trimmed."}
+
+3. "parent" · collision
+   Source: {"id":"parent","context":"Linux Unix POSIX server deployment shell application hosting","raw":"config"}
+   Review: {"id":"parent","system":"unix","raw":"config","decision":"approve","note":"","evidence":[{"system":"unix","similarity":0.9256161208354041},{"system":"win","similarity":0.025950382415911417}]}
+   Path check: {"id":"parent","system":"unix","raw":"config","kind":"posix","path":"config","key":"config","segments":1,"changed":false,"status":"collision","witnesses":["child"],"reason":"Conflicts with child"}
+
+4. "child" · collision
+   Source: {"id":"child","context":"Linux POSIX Unix deployment server hosting","raw":"config/settings.json"}
+   Review: {"id":"child","system":"unix","raw":"config/settings.json","decision":"approve","note":"","evidence":[{"system":"unix","similarity":0.8482057097179143},{"system":"win","similarity":0.02490066384319379}]}
+   Path check: {"id":"child","system":"unix","raw":"config/settings.json","kind":"posix","path":"config/settings.json","key":"config/settings.json","segments":2,"changed":false,"status":"collision","witnesses":["parent"],"reason":"Conflicts with parent"}
+
+5. "recover" · ready
+   Source: {"id":"recover","context":"Microsoft Windows NTFS Explorer shared drive","raw":"drafts/../final/guide.txt"}
+   Review: {"id":"recover","system":"win","raw":"drafts/../final/guide.txt","decision":"approve","note":"","evidence":[{"system":"win","similarity":0.7190356876650137},{"system":"unix","similarity":0.001726985401108225}]}
+   Path check: {"id":"recover","system":"win","raw":"drafts/../final/guide.txt","kind":"windows","path":"final/guide.txt","key":"final/guide.txt","segments":2,"changed":true,"status":"ready","witnesses":[]}
+
+6. "literal" · ready
+   Source: {"id":"literal","context":"Linux Unix POSIX server deployment filesystem","raw":"notes\\draft.txt"}
+   Review: {"id":"literal","system":"unix","raw":"notes\\draft.txt","decision":"approve","note":"","evidence":[{"system":"unix","similarity":0.9019078225869254},{"system":"win","similarity":0.0722944337925939}]}
+   Path check: {"id":"literal","system":"unix","raw":"notes\\draft.txt","kind":"posix","path":"notes\\draft.txt","key":"notes\\draft.txt","segments":1,"changed":false,"status":"ready","witnesses":[]}
+
+Conflict witnesses: [{"a":"parent","b":"child","reason":"file/directory ancestor conflict","rawDuplicate":false}]
+
+Computed counts: {"records":6,"ready":2,"held":0,"blocked":2,"collision":2,"normalized":1,"conflictPairs":1,"rawDuplicatePairs":0,"missedPairs":1}
+
+Baseline compares identical reviewed raw paths within each destination. Lexical checks only: no symlink, existing-file or real filesystem inspection; not an extraction security guarantee.

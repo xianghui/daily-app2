@@ -1,0 +1,244 @@
+{
+  "version": 1,
+  "originalInput": {
+    "plans": [
+      {
+        "id": "win",
+        "description": "Microsoft Windows desktop NTFS shared drive Explorer handoff for office staff",
+        "kind": "windows"
+      },
+      {
+        "id": "unix",
+        "description": "Linux Unix POSIX server deployment filesystem for shell application hosting",
+        "kind": "posix"
+      }
+    ],
+    "records": [
+      {
+        "id": "office-a",
+        "context": "Microsoft Windows desktop NTFS shared drive Explorer office staff",
+        "raw": "Reports\\Q1.txt"
+      },
+      {
+        "id": "office-b",
+        "context": "Windows Explorer Microsoft office desktop shared drive",
+        "raw": "reports/q1.TXT"
+      },
+      {
+        "id": "server-a",
+        "context": "Linux Unix POSIX server deployment shell application hosting",
+        "raw": "assets/./logo.svg"
+      },
+      {
+        "id": "server-b",
+        "context": "Linux POSIX Unix deployment server hosting",
+        "raw": "assets/Logo.svg"
+      },
+      {
+        "id": "escape",
+        "context": "Microsoft Windows NTFS Explorer shared drive",
+        "raw": "docs/../../private.txt"
+      },
+      {
+        "id": "root",
+        "context": "Linux Unix POSIX server deployment filesystem",
+        "raw": "/etc/config"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "office-a",
+      "system": "win",
+      "raw": "Reports\\Q1.txt",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "win",
+          "similarity": 0.861571796039735
+        },
+        {
+          "system": "unix",
+          "similarity": 0.06266212826573242
+        }
+      ]
+    },
+    {
+      "id": "office-b",
+      "system": "win",
+      "raw": "reports/q1.TXT",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "win",
+          "similarity": 0.7371947182913156
+        },
+        {
+          "system": "unix",
+          "similarity": -0.022850283905640766
+        }
+      ]
+    },
+    {
+      "id": "server-a",
+      "system": "unix",
+      "raw": "assets/./logo.svg",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "unix",
+          "similarity": 0.92784068227805
+        },
+        {
+          "system": "win",
+          "similarity": 0.023095841743782257
+        }
+      ]
+    },
+    {
+      "id": "server-b",
+      "system": "unix",
+      "raw": "assets/Logo.svg",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "unix",
+          "similarity": 0.8502624880920301
+        },
+        {
+          "system": "win",
+          "similarity": 0.023354400256826453
+        }
+      ]
+    },
+    {
+      "id": "escape",
+      "system": "win",
+      "raw": "docs/../../private.txt",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "win",
+          "similarity": 0.7262132913510908
+        },
+        {
+          "system": "unix",
+          "similarity": 0.004727068708996356
+        }
+      ]
+    },
+    {
+      "id": "root",
+      "system": "unix",
+      "raw": "/etc/config",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "unix",
+          "similarity": 0.9042641478859549
+        },
+        {
+          "system": "win",
+          "similarity": 0.07608787498568145
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "office-a",
+      "system": "win",
+      "raw": "Reports\\Q1.txt",
+      "kind": "windows",
+      "path": "Reports/Q1.txt",
+      "key": "reports/q1.txt",
+      "segments": 2,
+      "changed": true,
+      "status": "collision",
+      "witnesses": [
+        "office-b"
+      ],
+      "reason": "Conflicts with office-b"
+    },
+    {
+      "id": "office-b",
+      "system": "win",
+      "raw": "reports/q1.TXT",
+      "kind": "windows",
+      "path": "reports/q1.TXT",
+      "key": "reports/q1.txt",
+      "segments": 2,
+      "changed": false,
+      "status": "collision",
+      "witnesses": [
+        "office-a"
+      ],
+      "reason": "Conflicts with office-a"
+    },
+    {
+      "id": "server-a",
+      "system": "unix",
+      "raw": "assets/./logo.svg",
+      "kind": "posix",
+      "path": "assets/logo.svg",
+      "key": "assets/logo.svg",
+      "segments": 2,
+      "changed": true,
+      "status": "ready",
+      "witnesses": []
+    },
+    {
+      "id": "server-b",
+      "system": "unix",
+      "raw": "assets/Logo.svg",
+      "kind": "posix",
+      "path": "assets/Logo.svg",
+      "key": "assets/Logo.svg",
+      "segments": 2,
+      "changed": false,
+      "status": "ready",
+      "witnesses": []
+    },
+    {
+      "id": "escape",
+      "system": "win",
+      "raw": "docs/../../private.txt",
+      "kind": "windows",
+      "status": "blocked",
+      "reason": "Traversal escapes the destination root."
+    },
+    {
+      "id": "root",
+      "system": "unix",
+      "raw": "/etc/config",
+      "kind": "posix",
+      "status": "blocked",
+      "reason": "Absolute, UNC, rooted and drive-relative paths are blocked."
+    }
+  ],
+  "pairs": [
+    {
+      "a": "office-a",
+      "b": "office-b",
+      "reason": "same canonical file",
+      "rawDuplicate": false
+    }
+  ],
+  "metrics": {
+    "records": 6,
+    "ready": 2,
+    "held": 0,
+    "blocked": 2,
+    "collision": 2,
+    "normalized": 2,
+    "conflictPairs": 1,
+    "rawDuplicatePairs": 0,
+    "missedPairs": 1
+  }
+}

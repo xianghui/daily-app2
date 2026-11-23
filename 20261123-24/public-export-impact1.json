@@ -1,0 +1,133 @@
+{
+  "version": 1,
+  "originalInput": {
+    "plans": [
+      {
+        "id": "public",
+        "description": "Public website publishing build artifacts readable by everyone but writable only by the owner",
+        "mask": "022"
+      },
+      {
+        "id": "private",
+        "description": "Confidential private personal working files restricted to their owner with no group or public access",
+        "mask": "077"
+      },
+      {
+        "id": "team",
+        "description": "Shared collaborative project workspace where the owner and project group can both write files",
+        "mask": "002"
+      }
+    ],
+    "records": [
+      {
+        "id": "same",
+        "context": "Confidential private personal working files restricted to their owner with no group or public access",
+        "raw": "666"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "same",
+      "system": "private",
+      "raw": "666",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "private",
+          "similarity": 0.9999998167767368
+        },
+        {
+          "system": "team",
+          "similarity": 0.4759520006005717
+        },
+        {
+          "system": "public",
+          "similarity": 0.43451237834413786
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "same",
+      "system": "private",
+      "raw": "666",
+      "requestedMode": "666",
+      "mask": "077",
+      "effectiveMode": "600",
+      "removedMode": "066",
+      "symbolic": "rw-------",
+      "baselineMode": "567",
+      "baselineAddsBits": "101",
+      "differentFromBaseline": true,
+      "bits": [
+        {
+          "permission": "other execute/search",
+          "requested": false,
+          "masked": true,
+          "granted": false
+        },
+        {
+          "permission": "other write",
+          "requested": true,
+          "masked": true,
+          "granted": false
+        },
+        {
+          "permission": "other read",
+          "requested": true,
+          "masked": true,
+          "granted": false
+        },
+        {
+          "permission": "group execute/search",
+          "requested": false,
+          "masked": true,
+          "granted": false
+        },
+        {
+          "permission": "group write",
+          "requested": true,
+          "masked": true,
+          "granted": false
+        },
+        {
+          "permission": "group read",
+          "requested": true,
+          "masked": true,
+          "granted": false
+        },
+        {
+          "permission": "owner execute/search",
+          "requested": false,
+          "masked": false,
+          "granted": false
+        },
+        {
+          "permission": "owner write",
+          "requested": true,
+          "masked": false,
+          "granted": true
+        },
+        {
+          "permission": "owner read",
+          "requested": true,
+          "masked": false,
+          "granted": true
+        }
+      ],
+      "subsetVerified": true,
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 1,
+    "ready": 1,
+    "held": 0,
+    "blocked": 0,
+    "subsetChecks": 1,
+    "changedInterpretations": 1
+  }
+}

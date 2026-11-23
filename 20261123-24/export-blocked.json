@@ -1,0 +1,426 @@
+{
+  "version": 1,
+  "originalInput": {
+    "plans": [
+      {
+        "id": "public",
+        "description": "Public website publishing build artifacts readable by everyone but writable only by the owner",
+        "mask": "022"
+      },
+      {
+        "id": "private",
+        "description": "Confidential private personal working files restricted to their owner with no group or public access",
+        "mask": "077"
+      },
+      {
+        "id": "team",
+        "description": "Shared collaborative project workspace where the owner and project group can both write files",
+        "mask": "002"
+      }
+    ],
+    "records": [
+      {
+        "id": "team-report",
+        "context": "Shared collaborative project workspace where the owner and project group can both write files",
+        "raw": "666"
+      },
+      {
+        "id": "private-folder",
+        "context": "Confidential private personal working files restricted to their owner with no group or public access",
+        "raw": "777"
+      },
+      {
+        "id": "public-script",
+        "context": "Public website publishing build artifacts readable by everyone but writable only by the owner",
+        "raw": "755"
+      },
+      {
+        "id": "sparse",
+        "context": "Confidential private personal working files restricted to their owner with no group or public access",
+        "raw": "640"
+      },
+      {
+        "id": "ambiguous",
+        "context": "Public website publishing build artifacts readable by everyone but writable only by the owner",
+        "raw": "644\n666"
+      },
+      {
+        "id": "symbolic",
+        "context": "Shared collaborative project workspace where the owner and project group can both write files",
+        "raw": "u=rw,g=r,o="
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "team-report",
+      "system": "team",
+      "raw": "640",
+      "decision": "approve",
+      "note": "=SUM(1,2)\nReviewed \"source\", exactly.",
+      "evidence": [
+        {
+          "system": "team",
+          "similarity": 0.9999998483396231
+        },
+        {
+          "system": "private",
+          "similarity": 0.4759520006005717
+        },
+        {
+          "system": "public",
+          "similarity": 0.3974944002759981
+        }
+      ]
+    },
+    {
+      "id": "private-folder",
+      "system": "private",
+      "raw": "zz",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "private",
+          "similarity": 0.9958591151984749
+        },
+        {
+          "system": "team",
+          "similarity": 0.4793834841423538
+        },
+        {
+          "system": "public",
+          "similarity": 0.4337291887470658
+        }
+      ]
+    },
+    {
+      "id": "public-script",
+      "system": "public",
+      "raw": "755",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "public",
+          "similarity": 0.9962577956470744
+        },
+        {
+          "system": "private",
+          "similarity": 0.4253066450095035
+        },
+        {
+          "system": "team",
+          "similarity": 0.3916895609085724
+        }
+      ]
+    },
+    {
+      "id": "sparse",
+      "system": "private",
+      "raw": "640",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "private",
+          "similarity": 0.9958591151984749
+        },
+        {
+          "system": "team",
+          "similarity": 0.4793834841423538
+        },
+        {
+          "system": "public",
+          "similarity": 0.4337291887470658
+        }
+      ]
+    },
+    {
+      "id": "ambiguous",
+      "system": "public",
+      "raw": "644\n666",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "public",
+          "similarity": 0.9962577956470744
+        },
+        {
+          "system": "private",
+          "similarity": 0.4253066450095035
+        },
+        {
+          "system": "team",
+          "similarity": 0.3916895609085724
+        }
+      ]
+    },
+    {
+      "id": "symbolic",
+      "system": "team",
+      "raw": "u=rw,g=r,o=",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "team",
+          "similarity": 0.9939206380983847
+        },
+        {
+          "system": "private",
+          "similarity": 0.47498965639934265
+        },
+        {
+          "system": "public",
+          "similarity": 0.40888816069084183
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "team-report",
+      "system": "team",
+      "raw": "640",
+      "requestedMode": "640",
+      "mask": "002",
+      "effectiveMode": "640",
+      "removedMode": "000",
+      "symbolic": "rw-r-----",
+      "baselineMode": "636",
+      "baselineAddsBits": "036",
+      "differentFromBaseline": true,
+      "bits": [
+        {
+          "permission": "other execute/search",
+          "requested": false,
+          "masked": false,
+          "granted": false
+        },
+        {
+          "permission": "other write",
+          "requested": false,
+          "masked": true,
+          "granted": false
+        },
+        {
+          "permission": "other read",
+          "requested": false,
+          "masked": false,
+          "granted": false
+        },
+        {
+          "permission": "group execute/search",
+          "requested": false,
+          "masked": false,
+          "granted": false
+        },
+        {
+          "permission": "group write",
+          "requested": false,
+          "masked": false,
+          "granted": false
+        },
+        {
+          "permission": "group read",
+          "requested": true,
+          "masked": false,
+          "granted": true
+        },
+        {
+          "permission": "owner execute/search",
+          "requested": false,
+          "masked": false,
+          "granted": false
+        },
+        {
+          "permission": "owner write",
+          "requested": true,
+          "masked": false,
+          "granted": true
+        },
+        {
+          "permission": "owner read",
+          "requested": true,
+          "masked": false,
+          "granted": true
+        }
+      ],
+      "subsetVerified": true,
+      "status": "ready"
+    },
+    {
+      "id": "private-folder",
+      "system": "private",
+      "raw": "zz",
+      "status": "blocked",
+      "reason": "Use exactly three octal digits (000–777). No prefixes, whitespace, symbolic modes or special bits."
+    },
+    {
+      "id": "public-script",
+      "system": "public",
+      "raw": "755",
+      "requestedMode": "755",
+      "mask": "022",
+      "effectiveMode": "755",
+      "removedMode": "000",
+      "symbolic": "rwxr-xr-x",
+      "baselineMode": "733",
+      "baselineAddsBits": "022",
+      "differentFromBaseline": true,
+      "bits": [
+        {
+          "permission": "other execute/search",
+          "requested": true,
+          "masked": false,
+          "granted": true
+        },
+        {
+          "permission": "other write",
+          "requested": false,
+          "masked": true,
+          "granted": false
+        },
+        {
+          "permission": "other read",
+          "requested": true,
+          "masked": false,
+          "granted": true
+        },
+        {
+          "permission": "group execute/search",
+          "requested": true,
+          "masked": false,
+          "granted": true
+        },
+        {
+          "permission": "group write",
+          "requested": false,
+          "masked": true,
+          "granted": false
+        },
+        {
+          "permission": "group read",
+          "requested": true,
+          "masked": false,
+          "granted": true
+        },
+        {
+          "permission": "owner execute/search",
+          "requested": true,
+          "masked": false,
+          "granted": true
+        },
+        {
+          "permission": "owner write",
+          "requested": true,
+          "masked": false,
+          "granted": true
+        },
+        {
+          "permission": "owner read",
+          "requested": true,
+          "masked": false,
+          "granted": true
+        }
+      ],
+      "subsetVerified": true,
+      "status": "ready"
+    },
+    {
+      "id": "sparse",
+      "system": "private",
+      "raw": "640",
+      "requestedMode": "640",
+      "mask": "077",
+      "effectiveMode": "600",
+      "removedMode": "040",
+      "symbolic": "rw-------",
+      "baselineMode": "541",
+      "baselineAddsBits": "101",
+      "differentFromBaseline": true,
+      "bits": [
+        {
+          "permission": "other execute/search",
+          "requested": false,
+          "masked": true,
+          "granted": false
+        },
+        {
+          "permission": "other write",
+          "requested": false,
+          "masked": true,
+          "granted": false
+        },
+        {
+          "permission": "other read",
+          "requested": false,
+          "masked": true,
+          "granted": false
+        },
+        {
+          "permission": "group execute/search",
+          "requested": false,
+          "masked": true,
+          "granted": false
+        },
+        {
+          "permission": "group write",
+          "requested": false,
+          "masked": true,
+          "granted": false
+        },
+        {
+          "permission": "group read",
+          "requested": true,
+          "masked": true,
+          "granted": false
+        },
+        {
+          "permission": "owner execute/search",
+          "requested": false,
+          "masked": false,
+          "granted": false
+        },
+        {
+          "permission": "owner write",
+          "requested": true,
+          "masked": false,
+          "granted": true
+        },
+        {
+          "permission": "owner read",
+          "requested": true,
+          "masked": false,
+          "granted": true
+        }
+      ],
+      "subsetVerified": true,
+      "status": "ready"
+    },
+    {
+      "id": "ambiguous",
+      "system": "public",
+      "raw": "644\n666",
+      "status": "blocked",
+      "reason": "Use exactly three octal digits (000–777). No prefixes, whitespace, symbolic modes or special bits."
+    },
+    {
+      "id": "symbolic",
+      "system": "team",
+      "raw": "u=rw,g=r,o=",
+      "status": "blocked",
+      "reason": "Use exactly three octal digits (000–777). No prefixes, whitespace, symbolic modes or special bits."
+    }
+  ],
+  "metrics": {
+    "records": 6,
+    "ready": 3,
+    "held": 0,
+    "blocked": 3,
+    "subsetChecks": 3,
+    "changedInterpretations": 3
+  }
+}

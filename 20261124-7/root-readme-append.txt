@@ -1,0 +1,4 @@
+
+## Weekbridge Desk — 20261124-7
+
+Real local MiniLM source-convention retrieval assists a reviewed compact-date handoff. Strict ISO week-year, ordinal-day and Gregorian calendar checks block impossible dates; identical digits produce different dates under real context-only inference. Six simple links matched, but a negation probe failed, so human review is mandatory. The date engine matched 74,200 independent Python ISO-week cases. Complete JSON/CSV/Markdown and ready-only date releases preserve originals, edits and holds. Fresh-worker offline inference tested only within an already-open warmed page. Reuses immutable worker/runtime paths from `20261115-6` and WASM from `20261107-2`; preserve them. See [workflow/privacy](20261124-7/README.md) and [observed validation](20261124-7/VALIDATION.md).

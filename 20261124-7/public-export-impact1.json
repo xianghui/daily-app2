@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "app": "Weekbridge Desk",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "week",
+        "description": "ISO week date shipment schedule. Week-based year, week number and Monday to Sunday weekday. Compact YYYYwwD notation.",
+        "kind": "iso-week"
+      },
+      {
+        "id": "ordinal",
+        "description": "Scientific instrument annual day-of-year log. Calendar year plus ordinal day number, January 1 is day 001. Compact YYYYDDD notation.",
+        "kind": "ordinal"
+      },
+      {
+        "id": "calendar",
+        "description": "Calendar date business invoice import. Calendar year month and day of month in compact YYYYMMDD notation.",
+        "kind": "calendar"
+      }
+    ],
+    "records": [
+      {
+        "id": "same",
+        "context": "Scientific instrument annual day-of-year log. Calendar year plus ordinal day number, January 1 is day 001. Compact YYYYDDD notation.",
+        "raw": "2020011"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "same",
+      "system": "ordinal",
+      "raw": "2020011",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "ordinal",
+          "similarity": 0.9999999466089152
+        },
+        {
+          "system": "calendar",
+          "similarity": 0.577046825602652
+        },
+        {
+          "system": "week",
+          "similarity": 0.40427024704585873
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "same",
+      "system": "ordinal",
+      "raw": "2020011",
+      "kind": "ordinal",
+      "date": "2020-01-11",
+      "parts": {
+        "year": 2020,
+        "ordinal": 11
+      },
+      "baseline": "2020-01-11",
+      "baselineMismatch": false,
+      "crossYear": false,
+      "reason": "Count from January 1; validated against leap-year length.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 1,
+    "ready": 1,
+    "held": 0,
+    "blocked": 0,
+    "compared": 1,
+    "baselineMismatch": 0,
+    "crossYear": 0,
+    "edited": 0
+  }
+}

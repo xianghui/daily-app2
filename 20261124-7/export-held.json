@@ -1,0 +1,158 @@
+{
+  "version": 1,
+  "app": "Weekbridge Desk",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "week",
+        "description": "ISO week date shipment schedule. Week-based year, week number and Monday to Sunday weekday. Compact YYYYwwD notation.",
+        "kind": "iso-week"
+      },
+      {
+        "id": "ordinal",
+        "description": "Scientific instrument annual day-of-year log. Calendar year plus ordinal day number, January 1 is day 001. Compact YYYYDDD notation.",
+        "kind": "ordinal"
+      },
+      {
+        "id": "calendar",
+        "description": "Calendar date business invoice import. Calendar year month and day of month in compact YYYYMMDD notation.",
+        "kind": "calendar"
+      }
+    ],
+    "records": [
+      {
+        "id": "Annual sample",
+        "context": "Scientific instrument log, ordinal day number counted from January 1.",
+        "raw": "2023366"
+      },
+      {
+        "id": "Shipping Friday",
+        "context": "ISO shipment schedule, week-based year week number and weekday.",
+        "raw": "2020535"
+      },
+      {
+        "id": "Ledger close",
+        "context": "Business invoice calendar date, year month and day of month.",
+        "raw": "20241231"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "Annual sample",
+      "system": "ordinal",
+      "raw": "2023365",
+      "decision": "approve",
+      "note": "=SUM(1,2)\nReviewed \"date\", exactly.",
+      "evidence": [
+        {
+          "system": "ordinal",
+          "similarity": 0.8197186658384985
+        },
+        {
+          "system": "calendar",
+          "similarity": 0.36436648978920083
+        },
+        {
+          "system": "week",
+          "similarity": 0.2561821312330793
+        }
+      ]
+    },
+    {
+      "id": "Shipping Friday",
+      "system": "week",
+      "raw": "2020535",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "week",
+          "similarity": 0.8624594256787045
+        },
+        {
+          "system": "calendar",
+          "similarity": 0.34413820106295706
+        },
+        {
+          "system": "ordinal",
+          "similarity": 0.2757921470446203
+        }
+      ]
+    },
+    {
+      "id": "Ledger close",
+      "system": "calendar",
+      "raw": "20241231",
+      "decision": "hold",
+      "note": "",
+      "evidence": [
+        {
+          "system": "calendar",
+          "similarity": 0.788467203501146
+        },
+        {
+          "system": "ordinal",
+          "similarity": 0.3957736772461624
+        },
+        {
+          "system": "week",
+          "similarity": 0.27461182434503895
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "Annual sample",
+      "system": "ordinal",
+      "raw": "2023365",
+      "kind": "ordinal",
+      "date": "2023-12-31",
+      "parts": {
+        "year": 2023,
+        "ordinal": 365
+      },
+      "baseline": "2023-12-31",
+      "baselineMismatch": false,
+      "crossYear": false,
+      "reason": "Count from January 1; validated against leap-year length.",
+      "status": "ready"
+    },
+    {
+      "id": "Shipping Friday",
+      "system": "week",
+      "raw": "2020535",
+      "kind": "iso-week",
+      "date": "2021-01-01",
+      "parts": {
+        "weekYear": 2020,
+        "week": 53,
+        "weekday": 5,
+        "weekOneMonday": "2019-12-30"
+      },
+      "baseline": "2021-06-18",
+      "baselineMismatch": true,
+      "crossYear": true,
+      "reason": "Week 1 contains January 4; Thursday determines the week-year.",
+      "status": "ready"
+    },
+    {
+      "id": "Ledger close",
+      "system": "calendar",
+      "raw": "20241231",
+      "status": "held",
+      "reason": "Reviewer hold; excluded from release."
+    }
+  ],
+  "metrics": {
+    "records": 3,
+    "ready": 2,
+    "held": 1,
+    "blocked": 0,
+    "compared": 2,
+    "baselineMismatch": 1,
+    "crossYear": 1,
+    "edited": 1
+  }
+}

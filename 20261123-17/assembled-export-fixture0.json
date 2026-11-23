@@ -1,0 +1,171 @@
+{
+  "version": 1,
+  "originalInput": {
+    "profiles": [
+      {
+        "id": "film24",
+        "description": "Cinema film editing timeline at exactly 24 frames per second, non-drop frame timecode"
+      },
+      {
+        "id": "pal25",
+        "description": "PAL European television broadcast editing at exactly 25 frames per second, non-drop frame timecode"
+      },
+      {
+        "id": "video30",
+        "description": "Video animation editing at exactly 30 frames per second, non-drop frame timecode"
+      },
+      {
+        "id": "ntscDF",
+        "description": "NTSC broadcast television at 29.97 frames per second using drop-frame SMPTE timecode"
+      }
+    ],
+    "records": [
+      {
+        "id": "reel-a",
+        "context": "Cinema film editing at exactly 24 frames per second non-drop frame timecode",
+        "value": "00:01:00:00"
+      },
+      {
+        "id": "station-id",
+        "context": "European PAL television editing at 25 fps non-drop frame",
+        "value": "00:01:00:00"
+      },
+      {
+        "id": "invalid-drop",
+        "context": "NTSC 29.97 fps broadcast drop-frame SMPTE timecode",
+        "value": "00:01:00;00"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "reel-a",
+      "system": "film24",
+      "value": "00:01:00:00",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "film24",
+          "similarity": 0.953322312946433
+        },
+        {
+          "system": "video30",
+          "similarity": 0.7768767425445708
+        },
+        {
+          "system": "pal25",
+          "similarity": 0.6902653489949158
+        },
+        {
+          "system": "ntscDF",
+          "similarity": 0.5093944565303368
+        }
+      ]
+    },
+    {
+      "id": "station-id",
+      "system": "pal25",
+      "value": "00:01:00:00",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "pal25",
+          "similarity": 0.857362807465866
+        },
+        {
+          "system": "film24",
+          "similarity": 0.6099120047229875
+        },
+        {
+          "system": "video30",
+          "similarity": 0.6069451597340935
+        },
+        {
+          "system": "ntscDF",
+          "similarity": 0.5582308883678939
+        }
+      ]
+    },
+    {
+      "id": "invalid-drop",
+      "system": "ntscDF",
+      "value": "00:01:00;00",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "ntscDF",
+          "similarity": 0.8552806424430458
+        },
+        {
+          "system": "pal25",
+          "similarity": 0.5826019073589059
+        },
+        {
+          "system": "video30",
+          "similarity": 0.4413357047452161
+        },
+        {
+          "system": "film24",
+          "similarity": 0.43868575076422
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "reel-a",
+      "value": "00:01:00:00",
+      "system": "film24",
+      "status": "ready",
+      "frames": 1440,
+      "nominal": 1440,
+      "omitted": 0,
+      "secondsNumerator": 1440,
+      "secondsDenominator": 24,
+      "elapsedSeconds": 60,
+      "display": "1440 frames · 60.000000 s",
+      "precision": "Zero-origin offset; elapsed seconds rounded in display, exact rational retained.",
+      "baseline": {
+        "frames": 1440,
+        "display": "1440 nominal frames"
+      },
+      "changed": false
+    },
+    {
+      "id": "station-id",
+      "value": "00:01:00:00",
+      "system": "pal25",
+      "status": "ready",
+      "frames": 1500,
+      "nominal": 1500,
+      "omitted": 0,
+      "secondsNumerator": 1500,
+      "secondsDenominator": 25,
+      "elapsedSeconds": 60,
+      "display": "1500 frames · 60.000000 s",
+      "precision": "Zero-origin offset; elapsed seconds rounded in display, exact rational retained.",
+      "baseline": {
+        "frames": 1500,
+        "display": "1500 nominal frames"
+      },
+      "changed": false
+    },
+    {
+      "id": "invalid-drop",
+      "value": "00:01:00;00",
+      "system": "ntscDF",
+      "status": "blocked",
+      "error": "Nonexistent drop-frame label: frames 00 and 01 are omitted at second zero except every tenth minute."
+    }
+  ],
+  "metrics": {
+    "records": 3,
+    "ready": 2,
+    "held": 0,
+    "blocked": 1,
+    "different": 0
+  }
+}

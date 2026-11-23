@@ -1,0 +1,183 @@
+{
+  "version": 1,
+  "originalInput": {
+    "profiles": [
+      {
+        "id": "film24",
+        "description": "Cinema film editing timeline at exactly 24 frames per second, non-drop frame timecode"
+      },
+      {
+        "id": "pal25",
+        "description": "PAL European television broadcast editing at exactly 25 frames per second, non-drop frame timecode"
+      },
+      {
+        "id": "video30",
+        "description": "Video animation editing at exactly 30 frames per second, non-drop frame timecode"
+      },
+      {
+        "id": "ntscDF",
+        "description": "NTSC broadcast television at 29.97 frames per second using drop-frame SMPTE timecode"
+      }
+    ],
+    "records": [
+      {
+        "id": "animation",
+        "context": "Video animation timeline exactly 30 frames per second non-drop frame timecode",
+        "value": "01:00:00:00"
+      },
+      {
+        "id": "broadcast-hour",
+        "context": "NTSC broadcast TV 29.97 frames per second drop-frame SMPTE timecode",
+        "value": "01:00:00;00"
+      },
+      {
+        "id": "broadcast-minute",
+        "context": "NTSC broadcast TV 29.97 frames per second drop-frame SMPTE timecode",
+        "value": "00:01:00;02"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "animation",
+      "system": "video30",
+      "value": "01:00:01:00",
+      "decision": "approve",
+      "note": "=SUM(1,2)\nReviewed \"source\", exactly.",
+      "evidence": [
+        {
+          "system": "video30",
+          "similarity": 0.8871632959403631
+        },
+        {
+          "system": "film24",
+          "similarity": 0.7630713804596525
+        },
+        {
+          "system": "pal25",
+          "similarity": 0.6451315788075513
+        },
+        {
+          "system": "ntscDF",
+          "similarity": 0.5283340942995592
+        }
+      ]
+    },
+    {
+      "id": "broadcast-hour",
+      "system": "ntscDF",
+      "value": "01:00:00;00",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "ntscDF",
+          "similarity": 0.9640517062431713
+        },
+        {
+          "system": "pal25",
+          "similarity": 0.7162634478717047
+        },
+        {
+          "system": "video30",
+          "similarity": 0.5243379936303156
+        },
+        {
+          "system": "film24",
+          "similarity": 0.522437416813835
+        }
+      ]
+    },
+    {
+      "id": "broadcast-minute",
+      "system": "ntscDF",
+      "value": "00:01:00;02",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "ntscDF",
+          "similarity": 0.9640517062431713
+        },
+        {
+          "system": "pal25",
+          "similarity": 0.7162634478717047
+        },
+        {
+          "system": "video30",
+          "similarity": 0.5243379936303156
+        },
+        {
+          "system": "film24",
+          "similarity": 0.522437416813835
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "animation",
+      "value": "01:00:01:00",
+      "system": "video30",
+      "status": "ready",
+      "frames": 108030,
+      "nominal": 108030,
+      "omitted": 0,
+      "secondsNumerator": 108030,
+      "secondsDenominator": 30,
+      "elapsedSeconds": 3601,
+      "display": "108030 frames · 3601.000000 s",
+      "precision": "Zero-origin offset; elapsed seconds rounded in display, exact rational retained.",
+      "baseline": {
+        "frames": 108030,
+        "display": "108030 nominal frames"
+      },
+      "changed": false
+    },
+    {
+      "id": "broadcast-hour",
+      "value": "01:00:00;00",
+      "system": "ntscDF",
+      "status": "ready",
+      "frames": 107892,
+      "nominal": 108000,
+      "omitted": 108,
+      "secondsNumerator": 107999892,
+      "secondsDenominator": 30000,
+      "elapsedSeconds": 3599.9964,
+      "display": "107892 frames · 3599.996400 s",
+      "precision": "Zero-origin offset; elapsed seconds rounded in display, exact rational retained.",
+      "baseline": {
+        "frames": 108000,
+        "display": "108000 nominal frames"
+      },
+      "changed": true
+    },
+    {
+      "id": "broadcast-minute",
+      "value": "00:01:00;02",
+      "system": "ntscDF",
+      "status": "ready",
+      "frames": 1800,
+      "nominal": 1802,
+      "omitted": 2,
+      "secondsNumerator": 1801800,
+      "secondsDenominator": 30000,
+      "elapsedSeconds": 60.06,
+      "display": "1800 frames · 60.060000 s",
+      "precision": "Zero-origin offset; elapsed seconds rounded in display, exact rational retained.",
+      "baseline": {
+        "frames": 1802,
+        "display": "1802 nominal frames"
+      },
+      "changed": true
+    }
+  ],
+  "metrics": {
+    "records": 3,
+    "ready": 3,
+    "held": 0,
+    "blocked": 0,
+    "different": 2
+  }
+}

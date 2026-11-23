@@ -1,0 +1,602 @@
+{
+  "fixtures": [
+    {
+      "name": "Publishing handoff",
+      "actual": [
+        "html",
+        "json",
+        "url",
+        "html",
+        "json",
+        "url"
+      ],
+      "expected": [
+        "html",
+        "json",
+        "url",
+        "html",
+        "json",
+        "url"
+      ],
+      "correct": 6,
+      "analysis": {
+        "checks": [
+          {
+            "index": 0,
+            "id": "hero",
+            "profile": "html",
+            "encoder": "html",
+            "value": "Tea & cake <today>",
+            "status": "encoded",
+            "output": "Tea &amp; cake &lt;today&gt;",
+            "roundTrip": true,
+            "baseline": "Tea &amp; cake &lt;today&gt;",
+            "baselineError": null,
+            "baselineRoundTrip": true,
+            "reason": "Reviewed html encoding; exact decode reproduces the reviewed raw string."
+          },
+          {
+            "index": 1,
+            "id": "setting",
+            "profile": "json",
+            "encoder": "json",
+            "value": "Say \"hello\"\nC:\\draft",
+            "status": "encoded",
+            "output": "\"Say \\\"hello\\\"\\nC:\\\\draft\"",
+            "roundTrip": true,
+            "baseline": "Say \"hello\"\nC:\\draft",
+            "baselineError": "Unexpected token 'S', \"Say \"hello\"\nC:\\draft\" is not valid JSON",
+            "baselineRoundTrip": false,
+            "reason": "Reviewed json encoding; exact decode reproduces the reviewed raw string."
+          },
+          {
+            "index": 2,
+            "id": "search",
+            "profile": "url",
+            "encoder": "url",
+            "value": "tea & cake=2 #new",
+            "status": "encoded",
+            "output": "tea%20%26%20cake%3D2%20%23new",
+            "roundTrip": true,
+            "baseline": "tea &amp; cake=2 #new",
+            "baselineError": null,
+            "baselineRoundTrip": false,
+            "reason": "Reviewed url encoding; exact decode reproduces the reviewed raw string."
+          },
+          {
+            "index": 3,
+            "id": "caption",
+            "profile": "html",
+            "encoder": "html",
+            "value": "Already &amp; literal <b> not markup",
+            "status": "encoded",
+            "output": "Already &amp;amp; literal &lt;b&gt; not markup",
+            "roundTrip": true,
+            "baseline": "Already &amp;amp; literal &lt;b&gt; not markup",
+            "baselineError": null,
+            "baselineRoundTrip": true,
+            "reason": "Reviewed html encoding; exact decode reproduces the reviewed raw string."
+          },
+          {
+            "index": 4,
+            "id": "label",
+            "profile": "json",
+            "encoder": "json",
+            "value": "Tab\there\nNew line",
+            "status": "encoded",
+            "output": "\"Tab\\there\\nNew line\"",
+            "roundTrip": true,
+            "baseline": "Tab\there\nNew line",
+            "baselineError": "Unexpected token 'T', \"Tab\there\nNew line\" is not valid JSON",
+            "baselineRoundTrip": false,
+            "reason": "Reviewed json encoding; exact decode reproduces the reviewed raw string."
+          },
+          {
+            "index": 5,
+            "id": "filter",
+            "profile": "url",
+            "encoder": "url",
+            "value": "café / 東京 + 50%",
+            "status": "encoded",
+            "output": "caf%C3%A9%20%2F%20%E6%9D%B1%E4%BA%AC%20%2B%2050%25",
+            "roundTrip": true,
+            "baseline": "café / 東京 + 50%",
+            "baselineError": "URI malformed",
+            "baselineRoundTrip": false,
+            "reason": "Reviewed url encoding; exact decode reproduces the reviewed raw string."
+          }
+        ],
+        "encoded": 6,
+        "held": 0,
+        "invalid": 0,
+        "baselineFailures": 4,
+        "different": 4
+      }
+    },
+    {
+      "name": "Import edge cases",
+      "actual": [
+        "url",
+        "html",
+        "json",
+        "url",
+        "html",
+        "json"
+      ],
+      "expected": [
+        "url",
+        "html",
+        "json",
+        "url",
+        "html",
+        "json"
+      ],
+      "correct": 6,
+      "analysis": {
+        "checks": [
+          {
+            "index": 0,
+            "id": "a",
+            "profile": "url",
+            "encoder": "url",
+            "value": "a+b & c?d=🌿",
+            "status": "encoded",
+            "output": "a%2Bb%20%26%20c%3Fd%3D%F0%9F%8C%BF",
+            "roundTrip": true,
+            "baseline": "a+b &amp; c?d=🌿",
+            "baselineError": null,
+            "baselineRoundTrip": false,
+            "reason": "Reviewed url encoding; exact decode reproduces the reviewed raw string."
+          },
+          {
+            "index": 1,
+            "id": "b",
+            "profile": "html",
+            "encoder": "html",
+            "value": "<script>alert(\"synthetic\")</script>",
+            "status": "encoded",
+            "output": "&lt;script&gt;alert(\"synthetic\")&lt;/script&gt;",
+            "roundTrip": true,
+            "baseline": "&lt;script&gt;alert(\"synthetic\")&lt;/script&gt;",
+            "baselineError": null,
+            "baselineRoundTrip": true,
+            "reason": "Reviewed html encoding; exact decode reproduces the reviewed raw string."
+          },
+          {
+            "index": 2,
+            "id": "c",
+            "profile": "json",
+            "encoder": "json",
+            "value": "\u0000\"\\\nend",
+            "status": "encoded",
+            "output": "\"\\u0000\\\"\\\\\\nend\"",
+            "roundTrip": true,
+            "baseline": null,
+            "baselineError": "HTML text cannot round-trip NUL or unpaired Unicode surrogates",
+            "baselineRoundTrip": false,
+            "reason": "Reviewed json encoding; exact decode reproduces the reviewed raw string."
+          },
+          {
+            "index": 3,
+            "id": "d",
+            "profile": "url",
+            "encoder": "url",
+            "value": "literal %26 & ?",
+            "status": "encoded",
+            "output": "literal%20%2526%20%26%20%3F",
+            "roundTrip": true,
+            "baseline": "literal %26 &amp; ?",
+            "baselineError": null,
+            "baselineRoundTrip": false,
+            "reason": "Reviewed url encoding; exact decode reproduces the reviewed raw string."
+          },
+          {
+            "index": 4,
+            "id": "e",
+            "profile": "html",
+            "encoder": "html",
+            "value": "=SUM(1,2)\n\"quoted\", café",
+            "status": "encoded",
+            "output": "=SUM(1,2)\n\"quoted\", café",
+            "roundTrip": true,
+            "baseline": "=SUM(1,2)\n\"quoted\", café",
+            "baselineError": null,
+            "baselineRoundTrip": true,
+            "reason": "Reviewed html encoding; exact decode reproduces the reviewed raw string."
+          },
+          {
+            "index": 5,
+            "id": "f",
+            "profile": "json",
+            "encoder": "json",
+            "value": "",
+            "status": "encoded",
+            "output": "\"\"",
+            "roundTrip": true,
+            "baseline": "",
+            "baselineError": "Unexpected end of JSON input",
+            "baselineRoundTrip": false,
+            "reason": "Reviewed json encoding; exact decode reproduces the reviewed raw string."
+          }
+        ],
+        "encoded": 6,
+        "held": 0,
+        "invalid": 0,
+        "baselineFailures": 4,
+        "different": 4
+      }
+    }
+  ],
+  "checks": [
+    "Review edit, approval reset, reject, original preservation, multiline values/notes, undo and clipboard",
+    "Actual fresh-worker offline inference in already-open warmed production page",
+    "Maximum 8 profiles / 24 records / 32 real embeddings in eight chunks and audit reimport",
+    "Real cancel and successful retry",
+    "Artifacts, labels/focus/44px controls, desktop/phone no overflow, bad inputs/files, GET-only model downloads without content"
+  ],
+  "negationProbe": {
+    "proposed": "json",
+    "decision": "pending",
+    "intended": "html"
+  },
+  "requests": [
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261123-12/",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261123-12/assets/index-ccZMZVF8.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261123-12/assets/index-BOawWrbb.css",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261123-12/favicon.svg",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/c776828d-70ab-446b-b56b-9f4b1cdfae44",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "user_id",
+        "X-Xet-Cas-Uid",
+        "response-content-disposition",
+        "xip",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "xip",
+        "user_id",
+        "response-content-disposition",
+        "X-Xet-Cas-Uid",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/bc4522cb-be55-4441-9acc-c708db47db06",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/02daceec-d546-480b-a0d7-710172518f51",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/0e639e79-ff8d-4434-903f-13e8d644eebc",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/957c2b94-a586-4bc7-ba2c-ea0d46762193",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/30276114-b489-44f4-965c-a3553eec1c99",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/a07ffe10-2d21-4f7c-aee0-87b8c92f42e6",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/d01415b9-475c-4ba5-ae6e-ce6051274040",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/5f7c2a41-48e7-44b2-b954-1f0460604c7a",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/994fef6a-84ef-4b7d-bc5e-86e0b1c17567",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/1ee1d2d6-c207-4332-9af6-39dde463ff1d",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/7cb24be4-5f78-4013-9324-44158420b4fc",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/96dc6246-b96b-477e-9997-7f51fe0c8f60",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/1c41dc60-7691-4fb1-a1a5-308ee3023e99",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/28b0192f-06c1-43cd-803a-239d4916d38f",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/2b7cd6dd-954f-4065-a917-2f0de229478d",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/ba53fe1b-dd10-4e03-8546-42240fcc1a67",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/f3565c6a-0cde-4bc7-9f76-a9f4ea94c8de",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/bc83754d-7e24-4781-916a-46ec2b2d9779",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/cbdd84eb-04d2-4e50-b1e8-be490c2b94ba",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/a29a2e24-f5b7-458c-b367-e4f015cd9162",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/757f45be-c3cd-4dc3-80ac-1a064e8d9cd0",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/3aabf630-fdae-4821-8854-e4b422638b44",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/47c1a2b0-33c4-4730-8edf-ac03b097d40c",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/524977db-0578-44fe-87ad-89add2b5e000",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    }
+  ],
+  "errors": []
+}

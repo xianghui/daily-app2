@@ -1,0 +1,590 @@
+{
+  "fixtures": [
+    {
+      "name": "Publishing handoff",
+      "actual": [
+        "html",
+        "json",
+        "url",
+        "html",
+        "json",
+        "url"
+      ],
+      "expected": [
+        "html",
+        "json",
+        "url",
+        "html",
+        "json",
+        "url"
+      ],
+      "correct": 6,
+      "analysis": {
+        "checks": [
+          {
+            "index": 0,
+            "id": "hero",
+            "profile": "html",
+            "encoder": "html",
+            "value": "Tea & cake <today>",
+            "status": "encoded",
+            "output": "Tea &amp; cake &lt;today&gt;",
+            "roundTrip": true,
+            "baseline": "Tea &amp; cake &lt;today&gt;",
+            "baselineRoundTrip": true,
+            "reason": "Reviewed html encoding; exact decode reproduces the reviewed raw string."
+          },
+          {
+            "index": 1,
+            "id": "setting",
+            "profile": "json",
+            "encoder": "json",
+            "value": "Say \"hello\"\nC:\\draft",
+            "status": "encoded",
+            "output": "\"Say \\\"hello\\\"\\nC:\\\\draft\"",
+            "roundTrip": true,
+            "baseline": "Say \"hello\"\nC:\\draft",
+            "baselineRoundTrip": false,
+            "reason": "Reviewed json encoding; exact decode reproduces the reviewed raw string."
+          },
+          {
+            "index": 2,
+            "id": "search",
+            "profile": "url",
+            "encoder": "url",
+            "value": "tea & cake=2 #new",
+            "status": "encoded",
+            "output": "tea%20%26%20cake%3D2%20%23new",
+            "roundTrip": true,
+            "baseline": "tea &amp; cake=2 #new",
+            "baselineRoundTrip": false,
+            "reason": "Reviewed url encoding; exact decode reproduces the reviewed raw string."
+          },
+          {
+            "index": 3,
+            "id": "caption",
+            "profile": "html",
+            "encoder": "html",
+            "value": "Already &amp; literal <b> not markup",
+            "status": "encoded",
+            "output": "Already &amp;amp; literal &lt;b&gt; not markup",
+            "roundTrip": true,
+            "baseline": "Already &amp;amp; literal &lt;b&gt; not markup",
+            "baselineRoundTrip": true,
+            "reason": "Reviewed html encoding; exact decode reproduces the reviewed raw string."
+          },
+          {
+            "index": 4,
+            "id": "label",
+            "profile": "json",
+            "encoder": "json",
+            "value": "Tab\there\nNew line",
+            "status": "encoded",
+            "output": "\"Tab\\there\\nNew line\"",
+            "roundTrip": true,
+            "baseline": "Tab\there\nNew line",
+            "baselineRoundTrip": false,
+            "reason": "Reviewed json encoding; exact decode reproduces the reviewed raw string."
+          },
+          {
+            "index": 5,
+            "id": "filter",
+            "profile": "url",
+            "encoder": "url",
+            "value": "café / 東京 + 50%",
+            "status": "encoded",
+            "output": "caf%C3%A9%20%2F%20%E6%9D%B1%E4%BA%AC%20%2B%2050%25",
+            "roundTrip": true,
+            "baseline": "café / 東京 + 50%",
+            "baselineRoundTrip": false,
+            "reason": "Reviewed url encoding; exact decode reproduces the reviewed raw string."
+          }
+        ],
+        "encoded": 6,
+        "held": 0,
+        "invalid": 0,
+        "baselineFailures": 4,
+        "different": 4
+      }
+    },
+    {
+      "name": "Import edge cases",
+      "actual": [
+        "url",
+        "html",
+        "json",
+        "url",
+        "html",
+        "json"
+      ],
+      "expected": [
+        "url",
+        "html",
+        "json",
+        "url",
+        "html",
+        "json"
+      ],
+      "correct": 6,
+      "analysis": {
+        "checks": [
+          {
+            "index": 0,
+            "id": "a",
+            "profile": "url",
+            "encoder": "url",
+            "value": "a+b & c?d=🌿",
+            "status": "encoded",
+            "output": "a%2Bb%20%26%20c%3Fd%3D%F0%9F%8C%BF",
+            "roundTrip": true,
+            "baseline": "a+b &amp; c?d=🌿",
+            "baselineRoundTrip": false,
+            "reason": "Reviewed url encoding; exact decode reproduces the reviewed raw string."
+          },
+          {
+            "index": 1,
+            "id": "b",
+            "profile": "html",
+            "encoder": "html",
+            "value": "<script>alert(\"synthetic\")</script>",
+            "status": "encoded",
+            "output": "&lt;script&gt;alert(\"synthetic\")&lt;/script&gt;",
+            "roundTrip": true,
+            "baseline": "&lt;script&gt;alert(\"synthetic\")&lt;/script&gt;",
+            "baselineRoundTrip": true,
+            "reason": "Reviewed html encoding; exact decode reproduces the reviewed raw string."
+          },
+          {
+            "index": 2,
+            "id": "c",
+            "profile": "json",
+            "encoder": "json",
+            "value": "\u0000\"\\\nend",
+            "status": "encoded",
+            "output": "\"\\u0000\\\"\\\\\\nend\"",
+            "roundTrip": true,
+            "baseline": "\u0000\"\\\nend",
+            "baselineRoundTrip": false,
+            "reason": "Reviewed json encoding; exact decode reproduces the reviewed raw string."
+          },
+          {
+            "index": 3,
+            "id": "d",
+            "profile": "url",
+            "encoder": "url",
+            "value": "literal %26 & ?",
+            "status": "encoded",
+            "output": "literal%20%2526%20%26%20%3F",
+            "roundTrip": true,
+            "baseline": "literal %26 &amp; ?",
+            "baselineRoundTrip": false,
+            "reason": "Reviewed url encoding; exact decode reproduces the reviewed raw string."
+          },
+          {
+            "index": 4,
+            "id": "e",
+            "profile": "html",
+            "encoder": "html",
+            "value": "=SUM(1,2)\n\"quoted\", café",
+            "status": "encoded",
+            "output": "=SUM(1,2)\n\"quoted\", café",
+            "roundTrip": true,
+            "baseline": "=SUM(1,2)\n\"quoted\", café",
+            "baselineRoundTrip": true,
+            "reason": "Reviewed html encoding; exact decode reproduces the reviewed raw string."
+          },
+          {
+            "index": 5,
+            "id": "f",
+            "profile": "json",
+            "encoder": "json",
+            "value": "",
+            "status": "encoded",
+            "output": "\"\"",
+            "roundTrip": true,
+            "baseline": "",
+            "baselineRoundTrip": false,
+            "reason": "Reviewed json encoding; exact decode reproduces the reviewed raw string."
+          }
+        ],
+        "encoded": 6,
+        "held": 0,
+        "invalid": 0,
+        "baselineFailures": 4,
+        "different": 4
+      }
+    }
+  ],
+  "checks": [
+    "Review edit, approval reset, reject, original preservation, multiline values/notes, undo and clipboard",
+    "Actual fresh-worker offline inference in already-open warmed production page",
+    "Maximum 8 profiles / 24 records / 32 real embeddings in eight chunks and audit reimport",
+    "Real cancel and successful retry",
+    "Artifacts, labels/focus/44px controls, desktop/phone no overflow, bad inputs/files, GET-only model downloads without content"
+  ],
+  "negationProbe": {
+    "proposed": "json",
+    "decision": "pending",
+    "intended": "html"
+  },
+  "requests": [
+    {
+      "host": "127.0.0.1:7391",
+      "path": "/daily-app2/20261123-12/",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7391",
+      "path": "/daily-app2/20261123-12/assets/index-BMUN3j8e.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7391",
+      "path": "/daily-app2/20261123-12/assets/index-BOawWrbb.css",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7391",
+      "path": "/daily-app2/20261123-12/favicon.svg",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7391",
+      "path": "/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/5cc98cff-5450-4a68-8fa3-b53ee6e84c45",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7391",
+      "path": "/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7391",
+      "path": "/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "X-Xet-Cas-Uid",
+        "user_id",
+        "response-content-disposition",
+        "xip",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "user_id",
+        "X-Xet-Cas-Uid",
+        "xip",
+        "response-content-disposition",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/fec51e4f-d850-44ee-b616-4472a259966f",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/9b6ec031-a08c-4da9-ab9d-b26f370fe439",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/5e9313c2-21f4-420d-8496-b504ac66b228",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/7f225bb3-2e41-4f8d-a27f-c0a770bebd71",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/c7a20688-63a4-4903-a509-cdf0705e63e9",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/f44de5ac-7874-4e55-8a14-7d441cbd0841",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/fa65d541-6c60-47f1-87a2-a899a786d555",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/cdac2898-000b-4451-aa1b-84c3ba41e3ba",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/c43de6c7-f3f6-4c04-98c8-c14971715011",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/a223da8f-8d73-44c9-b70b-d09c38e811ea",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/b7e3c39e-9b65-403e-9b4b-485aade435ae",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/0b795fb2-e53a-48b6-a4a9-4db05da026d4",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/a96c7a42-975e-4889-89dc-55a1a31ac888",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/93b3599f-2e09-4810-885f-d975c9b3b1b7",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/99700193-7edf-4264-8dfc-03214d59e540",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/30b58e90-c534-4d28-90f8-f551fb73c77a",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/057b97a5-9677-4dc3-a8fd-73757c31b68b",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/8ce659ef-f483-4238-8c01-fcf2fda9b917",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/b1545a9c-c44f-4e89-b7de-a95c4deae5fa",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/0655e7b0-fd3c-4bb3-bc04-e1c8c635d2ff",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/fde4fa44-3d3b-4840-a071-91e98dc71319",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/a0d5fccd-c9ca-474e-9840-38f835e1dfb9",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/e67a73eb-a14a-456e-8f68-3daeb18d4495",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/2f475cc9-78eb-4c1f-8123-0e2486961e1e",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    }
+  ],
+  "errors": []
+}

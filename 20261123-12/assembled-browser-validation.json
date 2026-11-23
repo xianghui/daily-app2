@@ -1,0 +1,602 @@
+{
+  "fixtures": [
+    {
+      "name": "Publishing handoff",
+      "actual": [
+        "html",
+        "json",
+        "url",
+        "html",
+        "json",
+        "url"
+      ],
+      "expected": [
+        "html",
+        "json",
+        "url",
+        "html",
+        "json",
+        "url"
+      ],
+      "correct": 6,
+      "analysis": {
+        "checks": [
+          {
+            "index": 0,
+            "id": "hero",
+            "profile": "html",
+            "encoder": "html",
+            "value": "Tea & cake <today>",
+            "status": "encoded",
+            "output": "Tea &amp; cake &lt;today&gt;",
+            "roundTrip": true,
+            "baseline": "Tea &amp; cake &lt;today&gt;",
+            "baselineError": null,
+            "baselineRoundTrip": true,
+            "reason": "Reviewed html encoding; exact decode reproduces the reviewed raw string."
+          },
+          {
+            "index": 1,
+            "id": "setting",
+            "profile": "json",
+            "encoder": "json",
+            "value": "Say \"hello\"\nC:\\draft",
+            "status": "encoded",
+            "output": "\"Say \\\"hello\\\"\\nC:\\\\draft\"",
+            "roundTrip": true,
+            "baseline": "Say \"hello\"\nC:\\draft",
+            "baselineError": "Unexpected token 'S', \"Say \"hello\"\nC:\\draft\" is not valid JSON",
+            "baselineRoundTrip": false,
+            "reason": "Reviewed json encoding; exact decode reproduces the reviewed raw string."
+          },
+          {
+            "index": 2,
+            "id": "search",
+            "profile": "url",
+            "encoder": "url",
+            "value": "tea & cake=2 #new",
+            "status": "encoded",
+            "output": "tea%20%26%20cake%3D2%20%23new",
+            "roundTrip": true,
+            "baseline": "tea &amp; cake=2 #new",
+            "baselineError": null,
+            "baselineRoundTrip": false,
+            "reason": "Reviewed url encoding; exact decode reproduces the reviewed raw string."
+          },
+          {
+            "index": 3,
+            "id": "caption",
+            "profile": "html",
+            "encoder": "html",
+            "value": "Already &amp; literal <b> not markup",
+            "status": "encoded",
+            "output": "Already &amp;amp; literal &lt;b&gt; not markup",
+            "roundTrip": true,
+            "baseline": "Already &amp;amp; literal &lt;b&gt; not markup",
+            "baselineError": null,
+            "baselineRoundTrip": true,
+            "reason": "Reviewed html encoding; exact decode reproduces the reviewed raw string."
+          },
+          {
+            "index": 4,
+            "id": "label",
+            "profile": "json",
+            "encoder": "json",
+            "value": "Tab\there\nNew line",
+            "status": "encoded",
+            "output": "\"Tab\\there\\nNew line\"",
+            "roundTrip": true,
+            "baseline": "Tab\there\nNew line",
+            "baselineError": "Unexpected token 'T', \"Tab\there\nNew line\" is not valid JSON",
+            "baselineRoundTrip": false,
+            "reason": "Reviewed json encoding; exact decode reproduces the reviewed raw string."
+          },
+          {
+            "index": 5,
+            "id": "filter",
+            "profile": "url",
+            "encoder": "url",
+            "value": "café / 東京 + 50%",
+            "status": "encoded",
+            "output": "caf%C3%A9%20%2F%20%E6%9D%B1%E4%BA%AC%20%2B%2050%25",
+            "roundTrip": true,
+            "baseline": "café / 東京 + 50%",
+            "baselineError": "URI malformed",
+            "baselineRoundTrip": false,
+            "reason": "Reviewed url encoding; exact decode reproduces the reviewed raw string."
+          }
+        ],
+        "encoded": 6,
+        "held": 0,
+        "invalid": 0,
+        "baselineFailures": 4,
+        "different": 4
+      }
+    },
+    {
+      "name": "Import edge cases",
+      "actual": [
+        "url",
+        "html",
+        "json",
+        "url",
+        "html",
+        "json"
+      ],
+      "expected": [
+        "url",
+        "html",
+        "json",
+        "url",
+        "html",
+        "json"
+      ],
+      "correct": 6,
+      "analysis": {
+        "checks": [
+          {
+            "index": 0,
+            "id": "a",
+            "profile": "url",
+            "encoder": "url",
+            "value": "a+b & c?d=🌿",
+            "status": "encoded",
+            "output": "a%2Bb%20%26%20c%3Fd%3D%F0%9F%8C%BF",
+            "roundTrip": true,
+            "baseline": "a+b &amp; c?d=🌿",
+            "baselineError": null,
+            "baselineRoundTrip": false,
+            "reason": "Reviewed url encoding; exact decode reproduces the reviewed raw string."
+          },
+          {
+            "index": 1,
+            "id": "b",
+            "profile": "html",
+            "encoder": "html",
+            "value": "<script>alert(\"synthetic\")</script>",
+            "status": "encoded",
+            "output": "&lt;script&gt;alert(\"synthetic\")&lt;/script&gt;",
+            "roundTrip": true,
+            "baseline": "&lt;script&gt;alert(\"synthetic\")&lt;/script&gt;",
+            "baselineError": null,
+            "baselineRoundTrip": true,
+            "reason": "Reviewed html encoding; exact decode reproduces the reviewed raw string."
+          },
+          {
+            "index": 2,
+            "id": "c",
+            "profile": "json",
+            "encoder": "json",
+            "value": "\u0000\"\\\nend",
+            "status": "encoded",
+            "output": "\"\\u0000\\\"\\\\\\nend\"",
+            "roundTrip": true,
+            "baseline": null,
+            "baselineError": "HTML text cannot round-trip NUL or unpaired Unicode surrogates",
+            "baselineRoundTrip": false,
+            "reason": "Reviewed json encoding; exact decode reproduces the reviewed raw string."
+          },
+          {
+            "index": 3,
+            "id": "d",
+            "profile": "url",
+            "encoder": "url",
+            "value": "literal %26 & ?",
+            "status": "encoded",
+            "output": "literal%20%2526%20%26%20%3F",
+            "roundTrip": true,
+            "baseline": "literal %26 &amp; ?",
+            "baselineError": null,
+            "baselineRoundTrip": false,
+            "reason": "Reviewed url encoding; exact decode reproduces the reviewed raw string."
+          },
+          {
+            "index": 4,
+            "id": "e",
+            "profile": "html",
+            "encoder": "html",
+            "value": "=SUM(1,2)\n\"quoted\", café",
+            "status": "encoded",
+            "output": "=SUM(1,2)\n\"quoted\", café",
+            "roundTrip": true,
+            "baseline": "=SUM(1,2)\n\"quoted\", café",
+            "baselineError": null,
+            "baselineRoundTrip": true,
+            "reason": "Reviewed html encoding; exact decode reproduces the reviewed raw string."
+          },
+          {
+            "index": 5,
+            "id": "f",
+            "profile": "json",
+            "encoder": "json",
+            "value": "",
+            "status": "encoded",
+            "output": "\"\"",
+            "roundTrip": true,
+            "baseline": "",
+            "baselineError": "Unexpected end of JSON input",
+            "baselineRoundTrip": false,
+            "reason": "Reviewed json encoding; exact decode reproduces the reviewed raw string."
+          }
+        ],
+        "encoded": 6,
+        "held": 0,
+        "invalid": 0,
+        "baselineFailures": 4,
+        "different": 4
+      }
+    }
+  ],
+  "checks": [
+    "Review edit, approval reset, reject, original preservation, multiline values/notes, undo and clipboard",
+    "Actual fresh-worker offline inference in already-open warmed production page",
+    "Maximum 8 profiles / 24 records / 32 real embeddings in eight chunks and audit reimport",
+    "Real cancel and successful retry",
+    "Artifacts, labels/focus/44px controls, desktop/phone no overflow, bad inputs/files, GET-only model downloads without content"
+  ],
+  "negationProbe": {
+    "proposed": "json",
+    "decision": "pending",
+    "intended": "html"
+  },
+  "requests": [
+    {
+      "host": "127.0.0.1:7391",
+      "path": "/daily-app2/20261123-12/",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7391",
+      "path": "/daily-app2/20261123-12/assets/index-ccZMZVF8.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7391",
+      "path": "/daily-app2/20261123-12/assets/index-BOawWrbb.css",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7391",
+      "path": "/daily-app2/20261123-12/favicon.svg",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7391",
+      "path": "/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/f25fba7a-28ac-449d-bf81-a28748785842",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7391",
+      "path": "/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7391",
+      "path": "/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "response-content-disposition",
+        "user_id",
+        "X-Xet-Cas-Uid",
+        "xip",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "user_id",
+        "X-Xet-Cas-Uid",
+        "xip",
+        "response-content-disposition",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/3784e0fc-fe92-44d7-bb08-011d2321b071",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/11d15aca-be74-4222-93a4-4ec6231afe93",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/ae95e317-cfbf-48ef-a952-e0307293cd30",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/9a9504b5-ec9f-432d-9b50-539e6ea5c1be",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/f9b54d90-fc3f-49fc-a679-14b4fbab1b76",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/8d1a3aee-9543-4bd0-a98c-1f6b51b0f22f",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/83e95a1f-5f8c-47a9-9783-f932703904cd",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/0d02434f-c924-4677-8145-0147ae9e3526",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/e5b1e853-74a0-4372-9e52-90c55059fdc5",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/ae60997f-f1e2-4b6b-a5f7-88d47e90053d",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/7f217fe8-0083-4d7b-90cb-88d2e7642463",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/ad599d41-f0f0-452c-86ce-15a46064e902",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/1647fbfb-3a4c-4e65-abe5-db97e3726364",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/d2386309-c7ca-433a-85b0-21b062a96f69",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/ffada73f-2124-441a-84d7-f41a0f14a31b",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/5304b6be-f0f7-4682-b781-bd6ef5047247",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/ead22562-afca-4a2c-83ca-24c18840bbb1",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/3b3d939c-8588-4d77-b260-4e00d9b6af05",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/479e8536-591e-40a6-907c-bf6b6f1a7bd4",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/c82b3745-ae17-4084-932f-5b77f29b28dc",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/b782db8a-e969-401d-8a64-a6e561e2f782",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/2397d9b3-2ce7-41eb-ac95-1a04c1fa875b",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/1eac89d8-0cd9-46fe-a19e-b92f071ee647",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7391/dcfbafeb-8757-4ba8-a782-0ba3ce54804c",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    }
+  ],
+  "errors": []
+}

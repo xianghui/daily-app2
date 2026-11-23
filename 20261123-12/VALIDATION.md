@@ -1,0 +1,30 @@
+# Escape Ledger — observed validation
+
+## Tested locally, production/assembled bundle
+
+- React/Vite `npm run predeploy` passed. Root combined `npm run predeploy` passed: 817 apps, zero failures/skips. Existing 1,000,000,000-byte guard unchanged; runtime deduplication leaves approximately 999.575 MB. One byte-identical older Manifold runtime (`20261029-23` → `20261028-24`) is shared only in deploy; source builds unchanged, legacy JS URLs retained/query-versioned.
+- Real default MiniLM inference in actual desktop Chrome, GPU disabled: **Publishing handoff 6/6**, **Import edge cases 6/6** intended context identities. Outputs materially differ by inferred encoder. Both fixtures round-trip 6/6 approved values; HTML-everywhere baseline fails 4/6 in each. These are tiny synthetic known-answer checks, not general accuracy/security claims.
+- The negated/instruction-like probe proposed json for an intended html destination, remained pending and was held (see assembled-browser-validation.json); it never gains authority or requests credentials. Explicit human hold prevents its release.
+- Maximum 8 profiles + 24 records: 32 actual embeddings across eight chunks; 24 conserved and encoded. Audit reimport recovers originals and requires fresh review.
+- 3,018 core encoder/decode round trips, exact known answers, malformed schema/vector rejection, complete holds and baseline-error isolation passed. Actual browser HTML parser round trips passed six targeted cases, including literal entities, CR/CRLF, Unicode and script-looking text displayed inertly. Unsupported HTML NUL/unpaired-surrogate inputs are blocked; URL unpaired-surrogate output is invalid, not fabricated.
+- Defensive faults: model network abort + real retry; absent WASM; worker download failure; unsupported worker constructor; malformed vectors/envelope; timeout; worker error. No fake results/exports. Stale messages after cancel/input edit, delayed file read and worker-source fetch, plus old malformed result arriving after newer real inference cannot overwrite current state. Cold model-download cancellation and real retry passed.
+- Review edit/reject/undo, approval reset, source preservation, multiline raw values and reviewer notes, invalidated export snapshots, holds, clipboard and actual downloads passed. Independent Python 3.14 CSV/JSON parsers plus HTML/URL/JSON decoders validate complete and approved-release artifacts; every record survives in complete audits, release omits held/invalid records, formula-prefix escaping and quoted comma/newline values checked. macOS system Python 3.9 CSV rejects NUL-containing cells; the independent parser test uses `/opt/homebrew/bin/python3` instead. CSV consumers with NUL restrictions should use JSON for those values.
+- Requests captured from startup through real inference: no model-host traffic before explicit click, only GET asset downloads, no request bodies or user strings in URLs. Source/integrations reviewed; built text scanned for credential patterns (not claimed exhaustive secret detection). No provider keys or real private fixtures.
+- Complete online load then network fully disabled: fresh-worker real inference passed in the already-open warmed production page. Offline reload/navigation, cache permanence and physical phone/other-browser inference are **not** claimed.
+- Desktop 1440 and phone-width 390/320 layouts: no horizontal overflow, labels on all form fields, visible keyboard focus, touch controls ≥44px; normal viewport hero/review/result screenshots inspected. Physical devices not tested.
+- Gallery: every inline script compiled with Node `new Function`; new area entry exactly once, newest AI Utilities category; 816 prior entries preserved, STL/game categories intact and search/link render passed.
+- Affected legacy Hang & Trace: actual shared-WASM worker, image and STL imports, downloaded mesh parsing, preview/export fingerprints and portable JSON restore passed. No physical-print claim.
+
+## Fixes discovered before publication
+
+HTML carriage-return parser normalization required numeric references; NUL and malformed surrogates must not be falsely certified as HTML round trips. A failing HTML baseline originally blocked a valid JSON encoding: isolated baseline errors from target encoders and added a regression assertion. Final assembled tests rerun after both fixes. The temporary local static-server directory mapping was corrected before assembled validation; no app fallback was added.
+
+## Evidence / reproduction
+
+`node core-test.mjs`, `node browser-test.cjs` (APP_URL/PREFIX), `node defensive-test.cjs`, `node async-race-test.cjs`, `node cold-cancel-test.cjs`, `node superseded-run-test.cjs`, `node parser-check.cjs`, `/opt/homebrew/bin/python3 artifact-test.py`, `node gallery-test.cjs`, `node gallery-browser-test.cjs`, `node legacy-check.cjs`. Browser harness uses installed local Playwright + Chrome; not a frontend dependency. Local base is `http://127.0.0.1:7391/daily-app2/`, serving the final root deploy tree. Fault injection is only for defensive tests; success paths run the real model.
+
+Machine-readable fixture/results, sanitized request paths, artifacts, dependency SHA-256s, screenshots and deployment logs accompany this document. Signed CDN query values are never persisted. Public release evidence is appended only after matching Pages deployment/public checks finish.
+
+## Public release verified
+
+Pages commit `37ff3c892b450dc703afcd61e7cc2ee28aca4fb5` reached **built**; workflow `45104328976` succeeded. All nine public app/gallery/runtime assets byte-match the assembled site. Both public real-model fixtures matched all 12 intended context identities; full public review/edit/hold/undo/export/max-batch/privacy/responsive/offline checks passed. Independently parsed public artifacts retain current reviewed strings and every audit record. All 817 gallery cards (816 earlier) render; four affected legacy public asset byte checks and actual worker/image/STL/portable-design regression pass. Combined site: **999,574,641 bytes**, under the unchanged 1 GB guard. No hosting rebuild fallback was needed.

@@ -1,0 +1,1679 @@
+# Maximum synthetic batch
+
+=row
+"0" [encoded] p3 / html
+"=row\n\"0\" &amp; café"
+Reviewed html encoding; exact decode reproduces the reviewed raw string.
+
+=row
+"1" [encoded] p1 / json
+"\"=row\\n\\\"1\\\" & café\""
+Reviewed json encoding; exact decode reproduces the reviewed raw string.
+
+=row
+"2" [encoded] p2 / url
+"%3Drow%0A%222%22%20%26%20caf%C3%A9"
+Reviewed url encoding; exact decode reproduces the reviewed raw string.
+
+=row
+"3" [encoded] p3 / html
+"=row\n\"3\" &amp; café"
+Reviewed html encoding; exact decode reproduces the reviewed raw string.
+
+=row
+"4" [encoded] p1 / json
+"\"=row\\n\\\"4\\\" & café\""
+Reviewed json encoding; exact decode reproduces the reviewed raw string.
+
+=row
+"5" [encoded] p2 / url
+"%3Drow%0A%225%22%20%26%20caf%C3%A9"
+Reviewed url encoding; exact decode reproduces the reviewed raw string.
+
+=row
+"6" [encoded] p3 / html
+"=row\n\"6\" &amp; café"
+Reviewed html encoding; exact decode reproduces the reviewed raw string.
+
+=row
+"7" [encoded] p1 / json
+"\"=row\\n\\\"7\\\" & café\""
+Reviewed json encoding; exact decode reproduces the reviewed raw string.
+
+=row
+"8" [encoded] p2 / url
+"%3Drow%0A%228%22%20%26%20caf%C3%A9"
+Reviewed url encoding; exact decode reproduces the reviewed raw string.
+
+=row
+"9" [encoded] p3 / html
+"=row\n\"9\" &amp; café"
+Reviewed html encoding; exact decode reproduces the reviewed raw string.
+
+=row
+"10" [encoded] p1 / json
+"\"=row\\n\\\"10\\\" & café\""
+Reviewed json encoding; exact decode reproduces the reviewed raw string.
+
+=row
+"11" [encoded] p2 / url
+"%3Drow%0A%2211%22%20%26%20caf%C3%A9"
+Reviewed url encoding; exact decode reproduces the reviewed raw string.
+
+=row
+"12" [encoded] p3 / html
+"=row\n\"12\" &amp; café"
+Reviewed html encoding; exact decode reproduces the reviewed raw string.
+
+=row
+"13" [encoded] p1 / json
+"\"=row\\n\\\"13\\\" & café\""
+Reviewed json encoding; exact decode reproduces the reviewed raw string.
+
+=row
+"14" [encoded] p2 / url
+"%3Drow%0A%2214%22%20%26%20caf%C3%A9"
+Reviewed url encoding; exact decode reproduces the reviewed raw string.
+
+=row
+"15" [encoded] p3 / html
+"=row\n\"15\" &amp; café"
+Reviewed html encoding; exact decode reproduces the reviewed raw string.
+
+=row
+"16" [encoded] p1 / json
+"\"=row\\n\\\"16\\\" & café\""
+Reviewed json encoding; exact decode reproduces the reviewed raw string.
+
+=row
+"17" [encoded] p2 / url
+"%3Drow%0A%2217%22%20%26%20caf%C3%A9"
+Reviewed url encoding; exact decode reproduces the reviewed raw string.
+
+=row
+"18" [encoded] p3 / html
+"=row\n\"18\" &amp; café"
+Reviewed html encoding; exact decode reproduces the reviewed raw string.
+
+=row
+"19" [encoded] p1 / json
+"\"=row\\n\\\"19\\\" & café\""
+Reviewed json encoding; exact decode reproduces the reviewed raw string.
+
+=row
+"20" [encoded] p2 / url
+"%3Drow%0A%2220%22%20%26%20caf%C3%A9"
+Reviewed url encoding; exact decode reproduces the reviewed raw string.
+
+=row
+"21" [encoded] p3 / html
+"=row\n\"21\" &amp; café"
+Reviewed html encoding; exact decode reproduces the reviewed raw string.
+
+=row
+"22" [encoded] p1 / json
+"\"=row\\n\\\"22\\\" & café\""
+Reviewed json encoding; exact decode reproduces the reviewed raw string.
+
+=row
+"23" [encoded] p2 / url
+"%3Drow%0A%2223%22%20%26%20caf%C3%A9"
+Reviewed url encoding; exact decode reproduces the reviewed raw string.
+
+## Complete source and review audit
+
+```json
+
+{
+  "schema": "escape-ledger/1",
+  "appliedAt": "2026-11-23T03:12:24.596Z",
+  "originalInput": {
+    "title": "Maximum synthetic batch",
+    "profiles": [
+      {
+        "id": "p0",
+        "description": "HTML web page visible paragraph text between markup tags destination 0",
+        "encoder": "html"
+      },
+      {
+        "id": "p1",
+        "description": "JSON serialized data string literal in configuration document destination 1",
+        "encoder": "json"
+      },
+      {
+        "id": "p2",
+        "description": "URL query parameter value in a search link address destination 2",
+        "encoder": "url"
+      },
+      {
+        "id": "p3",
+        "description": "HTML web page visible paragraph text between markup tags destination 3",
+        "encoder": "html"
+      },
+      {
+        "id": "p4",
+        "description": "JSON serialized data string literal in configuration document destination 4",
+        "encoder": "json"
+      },
+      {
+        "id": "p5",
+        "description": "URL query parameter value in a search link address destination 5",
+        "encoder": "url"
+      },
+      {
+        "id": "p6",
+        "description": "HTML web page visible paragraph text between markup tags destination 6",
+        "encoder": "html"
+      },
+      {
+        "id": "p7",
+        "description": "JSON serialized data string literal in configuration document destination 7",
+        "encoder": "json"
+      }
+    ],
+    "records": [
+      {
+        "id": "=row\n\"0\"",
+        "note": "HTML web page visible paragraph text between markup tags",
+        "value": "=row\n\"0\" & café"
+      },
+      {
+        "id": "=row\n\"1\"",
+        "note": "JSON serialized data string literal in configuration document",
+        "value": "=row\n\"1\" & café"
+      },
+      {
+        "id": "=row\n\"2\"",
+        "note": "URL query parameter value in a search link address",
+        "value": "=row\n\"2\" & café"
+      },
+      {
+        "id": "=row\n\"3\"",
+        "note": "HTML web page visible paragraph text between markup tags",
+        "value": "=row\n\"3\" & café"
+      },
+      {
+        "id": "=row\n\"4\"",
+        "note": "JSON serialized data string literal in configuration document",
+        "value": "=row\n\"4\" & café"
+      },
+      {
+        "id": "=row\n\"5\"",
+        "note": "URL query parameter value in a search link address",
+        "value": "=row\n\"5\" & café"
+      },
+      {
+        "id": "=row\n\"6\"",
+        "note": "HTML web page visible paragraph text between markup tags",
+        "value": "=row\n\"6\" & café"
+      },
+      {
+        "id": "=row\n\"7\"",
+        "note": "JSON serialized data string literal in configuration document",
+        "value": "=row\n\"7\" & café"
+      },
+      {
+        "id": "=row\n\"8\"",
+        "note": "URL query parameter value in a search link address",
+        "value": "=row\n\"8\" & café"
+      },
+      {
+        "id": "=row\n\"9\"",
+        "note": "HTML web page visible paragraph text between markup tags",
+        "value": "=row\n\"9\" & café"
+      },
+      {
+        "id": "=row\n\"10\"",
+        "note": "JSON serialized data string literal in configuration document",
+        "value": "=row\n\"10\" & café"
+      },
+      {
+        "id": "=row\n\"11\"",
+        "note": "URL query parameter value in a search link address",
+        "value": "=row\n\"11\" & café"
+      },
+      {
+        "id": "=row\n\"12\"",
+        "note": "HTML web page visible paragraph text between markup tags",
+        "value": "=row\n\"12\" & café"
+      },
+      {
+        "id": "=row\n\"13\"",
+        "note": "JSON serialized data string literal in configuration document",
+        "value": "=row\n\"13\" & café"
+      },
+      {
+        "id": "=row\n\"14\"",
+        "note": "URL query parameter value in a search link address",
+        "value": "=row\n\"14\" & café"
+      },
+      {
+        "id": "=row\n\"15\"",
+        "note": "HTML web page visible paragraph text between markup tags",
+        "value": "=row\n\"15\" & café"
+      },
+      {
+        "id": "=row\n\"16\"",
+        "note": "JSON serialized data string literal in configuration document",
+        "value": "=row\n\"16\" & café"
+      },
+      {
+        "id": "=row\n\"17\"",
+        "note": "URL query parameter value in a search link address",
+        "value": "=row\n\"17\" & café"
+      },
+      {
+        "id": "=row\n\"18\"",
+        "note": "HTML web page visible paragraph text between markup tags",
+        "value": "=row\n\"18\" & café"
+      },
+      {
+        "id": "=row\n\"19\"",
+        "note": "JSON serialized data string literal in configuration document",
+        "value": "=row\n\"19\" & café"
+      },
+      {
+        "id": "=row\n\"20\"",
+        "note": "URL query parameter value in a search link address",
+        "value": "=row\n\"20\" & café"
+      },
+      {
+        "id": "=row\n\"21\"",
+        "note": "HTML web page visible paragraph text between markup tags",
+        "value": "=row\n\"21\" & café"
+      },
+      {
+        "id": "=row\n\"22\"",
+        "note": "JSON serialized data string literal in configuration document",
+        "value": "=row\n\"22\" & café"
+      },
+      {
+        "id": "=row\n\"23\"",
+        "note": "URL query parameter value in a search link address",
+        "value": "=row\n\"23\" & café"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "text": "HTML web page visible paragraph text between markup tags",
+      "resource": "p3",
+      "aiResource": "p3",
+      "evidence": [
+        {
+          "resource": "p3",
+          "score": 0.9405796893208914
+        },
+        {
+          "resource": "p6",
+          "score": 0.9284488482474287
+        },
+        {
+          "resource": "p0",
+          "score": 0.8879562946790424
+        },
+        {
+          "resource": "p2",
+          "score": 0.03369519251615595
+        },
+        {
+          "resource": "p5",
+          "score": 0.021650462868339448
+        },
+        {
+          "resource": "p7",
+          "score": -0.013224214682890614
+        },
+        {
+          "resource": "p1",
+          "score": -0.013892937393347902
+        },
+        {
+          "resource": "p4",
+          "score": -0.028388983340423897
+        }
+      ],
+      "value": "=row\n\"0\" & café",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 1,
+      "text": "JSON serialized data string literal in configuration document",
+      "resource": "p1",
+      "aiResource": "p1",
+      "evidence": [
+        {
+          "resource": "p1",
+          "score": 0.9399818624012771
+        },
+        {
+          "resource": "p7",
+          "score": 0.9296554817671556
+        },
+        {
+          "resource": "p4",
+          "score": 0.9288874334473863
+        },
+        {
+          "resource": "p2",
+          "score": 0.18898021436431517
+        },
+        {
+          "resource": "p5",
+          "score": 0.15705080664342785
+        },
+        {
+          "resource": "p0",
+          "score": -0.006280590140941244
+        },
+        {
+          "resource": "p3",
+          "score": -0.007629929244191282
+        },
+        {
+          "resource": "p6",
+          "score": -0.013027548134644951
+        }
+      ],
+      "value": "=row\n\"1\" & café",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "text": "URL query parameter value in a search link address",
+      "resource": "p2",
+      "aiResource": "p2",
+      "evidence": [
+        {
+          "resource": "p2",
+          "score": 0.9241697623448661
+        },
+        {
+          "resource": "p5",
+          "score": 0.9101267532223682
+        },
+        {
+          "resource": "p1",
+          "score": 0.21242703134076557
+        },
+        {
+          "resource": "p4",
+          "score": 0.20984914222096557
+        },
+        {
+          "resource": "p7",
+          "score": 0.2089219688232542
+        },
+        {
+          "resource": "p3",
+          "score": 0.10963060523277787
+        },
+        {
+          "resource": "p0",
+          "score": 0.101018697952431
+        },
+        {
+          "resource": "p6",
+          "score": 0.09842604052553446
+        }
+      ],
+      "value": "=row\n\"2\" & café",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 3,
+      "text": "HTML web page visible paragraph text between markup tags",
+      "resource": "p3",
+      "aiResource": "p3",
+      "evidence": [
+        {
+          "resource": "p3",
+          "score": 0.9405796893208914
+        },
+        {
+          "resource": "p6",
+          "score": 0.9284488482474287
+        },
+        {
+          "resource": "p0",
+          "score": 0.8879562946790424
+        },
+        {
+          "resource": "p2",
+          "score": 0.03369519251615595
+        },
+        {
+          "resource": "p5",
+          "score": 0.021650462868339448
+        },
+        {
+          "resource": "p7",
+          "score": -0.013224214682890614
+        },
+        {
+          "resource": "p1",
+          "score": -0.013892937393347902
+        },
+        {
+          "resource": "p4",
+          "score": -0.028388983340423897
+        }
+      ],
+      "value": "=row\n\"3\" & café",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 4,
+      "text": "JSON serialized data string literal in configuration document",
+      "resource": "p1",
+      "aiResource": "p1",
+      "evidence": [
+        {
+          "resource": "p1",
+          "score": 0.9399818624012771
+        },
+        {
+          "resource": "p7",
+          "score": 0.9296554817671556
+        },
+        {
+          "resource": "p4",
+          "score": 0.9288874334473863
+        },
+        {
+          "resource": "p2",
+          "score": 0.18898021436431517
+        },
+        {
+          "resource": "p5",
+          "score": 0.15705080664342785
+        },
+        {
+          "resource": "p0",
+          "score": -0.006280590140941244
+        },
+        {
+          "resource": "p3",
+          "score": -0.007629929244191282
+        },
+        {
+          "resource": "p6",
+          "score": -0.013027548134644951
+        }
+      ],
+      "value": "=row\n\"4\" & café",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 5,
+      "text": "URL query parameter value in a search link address",
+      "resource": "p2",
+      "aiResource": "p2",
+      "evidence": [
+        {
+          "resource": "p2",
+          "score": 0.9241697623448661
+        },
+        {
+          "resource": "p5",
+          "score": 0.9101267532223682
+        },
+        {
+          "resource": "p1",
+          "score": 0.21242703134076557
+        },
+        {
+          "resource": "p4",
+          "score": 0.20984914222096557
+        },
+        {
+          "resource": "p7",
+          "score": 0.2089219688232542
+        },
+        {
+          "resource": "p3",
+          "score": 0.10963060523277787
+        },
+        {
+          "resource": "p0",
+          "score": 0.101018697952431
+        },
+        {
+          "resource": "p6",
+          "score": 0.09842604052553446
+        }
+      ],
+      "value": "=row\n\"5\" & café",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 6,
+      "text": "HTML web page visible paragraph text between markup tags",
+      "resource": "p3",
+      "aiResource": "p3",
+      "evidence": [
+        {
+          "resource": "p3",
+          "score": 0.9405796893208914
+        },
+        {
+          "resource": "p6",
+          "score": 0.9284488482474287
+        },
+        {
+          "resource": "p0",
+          "score": 0.8879562946790424
+        },
+        {
+          "resource": "p2",
+          "score": 0.03369519251615595
+        },
+        {
+          "resource": "p5",
+          "score": 0.021650462868339448
+        },
+        {
+          "resource": "p7",
+          "score": -0.013224214682890614
+        },
+        {
+          "resource": "p1",
+          "score": -0.013892937393347902
+        },
+        {
+          "resource": "p4",
+          "score": -0.028388983340423897
+        }
+      ],
+      "value": "=row\n\"6\" & café",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 7,
+      "text": "JSON serialized data string literal in configuration document",
+      "resource": "p1",
+      "aiResource": "p1",
+      "evidence": [
+        {
+          "resource": "p1",
+          "score": 0.9399818624012771
+        },
+        {
+          "resource": "p7",
+          "score": 0.9296554817671556
+        },
+        {
+          "resource": "p4",
+          "score": 0.9288874334473863
+        },
+        {
+          "resource": "p2",
+          "score": 0.18898021436431517
+        },
+        {
+          "resource": "p5",
+          "score": 0.15705080664342785
+        },
+        {
+          "resource": "p0",
+          "score": -0.006280590140941244
+        },
+        {
+          "resource": "p3",
+          "score": -0.007629929244191282
+        },
+        {
+          "resource": "p6",
+          "score": -0.013027548134644951
+        }
+      ],
+      "value": "=row\n\"7\" & café",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 8,
+      "text": "URL query parameter value in a search link address",
+      "resource": "p2",
+      "aiResource": "p2",
+      "evidence": [
+        {
+          "resource": "p2",
+          "score": 0.9241697623448661
+        },
+        {
+          "resource": "p5",
+          "score": 0.9101267532223682
+        },
+        {
+          "resource": "p1",
+          "score": 0.21242703134076557
+        },
+        {
+          "resource": "p4",
+          "score": 0.20984914222096557
+        },
+        {
+          "resource": "p7",
+          "score": 0.2089219688232542
+        },
+        {
+          "resource": "p3",
+          "score": 0.10963060523277787
+        },
+        {
+          "resource": "p0",
+          "score": 0.101018697952431
+        },
+        {
+          "resource": "p6",
+          "score": 0.09842604052553446
+        }
+      ],
+      "value": "=row\n\"8\" & café",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 9,
+      "text": "HTML web page visible paragraph text between markup tags",
+      "resource": "p3",
+      "aiResource": "p3",
+      "evidence": [
+        {
+          "resource": "p3",
+          "score": 0.9405796893208914
+        },
+        {
+          "resource": "p6",
+          "score": 0.9284488482474287
+        },
+        {
+          "resource": "p0",
+          "score": 0.8879562946790424
+        },
+        {
+          "resource": "p2",
+          "score": 0.03369519251615595
+        },
+        {
+          "resource": "p5",
+          "score": 0.021650462868339448
+        },
+        {
+          "resource": "p7",
+          "score": -0.013224214682890614
+        },
+        {
+          "resource": "p1",
+          "score": -0.013892937393347902
+        },
+        {
+          "resource": "p4",
+          "score": -0.028388983340423897
+        }
+      ],
+      "value": "=row\n\"9\" & café",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 10,
+      "text": "JSON serialized data string literal in configuration document",
+      "resource": "p1",
+      "aiResource": "p1",
+      "evidence": [
+        {
+          "resource": "p1",
+          "score": 0.9399818624012771
+        },
+        {
+          "resource": "p7",
+          "score": 0.9296554817671556
+        },
+        {
+          "resource": "p4",
+          "score": 0.9288874334473863
+        },
+        {
+          "resource": "p2",
+          "score": 0.18898021436431517
+        },
+        {
+          "resource": "p5",
+          "score": 0.15705080664342785
+        },
+        {
+          "resource": "p0",
+          "score": -0.006280590140941244
+        },
+        {
+          "resource": "p3",
+          "score": -0.007629929244191282
+        },
+        {
+          "resource": "p6",
+          "score": -0.013027548134644951
+        }
+      ],
+      "value": "=row\n\"10\" & café",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 11,
+      "text": "URL query parameter value in a search link address",
+      "resource": "p2",
+      "aiResource": "p2",
+      "evidence": [
+        {
+          "resource": "p2",
+          "score": 0.9241697623448661
+        },
+        {
+          "resource": "p5",
+          "score": 0.9101267532223682
+        },
+        {
+          "resource": "p1",
+          "score": 0.21242703134076557
+        },
+        {
+          "resource": "p4",
+          "score": 0.20984914222096557
+        },
+        {
+          "resource": "p7",
+          "score": 0.2089219688232542
+        },
+        {
+          "resource": "p3",
+          "score": 0.10963060523277787
+        },
+        {
+          "resource": "p0",
+          "score": 0.101018697952431
+        },
+        {
+          "resource": "p6",
+          "score": 0.09842604052553446
+        }
+      ],
+      "value": "=row\n\"11\" & café",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 12,
+      "text": "HTML web page visible paragraph text between markup tags",
+      "resource": "p3",
+      "aiResource": "p3",
+      "evidence": [
+        {
+          "resource": "p3",
+          "score": 0.9405796893208914
+        },
+        {
+          "resource": "p6",
+          "score": 0.9284488482474287
+        },
+        {
+          "resource": "p0",
+          "score": 0.8879562946790424
+        },
+        {
+          "resource": "p2",
+          "score": 0.03369519251615595
+        },
+        {
+          "resource": "p5",
+          "score": 0.021650462868339448
+        },
+        {
+          "resource": "p7",
+          "score": -0.013224214682890614
+        },
+        {
+          "resource": "p1",
+          "score": -0.013892937393347902
+        },
+        {
+          "resource": "p4",
+          "score": -0.028388983340423897
+        }
+      ],
+      "value": "=row\n\"12\" & café",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 13,
+      "text": "JSON serialized data string literal in configuration document",
+      "resource": "p1",
+      "aiResource": "p1",
+      "evidence": [
+        {
+          "resource": "p1",
+          "score": 0.9399818624012771
+        },
+        {
+          "resource": "p7",
+          "score": 0.9296554817671556
+        },
+        {
+          "resource": "p4",
+          "score": 0.9288874334473863
+        },
+        {
+          "resource": "p2",
+          "score": 0.18898021436431517
+        },
+        {
+          "resource": "p5",
+          "score": 0.15705080664342785
+        },
+        {
+          "resource": "p0",
+          "score": -0.006280590140941244
+        },
+        {
+          "resource": "p3",
+          "score": -0.007629929244191282
+        },
+        {
+          "resource": "p6",
+          "score": -0.013027548134644951
+        }
+      ],
+      "value": "=row\n\"13\" & café",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 14,
+      "text": "URL query parameter value in a search link address",
+      "resource": "p2",
+      "aiResource": "p2",
+      "evidence": [
+        {
+          "resource": "p2",
+          "score": 0.9241697623448661
+        },
+        {
+          "resource": "p5",
+          "score": 0.9101267532223682
+        },
+        {
+          "resource": "p1",
+          "score": 0.21242703134076557
+        },
+        {
+          "resource": "p4",
+          "score": 0.20984914222096557
+        },
+        {
+          "resource": "p7",
+          "score": 0.2089219688232542
+        },
+        {
+          "resource": "p3",
+          "score": 0.10963060523277787
+        },
+        {
+          "resource": "p0",
+          "score": 0.101018697952431
+        },
+        {
+          "resource": "p6",
+          "score": 0.09842604052553446
+        }
+      ],
+      "value": "=row\n\"14\" & café",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 15,
+      "text": "HTML web page visible paragraph text between markup tags",
+      "resource": "p3",
+      "aiResource": "p3",
+      "evidence": [
+        {
+          "resource": "p3",
+          "score": 0.9405796893208914
+        },
+        {
+          "resource": "p6",
+          "score": 0.9284488482474287
+        },
+        {
+          "resource": "p0",
+          "score": 0.8879562946790424
+        },
+        {
+          "resource": "p2",
+          "score": 0.03369519251615595
+        },
+        {
+          "resource": "p5",
+          "score": 0.021650462868339448
+        },
+        {
+          "resource": "p7",
+          "score": -0.013224214682890614
+        },
+        {
+          "resource": "p1",
+          "score": -0.013892937393347902
+        },
+        {
+          "resource": "p4",
+          "score": -0.028388983340423897
+        }
+      ],
+      "value": "=row\n\"15\" & café",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 16,
+      "text": "JSON serialized data string literal in configuration document",
+      "resource": "p1",
+      "aiResource": "p1",
+      "evidence": [
+        {
+          "resource": "p1",
+          "score": 0.9399818624012771
+        },
+        {
+          "resource": "p7",
+          "score": 0.9296554817671556
+        },
+        {
+          "resource": "p4",
+          "score": 0.9288874334473863
+        },
+        {
+          "resource": "p2",
+          "score": 0.18898021436431517
+        },
+        {
+          "resource": "p5",
+          "score": 0.15705080664342785
+        },
+        {
+          "resource": "p0",
+          "score": -0.006280590140941244
+        },
+        {
+          "resource": "p3",
+          "score": -0.007629929244191282
+        },
+        {
+          "resource": "p6",
+          "score": -0.013027548134644951
+        }
+      ],
+      "value": "=row\n\"16\" & café",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 17,
+      "text": "URL query parameter value in a search link address",
+      "resource": "p2",
+      "aiResource": "p2",
+      "evidence": [
+        {
+          "resource": "p2",
+          "score": 0.9241697623448661
+        },
+        {
+          "resource": "p5",
+          "score": 0.9101267532223682
+        },
+        {
+          "resource": "p1",
+          "score": 0.21242703134076557
+        },
+        {
+          "resource": "p4",
+          "score": 0.20984914222096557
+        },
+        {
+          "resource": "p7",
+          "score": 0.2089219688232542
+        },
+        {
+          "resource": "p3",
+          "score": 0.10963060523277787
+        },
+        {
+          "resource": "p0",
+          "score": 0.101018697952431
+        },
+        {
+          "resource": "p6",
+          "score": 0.09842604052553446
+        }
+      ],
+      "value": "=row\n\"17\" & café",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 18,
+      "text": "HTML web page visible paragraph text between markup tags",
+      "resource": "p3",
+      "aiResource": "p3",
+      "evidence": [
+        {
+          "resource": "p3",
+          "score": 0.9405796893208914
+        },
+        {
+          "resource": "p6",
+          "score": 0.9284488482474287
+        },
+        {
+          "resource": "p0",
+          "score": 0.8879562946790424
+        },
+        {
+          "resource": "p2",
+          "score": 0.03369519251615595
+        },
+        {
+          "resource": "p5",
+          "score": 0.021650462868339448
+        },
+        {
+          "resource": "p7",
+          "score": -0.013224214682890614
+        },
+        {
+          "resource": "p1",
+          "score": -0.013892937393347902
+        },
+        {
+          "resource": "p4",
+          "score": -0.028388983340423897
+        }
+      ],
+      "value": "=row\n\"18\" & café",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 19,
+      "text": "JSON serialized data string literal in configuration document",
+      "resource": "p1",
+      "aiResource": "p1",
+      "evidence": [
+        {
+          "resource": "p1",
+          "score": 0.9399818624012771
+        },
+        {
+          "resource": "p7",
+          "score": 0.9296554817671556
+        },
+        {
+          "resource": "p4",
+          "score": 0.9288874334473863
+        },
+        {
+          "resource": "p2",
+          "score": 0.18898021436431517
+        },
+        {
+          "resource": "p5",
+          "score": 0.15705080664342785
+        },
+        {
+          "resource": "p0",
+          "score": -0.006280590140941244
+        },
+        {
+          "resource": "p3",
+          "score": -0.007629929244191282
+        },
+        {
+          "resource": "p6",
+          "score": -0.013027548134644951
+        }
+      ],
+      "value": "=row\n\"19\" & café",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 20,
+      "text": "URL query parameter value in a search link address",
+      "resource": "p2",
+      "aiResource": "p2",
+      "evidence": [
+        {
+          "resource": "p2",
+          "score": 0.9241697623448661
+        },
+        {
+          "resource": "p5",
+          "score": 0.9101267532223682
+        },
+        {
+          "resource": "p1",
+          "score": 0.21242703134076557
+        },
+        {
+          "resource": "p4",
+          "score": 0.20984914222096557
+        },
+        {
+          "resource": "p7",
+          "score": 0.2089219688232542
+        },
+        {
+          "resource": "p3",
+          "score": 0.10963060523277787
+        },
+        {
+          "resource": "p0",
+          "score": 0.101018697952431
+        },
+        {
+          "resource": "p6",
+          "score": 0.09842604052553446
+        }
+      ],
+      "value": "=row\n\"20\" & café",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 21,
+      "text": "HTML web page visible paragraph text between markup tags",
+      "resource": "p3",
+      "aiResource": "p3",
+      "evidence": [
+        {
+          "resource": "p3",
+          "score": 0.9405796893208914
+        },
+        {
+          "resource": "p6",
+          "score": 0.9284488482474287
+        },
+        {
+          "resource": "p0",
+          "score": 0.8879562946790424
+        },
+        {
+          "resource": "p2",
+          "score": 0.03369519251615595
+        },
+        {
+          "resource": "p5",
+          "score": 0.021650462868339448
+        },
+        {
+          "resource": "p7",
+          "score": -0.013224214682890614
+        },
+        {
+          "resource": "p1",
+          "score": -0.013892937393347902
+        },
+        {
+          "resource": "p4",
+          "score": -0.028388983340423897
+        }
+      ],
+      "value": "=row\n\"21\" & café",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 22,
+      "text": "JSON serialized data string literal in configuration document",
+      "resource": "p1",
+      "aiResource": "p1",
+      "evidence": [
+        {
+          "resource": "p1",
+          "score": 0.9399818624012771
+        },
+        {
+          "resource": "p7",
+          "score": 0.9296554817671556
+        },
+        {
+          "resource": "p4",
+          "score": 0.9288874334473863
+        },
+        {
+          "resource": "p2",
+          "score": 0.18898021436431517
+        },
+        {
+          "resource": "p5",
+          "score": 0.15705080664342785
+        },
+        {
+          "resource": "p0",
+          "score": -0.006280590140941244
+        },
+        {
+          "resource": "p3",
+          "score": -0.007629929244191282
+        },
+        {
+          "resource": "p6",
+          "score": -0.013027548134644951
+        }
+      ],
+      "value": "=row\n\"22\" & café",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 23,
+      "text": "URL query parameter value in a search link address",
+      "resource": "p2",
+      "aiResource": "p2",
+      "evidence": [
+        {
+          "resource": "p2",
+          "score": 0.9241697623448661
+        },
+        {
+          "resource": "p5",
+          "score": 0.9101267532223682
+        },
+        {
+          "resource": "p1",
+          "score": 0.21242703134076557
+        },
+        {
+          "resource": "p4",
+          "score": 0.20984914222096557
+        },
+        {
+          "resource": "p7",
+          "score": 0.2089219688232542
+        },
+        {
+          "resource": "p3",
+          "score": 0.10963060523277787
+        },
+        {
+          "resource": "p0",
+          "score": 0.101018697952431
+        },
+        {
+          "resource": "p6",
+          "score": 0.09842604052553446
+        }
+      ],
+      "value": "=row\n\"23\" & café",
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "analysis": {
+    "checks": [
+      {
+        "index": 0,
+        "id": "=row\n\"0\"",
+        "profile": "p3",
+        "encoder": "html",
+        "value": "=row\n\"0\" & café",
+        "status": "encoded",
+        "output": "=row\n\"0\" &amp; café",
+        "roundTrip": true,
+        "baseline": "=row\n\"0\" &amp; café",
+        "baselineError": null,
+        "baselineRoundTrip": true,
+        "reason": "Reviewed html encoding; exact decode reproduces the reviewed raw string."
+      },
+      {
+        "index": 1,
+        "id": "=row\n\"1\"",
+        "profile": "p1",
+        "encoder": "json",
+        "value": "=row\n\"1\" & café",
+        "status": "encoded",
+        "output": "\"=row\\n\\\"1\\\" & café\"",
+        "roundTrip": true,
+        "baseline": "=row\n\"1\" &amp; café",
+        "baselineError": "Unexpected token '=', \"=row\n\"1\" &amp; café\" is not valid JSON",
+        "baselineRoundTrip": false,
+        "reason": "Reviewed json encoding; exact decode reproduces the reviewed raw string."
+      },
+      {
+        "index": 2,
+        "id": "=row\n\"2\"",
+        "profile": "p2",
+        "encoder": "url",
+        "value": "=row\n\"2\" & café",
+        "status": "encoded",
+        "output": "%3Drow%0A%222%22%20%26%20caf%C3%A9",
+        "roundTrip": true,
+        "baseline": "=row\n\"2\" &amp; café",
+        "baselineError": null,
+        "baselineRoundTrip": false,
+        "reason": "Reviewed url encoding; exact decode reproduces the reviewed raw string."
+      },
+      {
+        "index": 3,
+        "id": "=row\n\"3\"",
+        "profile": "p3",
+        "encoder": "html",
+        "value": "=row\n\"3\" & café",
+        "status": "encoded",
+        "output": "=row\n\"3\" &amp; café",
+        "roundTrip": true,
+        "baseline": "=row\n\"3\" &amp; café",
+        "baselineError": null,
+        "baselineRoundTrip": true,
+        "reason": "Reviewed html encoding; exact decode reproduces the reviewed raw string."
+      },
+      {
+        "index": 4,
+        "id": "=row\n\"4\"",
+        "profile": "p1",
+        "encoder": "json",
+        "value": "=row\n\"4\" & café",
+        "status": "encoded",
+        "output": "\"=row\\n\\\"4\\\" & café\"",
+        "roundTrip": true,
+        "baseline": "=row\n\"4\" &amp; café",
+        "baselineError": "Unexpected token '=', \"=row\n\"4\" &amp; café\" is not valid JSON",
+        "baselineRoundTrip": false,
+        "reason": "Reviewed json encoding; exact decode reproduces the reviewed raw string."
+      },
+      {
+        "index": 5,
+        "id": "=row\n\"5\"",
+        "profile": "p2",
+        "encoder": "url",
+        "value": "=row\n\"5\" & café",
+        "status": "encoded",
+        "output": "%3Drow%0A%225%22%20%26%20caf%C3%A9",
+        "roundTrip": true,
+        "baseline": "=row\n\"5\" &amp; café",
+        "baselineError": null,
+        "baselineRoundTrip": false,
+        "reason": "Reviewed url encoding; exact decode reproduces the reviewed raw string."
+      },
+      {
+        "index": 6,
+        "id": "=row\n\"6\"",
+        "profile": "p3",
+        "encoder": "html",
+        "value": "=row\n\"6\" & café",
+        "status": "encoded",
+        "output": "=row\n\"6\" &amp; café",
+        "roundTrip": true,
+        "baseline": "=row\n\"6\" &amp; café",
+        "baselineError": null,
+        "baselineRoundTrip": true,
+        "reason": "Reviewed html encoding; exact decode reproduces the reviewed raw string."
+      },
+      {
+        "index": 7,
+        "id": "=row\n\"7\"",
+        "profile": "p1",
+        "encoder": "json",
+        "value": "=row\n\"7\" & café",
+        "status": "encoded",
+        "output": "\"=row\\n\\\"7\\\" & café\"",
+        "roundTrip": true,
+        "baseline": "=row\n\"7\" &amp; café",
+        "baselineError": "Unexpected token '=', \"=row\n\"7\" &amp; café\" is not valid JSON",
+        "baselineRoundTrip": false,
+        "reason": "Reviewed json encoding; exact decode reproduces the reviewed raw string."
+      },
+      {
+        "index": 8,
+        "id": "=row\n\"8\"",
+        "profile": "p2",
+        "encoder": "url",
+        "value": "=row\n\"8\" & café",
+        "status": "encoded",
+        "output": "%3Drow%0A%228%22%20%26%20caf%C3%A9",
+        "roundTrip": true,
+        "baseline": "=row\n\"8\" &amp; café",
+        "baselineError": null,
+        "baselineRoundTrip": false,
+        "reason": "Reviewed url encoding; exact decode reproduces the reviewed raw string."
+      },
+      {
+        "index": 9,
+        "id": "=row\n\"9\"",
+        "profile": "p3",
+        "encoder": "html",
+        "value": "=row\n\"9\" & café",
+        "status": "encoded",
+        "output": "=row\n\"9\" &amp; café",
+        "roundTrip": true,
+        "baseline": "=row\n\"9\" &amp; café",
+        "baselineError": null,
+        "baselineRoundTrip": true,
+        "reason": "Reviewed html encoding; exact decode reproduces the reviewed raw string."
+      },
+      {
+        "index": 10,
+        "id": "=row\n\"10\"",
+        "profile": "p1",
+        "encoder": "json",
+        "value": "=row\n\"10\" & café",
+        "status": "encoded",
+        "output": "\"=row\\n\\\"10\\\" & café\"",
+        "roundTrip": true,
+        "baseline": "=row\n\"10\" &amp; café",
+        "baselineError": "Unexpected token '=', \"=row\n\"10\" &amp; café\" is not valid JSON",
+        "baselineRoundTrip": false,
+        "reason": "Reviewed json encoding; exact decode reproduces the reviewed raw string."
+      },
+      {
+        "index": 11,
+        "id": "=row\n\"11\"",
+        "profile": "p2",
+        "encoder": "url",
+        "value": "=row\n\"11\" & café",
+        "status": "encoded",
+        "output": "%3Drow%0A%2211%22%20%26%20caf%C3%A9",
+        "roundTrip": true,
+        "baseline": "=row\n\"11\" &amp; café",
+        "baselineError": null,
+        "baselineRoundTrip": false,
+        "reason": "Reviewed url encoding; exact decode reproduces the reviewed raw string."
+      },
+      {
+        "index": 12,
+        "id": "=row\n\"12\"",
+        "profile": "p3",
+        "encoder": "html",
+        "value": "=row\n\"12\" & café",
+        "status": "encoded",
+        "output": "=row\n\"12\" &amp; café",
+        "roundTrip": true,
+        "baseline": "=row\n\"12\" &amp; café",
+        "baselineError": null,
+        "baselineRoundTrip": true,
+        "reason": "Reviewed html encoding; exact decode reproduces the reviewed raw string."
+      },
+      {
+        "index": 13,
+        "id": "=row\n\"13\"",
+        "profile": "p1",
+        "encoder": "json",
+        "value": "=row\n\"13\" & café",
+        "status": "encoded",
+        "output": "\"=row\\n\\\"13\\\" & café\"",
+        "roundTrip": true,
+        "baseline": "=row\n\"13\" &amp; café",
+        "baselineError": "Unexpected token '=', \"=row\n\"13\" &amp; café\" is not valid JSON",
+        "baselineRoundTrip": false,
+        "reason": "Reviewed json encoding; exact decode reproduces the reviewed raw string."
+      },
+      {
+        "index": 14,
+        "id": "=row\n\"14\"",
+        "profile": "p2",
+        "encoder": "url",
+        "value": "=row\n\"14\" & café",
+        "status": "encoded",
+        "output": "%3Drow%0A%2214%22%20%26%20caf%C3%A9",
+        "roundTrip": true,
+        "baseline": "=row\n\"14\" &amp; café",
+        "baselineError": null,
+        "baselineRoundTrip": false,
+        "reason": "Reviewed url encoding; exact decode reproduces the reviewed raw string."
+      },
+      {
+        "index": 15,
+        "id": "=row\n\"15\"",
+        "profile": "p3",
+        "encoder": "html",
+        "value": "=row\n\"15\" & café",
+        "status": "encoded",
+        "output": "=row\n\"15\" &amp; café",
+        "roundTrip": true,
+        "baseline": "=row\n\"15\" &amp; café",
+        "baselineError": null,
+        "baselineRoundTrip": true,
+        "reason": "Reviewed html encoding; exact decode reproduces the reviewed raw string."
+      },
+      {
+        "index": 16,
+        "id": "=row\n\"16\"",
+        "profile": "p1",
+        "encoder": "json",
+        "value": "=row\n\"16\" & café",
+        "status": "encoded",
+        "output": "\"=row\\n\\\"16\\\" & café\"",
+        "roundTrip": true,
+        "baseline": "=row\n\"16\" &amp; café",
+        "baselineError": "Unexpected token '=', \"=row\n\"16\" &amp; café\" is not valid JSON",
+        "baselineRoundTrip": false,
+        "reason": "Reviewed json encoding; exact decode reproduces the reviewed raw string."
+      },
+      {
+        "index": 17,
+        "id": "=row\n\"17\"",
+        "profile": "p2",
+        "encoder": "url",
+        "value": "=row\n\"17\" & café",
+        "status": "encoded",
+        "output": "%3Drow%0A%2217%22%20%26%20caf%C3%A9",
+        "roundTrip": true,
+        "baseline": "=row\n\"17\" &amp; café",
+        "baselineError": null,
+        "baselineRoundTrip": false,
+        "reason": "Reviewed url encoding; exact decode reproduces the reviewed raw string."
+      },
+      {
+        "index": 18,
+        "id": "=row\n\"18\"",
+        "profile": "p3",
+        "encoder": "html",
+        "value": "=row\n\"18\" & café",
+        "status": "encoded",
+        "output": "=row\n\"18\" &amp; café",
+        "roundTrip": true,
+        "baseline": "=row\n\"18\" &amp; café",
+        "baselineError": null,
+        "baselineRoundTrip": true,
+        "reason": "Reviewed html encoding; exact decode reproduces the reviewed raw string."
+      },
+      {
+        "index": 19,
+        "id": "=row\n\"19\"",
+        "profile": "p1",
+        "encoder": "json",
+        "value": "=row\n\"19\" & café",
+        "status": "encoded",
+        "output": "\"=row\\n\\\"19\\\" & café\"",
+        "roundTrip": true,
+        "baseline": "=row\n\"19\" &amp; café",
+        "baselineError": "Unexpected token '=', \"=row\n\"19\" &amp; café\" is not valid JSON",
+        "baselineRoundTrip": false,
+        "reason": "Reviewed json encoding; exact decode reproduces the reviewed raw string."
+      },
+      {
+        "index": 20,
+        "id": "=row\n\"20\"",
+        "profile": "p2",
+        "encoder": "url",
+        "value": "=row\n\"20\" & café",
+        "status": "encoded",
+        "output": "%3Drow%0A%2220%22%20%26%20caf%C3%A9",
+        "roundTrip": true,
+        "baseline": "=row\n\"20\" &amp; café",
+        "baselineError": null,
+        "baselineRoundTrip": false,
+        "reason": "Reviewed url encoding; exact decode reproduces the reviewed raw string."
+      },
+      {
+        "index": 21,
+        "id": "=row\n\"21\"",
+        "profile": "p3",
+        "encoder": "html",
+        "value": "=row\n\"21\" & café",
+        "status": "encoded",
+        "output": "=row\n\"21\" &amp; café",
+        "roundTrip": true,
+        "baseline": "=row\n\"21\" &amp; café",
+        "baselineError": null,
+        "baselineRoundTrip": true,
+        "reason": "Reviewed html encoding; exact decode reproduces the reviewed raw string."
+      },
+      {
+        "index": 22,
+        "id": "=row\n\"22\"",
+        "profile": "p1",
+        "encoder": "json",
+        "value": "=row\n\"22\" & café",
+        "status": "encoded",
+        "output": "\"=row\\n\\\"22\\\" & café\"",
+        "roundTrip": true,
+        "baseline": "=row\n\"22\" &amp; café",
+        "baselineError": "Unexpected token '=', \"=row\n\"22\" &amp; café\" is not valid JSON",
+        "baselineRoundTrip": false,
+        "reason": "Reviewed json encoding; exact decode reproduces the reviewed raw string."
+      },
+      {
+        "index": 23,
+        "id": "=row\n\"23\"",
+        "profile": "p2",
+        "encoder": "url",
+        "value": "=row\n\"23\" & café",
+        "status": "encoded",
+        "output": "%3Drow%0A%2223%22%20%26%20caf%C3%A9",
+        "roundTrip": true,
+        "baseline": "=row\n\"23\" &amp; café",
+        "baselineError": null,
+        "baselineRoundTrip": false,
+        "reason": "Reviewed url encoding; exact decode reproduces the reviewed raw string."
+      }
+    ],
+    "encoded": 24,
+    "held": 0,
+    "invalid": 0,
+    "baselineFailures": 16,
+    "different": 16
+  }
+}
+
+```
+

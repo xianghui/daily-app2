@@ -1,0 +1,107 @@
+{
+  "version": 1,
+  "app": "License Fork",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "closed",
+        "description": "Proprietary closed-source desktop software delivered to paying customers. Commercial binary release with source code kept private.",
+        "allowed": [
+          "MIT",
+          "BSD-3-Clause",
+          "Apache-2.0"
+        ]
+      },
+      {
+        "id": "source",
+        "description": "Open source community project published with complete source code. Public repository distributes all corresponding source and build materials.",
+        "allowed": [
+          "MIT",
+          "BSD-3-Clause",
+          "Apache-2.0",
+          "GPL-3.0-only"
+        ]
+      },
+      {
+        "id": "firmware",
+        "description": "Embedded firmware device microcontroller shipment. Approved board firmware inventory restricted by the supplied vendor policy to MIT and BSD.",
+        "allowed": [
+          "MIT",
+          "BSD-3-Clause"
+        ]
+      }
+    ],
+    "records": [
+      {
+        "id": "same",
+        "context": "Open source community project published with complete source code. Public repository distributes all corresponding source and build materials.",
+        "raw": "GPL-3.0-only AND MIT"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "same",
+      "system": "source",
+      "raw": "GPL-3.0-only AND MIT",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "source",
+          "similarity": 0.9999997718414655
+        },
+        {
+          "system": "closed",
+          "similarity": 0.42031777638860546
+        },
+        {
+          "system": "firmware",
+          "similarity": 0.11387704195548468
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "same",
+      "system": "source",
+      "raw": "GPL-3.0-only AND MIT",
+      "selected": [
+        "GPL-3.0-only",
+        "MIT"
+      ],
+      "checklist": [
+        "Escalate corresponding-source delivery review",
+        "Include GPL license and rights notices",
+        "Retain copyright and permission notice"
+      ],
+      "alternatives": [
+        [
+          "GPL-3.0-only",
+          "MIT"
+        ]
+      ],
+      "permitted": [
+        [
+          "GPL-3.0-only",
+          "MIT"
+        ]
+      ],
+      "baselineBlocked": false,
+      "baselineMismatch": false,
+      "reason": "Select a complete allowed branch with the fewest distinct supplied checklist tasks; lexical tie-break. This is a policy worksheet, not a legal compatibility opinion.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 1,
+    "ready": 1,
+    "held": 0,
+    "blocked": 0,
+    "compared": 1,
+    "baselineMismatch": 0,
+    "tasks": 3,
+    "edited": 0
+  }
+}

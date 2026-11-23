@@ -1,0 +1,7 @@
+
+
+## License Fork — 20261124-8
+
+Real local MiniLM reconciles mixed distribution notes to supplied policies before mandatory review. Bounded SPDX AND/OR parsing keeps complete alternatives, exposes flat-blacklist false blocks and exports reviewed branch/checklist JSON plus complete JSON/CSV/Markdown. Both tiny fixtures matched 6/6 intended policy links; a competing-negation probe misrouted, so review is essential. This applies organization allowlists and illustrative prompts, not legal compatibility or complete license obligations. Shared worker/factory from `20261115-6`, WASM from `20261107-2`; offline scope is fresh-worker inference in an already-open warmed page. See [workflow/privacy](20261124-8/README.md) and [observed validation](20261124-8/VALIDATION.md). To retain the unchanged size guard, byte-identical deploy-only geometry sharing now includes `20261029-33` → `20261028-24`; source builds/compatibility URLs remain intact and actual legacy imports/exports were rechecked. No digest sent.
+
+Public release verified: Pages `72cdf7e411d51c1c20b1208debc83860fa7b4170` and workflow `45286230849` succeeded. Nine exact public asset matches, both real-AI fixtures, complete review/export/24-row/offline/privacy/phone checks, independently parsed public downloads, all 837 gallery cards and the affected older app's public geometry/import/export regression passed. Combined size 999,556,937 bytes remains under the unchanged guard. The negation challenge still misrouted and is documented. Source staging excludes unrelated pre-existing work. No digest sent.

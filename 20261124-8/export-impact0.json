@@ -1,0 +1,84 @@
+{
+  "version": 1,
+  "app": "License Fork",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "closed",
+        "description": "Proprietary closed-source desktop software delivered to paying customers. Commercial binary release with source code kept private.",
+        "allowed": [
+          "MIT",
+          "BSD-3-Clause",
+          "Apache-2.0"
+        ]
+      },
+      {
+        "id": "source",
+        "description": "Open source community project published with complete source code. Public repository distributes all corresponding source and build materials.",
+        "allowed": [
+          "MIT",
+          "BSD-3-Clause",
+          "Apache-2.0",
+          "GPL-3.0-only"
+        ]
+      },
+      {
+        "id": "firmware",
+        "description": "Embedded firmware device microcontroller shipment. Approved board firmware inventory restricted by the supplied vendor policy to MIT and BSD.",
+        "allowed": [
+          "MIT",
+          "BSD-3-Clause"
+        ]
+      }
+    ],
+    "records": [
+      {
+        "id": "same",
+        "context": "Proprietary closed-source desktop software delivered to paying customers. Commercial binary release with source code kept private.",
+        "raw": "GPL-3.0-only AND MIT"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "same",
+      "system": "closed",
+      "raw": "GPL-3.0-only AND MIT",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "closed",
+          "similarity": 1.0000000787997696
+        },
+        {
+          "system": "source",
+          "similarity": 0.42031777638860546
+        },
+        {
+          "system": "firmware",
+          "similarity": 0.35874579793057193
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "same",
+      "system": "closed",
+      "raw": "GPL-3.0-only AND MIT",
+      "status": "blocked",
+      "reason": "No complete AND/OR branch satisfies this supplied allowlist. No release."
+    }
+  ],
+  "metrics": {
+    "records": 1,
+    "ready": 0,
+    "held": 0,
+    "blocked": 1,
+    "compared": 0,
+    "baselineMismatch": 0,
+    "tasks": 0,
+    "edited": 0
+  }
+}

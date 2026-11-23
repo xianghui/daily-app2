@@ -1,0 +1,610 @@
+{
+  "fixtures": [
+    {
+      "name": "Office handoff",
+      "actual": [
+        "london",
+        "sydney",
+        "boston",
+        "london",
+        "sydney",
+        "boston"
+      ],
+      "expected": [
+        "london",
+        "sydney",
+        "boston",
+        "london",
+        "sydney",
+        "boston"
+      ],
+      "correct": 6,
+      "analysis": {
+        "checks": [
+          {
+            "index": 0,
+            "id": "UK-a",
+            "profile": "london",
+            "country": "GB",
+            "raw": "020 7946 0018",
+            "number": "+442079460018",
+            "extension": "",
+            "uri": "tel:+442079460018",
+            "international": "+44 20 7946 0018",
+            "key": "[\"+442079460018\",\"\"]",
+            "status": "collision",
+            "reason": "Same E.164 number and extension as UK-b. Hold duplicate records explicitly; no automatic merge.",
+            "collidesWith": [
+              "UK-b"
+            ]
+          },
+          {
+            "index": 1,
+            "id": "AU-a",
+            "profile": "sydney",
+            "country": "AU",
+            "raw": "(02) 9374 4000",
+            "number": "+61293744000",
+            "extension": "",
+            "uri": "tel:+61293744000",
+            "international": "+61 2 9374 4000",
+            "key": "[\"+61293744000\",\"\"]",
+            "status": "collision",
+            "reason": "Same E.164 number and extension as AU-b. Hold duplicate records explicitly; no automatic merge.",
+            "collidesWith": [
+              "AU-b"
+            ]
+          },
+          {
+            "index": 2,
+            "id": "US-a",
+            "profile": "boston",
+            "country": "US",
+            "raw": "(213) 373-4253",
+            "number": "+12133734253",
+            "extension": "",
+            "uri": "tel:+12133734253",
+            "international": "+1 213 373 4253",
+            "key": "[\"+12133734253\",\"\"]",
+            "status": "ready",
+            "reason": "Whole-field parse, metadata validity and reviewed country agree. Not proof of ownership or reachability.",
+            "collidesWith": []
+          },
+          {
+            "index": 3,
+            "id": "UK-b",
+            "profile": "london",
+            "country": "GB",
+            "raw": "+44 20 7946 0018",
+            "number": "+442079460018",
+            "extension": "",
+            "uri": "tel:+442079460018",
+            "international": "+44 20 7946 0018",
+            "key": "[\"+442079460018\",\"\"]",
+            "status": "collision",
+            "reason": "Same E.164 number and extension as UK-a. Hold duplicate records explicitly; no automatic merge.",
+            "collidesWith": [
+              "UK-a"
+            ]
+          },
+          {
+            "index": 4,
+            "id": "AU-b",
+            "profile": "sydney",
+            "country": "AU",
+            "raw": "+61 2 9374 4000",
+            "number": "+61293744000",
+            "extension": "",
+            "uri": "tel:+61293744000",
+            "international": "+61 2 9374 4000",
+            "key": "[\"+61293744000\",\"\"]",
+            "status": "collision",
+            "reason": "Same E.164 number and extension as AU-a. Hold duplicate records explicitly; no automatic merge.",
+            "collidesWith": [
+              "AU-a"
+            ]
+          },
+          {
+            "index": 5,
+            "id": "US-b",
+            "profile": "boston",
+            "country": "US",
+            "raw": "+1 213 373 4253 ext. 42",
+            "number": "+12133734253",
+            "extension": "42",
+            "uri": "tel:+12133734253;ext=42",
+            "international": "+1 213 373 4253 ext. 42",
+            "key": "[\"+12133734253\",\"42\"]",
+            "status": "ready",
+            "reason": "Whole-field parse, metadata validity and reviewed country agree. Not proof of ownership or reachability.",
+            "collidesWith": []
+          }
+        ],
+        "ready": 2,
+        "held": 0,
+        "invalid": 0,
+        "collisionRows": 4,
+        "pairs": 2,
+        "rawPairs": 0,
+        "extraPairs": 2,
+        "falsePairs": 0,
+        "compared": 6
+      }
+    },
+    {
+      "name": "Event directories",
+      "actual": [
+        "paris",
+        "tokyo",
+        "berlin",
+        "paris",
+        "tokyo",
+        "berlin"
+      ],
+      "expected": [
+        "paris",
+        "tokyo",
+        "berlin",
+        "paris",
+        "tokyo",
+        "berlin"
+      ],
+      "correct": 6,
+      "analysis": {
+        "checks": [
+          {
+            "index": 0,
+            "id": "FR-a",
+            "profile": "paris",
+            "country": "FR",
+            "raw": "01 42 34 56 78",
+            "number": "+33142345678",
+            "extension": "",
+            "uri": "tel:+33142345678",
+            "international": "+33 1 42 34 56 78",
+            "key": "[\"+33142345678\",\"\"]",
+            "status": "ready",
+            "reason": "Whole-field parse, metadata validity and reviewed country agree. Not proof of ownership or reachability.",
+            "collidesWith": []
+          },
+          {
+            "index": 1,
+            "id": "JP-a",
+            "profile": "tokyo",
+            "country": "JP",
+            "raw": "03-1234-5678",
+            "number": "+81312345678",
+            "extension": "",
+            "uri": "tel:+81312345678",
+            "international": "+81 3 1234 5678",
+            "key": "[\"+81312345678\",\"\"]",
+            "status": "collision",
+            "reason": "Same E.164 number and extension as JP-b. Hold duplicate records explicitly; no automatic merge.",
+            "collidesWith": [
+              "JP-b"
+            ]
+          },
+          {
+            "index": 2,
+            "id": "DE-a",
+            "profile": "berlin",
+            "country": "DE",
+            "raw": "030 123456",
+            "number": "+4930123456",
+            "extension": "",
+            "uri": "tel:+4930123456",
+            "international": "+49 30 123456",
+            "key": "[\"+4930123456\",\"\"]",
+            "status": "collision",
+            "reason": "Same E.164 number and extension as DE-b. Hold duplicate records explicitly; no automatic merge.",
+            "collidesWith": [
+              "DE-b"
+            ]
+          },
+          {
+            "index": 3,
+            "id": "FR-b",
+            "profile": "paris",
+            "country": "FR",
+            "raw": "+33 1 42 34 56 78 ext. 7",
+            "number": "+33142345678",
+            "extension": "7",
+            "uri": "tel:+33142345678;ext=7",
+            "international": "+33 1 42 34 56 78 ext. 7",
+            "key": "[\"+33142345678\",\"7\"]",
+            "status": "ready",
+            "reason": "Whole-field parse, metadata validity and reviewed country agree. Not proof of ownership or reachability.",
+            "collidesWith": []
+          },
+          {
+            "index": 4,
+            "id": "JP-b",
+            "profile": "tokyo",
+            "country": "JP",
+            "raw": "+81 3 1234 5678",
+            "number": "+81312345678",
+            "extension": "",
+            "uri": "tel:+81312345678",
+            "international": "+81 3 1234 5678",
+            "key": "[\"+81312345678\",\"\"]",
+            "status": "collision",
+            "reason": "Same E.164 number and extension as JP-a. Hold duplicate records explicitly; no automatic merge.",
+            "collidesWith": [
+              "JP-a"
+            ]
+          },
+          {
+            "index": 5,
+            "id": "DE-b",
+            "profile": "berlin",
+            "country": "DE",
+            "raw": "+49 30 123456",
+            "number": "+4930123456",
+            "extension": "",
+            "uri": "tel:+4930123456",
+            "international": "+49 30 123456",
+            "key": "[\"+4930123456\",\"\"]",
+            "status": "collision",
+            "reason": "Same E.164 number and extension as DE-a. Hold duplicate records explicitly; no automatic merge.",
+            "collidesWith": [
+              "DE-a"
+            ]
+          }
+        ],
+        "ready": 2,
+        "held": 0,
+        "invalid": 0,
+        "collisionRows": 4,
+        "pairs": 2,
+        "rawPairs": 0,
+        "extraPairs": 2,
+        "falsePairs": 0,
+        "compared": 6
+      }
+    }
+  ],
+  "checks": [
+    "Review edits reset country/number approvals; hold resolves duplicates; original values and 007 extension preserved; multiline notes; undo; clipboard",
+    "Actual fresh-worker offline inference in already-open warmed production page",
+    "Maximum 8 profiles / 24 records / 32 actual embeddings in eight chunks; all rows retained and audit reimported",
+    "Real cancel and successful retry",
+    "Actual artifacts; labels/focus/44px controls; 1440/390/320 no overflow; bad inputs/files; GET-only downloads without user content"
+  ],
+  "negationProbe": {
+    "proposed": "sydney",
+    "decision": "pending",
+    "intended": "london"
+  },
+  "requests": [
+    {
+      "host": "127.0.0.1:7393",
+      "path": "/daily-app2/20261123-14/",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7393",
+      "path": "/daily-app2/20261123-14/assets/index-CayUgDDX.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7393",
+      "path": "/daily-app2/20261123-14/assets/index-FWVyHK8t.css",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7393",
+      "path": "/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7393/45db4821-dadd-4586-b3f6-da98d9820016",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7393",
+      "path": "/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7393",
+      "path": "/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "X-Xet-Cas-Uid",
+        "user_id",
+        "response-content-disposition",
+        "xip",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "user_id",
+        "response-content-disposition",
+        "X-Xet-Cas-Uid",
+        "xip",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7393/8586315f-d478-4e34-b2a4-b2b0127e730f",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7393/463ca804-5fee-4a90-b17d-dd5de3a345cd",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7393/6c032417-376e-4c0c-92a4-7fa3bc67acd5",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7393/97b71ef9-cbf1-438c-8f9a-48f71399ffdb",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7393/e469913a-cf62-45e8-b24e-0330a1dcbde8",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7393/36aad51f-1547-42cf-9547-1ed9484532ee",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7393/c78bb914-90ad-4d05-8eca-32e514a511f4",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7393/154bcd3c-7515-4e85-9c79-8ffeea95b949",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7393/abef9a8c-3622-4736-ad20-8bf0b6e7b7f3",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7393/0635ba0e-bee1-494d-8aa2-7aee591621ed",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7393/1aa8bc25-df08-4d61-852a-b7fb0becece9",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7393/4b6578a5-6b59-45ec-b497-c963ffb5f1a7",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7393/3f2b57c5-5a92-4622-80c9-26880c110008",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7393/866d58db-ba6b-4b7e-966f-a9bddf0f1439",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7393/32019906-31e3-49da-94be-37f0c2c806f7",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7393/51a1b875-3d37-4518-b3d1-2a2837eb0919",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7393/9fa8798f-de70-4d86-a7b8-439e31f8fa7a",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7393/4d24b6b6-ef5c-45f9-b064-b9dba48861d7",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7393/56faf2fe-181f-48fc-8eb8-6d61b74100db",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7393/4ef886a9-6774-4ce6-99f9-e7976f5f576e",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7393/7e50448d-8939-49e8-bb9c-2306c6bf4bbf",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    }
+  ],
+  "errors": []
+}

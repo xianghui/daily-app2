@@ -1,0 +1,114 @@
+{
+  "schema": "dial-ledger/1",
+  "appliedAt": "2026-11-23T05:12:33.736Z",
+  "originalInput": {
+    "title": "Synthetic same national digits",
+    "profiles": [
+      {
+        "id": "fr",
+        "description": "France customer telephone contact",
+        "country": "FR"
+      },
+      {
+        "id": "nl",
+        "description": "Netherlands customer telephone contact",
+        "country": "NL"
+      }
+    ],
+    "records": [
+      {
+        "id": "France",
+        "note": "France customer telephone contact",
+        "value": "06 12 34 56 78"
+      },
+      {
+        "id": "Netherlands",
+        "note": "Netherlands customer telephone contact",
+        "value": "06 12 34 56 78"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "text": "France customer telephone contact",
+      "resource": "fr",
+      "aiResource": "fr",
+      "evidence": [
+        {
+          "resource": "fr",
+          "score": 1.0000005081015795
+        },
+        {
+          "resource": "nl",
+          "score": 0.651227758430676
+        }
+      ],
+      "value": "06 12 34 56 78",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 1,
+      "text": "Netherlands customer telephone contact",
+      "resource": "nl",
+      "aiResource": "nl",
+      "evidence": [
+        {
+          "resource": "nl",
+          "score": 0.9999996411630061
+        },
+        {
+          "resource": "fr",
+          "score": 0.651227758430676
+        }
+      ],
+      "value": "06 12 34 56 78",
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "analysis": {
+    "checks": [
+      {
+        "index": 0,
+        "id": "France",
+        "profile": "fr",
+        "country": "FR",
+        "raw": "06 12 34 56 78",
+        "number": "+33612345678",
+        "extension": "",
+        "uri": "tel:+33612345678",
+        "international": "+33 6 12 34 56 78",
+        "key": "[\"+33612345678\",\"\"]",
+        "status": "ready",
+        "reason": "Whole-field parse, metadata validity and reviewed country agree. Not proof of ownership or reachability.",
+        "collidesWith": []
+      },
+      {
+        "index": 1,
+        "id": "Netherlands",
+        "profile": "nl",
+        "country": "NL",
+        "raw": "06 12 34 56 78",
+        "number": "+31612345678",
+        "extension": "",
+        "uri": "tel:+31612345678",
+        "international": "+31 6 12345678",
+        "key": "[\"+31612345678\",\"\"]",
+        "status": "ready",
+        "reason": "Whole-field parse, metadata validity and reviewed country agree. Not proof of ownership or reachability.",
+        "collidesWith": []
+      }
+    ],
+    "ready": 2,
+    "held": 0,
+    "invalid": 0,
+    "collisionRows": 0,
+    "pairs": 0,
+    "rawPairs": 1,
+    "extraPairs": 0,
+    "falsePairs": 1,
+    "compared": 2
+  }
+}

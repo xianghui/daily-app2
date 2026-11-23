@@ -1,0 +1,340 @@
+# Synthetic regional office contact handoff
+
+UK-a [collision] GB
+"020 7946 0018" → +442079460018
+Same E.164 number and extension as UK-b. Hold duplicate records explicitly; no automatic merge.
+
+AU-a [collision] AU
+"(02) 9374 4000" → +61293744000
+Same E.164 number and extension as AU-b. Hold duplicate records explicitly; no automatic merge.
+
+US-a [ready] US
+"(213) 373-4253" → +12133734253
+Whole-field parse, metadata validity and reviewed country agree. Not proof of ownership or reachability.
+
+UK-b [collision] GB
+"+44 20 7946 0018" → +442079460018
+Same E.164 number and extension as UK-a. Hold duplicate records explicitly; no automatic merge.
+
+AU-b [collision] AU
+"+61 2 9374 4000" → +61293744000
+Same E.164 number and extension as AU-a. Hold duplicate records explicitly; no automatic merge.
+
+US-b [ready] US
+"+1 213 373 4253 ext. 42" → +12133734253 ext. 42
+Whole-field parse, metadata validity and reviewed country agree. Not proof of ownership or reachability.
+
+## Complete source and review audit
+
+```json
+
+{
+  "schema": "dial-ledger/1",
+  "appliedAt": "2026-11-23T05:12:31.455Z",
+  "originalInput": {
+    "title": "Synthetic regional office contact handoff",
+    "profiles": [
+      {
+        "id": "london",
+        "description": "United Kingdom London office customer contact telephone records",
+        "country": "GB"
+      },
+      {
+        "id": "sydney",
+        "description": "Australia Sydney workshop customer contact telephone records",
+        "country": "AU"
+      },
+      {
+        "id": "boston",
+        "description": "United States Boston conference customer contact telephone records",
+        "country": "US"
+      }
+    ],
+    "records": [
+      {
+        "id": "UK-a",
+        "note": "London office contact in the United Kingdom",
+        "value": "020 7946 0018"
+      },
+      {
+        "id": "AU-a",
+        "note": "Sydney workshop contact in Australia",
+        "value": "(02) 9374 4000"
+      },
+      {
+        "id": "US-a",
+        "note": "Boston conference contact in the United States",
+        "value": "(213) 373-4253"
+      },
+      {
+        "id": "UK-b",
+        "note": "Customer telephone for the United Kingdom office in London",
+        "value": "+44 20 7946 0018"
+      },
+      {
+        "id": "AU-b",
+        "note": "Australian workshop in Sydney contact phone",
+        "value": "+61 2 9374 4000"
+      },
+      {
+        "id": "US-b",
+        "note": "US Boston conference customer telephone",
+        "value": "+1 213 373 4253 ext. 42"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "text": "London office contact in the United Kingdom",
+      "resource": "london",
+      "aiResource": "london",
+      "evidence": [
+        {
+          "resource": "london",
+          "score": 0.819420325185497
+        },
+        {
+          "resource": "boston",
+          "score": 0.45414248150078723
+        },
+        {
+          "resource": "sydney",
+          "score": 0.4072247746736961
+        }
+      ],
+      "value": "020 7946 0018",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 1,
+      "text": "Sydney workshop contact in Australia",
+      "resource": "sydney",
+      "aiResource": "sydney",
+      "evidence": [
+        {
+          "resource": "sydney",
+          "score": 0.7650375108382585
+        },
+        {
+          "resource": "boston",
+          "score": 0.265404833701081
+        },
+        {
+          "resource": "london",
+          "score": 0.1864314886892893
+        }
+      ],
+      "value": "(02) 9374 4000",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "text": "Boston conference contact in the United States",
+      "resource": "boston",
+      "aiResource": "boston",
+      "evidence": [
+        {
+          "resource": "boston",
+          "score": 0.7867415810910889
+        },
+        {
+          "resource": "sydney",
+          "score": 0.2970085956092245
+        },
+        {
+          "resource": "london",
+          "score": 0.2522649912625503
+        }
+      ],
+      "value": "(213) 373-4253",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 3,
+      "text": "Customer telephone for the United Kingdom office in London",
+      "resource": "london",
+      "aiResource": "london",
+      "evidence": [
+        {
+          "resource": "london",
+          "score": 0.8635257552101654
+        },
+        {
+          "resource": "boston",
+          "score": 0.5126517922551356
+        },
+        {
+          "resource": "sydney",
+          "score": 0.493571701542319
+        }
+      ],
+      "value": "+44 20 7946 0018",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 4,
+      "text": "Australian workshop in Sydney contact phone",
+      "resource": "sydney",
+      "aiResource": "sydney",
+      "evidence": [
+        {
+          "resource": "sydney",
+          "score": 0.8506320134533781
+        },
+        {
+          "resource": "boston",
+          "score": 0.3866281858199832
+        },
+        {
+          "resource": "london",
+          "score": 0.3756287387718367
+        }
+      ],
+      "value": "+61 2 9374 4000",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 5,
+      "text": "US Boston conference customer telephone",
+      "resource": "boston",
+      "aiResource": "boston",
+      "evidence": [
+        {
+          "resource": "boston",
+          "score": 0.8948427272772472
+        },
+        {
+          "resource": "sydney",
+          "score": 0.5175805760611537
+        },
+        {
+          "resource": "london",
+          "score": 0.4944666622224917
+        }
+      ],
+      "value": "+1 213 373 4253 ext. 42",
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "analysis": {
+    "checks": [
+      {
+        "index": 0,
+        "id": "UK-a",
+        "profile": "london",
+        "country": "GB",
+        "raw": "020 7946 0018",
+        "number": "+442079460018",
+        "extension": "",
+        "uri": "tel:+442079460018",
+        "international": "+44 20 7946 0018",
+        "key": "[\"+442079460018\",\"\"]",
+        "status": "collision",
+        "reason": "Same E.164 number and extension as UK-b. Hold duplicate records explicitly; no automatic merge.",
+        "collidesWith": [
+          "UK-b"
+        ]
+      },
+      {
+        "index": 1,
+        "id": "AU-a",
+        "profile": "sydney",
+        "country": "AU",
+        "raw": "(02) 9374 4000",
+        "number": "+61293744000",
+        "extension": "",
+        "uri": "tel:+61293744000",
+        "international": "+61 2 9374 4000",
+        "key": "[\"+61293744000\",\"\"]",
+        "status": "collision",
+        "reason": "Same E.164 number and extension as AU-b. Hold duplicate records explicitly; no automatic merge.",
+        "collidesWith": [
+          "AU-b"
+        ]
+      },
+      {
+        "index": 2,
+        "id": "US-a",
+        "profile": "boston",
+        "country": "US",
+        "raw": "(213) 373-4253",
+        "number": "+12133734253",
+        "extension": "",
+        "uri": "tel:+12133734253",
+        "international": "+1 213 373 4253",
+        "key": "[\"+12133734253\",\"\"]",
+        "status": "ready",
+        "reason": "Whole-field parse, metadata validity and reviewed country agree. Not proof of ownership or reachability.",
+        "collidesWith": []
+      },
+      {
+        "index": 3,
+        "id": "UK-b",
+        "profile": "london",
+        "country": "GB",
+        "raw": "+44 20 7946 0018",
+        "number": "+442079460018",
+        "extension": "",
+        "uri": "tel:+442079460018",
+        "international": "+44 20 7946 0018",
+        "key": "[\"+442079460018\",\"\"]",
+        "status": "collision",
+        "reason": "Same E.164 number and extension as UK-a. Hold duplicate records explicitly; no automatic merge.",
+        "collidesWith": [
+          "UK-a"
+        ]
+      },
+      {
+        "index": 4,
+        "id": "AU-b",
+        "profile": "sydney",
+        "country": "AU",
+        "raw": "+61 2 9374 4000",
+        "number": "+61293744000",
+        "extension": "",
+        "uri": "tel:+61293744000",
+        "international": "+61 2 9374 4000",
+        "key": "[\"+61293744000\",\"\"]",
+        "status": "collision",
+        "reason": "Same E.164 number and extension as AU-a. Hold duplicate records explicitly; no automatic merge.",
+        "collidesWith": [
+          "AU-a"
+        ]
+      },
+      {
+        "index": 5,
+        "id": "US-b",
+        "profile": "boston",
+        "country": "US",
+        "raw": "+1 213 373 4253 ext. 42",
+        "number": "+12133734253",
+        "extension": "42",
+        "uri": "tel:+12133734253;ext=42",
+        "international": "+1 213 373 4253 ext. 42",
+        "key": "[\"+12133734253\",\"42\"]",
+        "status": "ready",
+        "reason": "Whole-field parse, metadata validity and reviewed country agree. Not proof of ownership or reachability.",
+        "collidesWith": []
+      }
+    ],
+    "ready": 2,
+    "held": 0,
+    "invalid": 0,
+    "collisionRows": 4,
+    "pairs": 2,
+    "rawPairs": 0,
+    "extraPairs": 2,
+    "falsePairs": 0,
+    "compared": 6
+  }
+}
+
+```
+

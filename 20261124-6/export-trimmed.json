@@ -1,0 +1,170 @@
+{
+  "version": 1,
+  "app": "Glyph Budget",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "storage",
+        "description": "Database storage import into a UTF-8 byte-limited field. Backend database column and encoded storage budget.",
+        "unit": "utf8",
+        "limit": 16
+      },
+      {
+        "id": "legacy",
+        "description": "Legacy JavaScript web form with HTML maxlength validation counting UTF-16 code units. Browser form input field.",
+        "unit": "utf16",
+        "limit": 12
+      },
+      {
+        "id": "editorial",
+        "description": "Editorial display label with a visible character budget. Human readable typography and grapheme cluster length.",
+        "unit": "grapheme",
+        "limit": 8
+      }
+    ],
+    "records": [
+      {
+        "id": "Display",
+        "context": "Typography editorial card, visible grapheme character length for readers.",
+        "raw": "áb́ćd́éf́ǵh́"
+      },
+      {
+        "id": "Encoded",
+        "context": "Database backend storage, encoded UTF-8 bytes in import column.",
+        "raw": "Résumé ☕ café!"
+      },
+      {
+        "id": "Browser",
+        "context": "JavaScript browser HTML form, maxlength is UTF-16 code unit length.",
+        "raw": "Launch today"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "Display",
+      "system": "editorial",
+      "raw": "áb́ćd́éf́ǵh́",
+      "decision": "approve",
+      "note": "=SUM(1,2)\nReviewed \"field\", exactly.",
+      "evidence": [
+        {
+          "system": "editorial",
+          "similarity": 0.7946471145951174
+        },
+        {
+          "system": "legacy",
+          "similarity": 0.23684262566611444
+        },
+        {
+          "system": "storage",
+          "similarity": 0.22293912280363426
+        }
+      ]
+    },
+    {
+      "id": "Encoded",
+      "system": "storage",
+      "raw": "Résumé ☕ caf",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "storage",
+          "similarity": 0.8974964727209783
+        },
+        {
+          "system": "legacy",
+          "similarity": 0.2954195486779559
+        },
+        {
+          "system": "editorial",
+          "similarity": 0.16061472546951427
+        }
+      ]
+    },
+    {
+      "id": "Browser",
+      "system": "editorial",
+      "raw": "Hi, \"x\"\n👩‍💻",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "legacy",
+          "similarity": 0.84779720497549
+        },
+        {
+          "system": "storage",
+          "similarity": 0.2758196379932427
+        },
+        {
+          "system": "editorial",
+          "similarity": 0.27001332210413426
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "Display",
+      "system": "editorial",
+      "raw": "áb́ćd́éf́ǵh́",
+      "unit": "grapheme",
+      "limit": 8,
+      "length": 8,
+      "utf8": 24,
+      "utf16": 16,
+      "grapheme": 8,
+      "candidate": "áb́ćd́éf́ǵh́",
+      "removed": 0,
+      "baselinePass": false,
+      "within": true,
+      "reason": "",
+      "status": "ready"
+    },
+    {
+      "id": "Encoded",
+      "system": "storage",
+      "raw": "Résumé ☕ caf",
+      "unit": "utf8",
+      "limit": 16,
+      "length": 16,
+      "utf8": 16,
+      "utf16": 12,
+      "grapheme": 12,
+      "candidate": "Résumé ☕ caf",
+      "removed": 0,
+      "baselinePass": true,
+      "within": true,
+      "reason": "",
+      "status": "ready"
+    },
+    {
+      "id": "Browser",
+      "system": "editorial",
+      "raw": "Hi, \"x\"\n👩‍💻",
+      "unit": "grapheme",
+      "limit": 8,
+      "length": 9,
+      "utf8": 19,
+      "utf16": 13,
+      "grapheme": 9,
+      "candidate": "Hi, \"x\"\n",
+      "removed": 1,
+      "baselinePass": false,
+      "within": false,
+      "reason": "Over budget. Edit text or explicitly adopt the safe-prefix candidate, then approve again.",
+      "status": "blocked"
+    }
+  ],
+  "metrics": {
+    "records": 3,
+    "ready": 2,
+    "held": 0,
+    "blocked": 1,
+    "compared": 3,
+    "baselineMismatch": 1,
+    "edited": 2
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "version": 1,
+  "app": "Glyph Budget",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "storage",
+        "description": "Database storage import into a UTF-8 byte-limited field. Backend database column and encoded storage budget.",
+        "unit": "utf8",
+        "limit": 16
+      },
+      {
+        "id": "legacy",
+        "description": "Legacy JavaScript web form with HTML maxlength validation counting UTF-16 code units. Browser form input field.",
+        "unit": "utf16",
+        "limit": 12
+      },
+      {
+        "id": "editorial",
+        "description": "Editorial display label with a visible character budget. Human readable typography and grapheme cluster length.",
+        "unit": "grapheme",
+        "limit": 8
+      }
+    ],
+    "records": [
+      {
+        "id": "same",
+        "context": "Editorial display label with a visible character budget. Human readable typography and grapheme cluster length.",
+        "raw": "👩‍💻👩‍💻👩‍💻"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "same",
+      "system": "editorial",
+      "raw": "👩‍💻👩‍💻👩‍💻",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "editorial",
+          "similarity": 0.9999999073754705
+        },
+        {
+          "system": "storage",
+          "similarity": 0.2260976957675265
+        },
+        {
+          "system": "legacy",
+          "similarity": 0.1902376260609227
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "same",
+      "system": "editorial",
+      "raw": "👩‍💻👩‍💻👩‍💻",
+      "unit": "grapheme",
+      "limit": 8,
+      "length": 3,
+      "utf8": 33,
+      "utf16": 15,
+      "grapheme": 3,
+      "candidate": "👩‍💻👩‍💻👩‍💻",
+      "removed": 0,
+      "baselinePass": false,
+      "within": true,
+      "reason": "",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 1,
+    "ready": 1,
+    "held": 0,
+    "blocked": 0,
+    "compared": 1,
+    "baselineMismatch": 1,
+    "edited": 0
+  }
+}

@@ -1,0 +1,180 @@
+ 20261124-5/.gitignore                              |   24 +
+ 20261124-5/.oxlintrc.json                          |    8 +
+ 20261124-5/README.md                               |   65 +
+ 20261124-5/VALIDATION.md                           |   41 +
+ 20261124-5/artifact-test.py                        |   36 +
+ 20261124-5/artifact-validation.json                |   19 +
+ 20261124-5/assembled-artifact-validation.json      |   19 +
+ 20261124-5/assembled-asset-validation.json         |   60 +
+ 20261124-5/assembled-browser-validation.json       |  458 ++++
+ .../assembled-catalog-consumer-validation.json     |    1 +
+ 20261124-5/assembled-export-blocked.json           |  425 +++
+ 20261124-5/assembled-export-duplicate.json         |  267 ++
+ 20261124-5/assembled-export-fixture0.catalog.json  |   30 +
+ 20261124-5/assembled-export-fixture0.csv           |  147 ++
+ 20261124-5/assembled-export-fixture0.json          |  495 ++++
+ 20261124-5/assembled-export-fixture0.md            |   25 +
+ 20261124-5/assembled-export-fixture1.catalog.json  |   23 +
+ 20261124-5/assembled-export-fixture1.csv           |  143 +
+ 20261124-5/assembled-export-fixture1.json          |  497 ++++
+ 20261124-5/assembled-export-fixture1.md            |   25 +
+ 20261124-5/assembled-export-held.catalog.json      |   17 +
+ 20261124-5/assembled-export-held.csv               |  144 +
+ 20261124-5/assembled-export-held.json              |  425 +++
+ 20261124-5/assembled-export-held.md                |   25 +
+ 20261124-5/assembled-export-impact0.json           |  152 ++
+ 20261124-5/assembled-export-impact1.json           |  159 ++
+ 20261124-5/assembled-export-impact2.json           |  165 ++
+ 20261124-5/assembled-export-impact3.json           |  152 ++
+ 20261124-5/assembled-export-max.catalog.json       |  143 +
+ 20261124-5/assembled-export-max.csv                |   49 +
+ 20261124-5/assembled-export-max.json               | 2749 ++++++++++++++++++++
+ 20261124-5/assembled-export-max.md                 |  125 +
+ 20261124-5/assembled-export-resolved.catalog.json  |   15 +
+ 20261124-5/assembled-export-resolved.json          |  189 ++
+ 20261124-5/assembled-export-reviewed.catalog.json  |   23 +
+ 20261124-5/assembled-export-reviewed.csv           |  144 +
+ 20261124-5/assembled-export-reviewed.json          |  497 ++++
+ 20261124-5/assembled-export-reviewed.md            |   25 +
+ 20261124-5/assembled-export-undo.json              |  497 ++++
+ .../assembled-gallery-browser-validation.json      |    1 +
+ 20261124-5/assembled-gallery.png                   |  Bin 0 -> 104102 bytes
+ 20261124-5/assembled-hero-1440.png                 |  Bin 0 -> 186585 bytes
+ 20261124-5/assembled-hero-320.png                  |  Bin 0 -> 59755 bytes
+ 20261124-5/assembled-hero-390.png                  |  Bin 0 -> 69914 bytes
+ 20261124-5/assembled-results-1440.png              |  Bin 0 -> 85429 bytes
+ 20261124-5/assembled-results-320.png               |  Bin 0 -> 44889 bytes
+ 20261124-5/assembled-results-390.png               |  Bin 0 -> 48860 bytes
+ 20261124-5/assembled-review-1440.png               |  Bin 0 -> 142173 bytes
+ 20261124-5/assembled-review-320.png                |  Bin 0 -> 44753 bytes
+ 20261124-5/assembled-review-390.png                |  Bin 0 -> 50353 bytes
+ 20261124-5/asset-test.py                           |   14 +
+ 20261124-5/async-race-test.cjs                     |    1 +
+ 20261124-5/async-race-validation.json              |    1 +
+ 20261124-5/browser-test.cjs                        |   14 +
+ 20261124-5/browser-validation.json                 |  458 ++++
+ 20261124-5/catalog-consumer-test.mjs               |    1 +
+ 20261124-5/catalog-consumer-validation.json        |    1 +
+ 20261124-5/core-test.mjs                           |    8 +
+ 20261124-5/core-validation.json                    |   43 +
+ 20261124-5/defensive-test.cjs                      |    6 +
+ 20261124-5/defensive-validation.json               |   12 +
+ 20261124-5/export-blocked.json                     |  425 +++
+ 20261124-5/export-duplicate.json                   |  267 ++
+ 20261124-5/export-fixture0.catalog.json            |   30 +
+ 20261124-5/export-fixture0.csv                     |  147 ++
+ 20261124-5/export-fixture0.json                    |  495 ++++
+ 20261124-5/export-fixture0.md                      |   25 +
+ 20261124-5/export-fixture1.catalog.json            |   23 +
+ 20261124-5/export-fixture1.csv                     |  143 +
+ 20261124-5/export-fixture1.json                    |  497 ++++
+ 20261124-5/export-fixture1.md                      |   25 +
+ 20261124-5/export-held.catalog.json                |   17 +
+ 20261124-5/export-held.csv                         |  144 +
+ 20261124-5/export-held.json                        |  425 +++
+ 20261124-5/export-held.md                          |   25 +
+ 20261124-5/export-impact0.json                     |  152 ++
+ 20261124-5/export-impact1.json                     |  159 ++
+ 20261124-5/export-impact2.json                     |  165 ++
+ 20261124-5/export-impact3.json                     |  152 ++
+ 20261124-5/export-max.catalog.json                 |  143 +
+ 20261124-5/export-max.csv                          |   49 +
+ 20261124-5/export-max.json                         | 2749 ++++++++++++++++++++
+ 20261124-5/export-max.md                           |  125 +
+ 20261124-5/export-resolved.catalog.json            |   15 +
+ 20261124-5/export-resolved.json                    |  189 ++
+ 20261124-5/export-reviewed.catalog.json            |   23 +
+ 20261124-5/export-reviewed.csv                     |  144 +
+ 20261124-5/export-reviewed.json                    |  497 ++++
+ 20261124-5/export-reviewed.md                      |   25 +
+ 20261124-5/export-undo.json                        |  497 ++++
+ 20261124-5/gallery-before.html                     | 1060 ++++++++
+ 20261124-5/gallery-browser-test.cjs                |    1 +
+ 20261124-5/gallery-test.cjs                        |    1 +
+ 20261124-5/gallery-validation.json                 |    1 +
+ 20261124-5/hero-1440.png                           |  Bin 0 -> 186585 bytes
+ 20261124-5/hero-320.png                            |  Bin 0 -> 59755 bytes
+ 20261124-5/hero-390.png                            |  Bin 0 -> 69914 bytes
+ 20261124-5/idea-audit.json                         |   30 +
+ 20261124-5/index.html                              |    1 +
+ 20261124-5/package-lock.json                       | 1977 ++++++++++++++
+ 20261124-5/package.json                            |   26 +
+ 20261124-5/pages-build-status.json                 |    8 +
+ 20261124-5/pages-workflow-status.json              |    1 +
+ 20261124-5/public-artifact-validation.json         |   19 +
+ 20261124-5/public-asset-validation.json            |   60 +
+ 20261124-5/public-browser-validation.json          |  458 ++++
+ 20261124-5/public-catalog-consumer-validation.json |    1 +
+ 20261124-5/public-export-blocked.json              |  425 +++
+ 20261124-5/public-export-duplicate.json            |  267 ++
+ 20261124-5/public-export-fixture0.catalog.json     |   30 +
+ 20261124-5/public-export-fixture0.csv              |  147 ++
+ 20261124-5/public-export-fixture0.json             |  495 ++++
+ 20261124-5/public-export-fixture0.md               |   25 +
+ 20261124-5/public-export-fixture1.catalog.json     |   23 +
+ 20261124-5/public-export-fixture1.csv              |  143 +
+ 20261124-5/public-export-fixture1.json             |  497 ++++
+ 20261124-5/public-export-fixture1.md               |   25 +
+ 20261124-5/public-export-held.catalog.json         |   17 +
+ 20261124-5/public-export-held.csv                  |  144 +
+ 20261124-5/public-export-held.json                 |  425 +++
+ 20261124-5/public-export-held.md                   |   25 +
+ 20261124-5/public-export-impact0.json              |  152 ++
+ 20261124-5/public-export-impact1.json              |  159 ++
+ 20261124-5/public-export-impact2.json              |  165 ++
+ 20261124-5/public-export-impact3.json              |  152 ++
+ 20261124-5/public-export-max.catalog.json          |  143 +
+ 20261124-5/public-export-max.csv                   |   49 +
+ 20261124-5/public-export-max.json                  | 2749 ++++++++++++++++++++
+ 20261124-5/public-export-max.md                    |  125 +
+ 20261124-5/public-export-resolved.catalog.json     |   15 +
+ 20261124-5/public-export-resolved.json             |  189 ++
+ 20261124-5/public-export-reviewed.catalog.json     |   23 +
+ 20261124-5/public-export-reviewed.csv              |  144 +
+ 20261124-5/public-export-reviewed.json             |  497 ++++
+ 20261124-5/public-export-reviewed.md               |   25 +
+ 20261124-5/public-export-undo.json                 |  497 ++++
+ 20261124-5/public-gallery-browser-validation.json  |    1 +
+ 20261124-5/public-gallery.png                      |  Bin 0 -> 104102 bytes
+ 20261124-5/public-hero-1440.png                    |  Bin 0 -> 186585 bytes
+ 20261124-5/public-hero-320.png                     |  Bin 0 -> 59755 bytes
+ 20261124-5/public-hero-390.png                     |  Bin 0 -> 69914 bytes
+ 20261124-5/public-results-1440.png                 |  Bin 0 -> 85429 bytes
+ 20261124-5/public-results-320.png                  |  Bin 0 -> 44889 bytes
+ 20261124-5/public-results-390.png                  |  Bin 0 -> 48860 bytes
+ 20261124-5/public-review-1440.png                  |  Bin 0 -> 142173 bytes
+ 20261124-5/public-review-320.png                   |  Bin 0 -> 44753 bytes
+ 20261124-5/public-review-390.png                   |  Bin 0 -> 50353 bytes
+ 20261124-5/public/favicon.svg                      |    1 +
+ 20261124-5/public/icons.svg                        |   24 +
+ 20261124-5/publication-check.py                    |    6 +
+ 20261124-5/publication-status.json                 |   28 +
+ 20261124-5/results-1440.png                        |  Bin 0 -> 85429 bytes
+ 20261124-5/results-320.png                         |  Bin 0 -> 44870 bytes
+ 20261124-5/results-390.png                         |  Bin 0 -> 48860 bytes
+ 20261124-5/review-1440.png                         |  Bin 0 -> 173595 bytes
+ 20261124-5/review-320.png                          |  Bin 0 -> 50954 bytes
+ 20261124-5/review-390.png                          |  Bin 0 -> 56362 bytes
+ 20261124-5/root-readme-append.txt                  |    6 +
+ 20261124-5/runtime-provenance.json                 |   17 +
+ 20261124-5/serve.py                                |   19 +
+ 20261124-5/src/App.css                             |   11 +
+ 20261124-5/src/App.jsx                             |   28 +
+ 20261124-5/src/assets/hero.png                     |  Bin 0 -> 13057 bytes
+ 20261124-5/src/assets/react.svg                    |    1 +
+ 20261124-5/src/assets/vite.svg                     |    1 +
+ 20261124-5/src/core.js                             |   38 +
+ 20261124-5/src/index.css                           |    0
+ 20261124-5/src/main.jsx                            |   10 +
+ 20261124-5/stage-source.py                         |   14 +
+ 20261124-5/staged-source-test.cjs                  |    1 +
+ 20261124-5/staged-stat.txt                         |    0
+ 20261124-5/stale-success-test.cjs                  |    1 +
+ 20261124-5/stale-success-validation.json           |    1 +
+ 20261124-5/static-audit.json                       |    5 +
+ 20261124-5/visual-validation.json                  |    1 +
+ 20261124-5/vite.config.js                          |    1 +
+ README.md                                          |    6 +
+ index.html                                         |    3 +-
+ 178 files changed, 28474 insertions(+), 1 deletion(-)
+

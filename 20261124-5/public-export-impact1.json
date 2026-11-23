@@ -1,0 +1,159 @@
+{
+  "version": 1,
+  "app": "Plural Loom",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "uk-shop",
+        "description": "British English storefront, United Kingdom retail website, London customer shopping experience and English language copy.",
+        "locale": "en"
+      },
+      {
+        "id": "warsaw-shop",
+        "description": "Polish language storefront for Poland, Warsaw retail customers and Polish market shopping copy.",
+        "locale": "pl"
+      },
+      {
+        "id": "cairo-shop",
+        "description": "Arabic language storefront for Egypt, Cairo retail customers and Arabic market shopping copy.",
+        "locale": "ar"
+      },
+      {
+        "id": "tokyo-shop",
+        "description": "Japanese language storefront for Japan, Tokyo retail customers and Japanese market shopping copy.",
+        "locale": "ja"
+      }
+    ],
+    "records": [
+      {
+        "id": "same",
+        "context": "Polish language storefront for Poland, Warsaw retail customers and Polish market shopping copy.",
+        "raw": "{\n  \"key\": \"cart.items\",\n  \"forms\": {\n    \"one\": \"{count} item\",\n    \"other\": \"{count} items\"\n  },\n  \"counts\": [\n    0,\n    1,\n    2,\n    3,\n    5,\n    11,\n    21,\n    101,\n    0.5\n  ]\n}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "same",
+      "system": "warsaw-shop",
+      "raw": "{\n  \"key\": \"cart.items\",\n  \"forms\": {\n    \"one\": \"{count} item\",\n    \"other\": \"{count} items\"\n  },\n  \"counts\": [\n    0,\n    1,\n    2,\n    3,\n    5,\n    11,\n    21,\n    101,\n    0.5\n  ]\n}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "warsaw-shop",
+          "similarity": 0.9942579528892953
+        },
+        {
+          "system": "cairo-shop",
+          "similarity": 0.6578816016297749
+        },
+        {
+          "system": "tokyo-shop",
+          "similarity": 0.637864516650983
+        },
+        {
+          "system": "uk-shop",
+          "similarity": 0.5798117152389826
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "same",
+      "system": "warsaw-shop",
+      "raw": "{\n  \"key\": \"cart.items\",\n  \"forms\": {\n    \"one\": \"{count} item\",\n    \"other\": \"{count} items\"\n  },\n  \"counts\": [\n    0,\n    1,\n    2,\n    3,\n    5,\n    11,\n    21,\n    101,\n    0.5\n  ]\n}",
+      "key": "cart.items",
+      "forms": {
+        "one": "{count} item",
+        "other": "{count} items"
+      },
+      "locale": "pl",
+      "required": [
+        "one",
+        "few",
+        "many",
+        "other"
+      ],
+      "witnesses": {
+        "one": 1,
+        "few": 2,
+        "many": 0,
+        "other": 0.1
+      },
+      "previews": [
+        {
+          "count": 0,
+          "category": "many",
+          "text": null,
+          "englishCategory": "other"
+        },
+        {
+          "count": 1,
+          "category": "one",
+          "text": "1 item",
+          "englishCategory": "one"
+        },
+        {
+          "count": 2,
+          "category": "few",
+          "text": null,
+          "englishCategory": "other"
+        },
+        {
+          "count": 3,
+          "category": "few",
+          "text": null,
+          "englishCategory": "other"
+        },
+        {
+          "count": 5,
+          "category": "many",
+          "text": null,
+          "englishCategory": "other"
+        },
+        {
+          "count": 11,
+          "category": "many",
+          "text": null,
+          "englishCategory": "other"
+        },
+        {
+          "count": 21,
+          "category": "many",
+          "text": null,
+          "englishCategory": "other"
+        },
+        {
+          "count": 101,
+          "category": "many",
+          "text": null,
+          "englishCategory": "other"
+        },
+        {
+          "count": 0.5,
+          "category": "other",
+          "text": "0,5 items",
+          "englishCategory": "other"
+        }
+      ],
+      "issues": [
+        "Missing few form.",
+        "Missing many form."
+      ],
+      "baselineMismatch": 7,
+      "status": "blocked",
+      "reason": "Missing few form. Missing many form."
+    }
+  ],
+  "metrics": {
+    "records": 1,
+    "ready": 0,
+    "held": 0,
+    "blocked": 1,
+    "previewCounts": 9,
+    "baselineMismatch": 7,
+    "missingForms": 2
+  }
+}

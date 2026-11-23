@@ -1,0 +1,240 @@
+{
+  "version": 1,
+  "originalInput": {
+    "plans": [
+      {
+        "id": "modern",
+        "description": "Modern web service API JSON Unicode UTF-8 text export for multilingual website content",
+        "kind": "utf-8"
+      },
+      {
+        "id": "legacy",
+        "description": "Legacy Western European Windows desktop ANSI code page 1252 text export from an old office database",
+        "kind": "windows-1252"
+      }
+    ],
+    "records": [
+      {
+        "id": "same-modern",
+        "context": "Modern web service API JSON Unicode UTF-8 multilingual website content",
+        "raw": "c3a9"
+      },
+      {
+        "id": "same-legacy",
+        "context": "Legacy Western European Windows desktop ANSI code page 1252 old office database",
+        "raw": "c3a9"
+      },
+      {
+        "id": "bom",
+        "context": "Modern web service API JSON Unicode UTF-8 multilingual website content",
+        "raw": "efbbbf4869"
+      },
+      {
+        "id": "multiline",
+        "context": "Legacy Western European Windows desktop ANSI code page 1252 old office database",
+        "raw": "413b2242220d0a43e9"
+      },
+      {
+        "id": "overlong",
+        "context": "Modern web service API JSON Unicode UTF-8 multilingual website content",
+        "raw": "c0af"
+      },
+      {
+        "id": "nul",
+        "context": "Legacy Western European Windows desktop ANSI code page 1252 old office database",
+        "raw": "410042"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "same-modern",
+      "system": "modern",
+      "raw": "48 69 0a 22 51 22",
+      "decision": "approve",
+      "note": "=SUM(1,2)\nReviewed \"source\", exactly.",
+      "evidence": [
+        {
+          "system": "modern",
+          "similarity": 0.9539938281081706
+        },
+        {
+          "system": "legacy",
+          "similarity": 0.3276482170778142
+        }
+      ]
+    },
+    {
+      "id": "same-legacy",
+      "system": "legacy",
+      "raw": "c3a9",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "legacy",
+          "similarity": 0.8700681717656242
+        },
+        {
+          "system": "modern",
+          "similarity": 0.2143439768998659
+        }
+      ]
+    },
+    {
+      "id": "bom",
+      "system": "modern",
+      "raw": "efbbbf4869",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "modern",
+          "similarity": 0.9520664819570231
+        },
+        {
+          "system": "legacy",
+          "similarity": 0.3257946922893475
+        }
+      ]
+    },
+    {
+      "id": "multiline",
+      "system": "legacy",
+      "raw": "413b2242220d0a43e9",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "legacy",
+          "similarity": 0.8772431148646999
+        },
+        {
+          "system": "modern",
+          "similarity": 0.21836801972416697
+        }
+      ]
+    },
+    {
+      "id": "overlong",
+      "system": "modern",
+      "raw": "c0af",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "modern",
+          "similarity": 0.9520664819570231
+        },
+        {
+          "system": "legacy",
+          "similarity": 0.3257946922893475
+        }
+      ]
+    },
+    {
+      "id": "nul",
+      "system": "legacy",
+      "raw": "410042",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "legacy",
+          "similarity": 0.8772431148646999
+        },
+        {
+          "system": "modern",
+          "similarity": 0.21836801972416697
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "same-modern",
+      "system": "modern",
+      "raw": "48 69 0a 22 51 22",
+      "kind": "utf-8",
+      "text": "Hi\n\"Q\"",
+      "canonicalHex": "48690a225122",
+      "byteCount": 6,
+      "roundTrip": true,
+      "baselineText": "Hi\n\"Q\"",
+      "baselineReplacementOccurrences": 0,
+      "differentFromBaseline": false,
+      "bom": false,
+      "status": "ready"
+    },
+    {
+      "id": "same-legacy",
+      "system": "legacy",
+      "raw": "c3a9",
+      "kind": "windows-1252",
+      "text": "Ã©",
+      "canonicalHex": "c3a9",
+      "byteCount": 2,
+      "roundTrip": true,
+      "baselineText": "é",
+      "baselineReplacementOccurrences": 0,
+      "differentFromBaseline": true,
+      "bom": false,
+      "status": "ready"
+    },
+    {
+      "id": "bom",
+      "system": "modern",
+      "raw": "efbbbf4869",
+      "kind": "utf-8",
+      "text": "﻿Hi",
+      "canonicalHex": "efbbbf4869",
+      "byteCount": 5,
+      "roundTrip": true,
+      "baselineText": "﻿Hi",
+      "baselineReplacementOccurrences": 0,
+      "differentFromBaseline": false,
+      "bom": true,
+      "status": "ready"
+    },
+    {
+      "id": "multiline",
+      "system": "legacy",
+      "raw": "413b2242220d0a43e9",
+      "kind": "windows-1252",
+      "text": "A;\"B\"\r\nCé",
+      "canonicalHex": "413b2242220d0a43e9",
+      "byteCount": 9,
+      "roundTrip": true,
+      "baselineText": "A;\"B\"\r\nC�",
+      "baselineReplacementOccurrences": 1,
+      "differentFromBaseline": true,
+      "bom": false,
+      "status": "ready"
+    },
+    {
+      "id": "overlong",
+      "system": "modern",
+      "raw": "c0af",
+      "kind": "utf-8",
+      "status": "blocked",
+      "reason": "Malformed UTF-8: no replacement characters were inserted. Correct bytes or hold."
+    },
+    {
+      "id": "nul",
+      "system": "legacy",
+      "raw": "410042",
+      "kind": "windows-1252",
+      "status": "blocked",
+      "reason": "Unsupported control character. Only TAB, CR and LF are permitted."
+    }
+  ],
+  "metrics": {
+    "records": 6,
+    "ready": 4,
+    "held": 0,
+    "blocked": 2,
+    "roundTrips": 4,
+    "changedInterpretations": 2,
+    "baselineReplacementOccurrences": 1
+  }
+}

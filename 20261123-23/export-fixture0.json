@@ -1,0 +1,240 @@
+{
+  "version": 1,
+  "originalInput": {
+    "plans": [
+      {
+        "id": "modern",
+        "description": "Modern web service API JSON Unicode UTF-8 text export for multilingual website content",
+        "kind": "utf-8"
+      },
+      {
+        "id": "legacy",
+        "description": "Legacy Western European Windows desktop ANSI code page 1252 text export from an old office database",
+        "kind": "windows-1252"
+      }
+    ],
+    "records": [
+      {
+        "id": "web-cafe",
+        "context": "Modern web service API JSON Unicode UTF-8 multilingual website content",
+        "raw": "436166c3a9"
+      },
+      {
+        "id": "office-euro",
+        "context": "Legacy Western European Windows desktop ANSI code page 1252 old office database",
+        "raw": "50726963653a2080203130"
+      },
+      {
+        "id": "web-japan",
+        "context": "Web service API modern JSON Unicode UTF-8 multilingual website",
+        "raw": "e697a5e69cac"
+      },
+      {
+        "id": "office-quotes",
+        "context": "Old office database legacy Windows desktop ANSI code page 1252 Western European",
+        "raw": "93486994209720636166e9"
+      },
+      {
+        "id": "truncated",
+        "context": "Modern web service JSON API Unicode UTF-8 text export",
+        "raw": "e282"
+      },
+      {
+        "id": "undefined",
+        "context": "Legacy Western European Windows desktop ANSI code page 1252 office database",
+        "raw": "81"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "web-cafe",
+      "system": "modern",
+      "raw": "436166c3a9",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "modern",
+          "similarity": 0.9539938281081706
+        },
+        {
+          "system": "legacy",
+          "similarity": 0.3276482170778142
+        }
+      ]
+    },
+    {
+      "id": "office-euro",
+      "system": "legacy",
+      "raw": "50726963653a2080203130",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "legacy",
+          "similarity": 0.8700681717656242
+        },
+        {
+          "system": "modern",
+          "similarity": 0.2143439768998659
+        }
+      ]
+    },
+    {
+      "id": "web-japan",
+      "system": "modern",
+      "raw": "e697a5e69cac",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "modern",
+          "similarity": 0.9377555398037204
+        },
+        {
+          "system": "legacy",
+          "similarity": 0.3203229848431239
+        }
+      ]
+    },
+    {
+      "id": "office-quotes",
+      "system": "legacy",
+      "raw": "93486994209720636166e9",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "legacy",
+          "similarity": 0.8470097792077027
+        },
+        {
+          "system": "modern",
+          "similarity": 0.16219050953376102
+        }
+      ]
+    },
+    {
+      "id": "truncated",
+      "system": "modern",
+      "raw": "e282",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "modern",
+          "similarity": 0.9261546217597966
+        },
+        {
+          "system": "legacy",
+          "similarity": 0.41170050020428545
+        }
+      ]
+    },
+    {
+      "id": "undefined",
+      "system": "legacy",
+      "raw": "81",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "legacy",
+          "similarity": 0.8734199403976334
+        },
+        {
+          "system": "modern",
+          "similarity": 0.24240174969117922
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "web-cafe",
+      "system": "modern",
+      "raw": "436166c3a9",
+      "kind": "utf-8",
+      "text": "Café",
+      "canonicalHex": "436166c3a9",
+      "byteCount": 5,
+      "roundTrip": true,
+      "baselineText": "Café",
+      "baselineReplacementOccurrences": 0,
+      "differentFromBaseline": false,
+      "bom": false,
+      "status": "ready"
+    },
+    {
+      "id": "office-euro",
+      "system": "legacy",
+      "raw": "50726963653a2080203130",
+      "kind": "windows-1252",
+      "text": "Price: € 10",
+      "canonicalHex": "50726963653a2080203130",
+      "byteCount": 11,
+      "roundTrip": true,
+      "baselineText": "Price: � 10",
+      "baselineReplacementOccurrences": 1,
+      "differentFromBaseline": true,
+      "bom": false,
+      "status": "ready"
+    },
+    {
+      "id": "web-japan",
+      "system": "modern",
+      "raw": "e697a5e69cac",
+      "kind": "utf-8",
+      "text": "日本",
+      "canonicalHex": "e697a5e69cac",
+      "byteCount": 6,
+      "roundTrip": true,
+      "baselineText": "日本",
+      "baselineReplacementOccurrences": 0,
+      "differentFromBaseline": false,
+      "bom": false,
+      "status": "ready"
+    },
+    {
+      "id": "office-quotes",
+      "system": "legacy",
+      "raw": "93486994209720636166e9",
+      "kind": "windows-1252",
+      "text": "“Hi” — café",
+      "canonicalHex": "93486994209720636166e9",
+      "byteCount": 11,
+      "roundTrip": true,
+      "baselineText": "�Hi� � caf�",
+      "baselineReplacementOccurrences": 4,
+      "differentFromBaseline": true,
+      "bom": false,
+      "status": "ready"
+    },
+    {
+      "id": "truncated",
+      "system": "modern",
+      "raw": "e282",
+      "kind": "utf-8",
+      "status": "blocked",
+      "reason": "Malformed UTF-8: no replacement characters were inserted. Correct bytes or hold."
+    },
+    {
+      "id": "undefined",
+      "system": "legacy",
+      "raw": "81",
+      "kind": "windows-1252",
+      "status": "blocked",
+      "reason": "Undefined Windows-1252 byte 81. Correct bytes or hold."
+    }
+  ],
+  "metrics": {
+    "records": 6,
+    "ready": 4,
+    "held": 0,
+    "blocked": 2,
+    "roundTrips": 4,
+    "changedInterpretations": 2,
+    "baselineReplacementOccurrences": 5
+  }
+}

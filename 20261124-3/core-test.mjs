@@ -1,0 +1,8 @@
+import a from 'node:assert/strict';import fs from 'node:fs';import{plans,examples,parse,suggest,decode,analyze}from'./src/core.js';let assertions=0;const ok=x=>{a(x);assertions++},throws=f=>{a.throws(f);assertions++};
+for(const e of examples){parse(JSON.stringify(e.data));const rows=e.data.records.map((r,i)=>({...r,system:e.expected[i],decision:'approve',note:''})),r=analyze(e.data,rows);a.deepEqual(r.checks.map(c=>c.cents??null),e.cents);assertions++;ok(r.metrics.records===r.metrics.ready+r.metrics.blocked+r.metrics.held);throws(()=>analyze(e.data,rows.map(r=>({...r,decision:'pending'}))));}
+for(const raw of['','1,000','1e3','NaN','Infinity','01.00',' 1.00','1.','١.٢','1\n2','-','+','2.1234567890123','1'.repeat(25)])for(const p of plans) throws(()=>decode(raw,p));
+for(const x of['-0','+0.00','0.000000000001','-0.000000000001','999999999999999999999999.999999999999'])for(const p of plans)ok(decode(x,p).exactVerified);
+for(const s of['null','{}','[]','not json','x'.repeat(24001)])throws(()=>parse(s));for(const v of[null,[],[[NaN]],Array(9).fill(Array(384).fill(0))])throws(()=>suggest(examples[0].data,v));
+const corpus=[];for(let n=-3000;n<=3000;n+=7)for(const p of plans){const raw=(n/1000).toFixed(3),r=decode(raw,p);corpus.push({raw,mode:p.mode,...r});ok(r.exactVerified)}
+for(const raw of['9007199254740993.125','-999999999999999999999999.999999999999','1.005','-1.005','1.015','-1.015'])for(const p of plans)corpus.push({raw,mode:p.mode,...decode(raw,p)});
+fs.writeFileSync('arithmetic-corpus.json',JSON.stringify(corpus));fs.writeFileSync('core-validation.json',JSON.stringify({assertions,independentDecimalCorpus:corpus.length},null,2));console.log('PASS core',assertions,corpus.length);

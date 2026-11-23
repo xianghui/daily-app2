@@ -1,0 +1,83 @@
+{
+  "version": 1,
+  "minorUnitDigits": 2,
+  "originalInput": {
+    "plans": [
+      {
+        "id": "bank-even",
+        "description": "Bank settlement reconciliation uses nearest cent rounding with ties to even: an exact half cent chooses the even integer minor unit.",
+        "mode": "half-even"
+      },
+      {
+        "id": "merchant-away",
+        "description": "Merchant invoice line amounts use nearest cent rounding with exact half cents rounded away from zero, including negative refund lines.",
+        "mode": "half-away"
+      },
+      {
+        "id": "ledger-cut",
+        "description": "Legacy ledger import truncates all fractional cents toward zero, discarding the fraction without rounding up for positive or negative amounts.",
+        "mode": "truncate"
+      }
+    ],
+    "records": [
+      {
+        "id": "same",
+        "context": "Merchant invoice line amounts use nearest cent rounding with exact half cents rounded away from zero, including negative refund lines.",
+        "raw": "1.005"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "same",
+      "system": "merchant-away",
+      "raw": "1.005",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "merchant-away",
+          "similarity": 0.9999999145299489
+        },
+        {
+          "system": "bank-even",
+          "similarity": 0.5924944360612338
+        },
+        {
+          "system": "ledger-cut",
+          "similarity": 0.5858953723430036
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "same",
+      "system": "merchant-away",
+      "raw": "1.005",
+      "cents": "101",
+      "amount": "1.01",
+      "residual": "0.005",
+      "quotient": "100",
+      "remainder": "500",
+      "denominator": "1000",
+      "tie": true,
+      "increment": true,
+      "baseline": "100",
+      "differs": true,
+      "exactVerified": true,
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 1,
+    "ready": 1,
+    "held": 0,
+    "blocked": 0,
+    "ties": 1,
+    "differences": 1,
+    "baselineComparable": 1,
+    "baselineUnavailable": 0,
+    "totalCents": "101"
+  }
+}

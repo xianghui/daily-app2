@@ -1,0 +1,8 @@
+"id","source_context","original_amount","reviewed_amount","policy","decision","status","cents","fixed_amount","residual","baseline_cents","reason","review_note"
+"bank-refund","Clearing bank settlement values: nearest minor unit, exact halfway selects an even number of cents.","-2.685","-3.005","bank-even","hold","held","","","","","Reviewer hold","'=SUM(1,2)
+Reviewed ""contract"", exactly."
+"invoice-refund","Customer credit note on a merchant invoice: nearest cents, tie values go away from zero even for a refund.","-2.685","-2.685","merchant-away","approve","ready","-269","-2.69","-0.005","-268","",""
+"legacy-credit","Old ledger converter drops every sub-cent fraction toward zero; it never rounds to the next cent.","-2.6899","-2.6899","ledger-cut","approve","ready","-268","-2.68","0.0099","-269","",""
+"large-exact","Bank financial reconciliation with nearest-cent rounding and even-number half-cent tie handling.","9007199254740993.125","9007199254740993.125","bank-even","approve","ready","900719925474099312","9007199254740993.12","-0.005","","",""
+"small-credit","Merchant invoice payment amount: nearest cent, exact halves away from zero for debits and credits.","-0.005","-0.005","merchant-away","approve","ready","-1","-0.01","-0.005","0","",""
+"bad-exponent","Legacy ledger migration strips fractional cents toward zero instead of rounding.","1e3","1e3","ledger-cut","approve","blocked","","","","","Use ASCII decimal notation: ≤24 integer digits, ≤12 fractional digits; no grouping, exponent, spaces or currency.",""

@@ -1,0 +1,308 @@
+{
+  "schema": "byte-loom/1",
+  "appliedAt": "2026-11-23T04:07:32.477Z",
+  "originalInput": {
+    "title": "Synthetic archived integer migration",
+    "profiles": [
+      {
+        "id": "balance",
+        "description": "Archived account credit balance signed four byte big endian integer",
+        "bytes": 4,
+        "endian": "BE",
+        "signed": true,
+        "min": -100000,
+        "max": 100000
+      },
+      {
+        "id": "visitors",
+        "description": "Museum visitor cumulative count unsigned four byte big endian integer",
+        "bytes": 4,
+        "endian": "BE",
+        "signed": false,
+        "min": 0,
+        "max": 10000000
+      },
+      {
+        "id": "offset",
+        "description": "Audio calibration sample offset signed two byte little endian integer",
+        "bytes": 2,
+        "endian": "LE",
+        "signed": true,
+        "min": -32768,
+        "max": 32767
+      }
+    ],
+    "records": [
+      {
+        "id": "a",
+        "note": "Archived account credit balance",
+        "value": "FF FF FC 18"
+      },
+      {
+        "id": "b",
+        "note": "Museum cumulative visitor count",
+        "value": "00 01 00 00"
+      },
+      {
+        "id": "c",
+        "note": "Audio calibration sample offset",
+        "value": "00 80"
+      },
+      {
+        "id": "d",
+        "note": "Signed archived credit account balance",
+        "value": "00 00 00 7D"
+      },
+      {
+        "id": "e",
+        "note": "Cumulative count of museum visitors",
+        "value": "00 00 00 01"
+      },
+      {
+        "id": "f",
+        "note": "Calibration sample offset for audio",
+        "value": "7F 00"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "text": "Archived account credit balance",
+      "resource": "balance",
+      "aiResource": "balance",
+      "evidence": [
+        {
+          "resource": "balance",
+          "score": 0.6631096626933883
+        },
+        {
+          "resource": "visitors",
+          "score": 0.1728174405920398
+        },
+        {
+          "resource": "offset",
+          "score": 0.06480603055129781
+        }
+      ],
+      "value": "FF FF\nFC 19",
+      "decision": "approve",
+      "note": "=SUM(1,2)\nChecked \"source\", raw."
+    },
+    {
+      "index": 1,
+      "text": "Museum cumulative visitor count",
+      "resource": "visitors",
+      "aiResource": "visitors",
+      "evidence": [
+        {
+          "resource": "visitors",
+          "score": 0.6274653351167586
+        },
+        {
+          "resource": "balance",
+          "score": 0.20954702372561984
+        },
+        {
+          "resource": "offset",
+          "score": 0.01299950069415459
+        }
+      ],
+      "value": "00 01 00 00",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "text": "Audio calibration sample offset",
+      "resource": "offset",
+      "aiResource": "offset",
+      "evidence": [
+        {
+          "resource": "offset",
+          "score": 0.7537809512102465
+        },
+        {
+          "resource": "balance",
+          "score": 0.1009940424092606
+        },
+        {
+          "resource": "visitors",
+          "score": 0.06587621842094994
+        }
+      ],
+      "value": "00 80",
+      "decision": "reject",
+      "note": ""
+    },
+    {
+      "index": 3,
+      "text": "Signed archived credit account balance",
+      "resource": "balance",
+      "aiResource": "balance",
+      "evidence": [
+        {
+          "resource": "balance",
+          "score": 0.6912247109368127
+        },
+        {
+          "resource": "visitors",
+          "score": 0.19998367596525835
+        },
+        {
+          "resource": "offset",
+          "score": 0.14954732110141558
+        }
+      ],
+      "value": "00 00 00 7D",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 4,
+      "text": "Cumulative count of museum visitors",
+      "resource": "visitors",
+      "aiResource": "visitors",
+      "evidence": [
+        {
+          "resource": "visitors",
+          "score": 0.5773942463793049
+        },
+        {
+          "resource": "balance",
+          "score": 0.14978280405800778
+        },
+        {
+          "resource": "offset",
+          "score": 0.0020185621972156264
+        }
+      ],
+      "value": "00 00 00 01",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 5,
+      "text": "Calibration sample offset for audio",
+      "resource": "offset",
+      "aiResource": "offset",
+      "evidence": [
+        {
+          "resource": "offset",
+          "score": 0.7493043100433332
+        },
+        {
+          "resource": "balance",
+          "score": 0.09280360371730353
+        },
+        {
+          "resource": "visitors",
+          "score": 0.06373209169254311
+        }
+      ],
+      "value": "7F 00",
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "analysis": {
+    "checks": [
+      {
+        "index": 0,
+        "id": "a",
+        "profile": "balance",
+        "layout": "i32BE",
+        "hex": "FF FF\nFC 19",
+        "status": "decoded",
+        "value": -999,
+        "canonical": "FF FF FC 19",
+        "roundTrip": true,
+        "baseline": 436011007,
+        "different": true,
+        "min": -100000,
+        "max": 100000,
+        "reason": "Reviewed layout; byte-exact re-encoding and supplied range checks pass."
+      },
+      {
+        "index": 1,
+        "id": "b",
+        "profile": "visitors",
+        "layout": "u32BE",
+        "hex": "00 01 00 00",
+        "status": "decoded",
+        "value": 65536,
+        "canonical": "00 01 00 00",
+        "roundTrip": true,
+        "baseline": 256,
+        "different": true,
+        "min": 0,
+        "max": 10000000,
+        "reason": "Reviewed layout; byte-exact re-encoding and supplied range checks pass."
+      },
+      {
+        "index": 2,
+        "id": "c",
+        "profile": "offset",
+        "layout": "i16LE",
+        "hex": "00 80",
+        "status": "held",
+        "value": null,
+        "baseline": null,
+        "reason": "Held by reviewer; retained in complete audit, excluded from release."
+      },
+      {
+        "index": 3,
+        "id": "d",
+        "profile": "balance",
+        "layout": "i32BE",
+        "hex": "00 00 00 7D",
+        "status": "decoded",
+        "value": 125,
+        "canonical": "00 00 00 7D",
+        "roundTrip": true,
+        "baseline": 2097152000,
+        "different": true,
+        "min": -100000,
+        "max": 100000,
+        "reason": "Reviewed layout; byte-exact re-encoding and supplied range checks pass."
+      },
+      {
+        "index": 4,
+        "id": "e",
+        "profile": "visitors",
+        "layout": "u32BE",
+        "hex": "00 00 00 01",
+        "status": "decoded",
+        "value": 1,
+        "canonical": "00 00 00 01",
+        "roundTrip": true,
+        "baseline": 16777216,
+        "different": true,
+        "min": 0,
+        "max": 10000000,
+        "reason": "Reviewed layout; byte-exact re-encoding and supplied range checks pass."
+      },
+      {
+        "index": 5,
+        "id": "f",
+        "profile": "offset",
+        "layout": "i16LE",
+        "hex": "7F 00",
+        "status": "decoded",
+        "value": 127,
+        "canonical": "7F 00",
+        "roundTrip": true,
+        "baseline": 127,
+        "different": false,
+        "min": -32768,
+        "max": 32767,
+        "reason": "Reviewed layout; byte-exact re-encoding and supplied range checks pass."
+      }
+    ],
+    "decoded": 5,
+    "held": 1,
+    "invalid": 0,
+    "different": 4,
+    "compared": 5
+  }
+}

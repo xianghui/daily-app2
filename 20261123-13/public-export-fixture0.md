@@ -1,0 +1,346 @@
+# Synthetic sensor register import
+
+cold-A [decoded] temperature / i16BE
+"FF F6" → -10
+Reviewed layout; byte-exact re-encoding and supplied range checks pass.
+
+water-A [decoded] pulse / u32LE
+"E8 03 00 00" → 1000
+Reviewed layout; byte-exact re-encoding and supplied range checks pass.
+
+vibe-A [decoded] vibration / i16LE
+"80 FF" → -128
+Reviewed layout; byte-exact re-encoding and supplied range checks pass.
+
+cold-B [decoded] temperature / i16BE
+"00 FA" → 250
+Reviewed layout; byte-exact re-encoding and supplied range checks pass.
+
+water-B [decoded] pulse / u32LE
+"00 00 01 00" → 65536
+Reviewed layout; byte-exact re-encoding and supplied range checks pass.
+
+vibe-B [range] vibration / i16LE
+"FF 7F" → 32767
+Decoded exactly, but outside supplied range [-30000, 30000]; held from release.
+
+## Complete source and review audit
+
+```json
+
+{
+  "schema": "byte-loom/1",
+  "appliedAt": "2026-11-23T04:10:34.385Z",
+  "originalInput": {
+    "title": "Synthetic sensor register import",
+    "profiles": [
+      {
+        "id": "temperature",
+        "description": "Cold room temperature sensor signed two byte big endian reading",
+        "bytes": 2,
+        "endian": "BE",
+        "signed": true,
+        "min": -500,
+        "max": 1000
+      },
+      {
+        "id": "pulse",
+        "description": "Water meter cumulative pulse counter unsigned four byte little endian reading",
+        "bytes": 4,
+        "endian": "LE",
+        "signed": false,
+        "min": 0,
+        "max": 10000000
+      },
+      {
+        "id": "vibration",
+        "description": "Vibration accelerometer signed two byte little endian reading",
+        "bytes": 2,
+        "endian": "LE",
+        "signed": true,
+        "min": -30000,
+        "max": 30000
+      }
+    ],
+    "records": [
+      {
+        "id": "cold-A",
+        "note": "Cold room temperature sensor reading",
+        "value": "FF F6"
+      },
+      {
+        "id": "water-A",
+        "note": "Cumulative water meter pulse counter",
+        "value": "E8 03 00 00"
+      },
+      {
+        "id": "vibe-A",
+        "note": "Vibration accelerometer reading",
+        "value": "80 FF"
+      },
+      {
+        "id": "cold-B",
+        "note": "Temperature sensor in the cold room",
+        "value": "00 FA"
+      },
+      {
+        "id": "water-B",
+        "note": "Water meter cumulative pulse register",
+        "value": "00 00 01 00"
+      },
+      {
+        "id": "vibe-B",
+        "note": "Signed vibration accelerometer reading",
+        "value": "FF 7F"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "text": "Cold room temperature sensor reading",
+      "resource": "temperature",
+      "aiResource": "temperature",
+      "evidence": [
+        {
+          "resource": "temperature",
+          "score": 0.6978137320215061
+        },
+        {
+          "resource": "pulse",
+          "score": 0.3528372168599686
+        },
+        {
+          "resource": "vibration",
+          "score": 0.3283757327632169
+        }
+      ],
+      "value": "FF F6",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 1,
+      "text": "Cumulative water meter pulse counter",
+      "resource": "pulse",
+      "aiResource": "pulse",
+      "evidence": [
+        {
+          "resource": "pulse",
+          "score": 0.765913410519068
+        },
+        {
+          "resource": "vibration",
+          "score": 0.2471954263662128
+        },
+        {
+          "resource": "temperature",
+          "score": 0.18451739582008567
+        }
+      ],
+      "value": "E8 03 00 00",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "text": "Vibration accelerometer reading",
+      "resource": "vibration",
+      "aiResource": "vibration",
+      "evidence": [
+        {
+          "resource": "vibration",
+          "score": 0.7159150012878012
+        },
+        {
+          "resource": "pulse",
+          "score": 0.3654450988811644
+        },
+        {
+          "resource": "temperature",
+          "score": 0.21513219104781606
+        }
+      ],
+      "value": "80 FF",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 3,
+      "text": "Temperature sensor in the cold room",
+      "resource": "temperature",
+      "aiResource": "temperature",
+      "evidence": [
+        {
+          "resource": "temperature",
+          "score": 0.586172081238704
+        },
+        {
+          "resource": "pulse",
+          "score": 0.18903966397435218
+        },
+        {
+          "resource": "vibration",
+          "score": 0.17217600152691895
+        }
+      ],
+      "value": "00 FA",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 4,
+      "text": "Water meter cumulative pulse register",
+      "resource": "pulse",
+      "aiResource": "pulse",
+      "evidence": [
+        {
+          "resource": "pulse",
+          "score": 0.7800514336367109
+        },
+        {
+          "resource": "vibration",
+          "score": 0.30290086912956826
+        },
+        {
+          "resource": "temperature",
+          "score": 0.21438527802251256
+        }
+      ],
+      "value": "00 00 01 00",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 5,
+      "text": "Signed vibration accelerometer reading",
+      "resource": "vibration",
+      "aiResource": "vibration",
+      "evidence": [
+        {
+          "resource": "vibration",
+          "score": 0.7954830710402845
+        },
+        {
+          "resource": "pulse",
+          "score": 0.4042523671023184
+        },
+        {
+          "resource": "temperature",
+          "score": 0.38826637153100146
+        }
+      ],
+      "value": "FF 7F",
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "analysis": {
+    "checks": [
+      {
+        "index": 0,
+        "id": "cold-A",
+        "profile": "temperature",
+        "layout": "i16BE",
+        "hex": "FF F6",
+        "status": "decoded",
+        "value": -10,
+        "canonical": "FF F6",
+        "roundTrip": true,
+        "baseline": 63231,
+        "different": true,
+        "min": -500,
+        "max": 1000,
+        "reason": "Reviewed layout; byte-exact re-encoding and supplied range checks pass."
+      },
+      {
+        "index": 1,
+        "id": "water-A",
+        "profile": "pulse",
+        "layout": "u32LE",
+        "hex": "E8 03 00 00",
+        "status": "decoded",
+        "value": 1000,
+        "canonical": "E8 03 00 00",
+        "roundTrip": true,
+        "baseline": 1000,
+        "different": false,
+        "min": 0,
+        "max": 10000000,
+        "reason": "Reviewed layout; byte-exact re-encoding and supplied range checks pass."
+      },
+      {
+        "index": 2,
+        "id": "vibe-A",
+        "profile": "vibration",
+        "layout": "i16LE",
+        "hex": "80 FF",
+        "status": "decoded",
+        "value": -128,
+        "canonical": "80 FF",
+        "roundTrip": true,
+        "baseline": 65408,
+        "different": true,
+        "min": -30000,
+        "max": 30000,
+        "reason": "Reviewed layout; byte-exact re-encoding and supplied range checks pass."
+      },
+      {
+        "index": 3,
+        "id": "cold-B",
+        "profile": "temperature",
+        "layout": "i16BE",
+        "hex": "00 FA",
+        "status": "decoded",
+        "value": 250,
+        "canonical": "00 FA",
+        "roundTrip": true,
+        "baseline": 64000,
+        "different": true,
+        "min": -500,
+        "max": 1000,
+        "reason": "Reviewed layout; byte-exact re-encoding and supplied range checks pass."
+      },
+      {
+        "index": 4,
+        "id": "water-B",
+        "profile": "pulse",
+        "layout": "u32LE",
+        "hex": "00 00 01 00",
+        "status": "decoded",
+        "value": 65536,
+        "canonical": "00 00 01 00",
+        "roundTrip": true,
+        "baseline": 65536,
+        "different": false,
+        "min": 0,
+        "max": 10000000,
+        "reason": "Reviewed layout; byte-exact re-encoding and supplied range checks pass."
+      },
+      {
+        "index": 5,
+        "id": "vibe-B",
+        "profile": "vibration",
+        "layout": "i16LE",
+        "hex": "FF 7F",
+        "status": "range",
+        "value": 32767,
+        "canonical": "FF 7F",
+        "roundTrip": true,
+        "baseline": 32767,
+        "different": false,
+        "min": -30000,
+        "max": 30000,
+        "reason": "Decoded exactly, but outside supplied range [-30000, 30000]; held from release."
+      }
+    ],
+    "decoded": 5,
+    "held": 0,
+    "invalid": 1,
+    "different": 3,
+    "compared": 6
+  }
+}
+
+```
+

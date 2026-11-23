@@ -1,0 +1,598 @@
+{
+  "fixtures": [
+    {
+      "name": "Sensor intake",
+      "actual": [
+        "temperature",
+        "pulse",
+        "vibration",
+        "temperature",
+        "pulse",
+        "vibration"
+      ],
+      "expected": [
+        "temperature",
+        "pulse",
+        "vibration",
+        "temperature",
+        "pulse",
+        "vibration"
+      ],
+      "correct": 6,
+      "analysis": {
+        "checks": [
+          {
+            "index": 0,
+            "id": "cold-A",
+            "profile": "temperature",
+            "layout": "i16BE",
+            "hex": "FF F6",
+            "status": "decoded",
+            "value": -10,
+            "canonical": "FF F6",
+            "roundTrip": true,
+            "baseline": 63231,
+            "different": true,
+            "min": -500,
+            "max": 1000,
+            "reason": "Reviewed layout; byte-exact re-encoding and supplied range checks pass."
+          },
+          {
+            "index": 1,
+            "id": "water-A",
+            "profile": "pulse",
+            "layout": "u32LE",
+            "hex": "E8 03 00 00",
+            "status": "decoded",
+            "value": 1000,
+            "canonical": "E8 03 00 00",
+            "roundTrip": true,
+            "baseline": 1000,
+            "different": false,
+            "min": 0,
+            "max": 10000000,
+            "reason": "Reviewed layout; byte-exact re-encoding and supplied range checks pass."
+          },
+          {
+            "index": 2,
+            "id": "vibe-A",
+            "profile": "vibration",
+            "layout": "i16LE",
+            "hex": "80 FF",
+            "status": "decoded",
+            "value": -128,
+            "canonical": "80 FF",
+            "roundTrip": true,
+            "baseline": 65408,
+            "different": true,
+            "min": -30000,
+            "max": 30000,
+            "reason": "Reviewed layout; byte-exact re-encoding and supplied range checks pass."
+          },
+          {
+            "index": 3,
+            "id": "cold-B",
+            "profile": "temperature",
+            "layout": "i16BE",
+            "hex": "00 FA",
+            "status": "decoded",
+            "value": 250,
+            "canonical": "00 FA",
+            "roundTrip": true,
+            "baseline": 64000,
+            "different": true,
+            "min": -500,
+            "max": 1000,
+            "reason": "Reviewed layout; byte-exact re-encoding and supplied range checks pass."
+          },
+          {
+            "index": 4,
+            "id": "water-B",
+            "profile": "pulse",
+            "layout": "u32LE",
+            "hex": "00 00 01 00",
+            "status": "decoded",
+            "value": 65536,
+            "canonical": "00 00 01 00",
+            "roundTrip": true,
+            "baseline": 65536,
+            "different": false,
+            "min": 0,
+            "max": 10000000,
+            "reason": "Reviewed layout; byte-exact re-encoding and supplied range checks pass."
+          },
+          {
+            "index": 5,
+            "id": "vibe-B",
+            "profile": "vibration",
+            "layout": "i16LE",
+            "hex": "FF 7F",
+            "status": "range",
+            "value": 32767,
+            "canonical": "FF 7F",
+            "roundTrip": true,
+            "baseline": 32767,
+            "different": false,
+            "min": -30000,
+            "max": 30000,
+            "reason": "Decoded exactly, but outside supplied range [-30000, 30000]; held from release."
+          }
+        ],
+        "decoded": 5,
+        "held": 0,
+        "invalid": 1,
+        "different": 3,
+        "compared": 6
+      }
+    },
+    {
+      "name": "Archive migration",
+      "actual": [
+        "balance",
+        "visitors",
+        "offset",
+        "balance",
+        "visitors",
+        "offset"
+      ],
+      "expected": [
+        "balance",
+        "visitors",
+        "offset",
+        "balance",
+        "visitors",
+        "offset"
+      ],
+      "correct": 6,
+      "analysis": {
+        "checks": [
+          {
+            "index": 0,
+            "id": "a",
+            "profile": "balance",
+            "layout": "i32BE",
+            "hex": "FF FF FC 18",
+            "status": "decoded",
+            "value": -1000,
+            "canonical": "FF FF FC 18",
+            "roundTrip": true,
+            "baseline": 419233791,
+            "different": true,
+            "min": -100000,
+            "max": 100000,
+            "reason": "Reviewed layout; byte-exact re-encoding and supplied range checks pass."
+          },
+          {
+            "index": 1,
+            "id": "b",
+            "profile": "visitors",
+            "layout": "u32BE",
+            "hex": "00 01 00 00",
+            "status": "decoded",
+            "value": 65536,
+            "canonical": "00 01 00 00",
+            "roundTrip": true,
+            "baseline": 256,
+            "different": true,
+            "min": 0,
+            "max": 10000000,
+            "reason": "Reviewed layout; byte-exact re-encoding and supplied range checks pass."
+          },
+          {
+            "index": 2,
+            "id": "c",
+            "profile": "offset",
+            "layout": "i16LE",
+            "hex": "00 80",
+            "status": "decoded",
+            "value": -32768,
+            "canonical": "00 80",
+            "roundTrip": true,
+            "baseline": 32768,
+            "different": true,
+            "min": -32768,
+            "max": 32767,
+            "reason": "Reviewed layout; byte-exact re-encoding and supplied range checks pass."
+          },
+          {
+            "index": 3,
+            "id": "d",
+            "profile": "balance",
+            "layout": "i32BE",
+            "hex": "00 00 00 7D",
+            "status": "decoded",
+            "value": 125,
+            "canonical": "00 00 00 7D",
+            "roundTrip": true,
+            "baseline": 2097152000,
+            "different": true,
+            "min": -100000,
+            "max": 100000,
+            "reason": "Reviewed layout; byte-exact re-encoding and supplied range checks pass."
+          },
+          {
+            "index": 4,
+            "id": "e",
+            "profile": "visitors",
+            "layout": "u32BE",
+            "hex": "00 00 00 01",
+            "status": "decoded",
+            "value": 1,
+            "canonical": "00 00 00 01",
+            "roundTrip": true,
+            "baseline": 16777216,
+            "different": true,
+            "min": 0,
+            "max": 10000000,
+            "reason": "Reviewed layout; byte-exact re-encoding and supplied range checks pass."
+          },
+          {
+            "index": 5,
+            "id": "f",
+            "profile": "offset",
+            "layout": "i16LE",
+            "hex": "7F 00",
+            "status": "decoded",
+            "value": 127,
+            "canonical": "7F 00",
+            "roundTrip": true,
+            "baseline": 127,
+            "different": false,
+            "min": -32768,
+            "max": 32767,
+            "reason": "Reviewed layout; byte-exact re-encoding and supplied range checks pass."
+          }
+        ],
+        "decoded": 6,
+        "held": 0,
+        "invalid": 0,
+        "different": 5,
+        "compared": 6
+      }
+    }
+  ],
+  "checks": [
+    "Review edit/reset, hold, originals, multiline hex/notes, undo, clipboard",
+    "Actual fresh-worker offline inference in already-open warmed production page",
+    "Maximum 8 profiles / 24 records / 32 real embeddings in eight chunks and audit reimport",
+    "Real cancel and successful retry",
+    "Actual artifacts; labels/focus/44px controls; 1440/390/320 no overflow; bad inputs/files; GET-only downloads without content"
+  ],
+  "negationProbe": {
+    "proposed": "pulse",
+    "decision": "pending",
+    "intended": "temperature"
+  },
+  "requests": [
+    {
+      "host": "127.0.0.1:7392",
+      "path": "/daily-app2/20261123-13/",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7392",
+      "path": "/daily-app2/20261123-13/assets/index-De92NcjK.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7392",
+      "path": "/daily-app2/20261123-13/assets/index-DY6yAcaW.css",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7392",
+      "path": "/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/853ef91a-c069-451a-a2da-c78b42deb97f",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7392",
+      "path": "/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7392",
+      "path": "/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "X-Xet-Cas-Uid",
+        "response-content-disposition",
+        "user_id",
+        "xip",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "response-content-disposition",
+        "X-Xet-Cas-Uid",
+        "user_id",
+        "xip",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/dbee0c24-aa26-4a65-988f-4320725214ee",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/25971b11-85cc-4613-90a9-031a662d5757",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/034cfc1a-eb81-4fb5-a26d-e16e471ef8ef",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/5772528f-9edb-4fad-ad78-e89f6551c94d",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/7ae8a657-1751-47ee-9bb9-dedcc1d9b361",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/c8cff103-967a-4519-bcc6-fddb7cb8bd9e",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/8c276e15-a311-4900-a135-d1c220acd261",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/5fd8292d-e525-4626-829e-04a6bf33d567",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/25115f1c-e802-4b1c-b156-65d3fbe59d36",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/af0f2e9c-2043-4388-b49f-613ed52745e1",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/cc1b2e55-a7f0-4cef-8e6d-a80acc35036c",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/334a8536-9555-48d6-85fa-d88679252071",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/b65b6b86-6171-46ea-aff9-4370da46411b",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/63de658f-f1dc-4386-824b-f14efe78a4b2",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/4768c4e2-e1cf-4d86-af75-1acf9318ab6f",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/8879be76-38da-4c1a-aaa6-fa47e40eedcc",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/f99a7819-beb7-437a-ba7e-c317b0c03856",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/938d24c3-c778-49cd-a03a-170b7ce7024b",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/2d07d44d-ad9e-40a6-aff4-7ca3093e75bc",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/8f5952f6-4c77-4fb3-9fbb-38eb94136c63",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7392/4fa41b31-fa88-4d24-a0a1-df7298259b31",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    }
+  ],
+  "errors": []
+}

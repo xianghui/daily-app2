@@ -1,0 +1,598 @@
+{
+  "fixtures": [
+    {
+      "name": "Sensor intake",
+      "actual": [
+        "temperature",
+        "pulse",
+        "vibration",
+        "temperature",
+        "pulse",
+        "vibration"
+      ],
+      "expected": [
+        "temperature",
+        "pulse",
+        "vibration",
+        "temperature",
+        "pulse",
+        "vibration"
+      ],
+      "correct": 6,
+      "analysis": {
+        "checks": [
+          {
+            "index": 0,
+            "id": "cold-A",
+            "profile": "temperature",
+            "layout": "i16BE",
+            "hex": "FF F6",
+            "status": "decoded",
+            "value": -10,
+            "canonical": "FF F6",
+            "roundTrip": true,
+            "baseline": 63231,
+            "different": true,
+            "min": -500,
+            "max": 1000,
+            "reason": "Reviewed layout; byte-exact re-encoding and supplied range checks pass."
+          },
+          {
+            "index": 1,
+            "id": "water-A",
+            "profile": "pulse",
+            "layout": "u32LE",
+            "hex": "E8 03 00 00",
+            "status": "decoded",
+            "value": 1000,
+            "canonical": "E8 03 00 00",
+            "roundTrip": true,
+            "baseline": 1000,
+            "different": false,
+            "min": 0,
+            "max": 10000000,
+            "reason": "Reviewed layout; byte-exact re-encoding and supplied range checks pass."
+          },
+          {
+            "index": 2,
+            "id": "vibe-A",
+            "profile": "vibration",
+            "layout": "i16LE",
+            "hex": "80 FF",
+            "status": "decoded",
+            "value": -128,
+            "canonical": "80 FF",
+            "roundTrip": true,
+            "baseline": 65408,
+            "different": true,
+            "min": -30000,
+            "max": 30000,
+            "reason": "Reviewed layout; byte-exact re-encoding and supplied range checks pass."
+          },
+          {
+            "index": 3,
+            "id": "cold-B",
+            "profile": "temperature",
+            "layout": "i16BE",
+            "hex": "00 FA",
+            "status": "decoded",
+            "value": 250,
+            "canonical": "00 FA",
+            "roundTrip": true,
+            "baseline": 64000,
+            "different": true,
+            "min": -500,
+            "max": 1000,
+            "reason": "Reviewed layout; byte-exact re-encoding and supplied range checks pass."
+          },
+          {
+            "index": 4,
+            "id": "water-B",
+            "profile": "pulse",
+            "layout": "u32LE",
+            "hex": "00 00 01 00",
+            "status": "decoded",
+            "value": 65536,
+            "canonical": "00 00 01 00",
+            "roundTrip": true,
+            "baseline": 65536,
+            "different": false,
+            "min": 0,
+            "max": 10000000,
+            "reason": "Reviewed layout; byte-exact re-encoding and supplied range checks pass."
+          },
+          {
+            "index": 5,
+            "id": "vibe-B",
+            "profile": "vibration",
+            "layout": "i16LE",
+            "hex": "FF 7F",
+            "status": "range",
+            "value": 32767,
+            "canonical": "FF 7F",
+            "roundTrip": true,
+            "baseline": 32767,
+            "different": false,
+            "min": -30000,
+            "max": 30000,
+            "reason": "Decoded exactly, but outside supplied range [-30000, 30000]; held from release."
+          }
+        ],
+        "decoded": 5,
+        "held": 0,
+        "invalid": 1,
+        "different": 3,
+        "compared": 6
+      }
+    },
+    {
+      "name": "Archive migration",
+      "actual": [
+        "balance",
+        "visitors",
+        "offset",
+        "balance",
+        "visitors",
+        "offset"
+      ],
+      "expected": [
+        "balance",
+        "visitors",
+        "offset",
+        "balance",
+        "visitors",
+        "offset"
+      ],
+      "correct": 6,
+      "analysis": {
+        "checks": [
+          {
+            "index": 0,
+            "id": "a",
+            "profile": "balance",
+            "layout": "i32BE",
+            "hex": "FF FF FC 18",
+            "status": "decoded",
+            "value": -1000,
+            "canonical": "FF FF FC 18",
+            "roundTrip": true,
+            "baseline": 419233791,
+            "different": true,
+            "min": -100000,
+            "max": 100000,
+            "reason": "Reviewed layout; byte-exact re-encoding and supplied range checks pass."
+          },
+          {
+            "index": 1,
+            "id": "b",
+            "profile": "visitors",
+            "layout": "u32BE",
+            "hex": "00 01 00 00",
+            "status": "decoded",
+            "value": 65536,
+            "canonical": "00 01 00 00",
+            "roundTrip": true,
+            "baseline": 256,
+            "different": true,
+            "min": 0,
+            "max": 10000000,
+            "reason": "Reviewed layout; byte-exact re-encoding and supplied range checks pass."
+          },
+          {
+            "index": 2,
+            "id": "c",
+            "profile": "offset",
+            "layout": "i16LE",
+            "hex": "00 80",
+            "status": "decoded",
+            "value": -32768,
+            "canonical": "00 80",
+            "roundTrip": true,
+            "baseline": 32768,
+            "different": true,
+            "min": -32768,
+            "max": 32767,
+            "reason": "Reviewed layout; byte-exact re-encoding and supplied range checks pass."
+          },
+          {
+            "index": 3,
+            "id": "d",
+            "profile": "balance",
+            "layout": "i32BE",
+            "hex": "00 00 00 7D",
+            "status": "decoded",
+            "value": 125,
+            "canonical": "00 00 00 7D",
+            "roundTrip": true,
+            "baseline": 2097152000,
+            "different": true,
+            "min": -100000,
+            "max": 100000,
+            "reason": "Reviewed layout; byte-exact re-encoding and supplied range checks pass."
+          },
+          {
+            "index": 4,
+            "id": "e",
+            "profile": "visitors",
+            "layout": "u32BE",
+            "hex": "00 00 00 01",
+            "status": "decoded",
+            "value": 1,
+            "canonical": "00 00 00 01",
+            "roundTrip": true,
+            "baseline": 16777216,
+            "different": true,
+            "min": 0,
+            "max": 10000000,
+            "reason": "Reviewed layout; byte-exact re-encoding and supplied range checks pass."
+          },
+          {
+            "index": 5,
+            "id": "f",
+            "profile": "offset",
+            "layout": "i16LE",
+            "hex": "7F 00",
+            "status": "decoded",
+            "value": 127,
+            "canonical": "7F 00",
+            "roundTrip": true,
+            "baseline": 127,
+            "different": false,
+            "min": -32768,
+            "max": 32767,
+            "reason": "Reviewed layout; byte-exact re-encoding and supplied range checks pass."
+          }
+        ],
+        "decoded": 6,
+        "held": 0,
+        "invalid": 0,
+        "different": 5,
+        "compared": 6
+      }
+    }
+  ],
+  "checks": [
+    "Review edit/reset, hold, originals, multiline hex/notes, undo, clipboard",
+    "Actual fresh-worker offline inference in already-open warmed production page",
+    "Maximum 8 profiles / 24 records / 32 real embeddings in eight chunks and audit reimport",
+    "Real cancel and successful retry",
+    "Actual artifacts; labels/focus/44px controls; 1440/390/320 no overflow; bad inputs/files; GET-only downloads without content"
+  ],
+  "negationProbe": {
+    "proposed": "pulse",
+    "decision": "pending",
+    "intended": "temperature"
+  },
+  "requests": [
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261123-13/",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261123-13/assets/index-De92NcjK.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261123-13/assets/index-DY6yAcaW.css",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/8afc14e6-9cd4-42af-ae0e-f2b79d5eed7f",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "response-content-disposition",
+        "user_id",
+        "X-Xet-Cas-Uid",
+        "xip",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "X-Xet-Cas-Uid",
+        "response-content-disposition",
+        "xip",
+        "user_id",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/c75803db-394c-4c71-a377-fbde60922f43",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/bb451a5a-3fe7-4c23-afd9-c4c3baa11589",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/703339fa-54d2-4cc5-907c-026d5037b98b",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/5f3171a5-291b-4942-8881-1c8c3111b4c6",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/1156dc49-12ed-4cf1-bc88-3a9008adc7c5",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/f51e9f1c-4ffe-4b77-99e0-1ad59473f715",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/42fa68af-8508-41ec-97a3-feae63ad5697",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/1c270bac-8150-4954-90be-2f8ca88f80fd",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/5b868bf6-6d9e-4b59-95f7-03e2012f779c",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/93241e18-38d0-4c6b-9caa-9074074f95af",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/3b3e033f-4313-43ed-a76e-150c352d0da9",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/4bf3e0b2-ad36-4650-bcdf-7d4df6677784",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/4f322caa-c920-4f84-8b82-81f302001139",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/91a733a7-a7d9-46bc-ad7a-b2c37b537ea9",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/283f6f59-b83e-4e1e-8ddb-1f8870531aee",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/5bc118a4-72f4-4dc8-9c6c-602b1b550c40",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/ce1ce0c4-c451-4101-842f-32aa9dceaa7c",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/da3e2ea7-a286-4789-bb61-53cc4b3afda1",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/3036e330-dd78-495b-8f01-8f10b0541dda",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/1b367424-e7fd-444e-9b11-cdb1ce287253",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/ae2a7b84-42e1-4847-93a3-4e81eb309d47",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    }
+  ],
+  "errors": []
+}

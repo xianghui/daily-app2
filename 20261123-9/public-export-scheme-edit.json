@@ -1,0 +1,194 @@
+{
+  "schema": "checkline-desk/1",
+  "appliedAt": "2026-11-23T00:11:55.657Z",
+  "originalInput": {
+    "title": "Synthetic equipment labels",
+    "profiles": [
+      {
+        "id": "books",
+        "description": "ISBN ten digit book identifier for library catalog older printed books",
+        "scheme": "isbn10"
+      },
+      {
+        "id": "retail",
+        "description": "EAN GTIN thirteen digit retail barcode on packaged products and modern books",
+        "scheme": "gtin13"
+      },
+      {
+        "id": "badges",
+        "description": "Luhn checksum equipment access badge membership serial number",
+        "scheme": "luhn"
+      }
+    ],
+    "records": [
+      {
+        "id": "label-1",
+        "note": "Luhn checksum equipment access membership badge serial",
+        "value": "123456789012"
+      },
+      {
+        "id": "label-2",
+        "note": "Thirteen digit EAN retail barcode on packaged product",
+        "value": "4006381333932"
+      },
+      {
+        "id": "label-3",
+        "note": "Membership access badge serial number using Luhn checksum",
+        "value": "12345678901?"
+      },
+      {
+        "id": "label-4",
+        "note": "GTIN thirteen digit retail product packaging barcode",
+        "value": "4006381333931"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "text": "Luhn checksum equipment access membership badge serial",
+      "resource": "books",
+      "aiResource": "badges",
+      "evidence": [
+        {
+          "resource": "badges",
+          "score": 0.9643238359140089
+        },
+        {
+          "resource": "retail",
+          "score": 0.37200746123921735
+        },
+        {
+          "resource": "books",
+          "score": 0.27384253286016647
+        }
+      ],
+      "value": "1234 5678 9015",
+      "decision": "approve",
+      "note": "=SUM(1,2)\nChecked \"source\", not identity."
+    },
+    {
+      "index": 1,
+      "text": "Thirteen digit EAN retail barcode on packaged product",
+      "resource": "retail",
+      "aiResource": "retail",
+      "evidence": [
+        {
+          "resource": "retail",
+          "score": 0.8737164240162587
+        },
+        {
+          "resource": "books",
+          "score": 0.4525213034081746
+        },
+        {
+          "resource": "badges",
+          "score": 0.3780924936071355
+        }
+      ],
+      "value": "4006381333931",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "text": "Membership access badge serial number using Luhn checksum",
+      "resource": "badges",
+      "aiResource": "badges",
+      "evidence": [
+        {
+          "resource": "badges",
+          "score": 0.9085947517022601
+        },
+        {
+          "resource": "retail",
+          "score": 0.3260107387904647
+        },
+        {
+          "resource": "books",
+          "score": 0.31188264870311766
+        }
+      ],
+      "value": "123456789015",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 3,
+      "text": "GTIN thirteen digit retail product packaging barcode",
+      "resource": "retail",
+      "aiResource": "retail",
+      "evidence": [
+        {
+          "resource": "retail",
+          "score": 0.8543431314977378
+        },
+        {
+          "resource": "books",
+          "score": 0.38971171349107364
+        },
+        {
+          "resource": "badges",
+          "score": 0.3268153187795446
+        }
+      ],
+      "value": "4006381333931",
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "analysis": {
+    "checks": [
+      {
+        "id": "label-1",
+        "profile": "books",
+        "scheme": "isbn10",
+        "reviewedValue": "1234 5678 9015",
+        "normalized": "123456789015",
+        "status": "blocked",
+        "shapePass": false,
+        "candidates": [],
+        "reason": "Wrong format/length for the reviewed scheme. Check source and scheme."
+      },
+      {
+        "id": "label-2",
+        "profile": "retail",
+        "scheme": "gtin13",
+        "reviewedValue": "4006381333931",
+        "normalized": "4006381333931",
+        "status": "valid",
+        "shapePass": true,
+        "candidates": [],
+        "reason": "Format and checksum pass. This does not verify assignment, authenticity or ownership."
+      },
+      {
+        "id": "label-3",
+        "profile": "badges",
+        "scheme": "luhn",
+        "reviewedValue": "123456789015",
+        "normalized": "123456789015",
+        "status": "valid",
+        "shapePass": true,
+        "candidates": [],
+        "reason": "Format and checksum pass. This does not verify assignment, authenticity or ownership."
+      },
+      {
+        "id": "label-4",
+        "profile": "retail",
+        "scheme": "gtin13",
+        "reviewedValue": "4006381333931",
+        "normalized": "4006381333931",
+        "status": "valid",
+        "shapePass": true,
+        "candidates": [],
+        "reason": "Format and checksum pass. This does not verify assignment, authenticity or ownership."
+      }
+    ],
+    "ready": 3,
+    "held": 0,
+    "blocked": 1,
+    "shapeOnlyPass": 3,
+    "checksumPass": 3,
+    "shapeOnlyMisses": 0
+  }
+}

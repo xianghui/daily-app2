@@ -1,0 +1,497 @@
+{
+  "fixtures": [
+    {
+      "name": "Library intake",
+      "actual": [
+        "books",
+        "retail",
+        "books",
+        "retail"
+      ],
+      "expected": [
+        "books",
+        "retail",
+        "books",
+        "retail"
+      ],
+      "correct": 4,
+      "analysis": {
+        "checks": [
+          {
+            "id": "book-1",
+            "profile": "books",
+            "scheme": "isbn10",
+            "reviewedValue": "0-306-40615-2",
+            "normalized": "0306406152",
+            "status": "valid",
+            "shapePass": true,
+            "candidates": [],
+            "reason": "Format and checksum pass. This does not verify assignment, authenticity or ownership."
+          },
+          {
+            "id": "book-2",
+            "profile": "retail",
+            "scheme": "gtin13",
+            "reviewedValue": "9780306406158",
+            "normalized": "9780306406158",
+            "status": "blocked",
+            "shapePass": true,
+            "candidates": [
+              "9780306406157"
+            ],
+            "reason": "Checksum fails. A replacement final digit is only a candidate, not proof the other digits are correct."
+          },
+          {
+            "id": "book-3",
+            "profile": "books",
+            "scheme": "isbn10",
+            "reviewedValue": "0-8044-2957-?",
+            "normalized": "080442957?",
+            "status": "blocked",
+            "shapePass": false,
+            "candidates": [
+              "080442957X"
+            ],
+            "reason": "One checksum-consistent completion. Verify against the source before using."
+          },
+          {
+            "id": "book-4",
+            "profile": "retail",
+            "scheme": "gtin13",
+            "reviewedValue": "9780306406157",
+            "normalized": "9780306406157",
+            "status": "valid",
+            "shapePass": true,
+            "candidates": [],
+            "reason": "Format and checksum pass. This does not verify assignment, authenticity or ownership."
+          }
+        ],
+        "ready": 2,
+        "held": 0,
+        "blocked": 2,
+        "shapeOnlyPass": 3,
+        "checksumPass": 2,
+        "shapeOnlyMisses": 1
+      }
+    },
+    {
+      "name": "Equipment desk",
+      "actual": [
+        "badges",
+        "retail",
+        "badges",
+        "retail"
+      ],
+      "expected": [
+        "badges",
+        "retail",
+        "badges",
+        "retail"
+      ],
+      "correct": 4,
+      "analysis": {
+        "checks": [
+          {
+            "id": "label-1",
+            "profile": "badges",
+            "scheme": "luhn",
+            "reviewedValue": "123456789012",
+            "normalized": "123456789012",
+            "status": "blocked",
+            "shapePass": true,
+            "candidates": [
+              "123456789015"
+            ],
+            "reason": "Checksum fails. A replacement final digit is only a candidate, not proof the other digits are correct."
+          },
+          {
+            "id": "label-2",
+            "profile": "retail",
+            "scheme": "gtin13",
+            "reviewedValue": "4006381333932",
+            "normalized": "4006381333932",
+            "status": "blocked",
+            "shapePass": true,
+            "candidates": [
+              "4006381333931"
+            ],
+            "reason": "Checksum fails. A replacement final digit is only a candidate, not proof the other digits are correct."
+          },
+          {
+            "id": "label-3",
+            "profile": "badges",
+            "scheme": "luhn",
+            "reviewedValue": "12345678901?",
+            "normalized": "12345678901?",
+            "status": "blocked",
+            "shapePass": false,
+            "candidates": [
+              "123456789015"
+            ],
+            "reason": "One checksum-consistent completion. Verify against the source before using."
+          },
+          {
+            "id": "label-4",
+            "profile": "retail",
+            "scheme": "gtin13",
+            "reviewedValue": "4006381333931",
+            "normalized": "4006381333931",
+            "status": "valid",
+            "shapePass": true,
+            "candidates": [],
+            "reason": "Format and checksum pass. This does not verify assignment, authenticity or ownership."
+          }
+        ],
+        "ready": 1,
+        "held": 0,
+        "blocked": 3,
+        "shapeOnlyPass": 3,
+        "checksumPass": 1,
+        "shapeOnlyMisses": 2
+      }
+    }
+  ],
+  "checks": [
+    "Candidate repair explicit, approval reset, source unchanged, scheme edits, holds, multiline notes, undo and clipboard",
+    "Actual fresh-worker offline inference in already-open warmed production page",
+    "Maximum 8 profiles / 24 records / 32 real embeddings in eight chunks, complete audits round-trip and leading-zero strings preserved",
+    "Real cancel and successful retry",
+    "Downloads/copy, labels/focus/44px controls, desktop/phone no overflow, bad inputs/files, GET-only file downloads without content"
+  ],
+  "negationProbe": {
+    "proposed": "books",
+    "decision": "pending"
+  },
+  "requests": [
+    {
+      "host": "127.0.0.1:7382",
+      "path": "/daily-app2/20261123-9/",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7382",
+      "path": "/daily-app2/20261123-9/assets/index-Bd2rp66Q.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7382",
+      "path": "/daily-app2/20261123-9/assets/index-BouUWpKt.css",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7382",
+      "path": "/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7382/59afab17-b5ee-41ed-bcc1-ded4376827a7",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7382",
+      "path": "/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "127.0.0.1:7382",
+      "path": "/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "X-Xet-Cas-Uid",
+        "response-content-disposition",
+        "user_id",
+        "xip",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "user_id",
+        "xip",
+        "X-Xet-Cas-Uid",
+        "response-content-disposition",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7382/7194e372-dfac-4f88-a939-9bd93cd124a7",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7382/d8d41ac8-990e-445f-ab31-f7a6be363ba7",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7382/e9647e15-436e-46f2-9fbe-68bfccd3129f",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7382/081a73f9-8fd1-47a7-a363-f4e925f6bb82",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7382/e3e7ddfc-d71f-43da-a0e1-b847e511de7f",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7382/d951502f-c089-449a-a2d0-15cb1887516e",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7382/34382039-9b7b-4ec5-9308-270bed83f02c",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7382/397790f2-fbf2-4085-9aa7-92055017d20b",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7382/cb05ab8e-bddb-47ba-8e00-a32b28fc32f3",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7382/148fd43b-a7d2-429b-9087-cf6df0338bde",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7382/ddeadcfd-dc05-466e-bf78-271da660e3d0",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7382/6095a179-ec0e-4f8b-924f-d9862ad1c10c",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7382/ece5e802-9516-4bba-99f0-794b0105cdc7",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7382/f2166f69-225d-405a-9789-19d6d1450129",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7382/6ec25356-831c-43c7-bf73-aa59914999c7",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7382/8593045f-ffb6-4646-b377-943e9f5be162",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7382/ad7d5d15-85ca-4318-8c05-4e7cc454011d",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7382/0bbbcf4e-a7cf-4428-979d-38140add061e",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7382/cb0bf1d9-d8a8-44c6-9a25-8bd70f65f120",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7382/7b7ae9b0-2000-42a5-9195-1f913019550b",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7382/4db3ba14-f8ff-4e52-b5ba-259b4858fe7b",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    }
+  ],
+  "errors": []
+}

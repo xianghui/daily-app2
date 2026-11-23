@@ -1,0 +1,221 @@
+# Synthetic library intake
+
+book-1 [valid] isbn10 · 0306406152
+Format and checksum pass. This does not verify assignment, authenticity or ownership.
+
+book-2 [blocked] gtin13 · 9780306406158
+Checksum fails. A replacement final digit is only a candidate, not proof the other digits are correct.
+Unapplied candidates: 9780306406157
+
+book-3 [blocked] isbn10 · 080442957?
+One checksum-consistent completion. Verify against the source before using.
+Unapplied candidates: 080442957X
+
+book-4 [valid] gtin13 · 9780306406157
+Format and checksum pass. This does not verify assignment, authenticity or ownership.
+
+## Complete source and review audit
+
+```json
+
+{
+  "schema": "checkline-desk/1",
+  "appliedAt": "2026-11-23T00:11:47.394Z",
+  "originalInput": {
+    "title": "Synthetic library intake",
+    "profiles": [
+      {
+        "id": "books",
+        "description": "ISBN ten digit book identifier for library catalog older printed books",
+        "scheme": "isbn10"
+      },
+      {
+        "id": "retail",
+        "description": "EAN GTIN thirteen digit retail barcode on packaged products and modern books",
+        "scheme": "gtin13"
+      },
+      {
+        "id": "badges",
+        "description": "Luhn checksum equipment access badge membership serial number",
+        "scheme": "luhn"
+      }
+    ],
+    "records": [
+      {
+        "id": "book-1",
+        "note": "Older book ISBN ten digit library catalog",
+        "value": "0-306-40615-2"
+      },
+      {
+        "id": "book-2",
+        "note": "Modern book thirteen digit EAN barcode on back cover",
+        "value": "9780306406158"
+      },
+      {
+        "id": "book-3",
+        "note": "ISBN ten digit identifier older printed book",
+        "value": "0-8044-2957-?"
+      },
+      {
+        "id": "book-4",
+        "note": "Thirteen digit GTIN retail barcode on packaged book",
+        "value": "9780306406157"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "text": "Older book ISBN ten digit library catalog",
+      "resource": "books",
+      "aiResource": "books",
+      "evidence": [
+        {
+          "resource": "books",
+          "score": 0.8608115921086049
+        },
+        {
+          "resource": "retail",
+          "score": 0.6268684235761616
+        },
+        {
+          "resource": "badges",
+          "score": 0.24863253885295591
+        }
+      ],
+      "value": "0-306-40615-2",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 1,
+      "text": "Modern book thirteen digit EAN barcode on back cover",
+      "resource": "retail",
+      "aiResource": "retail",
+      "evidence": [
+        {
+          "resource": "retail",
+          "score": 0.785381193808037
+        },
+        {
+          "resource": "books",
+          "score": 0.5312501425390423
+        },
+        {
+          "resource": "badges",
+          "score": 0.3839697770611778
+        }
+      ],
+      "value": "9780306406158",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "text": "ISBN ten digit identifier older printed book",
+      "resource": "books",
+      "aiResource": "books",
+      "evidence": [
+        {
+          "resource": "books",
+          "score": 0.9253827936454908
+        },
+        {
+          "resource": "retail",
+          "score": 0.6046996438350843
+        },
+        {
+          "resource": "badges",
+          "score": 0.3219622301819723
+        }
+      ],
+      "value": "0-8044-2957-?",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 3,
+      "text": "Thirteen digit GTIN retail barcode on packaged book",
+      "resource": "retail",
+      "aiResource": "retail",
+      "evidence": [
+        {
+          "resource": "retail",
+          "score": 0.9275486863561511
+        },
+        {
+          "resource": "books",
+          "score": 0.5580728965900181
+        },
+        {
+          "resource": "badges",
+          "score": 0.34120830860674045
+        }
+      ],
+      "value": "9780306406157",
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "analysis": {
+    "checks": [
+      {
+        "id": "book-1",
+        "profile": "books",
+        "scheme": "isbn10",
+        "reviewedValue": "0-306-40615-2",
+        "normalized": "0306406152",
+        "status": "valid",
+        "shapePass": true,
+        "candidates": [],
+        "reason": "Format and checksum pass. This does not verify assignment, authenticity or ownership."
+      },
+      {
+        "id": "book-2",
+        "profile": "retail",
+        "scheme": "gtin13",
+        "reviewedValue": "9780306406158",
+        "normalized": "9780306406158",
+        "status": "blocked",
+        "shapePass": true,
+        "candidates": [
+          "9780306406157"
+        ],
+        "reason": "Checksum fails. A replacement final digit is only a candidate, not proof the other digits are correct."
+      },
+      {
+        "id": "book-3",
+        "profile": "books",
+        "scheme": "isbn10",
+        "reviewedValue": "0-8044-2957-?",
+        "normalized": "080442957?",
+        "status": "blocked",
+        "shapePass": false,
+        "candidates": [
+          "080442957X"
+        ],
+        "reason": "One checksum-consistent completion. Verify against the source before using."
+      },
+      {
+        "id": "book-4",
+        "profile": "retail",
+        "scheme": "gtin13",
+        "reviewedValue": "9780306406157",
+        "normalized": "9780306406157",
+        "status": "valid",
+        "shapePass": true,
+        "candidates": [],
+        "reason": "Format and checksum pass. This does not verify assignment, authenticity or ownership."
+      }
+    ],
+    "ready": 2,
+    "held": 0,
+    "blocked": 2,
+    "shapeOnlyPass": 3,
+    "checksumPass": 2,
+    "shapeOnlyMisses": 1
+  }
+}
+
+```
+

@@ -1,0 +1,7 @@
+
+
+## Checkline Desk — 20261123-9
+
+Real local MiniLM routes identifier context notes to supplied checksum profiles before mandatory human review. Exact ISBN-10, GTIN-13 and Luhn checks expose format-only misses; repair candidates never auto-apply. Valid-only release CSV plus complete JSON/CSV/Markdown preserve leading zeros and all held/blocked records. Both tiny fixtures matched 4/4 intended profiles; 1,000 independent checksum/completion oracles passed, not general accuracy or identifier authenticity assurance. Fresh-worker offline inference only in an already-open warmed page; preserve shared worker/factory from `20261115-6` and WASM from `20261107-2`. No new sharing rules, size-guard changes or external actions. See [workflow/privacy](20261123-9/README.md) and [observed checks](20261123-9/VALIDATION.md). No digest sent.
+
+Checkline Desk public release verified: matching Pages commit `54ea83eb898623e0dbacd7a55cb98671a8e7dc39` and workflow `45087101906` succeeded. Seven public gallery/app/runtime assets byte-match assembled output; both real-model fixtures, full review/repair/export/maximum-batch/offline/privacy suite, independently parsed public artifacts and all 814 gallery cards passed. Combined size **999,867,068 bytes** remains below the unchanged guard. No new sharing rules; unrelated recovery work preserved and excluded from this source commit. Physical phones, cold offline startup and catalog clients remain untested. No digest sent.

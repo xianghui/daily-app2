@@ -1,0 +1,1584 @@
+# Maximum synthetic batch
+
+=row
+"0" [valid] luhn · 123456789015
+Format and checksum pass. This does not verify assignment, authenticity or ownership.
+
+=row
+"1" [valid] luhn · 123456789015
+Format and checksum pass. This does not verify assignment, authenticity or ownership.
+
+=row
+"2" [valid] luhn · 123456789015
+Format and checksum pass. This does not verify assignment, authenticity or ownership.
+
+=row
+"3" [valid] luhn · 123456789015
+Format and checksum pass. This does not verify assignment, authenticity or ownership.
+
+=row
+"4" [valid] luhn · 123456789015
+Format and checksum pass. This does not verify assignment, authenticity or ownership.
+
+=row
+"5" [valid] luhn · 123456789015
+Format and checksum pass. This does not verify assignment, authenticity or ownership.
+
+=row
+"6" [valid] luhn · 123456789015
+Format and checksum pass. This does not verify assignment, authenticity or ownership.
+
+=row
+"7" [valid] luhn · 123456789015
+Format and checksum pass. This does not verify assignment, authenticity or ownership.
+
+=row
+"8" [valid] luhn · 123456789015
+Format and checksum pass. This does not verify assignment, authenticity or ownership.
+
+=row
+"9" [valid] luhn · 123456789015
+Format and checksum pass. This does not verify assignment, authenticity or ownership.
+
+=row
+"10" [valid] luhn · 123456789015
+Format and checksum pass. This does not verify assignment, authenticity or ownership.
+
+=row
+"11" [valid] luhn · 123456789015
+Format and checksum pass. This does not verify assignment, authenticity or ownership.
+
+=row
+"12" [valid] luhn · 123456789015
+Format and checksum pass. This does not verify assignment, authenticity or ownership.
+
+=row
+"13" [valid] luhn · 123456789015
+Format and checksum pass. This does not verify assignment, authenticity or ownership.
+
+=row
+"14" [valid] luhn · 123456789015
+Format and checksum pass. This does not verify assignment, authenticity or ownership.
+
+=row
+"15" [valid] luhn · 123456789015
+Format and checksum pass. This does not verify assignment, authenticity or ownership.
+
+=row
+"16" [valid] luhn · 123456789015
+Format and checksum pass. This does not verify assignment, authenticity or ownership.
+
+=row
+"17" [valid] luhn · 123456789015
+Format and checksum pass. This does not verify assignment, authenticity or ownership.
+
+=row
+"18" [valid] luhn · 123456789015
+Format and checksum pass. This does not verify assignment, authenticity or ownership.
+
+=row
+"19" [valid] luhn · 123456789015
+Format and checksum pass. This does not verify assignment, authenticity or ownership.
+
+=row
+"20" [valid] luhn · 123456789015
+Format and checksum pass. This does not verify assignment, authenticity or ownership.
+
+=row
+"21" [valid] luhn · 123456789015
+Format and checksum pass. This does not verify assignment, authenticity or ownership.
+
+=row
+"22" [valid] luhn · 123456789015
+Format and checksum pass. This does not verify assignment, authenticity or ownership.
+
+=row
+"23" [valid] luhn · 123456789015
+Format and checksum pass. This does not verify assignment, authenticity or ownership.
+
+## Complete source and review audit
+
+```json
+
+{
+  "schema": "checkline-desk/1",
+  "appliedAt": "2026-11-23T00:11:58.724Z",
+  "originalInput": {
+    "title": "Maximum synthetic batch",
+    "profiles": [
+      {
+        "id": "p0",
+        "description": "Equipment access membership badge Luhn checksum 0",
+        "scheme": "luhn"
+      },
+      {
+        "id": "p1",
+        "description": "Equipment access membership badge Luhn checksum 1",
+        "scheme": "luhn"
+      },
+      {
+        "id": "p2",
+        "description": "Equipment access membership badge Luhn checksum 2",
+        "scheme": "luhn"
+      },
+      {
+        "id": "p3",
+        "description": "Equipment access membership badge Luhn checksum 3",
+        "scheme": "luhn"
+      },
+      {
+        "id": "p4",
+        "description": "Equipment access membership badge Luhn checksum 4",
+        "scheme": "luhn"
+      },
+      {
+        "id": "p5",
+        "description": "Equipment access membership badge Luhn checksum 5",
+        "scheme": "luhn"
+      },
+      {
+        "id": "p6",
+        "description": "Equipment access membership badge Luhn checksum 6",
+        "scheme": "luhn"
+      },
+      {
+        "id": "p7",
+        "description": "Equipment access membership badge Luhn checksum 7",
+        "scheme": "luhn"
+      }
+    ],
+    "records": [
+      {
+        "id": "=row\n\"0\"",
+        "note": "Membership access badge Luhn checksum 0",
+        "value": "123456789015"
+      },
+      {
+        "id": "=row\n\"1\"",
+        "note": "Membership access badge Luhn checksum 1",
+        "value": "123456789015"
+      },
+      {
+        "id": "=row\n\"2\"",
+        "note": "Membership access badge Luhn checksum 2",
+        "value": "123456789015"
+      },
+      {
+        "id": "=row\n\"3\"",
+        "note": "Membership access badge Luhn checksum 3",
+        "value": "123456789015"
+      },
+      {
+        "id": "=row\n\"4\"",
+        "note": "Membership access badge Luhn checksum 4",
+        "value": "123456789015"
+      },
+      {
+        "id": "=row\n\"5\"",
+        "note": "Membership access badge Luhn checksum 5",
+        "value": "123456789015"
+      },
+      {
+        "id": "=row\n\"6\"",
+        "note": "Membership access badge Luhn checksum 6",
+        "value": "123456789015"
+      },
+      {
+        "id": "=row\n\"7\"",
+        "note": "Membership access badge Luhn checksum 7",
+        "value": "123456789015"
+      },
+      {
+        "id": "=row\n\"8\"",
+        "note": "Membership access badge Luhn checksum 0",
+        "value": "123456789015"
+      },
+      {
+        "id": "=row\n\"9\"",
+        "note": "Membership access badge Luhn checksum 1",
+        "value": "123456789015"
+      },
+      {
+        "id": "=row\n\"10\"",
+        "note": "Membership access badge Luhn checksum 2",
+        "value": "123456789015"
+      },
+      {
+        "id": "=row\n\"11\"",
+        "note": "Membership access badge Luhn checksum 3",
+        "value": "123456789015"
+      },
+      {
+        "id": "=row\n\"12\"",
+        "note": "Membership access badge Luhn checksum 4",
+        "value": "123456789015"
+      },
+      {
+        "id": "=row\n\"13\"",
+        "note": "Membership access badge Luhn checksum 5",
+        "value": "123456789015"
+      },
+      {
+        "id": "=row\n\"14\"",
+        "note": "Membership access badge Luhn checksum 6",
+        "value": "123456789015"
+      },
+      {
+        "id": "=row\n\"15\"",
+        "note": "Membership access badge Luhn checksum 7",
+        "value": "123456789015"
+      },
+      {
+        "id": "=row\n\"16\"",
+        "note": "Membership access badge Luhn checksum 0",
+        "value": "123456789015"
+      },
+      {
+        "id": "=row\n\"17\"",
+        "note": "Membership access badge Luhn checksum 1",
+        "value": "123456789015"
+      },
+      {
+        "id": "=row\n\"18\"",
+        "note": "Membership access badge Luhn checksum 2",
+        "value": "123456789015"
+      },
+      {
+        "id": "=row\n\"19\"",
+        "note": "Membership access badge Luhn checksum 3",
+        "value": "123456789015"
+      },
+      {
+        "id": "=row\n\"20\"",
+        "note": "Membership access badge Luhn checksum 4",
+        "value": "123456789015"
+      },
+      {
+        "id": "=row\n\"21\"",
+        "note": "Membership access badge Luhn checksum 5",
+        "value": "123456789015"
+      },
+      {
+        "id": "=row\n\"22\"",
+        "note": "Membership access badge Luhn checksum 6",
+        "value": "123456789015"
+      },
+      {
+        "id": "=row\n\"23\"",
+        "note": "Membership access badge Luhn checksum 7",
+        "value": "123456789015"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "index": 0,
+      "text": "Membership access badge Luhn checksum 0",
+      "resource": "p0",
+      "aiResource": "p0",
+      "evidence": [
+        {
+          "resource": "p0",
+          "score": 0.885160293475249
+        },
+        {
+          "resource": "p1",
+          "score": 0.8674818495215061
+        },
+        {
+          "resource": "p3",
+          "score": 0.8610228489471683
+        },
+        {
+          "resource": "p2",
+          "score": 0.8583574889416793
+        },
+        {
+          "resource": "p4",
+          "score": 0.8518126467550025
+        },
+        {
+          "resource": "p6",
+          "score": 0.8504345297584163
+        },
+        {
+          "resource": "p5",
+          "score": 0.8502397526632622
+        },
+        {
+          "resource": "p7",
+          "score": 0.8450823756850339
+        }
+      ],
+      "value": "123456789015",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 1,
+      "text": "Membership access badge Luhn checksum 1",
+      "resource": "p1",
+      "aiResource": "p1",
+      "evidence": [
+        {
+          "resource": "p1",
+          "score": 0.8762391338053077
+        },
+        {
+          "resource": "p3",
+          "score": 0.8614978236159258
+        },
+        {
+          "resource": "p2",
+          "score": 0.8594567445161544
+        },
+        {
+          "resource": "p0",
+          "score": 0.8527846878201086
+        },
+        {
+          "resource": "p6",
+          "score": 0.8484128515134411
+        },
+        {
+          "resource": "p5",
+          "score": 0.8467431759973859
+        },
+        {
+          "resource": "p7",
+          "score": 0.8448694681987649
+        },
+        {
+          "resource": "p4",
+          "score": 0.8444591729082065
+        }
+      ],
+      "value": "123456789015",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 2,
+      "text": "Membership access badge Luhn checksum 2",
+      "resource": "p2",
+      "aiResource": "p2",
+      "evidence": [
+        {
+          "resource": "p2",
+          "score": 0.8803507120357288
+        },
+        {
+          "resource": "p3",
+          "score": 0.869484191228813
+        },
+        {
+          "resource": "p1",
+          "score": 0.8621339526423242
+        },
+        {
+          "resource": "p6",
+          "score": 0.8513696550125904
+        },
+        {
+          "resource": "p0",
+          "score": 0.8501663638949598
+        },
+        {
+          "resource": "p4",
+          "score": 0.8500864335786836
+        },
+        {
+          "resource": "p5",
+          "score": 0.8472243008042483
+        },
+        {
+          "resource": "p7",
+          "score": 0.8461354333527722
+        }
+      ],
+      "value": "123456789015",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 3,
+      "text": "Membership access badge Luhn checksum 3",
+      "resource": "p3",
+      "aiResource": "p3",
+      "evidence": [
+        {
+          "resource": "p3",
+          "score": 0.8851398487864925
+        },
+        {
+          "resource": "p2",
+          "score": 0.8536794552197413
+        },
+        {
+          "resource": "p1",
+          "score": 0.8533234394524061
+        },
+        {
+          "resource": "p5",
+          "score": 0.8453322977452324
+        },
+        {
+          "resource": "p6",
+          "score": 0.8449041933382982
+        },
+        {
+          "resource": "p4",
+          "score": 0.8437509898260754
+        },
+        {
+          "resource": "p0",
+          "score": 0.8396718908988182
+        },
+        {
+          "resource": "p7",
+          "score": 0.839024923005894
+        }
+      ],
+      "value": "123456789015",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 4,
+      "text": "Membership access badge Luhn checksum 4",
+      "resource": "p4",
+      "aiResource": "p4",
+      "evidence": [
+        {
+          "resource": "p4",
+          "score": 0.8714204612901835
+        },
+        {
+          "resource": "p3",
+          "score": 0.8657414834346198
+        },
+        {
+          "resource": "p1",
+          "score": 0.8588832272755649
+        },
+        {
+          "resource": "p2",
+          "score": 0.8557862827791841
+        },
+        {
+          "resource": "p5",
+          "score": 0.8495320565864055
+        },
+        {
+          "resource": "p6",
+          "score": 0.8485443791519278
+        },
+        {
+          "resource": "p0",
+          "score": 0.845430615094649
+        },
+        {
+          "resource": "p7",
+          "score": 0.840736397067358
+        }
+      ],
+      "value": "123456789015",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 5,
+      "text": "Membership access badge Luhn checksum 5",
+      "resource": "p5",
+      "aiResource": "p5",
+      "evidence": [
+        {
+          "resource": "p5",
+          "score": 0.8815028414047926
+        },
+        {
+          "resource": "p3",
+          "score": 0.8537742494044793
+        },
+        {
+          "resource": "p6",
+          "score": 0.8517894065053329
+        },
+        {
+          "resource": "p1",
+          "score": 0.8508422810410174
+        },
+        {
+          "resource": "p2",
+          "score": 0.847185587133209
+        },
+        {
+          "resource": "p7",
+          "score": 0.8436555660700932
+        },
+        {
+          "resource": "p0",
+          "score": 0.8414584123418092
+        },
+        {
+          "resource": "p4",
+          "score": 0.8411660884057378
+        }
+      ],
+      "value": "123456789015",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 6,
+      "text": "Membership access badge Luhn checksum 6",
+      "resource": "p6",
+      "aiResource": "p6",
+      "evidence": [
+        {
+          "resource": "p6",
+          "score": 0.8781355320524
+        },
+        {
+          "resource": "p3",
+          "score": 0.8590365879276535
+        },
+        {
+          "resource": "p5",
+          "score": 0.8529175485003894
+        },
+        {
+          "resource": "p1",
+          "score": 0.8519361624769142
+        },
+        {
+          "resource": "p7",
+          "score": 0.8492784029044104
+        },
+        {
+          "resource": "p2",
+          "score": 0.8488577193557233
+        },
+        {
+          "resource": "p4",
+          "score": 0.8434057791822166
+        },
+        {
+          "resource": "p0",
+          "score": 0.8422618098266468
+        }
+      ],
+      "value": "123456789015",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 7,
+      "text": "Membership access badge Luhn checksum 7",
+      "resource": "p7",
+      "aiResource": "p7",
+      "evidence": [
+        {
+          "resource": "p7",
+          "score": 0.8833227686750627
+        },
+        {
+          "resource": "p3",
+          "score": 0.8494786964974346
+        },
+        {
+          "resource": "p1",
+          "score": 0.8482867193096735
+        },
+        {
+          "resource": "p6",
+          "score": 0.8473277871039322
+        },
+        {
+          "resource": "p2",
+          "score": 0.8442681433074124
+        },
+        {
+          "resource": "p5",
+          "score": 0.8436702986212278
+        },
+        {
+          "resource": "p4",
+          "score": 0.8363195312628678
+        },
+        {
+          "resource": "p0",
+          "score": 0.8359257871911832
+        }
+      ],
+      "value": "123456789015",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 8,
+      "text": "Membership access badge Luhn checksum 0",
+      "resource": "p0",
+      "aiResource": "p0",
+      "evidence": [
+        {
+          "resource": "p0",
+          "score": 0.885160293475249
+        },
+        {
+          "resource": "p1",
+          "score": 0.8674818495215061
+        },
+        {
+          "resource": "p3",
+          "score": 0.8610228489471683
+        },
+        {
+          "resource": "p2",
+          "score": 0.8583574889416793
+        },
+        {
+          "resource": "p4",
+          "score": 0.8518126467550025
+        },
+        {
+          "resource": "p6",
+          "score": 0.8504345297584163
+        },
+        {
+          "resource": "p5",
+          "score": 0.8502397526632622
+        },
+        {
+          "resource": "p7",
+          "score": 0.8450823756850339
+        }
+      ],
+      "value": "123456789015",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 9,
+      "text": "Membership access badge Luhn checksum 1",
+      "resource": "p1",
+      "aiResource": "p1",
+      "evidence": [
+        {
+          "resource": "p1",
+          "score": 0.8762391338053077
+        },
+        {
+          "resource": "p3",
+          "score": 0.8614978236159258
+        },
+        {
+          "resource": "p2",
+          "score": 0.8594567445161544
+        },
+        {
+          "resource": "p0",
+          "score": 0.8527846878201086
+        },
+        {
+          "resource": "p6",
+          "score": 0.8484128515134411
+        },
+        {
+          "resource": "p5",
+          "score": 0.8467431759973859
+        },
+        {
+          "resource": "p7",
+          "score": 0.8448694681987649
+        },
+        {
+          "resource": "p4",
+          "score": 0.8444591729082065
+        }
+      ],
+      "value": "123456789015",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 10,
+      "text": "Membership access badge Luhn checksum 2",
+      "resource": "p2",
+      "aiResource": "p2",
+      "evidence": [
+        {
+          "resource": "p2",
+          "score": 0.8803507120357288
+        },
+        {
+          "resource": "p3",
+          "score": 0.869484191228813
+        },
+        {
+          "resource": "p1",
+          "score": 0.8621339526423242
+        },
+        {
+          "resource": "p6",
+          "score": 0.8513696550125904
+        },
+        {
+          "resource": "p0",
+          "score": 0.8501663638949598
+        },
+        {
+          "resource": "p4",
+          "score": 0.8500864335786836
+        },
+        {
+          "resource": "p5",
+          "score": 0.8472243008042483
+        },
+        {
+          "resource": "p7",
+          "score": 0.8461354333527722
+        }
+      ],
+      "value": "123456789015",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 11,
+      "text": "Membership access badge Luhn checksum 3",
+      "resource": "p3",
+      "aiResource": "p3",
+      "evidence": [
+        {
+          "resource": "p3",
+          "score": 0.8851398487864925
+        },
+        {
+          "resource": "p2",
+          "score": 0.8536794552197413
+        },
+        {
+          "resource": "p1",
+          "score": 0.8533234394524061
+        },
+        {
+          "resource": "p5",
+          "score": 0.8453322977452324
+        },
+        {
+          "resource": "p6",
+          "score": 0.8449041933382982
+        },
+        {
+          "resource": "p4",
+          "score": 0.8437509898260754
+        },
+        {
+          "resource": "p0",
+          "score": 0.8396718908988182
+        },
+        {
+          "resource": "p7",
+          "score": 0.839024923005894
+        }
+      ],
+      "value": "123456789015",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 12,
+      "text": "Membership access badge Luhn checksum 4",
+      "resource": "p4",
+      "aiResource": "p4",
+      "evidence": [
+        {
+          "resource": "p4",
+          "score": 0.8714204612901835
+        },
+        {
+          "resource": "p3",
+          "score": 0.8657414834346198
+        },
+        {
+          "resource": "p1",
+          "score": 0.8588832272755649
+        },
+        {
+          "resource": "p2",
+          "score": 0.8557862827791841
+        },
+        {
+          "resource": "p5",
+          "score": 0.8495320565864055
+        },
+        {
+          "resource": "p6",
+          "score": 0.8485443791519278
+        },
+        {
+          "resource": "p0",
+          "score": 0.845430615094649
+        },
+        {
+          "resource": "p7",
+          "score": 0.840736397067358
+        }
+      ],
+      "value": "123456789015",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 13,
+      "text": "Membership access badge Luhn checksum 5",
+      "resource": "p5",
+      "aiResource": "p5",
+      "evidence": [
+        {
+          "resource": "p5",
+          "score": 0.8815028414047926
+        },
+        {
+          "resource": "p3",
+          "score": 0.8537742494044793
+        },
+        {
+          "resource": "p6",
+          "score": 0.8517894065053329
+        },
+        {
+          "resource": "p1",
+          "score": 0.8508422810410174
+        },
+        {
+          "resource": "p2",
+          "score": 0.847185587133209
+        },
+        {
+          "resource": "p7",
+          "score": 0.8436555660700932
+        },
+        {
+          "resource": "p0",
+          "score": 0.8414584123418092
+        },
+        {
+          "resource": "p4",
+          "score": 0.8411660884057378
+        }
+      ],
+      "value": "123456789015",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 14,
+      "text": "Membership access badge Luhn checksum 6",
+      "resource": "p6",
+      "aiResource": "p6",
+      "evidence": [
+        {
+          "resource": "p6",
+          "score": 0.8781355320524
+        },
+        {
+          "resource": "p3",
+          "score": 0.8590365879276535
+        },
+        {
+          "resource": "p5",
+          "score": 0.8529175485003894
+        },
+        {
+          "resource": "p1",
+          "score": 0.8519361624769142
+        },
+        {
+          "resource": "p7",
+          "score": 0.8492784029044104
+        },
+        {
+          "resource": "p2",
+          "score": 0.8488577193557233
+        },
+        {
+          "resource": "p4",
+          "score": 0.8434057791822166
+        },
+        {
+          "resource": "p0",
+          "score": 0.8422618098266468
+        }
+      ],
+      "value": "123456789015",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 15,
+      "text": "Membership access badge Luhn checksum 7",
+      "resource": "p7",
+      "aiResource": "p7",
+      "evidence": [
+        {
+          "resource": "p7",
+          "score": 0.8833227686750627
+        },
+        {
+          "resource": "p3",
+          "score": 0.8494786964974346
+        },
+        {
+          "resource": "p1",
+          "score": 0.8482867193096735
+        },
+        {
+          "resource": "p6",
+          "score": 0.8473277871039322
+        },
+        {
+          "resource": "p2",
+          "score": 0.8442681433074124
+        },
+        {
+          "resource": "p5",
+          "score": 0.8436702986212278
+        },
+        {
+          "resource": "p4",
+          "score": 0.8363195312628678
+        },
+        {
+          "resource": "p0",
+          "score": 0.8359257871911832
+        }
+      ],
+      "value": "123456789015",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 16,
+      "text": "Membership access badge Luhn checksum 0",
+      "resource": "p0",
+      "aiResource": "p0",
+      "evidence": [
+        {
+          "resource": "p0",
+          "score": 0.885160293475249
+        },
+        {
+          "resource": "p1",
+          "score": 0.8674818495215061
+        },
+        {
+          "resource": "p3",
+          "score": 0.8610228489471683
+        },
+        {
+          "resource": "p2",
+          "score": 0.8583574889416793
+        },
+        {
+          "resource": "p4",
+          "score": 0.8518126467550025
+        },
+        {
+          "resource": "p6",
+          "score": 0.8504345297584163
+        },
+        {
+          "resource": "p5",
+          "score": 0.8502397526632622
+        },
+        {
+          "resource": "p7",
+          "score": 0.8450823756850339
+        }
+      ],
+      "value": "123456789015",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 17,
+      "text": "Membership access badge Luhn checksum 1",
+      "resource": "p1",
+      "aiResource": "p1",
+      "evidence": [
+        {
+          "resource": "p1",
+          "score": 0.8762391338053077
+        },
+        {
+          "resource": "p3",
+          "score": 0.8614978236159258
+        },
+        {
+          "resource": "p2",
+          "score": 0.8594567445161544
+        },
+        {
+          "resource": "p0",
+          "score": 0.8527846878201086
+        },
+        {
+          "resource": "p6",
+          "score": 0.8484128515134411
+        },
+        {
+          "resource": "p5",
+          "score": 0.8467431759973859
+        },
+        {
+          "resource": "p7",
+          "score": 0.8448694681987649
+        },
+        {
+          "resource": "p4",
+          "score": 0.8444591729082065
+        }
+      ],
+      "value": "123456789015",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 18,
+      "text": "Membership access badge Luhn checksum 2",
+      "resource": "p2",
+      "aiResource": "p2",
+      "evidence": [
+        {
+          "resource": "p2",
+          "score": 0.8803507120357288
+        },
+        {
+          "resource": "p3",
+          "score": 0.869484191228813
+        },
+        {
+          "resource": "p1",
+          "score": 0.8621339526423242
+        },
+        {
+          "resource": "p6",
+          "score": 0.8513696550125904
+        },
+        {
+          "resource": "p0",
+          "score": 0.8501663638949598
+        },
+        {
+          "resource": "p4",
+          "score": 0.8500864335786836
+        },
+        {
+          "resource": "p5",
+          "score": 0.8472243008042483
+        },
+        {
+          "resource": "p7",
+          "score": 0.8461354333527722
+        }
+      ],
+      "value": "123456789015",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 19,
+      "text": "Membership access badge Luhn checksum 3",
+      "resource": "p3",
+      "aiResource": "p3",
+      "evidence": [
+        {
+          "resource": "p3",
+          "score": 0.8851398487864925
+        },
+        {
+          "resource": "p2",
+          "score": 0.8536794552197413
+        },
+        {
+          "resource": "p1",
+          "score": 0.8533234394524061
+        },
+        {
+          "resource": "p5",
+          "score": 0.8453322977452324
+        },
+        {
+          "resource": "p6",
+          "score": 0.8449041933382982
+        },
+        {
+          "resource": "p4",
+          "score": 0.8437509898260754
+        },
+        {
+          "resource": "p0",
+          "score": 0.8396718908988182
+        },
+        {
+          "resource": "p7",
+          "score": 0.839024923005894
+        }
+      ],
+      "value": "123456789015",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 20,
+      "text": "Membership access badge Luhn checksum 4",
+      "resource": "p4",
+      "aiResource": "p4",
+      "evidence": [
+        {
+          "resource": "p4",
+          "score": 0.8714204612901835
+        },
+        {
+          "resource": "p3",
+          "score": 0.8657414834346198
+        },
+        {
+          "resource": "p1",
+          "score": 0.8588832272755649
+        },
+        {
+          "resource": "p2",
+          "score": 0.8557862827791841
+        },
+        {
+          "resource": "p5",
+          "score": 0.8495320565864055
+        },
+        {
+          "resource": "p6",
+          "score": 0.8485443791519278
+        },
+        {
+          "resource": "p0",
+          "score": 0.845430615094649
+        },
+        {
+          "resource": "p7",
+          "score": 0.840736397067358
+        }
+      ],
+      "value": "123456789015",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 21,
+      "text": "Membership access badge Luhn checksum 5",
+      "resource": "p5",
+      "aiResource": "p5",
+      "evidence": [
+        {
+          "resource": "p5",
+          "score": 0.8815028414047926
+        },
+        {
+          "resource": "p3",
+          "score": 0.8537742494044793
+        },
+        {
+          "resource": "p6",
+          "score": 0.8517894065053329
+        },
+        {
+          "resource": "p1",
+          "score": 0.8508422810410174
+        },
+        {
+          "resource": "p2",
+          "score": 0.847185587133209
+        },
+        {
+          "resource": "p7",
+          "score": 0.8436555660700932
+        },
+        {
+          "resource": "p0",
+          "score": 0.8414584123418092
+        },
+        {
+          "resource": "p4",
+          "score": 0.8411660884057378
+        }
+      ],
+      "value": "123456789015",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 22,
+      "text": "Membership access badge Luhn checksum 6",
+      "resource": "p6",
+      "aiResource": "p6",
+      "evidence": [
+        {
+          "resource": "p6",
+          "score": 0.8781355320524
+        },
+        {
+          "resource": "p3",
+          "score": 0.8590365879276535
+        },
+        {
+          "resource": "p5",
+          "score": 0.8529175485003894
+        },
+        {
+          "resource": "p1",
+          "score": 0.8519361624769142
+        },
+        {
+          "resource": "p7",
+          "score": 0.8492784029044104
+        },
+        {
+          "resource": "p2",
+          "score": 0.8488577193557233
+        },
+        {
+          "resource": "p4",
+          "score": 0.8434057791822166
+        },
+        {
+          "resource": "p0",
+          "score": 0.8422618098266468
+        }
+      ],
+      "value": "123456789015",
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "index": 23,
+      "text": "Membership access badge Luhn checksum 7",
+      "resource": "p7",
+      "aiResource": "p7",
+      "evidence": [
+        {
+          "resource": "p7",
+          "score": 0.8833227686750627
+        },
+        {
+          "resource": "p3",
+          "score": 0.8494786964974346
+        },
+        {
+          "resource": "p1",
+          "score": 0.8482867193096735
+        },
+        {
+          "resource": "p6",
+          "score": 0.8473277871039322
+        },
+        {
+          "resource": "p2",
+          "score": 0.8442681433074124
+        },
+        {
+          "resource": "p5",
+          "score": 0.8436702986212278
+        },
+        {
+          "resource": "p4",
+          "score": 0.8363195312628678
+        },
+        {
+          "resource": "p0",
+          "score": 0.8359257871911832
+        }
+      ],
+      "value": "123456789015",
+      "decision": "approve",
+      "note": ""
+    }
+  ],
+  "analysis": {
+    "checks": [
+      {
+        "id": "=row\n\"0\"",
+        "profile": "p0",
+        "scheme": "luhn",
+        "reviewedValue": "123456789015",
+        "normalized": "123456789015",
+        "status": "valid",
+        "shapePass": true,
+        "candidates": [],
+        "reason": "Format and checksum pass. This does not verify assignment, authenticity or ownership."
+      },
+      {
+        "id": "=row\n\"1\"",
+        "profile": "p1",
+        "scheme": "luhn",
+        "reviewedValue": "123456789015",
+        "normalized": "123456789015",
+        "status": "valid",
+        "shapePass": true,
+        "candidates": [],
+        "reason": "Format and checksum pass. This does not verify assignment, authenticity or ownership."
+      },
+      {
+        "id": "=row\n\"2\"",
+        "profile": "p2",
+        "scheme": "luhn",
+        "reviewedValue": "123456789015",
+        "normalized": "123456789015",
+        "status": "valid",
+        "shapePass": true,
+        "candidates": [],
+        "reason": "Format and checksum pass. This does not verify assignment, authenticity or ownership."
+      },
+      {
+        "id": "=row\n\"3\"",
+        "profile": "p3",
+        "scheme": "luhn",
+        "reviewedValue": "123456789015",
+        "normalized": "123456789015",
+        "status": "valid",
+        "shapePass": true,
+        "candidates": [],
+        "reason": "Format and checksum pass. This does not verify assignment, authenticity or ownership."
+      },
+      {
+        "id": "=row\n\"4\"",
+        "profile": "p4",
+        "scheme": "luhn",
+        "reviewedValue": "123456789015",
+        "normalized": "123456789015",
+        "status": "valid",
+        "shapePass": true,
+        "candidates": [],
+        "reason": "Format and checksum pass. This does not verify assignment, authenticity or ownership."
+      },
+      {
+        "id": "=row\n\"5\"",
+        "profile": "p5",
+        "scheme": "luhn",
+        "reviewedValue": "123456789015",
+        "normalized": "123456789015",
+        "status": "valid",
+        "shapePass": true,
+        "candidates": [],
+        "reason": "Format and checksum pass. This does not verify assignment, authenticity or ownership."
+      },
+      {
+        "id": "=row\n\"6\"",
+        "profile": "p6",
+        "scheme": "luhn",
+        "reviewedValue": "123456789015",
+        "normalized": "123456789015",
+        "status": "valid",
+        "shapePass": true,
+        "candidates": [],
+        "reason": "Format and checksum pass. This does not verify assignment, authenticity or ownership."
+      },
+      {
+        "id": "=row\n\"7\"",
+        "profile": "p7",
+        "scheme": "luhn",
+        "reviewedValue": "123456789015",
+        "normalized": "123456789015",
+        "status": "valid",
+        "shapePass": true,
+        "candidates": [],
+        "reason": "Format and checksum pass. This does not verify assignment, authenticity or ownership."
+      },
+      {
+        "id": "=row\n\"8\"",
+        "profile": "p0",
+        "scheme": "luhn",
+        "reviewedValue": "123456789015",
+        "normalized": "123456789015",
+        "status": "valid",
+        "shapePass": true,
+        "candidates": [],
+        "reason": "Format and checksum pass. This does not verify assignment, authenticity or ownership."
+      },
+      {
+        "id": "=row\n\"9\"",
+        "profile": "p1",
+        "scheme": "luhn",
+        "reviewedValue": "123456789015",
+        "normalized": "123456789015",
+        "status": "valid",
+        "shapePass": true,
+        "candidates": [],
+        "reason": "Format and checksum pass. This does not verify assignment, authenticity or ownership."
+      },
+      {
+        "id": "=row\n\"10\"",
+        "profile": "p2",
+        "scheme": "luhn",
+        "reviewedValue": "123456789015",
+        "normalized": "123456789015",
+        "status": "valid",
+        "shapePass": true,
+        "candidates": [],
+        "reason": "Format and checksum pass. This does not verify assignment, authenticity or ownership."
+      },
+      {
+        "id": "=row\n\"11\"",
+        "profile": "p3",
+        "scheme": "luhn",
+        "reviewedValue": "123456789015",
+        "normalized": "123456789015",
+        "status": "valid",
+        "shapePass": true,
+        "candidates": [],
+        "reason": "Format and checksum pass. This does not verify assignment, authenticity or ownership."
+      },
+      {
+        "id": "=row\n\"12\"",
+        "profile": "p4",
+        "scheme": "luhn",
+        "reviewedValue": "123456789015",
+        "normalized": "123456789015",
+        "status": "valid",
+        "shapePass": true,
+        "candidates": [],
+        "reason": "Format and checksum pass. This does not verify assignment, authenticity or ownership."
+      },
+      {
+        "id": "=row\n\"13\"",
+        "profile": "p5",
+        "scheme": "luhn",
+        "reviewedValue": "123456789015",
+        "normalized": "123456789015",
+        "status": "valid",
+        "shapePass": true,
+        "candidates": [],
+        "reason": "Format and checksum pass. This does not verify assignment, authenticity or ownership."
+      },
+      {
+        "id": "=row\n\"14\"",
+        "profile": "p6",
+        "scheme": "luhn",
+        "reviewedValue": "123456789015",
+        "normalized": "123456789015",
+        "status": "valid",
+        "shapePass": true,
+        "candidates": [],
+        "reason": "Format and checksum pass. This does not verify assignment, authenticity or ownership."
+      },
+      {
+        "id": "=row\n\"15\"",
+        "profile": "p7",
+        "scheme": "luhn",
+        "reviewedValue": "123456789015",
+        "normalized": "123456789015",
+        "status": "valid",
+        "shapePass": true,
+        "candidates": [],
+        "reason": "Format and checksum pass. This does not verify assignment, authenticity or ownership."
+      },
+      {
+        "id": "=row\n\"16\"",
+        "profile": "p0",
+        "scheme": "luhn",
+        "reviewedValue": "123456789015",
+        "normalized": "123456789015",
+        "status": "valid",
+        "shapePass": true,
+        "candidates": [],
+        "reason": "Format and checksum pass. This does not verify assignment, authenticity or ownership."
+      },
+      {
+        "id": "=row\n\"17\"",
+        "profile": "p1",
+        "scheme": "luhn",
+        "reviewedValue": "123456789015",
+        "normalized": "123456789015",
+        "status": "valid",
+        "shapePass": true,
+        "candidates": [],
+        "reason": "Format and checksum pass. This does not verify assignment, authenticity or ownership."
+      },
+      {
+        "id": "=row\n\"18\"",
+        "profile": "p2",
+        "scheme": "luhn",
+        "reviewedValue": "123456789015",
+        "normalized": "123456789015",
+        "status": "valid",
+        "shapePass": true,
+        "candidates": [],
+        "reason": "Format and checksum pass. This does not verify assignment, authenticity or ownership."
+      },
+      {
+        "id": "=row\n\"19\"",
+        "profile": "p3",
+        "scheme": "luhn",
+        "reviewedValue": "123456789015",
+        "normalized": "123456789015",
+        "status": "valid",
+        "shapePass": true,
+        "candidates": [],
+        "reason": "Format and checksum pass. This does not verify assignment, authenticity or ownership."
+      },
+      {
+        "id": "=row\n\"20\"",
+        "profile": "p4",
+        "scheme": "luhn",
+        "reviewedValue": "123456789015",
+        "normalized": "123456789015",
+        "status": "valid",
+        "shapePass": true,
+        "candidates": [],
+        "reason": "Format and checksum pass. This does not verify assignment, authenticity or ownership."
+      },
+      {
+        "id": "=row\n\"21\"",
+        "profile": "p5",
+        "scheme": "luhn",
+        "reviewedValue": "123456789015",
+        "normalized": "123456789015",
+        "status": "valid",
+        "shapePass": true,
+        "candidates": [],
+        "reason": "Format and checksum pass. This does not verify assignment, authenticity or ownership."
+      },
+      {
+        "id": "=row\n\"22\"",
+        "profile": "p6",
+        "scheme": "luhn",
+        "reviewedValue": "123456789015",
+        "normalized": "123456789015",
+        "status": "valid",
+        "shapePass": true,
+        "candidates": [],
+        "reason": "Format and checksum pass. This does not verify assignment, authenticity or ownership."
+      },
+      {
+        "id": "=row\n\"23\"",
+        "profile": "p7",
+        "scheme": "luhn",
+        "reviewedValue": "123456789015",
+        "normalized": "123456789015",
+        "status": "valid",
+        "shapePass": true,
+        "candidates": [],
+        "reason": "Format and checksum pass. This does not verify assignment, authenticity or ownership."
+      }
+    ],
+    "ready": 24,
+    "held": 0,
+    "blocked": 0,
+    "shapeOnlyPass": 24,
+    "checksumPass": 24,
+    "shapeOnlyMisses": 0
+  }
+}
+
+```
+

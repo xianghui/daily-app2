@@ -1,0 +1,497 @@
+{
+  "fixtures": [
+    {
+      "name": "Library intake",
+      "actual": [
+        "books",
+        "retail",
+        "books",
+        "retail"
+      ],
+      "expected": [
+        "books",
+        "retail",
+        "books",
+        "retail"
+      ],
+      "correct": 4,
+      "analysis": {
+        "checks": [
+          {
+            "id": "book-1",
+            "profile": "books",
+            "scheme": "isbn10",
+            "reviewedValue": "0-306-40615-2",
+            "normalized": "0306406152",
+            "status": "valid",
+            "shapePass": true,
+            "candidates": [],
+            "reason": "Format and checksum pass. This does not verify assignment, authenticity or ownership."
+          },
+          {
+            "id": "book-2",
+            "profile": "retail",
+            "scheme": "gtin13",
+            "reviewedValue": "9780306406158",
+            "normalized": "9780306406158",
+            "status": "blocked",
+            "shapePass": true,
+            "candidates": [
+              "9780306406157"
+            ],
+            "reason": "Checksum fails. A replacement final digit is only a candidate, not proof the other digits are correct."
+          },
+          {
+            "id": "book-3",
+            "profile": "books",
+            "scheme": "isbn10",
+            "reviewedValue": "0-8044-2957-?",
+            "normalized": "080442957?",
+            "status": "blocked",
+            "shapePass": false,
+            "candidates": [
+              "080442957X"
+            ],
+            "reason": "One checksum-consistent completion. Verify against the source before using."
+          },
+          {
+            "id": "book-4",
+            "profile": "retail",
+            "scheme": "gtin13",
+            "reviewedValue": "9780306406157",
+            "normalized": "9780306406157",
+            "status": "valid",
+            "shapePass": true,
+            "candidates": [],
+            "reason": "Format and checksum pass. This does not verify assignment, authenticity or ownership."
+          }
+        ],
+        "ready": 2,
+        "held": 0,
+        "blocked": 2,
+        "shapeOnlyPass": 3,
+        "checksumPass": 2,
+        "shapeOnlyMisses": 1
+      }
+    },
+    {
+      "name": "Equipment desk",
+      "actual": [
+        "badges",
+        "retail",
+        "badges",
+        "retail"
+      ],
+      "expected": [
+        "badges",
+        "retail",
+        "badges",
+        "retail"
+      ],
+      "correct": 4,
+      "analysis": {
+        "checks": [
+          {
+            "id": "label-1",
+            "profile": "badges",
+            "scheme": "luhn",
+            "reviewedValue": "123456789012",
+            "normalized": "123456789012",
+            "status": "blocked",
+            "shapePass": true,
+            "candidates": [
+              "123456789015"
+            ],
+            "reason": "Checksum fails. A replacement final digit is only a candidate, not proof the other digits are correct."
+          },
+          {
+            "id": "label-2",
+            "profile": "retail",
+            "scheme": "gtin13",
+            "reviewedValue": "4006381333932",
+            "normalized": "4006381333932",
+            "status": "blocked",
+            "shapePass": true,
+            "candidates": [
+              "4006381333931"
+            ],
+            "reason": "Checksum fails. A replacement final digit is only a candidate, not proof the other digits are correct."
+          },
+          {
+            "id": "label-3",
+            "profile": "badges",
+            "scheme": "luhn",
+            "reviewedValue": "12345678901?",
+            "normalized": "12345678901?",
+            "status": "blocked",
+            "shapePass": false,
+            "candidates": [
+              "123456789015"
+            ],
+            "reason": "One checksum-consistent completion. Verify against the source before using."
+          },
+          {
+            "id": "label-4",
+            "profile": "retail",
+            "scheme": "gtin13",
+            "reviewedValue": "4006381333931",
+            "normalized": "4006381333931",
+            "status": "valid",
+            "shapePass": true,
+            "candidates": [],
+            "reason": "Format and checksum pass. This does not verify assignment, authenticity or ownership."
+          }
+        ],
+        "ready": 1,
+        "held": 0,
+        "blocked": 3,
+        "shapeOnlyPass": 3,
+        "checksumPass": 1,
+        "shapeOnlyMisses": 2
+      }
+    }
+  ],
+  "checks": [
+    "Candidate repair explicit, approval reset, source unchanged, scheme edits, holds, multiline notes, undo and clipboard",
+    "Actual fresh-worker offline inference in already-open warmed production page",
+    "Maximum 8 profiles / 24 records / 32 real embeddings in eight chunks, complete audits round-trip and leading-zero strings preserved",
+    "Real cancel and successful retry",
+    "Downloads/copy, labels/focus/44px controls, desktop/phone no overflow, bad inputs/files, GET-only file downloads without content"
+  ],
+  "negationProbe": {
+    "proposed": "books",
+    "decision": "pending"
+  },
+  "requests": [
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261123-9/",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261123-9/assets/index-Bd2rp66Q.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261123-9/assets/index-BouUWpKt.css",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/db8176ab-a8fa-4b45-ae65-b1c3a0dd55da",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "xianghui.github.io",
+      "path": "/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "xip",
+        "response-content-disposition",
+        "user_id",
+        "X-Xet-Cas-Uid",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "xip",
+        "user_id",
+        "X-Xet-Cas-Uid",
+        "response-content-disposition",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/934da343-4581-4646-a7bd-bf6836f9f956",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/d10a82f2-b7f3-423a-ba25-037bf1640ee1",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/3bc14c09-7360-483f-8060-db2e54e6e7b4",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/b94e0b10-135e-4c47-9235-9c82c5da6b5b",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/6e3b1d9f-17bd-4e55-8a76-15da212aa905",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/e9b57808-765a-4b42-8cad-0525fd33e965",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/d0a4cc54-7ab2-4b7c-a33c-c8920e40e061",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/c6917428-076d-48cc-8382-0f1830d75a53",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/2d35829d-f3a5-4bba-bd73-c057d69f55de",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/7e193d54-61c4-40fa-b6bb-bb197a9216e0",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/c411b382-9f8a-4649-8f00-65b775ea2e29",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/5779085f-2036-4c70-bd4b-2807364614cd",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/9dfcff4d-04a5-4e57-97d2-0b019d1859bf",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/46bcb750-c635-4f4d-9bfa-13dd5c705702",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/62285c23-1e3c-4e25-bf4b-5164fd5e1028",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/3b7f5a3b-2a18-4bea-985d-9feeb453a996",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/8a317956-b25b-4e41-a5e2-c450885f06c3",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/7c3c6020-d43e-47c3-8b31-9ece4e303d3b",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/0640f9d7-3eee-4eb6-8ebd-8ade5c35280e",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/40e9a94e-4c2b-4070-a30e-467957a5074a",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    },
+    {
+      "host": "",
+      "path": "https://xianghui.github.io/56ee20cc-5d38-4e3d-a1ec-0168a4280fe1",
+      "queryKeys": [],
+      "method": "GET",
+      "hasBody": false
+    }
+  ],
+  "errors": []
+}

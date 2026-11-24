@@ -1,0 +1,618 @@
+{
+  "format": "origin-ledger-fixtures-v1",
+  "notice": "Offline bounded CORS QA snapshots; no network calls. Denied means browser response access fails, not that the request cannot be sent or that the endpoint is secured.",
+  "cases": [
+    {
+      "id": "=row \"0\"\nnext",
+      "client": {
+        "id": "public",
+        "description": "Anonymous public data dashboard fetching open statistics without signing in or sending session credentials.",
+        "origin": "https://charts.example",
+        "credentials": "omit"
+      },
+      "snapshot": {
+        "method": "GET",
+        "headers": {},
+        "response": {
+          "allowOrigin": "*",
+          "allowCredentials": ""
+        },
+        "preflight": null
+      },
+      "expected": "readable",
+      "preflightRequired": false
+    },
+    {
+      "id": "=row \"1\"\nnext",
+      "client": {
+        "id": "account",
+        "description": "Signed in customer account portal using session cookies to view private orders and update the customer profile.",
+        "origin": "https://account.example",
+        "credentials": "include"
+      },
+      "snapshot": {
+        "method": "GET",
+        "headers": {},
+        "response": {
+          "allowOrigin": "*",
+          "allowCredentials": "true"
+        },
+        "preflight": null
+      },
+      "expected": "denied",
+      "preflightRequired": false
+    },
+    {
+      "id": "=row \"2\"\nnext",
+      "client": {
+        "id": "account",
+        "description": "Signed in customer account portal using session cookies to view private orders and update the customer profile.",
+        "origin": "https://account.example",
+        "credentials": "include"
+      },
+      "snapshot": {
+        "method": "PUT",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "response": {
+          "allowOrigin": "https://account.example",
+          "allowCredentials": "true"
+        },
+        "preflight": {
+          "status": 204,
+          "allowOrigin": "https://account.example",
+          "allowCredentials": "true",
+          "allowMethods": [
+            "PUT"
+          ],
+          "allowHeaders": [
+            "content-type"
+          ]
+        }
+      },
+      "expected": "readable",
+      "preflightRequired": true
+    },
+    {
+      "id": "=row \"3\"\nnext",
+      "client": {
+        "id": "partner",
+        "description": "Partner automation console sending custom integration job headers for bulk imports without session cookies.",
+        "origin": "https://partners.example",
+        "credentials": "omit"
+      },
+      "snapshot": {
+        "method": "POST",
+        "headers": {
+          "x-job": "sample"
+        },
+        "response": {
+          "allowOrigin": "*",
+          "allowCredentials": ""
+        },
+        "preflight": {
+          "status": 204,
+          "allowOrigin": "*",
+          "allowCredentials": "",
+          "allowMethods": [
+            "POST"
+          ],
+          "allowHeaders": []
+        }
+      },
+      "expected": "denied",
+      "preflightRequired": true
+    },
+    {
+      "id": "=row \"4\"\nnext",
+      "client": {
+        "id": "public",
+        "description": "Anonymous public data dashboard fetching open statistics without signing in or sending session credentials.",
+        "origin": "https://charts.example",
+        "credentials": "omit"
+      },
+      "snapshot": {
+        "method": "GET",
+        "headers": {},
+        "response": {
+          "allowOrigin": "*",
+          "allowCredentials": ""
+        },
+        "preflight": null
+      },
+      "expected": "readable",
+      "preflightRequired": false
+    },
+    {
+      "id": "=row \"5\"\nnext",
+      "client": {
+        "id": "account",
+        "description": "Signed in customer account portal using session cookies to view private orders and update the customer profile.",
+        "origin": "https://account.example",
+        "credentials": "include"
+      },
+      "snapshot": {
+        "method": "GET",
+        "headers": {},
+        "response": {
+          "allowOrigin": "*",
+          "allowCredentials": "true"
+        },
+        "preflight": null
+      },
+      "expected": "denied",
+      "preflightRequired": false
+    },
+    {
+      "id": "=row \"6\"\nnext",
+      "client": {
+        "id": "account",
+        "description": "Signed in customer account portal using session cookies to view private orders and update the customer profile.",
+        "origin": "https://account.example",
+        "credentials": "include"
+      },
+      "snapshot": {
+        "method": "PUT",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "response": {
+          "allowOrigin": "https://account.example",
+          "allowCredentials": "true"
+        },
+        "preflight": {
+          "status": 204,
+          "allowOrigin": "https://account.example",
+          "allowCredentials": "true",
+          "allowMethods": [
+            "PUT"
+          ],
+          "allowHeaders": [
+            "content-type"
+          ]
+        }
+      },
+      "expected": "readable",
+      "preflightRequired": true
+    },
+    {
+      "id": "=row \"7\"\nnext",
+      "client": {
+        "id": "partner",
+        "description": "Partner automation console sending custom integration job headers for bulk imports without session cookies.",
+        "origin": "https://partners.example",
+        "credentials": "omit"
+      },
+      "snapshot": {
+        "method": "POST",
+        "headers": {
+          "x-job": "sample"
+        },
+        "response": {
+          "allowOrigin": "*",
+          "allowCredentials": ""
+        },
+        "preflight": {
+          "status": 204,
+          "allowOrigin": "*",
+          "allowCredentials": "",
+          "allowMethods": [
+            "POST"
+          ],
+          "allowHeaders": []
+        }
+      },
+      "expected": "denied",
+      "preflightRequired": true
+    },
+    {
+      "id": "=row \"8\"\nnext",
+      "client": {
+        "id": "public",
+        "description": "Anonymous public data dashboard fetching open statistics without signing in or sending session credentials.",
+        "origin": "https://charts.example",
+        "credentials": "omit"
+      },
+      "snapshot": {
+        "method": "GET",
+        "headers": {},
+        "response": {
+          "allowOrigin": "*",
+          "allowCredentials": ""
+        },
+        "preflight": null
+      },
+      "expected": "readable",
+      "preflightRequired": false
+    },
+    {
+      "id": "=row \"9\"\nnext",
+      "client": {
+        "id": "account",
+        "description": "Signed in customer account portal using session cookies to view private orders and update the customer profile.",
+        "origin": "https://account.example",
+        "credentials": "include"
+      },
+      "snapshot": {
+        "method": "GET",
+        "headers": {},
+        "response": {
+          "allowOrigin": "*",
+          "allowCredentials": "true"
+        },
+        "preflight": null
+      },
+      "expected": "denied",
+      "preflightRequired": false
+    },
+    {
+      "id": "=row \"10\"\nnext",
+      "client": {
+        "id": "account",
+        "description": "Signed in customer account portal using session cookies to view private orders and update the customer profile.",
+        "origin": "https://account.example",
+        "credentials": "include"
+      },
+      "snapshot": {
+        "method": "PUT",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "response": {
+          "allowOrigin": "https://account.example",
+          "allowCredentials": "true"
+        },
+        "preflight": {
+          "status": 204,
+          "allowOrigin": "https://account.example",
+          "allowCredentials": "true",
+          "allowMethods": [
+            "PUT"
+          ],
+          "allowHeaders": [
+            "content-type"
+          ]
+        }
+      },
+      "expected": "readable",
+      "preflightRequired": true
+    },
+    {
+      "id": "=row \"11\"\nnext",
+      "client": {
+        "id": "partner",
+        "description": "Partner automation console sending custom integration job headers for bulk imports without session cookies.",
+        "origin": "https://partners.example",
+        "credentials": "omit"
+      },
+      "snapshot": {
+        "method": "POST",
+        "headers": {
+          "x-job": "sample"
+        },
+        "response": {
+          "allowOrigin": "*",
+          "allowCredentials": ""
+        },
+        "preflight": {
+          "status": 204,
+          "allowOrigin": "*",
+          "allowCredentials": "",
+          "allowMethods": [
+            "POST"
+          ],
+          "allowHeaders": []
+        }
+      },
+      "expected": "denied",
+      "preflightRequired": true
+    },
+    {
+      "id": "=row \"12\"\nnext",
+      "client": {
+        "id": "public",
+        "description": "Anonymous public data dashboard fetching open statistics without signing in or sending session credentials.",
+        "origin": "https://charts.example",
+        "credentials": "omit"
+      },
+      "snapshot": {
+        "method": "GET",
+        "headers": {},
+        "response": {
+          "allowOrigin": "*",
+          "allowCredentials": ""
+        },
+        "preflight": null
+      },
+      "expected": "readable",
+      "preflightRequired": false
+    },
+    {
+      "id": "=row \"13\"\nnext",
+      "client": {
+        "id": "account",
+        "description": "Signed in customer account portal using session cookies to view private orders and update the customer profile.",
+        "origin": "https://account.example",
+        "credentials": "include"
+      },
+      "snapshot": {
+        "method": "GET",
+        "headers": {},
+        "response": {
+          "allowOrigin": "*",
+          "allowCredentials": "true"
+        },
+        "preflight": null
+      },
+      "expected": "denied",
+      "preflightRequired": false
+    },
+    {
+      "id": "=row \"14\"\nnext",
+      "client": {
+        "id": "account",
+        "description": "Signed in customer account portal using session cookies to view private orders and update the customer profile.",
+        "origin": "https://account.example",
+        "credentials": "include"
+      },
+      "snapshot": {
+        "method": "PUT",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "response": {
+          "allowOrigin": "https://account.example",
+          "allowCredentials": "true"
+        },
+        "preflight": {
+          "status": 204,
+          "allowOrigin": "https://account.example",
+          "allowCredentials": "true",
+          "allowMethods": [
+            "PUT"
+          ],
+          "allowHeaders": [
+            "content-type"
+          ]
+        }
+      },
+      "expected": "readable",
+      "preflightRequired": true
+    },
+    {
+      "id": "=row \"15\"\nnext",
+      "client": {
+        "id": "partner",
+        "description": "Partner automation console sending custom integration job headers for bulk imports without session cookies.",
+        "origin": "https://partners.example",
+        "credentials": "omit"
+      },
+      "snapshot": {
+        "method": "POST",
+        "headers": {
+          "x-job": "sample"
+        },
+        "response": {
+          "allowOrigin": "*",
+          "allowCredentials": ""
+        },
+        "preflight": {
+          "status": 204,
+          "allowOrigin": "*",
+          "allowCredentials": "",
+          "allowMethods": [
+            "POST"
+          ],
+          "allowHeaders": []
+        }
+      },
+      "expected": "denied",
+      "preflightRequired": true
+    },
+    {
+      "id": "=row \"16\"\nnext",
+      "client": {
+        "id": "public",
+        "description": "Anonymous public data dashboard fetching open statistics without signing in or sending session credentials.",
+        "origin": "https://charts.example",
+        "credentials": "omit"
+      },
+      "snapshot": {
+        "method": "GET",
+        "headers": {},
+        "response": {
+          "allowOrigin": "*",
+          "allowCredentials": ""
+        },
+        "preflight": null
+      },
+      "expected": "readable",
+      "preflightRequired": false
+    },
+    {
+      "id": "=row \"17\"\nnext",
+      "client": {
+        "id": "account",
+        "description": "Signed in customer account portal using session cookies to view private orders and update the customer profile.",
+        "origin": "https://account.example",
+        "credentials": "include"
+      },
+      "snapshot": {
+        "method": "GET",
+        "headers": {},
+        "response": {
+          "allowOrigin": "*",
+          "allowCredentials": "true"
+        },
+        "preflight": null
+      },
+      "expected": "denied",
+      "preflightRequired": false
+    },
+    {
+      "id": "=row \"18\"\nnext",
+      "client": {
+        "id": "account",
+        "description": "Signed in customer account portal using session cookies to view private orders and update the customer profile.",
+        "origin": "https://account.example",
+        "credentials": "include"
+      },
+      "snapshot": {
+        "method": "PUT",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "response": {
+          "allowOrigin": "https://account.example",
+          "allowCredentials": "true"
+        },
+        "preflight": {
+          "status": 204,
+          "allowOrigin": "https://account.example",
+          "allowCredentials": "true",
+          "allowMethods": [
+            "PUT"
+          ],
+          "allowHeaders": [
+            "content-type"
+          ]
+        }
+      },
+      "expected": "readable",
+      "preflightRequired": true
+    },
+    {
+      "id": "=row \"19\"\nnext",
+      "client": {
+        "id": "partner",
+        "description": "Partner automation console sending custom integration job headers for bulk imports without session cookies.",
+        "origin": "https://partners.example",
+        "credentials": "omit"
+      },
+      "snapshot": {
+        "method": "POST",
+        "headers": {
+          "x-job": "sample"
+        },
+        "response": {
+          "allowOrigin": "*",
+          "allowCredentials": ""
+        },
+        "preflight": {
+          "status": 204,
+          "allowOrigin": "*",
+          "allowCredentials": "",
+          "allowMethods": [
+            "POST"
+          ],
+          "allowHeaders": []
+        }
+      },
+      "expected": "denied",
+      "preflightRequired": true
+    },
+    {
+      "id": "=row \"20\"\nnext",
+      "client": {
+        "id": "public",
+        "description": "Anonymous public data dashboard fetching open statistics without signing in or sending session credentials.",
+        "origin": "https://charts.example",
+        "credentials": "omit"
+      },
+      "snapshot": {
+        "method": "GET",
+        "headers": {},
+        "response": {
+          "allowOrigin": "*",
+          "allowCredentials": ""
+        },
+        "preflight": null
+      },
+      "expected": "readable",
+      "preflightRequired": false
+    },
+    {
+      "id": "=row \"21\"\nnext",
+      "client": {
+        "id": "account",
+        "description": "Signed in customer account portal using session cookies to view private orders and update the customer profile.",
+        "origin": "https://account.example",
+        "credentials": "include"
+      },
+      "snapshot": {
+        "method": "GET",
+        "headers": {},
+        "response": {
+          "allowOrigin": "*",
+          "allowCredentials": "true"
+        },
+        "preflight": null
+      },
+      "expected": "denied",
+      "preflightRequired": false
+    },
+    {
+      "id": "=row \"22\"\nnext",
+      "client": {
+        "id": "account",
+        "description": "Signed in customer account portal using session cookies to view private orders and update the customer profile.",
+        "origin": "https://account.example",
+        "credentials": "include"
+      },
+      "snapshot": {
+        "method": "PUT",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "response": {
+          "allowOrigin": "https://account.example",
+          "allowCredentials": "true"
+        },
+        "preflight": {
+          "status": 204,
+          "allowOrigin": "https://account.example",
+          "allowCredentials": "true",
+          "allowMethods": [
+            "PUT"
+          ],
+          "allowHeaders": [
+            "content-type"
+          ]
+        }
+      },
+      "expected": "readable",
+      "preflightRequired": true
+    },
+    {
+      "id": "=row \"23\"\nnext",
+      "client": {
+        "id": "partner",
+        "description": "Partner automation console sending custom integration job headers for bulk imports without session cookies.",
+        "origin": "https://partners.example",
+        "credentials": "omit"
+      },
+      "snapshot": {
+        "method": "POST",
+        "headers": {
+          "x-job": "sample"
+        },
+        "response": {
+          "allowOrigin": "*",
+          "allowCredentials": ""
+        },
+        "preflight": {
+          "status": 204,
+          "allowOrigin": "*",
+          "allowCredentials": "",
+          "allowMethods": [
+            "POST"
+          ],
+          "allowHeaders": []
+        }
+      },
+      "expected": "denied",
+      "preflightRequired": true
+    }
+  ]
+}

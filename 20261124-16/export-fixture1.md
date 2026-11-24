@@ -1,0 +1,27 @@
+# Backoff Bench
+
+DRY RUN ONLY — no endpoint requests or scheduled retries.
+
+1. "Late inventory" · ready
+   Source: {"id":"Late inventory","context":"Read inventory stock availability and product catalog descriptions.","raw":"{\"attempt\":1,\"status\":429,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"180\",\"keyConfirmed\":false}"}
+   Review: {"id":"Late inventory","system":"catalog","raw":"{\"attempt\":1,\"status\":429,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"180\",\"keyConfirmed\":false}","decision":"approve","note":"","evidence":[{"system":"catalog","similarity":0.8862903877964021},{"system":"mail","similarity":0.09754980759422369},{"system":"payment","similarity":0.03167822906184259}]}
+   Check: {"id":"Late inventory","system":"catalog","raw":"{\"attempt\":1,\"status\":429,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"180\",\"keyConfirmed\":false}","selected":"stop","reason":"Required wait exceeds the supplied deadline; do not shorten Retry-After.","backoff":2,"serverDelay":180,"delaySeconds":180,"candidateAt":"2026-11-24T07:03:00.000Z","retryAt":null,"baselineAt":"2026-11-24T07:00:02.000Z","disagreement":true,"deadline":"2026-11-24T07:02:00Z","statusCode":429,"attempt":1,"keyConfirmed":false,"status":"ready"}
+
+2. "Payment ceiling" · ready
+   Source: {"id":"Payment ceiling","context":"Capture invoice payment funds from a customer credit card.","raw":"{\"attempt\":4,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":true}"}
+   Review: {"id":"Payment ceiling","system":"payment","raw":"{\"attempt\":4,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":true}","decision":"approve","note":"","evidence":[{"system":"payment","similarity":0.7814451547495496},{"system":"mail","similarity":0.11822556101962231},{"system":"catalog","similarity":0.04221290526291063}]}
+   Check: {"id":"Payment ceiling","system":"payment","raw":"{\"attempt\":4,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":true}","selected":"stop","reason":"Next retry ordinal exceeds the contract retry limit.","backoff":40,"serverDelay":0,"delaySeconds":40,"candidateAt":"2026-11-24T07:00:40.000Z","retryAt":null,"baselineAt":"2026-11-24T07:00:40.000Z","disagreement":true,"deadline":"2026-11-24T07:02:00Z","statusCode":503,"attempt":4,"keyConfirmed":true,"status":"ready"}
+
+3. "Mail failure" · ready
+   Source: {"id":"Mail failure","context":"Deliver newsletter emails and campaign messages to subscribers.","raw":"{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"2\",\"keyConfirmed\":false}"}
+   Review: {"id":"Mail failure","system":"mail","raw":"{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"2\",\"keyConfirmed\":false}","decision":"approve","note":"","evidence":[{"system":"mail","similarity":0.8200099497527126},{"system":"payment","similarity":0.25074274693197984},{"system":"catalog","similarity":0.10153187248777677}]}
+   Check: {"id":"Mail failure","system":"mail","raw":"{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"2\",\"keyConfirmed\":false}","selected":"stop","reason":"Contract forbids automatic replay; investigate the original outcome.","backoff":3,"serverDelay":2,"delaySeconds":3,"candidateAt":"2026-11-24T07:00:03.000Z","retryAt":null,"baselineAt":"2026-11-24T07:00:03.000Z","disagreement":true,"deadline":"2026-11-24T07:02:00Z","statusCode":503,"attempt":1,"keyConfirmed":false,"status":"ready"}
+
+4. "Successful lookup" · ready
+   Source: {"id":"Successful lookup","context":"Fetch inventory product catalog and stock availability.","raw":"{\"attempt\":1,\"status\":200,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":false}"}
+   Review: {"id":"Successful lookup","system":"catalog","raw":"{\"attempt\":1,\"status\":200,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":false}","decision":"approve","note":"","evidence":[{"system":"catalog","similarity":0.7476039596609142},{"system":"mail","similarity":0.1451700177323322},{"system":"payment","similarity":0.054440026019939906}]}
+   Check: {"id":"Successful lookup","system":"catalog","raw":"{\"attempt\":1,\"status\":200,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":false}","selected":"stop","reason":"Only 429 and 503 are retryable in this deliberately bounded worksheet.","backoff":2,"serverDelay":0,"delaySeconds":2,"candidateAt":"2026-11-24T07:00:02.000Z","retryAt":null,"baselineAt":"2026-11-24T07:00:02.000Z","disagreement":true,"deadline":"2026-11-24T07:02:00Z","statusCode":200,"attempt":1,"keyConfirmed":false,"status":"ready"}
+
+Computed counts: {"records":4,"ready":4,"held":0,"blocked":0,"retries":0,"stops":4,"disagreements":4}
+
+Baseline retries every valid case at capped exponential backoff, ignoring status, replay permission, server minimum, retry limit and deadline. Differences are computed decisions, not accuracy or time saved.

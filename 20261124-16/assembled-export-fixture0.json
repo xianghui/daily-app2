@@ -1,0 +1,227 @@
+{
+  "version": 1,
+  "app": "Backoff Bench",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "catalog",
+        "description": "Read product catalog, stock availability and item descriptions from the inventory lookup service.",
+        "replay": "safe",
+        "baseSeconds": 2,
+        "capSeconds": 30,
+        "maxRetries": 4
+      },
+      {
+        "id": "payment",
+        "description": "Charge a customer credit card, capture an invoice payment and collect billing funds.",
+        "replay": "key-required",
+        "baseSeconds": 5,
+        "capSeconds": 60,
+        "maxRetries": 3
+      },
+      {
+        "id": "mail",
+        "description": "Send a newsletter email, deliver campaign messages and notify mailing list subscribers.",
+        "replay": "never",
+        "baseSeconds": 3,
+        "capSeconds": 30,
+        "maxRetries": 2
+      }
+    ],
+    "records": [
+      {
+        "id": "Stock lookup",
+        "context": "Fetch product availability and inventory catalog details.",
+        "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"12\",\"keyConfirmed\":false}"
+      },
+      {
+        "id": "Invoice capture",
+        "context": "Capture a customer credit card payment for an invoice.",
+        "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":false}"
+      },
+      {
+        "id": "Campaign send",
+        "context": "Send the newsletter email campaign to mailing list subscribers.",
+        "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":true}"
+      },
+      {
+        "id": "Keyed charge",
+        "context": "Collect invoice billing funds by charging the customer credit card.",
+        "raw": "{\"attempt\":2,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"Tue, 24 Nov 2026 07:00:25 GMT\",\"keyConfirmed\":true}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "Stock lookup",
+      "system": "catalog",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"12\",\"keyConfirmed\":false}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "catalog",
+          "similarity": 0.7993852816348307
+        },
+        {
+          "system": "mail",
+          "similarity": 0.14158748109346173
+        },
+        {
+          "system": "payment",
+          "similarity": 0.08310498268400804
+        }
+      ]
+    },
+    {
+      "id": "Invoice capture",
+      "system": "payment",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":false}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "payment",
+          "similarity": 0.7956263883803782
+        },
+        {
+          "system": "mail",
+          "similarity": 0.16646226200377864
+        },
+        {
+          "system": "catalog",
+          "similarity": 0.1037836164473632
+        }
+      ]
+    },
+    {
+      "id": "Campaign send",
+      "system": "mail",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":true}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "mail",
+          "similarity": 0.877991592172909
+        },
+        {
+          "system": "payment",
+          "similarity": 0.23397568213026404
+        },
+        {
+          "system": "catalog",
+          "similarity": 0.1088911733339398
+        }
+      ]
+    },
+    {
+      "id": "Keyed charge",
+      "system": "payment",
+      "raw": "{\"attempt\":2,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"Tue, 24 Nov 2026 07:00:25 GMT\",\"keyConfirmed\":true}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "payment",
+          "similarity": 0.9158404618521643
+        },
+        {
+          "system": "mail",
+          "similarity": 0.260965915990491
+        },
+        {
+          "system": "catalog",
+          "similarity": 0.07966773209503848
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "Stock lookup",
+      "system": "catalog",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"12\",\"keyConfirmed\":false}",
+      "selected": "retry",
+      "reason": "Replay permitted by the reviewed contract; wait for both local backoff and server minimum.",
+      "backoff": 2,
+      "serverDelay": 12,
+      "delaySeconds": 12,
+      "candidateAt": "2026-11-24T07:00:12.000Z",
+      "retryAt": "2026-11-24T07:00:12.000Z",
+      "baselineAt": "2026-11-24T07:00:02.000Z",
+      "disagreement": true,
+      "deadline": "2026-11-24T07:02:00Z",
+      "statusCode": 503,
+      "attempt": 1,
+      "keyConfirmed": false,
+      "status": "ready"
+    },
+    {
+      "id": "Invoice capture",
+      "system": "payment",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":false}",
+      "selected": "stop",
+      "reason": "Server-supported idempotency and reuse of the original key have not both been confirmed.",
+      "backoff": 5,
+      "serverDelay": 0,
+      "delaySeconds": 5,
+      "candidateAt": "2026-11-24T07:00:05.000Z",
+      "retryAt": null,
+      "baselineAt": "2026-11-24T07:00:05.000Z",
+      "disagreement": true,
+      "deadline": "2026-11-24T07:02:00Z",
+      "statusCode": 503,
+      "attempt": 1,
+      "keyConfirmed": false,
+      "status": "ready"
+    },
+    {
+      "id": "Campaign send",
+      "system": "mail",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":true}",
+      "selected": "stop",
+      "reason": "Contract forbids automatic replay; investigate the original outcome.",
+      "backoff": 3,
+      "serverDelay": 0,
+      "delaySeconds": 3,
+      "candidateAt": "2026-11-24T07:00:03.000Z",
+      "retryAt": null,
+      "baselineAt": "2026-11-24T07:00:03.000Z",
+      "disagreement": true,
+      "deadline": "2026-11-24T07:02:00Z",
+      "statusCode": 503,
+      "attempt": 1,
+      "keyConfirmed": true,
+      "status": "ready"
+    },
+    {
+      "id": "Keyed charge",
+      "system": "payment",
+      "raw": "{\"attempt\":2,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"Tue, 24 Nov 2026 07:00:25 GMT\",\"keyConfirmed\":true}",
+      "selected": "retry",
+      "reason": "Replay permitted by the reviewed contract; wait for both local backoff and server minimum.",
+      "backoff": 10,
+      "serverDelay": 25,
+      "delaySeconds": 25,
+      "candidateAt": "2026-11-24T07:00:25.000Z",
+      "retryAt": "2026-11-24T07:00:25.000Z",
+      "baselineAt": "2026-11-24T07:00:10.000Z",
+      "disagreement": true,
+      "deadline": "2026-11-24T07:02:00Z",
+      "statusCode": 503,
+      "attempt": 2,
+      "keyConfirmed": true,
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 4,
+    "ready": 4,
+    "held": 0,
+    "blocked": 0,
+    "retries": 2,
+    "stops": 2,
+    "disagreements": 4
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "format": "backoff-bench-fixtures-v1",
+  "notice": "Dry-run fixtures only. No calls, scheduling or key storage. Safe/keyed replay is a supplied service contract, not inferred from HTTP method.",
+  "cases": [
+    {
+      "id": "Late inventory",
+      "contract": "catalog",
+      "input": {
+        "attempt": 1,
+        "status": 429,
+        "now": "2026-11-24T07:00:00Z",
+        "deadline": "2026-11-24T07:02:00Z",
+        "retryAfter": "10",
+        "keyConfirmed": false
+      },
+      "expectedAction": "retry",
+      "expectedRetryAt": "2026-11-24T07:00:10.000Z",
+      "requiredDelaySeconds": 10,
+      "reason": "Replay permitted by the reviewed contract; wait for both local backoff and server minimum."
+    },
+    {
+      "id": "Payment ceiling",
+      "contract": "payment",
+      "input": {
+        "attempt": 4,
+        "status": 503,
+        "now": "2026-11-24T07:00:00Z",
+        "deadline": "2026-11-24T07:02:00Z",
+        "retryAfter": "",
+        "keyConfirmed": true
+      },
+      "expectedAction": "stop",
+      "expectedRetryAt": null,
+      "requiredDelaySeconds": 40,
+      "reason": "Next retry ordinal exceeds the contract retry limit."
+    },
+    {
+      "id": "Mail failure",
+      "contract": "mail",
+      "input": {
+        "attempt": 1,
+        "status": 503,
+        "now": "2026-11-24T07:00:00Z",
+        "deadline": "2026-11-24T07:02:00Z",
+        "retryAfter": "2",
+        "keyConfirmed": false
+      },
+      "expectedAction": "stop",
+      "expectedRetryAt": null,
+      "requiredDelaySeconds": 3,
+      "reason": "Contract forbids automatic replay; investigate the original outcome."
+    },
+    {
+      "id": "Successful lookup",
+      "contract": "catalog",
+      "input": {
+        "attempt": 1,
+        "status": 200,
+        "now": "2026-11-24T07:00:00Z",
+        "deadline": "2026-11-24T07:02:00Z",
+        "retryAfter": "",
+        "keyConfirmed": false
+      },
+      "expectedAction": "stop",
+      "expectedRetryAt": null,
+      "requiredDelaySeconds": 2,
+      "reason": "Only 429 and 503 are retryable in this deliberately bounded worksheet."
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "version": 1,
+  "app": "Backoff Bench",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "catalog",
+        "description": "Read product catalog, stock availability and item descriptions from the inventory lookup service.",
+        "replay": "safe",
+        "baseSeconds": 2,
+        "capSeconds": 30,
+        "maxRetries": 4
+      },
+      {
+        "id": "payment",
+        "description": "Charge a customer credit card, capture an invoice payment and collect billing funds.",
+        "replay": "key-required",
+        "baseSeconds": 5,
+        "capSeconds": 60,
+        "maxRetries": 3
+      },
+      {
+        "id": "mail",
+        "description": "Send a newsletter email, deliver campaign messages and notify mailing list subscribers.",
+        "replay": "never",
+        "baseSeconds": 3,
+        "capSeconds": 30,
+        "maxRetries": 2
+      }
+    ],
+    "records": [
+      {
+        "id": "same",
+        "context": "Read product catalog, stock availability and item descriptions from the inventory lookup service.",
+        "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":false}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "same",
+      "system": "catalog",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":false}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "catalog",
+          "similarity": 0.999999895598571
+        },
+        {
+          "system": "mail",
+          "similarity": 0.1276053447412567
+        },
+        {
+          "system": "payment",
+          "similarity": 0.07514540458439173
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "same",
+      "system": "catalog",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":false}",
+      "selected": "retry",
+      "reason": "Replay permitted by the reviewed contract; wait for both local backoff and server minimum.",
+      "backoff": 2,
+      "serverDelay": 0,
+      "delaySeconds": 2,
+      "candidateAt": "2026-11-24T07:00:02.000Z",
+      "retryAt": "2026-11-24T07:00:02.000Z",
+      "baselineAt": "2026-11-24T07:00:02.000Z",
+      "disagreement": false,
+      "deadline": "2026-11-24T07:02:00Z",
+      "statusCode": 503,
+      "attempt": 1,
+      "keyConfirmed": false,
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 1,
+    "ready": 1,
+    "held": 0,
+    "blocked": 0,
+    "retries": 1,
+    "stops": 0,
+    "disagreements": 0
+  }
+}

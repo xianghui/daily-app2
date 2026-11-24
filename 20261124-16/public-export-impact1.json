@@ -1,0 +1,92 @@
+{
+  "version": 1,
+  "app": "Backoff Bench",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "catalog",
+        "description": "Read product catalog, stock availability and item descriptions from the inventory lookup service.",
+        "replay": "safe",
+        "baseSeconds": 2,
+        "capSeconds": 30,
+        "maxRetries": 4
+      },
+      {
+        "id": "payment",
+        "description": "Charge a customer credit card, capture an invoice payment and collect billing funds.",
+        "replay": "key-required",
+        "baseSeconds": 5,
+        "capSeconds": 60,
+        "maxRetries": 3
+      },
+      {
+        "id": "mail",
+        "description": "Send a newsletter email, deliver campaign messages and notify mailing list subscribers.",
+        "replay": "never",
+        "baseSeconds": 3,
+        "capSeconds": 30,
+        "maxRetries": 2
+      }
+    ],
+    "records": [
+      {
+        "id": "same",
+        "context": "Charge a customer credit card, capture an invoice payment and collect billing funds.",
+        "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":false}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "same",
+      "system": "payment",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":false}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "payment",
+          "similarity": 1.0000001915039398
+        },
+        {
+          "system": "mail",
+          "similarity": 0.3446235469663479
+        },
+        {
+          "system": "catalog",
+          "similarity": 0.07514540458439173
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "same",
+      "system": "payment",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":false}",
+      "selected": "stop",
+      "reason": "Server-supported idempotency and reuse of the original key have not both been confirmed.",
+      "backoff": 5,
+      "serverDelay": 0,
+      "delaySeconds": 5,
+      "candidateAt": "2026-11-24T07:00:05.000Z",
+      "retryAt": null,
+      "baselineAt": "2026-11-24T07:00:05.000Z",
+      "disagreement": true,
+      "deadline": "2026-11-24T07:02:00Z",
+      "statusCode": 503,
+      "attempt": 1,
+      "keyConfirmed": false,
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 1,
+    "ready": 1,
+    "held": 0,
+    "blocked": 0,
+    "retries": 0,
+    "stops": 1,
+    "disagreements": 1
+  }
+}

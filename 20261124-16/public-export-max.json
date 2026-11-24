@@ -1,0 +1,1127 @@
+{
+  "version": 1,
+  "app": "Backoff Bench",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "catalog",
+        "description": "Read product catalog, stock availability and item descriptions from the inventory lookup service.",
+        "replay": "safe",
+        "baseSeconds": 2,
+        "capSeconds": 30,
+        "maxRetries": 4
+      },
+      {
+        "id": "payment",
+        "description": "Charge a customer credit card, capture an invoice payment and collect billing funds.",
+        "replay": "key-required",
+        "baseSeconds": 5,
+        "capSeconds": 60,
+        "maxRetries": 3
+      },
+      {
+        "id": "mail",
+        "description": "Send a newsletter email, deliver campaign messages and notify mailing list subscribers.",
+        "replay": "never",
+        "baseSeconds": 3,
+        "capSeconds": 30,
+        "maxRetries": 2
+      }
+    ],
+    "records": [
+      {
+        "id": "=row \"0\"\nnext",
+        "context": "Fetch product availability and inventory catalog details.",
+        "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"12\",\"keyConfirmed\":false}"
+      },
+      {
+        "id": "=row \"1\"\nnext",
+        "context": "Capture a customer credit card payment for an invoice.",
+        "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":false}"
+      },
+      {
+        "id": "=row \"2\"\nnext",
+        "context": "Send the newsletter email campaign to mailing list subscribers.",
+        "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":true}"
+      },
+      {
+        "id": "=row \"3\"\nnext",
+        "context": "Collect invoice billing funds by charging the customer credit card.",
+        "raw": "{\"attempt\":2,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"Tue, 24 Nov 2026 07:00:25 GMT\",\"keyConfirmed\":true}"
+      },
+      {
+        "id": "=row \"4\"\nnext",
+        "context": "Fetch product availability and inventory catalog details.",
+        "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"12\",\"keyConfirmed\":false}"
+      },
+      {
+        "id": "=row \"5\"\nnext",
+        "context": "Capture a customer credit card payment for an invoice.",
+        "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":false}"
+      },
+      {
+        "id": "=row \"6\"\nnext",
+        "context": "Send the newsletter email campaign to mailing list subscribers.",
+        "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":true}"
+      },
+      {
+        "id": "=row \"7\"\nnext",
+        "context": "Collect invoice billing funds by charging the customer credit card.",
+        "raw": "{\"attempt\":2,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"Tue, 24 Nov 2026 07:00:25 GMT\",\"keyConfirmed\":true}"
+      },
+      {
+        "id": "=row \"8\"\nnext",
+        "context": "Fetch product availability and inventory catalog details.",
+        "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"12\",\"keyConfirmed\":false}"
+      },
+      {
+        "id": "=row \"9\"\nnext",
+        "context": "Capture a customer credit card payment for an invoice.",
+        "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":false}"
+      },
+      {
+        "id": "=row \"10\"\nnext",
+        "context": "Send the newsletter email campaign to mailing list subscribers.",
+        "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":true}"
+      },
+      {
+        "id": "=row \"11\"\nnext",
+        "context": "Collect invoice billing funds by charging the customer credit card.",
+        "raw": "{\"attempt\":2,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"Tue, 24 Nov 2026 07:00:25 GMT\",\"keyConfirmed\":true}"
+      },
+      {
+        "id": "=row \"12\"\nnext",
+        "context": "Fetch product availability and inventory catalog details.",
+        "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"12\",\"keyConfirmed\":false}"
+      },
+      {
+        "id": "=row \"13\"\nnext",
+        "context": "Capture a customer credit card payment for an invoice.",
+        "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":false}"
+      },
+      {
+        "id": "=row \"14\"\nnext",
+        "context": "Send the newsletter email campaign to mailing list subscribers.",
+        "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":true}"
+      },
+      {
+        "id": "=row \"15\"\nnext",
+        "context": "Collect invoice billing funds by charging the customer credit card.",
+        "raw": "{\"attempt\":2,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"Tue, 24 Nov 2026 07:00:25 GMT\",\"keyConfirmed\":true}"
+      },
+      {
+        "id": "=row \"16\"\nnext",
+        "context": "Fetch product availability and inventory catalog details.",
+        "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"12\",\"keyConfirmed\":false}"
+      },
+      {
+        "id": "=row \"17\"\nnext",
+        "context": "Capture a customer credit card payment for an invoice.",
+        "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":false}"
+      },
+      {
+        "id": "=row \"18\"\nnext",
+        "context": "Send the newsletter email campaign to mailing list subscribers.",
+        "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":true}"
+      },
+      {
+        "id": "=row \"19\"\nnext",
+        "context": "Collect invoice billing funds by charging the customer credit card.",
+        "raw": "{\"attempt\":2,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"Tue, 24 Nov 2026 07:00:25 GMT\",\"keyConfirmed\":true}"
+      },
+      {
+        "id": "=row \"20\"\nnext",
+        "context": "Fetch product availability and inventory catalog details.",
+        "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"12\",\"keyConfirmed\":false}"
+      },
+      {
+        "id": "=row \"21\"\nnext",
+        "context": "Capture a customer credit card payment for an invoice.",
+        "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":false}"
+      },
+      {
+        "id": "=row \"22\"\nnext",
+        "context": "Send the newsletter email campaign to mailing list subscribers.",
+        "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":true}"
+      },
+      {
+        "id": "=row \"23\"\nnext",
+        "context": "Collect invoice billing funds by charging the customer credit card.",
+        "raw": "{\"attempt\":2,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"Tue, 24 Nov 2026 07:00:25 GMT\",\"keyConfirmed\":true}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "=row \"0\"\nnext",
+      "system": "catalog",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"12\",\"keyConfirmed\":false}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "catalog",
+          "similarity": 0.7993852816348307
+        },
+        {
+          "system": "mail",
+          "similarity": 0.14158748109346173
+        },
+        {
+          "system": "payment",
+          "similarity": 0.08310498268400804
+        }
+      ]
+    },
+    {
+      "id": "=row \"1\"\nnext",
+      "system": "payment",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":false}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "payment",
+          "similarity": 0.8200691953013856
+        },
+        {
+          "system": "mail",
+          "similarity": 0.1836858701576948
+        },
+        {
+          "system": "catalog",
+          "similarity": 0.09903136583987698
+        }
+      ]
+    },
+    {
+      "id": "=row \"2\"\nnext",
+      "system": "mail",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":true}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "mail",
+          "similarity": 0.8658425818120813
+        },
+        {
+          "system": "payment",
+          "similarity": 0.21736419351877223
+        },
+        {
+          "system": "catalog",
+          "similarity": 0.10065131863375792
+        }
+      ]
+    },
+    {
+      "id": "=row \"3\"\nnext",
+      "system": "payment",
+      "raw": "{\"attempt\":2,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"Tue, 24 Nov 2026 07:00:25 GMT\",\"keyConfirmed\":true}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "payment",
+          "similarity": 0.917146271592289
+        },
+        {
+          "system": "mail",
+          "similarity": 0.2560614049259384
+        },
+        {
+          "system": "catalog",
+          "similarity": 0.08427954033322774
+        }
+      ]
+    },
+    {
+      "id": "=row \"4\"\nnext",
+      "system": "catalog",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"12\",\"keyConfirmed\":false}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "catalog",
+          "similarity": 0.803087826620033
+        },
+        {
+          "system": "mail",
+          "similarity": 0.12686938581754698
+        },
+        {
+          "system": "payment",
+          "similarity": 0.06486925831298708
+        }
+      ]
+    },
+    {
+      "id": "=row \"5\"\nnext",
+      "system": "payment",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":false}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "payment",
+          "similarity": 0.8200691953013856
+        },
+        {
+          "system": "mail",
+          "similarity": 0.1836858701576948
+        },
+        {
+          "system": "catalog",
+          "similarity": 0.09903136583987698
+        }
+      ]
+    },
+    {
+      "id": "=row \"6\"\nnext",
+      "system": "mail",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":true}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "mail",
+          "similarity": 0.8658425818120813
+        },
+        {
+          "system": "payment",
+          "similarity": 0.21736419351877223
+        },
+        {
+          "system": "catalog",
+          "similarity": 0.10065131863375792
+        }
+      ]
+    },
+    {
+      "id": "=row \"7\"\nnext",
+      "system": "payment",
+      "raw": "{\"attempt\":2,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"Tue, 24 Nov 2026 07:00:25 GMT\",\"keyConfirmed\":true}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "payment",
+          "similarity": 0.917146271592289
+        },
+        {
+          "system": "mail",
+          "similarity": 0.2560614049259384
+        },
+        {
+          "system": "catalog",
+          "similarity": 0.08427954033322774
+        }
+      ]
+    },
+    {
+      "id": "=row \"8\"\nnext",
+      "system": "catalog",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"12\",\"keyConfirmed\":false}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "catalog",
+          "similarity": 0.803087826620033
+        },
+        {
+          "system": "mail",
+          "similarity": 0.12686938581754698
+        },
+        {
+          "system": "payment",
+          "similarity": 0.06486925831298708
+        }
+      ]
+    },
+    {
+      "id": "=row \"9\"\nnext",
+      "system": "payment",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":false}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "payment",
+          "similarity": 0.8200691953013856
+        },
+        {
+          "system": "mail",
+          "similarity": 0.1836858701576948
+        },
+        {
+          "system": "catalog",
+          "similarity": 0.09903136583987698
+        }
+      ]
+    },
+    {
+      "id": "=row \"10\"\nnext",
+      "system": "mail",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":true}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "mail",
+          "similarity": 0.8658425818120813
+        },
+        {
+          "system": "payment",
+          "similarity": 0.21736419351877223
+        },
+        {
+          "system": "catalog",
+          "similarity": 0.10065131863375792
+        }
+      ]
+    },
+    {
+      "id": "=row \"11\"\nnext",
+      "system": "payment",
+      "raw": "{\"attempt\":2,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"Tue, 24 Nov 2026 07:00:25 GMT\",\"keyConfirmed\":true}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "payment",
+          "similarity": 0.917146271592289
+        },
+        {
+          "system": "mail",
+          "similarity": 0.2560614049259384
+        },
+        {
+          "system": "catalog",
+          "similarity": 0.08427954033322774
+        }
+      ]
+    },
+    {
+      "id": "=row \"12\"\nnext",
+      "system": "catalog",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"12\",\"keyConfirmed\":false}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "catalog",
+          "similarity": 0.803087826620033
+        },
+        {
+          "system": "mail",
+          "similarity": 0.12686938581754698
+        },
+        {
+          "system": "payment",
+          "similarity": 0.06486925831298708
+        }
+      ]
+    },
+    {
+      "id": "=row \"13\"\nnext",
+      "system": "payment",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":false}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "payment",
+          "similarity": 0.8200691953013856
+        },
+        {
+          "system": "mail",
+          "similarity": 0.1836858701576948
+        },
+        {
+          "system": "catalog",
+          "similarity": 0.09903136583987698
+        }
+      ]
+    },
+    {
+      "id": "=row \"14\"\nnext",
+      "system": "mail",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":true}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "mail",
+          "similarity": 0.8658425818120813
+        },
+        {
+          "system": "payment",
+          "similarity": 0.21736419351877223
+        },
+        {
+          "system": "catalog",
+          "similarity": 0.10065131863375792
+        }
+      ]
+    },
+    {
+      "id": "=row \"15\"\nnext",
+      "system": "payment",
+      "raw": "{\"attempt\":2,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"Tue, 24 Nov 2026 07:00:25 GMT\",\"keyConfirmed\":true}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "payment",
+          "similarity": 0.917146271592289
+        },
+        {
+          "system": "mail",
+          "similarity": 0.2560614049259384
+        },
+        {
+          "system": "catalog",
+          "similarity": 0.08427954033322774
+        }
+      ]
+    },
+    {
+      "id": "=row \"16\"\nnext",
+      "system": "catalog",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"12\",\"keyConfirmed\":false}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "catalog",
+          "similarity": 0.803087826620033
+        },
+        {
+          "system": "mail",
+          "similarity": 0.12686938581754698
+        },
+        {
+          "system": "payment",
+          "similarity": 0.06486925831298708
+        }
+      ]
+    },
+    {
+      "id": "=row \"17\"\nnext",
+      "system": "payment",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":false}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "payment",
+          "similarity": 0.8200691953013856
+        },
+        {
+          "system": "mail",
+          "similarity": 0.1836858701576948
+        },
+        {
+          "system": "catalog",
+          "similarity": 0.09903136583987698
+        }
+      ]
+    },
+    {
+      "id": "=row \"18\"\nnext",
+      "system": "mail",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":true}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "mail",
+          "similarity": 0.8658425818120813
+        },
+        {
+          "system": "payment",
+          "similarity": 0.21736419351877223
+        },
+        {
+          "system": "catalog",
+          "similarity": 0.10065131863375792
+        }
+      ]
+    },
+    {
+      "id": "=row \"19\"\nnext",
+      "system": "payment",
+      "raw": "{\"attempt\":2,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"Tue, 24 Nov 2026 07:00:25 GMT\",\"keyConfirmed\":true}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "payment",
+          "similarity": 0.917146271592289
+        },
+        {
+          "system": "mail",
+          "similarity": 0.2560614049259384
+        },
+        {
+          "system": "catalog",
+          "similarity": 0.08427954033322774
+        }
+      ]
+    },
+    {
+      "id": "=row \"20\"\nnext",
+      "system": "catalog",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"12\",\"keyConfirmed\":false}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "catalog",
+          "similarity": 0.803087826620033
+        },
+        {
+          "system": "mail",
+          "similarity": 0.12686938581754698
+        },
+        {
+          "system": "payment",
+          "similarity": 0.06486925831298708
+        }
+      ]
+    },
+    {
+      "id": "=row \"21\"\nnext",
+      "system": "payment",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":false}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "payment",
+          "similarity": 0.7956263883803782
+        },
+        {
+          "system": "mail",
+          "similarity": 0.16646226200377864
+        },
+        {
+          "system": "catalog",
+          "similarity": 0.1037836164473632
+        }
+      ]
+    },
+    {
+      "id": "=row \"22\"\nnext",
+      "system": "mail",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":true}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "mail",
+          "similarity": 0.877991592172909
+        },
+        {
+          "system": "payment",
+          "similarity": 0.23397568213026404
+        },
+        {
+          "system": "catalog",
+          "similarity": 0.1088911733339398
+        }
+      ]
+    },
+    {
+      "id": "=row \"23\"\nnext",
+      "system": "payment",
+      "raw": "{\"attempt\":2,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"Tue, 24 Nov 2026 07:00:25 GMT\",\"keyConfirmed\":true}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "payment",
+          "similarity": 0.9158404618521643
+        },
+        {
+          "system": "mail",
+          "similarity": 0.260965915990491
+        },
+        {
+          "system": "catalog",
+          "similarity": 0.07966773209503848
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "=row \"0\"\nnext",
+      "system": "catalog",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"12\",\"keyConfirmed\":false}",
+      "selected": "retry",
+      "reason": "Replay permitted by the reviewed contract; wait for both local backoff and server minimum.",
+      "backoff": 2,
+      "serverDelay": 12,
+      "delaySeconds": 12,
+      "candidateAt": "2026-11-24T07:00:12.000Z",
+      "retryAt": "2026-11-24T07:00:12.000Z",
+      "baselineAt": "2026-11-24T07:00:02.000Z",
+      "disagreement": true,
+      "deadline": "2026-11-24T07:02:00Z",
+      "statusCode": 503,
+      "attempt": 1,
+      "keyConfirmed": false,
+      "status": "ready"
+    },
+    {
+      "id": "=row \"1\"\nnext",
+      "system": "payment",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":false}",
+      "selected": "stop",
+      "reason": "Server-supported idempotency and reuse of the original key have not both been confirmed.",
+      "backoff": 5,
+      "serverDelay": 0,
+      "delaySeconds": 5,
+      "candidateAt": "2026-11-24T07:00:05.000Z",
+      "retryAt": null,
+      "baselineAt": "2026-11-24T07:00:05.000Z",
+      "disagreement": true,
+      "deadline": "2026-11-24T07:02:00Z",
+      "statusCode": 503,
+      "attempt": 1,
+      "keyConfirmed": false,
+      "status": "ready"
+    },
+    {
+      "id": "=row \"2\"\nnext",
+      "system": "mail",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":true}",
+      "selected": "stop",
+      "reason": "Contract forbids automatic replay; investigate the original outcome.",
+      "backoff": 3,
+      "serverDelay": 0,
+      "delaySeconds": 3,
+      "candidateAt": "2026-11-24T07:00:03.000Z",
+      "retryAt": null,
+      "baselineAt": "2026-11-24T07:00:03.000Z",
+      "disagreement": true,
+      "deadline": "2026-11-24T07:02:00Z",
+      "statusCode": 503,
+      "attempt": 1,
+      "keyConfirmed": true,
+      "status": "ready"
+    },
+    {
+      "id": "=row \"3\"\nnext",
+      "system": "payment",
+      "raw": "{\"attempt\":2,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"Tue, 24 Nov 2026 07:00:25 GMT\",\"keyConfirmed\":true}",
+      "selected": "retry",
+      "reason": "Replay permitted by the reviewed contract; wait for both local backoff and server minimum.",
+      "backoff": 10,
+      "serverDelay": 25,
+      "delaySeconds": 25,
+      "candidateAt": "2026-11-24T07:00:25.000Z",
+      "retryAt": "2026-11-24T07:00:25.000Z",
+      "baselineAt": "2026-11-24T07:00:10.000Z",
+      "disagreement": true,
+      "deadline": "2026-11-24T07:02:00Z",
+      "statusCode": 503,
+      "attempt": 2,
+      "keyConfirmed": true,
+      "status": "ready"
+    },
+    {
+      "id": "=row \"4\"\nnext",
+      "system": "catalog",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"12\",\"keyConfirmed\":false}",
+      "selected": "retry",
+      "reason": "Replay permitted by the reviewed contract; wait for both local backoff and server minimum.",
+      "backoff": 2,
+      "serverDelay": 12,
+      "delaySeconds": 12,
+      "candidateAt": "2026-11-24T07:00:12.000Z",
+      "retryAt": "2026-11-24T07:00:12.000Z",
+      "baselineAt": "2026-11-24T07:00:02.000Z",
+      "disagreement": true,
+      "deadline": "2026-11-24T07:02:00Z",
+      "statusCode": 503,
+      "attempt": 1,
+      "keyConfirmed": false,
+      "status": "ready"
+    },
+    {
+      "id": "=row \"5\"\nnext",
+      "system": "payment",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":false}",
+      "selected": "stop",
+      "reason": "Server-supported idempotency and reuse of the original key have not both been confirmed.",
+      "backoff": 5,
+      "serverDelay": 0,
+      "delaySeconds": 5,
+      "candidateAt": "2026-11-24T07:00:05.000Z",
+      "retryAt": null,
+      "baselineAt": "2026-11-24T07:00:05.000Z",
+      "disagreement": true,
+      "deadline": "2026-11-24T07:02:00Z",
+      "statusCode": 503,
+      "attempt": 1,
+      "keyConfirmed": false,
+      "status": "ready"
+    },
+    {
+      "id": "=row \"6\"\nnext",
+      "system": "mail",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":true}",
+      "selected": "stop",
+      "reason": "Contract forbids automatic replay; investigate the original outcome.",
+      "backoff": 3,
+      "serverDelay": 0,
+      "delaySeconds": 3,
+      "candidateAt": "2026-11-24T07:00:03.000Z",
+      "retryAt": null,
+      "baselineAt": "2026-11-24T07:00:03.000Z",
+      "disagreement": true,
+      "deadline": "2026-11-24T07:02:00Z",
+      "statusCode": 503,
+      "attempt": 1,
+      "keyConfirmed": true,
+      "status": "ready"
+    },
+    {
+      "id": "=row \"7\"\nnext",
+      "system": "payment",
+      "raw": "{\"attempt\":2,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"Tue, 24 Nov 2026 07:00:25 GMT\",\"keyConfirmed\":true}",
+      "selected": "retry",
+      "reason": "Replay permitted by the reviewed contract; wait for both local backoff and server minimum.",
+      "backoff": 10,
+      "serverDelay": 25,
+      "delaySeconds": 25,
+      "candidateAt": "2026-11-24T07:00:25.000Z",
+      "retryAt": "2026-11-24T07:00:25.000Z",
+      "baselineAt": "2026-11-24T07:00:10.000Z",
+      "disagreement": true,
+      "deadline": "2026-11-24T07:02:00Z",
+      "statusCode": 503,
+      "attempt": 2,
+      "keyConfirmed": true,
+      "status": "ready"
+    },
+    {
+      "id": "=row \"8\"\nnext",
+      "system": "catalog",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"12\",\"keyConfirmed\":false}",
+      "selected": "retry",
+      "reason": "Replay permitted by the reviewed contract; wait for both local backoff and server minimum.",
+      "backoff": 2,
+      "serverDelay": 12,
+      "delaySeconds": 12,
+      "candidateAt": "2026-11-24T07:00:12.000Z",
+      "retryAt": "2026-11-24T07:00:12.000Z",
+      "baselineAt": "2026-11-24T07:00:02.000Z",
+      "disagreement": true,
+      "deadline": "2026-11-24T07:02:00Z",
+      "statusCode": 503,
+      "attempt": 1,
+      "keyConfirmed": false,
+      "status": "ready"
+    },
+    {
+      "id": "=row \"9\"\nnext",
+      "system": "payment",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":false}",
+      "selected": "stop",
+      "reason": "Server-supported idempotency and reuse of the original key have not both been confirmed.",
+      "backoff": 5,
+      "serverDelay": 0,
+      "delaySeconds": 5,
+      "candidateAt": "2026-11-24T07:00:05.000Z",
+      "retryAt": null,
+      "baselineAt": "2026-11-24T07:00:05.000Z",
+      "disagreement": true,
+      "deadline": "2026-11-24T07:02:00Z",
+      "statusCode": 503,
+      "attempt": 1,
+      "keyConfirmed": false,
+      "status": "ready"
+    },
+    {
+      "id": "=row \"10\"\nnext",
+      "system": "mail",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":true}",
+      "selected": "stop",
+      "reason": "Contract forbids automatic replay; investigate the original outcome.",
+      "backoff": 3,
+      "serverDelay": 0,
+      "delaySeconds": 3,
+      "candidateAt": "2026-11-24T07:00:03.000Z",
+      "retryAt": null,
+      "baselineAt": "2026-11-24T07:00:03.000Z",
+      "disagreement": true,
+      "deadline": "2026-11-24T07:02:00Z",
+      "statusCode": 503,
+      "attempt": 1,
+      "keyConfirmed": true,
+      "status": "ready"
+    },
+    {
+      "id": "=row \"11\"\nnext",
+      "system": "payment",
+      "raw": "{\"attempt\":2,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"Tue, 24 Nov 2026 07:00:25 GMT\",\"keyConfirmed\":true}",
+      "selected": "retry",
+      "reason": "Replay permitted by the reviewed contract; wait for both local backoff and server minimum.",
+      "backoff": 10,
+      "serverDelay": 25,
+      "delaySeconds": 25,
+      "candidateAt": "2026-11-24T07:00:25.000Z",
+      "retryAt": "2026-11-24T07:00:25.000Z",
+      "baselineAt": "2026-11-24T07:00:10.000Z",
+      "disagreement": true,
+      "deadline": "2026-11-24T07:02:00Z",
+      "statusCode": 503,
+      "attempt": 2,
+      "keyConfirmed": true,
+      "status": "ready"
+    },
+    {
+      "id": "=row \"12\"\nnext",
+      "system": "catalog",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"12\",\"keyConfirmed\":false}",
+      "selected": "retry",
+      "reason": "Replay permitted by the reviewed contract; wait for both local backoff and server minimum.",
+      "backoff": 2,
+      "serverDelay": 12,
+      "delaySeconds": 12,
+      "candidateAt": "2026-11-24T07:00:12.000Z",
+      "retryAt": "2026-11-24T07:00:12.000Z",
+      "baselineAt": "2026-11-24T07:00:02.000Z",
+      "disagreement": true,
+      "deadline": "2026-11-24T07:02:00Z",
+      "statusCode": 503,
+      "attempt": 1,
+      "keyConfirmed": false,
+      "status": "ready"
+    },
+    {
+      "id": "=row \"13\"\nnext",
+      "system": "payment",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":false}",
+      "selected": "stop",
+      "reason": "Server-supported idempotency and reuse of the original key have not both been confirmed.",
+      "backoff": 5,
+      "serverDelay": 0,
+      "delaySeconds": 5,
+      "candidateAt": "2026-11-24T07:00:05.000Z",
+      "retryAt": null,
+      "baselineAt": "2026-11-24T07:00:05.000Z",
+      "disagreement": true,
+      "deadline": "2026-11-24T07:02:00Z",
+      "statusCode": 503,
+      "attempt": 1,
+      "keyConfirmed": false,
+      "status": "ready"
+    },
+    {
+      "id": "=row \"14\"\nnext",
+      "system": "mail",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":true}",
+      "selected": "stop",
+      "reason": "Contract forbids automatic replay; investigate the original outcome.",
+      "backoff": 3,
+      "serverDelay": 0,
+      "delaySeconds": 3,
+      "candidateAt": "2026-11-24T07:00:03.000Z",
+      "retryAt": null,
+      "baselineAt": "2026-11-24T07:00:03.000Z",
+      "disagreement": true,
+      "deadline": "2026-11-24T07:02:00Z",
+      "statusCode": 503,
+      "attempt": 1,
+      "keyConfirmed": true,
+      "status": "ready"
+    },
+    {
+      "id": "=row \"15\"\nnext",
+      "system": "payment",
+      "raw": "{\"attempt\":2,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"Tue, 24 Nov 2026 07:00:25 GMT\",\"keyConfirmed\":true}",
+      "selected": "retry",
+      "reason": "Replay permitted by the reviewed contract; wait for both local backoff and server minimum.",
+      "backoff": 10,
+      "serverDelay": 25,
+      "delaySeconds": 25,
+      "candidateAt": "2026-11-24T07:00:25.000Z",
+      "retryAt": "2026-11-24T07:00:25.000Z",
+      "baselineAt": "2026-11-24T07:00:10.000Z",
+      "disagreement": true,
+      "deadline": "2026-11-24T07:02:00Z",
+      "statusCode": 503,
+      "attempt": 2,
+      "keyConfirmed": true,
+      "status": "ready"
+    },
+    {
+      "id": "=row \"16\"\nnext",
+      "system": "catalog",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"12\",\"keyConfirmed\":false}",
+      "selected": "retry",
+      "reason": "Replay permitted by the reviewed contract; wait for both local backoff and server minimum.",
+      "backoff": 2,
+      "serverDelay": 12,
+      "delaySeconds": 12,
+      "candidateAt": "2026-11-24T07:00:12.000Z",
+      "retryAt": "2026-11-24T07:00:12.000Z",
+      "baselineAt": "2026-11-24T07:00:02.000Z",
+      "disagreement": true,
+      "deadline": "2026-11-24T07:02:00Z",
+      "statusCode": 503,
+      "attempt": 1,
+      "keyConfirmed": false,
+      "status": "ready"
+    },
+    {
+      "id": "=row \"17\"\nnext",
+      "system": "payment",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":false}",
+      "selected": "stop",
+      "reason": "Server-supported idempotency and reuse of the original key have not both been confirmed.",
+      "backoff": 5,
+      "serverDelay": 0,
+      "delaySeconds": 5,
+      "candidateAt": "2026-11-24T07:00:05.000Z",
+      "retryAt": null,
+      "baselineAt": "2026-11-24T07:00:05.000Z",
+      "disagreement": true,
+      "deadline": "2026-11-24T07:02:00Z",
+      "statusCode": 503,
+      "attempt": 1,
+      "keyConfirmed": false,
+      "status": "ready"
+    },
+    {
+      "id": "=row \"18\"\nnext",
+      "system": "mail",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":true}",
+      "selected": "stop",
+      "reason": "Contract forbids automatic replay; investigate the original outcome.",
+      "backoff": 3,
+      "serverDelay": 0,
+      "delaySeconds": 3,
+      "candidateAt": "2026-11-24T07:00:03.000Z",
+      "retryAt": null,
+      "baselineAt": "2026-11-24T07:00:03.000Z",
+      "disagreement": true,
+      "deadline": "2026-11-24T07:02:00Z",
+      "statusCode": 503,
+      "attempt": 1,
+      "keyConfirmed": true,
+      "status": "ready"
+    },
+    {
+      "id": "=row \"19\"\nnext",
+      "system": "payment",
+      "raw": "{\"attempt\":2,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"Tue, 24 Nov 2026 07:00:25 GMT\",\"keyConfirmed\":true}",
+      "selected": "retry",
+      "reason": "Replay permitted by the reviewed contract; wait for both local backoff and server minimum.",
+      "backoff": 10,
+      "serverDelay": 25,
+      "delaySeconds": 25,
+      "candidateAt": "2026-11-24T07:00:25.000Z",
+      "retryAt": "2026-11-24T07:00:25.000Z",
+      "baselineAt": "2026-11-24T07:00:10.000Z",
+      "disagreement": true,
+      "deadline": "2026-11-24T07:02:00Z",
+      "statusCode": 503,
+      "attempt": 2,
+      "keyConfirmed": true,
+      "status": "ready"
+    },
+    {
+      "id": "=row \"20\"\nnext",
+      "system": "catalog",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"12\",\"keyConfirmed\":false}",
+      "selected": "retry",
+      "reason": "Replay permitted by the reviewed contract; wait for both local backoff and server minimum.",
+      "backoff": 2,
+      "serverDelay": 12,
+      "delaySeconds": 12,
+      "candidateAt": "2026-11-24T07:00:12.000Z",
+      "retryAt": "2026-11-24T07:00:12.000Z",
+      "baselineAt": "2026-11-24T07:00:02.000Z",
+      "disagreement": true,
+      "deadline": "2026-11-24T07:02:00Z",
+      "statusCode": 503,
+      "attempt": 1,
+      "keyConfirmed": false,
+      "status": "ready"
+    },
+    {
+      "id": "=row \"21\"\nnext",
+      "system": "payment",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":false}",
+      "selected": "stop",
+      "reason": "Server-supported idempotency and reuse of the original key have not both been confirmed.",
+      "backoff": 5,
+      "serverDelay": 0,
+      "delaySeconds": 5,
+      "candidateAt": "2026-11-24T07:00:05.000Z",
+      "retryAt": null,
+      "baselineAt": "2026-11-24T07:00:05.000Z",
+      "disagreement": true,
+      "deadline": "2026-11-24T07:02:00Z",
+      "statusCode": 503,
+      "attempt": 1,
+      "keyConfirmed": false,
+      "status": "ready"
+    },
+    {
+      "id": "=row \"22\"\nnext",
+      "system": "mail",
+      "raw": "{\"attempt\":1,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"\",\"keyConfirmed\":true}",
+      "selected": "stop",
+      "reason": "Contract forbids automatic replay; investigate the original outcome.",
+      "backoff": 3,
+      "serverDelay": 0,
+      "delaySeconds": 3,
+      "candidateAt": "2026-11-24T07:00:03.000Z",
+      "retryAt": null,
+      "baselineAt": "2026-11-24T07:00:03.000Z",
+      "disagreement": true,
+      "deadline": "2026-11-24T07:02:00Z",
+      "statusCode": 503,
+      "attempt": 1,
+      "keyConfirmed": true,
+      "status": "ready"
+    },
+    {
+      "id": "=row \"23\"\nnext",
+      "system": "payment",
+      "raw": "{\"attempt\":2,\"status\":503,\"now\":\"2026-11-24T07:00:00Z\",\"deadline\":\"2026-11-24T07:02:00Z\",\"retryAfter\":\"Tue, 24 Nov 2026 07:00:25 GMT\",\"keyConfirmed\":true}",
+      "selected": "retry",
+      "reason": "Replay permitted by the reviewed contract; wait for both local backoff and server minimum.",
+      "backoff": 10,
+      "serverDelay": 25,
+      "delaySeconds": 25,
+      "candidateAt": "2026-11-24T07:00:25.000Z",
+      "retryAt": "2026-11-24T07:00:25.000Z",
+      "baselineAt": "2026-11-24T07:00:10.000Z",
+      "disagreement": true,
+      "deadline": "2026-11-24T07:02:00Z",
+      "statusCode": 503,
+      "attempt": 2,
+      "keyConfirmed": true,
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 24,
+    "ready": 24,
+    "held": 0,
+    "blocked": 0,
+    "retries": 12,
+    "stops": 12,
+    "disagreements": 24
+  }
+}

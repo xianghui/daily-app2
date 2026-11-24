@@ -1,0 +1,20 @@
+# Collation Desk
+
+1. "German reading list" · ready
+   Source: {"id":"German reading list","context":"German language alphabetical dictionary index for a German public library audience.","raw":"[\"Zug\",\"Öl\",\"Ähre\",\"Apfel\"]"}
+   Review: {"id":"German reading list","system":"german","raw":"[\"Zug\",\"Öl\",\"Ähre\",\"Apfel\"]","decision":"approve","note":"","evidence":[{"system":"german","similarity":0.783499756898834},{"system":"swedish","similarity":0.7213233125145545},{"system":"natural","similarity":0.29234886380909614}]}
+   Check: {"id":"German reading list","system":"german","raw":"[\"Zug\",\"Öl\",\"Ähre\",\"Apfel\"]","ordered":[{"label":"Ähre","index":2},{"label":"Apfel","index":3},{"label":"Öl","index":1},{"label":"Zug","index":0}],"baseline":[{"label":"Apfel","index":3},{"label":"Zug","index":0},{"label":"Ähre","index":2},{"label":"Öl","index":1}],"ties":[],"inversions":3,"resolved":{"locale":"de","usage":"sort","sensitivity":"variant","ignorePunctuation":false,"collation":"default","numeric":false,"caseFirst":"false"},"reason":"Stable locale-aware ordering. Collation-equal items keep source order; every occurrence retains its zero-based source index. No deduplication.","status":"ready"}
+
+2. "Numbered exports" · ready
+   Source: {"id":"Numbered exports","context":"English technical asset browser for numbered files. Human natural numeric order puts part 2 before part 10.","raw":"[\"scan20\",\"scan3\",\"scan1\",\"scan11\"]"}
+   Review: {"id":"Numbered exports","system":"natural","raw":"[\"scan20\",\"scan3\",\"scan1\",\"scan11\"]","decision":"approve","note":"","evidence":[{"system":"natural","similarity":0.9539310734968206},{"system":"swedish","similarity":0.319711442837823},{"system":"german","similarity":0.3194291654982906}]}
+   Check: {"id":"Numbered exports","system":"natural","raw":"[\"scan20\",\"scan3\",\"scan1\",\"scan11\"]","ordered":[{"label":"scan1","index":2},{"label":"scan3","index":1},{"label":"scan11","index":3},{"label":"scan20","index":0}],"baseline":[{"label":"scan1","index":2},{"label":"scan11","index":3},{"label":"scan20","index":0},{"label":"scan3","index":1}],"ties":[],"inversions":2,"resolved":{"locale":"en","usage":"sort","sensitivity":"variant","ignorePunctuation":false,"collation":"default","numeric":true,"caseFirst":"false"},"reason":"Stable locale-aware ordering. Collation-equal items keep source order; every occurrence retains its zero-based source index. No deduplication.","status":"ready"}
+
+3. "Swedish reading list" · ready
+   Source: {"id":"Swedish reading list","context":"Swedish language alphabetical index for Swedish public library readers.","raw":"[\"Öl\",\"Zug\",\"Ähre\",\"Apfel\"]"}
+   Review: {"id":"Swedish reading list","system":"swedish","raw":"[\"Öl\",\"Zug\",\"Ähre\",\"Apfel\"]","decision":"approve","note":"","evidence":[{"system":"swedish","similarity":0.8997102210227613},{"system":"german","similarity":0.677257766907093},{"system":"natural","similarity":0.3687595758264897}]}
+   Check: {"id":"Swedish reading list","system":"swedish","raw":"[\"Öl\",\"Zug\",\"Ähre\",\"Apfel\"]","ordered":[{"label":"Apfel","index":3},{"label":"Zug","index":1},{"label":"Ähre","index":2},{"label":"Öl","index":0}],"baseline":[{"label":"Apfel","index":3},{"label":"Zug","index":1},{"label":"Ähre","index":2},{"label":"Öl","index":0}],"ties":[],"inversions":0,"resolved":{"locale":"sv","usage":"sort","sensitivity":"variant","ignorePunctuation":false,"collation":"default","numeric":false,"caseFirst":"false"},"reason":"Stable locale-aware ordering. Collation-equal items keep source order; every occurrence retains its zero-based source index. No deduplication.","status":"ready"}
+
+Computed counts: {"records":3,"ready":3,"held":0,"blocked":0,"items":12,"inversions":5,"ties":0,"edited":0}
+
+Baseline: stable JavaScript UTF-16 code-unit order. Inversions count pairwise disagreements on valid approved lists only, not errors, AI accuracy or measured time saved. Equal labels are never merged.

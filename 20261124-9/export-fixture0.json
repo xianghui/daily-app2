@@ -1,0 +1,298 @@
+{
+  "version": 1,
+  "app": "Collation Desk",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "natural",
+        "description": "English technical asset browser for numbered files and chapters. Human natural numeric order puts part 2 before part 10.",
+        "locale": "en",
+        "numeric": true,
+        "sensitivity": "variant"
+      },
+      {
+        "id": "swedish",
+        "description": "Swedish language public library directory and Swedish audience alphabetical index. Swedish letters å ä ö follow z.",
+        "locale": "sv",
+        "numeric": false,
+        "sensitivity": "variant"
+      },
+      {
+        "id": "german",
+        "description": "German language public library directory and German audience alphabetical dictionary index. Umlaut letters sort near their base vowels.",
+        "locale": "de",
+        "numeric": false,
+        "sensitivity": "variant"
+      }
+    ],
+    "records": [
+      {
+        "id": "Chapter files",
+        "context": "English technical asset browser for numbered chapter files. Human natural numeric order for part numbers.",
+        "raw": "[\"part10.pdf\",\"part2.pdf\",\"part1.pdf\",\"part02.pdf\"]"
+      },
+      {
+        "id": "Stockholm index",
+        "context": "Swedish language public library directory for Swedish audience alphabetical index.",
+        "raw": "[\"Örebro\",\"Zebra\",\"Ängelholm\",\"Åland\",\"Aspen\"]"
+      },
+      {
+        "id": "Berlin index",
+        "context": "German language public library directory for German audience alphabetical dictionary index.",
+        "raw": "[\"Zebra\",\"Öl\",\"Apfel\",\"Ähre\"]"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "Chapter files",
+      "system": "natural",
+      "raw": "[\"part10.pdf\",\"part2.pdf\",\"part1.pdf\",\"part02.pdf\"]",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "natural",
+          "similarity": 0.9162161147244925
+        },
+        {
+          "system": "swedish",
+          "similarity": 0.3368762423351381
+        },
+        {
+          "system": "german",
+          "similarity": 0.3308476716399315
+        }
+      ]
+    },
+    {
+      "id": "Stockholm index",
+      "system": "swedish",
+      "raw": "[\"Örebro\",\"Zebra\",\"Ängelholm\",\"Åland\",\"Aspen\"]",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "swedish",
+          "similarity": 0.9409047668844489
+        },
+        {
+          "system": "german",
+          "similarity": 0.7154532145108939
+        },
+        {
+          "system": "natural",
+          "similarity": 0.34342118244391256
+        }
+      ]
+    },
+    {
+      "id": "Berlin index",
+      "system": "german",
+      "raw": "[\"Zebra\",\"Öl\",\"Apfel\",\"Ähre\"]",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "german",
+          "similarity": 0.802982372004051
+        },
+        {
+          "system": "swedish",
+          "similarity": 0.7424699996692168
+        },
+        {
+          "system": "natural",
+          "similarity": 0.30023058380172596
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "Chapter files",
+      "system": "natural",
+      "raw": "[\"part10.pdf\",\"part2.pdf\",\"part1.pdf\",\"part02.pdf\"]",
+      "ordered": [
+        {
+          "label": "part1.pdf",
+          "index": 2
+        },
+        {
+          "label": "part2.pdf",
+          "index": 1
+        },
+        {
+          "label": "part02.pdf",
+          "index": 3
+        },
+        {
+          "label": "part10.pdf",
+          "index": 0
+        }
+      ],
+      "baseline": [
+        {
+          "label": "part02.pdf",
+          "index": 3
+        },
+        {
+          "label": "part1.pdf",
+          "index": 2
+        },
+        {
+          "label": "part10.pdf",
+          "index": 0
+        },
+        {
+          "label": "part2.pdf",
+          "index": 1
+        }
+      ],
+      "ties": [
+        [
+          1,
+          3
+        ]
+      ],
+      "inversions": 3,
+      "resolved": {
+        "locale": "en",
+        "usage": "sort",
+        "sensitivity": "variant",
+        "ignorePunctuation": false,
+        "collation": "default",
+        "numeric": true,
+        "caseFirst": "false"
+      },
+      "reason": "Stable locale-aware ordering. Collation-equal items keep source order; every occurrence retains its zero-based source index. No deduplication.",
+      "status": "ready"
+    },
+    {
+      "id": "Stockholm index",
+      "system": "swedish",
+      "raw": "[\"Örebro\",\"Zebra\",\"Ängelholm\",\"Åland\",\"Aspen\"]",
+      "ordered": [
+        {
+          "label": "Aspen",
+          "index": 4
+        },
+        {
+          "label": "Zebra",
+          "index": 1
+        },
+        {
+          "label": "Åland",
+          "index": 3
+        },
+        {
+          "label": "Ängelholm",
+          "index": 2
+        },
+        {
+          "label": "Örebro",
+          "index": 0
+        }
+      ],
+      "baseline": [
+        {
+          "label": "Aspen",
+          "index": 4
+        },
+        {
+          "label": "Zebra",
+          "index": 1
+        },
+        {
+          "label": "Ängelholm",
+          "index": 2
+        },
+        {
+          "label": "Åland",
+          "index": 3
+        },
+        {
+          "label": "Örebro",
+          "index": 0
+        }
+      ],
+      "ties": [],
+      "inversions": 1,
+      "resolved": {
+        "locale": "sv",
+        "usage": "sort",
+        "sensitivity": "variant",
+        "ignorePunctuation": false,
+        "collation": "default",
+        "numeric": false,
+        "caseFirst": "false"
+      },
+      "reason": "Stable locale-aware ordering. Collation-equal items keep source order; every occurrence retains its zero-based source index. No deduplication.",
+      "status": "ready"
+    },
+    {
+      "id": "Berlin index",
+      "system": "german",
+      "raw": "[\"Zebra\",\"Öl\",\"Apfel\",\"Ähre\"]",
+      "ordered": [
+        {
+          "label": "Ähre",
+          "index": 3
+        },
+        {
+          "label": "Apfel",
+          "index": 2
+        },
+        {
+          "label": "Öl",
+          "index": 1
+        },
+        {
+          "label": "Zebra",
+          "index": 0
+        }
+      ],
+      "baseline": [
+        {
+          "label": "Apfel",
+          "index": 2
+        },
+        {
+          "label": "Zebra",
+          "index": 0
+        },
+        {
+          "label": "Ähre",
+          "index": 3
+        },
+        {
+          "label": "Öl",
+          "index": 1
+        }
+      ],
+      "ties": [],
+      "inversions": 3,
+      "resolved": {
+        "locale": "de",
+        "usage": "sort",
+        "sensitivity": "variant",
+        "ignorePunctuation": false,
+        "collation": "default",
+        "numeric": false,
+        "caseFirst": "false"
+      },
+      "reason": "Stable locale-aware ordering. Collation-equal items keep source order; every occurrence retains its zero-based source index. No deduplication.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 3,
+    "ready": 3,
+    "held": 0,
+    "blocked": 0,
+    "items": 13,
+    "inversions": 7,
+    "ties": 1,
+    "edited": 0
+  }
+}

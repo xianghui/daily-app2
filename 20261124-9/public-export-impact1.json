@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "app": "Collation Desk",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "natural",
+        "description": "English technical asset browser for numbered files and chapters. Human natural numeric order puts part 2 before part 10.",
+        "locale": "en",
+        "numeric": true,
+        "sensitivity": "variant"
+      },
+      {
+        "id": "swedish",
+        "description": "Swedish language public library directory and Swedish audience alphabetical index. Swedish letters å ä ö follow z.",
+        "locale": "sv",
+        "numeric": false,
+        "sensitivity": "variant"
+      },
+      {
+        "id": "german",
+        "description": "German language public library directory and German audience alphabetical dictionary index. Umlaut letters sort near their base vowels.",
+        "locale": "de",
+        "numeric": false,
+        "sensitivity": "variant"
+      }
+    ],
+    "records": [
+      {
+        "id": "same",
+        "context": "Swedish language public library directory and Swedish audience alphabetical index. Swedish letters å ä ö follow z.",
+        "raw": "[\"Öl\",\"Zug\",\"Ähre\",\"Apfel\"]"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "same",
+      "system": "swedish",
+      "raw": "[\"Öl\",\"Zug\",\"Ähre\",\"Apfel\"]",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "swedish",
+          "similarity": 1.000000356486468
+        },
+        {
+          "system": "german",
+          "similarity": 0.7116850625195895
+        },
+        {
+          "system": "natural",
+          "similarity": 0.3347908321797926
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "same",
+      "system": "swedish",
+      "raw": "[\"Öl\",\"Zug\",\"Ähre\",\"Apfel\"]",
+      "ordered": [
+        {
+          "label": "Apfel",
+          "index": 3
+        },
+        {
+          "label": "Zug",
+          "index": 1
+        },
+        {
+          "label": "Ähre",
+          "index": 2
+        },
+        {
+          "label": "Öl",
+          "index": 0
+        }
+      ],
+      "baseline": [
+        {
+          "label": "Apfel",
+          "index": 3
+        },
+        {
+          "label": "Zug",
+          "index": 1
+        },
+        {
+          "label": "Ähre",
+          "index": 2
+        },
+        {
+          "label": "Öl",
+          "index": 0
+        }
+      ],
+      "ties": [],
+      "inversions": 0,
+      "resolved": {
+        "locale": "sv",
+        "usage": "sort",
+        "sensitivity": "variant",
+        "ignorePunctuation": false,
+        "collation": "default",
+        "numeric": false,
+        "caseFirst": "false"
+      },
+      "reason": "Stable locale-aware ordering. Collation-equal items keep source order; every occurrence retains its zero-based source index. No deduplication.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 1,
+    "ready": 1,
+    "held": 0,
+    "blocked": 0,
+    "items": 4,
+    "inversions": 0,
+    "ties": 0,
+    "edited": 0
+  }
+}

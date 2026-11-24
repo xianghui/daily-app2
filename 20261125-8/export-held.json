@@ -1,0 +1,764 @@
+{
+  "version": 1,
+  "app": "Decision Pair",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "access",
+        "description": "Member portal access eligibility: current subscription together with either training completion or supervisor permission.",
+        "target": "{\"expression\":\"a & (b | c)\",\"conditions\":{\"a\":\"Subscription is current\",\"b\":\"Training is complete\",\"c\":\"Supervisor permission granted\"},\"budget\":4}"
+      },
+      {
+        "id": "dispatch",
+        "description": "Parcel dispatch release: either courier booking or customer pickup, and the parcel has passed packing inspection.",
+        "target": "{\"expression\":\"(a | b) & c\",\"conditions\":{\"a\":\"Courier booked\",\"b\":\"Customer pickup arranged\",\"c\":\"Packing inspection passed\"},\"budget\":4}"
+      },
+      {
+        "id": "publish",
+        "description": "Editorial publication release: editor signoff, or both factual verification and rights clearance are complete.",
+        "target": "{\"expression\":\"a | (b & c)\",\"conditions\":{\"a\":\"Editor signed off\",\"b\":\"Facts verified\",\"c\":\"Rights cleared\"},\"budget\":4}"
+      }
+    ],
+    "records": [
+      {
+        "id": "Follow-up batch-1",
+        "context": "Newsroom article publishing approval needs this truth combination.",
+        "raw": "{\"a\":false,\"b\":true,\"c\":true}"
+      },
+      {
+        "id": "Follow-up batch-2",
+        "context": "Membership portal entry eligibility after subscriber training.",
+        "raw": "{\"a\":true,\"b\":true,\"c\":false}"
+      },
+      {
+        "id": "Follow-up batch-3",
+        "context": "Courier shipment release after packing checks for the parcel.",
+        "raw": "{\"a\":true,\"b\":false,\"c\":true}"
+      },
+      {
+        "id": "Follow-up batch-4",
+        "context": "Another member portal entry and subscription eligibility test.",
+        "raw": "{\"a\":true,\"b\":false,\"c\":false}"
+      },
+      {
+        "id": "Follow-up batch-5",
+        "context": "Another article publication approval for the editorial team.",
+        "raw": "{\"a\":false,\"b\":false,\"c\":true}"
+      },
+      {
+        "id": "Follow-up batch-6",
+        "context": "Parcel release with collection arrangements and packing inspection.",
+        "raw": "{\"a\":false,\"b\":false,\"c\":true}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "Follow-up batch-1",
+      "system": "publish",
+      "raw": "{\"a\":false,\"b\":true,\"c\":true}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "publish",
+          "similarity": 0.4998605494429065
+        },
+        {
+          "system": "access",
+          "similarity": 0.2137466651725531
+        },
+        {
+          "system": "dispatch",
+          "similarity": 0.19521274434120028
+        }
+      ]
+    },
+    {
+      "id": "Follow-up batch-2",
+      "system": "access",
+      "raw": "{\n  \"a\": true,\n  \"b\": false,\n  \"c\": true\n}",
+      "decision": "hold",
+      "note": "=SUM(1,2)\nReviewed \"paper\", exactly.",
+      "evidence": [
+        {
+          "system": "access",
+          "similarity": 0.8175164138557605
+        },
+        {
+          "system": "dispatch",
+          "similarity": 0.15465320447436168
+        },
+        {
+          "system": "publish",
+          "similarity": 0.1538175134759136
+        }
+      ]
+    },
+    {
+      "id": "Follow-up batch-3",
+      "system": "dispatch",
+      "raw": "{\"a\":true,\"b\":false,\"c\":true}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "dispatch",
+          "similarity": 0.7774977101035736
+        },
+        {
+          "system": "publish",
+          "similarity": 0.24170401696260332
+        },
+        {
+          "system": "access",
+          "similarity": 0.0726297284595683
+        }
+      ]
+    },
+    {
+      "id": "Follow-up batch-4",
+      "system": "access",
+      "raw": "{\"a\":true,\"b\":false,\"c\":false}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "access",
+          "similarity": 0.734030831693111
+        },
+        {
+          "system": "publish",
+          "similarity": 0.19979670497824503
+        },
+        {
+          "system": "dispatch",
+          "similarity": 0.19402291672660674
+        }
+      ]
+    },
+    {
+      "id": "Follow-up batch-5",
+      "system": "publish",
+      "raw": "{\"a\":false,\"b\":false,\"c\":true}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "publish",
+          "similarity": 0.580378589365548
+        },
+        {
+          "system": "dispatch",
+          "similarity": 0.2048414824341744
+        },
+        {
+          "system": "access",
+          "similarity": 0.20439710148630919
+        }
+      ]
+    },
+    {
+      "id": "Follow-up batch-6",
+      "system": "dispatch",
+      "raw": "{\"a\":false,\"b\":false,\"c\":true}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "dispatch",
+          "similarity": 0.8282307937596634
+        },
+        {
+          "system": "publish",
+          "similarity": 0.1946933809720181
+        },
+        {
+          "system": "access",
+          "similarity": 0.13324920714192331
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "Follow-up batch-1",
+      "system": "publish",
+      "raw": "{\"a\":false,\"b\":true,\"c\":true}",
+      "target": {
+        "expression": "a | (b & c)",
+        "conditions": {
+          "a": "Editor signed off",
+          "b": "Facts verified",
+          "c": "Rights cleared"
+        },
+        "budget": 4
+      },
+      "values": {
+        "a": false,
+        "b": true,
+        "c": true
+      },
+      "mask": 6,
+      "outcome": true,
+      "reason": "Expected decision outcome computed from reviewed truth values; this is a test design, not an executed test.",
+      "status": "ready"
+    },
+    {
+      "id": "Follow-up batch-2",
+      "system": "access",
+      "raw": "{\n  \"a\": true,\n  \"b\": false,\n  \"c\": true\n}",
+      "status": "held",
+      "reason": "Reviewer hold; not included in input-design coverage."
+    },
+    {
+      "id": "Follow-up batch-3",
+      "system": "dispatch",
+      "raw": "{\"a\":true,\"b\":false,\"c\":true}",
+      "target": {
+        "expression": "(a | b) & c",
+        "conditions": {
+          "a": "Courier booked",
+          "b": "Customer pickup arranged",
+          "c": "Packing inspection passed"
+        },
+        "budget": 4
+      },
+      "values": {
+        "a": true,
+        "b": false,
+        "c": true
+      },
+      "mask": 5,
+      "outcome": true,
+      "reason": "Expected decision outcome computed from reviewed truth values; this is a test design, not an executed test.",
+      "status": "ready"
+    },
+    {
+      "id": "Follow-up batch-4",
+      "system": "access",
+      "raw": "{\"a\":true,\"b\":false,\"c\":false}",
+      "target": {
+        "expression": "a & (b | c)",
+        "conditions": {
+          "a": "Subscription is current",
+          "b": "Training is complete",
+          "c": "Supervisor permission granted"
+        },
+        "budget": 4
+      },
+      "values": {
+        "a": true,
+        "b": false,
+        "c": false
+      },
+      "mask": 1,
+      "outcome": false,
+      "reason": "Expected decision outcome computed from reviewed truth values; this is a test design, not an executed test.",
+      "status": "ready"
+    },
+    {
+      "id": "Follow-up batch-5",
+      "system": "publish",
+      "raw": "{\"a\":false,\"b\":false,\"c\":true}",
+      "target": {
+        "expression": "a | (b & c)",
+        "conditions": {
+          "a": "Editor signed off",
+          "b": "Facts verified",
+          "c": "Rights cleared"
+        },
+        "budget": 4
+      },
+      "values": {
+        "a": false,
+        "b": false,
+        "c": true
+      },
+      "mask": 4,
+      "outcome": false,
+      "reason": "Expected decision outcome computed from reviewed truth values; this is a test design, not an executed test.",
+      "status": "ready"
+    },
+    {
+      "id": "Follow-up batch-6",
+      "system": "dispatch",
+      "raw": "{\"a\":false,\"b\":false,\"c\":true}",
+      "target": {
+        "expression": "(a | b) & c",
+        "conditions": {
+          "a": "Courier booked",
+          "b": "Customer pickup arranged",
+          "c": "Packing inspection passed"
+        },
+        "budget": 4
+      },
+      "values": {
+        "a": false,
+        "b": false,
+        "c": true
+      },
+      "mask": 4,
+      "outcome": false,
+      "reason": "Expected decision outcome computed from reviewed truth values; this is a test design, not an executed test.",
+      "status": "ready"
+    }
+  ],
+  "suites": [
+    {
+      "system": "access",
+      "expression": "a & (b | c)",
+      "conditions": {
+        "a": "Subscription is current",
+        "b": "Training is complete",
+        "c": "Supervisor permission granted"
+      },
+      "caseIds": [
+        "Follow-up batch-4"
+      ],
+      "uniqueVectors": 1,
+      "branchOutcomes": 1,
+      "baselineBranchComplete": false,
+      "witnesses": [
+        {
+          "key": "a",
+          "label": "Subscription is current",
+          "pairs": []
+        },
+        {
+          "key": "b",
+          "label": "Training is complete",
+          "pairs": []
+        },
+        {
+          "key": "c",
+          "label": "Supervisor permission granted",
+          "pairs": []
+        }
+      ],
+      "covered": 0,
+      "total": 3,
+      "complete": false,
+      "additions": [
+        {
+          "mask": 3,
+          "values": {
+            "a": true,
+            "b": true,
+            "c": false
+          },
+          "outcome": true,
+          "reason": "Planned independence pair for b",
+          "executed": false
+        },
+        {
+          "mask": 2,
+          "values": {
+            "a": false,
+            "b": true,
+            "c": false
+          },
+          "outcome": false,
+          "reason": "Planned independence pair for a",
+          "executed": false
+        },
+        {
+          "mask": 5,
+          "values": {
+            "a": true,
+            "b": false,
+            "c": true
+          },
+          "outcome": true,
+          "reason": "Planned independence pair for c",
+          "executed": false
+        }
+      ],
+      "budget": 4,
+      "plannedCovered": 3,
+      "table": [
+        {
+          "mask": 0,
+          "values": {
+            "a": false,
+            "b": false,
+            "c": false
+          },
+          "outcome": false
+        },
+        {
+          "mask": 1,
+          "values": {
+            "a": true,
+            "b": false,
+            "c": false
+          },
+          "outcome": false
+        },
+        {
+          "mask": 2,
+          "values": {
+            "a": false,
+            "b": true,
+            "c": false
+          },
+          "outcome": false
+        },
+        {
+          "mask": 3,
+          "values": {
+            "a": true,
+            "b": true,
+            "c": false
+          },
+          "outcome": true
+        },
+        {
+          "mask": 4,
+          "values": {
+            "a": false,
+            "b": false,
+            "c": true
+          },
+          "outcome": false
+        },
+        {
+          "mask": 5,
+          "values": {
+            "a": true,
+            "b": false,
+            "c": true
+          },
+          "outcome": true
+        },
+        {
+          "mask": 6,
+          "values": {
+            "a": false,
+            "b": true,
+            "c": true
+          },
+          "outcome": false
+        },
+        {
+          "mask": 7,
+          "values": {
+            "a": true,
+            "b": true,
+            "c": true
+          },
+          "outcome": true
+        }
+      ]
+    },
+    {
+      "system": "dispatch",
+      "expression": "(a | b) & c",
+      "conditions": {
+        "a": "Courier booked",
+        "b": "Customer pickup arranged",
+        "c": "Packing inspection passed"
+      },
+      "caseIds": [
+        "Follow-up batch-3",
+        "Follow-up batch-6"
+      ],
+      "uniqueVectors": 2,
+      "branchOutcomes": 2,
+      "baselineBranchComplete": true,
+      "witnesses": [
+        {
+          "key": "a",
+          "label": "Courier booked",
+          "pairs": [
+            {
+              "left": [
+                "Follow-up batch-6"
+              ],
+              "right": [
+                "Follow-up batch-3"
+              ],
+              "masks": [
+                4,
+                5
+              ]
+            }
+          ]
+        },
+        {
+          "key": "b",
+          "label": "Customer pickup arranged",
+          "pairs": []
+        },
+        {
+          "key": "c",
+          "label": "Packing inspection passed",
+          "pairs": []
+        }
+      ],
+      "covered": 1,
+      "total": 3,
+      "complete": false,
+      "additions": [
+        {
+          "mask": 6,
+          "values": {
+            "a": false,
+            "b": true,
+            "c": true
+          },
+          "outcome": true,
+          "reason": "Planned independence pair for b",
+          "executed": false
+        },
+        {
+          "mask": 1,
+          "values": {
+            "a": true,
+            "b": false,
+            "c": false
+          },
+          "outcome": false,
+          "reason": "Planned independence pair for c",
+          "executed": false
+        }
+      ],
+      "budget": 4,
+      "plannedCovered": 3,
+      "table": [
+        {
+          "mask": 0,
+          "values": {
+            "a": false,
+            "b": false,
+            "c": false
+          },
+          "outcome": false
+        },
+        {
+          "mask": 1,
+          "values": {
+            "a": true,
+            "b": false,
+            "c": false
+          },
+          "outcome": false
+        },
+        {
+          "mask": 2,
+          "values": {
+            "a": false,
+            "b": true,
+            "c": false
+          },
+          "outcome": false
+        },
+        {
+          "mask": 3,
+          "values": {
+            "a": true,
+            "b": true,
+            "c": false
+          },
+          "outcome": false
+        },
+        {
+          "mask": 4,
+          "values": {
+            "a": false,
+            "b": false,
+            "c": true
+          },
+          "outcome": false
+        },
+        {
+          "mask": 5,
+          "values": {
+            "a": true,
+            "b": false,
+            "c": true
+          },
+          "outcome": true
+        },
+        {
+          "mask": 6,
+          "values": {
+            "a": false,
+            "b": true,
+            "c": true
+          },
+          "outcome": true
+        },
+        {
+          "mask": 7,
+          "values": {
+            "a": true,
+            "b": true,
+            "c": true
+          },
+          "outcome": true
+        }
+      ]
+    },
+    {
+      "system": "publish",
+      "expression": "a | (b & c)",
+      "conditions": {
+        "a": "Editor signed off",
+        "b": "Facts verified",
+        "c": "Rights cleared"
+      },
+      "caseIds": [
+        "Follow-up batch-1",
+        "Follow-up batch-5"
+      ],
+      "uniqueVectors": 2,
+      "branchOutcomes": 2,
+      "baselineBranchComplete": true,
+      "witnesses": [
+        {
+          "key": "a",
+          "label": "Editor signed off",
+          "pairs": []
+        },
+        {
+          "key": "b",
+          "label": "Facts verified",
+          "pairs": [
+            {
+              "left": [
+                "Follow-up batch-5"
+              ],
+              "right": [
+                "Follow-up batch-1"
+              ],
+              "masks": [
+                4,
+                6
+              ]
+            }
+          ]
+        },
+        {
+          "key": "c",
+          "label": "Rights cleared",
+          "pairs": []
+        }
+      ],
+      "covered": 1,
+      "total": 3,
+      "complete": false,
+      "additions": [
+        {
+          "mask": 5,
+          "values": {
+            "a": true,
+            "b": false,
+            "c": true
+          },
+          "outcome": true,
+          "reason": "Planned independence pair for a",
+          "executed": false
+        },
+        {
+          "mask": 2,
+          "values": {
+            "a": false,
+            "b": true,
+            "c": false
+          },
+          "outcome": false,
+          "reason": "Planned independence pair for c",
+          "executed": false
+        }
+      ],
+      "budget": 4,
+      "plannedCovered": 3,
+      "table": [
+        {
+          "mask": 0,
+          "values": {
+            "a": false,
+            "b": false,
+            "c": false
+          },
+          "outcome": false
+        },
+        {
+          "mask": 1,
+          "values": {
+            "a": true,
+            "b": false,
+            "c": false
+          },
+          "outcome": true
+        },
+        {
+          "mask": 2,
+          "values": {
+            "a": false,
+            "b": true,
+            "c": false
+          },
+          "outcome": false
+        },
+        {
+          "mask": 3,
+          "values": {
+            "a": true,
+            "b": true,
+            "c": false
+          },
+          "outcome": true
+        },
+        {
+          "mask": 4,
+          "values": {
+            "a": false,
+            "b": false,
+            "c": true
+          },
+          "outcome": false
+        },
+        {
+          "mask": 5,
+          "values": {
+            "a": true,
+            "b": false,
+            "c": true
+          },
+          "outcome": true
+        },
+        {
+          "mask": 6,
+          "values": {
+            "a": false,
+            "b": true,
+            "c": true
+          },
+          "outcome": true
+        },
+        {
+          "mask": 7,
+          "values": {
+            "a": true,
+            "b": true,
+            "c": true
+          },
+          "outcome": true
+        }
+      ]
+    }
+  ],
+  "metrics": {
+    "records": 6,
+    "ready": 5,
+    "held": 1,
+    "blocked": 0,
+    "branchComplete": 2,
+    "independent": 2,
+    "conditions": 9,
+    "branchOnlyGaps": 2,
+    "proposed": 7
+  }
+}

@@ -1,0 +1,282 @@
+{
+  "app": "Decision Pair",
+  "scope": "INPUT DESIGN ONLY. Expected outcomes are mathematical; no tests executed or certification claimed. Proposed additions are unexecuted and separate from reviewed cases.",
+  "decisions": [
+    {
+      "id": "access",
+      "expression": "a & (b | c)",
+      "conditions": {
+        "a": "Subscription is current",
+        "b": "Training is complete",
+        "c": "Supervisor permission granted"
+      },
+      "reviewedCases": [
+        {
+          "id": "Intake batch-1",
+          "values": {
+            "a": false,
+            "b": false,
+            "c": false
+          },
+          "expected": false
+        },
+        {
+          "id": "Intake batch-5",
+          "values": {
+            "a": true,
+            "b": true,
+            "c": true
+          },
+          "expected": true
+        }
+      ],
+      "witnesses": [
+        {
+          "key": "a",
+          "label": "Subscription is current",
+          "pairs": []
+        },
+        {
+          "key": "b",
+          "label": "Training is complete",
+          "pairs": []
+        },
+        {
+          "key": "c",
+          "label": "Supervisor permission granted",
+          "pairs": []
+        }
+      ],
+      "proposedUnexecuted": [
+        {
+          "mask": 6,
+          "values": {
+            "a": false,
+            "b": true,
+            "c": true
+          },
+          "outcome": false,
+          "reason": "Planned independence pair for a",
+          "executed": false
+        },
+        {
+          "mask": 1,
+          "values": {
+            "a": true,
+            "b": false,
+            "c": false
+          },
+          "outcome": false,
+          "reason": "Planned independence pair for b",
+          "executed": false
+        },
+        {
+          "mask": 3,
+          "values": {
+            "a": true,
+            "b": true,
+            "c": false
+          },
+          "outcome": true,
+          "reason": "Planned independence pair for b",
+          "executed": false
+        },
+        {
+          "mask": 5,
+          "values": {
+            "a": true,
+            "b": false,
+            "c": true
+          },
+          "outcome": true,
+          "reason": "Planned independence pair for c",
+          "executed": false
+        }
+      ]
+    },
+    {
+      "id": "dispatch",
+      "expression": "(a | b) & c",
+      "conditions": {
+        "a": "Courier booked",
+        "b": "Customer pickup arranged",
+        "c": "Packing inspection passed"
+      },
+      "reviewedCases": [
+        {
+          "id": "Intake batch-2",
+          "values": {
+            "a": true,
+            "b": true,
+            "c": true
+          },
+          "expected": true
+        },
+        {
+          "id": "Intake batch-4",
+          "values": {
+            "a": false,
+            "b": false,
+            "c": false
+          },
+          "expected": false
+        }
+      ],
+      "witnesses": [
+        {
+          "key": "a",
+          "label": "Courier booked",
+          "pairs": []
+        },
+        {
+          "key": "b",
+          "label": "Customer pickup arranged",
+          "pairs": []
+        },
+        {
+          "key": "c",
+          "label": "Packing inspection passed",
+          "pairs": []
+        }
+      ],
+      "proposedUnexecuted": [
+        {
+          "mask": 3,
+          "values": {
+            "a": true,
+            "b": true,
+            "c": false
+          },
+          "outcome": false,
+          "reason": "Planned independence pair for c",
+          "executed": false
+        },
+        {
+          "mask": 4,
+          "values": {
+            "a": false,
+            "b": false,
+            "c": true
+          },
+          "outcome": false,
+          "reason": "Planned independence pair for a",
+          "executed": false
+        },
+        {
+          "mask": 5,
+          "values": {
+            "a": true,
+            "b": false,
+            "c": true
+          },
+          "outcome": true,
+          "reason": "Planned independence pair for a",
+          "executed": false
+        },
+        {
+          "mask": 6,
+          "values": {
+            "a": false,
+            "b": true,
+            "c": true
+          },
+          "outcome": true,
+          "reason": "Planned independence pair for b",
+          "executed": false
+        }
+      ]
+    },
+    {
+      "id": "publish",
+      "expression": "a | (b & c)",
+      "conditions": {
+        "a": "Editor signed off",
+        "b": "Facts verified",
+        "c": "Rights cleared"
+      },
+      "reviewedCases": [
+        {
+          "id": "Intake batch-3",
+          "values": {
+            "a": false,
+            "b": false,
+            "c": false
+          },
+          "expected": false
+        },
+        {
+          "id": "Intake batch-6",
+          "values": {
+            "a": true,
+            "b": true,
+            "c": true
+          },
+          "expected": true
+        }
+      ],
+      "witnesses": [
+        {
+          "key": "a",
+          "label": "Editor signed off",
+          "pairs": []
+        },
+        {
+          "key": "b",
+          "label": "Facts verified",
+          "pairs": []
+        },
+        {
+          "key": "c",
+          "label": "Rights cleared",
+          "pairs": []
+        }
+      ],
+      "proposedUnexecuted": [
+        {
+          "mask": 1,
+          "values": {
+            "a": true,
+            "b": false,
+            "c": false
+          },
+          "outcome": true,
+          "reason": "Planned independence pair for a",
+          "executed": false
+        },
+        {
+          "mask": 4,
+          "values": {
+            "a": false,
+            "b": false,
+            "c": true
+          },
+          "outcome": false,
+          "reason": "Planned independence pair for b",
+          "executed": false
+        },
+        {
+          "mask": 6,
+          "values": {
+            "a": false,
+            "b": true,
+            "c": true
+          },
+          "outcome": true,
+          "reason": "Planned independence pair for b",
+          "executed": false
+        },
+        {
+          "mask": 2,
+          "values": {
+            "a": false,
+            "b": true,
+            "c": false
+          },
+          "outcome": false,
+          "reason": "Planned independence pair for c",
+          "executed": false
+        }
+      ]
+    }
+  ]
+}

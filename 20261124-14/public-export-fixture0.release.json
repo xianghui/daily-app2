@@ -1,0 +1,70 @@
+{
+  "format": "freshness-ledger-test-cases-v1",
+  "notice": "Dry-run age/lifetime fixtures only. No endpoint calls. Assumes stored, otherwise reusable responses; not full HTTP caching or privacy validation.",
+  "cases": [
+    {
+      "id": "Morning news",
+      "contract": "news",
+      "input": {
+        "requestTime": 1000,
+        "responseTime": 1010,
+        "date": 1005,
+        "now": 1020,
+        "age": 295
+      },
+      "maxAge": 300,
+      "noCache": false,
+      "expected": "revalidate",
+      "currentAge": 315,
+      "remaining": 0
+    },
+    {
+      "id": "Catalog photos",
+      "contract": "images",
+      "input": {
+        "requestTime": 1000,
+        "responseTime": 1010,
+        "date": 1005,
+        "now": 1020,
+        "age": 20
+      },
+      "maxAge": 3600,
+      "noCache": false,
+      "expected": "fresh",
+      "currentAge": 40,
+      "remaining": 3560
+    },
+    {
+      "id": "My bank",
+      "contract": "balance",
+      "input": {
+        "requestTime": 1000,
+        "responseTime": 1010,
+        "date": 1005,
+        "now": 1020,
+        "age": 0
+      },
+      "maxAge": 600,
+      "noCache": true,
+      "expected": "revalidate",
+      "currentAge": 20,
+      "remaining": 580
+    },
+    {
+      "id": "Clock skew",
+      "contract": "news",
+      "input": {
+        "requestTime": 1000,
+        "responseTime": 1010,
+        "date": 1050,
+        "now": 1300,
+        "age": 0
+      },
+      "maxAge": 300,
+      "noCache": false,
+      "expected": "revalidate",
+      "currentAge": 300,
+      "remaining": 0
+    }
+  ]
+}

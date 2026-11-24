@@ -1,0 +1,223 @@
+{
+  "version": 1,
+  "app": "Freshness Ledger",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "news",
+        "description": "Public news headlines, breaking newspaper stories and editorial articles. Reuse cached news for five minutes.",
+        "maxAge": 300,
+        "noCache": false
+      },
+      {
+        "id": "images",
+        "description": "Product photography, catalog thumbnail images and static merchandise pictures. Reuse cached images for one hour.",
+        "maxAge": 3600,
+        "noCache": false
+      },
+      {
+        "id": "balance",
+        "description": "Personal bank account balances, financial transactions and private payment statements. Always validate with the origin before reuse.",
+        "maxAge": 600,
+        "noCache": true
+      }
+    ],
+    "records": [
+      {
+        "id": "Old photo",
+        "context": "Merchandise product pictures and catalog thumbnail photography.",
+        "raw": "{\"requestTime\":1000,\"responseTime\":1010,\"date\":1005,\"now\":1020,\"age\":3590}"
+      },
+      {
+        "id": "Fresh headline",
+        "context": "Breaking newspaper headlines and editorial articles.",
+        "raw": "{\"requestTime\":1000,\"responseTime\":1010,\"date\":1005,\"now\":1020,\"age\":0}"
+      },
+      {
+        "id": "New statement",
+        "context": "Personal bank account balance and private payment history.",
+        "raw": "{\"requestTime\":1000,\"responseTime\":1000,\"date\":1000,\"now\":1000,\"age\":0}"
+      },
+      {
+        "id": "Impossible timeline",
+        "context": "Static product thumbnail images for the merchandise catalog.",
+        "raw": "{\"requestTime\":1000,\"responseTime\":1010,\"date\":1005,\"now\":1020,\"age\":-1}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "Old photo",
+      "system": "images",
+      "raw": "{\"requestTime\":1000,\"responseTime\":1010,\"date\":1000,\"now\":5000,\"age\":0}",
+      "decision": "approve",
+      "note": "=SUM(1,2)\nReviewed \"clock\", exactly.",
+      "evidence": [
+        {
+          "system": "images",
+          "similarity": 0.7254295919582936
+        },
+        {
+          "system": "balance",
+          "similarity": 0.1552269340800922
+        },
+        {
+          "system": "news",
+          "similarity": 0.10649264419799967
+        }
+      ]
+    },
+    {
+      "id": "Fresh headline",
+      "system": "news",
+      "raw": "{\"requestTime\":1000,\"responseTime\":1010,\"date\":1005,\"now\":1020,\"age\":0}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "news",
+          "similarity": 0.6936370820287926
+        },
+        {
+          "system": "images",
+          "similarity": 0.03232813959803486
+        },
+        {
+          "system": "balance",
+          "similarity": -0.09464491651583563
+        }
+      ]
+    },
+    {
+      "id": "New statement",
+      "system": "balance",
+      "raw": "{\"requestTime\":1000,\"responseTime\":1000,\"date\":1000,\"now\":1000,\"age\":0}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "balance",
+          "similarity": 0.6625706142864402
+        },
+        {
+          "system": "images",
+          "similarity": 0.15044657080741708
+        },
+        {
+          "system": "news",
+          "similarity": -0.035460914436774967
+        }
+      ]
+    },
+    {
+      "id": "Impossible timeline",
+      "system": "images",
+      "raw": "{\"requestTime\":1000,\"responseTime\":1010,\"date\":1005,\"now\":1020,\"age\":-1}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "images",
+          "similarity": 0.6845921150686318
+        },
+        {
+          "system": "balance",
+          "similarity": 0.08679389978632733
+        },
+        {
+          "system": "news",
+          "similarity": 0.07225636857988997
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "Old photo",
+      "system": "images",
+      "raw": "{\"requestTime\":1000,\"responseTime\":1010,\"date\":1000,\"now\":5000,\"age\":0}",
+      "requestTime": 1000,
+      "responseTime": 1010,
+      "date": 1000,
+      "now": 5000,
+      "age": 0,
+      "maxAge": 3600,
+      "noCache": false,
+      "apparentAge": 10,
+      "responseDelay": 10,
+      "correctedAgeValue": 10,
+      "correctedInitialAge": 10,
+      "residentTime": 3990,
+      "currentAge": 4000,
+      "remaining": 0,
+      "selected": "revalidate",
+      "baseline": "revalidate",
+      "disagreement": false,
+      "reason": "Current age meets or exceeds the supplied lifetime; equality is stale.",
+      "status": "ready"
+    },
+    {
+      "id": "Fresh headline",
+      "system": "news",
+      "raw": "{\"requestTime\":1000,\"responseTime\":1010,\"date\":1005,\"now\":1020,\"age\":0}",
+      "requestTime": 1000,
+      "responseTime": 1010,
+      "date": 1005,
+      "now": 1020,
+      "age": 0,
+      "maxAge": 300,
+      "noCache": false,
+      "apparentAge": 5,
+      "responseDelay": 10,
+      "correctedAgeValue": 10,
+      "correctedInitialAge": 10,
+      "residentTime": 10,
+      "currentAge": 20,
+      "remaining": 280,
+      "selected": "fresh",
+      "baseline": "fresh",
+      "disagreement": false,
+      "reason": "Current age is strictly less than the supplied freshness lifetime.",
+      "status": "ready"
+    },
+    {
+      "id": "New statement",
+      "system": "balance",
+      "raw": "{\"requestTime\":1000,\"responseTime\":1000,\"date\":1000,\"now\":1000,\"age\":0}",
+      "requestTime": 1000,
+      "responseTime": 1000,
+      "date": 1000,
+      "now": 1000,
+      "age": 0,
+      "maxAge": 600,
+      "noCache": true,
+      "apparentAge": 0,
+      "responseDelay": 0,
+      "correctedAgeValue": 0,
+      "correctedInitialAge": 0,
+      "residentTime": 0,
+      "currentAge": 0,
+      "remaining": 600,
+      "selected": "revalidate",
+      "baseline": "fresh",
+      "disagreement": true,
+      "reason": "noCache requires origin validation even if lifetime remains.",
+      "status": "ready"
+    },
+    {
+      "id": "Impossible timeline",
+      "system": "images",
+      "raw": "{\"requestTime\":1000,\"responseTime\":1010,\"date\":1005,\"now\":1020,\"age\":-1}",
+      "status": "blocked",
+      "reason": "Exactly five nonnegative integer-second fields required, each ≤2 billion."
+    }
+  ],
+  "metrics": {
+    "records": 4,
+    "ready": 3,
+    "held": 0,
+    "blocked": 1,
+    "revalidate": 2,
+    "disagreements": 1
+  }
+}

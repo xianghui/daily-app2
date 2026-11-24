@@ -1,0 +1,90 @@
+{
+  "version": 1,
+  "app": "Freshness Ledger",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "news",
+        "description": "Public news headlines, breaking newspaper stories and editorial articles. Reuse cached news for five minutes.",
+        "maxAge": 300,
+        "noCache": false
+      },
+      {
+        "id": "images",
+        "description": "Product photography, catalog thumbnail images and static merchandise pictures. Reuse cached images for one hour.",
+        "maxAge": 3600,
+        "noCache": false
+      },
+      {
+        "id": "balance",
+        "description": "Personal bank account balances, financial transactions and private payment statements. Always validate with the origin before reuse.",
+        "maxAge": 600,
+        "noCache": true
+      }
+    ],
+    "records": [
+      {
+        "id": "same",
+        "context": "Product photography, catalog thumbnail images and static merchandise pictures. Reuse cached images for one hour.",
+        "raw": "{\"requestTime\":1000,\"responseTime\":1010,\"date\":1005,\"now\":1020,\"age\":295}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "same",
+      "system": "images",
+      "raw": "{\"requestTime\":1000,\"responseTime\":1010,\"date\":1005,\"now\":1020,\"age\":295}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "images",
+          "similarity": 0.9999999403778586
+        },
+        {
+          "system": "news",
+          "similarity": 0.3880259315197009
+        },
+        {
+          "system": "balance",
+          "similarity": 0.22825504292328824
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "same",
+      "system": "images",
+      "raw": "{\"requestTime\":1000,\"responseTime\":1010,\"date\":1005,\"now\":1020,\"age\":295}",
+      "requestTime": 1000,
+      "responseTime": 1010,
+      "date": 1005,
+      "now": 1020,
+      "age": 295,
+      "maxAge": 3600,
+      "noCache": false,
+      "apparentAge": 5,
+      "responseDelay": 10,
+      "correctedAgeValue": 305,
+      "correctedInitialAge": 305,
+      "residentTime": 10,
+      "currentAge": 315,
+      "remaining": 3285,
+      "selected": "fresh",
+      "baseline": "fresh",
+      "disagreement": false,
+      "reason": "Current age is strictly less than the supplied freshness lifetime.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 1,
+    "ready": 1,
+    "held": 0,
+    "blocked": 0,
+    "revalidate": 0,
+    "disagreements": 0
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "format": "freshness-ledger-test-cases-v1",
+  "notice": "Dry-run age/lifetime fixtures only. No endpoint calls. Assumes stored, otherwise reusable responses; not full HTTP caching or privacy validation.",
+  "cases": [
+    {
+      "id": "Old photo",
+      "contract": "images",
+      "input": {
+        "requestTime": 1000,
+        "responseTime": 1010,
+        "date": 1000,
+        "now": 5000,
+        "age": 0
+      },
+      "maxAge": 3600,
+      "noCache": false,
+      "expected": "revalidate",
+      "currentAge": 4000,
+      "remaining": 0
+    },
+    {
+      "id": "Fresh headline",
+      "contract": "news",
+      "input": {
+        "requestTime": 1000,
+        "responseTime": 1010,
+        "date": 1005,
+        "now": 1020,
+        "age": 0
+      },
+      "maxAge": 300,
+      "noCache": false,
+      "expected": "fresh",
+      "currentAge": 20,
+      "remaining": 280
+    },
+    {
+      "id": "New statement",
+      "contract": "balance",
+      "input": {
+        "requestTime": 1000,
+        "responseTime": 1000,
+        "date": 1000,
+        "now": 1000,
+        "age": 0
+      },
+      "maxAge": 600,
+      "noCache": true,
+      "expected": "revalidate",
+      "currentAge": 0,
+      "remaining": 600
+    }
+  ]
+}

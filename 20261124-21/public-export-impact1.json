@@ -1,0 +1,97 @@
+{
+  "version": 1,
+  "app": "Null Lantern",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "age",
+        "description": "Adult age eligibility: the person must be at least eighteen years old.",
+        "predicate": "age >= 18"
+      },
+      {
+        "id": "credit",
+        "description": "Invoice credit balance: the amount owed must not exceed the credit limit.",
+        "predicate": "balance <= limit_amount"
+      },
+      {
+        "id": "contact",
+        "description": "Customer contact email address is required and cannot be missing.",
+        "predicate": "email IS NOT NULL"
+      }
+    ],
+    "records": [
+      {
+        "id": "same",
+        "context": "Invoice credit balance: the amount owed must not exceed the credit limit.",
+        "raw": "{\"age\":null,\"balance\":100,\"limit_amount\":500,\"email\":\"x@example.test\"}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "same",
+      "system": "credit",
+      "raw": "{\"age\":null,\"balance\":100,\"limit_amount\":500,\"email\":\"x@example.test\"}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "credit",
+          "similarity": 0.9999996658461037
+        },
+        {
+          "system": "contact",
+          "similarity": 0.1804272832221366
+        },
+        {
+          "system": "age",
+          "similarity": 0.12666647712765183
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "same",
+      "system": "credit",
+      "raw": "{\"age\":null,\"balance\":100,\"limit_amount\":500,\"email\":\"x@example.test\"}",
+      "predicate": "balance <= limit_amount",
+      "bindings": {
+        "age": null,
+        "balance": 100,
+        "limit_amount": 500,
+        "email": "x@example.test"
+      },
+      "value": true,
+      "truth": "TRUE",
+      "checkPass": true,
+      "wherePass": true,
+      "disagreement": false,
+      "trace": [
+        {
+          "expression": "\"balance\"",
+          "value": 100
+        },
+        {
+          "expression": "\"limit_amount\"",
+          "value": 500
+        },
+        {
+          "expression": "(\"balance\" <= \"limit_amount\")",
+          "value": true
+        }
+      ],
+      "sqlExpression": "(100 <= 500)",
+      "reason": "TRUE passes both CHECK and WHERE.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 1,
+    "ready": 1,
+    "unknown": 0,
+    "held": 0,
+    "blocked": 0,
+    "disagreements": 0
+  }
+}

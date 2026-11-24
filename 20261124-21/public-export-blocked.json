@@ -1,0 +1,192 @@
+{
+  "version": 1,
+  "app": "Null Lantern",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "stock",
+        "description": "Warehouse dispatch: requested item quantity must fit the on-hand inventory.",
+        "predicate": "requested <= available"
+      },
+      {
+        "id": "delivery",
+        "description": "Courier delivery: a recipient postal address is required.",
+        "predicate": "address IS NOT NULL"
+      },
+      {
+        "id": "consent",
+        "description": "Newsletter subscription: explicit permission must be present and granted.",
+        "predicate": "consent IS NOT NULL AND consent = TRUE"
+      }
+    ],
+    "records": [
+      {
+        "id": "Backorder",
+        "context": "Verify the shipping quantity is covered by stock in the warehouse.",
+        "raw": "{\"requested\":12,\"available\":4}"
+      },
+      {
+        "id": "Recipient",
+        "context": "Check that a destination postal address exists for the courier.",
+        "raw": "{\"address\":\"Unit 4, North Lane\"}"
+      },
+      {
+        "id": "Permission",
+        "context": "Confirm the person has explicitly opted in to the newsletter.",
+        "raw": "{\"consent\":null}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "Backorder",
+      "system": "stock",
+      "raw": "{",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "stock",
+          "similarity": 0.6162283164851391
+        },
+        {
+          "system": "delivery",
+          "similarity": 0.31220446134359336
+        },
+        {
+          "system": "consent",
+          "similarity": 0.2383652276269365
+        }
+      ]
+    },
+    {
+      "id": "Recipient",
+      "system": "delivery",
+      "raw": "{\"address\":\"=new \\\"name\\\",\\nO'Brien; SELECT 0; --\"}",
+      "decision": "approve",
+      "note": "=SUM(1,2)\nReviewed \"address\", exactly.",
+      "evidence": [
+        {
+          "system": "delivery",
+          "similarity": 0.7361399171742541
+        },
+        {
+          "system": "stock",
+          "similarity": 0.32693504565731774
+        },
+        {
+          "system": "consent",
+          "similarity": 0.26792656303136864
+        }
+      ]
+    },
+    {
+      "id": "Permission",
+      "system": "consent",
+      "raw": "{\"consent\":null}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "consent",
+          "similarity": 0.6954007671506931
+        },
+        {
+          "system": "delivery",
+          "similarity": 0.34537512307604823
+        },
+        {
+          "system": "stock",
+          "similarity": 0.1629546126878119
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "Backorder",
+      "system": "stock",
+      "raw": "{",
+      "status": "blocked",
+      "reason": "Bindings must be valid JSON."
+    },
+    {
+      "id": "Recipient",
+      "system": "delivery",
+      "raw": "{\"address\":\"=new \\\"name\\\",\\nO'Brien; SELECT 0; --\"}",
+      "predicate": "address IS NOT NULL",
+      "bindings": {
+        "address": "=new \"name\",\nO'Brien; SELECT 0; --"
+      },
+      "value": true,
+      "truth": "TRUE",
+      "checkPass": true,
+      "wherePass": true,
+      "disagreement": false,
+      "trace": [
+        {
+          "expression": "\"address\"",
+          "value": "=new \"name\",\nO'Brien; SELECT 0; --"
+        },
+        {
+          "expression": "(\"address\" IS NOT NULL)",
+          "value": true
+        }
+      ],
+      "sqlExpression": "('=new \"name\",\nO''Brien; SELECT 0; --' IS NOT NULL)",
+      "reason": "TRUE passes both CHECK and WHERE.",
+      "status": "ready"
+    },
+    {
+      "id": "Permission",
+      "system": "consent",
+      "raw": "{\"consent\":null}",
+      "predicate": "consent IS NOT NULL AND consent = TRUE",
+      "bindings": {
+        "consent": null
+      },
+      "value": false,
+      "truth": "FALSE",
+      "checkPass": false,
+      "wherePass": false,
+      "disagreement": false,
+      "trace": [
+        {
+          "expression": "\"consent\"",
+          "value": null
+        },
+        {
+          "expression": "(\"consent\" IS NOT NULL)",
+          "value": false
+        },
+        {
+          "expression": "\"consent\"",
+          "value": null
+        },
+        {
+          "expression": "TRUE",
+          "value": true
+        },
+        {
+          "expression": "(\"consent\" = TRUE)",
+          "value": null
+        },
+        {
+          "expression": "((\"consent\" IS NOT NULL) AND (\"consent\" = TRUE))",
+          "value": false
+        }
+      ],
+      "sqlExpression": "((NULL IS NOT NULL) AND (NULL = TRUE))",
+      "reason": "FALSE fails CHECK and is excluded by WHERE.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 3,
+    "ready": 2,
+    "unknown": 0,
+    "held": 0,
+    "blocked": 1,
+    "disagreements": 0
+  }
+}

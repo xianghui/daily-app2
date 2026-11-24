@@ -1,0 +1,982 @@
+[
+  {
+    "predicate": "a AND b",
+    "bindings": {
+      "a": true,
+      "b": true
+    },
+    "value": true,
+    "truth": "TRUE",
+    "checkPass": true,
+    "wherePass": true,
+    "disagreement": false,
+    "trace": [
+      {
+        "expression": "\"a\"",
+        "value": true
+      },
+      {
+        "expression": "\"b\"",
+        "value": true
+      },
+      {
+        "expression": "(\"a\" AND \"b\")",
+        "value": true
+      }
+    ],
+    "sqlExpression": "(TRUE AND TRUE)",
+    "reason": "TRUE passes both CHECK and WHERE."
+  },
+  {
+    "predicate": "a OR b",
+    "bindings": {
+      "a": true,
+      "b": true
+    },
+    "value": true,
+    "truth": "TRUE",
+    "checkPass": true,
+    "wherePass": true,
+    "disagreement": false,
+    "trace": [
+      {
+        "expression": "\"a\"",
+        "value": true
+      },
+      {
+        "expression": "\"b\"",
+        "value": true
+      },
+      {
+        "expression": "(\"a\" OR \"b\")",
+        "value": true
+      }
+    ],
+    "sqlExpression": "(TRUE OR TRUE)",
+    "reason": "TRUE passes both CHECK and WHERE."
+  },
+  {
+    "predicate": "a AND b",
+    "bindings": {
+      "a": true,
+      "b": false
+    },
+    "value": false,
+    "truth": "FALSE",
+    "checkPass": false,
+    "wherePass": false,
+    "disagreement": false,
+    "trace": [
+      {
+        "expression": "\"a\"",
+        "value": true
+      },
+      {
+        "expression": "\"b\"",
+        "value": false
+      },
+      {
+        "expression": "(\"a\" AND \"b\")",
+        "value": false
+      }
+    ],
+    "sqlExpression": "(TRUE AND FALSE)",
+    "reason": "FALSE fails CHECK and is excluded by WHERE."
+  },
+  {
+    "predicate": "a OR b",
+    "bindings": {
+      "a": true,
+      "b": false
+    },
+    "value": true,
+    "truth": "TRUE",
+    "checkPass": true,
+    "wherePass": true,
+    "disagreement": false,
+    "trace": [
+      {
+        "expression": "\"a\"",
+        "value": true
+      },
+      {
+        "expression": "\"b\"",
+        "value": false
+      },
+      {
+        "expression": "(\"a\" OR \"b\")",
+        "value": true
+      }
+    ],
+    "sqlExpression": "(TRUE OR FALSE)",
+    "reason": "TRUE passes both CHECK and WHERE."
+  },
+  {
+    "predicate": "a AND b",
+    "bindings": {
+      "a": true,
+      "b": null
+    },
+    "value": null,
+    "truth": "UNKNOWN",
+    "checkPass": true,
+    "wherePass": false,
+    "disagreement": true,
+    "trace": [
+      {
+        "expression": "\"a\"",
+        "value": true
+      },
+      {
+        "expression": "\"b\"",
+        "value": null
+      },
+      {
+        "expression": "(\"a\" AND \"b\")",
+        "value": null
+      }
+    ],
+    "sqlExpression": "(TRUE AND NULL)",
+    "reason": "UNKNOWN passes SQL CHECK, but is not selected by WHERE. Add an explicit IS NOT NULL guard if presence is required."
+  },
+  {
+    "predicate": "a OR b",
+    "bindings": {
+      "a": true,
+      "b": null
+    },
+    "value": true,
+    "truth": "TRUE",
+    "checkPass": true,
+    "wherePass": true,
+    "disagreement": false,
+    "trace": [
+      {
+        "expression": "\"a\"",
+        "value": true
+      },
+      {
+        "expression": "\"b\"",
+        "value": null
+      },
+      {
+        "expression": "(\"a\" OR \"b\")",
+        "value": true
+      }
+    ],
+    "sqlExpression": "(TRUE OR NULL)",
+    "reason": "TRUE passes both CHECK and WHERE."
+  },
+  {
+    "predicate": "a AND b",
+    "bindings": {
+      "a": false,
+      "b": true
+    },
+    "value": false,
+    "truth": "FALSE",
+    "checkPass": false,
+    "wherePass": false,
+    "disagreement": false,
+    "trace": [
+      {
+        "expression": "\"a\"",
+        "value": false
+      },
+      {
+        "expression": "\"b\"",
+        "value": true
+      },
+      {
+        "expression": "(\"a\" AND \"b\")",
+        "value": false
+      }
+    ],
+    "sqlExpression": "(FALSE AND TRUE)",
+    "reason": "FALSE fails CHECK and is excluded by WHERE."
+  },
+  {
+    "predicate": "a OR b",
+    "bindings": {
+      "a": false,
+      "b": true
+    },
+    "value": true,
+    "truth": "TRUE",
+    "checkPass": true,
+    "wherePass": true,
+    "disagreement": false,
+    "trace": [
+      {
+        "expression": "\"a\"",
+        "value": false
+      },
+      {
+        "expression": "\"b\"",
+        "value": true
+      },
+      {
+        "expression": "(\"a\" OR \"b\")",
+        "value": true
+      }
+    ],
+    "sqlExpression": "(FALSE OR TRUE)",
+    "reason": "TRUE passes both CHECK and WHERE."
+  },
+  {
+    "predicate": "a AND b",
+    "bindings": {
+      "a": false,
+      "b": false
+    },
+    "value": false,
+    "truth": "FALSE",
+    "checkPass": false,
+    "wherePass": false,
+    "disagreement": false,
+    "trace": [
+      {
+        "expression": "\"a\"",
+        "value": false
+      },
+      {
+        "expression": "\"b\"",
+        "value": false
+      },
+      {
+        "expression": "(\"a\" AND \"b\")",
+        "value": false
+      }
+    ],
+    "sqlExpression": "(FALSE AND FALSE)",
+    "reason": "FALSE fails CHECK and is excluded by WHERE."
+  },
+  {
+    "predicate": "a OR b",
+    "bindings": {
+      "a": false,
+      "b": false
+    },
+    "value": false,
+    "truth": "FALSE",
+    "checkPass": false,
+    "wherePass": false,
+    "disagreement": false,
+    "trace": [
+      {
+        "expression": "\"a\"",
+        "value": false
+      },
+      {
+        "expression": "\"b\"",
+        "value": false
+      },
+      {
+        "expression": "(\"a\" OR \"b\")",
+        "value": false
+      }
+    ],
+    "sqlExpression": "(FALSE OR FALSE)",
+    "reason": "FALSE fails CHECK and is excluded by WHERE."
+  },
+  {
+    "predicate": "a AND b",
+    "bindings": {
+      "a": false,
+      "b": null
+    },
+    "value": false,
+    "truth": "FALSE",
+    "checkPass": false,
+    "wherePass": false,
+    "disagreement": false,
+    "trace": [
+      {
+        "expression": "\"a\"",
+        "value": false
+      },
+      {
+        "expression": "\"b\"",
+        "value": null
+      },
+      {
+        "expression": "(\"a\" AND \"b\")",
+        "value": false
+      }
+    ],
+    "sqlExpression": "(FALSE AND NULL)",
+    "reason": "FALSE fails CHECK and is excluded by WHERE."
+  },
+  {
+    "predicate": "a OR b",
+    "bindings": {
+      "a": false,
+      "b": null
+    },
+    "value": null,
+    "truth": "UNKNOWN",
+    "checkPass": true,
+    "wherePass": false,
+    "disagreement": true,
+    "trace": [
+      {
+        "expression": "\"a\"",
+        "value": false
+      },
+      {
+        "expression": "\"b\"",
+        "value": null
+      },
+      {
+        "expression": "(\"a\" OR \"b\")",
+        "value": null
+      }
+    ],
+    "sqlExpression": "(FALSE OR NULL)",
+    "reason": "UNKNOWN passes SQL CHECK, but is not selected by WHERE. Add an explicit IS NOT NULL guard if presence is required."
+  },
+  {
+    "predicate": "a AND b",
+    "bindings": {
+      "a": null,
+      "b": true
+    },
+    "value": null,
+    "truth": "UNKNOWN",
+    "checkPass": true,
+    "wherePass": false,
+    "disagreement": true,
+    "trace": [
+      {
+        "expression": "\"a\"",
+        "value": null
+      },
+      {
+        "expression": "\"b\"",
+        "value": true
+      },
+      {
+        "expression": "(\"a\" AND \"b\")",
+        "value": null
+      }
+    ],
+    "sqlExpression": "(NULL AND TRUE)",
+    "reason": "UNKNOWN passes SQL CHECK, but is not selected by WHERE. Add an explicit IS NOT NULL guard if presence is required."
+  },
+  {
+    "predicate": "a OR b",
+    "bindings": {
+      "a": null,
+      "b": true
+    },
+    "value": true,
+    "truth": "TRUE",
+    "checkPass": true,
+    "wherePass": true,
+    "disagreement": false,
+    "trace": [
+      {
+        "expression": "\"a\"",
+        "value": null
+      },
+      {
+        "expression": "\"b\"",
+        "value": true
+      },
+      {
+        "expression": "(\"a\" OR \"b\")",
+        "value": true
+      }
+    ],
+    "sqlExpression": "(NULL OR TRUE)",
+    "reason": "TRUE passes both CHECK and WHERE."
+  },
+  {
+    "predicate": "a AND b",
+    "bindings": {
+      "a": null,
+      "b": false
+    },
+    "value": false,
+    "truth": "FALSE",
+    "checkPass": false,
+    "wherePass": false,
+    "disagreement": false,
+    "trace": [
+      {
+        "expression": "\"a\"",
+        "value": null
+      },
+      {
+        "expression": "\"b\"",
+        "value": false
+      },
+      {
+        "expression": "(\"a\" AND \"b\")",
+        "value": false
+      }
+    ],
+    "sqlExpression": "(NULL AND FALSE)",
+    "reason": "FALSE fails CHECK and is excluded by WHERE."
+  },
+  {
+    "predicate": "a OR b",
+    "bindings": {
+      "a": null,
+      "b": false
+    },
+    "value": null,
+    "truth": "UNKNOWN",
+    "checkPass": true,
+    "wherePass": false,
+    "disagreement": true,
+    "trace": [
+      {
+        "expression": "\"a\"",
+        "value": null
+      },
+      {
+        "expression": "\"b\"",
+        "value": false
+      },
+      {
+        "expression": "(\"a\" OR \"b\")",
+        "value": null
+      }
+    ],
+    "sqlExpression": "(NULL OR FALSE)",
+    "reason": "UNKNOWN passes SQL CHECK, but is not selected by WHERE. Add an explicit IS NOT NULL guard if presence is required."
+  },
+  {
+    "predicate": "a AND b",
+    "bindings": {
+      "a": null,
+      "b": null
+    },
+    "value": null,
+    "truth": "UNKNOWN",
+    "checkPass": true,
+    "wherePass": false,
+    "disagreement": true,
+    "trace": [
+      {
+        "expression": "\"a\"",
+        "value": null
+      },
+      {
+        "expression": "\"b\"",
+        "value": null
+      },
+      {
+        "expression": "(\"a\" AND \"b\")",
+        "value": null
+      }
+    ],
+    "sqlExpression": "(NULL AND NULL)",
+    "reason": "UNKNOWN passes SQL CHECK, but is not selected by WHERE. Add an explicit IS NOT NULL guard if presence is required."
+  },
+  {
+    "predicate": "a OR b",
+    "bindings": {
+      "a": null,
+      "b": null
+    },
+    "value": null,
+    "truth": "UNKNOWN",
+    "checkPass": true,
+    "wherePass": false,
+    "disagreement": true,
+    "trace": [
+      {
+        "expression": "\"a\"",
+        "value": null
+      },
+      {
+        "expression": "\"b\"",
+        "value": null
+      },
+      {
+        "expression": "(\"a\" OR \"b\")",
+        "value": null
+      }
+    ],
+    "sqlExpression": "(NULL OR NULL)",
+    "reason": "UNKNOWN passes SQL CHECK, but is not selected by WHERE. Add an explicit IS NOT NULL guard if presence is required."
+  },
+  {
+    "predicate": "NOT a",
+    "bindings": {
+      "a": true
+    },
+    "value": false,
+    "truth": "FALSE",
+    "checkPass": false,
+    "wherePass": false,
+    "disagreement": false,
+    "trace": [
+      {
+        "expression": "\"a\"",
+        "value": true
+      },
+      {
+        "expression": "(NOT \"a\")",
+        "value": false
+      }
+    ],
+    "sqlExpression": "(NOT TRUE)",
+    "reason": "FALSE fails CHECK and is excluded by WHERE."
+  },
+  {
+    "predicate": "NOT a",
+    "bindings": {
+      "a": false
+    },
+    "value": true,
+    "truth": "TRUE",
+    "checkPass": true,
+    "wherePass": true,
+    "disagreement": false,
+    "trace": [
+      {
+        "expression": "\"a\"",
+        "value": false
+      },
+      {
+        "expression": "(NOT \"a\")",
+        "value": true
+      }
+    ],
+    "sqlExpression": "(NOT FALSE)",
+    "reason": "TRUE passes both CHECK and WHERE."
+  },
+  {
+    "predicate": "NOT a",
+    "bindings": {
+      "a": null
+    },
+    "value": null,
+    "truth": "UNKNOWN",
+    "checkPass": true,
+    "wherePass": false,
+    "disagreement": true,
+    "trace": [
+      {
+        "expression": "\"a\"",
+        "value": null
+      },
+      {
+        "expression": "(NOT \"a\")",
+        "value": null
+      }
+    ],
+    "sqlExpression": "(NOT NULL)",
+    "reason": "UNKNOWN passes SQL CHECK, but is not selected by WHERE. Add an explicit IS NOT NULL guard if presence is required."
+  },
+  {
+    "predicate": "x = NULL",
+    "bindings": {
+      "x": 4
+    },
+    "value": null,
+    "truth": "UNKNOWN",
+    "checkPass": true,
+    "wherePass": false,
+    "disagreement": true,
+    "trace": [
+      {
+        "expression": "\"x\"",
+        "value": 4
+      },
+      {
+        "expression": "NULL",
+        "value": null
+      },
+      {
+        "expression": "(\"x\" = NULL)",
+        "value": null
+      }
+    ],
+    "sqlExpression": "(4 = NULL)",
+    "reason": "UNKNOWN passes SQL CHECK, but is not selected by WHERE. Add an explicit IS NOT NULL guard if presence is required."
+  },
+  {
+    "predicate": "x IS NULL",
+    "bindings": {
+      "x": null
+    },
+    "value": true,
+    "truth": "TRUE",
+    "checkPass": true,
+    "wherePass": true,
+    "disagreement": false,
+    "trace": [
+      {
+        "expression": "\"x\"",
+        "value": null
+      },
+      {
+        "expression": "(\"x\" IS NULL)",
+        "value": true
+      }
+    ],
+    "sqlExpression": "(NULL IS NULL)",
+    "reason": "TRUE passes both CHECK and WHERE."
+  },
+  {
+    "predicate": "x IS NOT NULL AND x >= 18",
+    "bindings": {
+      "x": null
+    },
+    "value": false,
+    "truth": "FALSE",
+    "checkPass": false,
+    "wherePass": false,
+    "disagreement": false,
+    "trace": [
+      {
+        "expression": "\"x\"",
+        "value": null
+      },
+      {
+        "expression": "(\"x\" IS NOT NULL)",
+        "value": false
+      },
+      {
+        "expression": "\"x\"",
+        "value": null
+      },
+      {
+        "expression": "18",
+        "value": 18
+      },
+      {
+        "expression": "(\"x\" >= 18)",
+        "value": null
+      },
+      {
+        "expression": "((\"x\" IS NOT NULL) AND (\"x\" >= 18))",
+        "value": false
+      }
+    ],
+    "sqlExpression": "((NULL IS NOT NULL) AND (NULL >= 18))",
+    "reason": "FALSE fails CHECK and is excluded by WHERE."
+  },
+  {
+    "predicate": "x IS NULL OR x >= 18",
+    "bindings": {
+      "x": null
+    },
+    "value": true,
+    "truth": "TRUE",
+    "checkPass": true,
+    "wherePass": true,
+    "disagreement": false,
+    "trace": [
+      {
+        "expression": "\"x\"",
+        "value": null
+      },
+      {
+        "expression": "(\"x\" IS NULL)",
+        "value": true
+      },
+      {
+        "expression": "\"x\"",
+        "value": null
+      },
+      {
+        "expression": "18",
+        "value": 18
+      },
+      {
+        "expression": "(\"x\" >= 18)",
+        "value": null
+      },
+      {
+        "expression": "((\"x\" IS NULL) OR (\"x\" >= 18))",
+        "value": true
+      }
+    ],
+    "sqlExpression": "((NULL IS NULL) OR (NULL >= 18))",
+    "reason": "TRUE passes both CHECK and WHERE."
+  },
+  {
+    "predicate": "NOT x = 2",
+    "bindings": {
+      "x": 2
+    },
+    "value": false,
+    "truth": "FALSE",
+    "checkPass": false,
+    "wherePass": false,
+    "disagreement": false,
+    "trace": [
+      {
+        "expression": "\"x\"",
+        "value": 2
+      },
+      {
+        "expression": "2",
+        "value": 2
+      },
+      {
+        "expression": "(\"x\" = 2)",
+        "value": true
+      },
+      {
+        "expression": "(NOT (\"x\" = 2))",
+        "value": false
+      }
+    ],
+    "sqlExpression": "(NOT (2 = 2))",
+    "reason": "FALSE fails CHECK and is excluded by WHERE."
+  },
+  {
+    "predicate": "NOT (x < 2 OR x > 5)",
+    "bindings": {
+      "x": 3
+    },
+    "value": true,
+    "truth": "TRUE",
+    "checkPass": true,
+    "wherePass": true,
+    "disagreement": false,
+    "trace": [
+      {
+        "expression": "\"x\"",
+        "value": 3
+      },
+      {
+        "expression": "2",
+        "value": 2
+      },
+      {
+        "expression": "(\"x\" < 2)",
+        "value": false
+      },
+      {
+        "expression": "\"x\"",
+        "value": 3
+      },
+      {
+        "expression": "5",
+        "value": 5
+      },
+      {
+        "expression": "(\"x\" > 5)",
+        "value": false
+      },
+      {
+        "expression": "((\"x\" < 2) OR (\"x\" > 5))",
+        "value": false
+      },
+      {
+        "expression": "(NOT ((\"x\" < 2) OR (\"x\" > 5)))",
+        "value": true
+      }
+    ],
+    "sqlExpression": "(NOT ((3 < 2) OR (3 > 5)))",
+    "reason": "TRUE passes both CHECK and WHERE."
+  },
+  {
+    "predicate": "a OR b AND c",
+    "bindings": {
+      "a": true,
+      "b": false,
+      "c": null
+    },
+    "value": true,
+    "truth": "TRUE",
+    "checkPass": true,
+    "wherePass": true,
+    "disagreement": false,
+    "trace": [
+      {
+        "expression": "\"a\"",
+        "value": true
+      },
+      {
+        "expression": "\"b\"",
+        "value": false
+      },
+      {
+        "expression": "\"c\"",
+        "value": null
+      },
+      {
+        "expression": "(\"b\" AND \"c\")",
+        "value": false
+      },
+      {
+        "expression": "(\"a\" OR (\"b\" AND \"c\"))",
+        "value": true
+      }
+    ],
+    "sqlExpression": "(TRUE OR (FALSE AND NULL))",
+    "reason": "TRUE passes both CHECK and WHERE."
+  },
+  {
+    "predicate": "a = FALSE",
+    "bindings": {
+      "a": false
+    },
+    "value": true,
+    "truth": "TRUE",
+    "checkPass": true,
+    "wherePass": true,
+    "disagreement": false,
+    "trace": [
+      {
+        "expression": "\"a\"",
+        "value": false
+      },
+      {
+        "expression": "FALSE",
+        "value": false
+      },
+      {
+        "expression": "(\"a\" = FALSE)",
+        "value": true
+      }
+    ],
+    "sqlExpression": "(FALSE = FALSE)",
+    "reason": "TRUE passes both CHECK and WHERE."
+  },
+  {
+    "predicate": "x = 'O''Brien'",
+    "bindings": {
+      "x": "O'Brien"
+    },
+    "value": true,
+    "truth": "TRUE",
+    "checkPass": true,
+    "wherePass": true,
+    "disagreement": false,
+    "trace": [
+      {
+        "expression": "\"x\"",
+        "value": "O'Brien"
+      },
+      {
+        "expression": "'O''Brien'",
+        "value": "O'Brien"
+      },
+      {
+        "expression": "(\"x\" = 'O''Brien')",
+        "value": true
+      }
+    ],
+    "sqlExpression": "('O''Brien' = 'O''Brien')",
+    "reason": "TRUE passes both CHECK and WHERE."
+  },
+  {
+    "predicate": "a <> b",
+    "bindings": {
+      "a": 1,
+      "b": 2
+    },
+    "value": true,
+    "truth": "TRUE",
+    "checkPass": true,
+    "wherePass": true,
+    "disagreement": false,
+    "trace": [
+      {
+        "expression": "\"a\"",
+        "value": 1
+      },
+      {
+        "expression": "\"b\"",
+        "value": 2
+      },
+      {
+        "expression": "(\"a\" <> \"b\")",
+        "value": true
+      }
+    ],
+    "sqlExpression": "(1 <> 2)",
+    "reason": "TRUE passes both CHECK and WHERE."
+  },
+  {
+    "predicate": "a <= -1.5",
+    "bindings": {
+      "a": -2
+    },
+    "value": true,
+    "truth": "TRUE",
+    "checkPass": true,
+    "wherePass": true,
+    "disagreement": false,
+    "trace": [
+      {
+        "expression": "\"a\"",
+        "value": -2
+      },
+      {
+        "expression": "-1.5",
+        "value": -1.5
+      },
+      {
+        "expression": "(\"a\" <= -1.5)",
+        "value": true
+      }
+    ],
+    "sqlExpression": "(-2 <= -1.5)",
+    "reason": "TRUE passes both CHECK and WHERE."
+  },
+  {
+    "predicate": "x != TRUE",
+    "bindings": {
+      "x": null
+    },
+    "value": null,
+    "truth": "UNKNOWN",
+    "checkPass": true,
+    "wherePass": false,
+    "disagreement": true,
+    "trace": [
+      {
+        "expression": "\"x\"",
+        "value": null
+      },
+      {
+        "expression": "TRUE",
+        "value": true
+      },
+      {
+        "expression": "(\"x\" != TRUE)",
+        "value": null
+      }
+    ],
+    "sqlExpression": "(NULL != TRUE)",
+    "reason": "UNKNOWN passes SQL CHECK, but is not selected by WHERE. Add an explicit IS NOT NULL guard if presence is required."
+  },
+  {
+    "predicate": "a >= b",
+    "bindings": {
+      "a": 4,
+      "b": 3
+    },
+    "value": true,
+    "truth": "TRUE",
+    "checkPass": true,
+    "wherePass": true,
+    "disagreement": false,
+    "trace": [
+      {
+        "expression": "\"a\"",
+        "value": 4
+      },
+      {
+        "expression": "\"b\"",
+        "value": 3
+      },
+      {
+        "expression": "(\"a\" >= \"b\")",
+        "value": true
+      }
+    ],
+    "sqlExpression": "(4 >= 3)",
+    "reason": "TRUE passes both CHECK and WHERE."
+  }
+]

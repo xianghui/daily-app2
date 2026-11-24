@@ -1,0 +1,24 @@
+# Null Lantern
+
+LOCAL REVIEW ONLY — no database connections.
+
+Original input: {"plans":[{"id":"stock","description":"Warehouse dispatch: requested item quantity must fit the on-hand inventory.","predicate":"requested <= available"},{"id":"delivery","description":"Courier delivery: a recipient postal address is required.","predicate":"address IS NOT NULL"},{"id":"consent","description":"Newsletter subscription: explicit permission must be present and granted.","predicate":"consent IS NOT NULL AND consent = TRUE"}],"records":[{"id":"Backorder","context":"Verify the shipping quantity is covered by stock in the warehouse.","raw":"{\"requested\":12,\"available\":4}"},{"id":"Recipient","context":"Check that a destination postal address exists for the courier.","raw":"{\"address\":\"Unit 4, North Lane\"}"},{"id":"Permission","context":"Confirm the person has explicitly opted in to the newsletter.","raw":"{\"consent\":null}"}]}
+
+1. "Backorder" · ready
+   Source: {"id":"Backorder","context":"Verify the shipping quantity is covered by stock in the warehouse.","raw":"{\"requested\":12,\"available\":4}"}
+   Review: {"id":"Backorder","system":"stock","raw":"{\"requested\":12,\"available\":4}","decision":"approve","note":"","evidence":[{"system":"stock","similarity":0.6162283164851391},{"system":"delivery","similarity":0.31220446134359336},{"system":"consent","similarity":0.2383652276269365}]}
+   Check: {"id":"Backorder","system":"stock","raw":"{\"requested\":12,\"available\":4}","predicate":"requested <= available","bindings":{"requested":12,"available":4},"value":false,"truth":"FALSE","checkPass":false,"wherePass":false,"disagreement":false,"trace":[{"expression":"\"requested\"","value":12},{"expression":"\"available\"","value":4},{"expression":"(\"requested\" <= \"available\")","value":false}],"sqlExpression":"(12 <= 4)","reason":"FALSE fails CHECK and is excluded by WHERE.","status":"ready"}
+
+2. "Recipient" · ready
+   Source: {"id":"Recipient","context":"Check that a destination postal address exists for the courier.","raw":"{\"address\":\"Unit 4, North Lane\"}"}
+   Review: {"id":"Recipient","system":"delivery","raw":"{\"address\":\"Unit 4, North Lane\"}","decision":"approve","note":"","evidence":[{"system":"delivery","similarity":0.7361399171742541},{"system":"stock","similarity":0.32693504565731774},{"system":"consent","similarity":0.26792656303136864}]}
+   Check: {"id":"Recipient","system":"delivery","raw":"{\"address\":\"Unit 4, North Lane\"}","predicate":"address IS NOT NULL","bindings":{"address":"Unit 4, North Lane"},"value":true,"truth":"TRUE","checkPass":true,"wherePass":true,"disagreement":false,"trace":[{"expression":"\"address\"","value":"Unit 4, North Lane"},{"expression":"(\"address\" IS NOT NULL)","value":true}],"sqlExpression":"('Unit 4, North Lane' IS NOT NULL)","reason":"TRUE passes both CHECK and WHERE.","status":"ready"}
+
+3. "Permission" · ready
+   Source: {"id":"Permission","context":"Confirm the person has explicitly opted in to the newsletter.","raw":"{\"consent\":null}"}
+   Review: {"id":"Permission","system":"consent","raw":"{\"consent\":null}","decision":"approve","note":"","evidence":[{"system":"consent","similarity":0.6954007671506931},{"system":"delivery","similarity":0.34537512307604823},{"system":"stock","similarity":0.1629546126878119}]}
+   Check: {"id":"Permission","system":"consent","raw":"{\"consent\":null}","predicate":"consent IS NOT NULL AND consent = TRUE","bindings":{"consent":null},"value":false,"truth":"FALSE","checkPass":false,"wherePass":false,"disagreement":false,"trace":[{"expression":"\"consent\"","value":null},{"expression":"(\"consent\" IS NOT NULL)","value":false},{"expression":"\"consent\"","value":null},{"expression":"TRUE","value":true},{"expression":"(\"consent\" = TRUE)","value":null},{"expression":"((\"consent\" IS NOT NULL) AND (\"consent\" = TRUE))","value":false}],"sqlExpression":"((NULL IS NOT NULL) AND (NULL = TRUE))","reason":"FALSE fails CHECK and is excluded by WHERE.","status":"ready"}
+
+Computed counts: {"records":3,"ready":3,"unknown":0,"held":0,"blocked":0,"disagreements":0}
+
+WHERE-as-CHECK baseline rejects UNKNOWN, while SQL CHECK permits UNKNOWN. Differences are semantic outcomes, not accuracy or time saved. NULL presence requirements must be explicit.

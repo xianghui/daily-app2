@@ -1,0 +1,97 @@
+{
+  "version": 1,
+  "app": "Null Lantern",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "age",
+        "description": "Adult age eligibility: the person must be at least eighteen years old.",
+        "predicate": "age >= 18"
+      },
+      {
+        "id": "credit",
+        "description": "Invoice credit balance: the amount owed must not exceed the credit limit.",
+        "predicate": "balance <= limit_amount"
+      },
+      {
+        "id": "contact",
+        "description": "Customer contact email address is required and cannot be missing.",
+        "predicate": "email IS NOT NULL"
+      }
+    ],
+    "records": [
+      {
+        "id": "same",
+        "context": "Adult age eligibility: the person must be at least eighteen years old.",
+        "raw": "{\"age\":null,\"balance\":100,\"limit_amount\":500,\"email\":\"x@example.test\"}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "same",
+      "system": "age",
+      "raw": "{\"age\":null,\"balance\":100,\"limit_amount\":500,\"email\":\"x@example.test\"}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "age",
+          "similarity": 0.999999681052619
+        },
+        {
+          "system": "contact",
+          "similarity": 0.17490030195919273
+        },
+        {
+          "system": "credit",
+          "similarity": 0.12666647712765183
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "same",
+      "system": "age",
+      "raw": "{\"age\":null,\"balance\":100,\"limit_amount\":500,\"email\":\"x@example.test\"}",
+      "predicate": "age >= 18",
+      "bindings": {
+        "age": null,
+        "balance": 100,
+        "limit_amount": 500,
+        "email": "x@example.test"
+      },
+      "value": null,
+      "truth": "UNKNOWN",
+      "checkPass": true,
+      "wherePass": false,
+      "disagreement": true,
+      "trace": [
+        {
+          "expression": "\"age\"",
+          "value": null
+        },
+        {
+          "expression": "18",
+          "value": 18
+        },
+        {
+          "expression": "(\"age\" >= 18)",
+          "value": null
+        }
+      ],
+      "sqlExpression": "(NULL >= 18)",
+      "reason": "UNKNOWN passes SQL CHECK, but is not selected by WHERE. Add an explicit IS NOT NULL guard if presence is required.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 1,
+    "ready": 1,
+    "unknown": 1,
+    "held": 0,
+    "blocked": 0,
+    "disagreements": 1
+  }
+}

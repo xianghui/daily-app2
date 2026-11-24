@@ -1,0 +1,162 @@
+{
+  "version": 1,
+  "app": "Selector Desk",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "checkout",
+        "description": "Checkout purchase button: pay for the shopping cart and confirm the customer order.",
+        "tag": "button",
+        "elementId": "pay",
+        "classes": [
+          "action",
+          "primary"
+        ]
+      },
+      {
+        "id": "warning",
+        "description": "Payment error warning: card declined, failed transaction, retry notification message.",
+        "tag": "p",
+        "elementId": "error",
+        "classes": [
+          "notice",
+          "danger"
+        ]
+      },
+      {
+        "id": "shipping",
+        "description": "Shipping delivery details: postal address and estimated package arrival information.",
+        "tag": "section",
+        "elementId": "delivery",
+        "classes": [
+          "panel",
+          "details"
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "selector": "#pay",
+        "property": "color",
+        "value": "#743e87",
+        "important": false
+      },
+      {
+        "selector": ".action.primary",
+        "property": "color",
+        "value": "#21716a",
+        "important": false
+      },
+      {
+        "selector": ".notice",
+        "property": "color",
+        "value": "#b34750",
+        "important": true
+      },
+      {
+        "selector": "#error",
+        "property": "color",
+        "value": "#324b78",
+        "important": false
+      },
+      {
+        "selector": "section",
+        "property": "font-size",
+        "value": "18px",
+        "important": false
+      },
+      {
+        "selector": ".panel",
+        "property": "font-size",
+        "value": "20px",
+        "important": false
+      }
+    ],
+    "records": [
+      {
+        "id": "same",
+        "context": "Checkout purchase button: pay for the shopping cart and confirm the customer order.",
+        "raw": "color"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "same",
+      "system": "checkout",
+      "raw": "color",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "checkout",
+          "similarity": 1.000000467761914
+        },
+        {
+          "system": "shipping",
+          "similarity": 0.25940861175384566
+        },
+        {
+          "system": "warning",
+          "similarity": 0.25890561661126843
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "same",
+      "system": "checkout",
+      "raw": "color",
+      "property": "color",
+      "ruleIndex": 0,
+      "selector": "#pay",
+      "matchedBranch": "#pay",
+      "specificity": [
+        1,
+        0,
+        0
+      ],
+      "important": false,
+      "value": "#743e87",
+      "baseline": "#21716a",
+      "disagreement": true,
+      "matches": [
+        {
+          "ruleIndex": 0,
+          "selector": "#pay",
+          "matchedBranch": "#pay",
+          "specificity": [
+            1,
+            0,
+            0
+          ],
+          "important": false,
+          "value": "#743e87"
+        },
+        {
+          "ruleIndex": 1,
+          "selector": ".action.primary",
+          "matchedBranch": ".action.primary",
+          "specificity": [
+            0,
+            2,
+            0
+          ],
+          "important": false,
+          "value": "#21716a"
+        }
+      ],
+      "reason": "Author-only, unlayered compound-selector cascade. Review all assumptions before using this expectation.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 1,
+    "ready": 1,
+    "held": 0,
+    "blocked": 0,
+    "important": 0,
+    "disagreements": 1
+  }
+}

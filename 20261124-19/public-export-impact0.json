@@ -1,0 +1,152 @@
+{
+  "version": 1,
+  "app": "Cookie Trail",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "checkout",
+        "description": "Customer browsing the store checkout within the same shopping website, opening their basket and paying.",
+        "url": "https://shop.example.test/cart/pay",
+        "crossSite": false,
+        "topNavigation": true,
+        "method": "GET"
+      },
+      {
+        "id": "embedded",
+        "description": "Partner embeds the store widget inside an unrelated website, loading the embedded shopping cart in an iframe.",
+        "url": "https://shop.example.test/cart/widget",
+        "crossSite": true,
+        "topNavigation": false,
+        "method": "GET"
+      },
+      {
+        "id": "email-link",
+        "description": "A customer follows an email newsletter link from an unrelated website to open the shopping basket as a top level page.",
+        "url": "https://shop.example.test/cart",
+        "crossSite": true,
+        "topNavigation": true,
+        "method": "GET"
+      }
+    ],
+    "records": [
+      {
+        "id": "same",
+        "context": "Customer browsing the store checkout within the same shopping website, opening their basket and paying.",
+        "raw": "[{\"name\":\"session\",\"value\":\"synthetic-session\",\"domain\":\"shop.example.test\",\"hostOnly\":true,\"path\":\"/cart\",\"secure\":true,\"sameSite\":\"Strict\"},{\"name\":\"preference\",\"value\":\"synthetic-preference\",\"domain\":\"shop.example.test\",\"hostOnly\":true,\"path\":\"/\",\"secure\":true,\"sameSite\":\"Lax\"},{\"name\":\"embed\",\"value\":\"synthetic-embed\",\"domain\":\"shop.example.test\",\"hostOnly\":true,\"path\":\"/cart\",\"secure\":true,\"sameSite\":\"None\"},{\"name\":\"session\",\"value\":\"synthetic-session\",\"domain\":\"shop.example.test\",\"hostOnly\":true,\"path\":\"/\",\"secure\":true,\"sameSite\":\"Strict\"},{\"name\":\"other\",\"value\":\"synthetic-other\",\"domain\":\"shop.example.test\",\"hostOnly\":true,\"path\":\"/catalog\",\"secure\":true,\"sameSite\":\"None\"},{\"name\":\"parent\",\"value\":\"synthetic-parent\",\"domain\":\"example.test\",\"hostOnly\":false,\"path\":\"/\",\"secure\":true,\"sameSite\":\"Lax\"}]"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "same",
+      "system": "checkout",
+      "raw": "[{\"name\":\"session\",\"value\":\"synthetic-session\",\"domain\":\"shop.example.test\",\"hostOnly\":true,\"path\":\"/cart\",\"secure\":true,\"sameSite\":\"Strict\"},{\"name\":\"preference\",\"value\":\"synthetic-preference\",\"domain\":\"shop.example.test\",\"hostOnly\":true,\"path\":\"/\",\"secure\":true,\"sameSite\":\"Lax\"},{\"name\":\"embed\",\"value\":\"synthetic-embed\",\"domain\":\"shop.example.test\",\"hostOnly\":true,\"path\":\"/cart\",\"secure\":true,\"sameSite\":\"None\"},{\"name\":\"session\",\"value\":\"synthetic-session\",\"domain\":\"shop.example.test\",\"hostOnly\":true,\"path\":\"/\",\"secure\":true,\"sameSite\":\"Strict\"},{\"name\":\"other\",\"value\":\"synthetic-other\",\"domain\":\"shop.example.test\",\"hostOnly\":true,\"path\":\"/catalog\",\"secure\":true,\"sameSite\":\"None\"},{\"name\":\"parent\",\"value\":\"synthetic-parent\",\"domain\":\"example.test\",\"hostOnly\":false,\"path\":\"/\",\"secure\":true,\"sameSite\":\"Lax\"}]",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "checkout",
+          "similarity": 1.0000002367698797
+        },
+        {
+          "system": "email-link",
+          "similarity": 0.5630901228996054
+        },
+        {
+          "system": "embedded",
+          "similarity": 0.42867256690341576
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "same",
+      "system": "checkout",
+      "raw": "[{\"name\":\"session\",\"value\":\"synthetic-session\",\"domain\":\"shop.example.test\",\"hostOnly\":true,\"path\":\"/cart\",\"secure\":true,\"sameSite\":\"Strict\"},{\"name\":\"preference\",\"value\":\"synthetic-preference\",\"domain\":\"shop.example.test\",\"hostOnly\":true,\"path\":\"/\",\"secure\":true,\"sameSite\":\"Lax\"},{\"name\":\"embed\",\"value\":\"synthetic-embed\",\"domain\":\"shop.example.test\",\"hostOnly\":true,\"path\":\"/cart\",\"secure\":true,\"sameSite\":\"None\"},{\"name\":\"session\",\"value\":\"synthetic-session\",\"domain\":\"shop.example.test\",\"hostOnly\":true,\"path\":\"/\",\"secure\":true,\"sameSite\":\"Strict\"},{\"name\":\"other\",\"value\":\"synthetic-other\",\"domain\":\"shop.example.test\",\"hostOnly\":true,\"path\":\"/catalog\",\"secure\":true,\"sameSite\":\"None\"},{\"name\":\"parent\",\"value\":\"synthetic-parent\",\"domain\":\"example.test\",\"hostOnly\":false,\"path\":\"/\",\"secure\":true,\"sameSite\":\"Lax\"}]",
+      "url": "https://shop.example.test/cart/pay",
+      "crossSite": false,
+      "topNavigation": true,
+      "method": "GET",
+      "checks": [
+        {
+          "index": 0,
+          "name": "session",
+          "path": "/cart",
+          "domain": "shop.example.test",
+          "included": true,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "name": "preference",
+          "path": "/",
+          "domain": "shop.example.test",
+          "included": true,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "name": "embed",
+          "path": "/cart",
+          "domain": "shop.example.test",
+          "included": true,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "name": "session",
+          "path": "/",
+          "domain": "shop.example.test",
+          "included": true,
+          "reasons": []
+        },
+        {
+          "index": 4,
+          "name": "other",
+          "path": "/catalog",
+          "domain": "shop.example.test",
+          "included": false,
+          "reasons": [
+            "Path boundary mismatch."
+          ]
+        },
+        {
+          "index": 5,
+          "name": "parent",
+          "path": "/",
+          "domain": "example.test",
+          "included": true,
+          "reasons": []
+        }
+      ],
+      "sentIndices": [
+        0,
+        2,
+        1,
+        3,
+        5
+      ],
+      "header": "session=synthetic-session; embed=synthetic-embed; preference=synthetic-preference; session=synthetic-session; parent=synthetic-parent",
+      "baseline": "session=synthetic-session; preference=synthetic-preference; embed=synthetic-embed; session=synthetic-session; other=synthetic-other; parent=synthetic-parent",
+      "disagreement": true,
+      "included": 5,
+      "excluded": 1,
+      "duplicates": [
+        "session"
+      ],
+      "reason": "Duplicate names survive: server-side selection is ambiguous; do not collapse them to a map.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 1,
+    "ready": 1,
+    "held": 0,
+    "blocked": 0,
+    "included": 5,
+    "excluded": 1,
+    "duplicateCases": 1,
+    "disagreements": 1
+  }
+}

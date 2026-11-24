@@ -1,0 +1,1798 @@
+{
+  "format": "cookie-trail-fixtures-v1",
+  "notice": "Dry-run QA only. Already-stored unexpired unpartitioned cookies; no requests, cookies or browser settings are changed. Duplicate header names must not be collapsed.",
+  "cases": [
+    {
+      "id": "=row \"0\"\nnext",
+      "request": {
+        "id": "checkout",
+        "description": "Customer browsing the store checkout within the same shopping website, opening their basket and paying.",
+        "url": "https://shop.example.test/cart/pay",
+        "crossSite": false,
+        "topNavigation": true,
+        "method": "GET"
+      },
+      "cookies": [
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "preference",
+          "value": "synthetic-preference",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "embed",
+          "value": "synthetic-embed",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "other",
+          "value": "synthetic-other",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/catalog",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "parent",
+          "value": "synthetic-parent",
+          "domain": "example.test",
+          "hostOnly": false,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        }
+      ],
+      "expectedCookieHeader": "session=synthetic-session; embed=synthetic-embed; preference=synthetic-preference; session=synthetic-session; parent=synthetic-parent",
+      "includedIndices": [
+        0,
+        2,
+        1,
+        3,
+        5
+      ],
+      "duplicateNames": [
+        "session"
+      ]
+    },
+    {
+      "id": "=row \"1\"\nnext",
+      "request": {
+        "id": "embedded",
+        "description": "Partner embeds the store widget inside an unrelated website, loading the embedded shopping cart in an iframe.",
+        "url": "https://shop.example.test/cart/widget",
+        "crossSite": true,
+        "topNavigation": false,
+        "method": "GET"
+      },
+      "cookies": [
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "preference",
+          "value": "synthetic-preference",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "embed",
+          "value": "synthetic-embed",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "other",
+          "value": "synthetic-other",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/catalog",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "parent",
+          "value": "synthetic-parent",
+          "domain": "example.test",
+          "hostOnly": false,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        }
+      ],
+      "expectedCookieHeader": "embed=synthetic-embed",
+      "includedIndices": [
+        2
+      ],
+      "duplicateNames": []
+    },
+    {
+      "id": "=row \"2\"\nnext",
+      "request": {
+        "id": "email-link",
+        "description": "A customer follows an email newsletter link from an unrelated website to open the shopping basket as a top level page.",
+        "url": "https://shop.example.test/cart",
+        "crossSite": true,
+        "topNavigation": true,
+        "method": "GET"
+      },
+      "cookies": [
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "preference",
+          "value": "synthetic-preference",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "embed",
+          "value": "synthetic-embed",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "other",
+          "value": "synthetic-other",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/catalog",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "parent",
+          "value": "synthetic-parent",
+          "domain": "example.test",
+          "hostOnly": false,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        }
+      ],
+      "expectedCookieHeader": "embed=synthetic-embed; preference=synthetic-preference; parent=synthetic-parent",
+      "includedIndices": [
+        2,
+        1,
+        5
+      ],
+      "duplicateNames": []
+    },
+    {
+      "id": "=row \"3\"\nnext",
+      "request": {
+        "id": "checkout",
+        "description": "Customer browsing the store checkout within the same shopping website, opening their basket and paying.",
+        "url": "https://shop.example.test/cart/pay",
+        "crossSite": false,
+        "topNavigation": true,
+        "method": "GET"
+      },
+      "cookies": [
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "preference",
+          "value": "synthetic-preference",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "embed",
+          "value": "synthetic-embed",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "other",
+          "value": "synthetic-other",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/catalog",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "parent",
+          "value": "synthetic-parent",
+          "domain": "example.test",
+          "hostOnly": false,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        }
+      ],
+      "expectedCookieHeader": "session=synthetic-session; embed=synthetic-embed; preference=synthetic-preference; session=synthetic-session; parent=synthetic-parent",
+      "includedIndices": [
+        0,
+        2,
+        1,
+        3,
+        5
+      ],
+      "duplicateNames": [
+        "session"
+      ]
+    },
+    {
+      "id": "=row \"4\"\nnext",
+      "request": {
+        "id": "embedded",
+        "description": "Partner embeds the store widget inside an unrelated website, loading the embedded shopping cart in an iframe.",
+        "url": "https://shop.example.test/cart/widget",
+        "crossSite": true,
+        "topNavigation": false,
+        "method": "GET"
+      },
+      "cookies": [
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "preference",
+          "value": "synthetic-preference",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "embed",
+          "value": "synthetic-embed",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "other",
+          "value": "synthetic-other",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/catalog",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "parent",
+          "value": "synthetic-parent",
+          "domain": "example.test",
+          "hostOnly": false,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        }
+      ],
+      "expectedCookieHeader": "embed=synthetic-embed",
+      "includedIndices": [
+        2
+      ],
+      "duplicateNames": []
+    },
+    {
+      "id": "=row \"5\"\nnext",
+      "request": {
+        "id": "email-link",
+        "description": "A customer follows an email newsletter link from an unrelated website to open the shopping basket as a top level page.",
+        "url": "https://shop.example.test/cart",
+        "crossSite": true,
+        "topNavigation": true,
+        "method": "GET"
+      },
+      "cookies": [
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "preference",
+          "value": "synthetic-preference",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "embed",
+          "value": "synthetic-embed",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "other",
+          "value": "synthetic-other",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/catalog",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "parent",
+          "value": "synthetic-parent",
+          "domain": "example.test",
+          "hostOnly": false,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        }
+      ],
+      "expectedCookieHeader": "embed=synthetic-embed; preference=synthetic-preference; parent=synthetic-parent",
+      "includedIndices": [
+        2,
+        1,
+        5
+      ],
+      "duplicateNames": []
+    },
+    {
+      "id": "=row \"6\"\nnext",
+      "request": {
+        "id": "checkout",
+        "description": "Customer browsing the store checkout within the same shopping website, opening their basket and paying.",
+        "url": "https://shop.example.test/cart/pay",
+        "crossSite": false,
+        "topNavigation": true,
+        "method": "GET"
+      },
+      "cookies": [
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "preference",
+          "value": "synthetic-preference",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "embed",
+          "value": "synthetic-embed",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "other",
+          "value": "synthetic-other",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/catalog",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "parent",
+          "value": "synthetic-parent",
+          "domain": "example.test",
+          "hostOnly": false,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        }
+      ],
+      "expectedCookieHeader": "session=synthetic-session; embed=synthetic-embed; preference=synthetic-preference; session=synthetic-session; parent=synthetic-parent",
+      "includedIndices": [
+        0,
+        2,
+        1,
+        3,
+        5
+      ],
+      "duplicateNames": [
+        "session"
+      ]
+    },
+    {
+      "id": "=row \"7\"\nnext",
+      "request": {
+        "id": "embedded",
+        "description": "Partner embeds the store widget inside an unrelated website, loading the embedded shopping cart in an iframe.",
+        "url": "https://shop.example.test/cart/widget",
+        "crossSite": true,
+        "topNavigation": false,
+        "method": "GET"
+      },
+      "cookies": [
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "preference",
+          "value": "synthetic-preference",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "embed",
+          "value": "synthetic-embed",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "other",
+          "value": "synthetic-other",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/catalog",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "parent",
+          "value": "synthetic-parent",
+          "domain": "example.test",
+          "hostOnly": false,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        }
+      ],
+      "expectedCookieHeader": "embed=synthetic-embed",
+      "includedIndices": [
+        2
+      ],
+      "duplicateNames": []
+    },
+    {
+      "id": "=row \"8\"\nnext",
+      "request": {
+        "id": "email-link",
+        "description": "A customer follows an email newsletter link from an unrelated website to open the shopping basket as a top level page.",
+        "url": "https://shop.example.test/cart",
+        "crossSite": true,
+        "topNavigation": true,
+        "method": "GET"
+      },
+      "cookies": [
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "preference",
+          "value": "synthetic-preference",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "embed",
+          "value": "synthetic-embed",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "other",
+          "value": "synthetic-other",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/catalog",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "parent",
+          "value": "synthetic-parent",
+          "domain": "example.test",
+          "hostOnly": false,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        }
+      ],
+      "expectedCookieHeader": "embed=synthetic-embed; preference=synthetic-preference; parent=synthetic-parent",
+      "includedIndices": [
+        2,
+        1,
+        5
+      ],
+      "duplicateNames": []
+    },
+    {
+      "id": "=row \"9\"\nnext",
+      "request": {
+        "id": "checkout",
+        "description": "Customer browsing the store checkout within the same shopping website, opening their basket and paying.",
+        "url": "https://shop.example.test/cart/pay",
+        "crossSite": false,
+        "topNavigation": true,
+        "method": "GET"
+      },
+      "cookies": [
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "preference",
+          "value": "synthetic-preference",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "embed",
+          "value": "synthetic-embed",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "other",
+          "value": "synthetic-other",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/catalog",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "parent",
+          "value": "synthetic-parent",
+          "domain": "example.test",
+          "hostOnly": false,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        }
+      ],
+      "expectedCookieHeader": "session=synthetic-session; embed=synthetic-embed; preference=synthetic-preference; session=synthetic-session; parent=synthetic-parent",
+      "includedIndices": [
+        0,
+        2,
+        1,
+        3,
+        5
+      ],
+      "duplicateNames": [
+        "session"
+      ]
+    },
+    {
+      "id": "=row \"10\"\nnext",
+      "request": {
+        "id": "embedded",
+        "description": "Partner embeds the store widget inside an unrelated website, loading the embedded shopping cart in an iframe.",
+        "url": "https://shop.example.test/cart/widget",
+        "crossSite": true,
+        "topNavigation": false,
+        "method": "GET"
+      },
+      "cookies": [
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "preference",
+          "value": "synthetic-preference",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "embed",
+          "value": "synthetic-embed",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "other",
+          "value": "synthetic-other",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/catalog",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "parent",
+          "value": "synthetic-parent",
+          "domain": "example.test",
+          "hostOnly": false,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        }
+      ],
+      "expectedCookieHeader": "embed=synthetic-embed",
+      "includedIndices": [
+        2
+      ],
+      "duplicateNames": []
+    },
+    {
+      "id": "=row \"11\"\nnext",
+      "request": {
+        "id": "email-link",
+        "description": "A customer follows an email newsletter link from an unrelated website to open the shopping basket as a top level page.",
+        "url": "https://shop.example.test/cart",
+        "crossSite": true,
+        "topNavigation": true,
+        "method": "GET"
+      },
+      "cookies": [
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "preference",
+          "value": "synthetic-preference",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "embed",
+          "value": "synthetic-embed",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "other",
+          "value": "synthetic-other",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/catalog",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "parent",
+          "value": "synthetic-parent",
+          "domain": "example.test",
+          "hostOnly": false,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        }
+      ],
+      "expectedCookieHeader": "embed=synthetic-embed; preference=synthetic-preference; parent=synthetic-parent",
+      "includedIndices": [
+        2,
+        1,
+        5
+      ],
+      "duplicateNames": []
+    },
+    {
+      "id": "=row \"12\"\nnext",
+      "request": {
+        "id": "checkout",
+        "description": "Customer browsing the store checkout within the same shopping website, opening their basket and paying.",
+        "url": "https://shop.example.test/cart/pay",
+        "crossSite": false,
+        "topNavigation": true,
+        "method": "GET"
+      },
+      "cookies": [
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "preference",
+          "value": "synthetic-preference",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "embed",
+          "value": "synthetic-embed",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "other",
+          "value": "synthetic-other",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/catalog",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "parent",
+          "value": "synthetic-parent",
+          "domain": "example.test",
+          "hostOnly": false,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        }
+      ],
+      "expectedCookieHeader": "session=synthetic-session; embed=synthetic-embed; preference=synthetic-preference; session=synthetic-session; parent=synthetic-parent",
+      "includedIndices": [
+        0,
+        2,
+        1,
+        3,
+        5
+      ],
+      "duplicateNames": [
+        "session"
+      ]
+    },
+    {
+      "id": "=row \"13\"\nnext",
+      "request": {
+        "id": "embedded",
+        "description": "Partner embeds the store widget inside an unrelated website, loading the embedded shopping cart in an iframe.",
+        "url": "https://shop.example.test/cart/widget",
+        "crossSite": true,
+        "topNavigation": false,
+        "method": "GET"
+      },
+      "cookies": [
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "preference",
+          "value": "synthetic-preference",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "embed",
+          "value": "synthetic-embed",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "other",
+          "value": "synthetic-other",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/catalog",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "parent",
+          "value": "synthetic-parent",
+          "domain": "example.test",
+          "hostOnly": false,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        }
+      ],
+      "expectedCookieHeader": "embed=synthetic-embed",
+      "includedIndices": [
+        2
+      ],
+      "duplicateNames": []
+    },
+    {
+      "id": "=row \"14\"\nnext",
+      "request": {
+        "id": "email-link",
+        "description": "A customer follows an email newsletter link from an unrelated website to open the shopping basket as a top level page.",
+        "url": "https://shop.example.test/cart",
+        "crossSite": true,
+        "topNavigation": true,
+        "method": "GET"
+      },
+      "cookies": [
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "preference",
+          "value": "synthetic-preference",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "embed",
+          "value": "synthetic-embed",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "other",
+          "value": "synthetic-other",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/catalog",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "parent",
+          "value": "synthetic-parent",
+          "domain": "example.test",
+          "hostOnly": false,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        }
+      ],
+      "expectedCookieHeader": "embed=synthetic-embed; preference=synthetic-preference; parent=synthetic-parent",
+      "includedIndices": [
+        2,
+        1,
+        5
+      ],
+      "duplicateNames": []
+    },
+    {
+      "id": "=row \"15\"\nnext",
+      "request": {
+        "id": "checkout",
+        "description": "Customer browsing the store checkout within the same shopping website, opening their basket and paying.",
+        "url": "https://shop.example.test/cart/pay",
+        "crossSite": false,
+        "topNavigation": true,
+        "method": "GET"
+      },
+      "cookies": [
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "preference",
+          "value": "synthetic-preference",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "embed",
+          "value": "synthetic-embed",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "other",
+          "value": "synthetic-other",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/catalog",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "parent",
+          "value": "synthetic-parent",
+          "domain": "example.test",
+          "hostOnly": false,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        }
+      ],
+      "expectedCookieHeader": "session=synthetic-session; embed=synthetic-embed; preference=synthetic-preference; session=synthetic-session; parent=synthetic-parent",
+      "includedIndices": [
+        0,
+        2,
+        1,
+        3,
+        5
+      ],
+      "duplicateNames": [
+        "session"
+      ]
+    },
+    {
+      "id": "=row \"16\"\nnext",
+      "request": {
+        "id": "embedded",
+        "description": "Partner embeds the store widget inside an unrelated website, loading the embedded shopping cart in an iframe.",
+        "url": "https://shop.example.test/cart/widget",
+        "crossSite": true,
+        "topNavigation": false,
+        "method": "GET"
+      },
+      "cookies": [
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "preference",
+          "value": "synthetic-preference",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "embed",
+          "value": "synthetic-embed",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "other",
+          "value": "synthetic-other",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/catalog",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "parent",
+          "value": "synthetic-parent",
+          "domain": "example.test",
+          "hostOnly": false,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        }
+      ],
+      "expectedCookieHeader": "embed=synthetic-embed",
+      "includedIndices": [
+        2
+      ],
+      "duplicateNames": []
+    },
+    {
+      "id": "=row \"17\"\nnext",
+      "request": {
+        "id": "email-link",
+        "description": "A customer follows an email newsletter link from an unrelated website to open the shopping basket as a top level page.",
+        "url": "https://shop.example.test/cart",
+        "crossSite": true,
+        "topNavigation": true,
+        "method": "GET"
+      },
+      "cookies": [
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "preference",
+          "value": "synthetic-preference",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "embed",
+          "value": "synthetic-embed",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "other",
+          "value": "synthetic-other",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/catalog",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "parent",
+          "value": "synthetic-parent",
+          "domain": "example.test",
+          "hostOnly": false,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        }
+      ],
+      "expectedCookieHeader": "embed=synthetic-embed; preference=synthetic-preference; parent=synthetic-parent",
+      "includedIndices": [
+        2,
+        1,
+        5
+      ],
+      "duplicateNames": []
+    },
+    {
+      "id": "=row \"18\"\nnext",
+      "request": {
+        "id": "checkout",
+        "description": "Customer browsing the store checkout within the same shopping website, opening their basket and paying.",
+        "url": "https://shop.example.test/cart/pay",
+        "crossSite": false,
+        "topNavigation": true,
+        "method": "GET"
+      },
+      "cookies": [
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "preference",
+          "value": "synthetic-preference",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "embed",
+          "value": "synthetic-embed",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "other",
+          "value": "synthetic-other",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/catalog",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "parent",
+          "value": "synthetic-parent",
+          "domain": "example.test",
+          "hostOnly": false,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        }
+      ],
+      "expectedCookieHeader": "session=synthetic-session; embed=synthetic-embed; preference=synthetic-preference; session=synthetic-session; parent=synthetic-parent",
+      "includedIndices": [
+        0,
+        2,
+        1,
+        3,
+        5
+      ],
+      "duplicateNames": [
+        "session"
+      ]
+    },
+    {
+      "id": "=row \"19\"\nnext",
+      "request": {
+        "id": "embedded",
+        "description": "Partner embeds the store widget inside an unrelated website, loading the embedded shopping cart in an iframe.",
+        "url": "https://shop.example.test/cart/widget",
+        "crossSite": true,
+        "topNavigation": false,
+        "method": "GET"
+      },
+      "cookies": [
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "preference",
+          "value": "synthetic-preference",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "embed",
+          "value": "synthetic-embed",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "other",
+          "value": "synthetic-other",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/catalog",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "parent",
+          "value": "synthetic-parent",
+          "domain": "example.test",
+          "hostOnly": false,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        }
+      ],
+      "expectedCookieHeader": "embed=synthetic-embed",
+      "includedIndices": [
+        2
+      ],
+      "duplicateNames": []
+    },
+    {
+      "id": "=row \"20\"\nnext",
+      "request": {
+        "id": "email-link",
+        "description": "A customer follows an email newsletter link from an unrelated website to open the shopping basket as a top level page.",
+        "url": "https://shop.example.test/cart",
+        "crossSite": true,
+        "topNavigation": true,
+        "method": "GET"
+      },
+      "cookies": [
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "preference",
+          "value": "synthetic-preference",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "embed",
+          "value": "synthetic-embed",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "other",
+          "value": "synthetic-other",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/catalog",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "parent",
+          "value": "synthetic-parent",
+          "domain": "example.test",
+          "hostOnly": false,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        }
+      ],
+      "expectedCookieHeader": "embed=synthetic-embed; preference=synthetic-preference; parent=synthetic-parent",
+      "includedIndices": [
+        2,
+        1,
+        5
+      ],
+      "duplicateNames": []
+    },
+    {
+      "id": "=row \"21\"\nnext",
+      "request": {
+        "id": "checkout",
+        "description": "Customer browsing the store checkout within the same shopping website, opening their basket and paying.",
+        "url": "https://shop.example.test/cart/pay",
+        "crossSite": false,
+        "topNavigation": true,
+        "method": "GET"
+      },
+      "cookies": [
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "preference",
+          "value": "synthetic-preference",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "embed",
+          "value": "synthetic-embed",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "other",
+          "value": "synthetic-other",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/catalog",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "parent",
+          "value": "synthetic-parent",
+          "domain": "example.test",
+          "hostOnly": false,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        }
+      ],
+      "expectedCookieHeader": "session=synthetic-session; embed=synthetic-embed; preference=synthetic-preference; session=synthetic-session; parent=synthetic-parent",
+      "includedIndices": [
+        0,
+        2,
+        1,
+        3,
+        5
+      ],
+      "duplicateNames": [
+        "session"
+      ]
+    },
+    {
+      "id": "=row \"22\"\nnext",
+      "request": {
+        "id": "embedded",
+        "description": "Partner embeds the store widget inside an unrelated website, loading the embedded shopping cart in an iframe.",
+        "url": "https://shop.example.test/cart/widget",
+        "crossSite": true,
+        "topNavigation": false,
+        "method": "GET"
+      },
+      "cookies": [
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "preference",
+          "value": "synthetic-preference",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "embed",
+          "value": "synthetic-embed",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "other",
+          "value": "synthetic-other",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/catalog",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "parent",
+          "value": "synthetic-parent",
+          "domain": "example.test",
+          "hostOnly": false,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        }
+      ],
+      "expectedCookieHeader": "embed=synthetic-embed",
+      "includedIndices": [
+        2
+      ],
+      "duplicateNames": []
+    },
+    {
+      "id": "=row \"23\"\nnext",
+      "request": {
+        "id": "email-link",
+        "description": "A customer follows an email newsletter link from an unrelated website to open the shopping basket as a top level page.",
+        "url": "https://shop.example.test/cart",
+        "crossSite": true,
+        "topNavigation": true,
+        "method": "GET"
+      },
+      "cookies": [
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "preference",
+          "value": "synthetic-preference",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "embed",
+          "value": "synthetic-embed",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "session",
+          "value": "synthetic-session",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "other",
+          "value": "synthetic-other",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/catalog",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "parent",
+          "value": "synthetic-parent",
+          "domain": "example.test",
+          "hostOnly": false,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        }
+      ],
+      "expectedCookieHeader": "embed=synthetic-embed; preference=synthetic-preference; parent=synthetic-parent",
+      "includedIndices": [
+        2,
+        1,
+        5
+      ],
+      "duplicateNames": []
+    }
+  ]
+}

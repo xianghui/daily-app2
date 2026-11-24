@@ -1,0 +1,161 @@
+{
+  "format": "cookie-trail-fixtures-v1",
+  "notice": "Dry-run QA only. Already-stored unexpired unpartitioned cookies; no requests, cookies or browser settings are changed. Duplicate header names must not be collapsed.",
+  "cases": [
+    {
+      "id": "Boundary check",
+      "request": {
+        "id": "local",
+        "description": "Developer testing a plain HTTP local staging cart on an internal development host, without HTTPS.",
+        "url": "http://dev.example.test/cartoon",
+        "crossSite": false,
+        "topNavigation": true,
+        "method": "GET"
+      },
+      "cookies": [
+        {
+          "name": "secure",
+          "value": "synthetic-secure",
+          "domain": "example.test",
+          "hostOnly": false,
+          "path": "/",
+          "secure": true,
+          "sameSite": "None"
+        },
+        {
+          "name": "boundary",
+          "value": "synthetic-boundary",
+          "domain": "example.test",
+          "hostOnly": false,
+          "path": "/cart",
+          "secure": false,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "domain",
+          "value": "reviewed-value",
+          "domain": "example.test",
+          "hostOnly": false,
+          "path": "/",
+          "secure": false,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "host",
+          "value": "synthetic-host",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": false,
+          "sameSite": "Lax"
+        }
+      ],
+      "expectedCookieHeader": "domain=reviewed-value",
+      "includedIndices": [
+        2
+      ],
+      "duplicateNames": []
+    },
+    {
+      "id": "Embedded checkout",
+      "request": {
+        "id": "embedded",
+        "description": "Partner embeds the store widget inside an unrelated website, loading the embedded shopping cart in an iframe.",
+        "url": "https://shop.example.test/cart/widget",
+        "crossSite": true,
+        "topNavigation": false,
+        "method": "GET"
+      },
+      "cookies": [
+        {
+          "name": "strict",
+          "value": "synthetic-strict",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Strict"
+        },
+        {
+          "name": "lax",
+          "value": "synthetic-lax",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "none",
+          "value": "synthetic-none",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "None"
+        }
+      ],
+      "expectedCookieHeader": "none=synthetic-none",
+      "includedIndices": [
+        2
+      ],
+      "duplicateNames": []
+    },
+    {
+      "id": "Local basket",
+      "request": {
+        "id": "checkout",
+        "description": "Customer browsing the store checkout within the same shopping website, opening their basket and paying.",
+        "url": "https://shop.example.test/cart/pay",
+        "crossSite": false,
+        "topNavigation": true,
+        "method": "GET"
+      },
+      "cookies": [
+        {
+          "name": "root",
+          "value": "synthetic-root",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/",
+          "secure": true,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "deep",
+          "value": "synthetic-deep",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/cart/pay",
+          "secure": true,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "boundary",
+          "value": "synthetic-boundary",
+          "domain": "shop.example.test",
+          "hostOnly": true,
+          "path": "/car",
+          "secure": true,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "parent",
+          "value": "synthetic-parent",
+          "domain": "example.test",
+          "hostOnly": false,
+          "path": "/cart",
+          "secure": true,
+          "sameSite": "Lax"
+        }
+      ],
+      "expectedCookieHeader": "deep=synthetic-deep; parent=synthetic-parent; root=synthetic-root",
+      "includedIndices": [
+        1,
+        3,
+        0
+      ],
+      "duplicateNames": []
+    }
+  ]
+}

@@ -1,0 +1,241 @@
+{
+  "version": 1,
+  "app": "Cookie Trail",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "checkout",
+        "description": "Customer browsing the store checkout within the same shopping website, opening their basket and paying.",
+        "url": "https://shop.example.test/cart/pay",
+        "crossSite": false,
+        "topNavigation": true,
+        "method": "GET"
+      },
+      {
+        "id": "embedded",
+        "description": "Partner embeds the store widget inside an unrelated website, loading the embedded shopping cart in an iframe.",
+        "url": "https://shop.example.test/cart/widget",
+        "crossSite": true,
+        "topNavigation": false,
+        "method": "GET"
+      },
+      {
+        "id": "local",
+        "description": "Developer testing a plain HTTP local staging cart on an internal development host, without HTTPS.",
+        "url": "http://dev.example.test/cartoon",
+        "crossSite": false,
+        "topNavigation": true,
+        "method": "GET"
+      }
+    ],
+    "records": [
+      {
+        "id": "Boundary check",
+        "context": "Developer tests the cart on a plain HTTP internal development host, with no HTTPS.",
+        "raw": "[{\"name\":\"secure\",\"value\":\"synthetic-secure\",\"domain\":\"example.test\",\"hostOnly\":false,\"path\":\"/\",\"secure\":true,\"sameSite\":\"None\"},{\"name\":\"boundary\",\"value\":\"synthetic-boundary\",\"domain\":\"example.test\",\"hostOnly\":false,\"path\":\"/cart\",\"secure\":false,\"sameSite\":\"Lax\"},{\"name\":\"domain\",\"value\":\"synthetic-domain\",\"domain\":\"example.test\",\"hostOnly\":false,\"path\":\"/\",\"secure\":false,\"sameSite\":\"Lax\"},{\"name\":\"host\",\"value\":\"synthetic-host\",\"domain\":\"shop.example.test\",\"hostOnly\":true,\"path\":\"/\",\"secure\":false,\"sameSite\":\"Lax\"}]"
+      },
+      {
+        "id": "Embedded checkout",
+        "context": "Unrelated partner website loads the embedded shopping cart widget inside an iframe.",
+        "raw": "[{\"name\":\"strict\",\"value\":\"synthetic-strict\",\"domain\":\"shop.example.test\",\"hostOnly\":true,\"path\":\"/\",\"secure\":true,\"sameSite\":\"Strict\"},{\"name\":\"lax\",\"value\":\"synthetic-lax\",\"domain\":\"shop.example.test\",\"hostOnly\":true,\"path\":\"/\",\"secure\":true,\"sameSite\":\"Lax\"},{\"name\":\"none\",\"value\":\"synthetic-none\",\"domain\":\"shop.example.test\",\"hostOnly\":true,\"path\":\"/\",\"secure\":true,\"sameSite\":\"None\"}]"
+      },
+      {
+        "id": "Local basket",
+        "context": "Customer browsing the store checkout within the same shopping website and opening their basket.",
+        "raw": "[{\"name\":\"root\",\"value\":\"synthetic-root\",\"domain\":\"shop.example.test\",\"hostOnly\":true,\"path\":\"/\",\"secure\":true,\"sameSite\":\"Lax\"},{\"name\":\"deep\",\"value\":\"synthetic-deep\",\"domain\":\"shop.example.test\",\"hostOnly\":true,\"path\":\"/cart/pay\",\"secure\":true,\"sameSite\":\"Lax\"},{\"name\":\"boundary\",\"value\":\"synthetic-boundary\",\"domain\":\"shop.example.test\",\"hostOnly\":true,\"path\":\"/car\",\"secure\":true,\"sameSite\":\"Lax\"},{\"name\":\"parent\",\"value\":\"synthetic-parent\",\"domain\":\"example.test\",\"hostOnly\":false,\"path\":\"/cart\",\"secure\":true,\"sameSite\":\"Lax\"}]"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "Boundary check",
+      "system": "local",
+      "raw": "{",
+      "decision": "approve",
+      "note": "=SUM(1,2)\nReviewed \"cookie\", exactly.",
+      "evidence": [
+        {
+          "system": "local",
+          "similarity": 0.9007089329934097
+        },
+        {
+          "system": "embedded",
+          "similarity": 0.3743327148027399
+        },
+        {
+          "system": "checkout",
+          "similarity": 0.28252901045904677
+        }
+      ]
+    },
+    {
+      "id": "Embedded checkout",
+      "system": "embedded",
+      "raw": "[{\"name\":\"strict\",\"value\":\"synthetic-strict\",\"domain\":\"shop.example.test\",\"hostOnly\":true,\"path\":\"/\",\"secure\":true,\"sameSite\":\"Strict\"},{\"name\":\"lax\",\"value\":\"synthetic-lax\",\"domain\":\"shop.example.test\",\"hostOnly\":true,\"path\":\"/\",\"secure\":true,\"sameSite\":\"Lax\"},{\"name\":\"none\",\"value\":\"synthetic-none\",\"domain\":\"shop.example.test\",\"hostOnly\":true,\"path\":\"/\",\"secure\":true,\"sameSite\":\"None\"}]",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "embedded",
+          "similarity": 0.8836023613384801
+        },
+        {
+          "system": "checkout",
+          "similarity": 0.3030733629272357
+        },
+        {
+          "system": "local",
+          "similarity": 0.25255388558354863
+        }
+      ]
+    },
+    {
+      "id": "Local basket",
+      "system": "checkout",
+      "raw": "[{\"name\":\"root\",\"value\":\"synthetic-root\",\"domain\":\"shop.example.test\",\"hostOnly\":true,\"path\":\"/\",\"secure\":true,\"sameSite\":\"Lax\"},{\"name\":\"deep\",\"value\":\"synthetic-deep\",\"domain\":\"shop.example.test\",\"hostOnly\":true,\"path\":\"/cart/pay\",\"secure\":true,\"sameSite\":\"Lax\"},{\"name\":\"boundary\",\"value\":\"synthetic-boundary\",\"domain\":\"shop.example.test\",\"hostOnly\":true,\"path\":\"/car\",\"secure\":true,\"sameSite\":\"Lax\"},{\"name\":\"parent\",\"value\":\"synthetic-parent\",\"domain\":\"example.test\",\"hostOnly\":false,\"path\":\"/cart\",\"secure\":true,\"sameSite\":\"Lax\"}]",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "checkout",
+          "similarity": 0.9602913473788333
+        },
+        {
+          "system": "embedded",
+          "similarity": 0.42827827592413154
+        },
+        {
+          "system": "local",
+          "similarity": 0.24445075790710757
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "Boundary check",
+      "system": "local",
+      "raw": "{",
+      "status": "blocked",
+      "reason": "Snapshot must be valid JSON."
+    },
+    {
+      "id": "Embedded checkout",
+      "system": "embedded",
+      "raw": "[{\"name\":\"strict\",\"value\":\"synthetic-strict\",\"domain\":\"shop.example.test\",\"hostOnly\":true,\"path\":\"/\",\"secure\":true,\"sameSite\":\"Strict\"},{\"name\":\"lax\",\"value\":\"synthetic-lax\",\"domain\":\"shop.example.test\",\"hostOnly\":true,\"path\":\"/\",\"secure\":true,\"sameSite\":\"Lax\"},{\"name\":\"none\",\"value\":\"synthetic-none\",\"domain\":\"shop.example.test\",\"hostOnly\":true,\"path\":\"/\",\"secure\":true,\"sameSite\":\"None\"}]",
+      "url": "https://shop.example.test/cart/widget",
+      "crossSite": true,
+      "topNavigation": false,
+      "method": "GET",
+      "checks": [
+        {
+          "index": 0,
+          "name": "strict",
+          "path": "/",
+          "domain": "shop.example.test",
+          "included": false,
+          "reasons": [
+            "Strict excludes cross-site requests."
+          ]
+        },
+        {
+          "index": 1,
+          "name": "lax",
+          "path": "/",
+          "domain": "shop.example.test",
+          "included": false,
+          "reasons": [
+            "Lax needs same-site or a safe top-level navigation."
+          ]
+        },
+        {
+          "index": 2,
+          "name": "none",
+          "path": "/",
+          "domain": "shop.example.test",
+          "included": true,
+          "reasons": []
+        }
+      ],
+      "sentIndices": [
+        2
+      ],
+      "header": "none=synthetic-none",
+      "baseline": "strict=synthetic-strict; lax=synthetic-lax; none=synthetic-none",
+      "disagreement": true,
+      "included": 1,
+      "excluded": 2,
+      "duplicates": [],
+      "reason": "Delivery rules evaluated against the reviewed request context.",
+      "status": "ready"
+    },
+    {
+      "id": "Local basket",
+      "system": "checkout",
+      "raw": "[{\"name\":\"root\",\"value\":\"synthetic-root\",\"domain\":\"shop.example.test\",\"hostOnly\":true,\"path\":\"/\",\"secure\":true,\"sameSite\":\"Lax\"},{\"name\":\"deep\",\"value\":\"synthetic-deep\",\"domain\":\"shop.example.test\",\"hostOnly\":true,\"path\":\"/cart/pay\",\"secure\":true,\"sameSite\":\"Lax\"},{\"name\":\"boundary\",\"value\":\"synthetic-boundary\",\"domain\":\"shop.example.test\",\"hostOnly\":true,\"path\":\"/car\",\"secure\":true,\"sameSite\":\"Lax\"},{\"name\":\"parent\",\"value\":\"synthetic-parent\",\"domain\":\"example.test\",\"hostOnly\":false,\"path\":\"/cart\",\"secure\":true,\"sameSite\":\"Lax\"}]",
+      "url": "https://shop.example.test/cart/pay",
+      "crossSite": false,
+      "topNavigation": true,
+      "method": "GET",
+      "checks": [
+        {
+          "index": 0,
+          "name": "root",
+          "path": "/",
+          "domain": "shop.example.test",
+          "included": true,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "name": "deep",
+          "path": "/cart/pay",
+          "domain": "shop.example.test",
+          "included": true,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "name": "boundary",
+          "path": "/car",
+          "domain": "shop.example.test",
+          "included": false,
+          "reasons": [
+            "Path boundary mismatch."
+          ]
+        },
+        {
+          "index": 3,
+          "name": "parent",
+          "path": "/cart",
+          "domain": "example.test",
+          "included": true,
+          "reasons": []
+        }
+      ],
+      "sentIndices": [
+        1,
+        3,
+        0
+      ],
+      "header": "deep=synthetic-deep; parent=synthetic-parent; root=synthetic-root",
+      "baseline": "root=synthetic-root; deep=synthetic-deep; boundary=synthetic-boundary; parent=synthetic-parent",
+      "disagreement": true,
+      "included": 3,
+      "excluded": 1,
+      "duplicates": [],
+      "reason": "Delivery rules evaluated against the reviewed request context.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 3,
+    "ready": 2,
+    "held": 0,
+    "blocked": 1,
+    "included": 4,
+    "excluded": 3,
+    "duplicateCases": 0,
+    "disagreements": 2
+  }
+}

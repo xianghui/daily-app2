@@ -1,0 +1,48 @@
+{
+  "engine": "Installed desktop Chrome, intercepted synthetic .test destinations; third-party phaseout flags disabled",
+  "cases": [
+    {
+      "id": "Checkout page",
+      "actual": "session=synthetic-session; embed=synthetic-embed; preference=synthetic-preference; session=synthetic-session; parent=synthetic-parent",
+      "expected": "session=synthetic-session; embed=synthetic-embed; preference=synthetic-preference; session=synthetic-session; parent=synthetic-parent",
+      "matches": true
+    },
+    {
+      "id": "Partner iframe",
+      "actual": "embed=synthetic-embed",
+      "expected": "embed=synthetic-embed",
+      "matches": true
+    },
+    {
+      "id": "Newsletter landing",
+      "actual": "embed=synthetic-embed; preference=synthetic-preference; parent=synthetic-parent",
+      "expected": "embed=synthetic-embed; preference=synthetic-preference; parent=synthetic-parent",
+      "matches": true
+    },
+    {
+      "id": "Boundary check",
+      "actual": "domain=synthetic-domain",
+      "expected": "domain=synthetic-domain",
+      "matches": true
+    },
+    {
+      "id": "Embedded checkout",
+      "actual": "none=synthetic-none",
+      "expected": "none=synthetic-none",
+      "matches": true
+    },
+    {
+      "id": "Local basket",
+      "actual": "deep=synthetic-deep; parent=synthetic-parent; root=synthetic-root",
+      "expected": "deep=synthetic-deep; parent=synthetic-parent; root=synthetic-root",
+      "matches": true
+    },
+    {
+      "id": "Cross-site POST",
+      "actual": "embed=synthetic-embed",
+      "expected": "embed=synthetic-embed",
+      "matches": true
+    }
+  ],
+  "limitation": "Tests scope/SameSite behavior with these fixtures, not browser cookie privacy settings or server cookie parsing."
+}

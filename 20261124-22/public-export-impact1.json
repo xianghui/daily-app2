@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "app": "Basecamp Links",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "handbook",
+        "description": "Employee handbook: staff leave, payroll, onboarding and internal workplace policies.",
+        "base": "https://staff.example.test/handbook/people/",
+        "allowCrossOrigin": false
+      },
+      {
+        "id": "developers",
+        "description": "Developer documentation: API integration, authentication tokens, SDK setup and programming examples.",
+        "base": "https://dev.example.test/docs/api/index.html",
+        "allowCrossOrigin": false
+      },
+      {
+        "id": "visitors",
+        "description": "Visitor information: museum opening hours, tickets, exhibitions and public access.",
+        "base": "https://visit.example.test/guide/",
+        "allowCrossOrigin": false
+      }
+    ],
+    "records": [
+      {
+        "id": "same",
+        "context": "Developer documentation: API integration, authentication tokens, SDK setup and programming examples.",
+        "raw": "../overview"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "same",
+      "system": "developers",
+      "raw": "../overview",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "developers",
+          "similarity": 1.000000065480728
+        },
+        {
+          "system": "handbook",
+          "similarity": 0.23597280537877388
+        },
+        {
+          "system": "visitors",
+          "similarity": 0.11786488855300772
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "same",
+      "system": "developers",
+      "raw": "../overview",
+      "base": "https://dev.example.test/docs/api/index.html",
+      "resolved": "https://dev.example.test/docs/overview",
+      "external": false,
+      "baseline": "https://dev.example.test/docs/api/index.html../overview",
+      "disagreement": true,
+      "kind": "path-relative",
+      "reason": "Same-origin destination resolved with the browser URL standard. No URL was requested.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 1,
+    "ready": 1,
+    "held": 0,
+    "blocked": 0,
+    "external": 0,
+    "disagreements": 1
+  }
+}

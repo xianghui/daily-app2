@@ -1,0 +1,30 @@
+# Observed validation — 2026-11-24
+
+## Local production build (not mocks)
+
+- `npm run predeploy`: passed. Root gallery inline scripts compiled with Node `new Function`; new entry exactly once with `ai-utility`. Root `npm run predeploy`: 850 apps, 0 failed/skipped; combined published files 999,668,008 bytes, below unchanged 1,000,000,000 guard.
+- Actual headless desktop Chrome, CPU/WASM (`--disable-gpu`), production Vite bundle: both synthetic batches matched all six intended publishing sites. Editorial handoff produced three ready links; service handoff produced two ready and one correctly blocked cross-origin reference. These tiny known-answer fixtures are not an accuracy estimate.
+- Context-only intervention kept `../overview` identical but changed the inferred site from handbook to developers; final destinations changed from `https://staff.example.test/handbook/overview` to `https://dev.example.test/docs/overview`. AI thus changes actual downstream results, not just an interface label.
+- Negation probe intended visitors; observed visitors. Passing this one probe does not establish robust negation handling. Site descriptions and notes can overlap; manual approval is required.
+- Independent Python `urllib.parse.urljoin` matched all 48 supported ASCII oracle cases. Core assertions cover encoded dot segments, policy blocks, invalid schemes/credentials/escapes/controls/surrogates and schema/vector validation. Browser URL standard has normalization rules beyond Python; equivalence is claimed only for those fixtures.
+- Maximum 24-record inference: four-text chunks, exact count/order conservation and expected site pattern. Full JSON reimport restores originals and clears reviews. Reviewed export edits, multiline notes/quotes/commas, clipboard, hold, blocked cases and undo passed. Independent Python JSON/CSV parsers plus URL oracle checked 320 assertions on downloaded artifacts for each full suite. Formula-leading CSV fields are neutralized; JSON is lossless. Manifest includes ready records only.
+- Network audit from page load through actual inference: only GET downloads, no bodies, no source notes in request URLs and no requests to supplied `*.example.test` links. No model-host request before explicit loading. Audit stores only host/path/query key names (not signed query values). Built text assets scanned for common credential patterns: no matches; not an exhaustive credential-proof claim.
+- Successful online warm run, terminate worker, set browser context completely offline, instantiate fresh worker and run real inference again: passed. Offline shell navigation/reload not claimed.
+- Real worker-download and real model-host aborts display errors without suggestions. Fault-injected unsupported Worker/WASM, construction/runtime errors, malformed vectors, timeout, and stale responses fail safely. Pending fetch cancellation prevents late construction. Delayed file-read result cannot replace newer input. Cancel/retry returns to genuine inference. Fault injection is used only for defensive tests, never to establish successful AI operation.
+- Desktop 1440 px and narrow 390/320 px: no horizontal overflow, labels present, controls at least 44 px, hero/review/results screenshots recorded. Inspected phone hero and review screenshots. Physical touch devices, other engines, screen-reader interaction and full keyboard walkthrough are untested.
+
+## Shared runtime and gallery safety
+
+AI worker/factory/WASM byte provenance in `runtime-provenance.json`. Immutable source paths preserved. Collection-size guard unchanged. Deploy-only geometry reuse extends to `20261106-7` using the exact matching 541,470-byte `20261028-24` Manifold WASM, SHA-256 `73e3b419ad31294f6b1cc478173944e50efc4a34bfdeeff0107bdfc12975f11c`. Original source/dist trees and compatibility JS URLs are unchanged. Actual affected legacy app default generation, PNG import, binary STL import, downloaded STL signature, saved design and restored identical signature passed. Gallery renders all 850 cards, older folder targets retained and AI Utilities first. No legacy categories relabeled.
+
+## Publication
+
+Published through root `npm run deploy`. Remote gh-pages head, Pages built commit and successful workflow `45400481069` all match `4462890939db4703a00d190ca19c967ec5994ce3`. Public app: https://xianghui.github.io/daily-app2/20261124-22/ .
+
+At the public URL, the entire real-AI workflow suite passed: both known-answer fixtures, context-only destination change, 24-record batching, review/edit/undo/hold/block, cancel/retry, complete export/reimport, clipboard, warmed fresh-worker offline inference, input errors, desktop/phone widths and privacy network audit. Independently parsed public downloads passed 320 assertions. All 13 app/runtime/gallery/legacy asset byte comparisons matched the assembled production tree, including actual worker/factory/WASM URLs. Public gallery rendered all 850 cards with earlier entries/categories preserved. The affected legacy app passed real PNG/STL import, STL export signatures, design save and exact restoration publicly as well. Public runtime success is actual model inference, not merely HTTP 200 or a Pages branch push.
+
+Pre-existing unrelated recovery source/README/gallery edits are preserved in the working tree and excluded from this app's source commit. No digest was sent.
+
+## Reproduce
+
+Use a local server mounting app `dist` trees under `/daily-app2/`, or root assembled `deploy` after predeploy. Set `APP_URL` and `PREFIX` for `node browser-test.cjs`; `SITE_BASE` for gallery/legacy checks; `ASSET_BASE` and `PREFIX` for `python3 asset-test.py`. Default local production tests use ports 7562 (individual app) and 7563 (assembled tree). `node core-test.mjs`, `python3 oracle-test.py`, `node defensive-test.cjs`, `node async-race-test.cjs`, `python3 artifact-test.py`. Browser tooling uses the existing workspace Playwright and installed Chrome, not a deployed dependency. Gallery comparison uses the pre-run folder roster in `gallery-baseline.json`.

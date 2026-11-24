@@ -1,0 +1,145 @@
+{
+  "version": 1,
+  "app": "Basecamp Links",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "support",
+        "description": "Customer help center: product troubleshooting, refunds, warranty claims and returns.",
+        "base": "https://help.example.test/articles/returns/",
+        "allowCrossOrigin": false
+      },
+      {
+        "id": "research",
+        "description": "Research library: scientific papers, academic citations, journal manuscripts and datasets.",
+        "base": "https://library.example.test/research/catalog.html",
+        "allowCrossOrigin": false
+      },
+      {
+        "id": "events",
+        "description": "Community events: volunteer gatherings, workshop registration, venue access and festival schedules.",
+        "base": "https://events.example.test/calendar/",
+        "allowCrossOrigin": false
+      }
+    ],
+    "records": [
+      {
+        "id": "Refund article",
+        "context": "A customer needs the warranty return and refund troubleshooting instructions.",
+        "raw": "../refunds"
+      },
+      {
+        "id": "Paper citation",
+        "context": "The scientist needs the academic journal manuscript citation and associated dataset.",
+        "raw": "?collection=climate#2026"
+      },
+      {
+        "id": "Volunteer arrival",
+        "context": "Volunteers need the workshop gathering venue and community festival schedule.",
+        "raw": "//outside.example.test/map"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "Refund article",
+      "system": "support",
+      "raw": "javascript:alert(1)",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "support",
+          "similarity": 0.7426890589782418
+        },
+        {
+          "system": "research",
+          "similarity": 0.0474114292063298
+        },
+        {
+          "system": "events",
+          "similarity": -0.018805810689049504
+        }
+      ]
+    },
+    {
+      "id": "Paper citation",
+      "system": "research",
+      "raw": "../papers?q=O%27Brien&name=%22draft%22#page",
+      "decision": "approve",
+      "note": "=SUM(1,2)\nReviewed \"paper\", exactly.",
+      "evidence": [
+        {
+          "system": "research",
+          "similarity": 0.6825109954086416
+        },
+        {
+          "system": "events",
+          "similarity": 0.18004275955620008
+        },
+        {
+          "system": "support",
+          "similarity": 0.01650702972752664
+        }
+      ]
+    },
+    {
+      "id": "Volunteer arrival",
+      "system": "events",
+      "raw": "//outside.example.test/map",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "events",
+          "similarity": 0.8072083533948405
+        },
+        {
+          "system": "research",
+          "similarity": 0.1834963960664564
+        },
+        {
+          "system": "support",
+          "similarity": 0.06581757027279829
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "Refund article",
+      "system": "support",
+      "raw": "javascript:alert(1)",
+      "status": "blocked",
+      "reason": "Only HTTP(S) without embedded credentials is supported."
+    },
+    {
+      "id": "Paper citation",
+      "system": "research",
+      "raw": "../papers?q=O%27Brien&name=%22draft%22#page",
+      "base": "https://library.example.test/research/catalog.html",
+      "resolved": "https://library.example.test/papers?q=O%27Brien&name=%22draft%22#page",
+      "external": false,
+      "baseline": "https://library.example.test/research/catalog.html../papers?q=O%27Brien&name=%22draft%22#page",
+      "disagreement": true,
+      "kind": "path-relative",
+      "reason": "Same-origin destination resolved with the browser URL standard. No URL was requested.",
+      "status": "ready"
+    },
+    {
+      "id": "Volunteer arrival",
+      "system": "events",
+      "raw": "//outside.example.test/map",
+      "status": "blocked",
+      "reason": "Cross-origin destination blocked by site policy: https://outside.example.test. Review the reference or explicitly change the site policy."
+    }
+  ],
+  "metrics": {
+    "records": 3,
+    "ready": 1,
+    "held": 0,
+    "blocked": 2,
+    "external": 0,
+    "disagreements": 1
+  }
+}

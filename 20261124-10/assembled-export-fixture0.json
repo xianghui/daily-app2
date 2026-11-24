@@ -1,0 +1,227 @@
+{
+  "version": 1,
+  "app": "Precondition Desk",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "version",
+        "description": "Prevent lost edits. Update only the exact revision originally downloaded by this editor; require a matching saved strong ETag.",
+        "mode": "version"
+      },
+      {
+        "id": "create",
+        "description": "Publish a brand new resource only. Refuse to replace any existing document at the destination, even an identical version.",
+        "mode": "create"
+      },
+      {
+        "id": "exists",
+        "description": "Refresh an existing resource regardless of its revision. Require destination existence but allow replacing any current version.",
+        "mode": "exists"
+      }
+    ],
+    "records": [
+      {
+        "id": "Reviewed page",
+        "context": "Prevent lost edits: save my changes only if the exact downloaded revision remains current.",
+        "raw": "{\"path\":\"/pages/intro\",\"exists\":true,\"currentTag\":\"\\\"r7\\\"\",\"savedTag\":\"\\\"r7\\\"\"}"
+      },
+      {
+        "id": "New announcement",
+        "context": "Publish a brand new announcement. Refuse to replace any existing document at this destination.",
+        "raw": "{\"path\":\"/announcements/autumn\",\"exists\":true,\"currentTag\":\"\\\"live\\\"\",\"savedTag\":null}"
+      },
+      {
+        "id": "Refresh current notice",
+        "context": "Refresh an existing notice regardless of its revision. Require destination existence, allow replacing any current version.",
+        "raw": "{\"path\":\"/notices/opening\",\"exists\":false,\"currentTag\":null,\"savedTag\":null}"
+      },
+      {
+        "id": "Weak saved validator",
+        "context": "Prevent lost edits. Update only the exact revision originally downloaded by this editor.",
+        "raw": "{\"path\":\"/pages/faq\",\"exists\":true,\"currentTag\":\"W/\\\"r9\\\"\",\"savedTag\":\"W/\\\"r9\\\"\"}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "Reviewed page",
+      "system": "version",
+      "raw": "{\"path\":\"/pages/intro\",\"exists\":true,\"currentTag\":\"\\\"r7\\\"\",\"savedTag\":\"\\\"r7\\\"\"}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "version",
+          "similarity": 0.788713036262298
+        },
+        {
+          "system": "exists",
+          "similarity": 0.5630061306378215
+        },
+        {
+          "system": "create",
+          "similarity": 0.36777563581973555
+        }
+      ]
+    },
+    {
+      "id": "New announcement",
+      "system": "create",
+      "raw": "{\"path\":\"/announcements/autumn\",\"exists\":true,\"currentTag\":\"\\\"live\\\"\",\"savedTag\":null}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "create",
+          "similarity": 0.7166380870465476
+        },
+        {
+          "system": "exists",
+          "similarity": 0.3789818974176603
+        },
+        {
+          "system": "version",
+          "similarity": 0.32222128416086715
+        }
+      ]
+    },
+    {
+      "id": "Refresh current notice",
+      "system": "exists",
+      "raw": "{\"path\":\"/notices/opening\",\"exists\":false,\"currentTag\":null,\"savedTag\":null}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "exists",
+          "similarity": 0.7524205781304611
+        },
+        {
+          "system": "version",
+          "similarity": 0.5365955451381019
+        },
+        {
+          "system": "create",
+          "similarity": 0.47008927196027367
+        }
+      ]
+    },
+    {
+      "id": "Weak saved validator",
+      "system": "version",
+      "raw": "{\"path\":\"/pages/faq\",\"exists\":true,\"currentTag\":\"W/\\\"r9\\\"\",\"savedTag\":\"W/\\\"r9\\\"\"}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "version",
+          "similarity": 0.9120365343478609
+        },
+        {
+          "system": "exists",
+          "similarity": 0.5020514628269721
+        },
+        {
+          "system": "create",
+          "similarity": 0.3345654179049193
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "Reviewed page",
+      "system": "version",
+      "raw": "{\"path\":\"/pages/intro\",\"exists\":true,\"currentTag\":\"\\\"r7\\\"\",\"savedTag\":\"\\\"r7\\\"\"}",
+      "snapshot": {
+        "path": "/pages/intro",
+        "exists": true,
+        "currentTag": "\"r7\"",
+        "savedTag": "\"r7\""
+      },
+      "headers": {
+        "If-Match": "\"r7\""
+      },
+      "passes": true,
+      "prediction": "precondition passes",
+      "baselinePasses": true,
+      "disagreement": false,
+      "reason": "Strong validator equality: the exact-revision precondition passes this snapshot.",
+      "notice": "Independent PUT snapshot check only. Passing is not a server success prediction; authentication, other conditions and later changes are not modeled.",
+      "status": "ready"
+    },
+    {
+      "id": "New announcement",
+      "system": "create",
+      "raw": "{\"path\":\"/announcements/autumn\",\"exists\":true,\"currentTag\":\"\\\"live\\\"\",\"savedTag\":null}",
+      "snapshot": {
+        "path": "/announcements/autumn",
+        "exists": true,
+        "currentTag": "\"live\"",
+        "savedTag": null
+      },
+      "headers": {
+        "If-None-Match": "*"
+      },
+      "passes": false,
+      "prediction": "412 precondition failed",
+      "baselinePasses": true,
+      "disagreement": true,
+      "reason": "A current representation exists: create-only precondition fails, regardless of ETag.",
+      "notice": "Independent PUT snapshot check only. Passing is not a server success prediction; authentication, other conditions and later changes are not modeled.",
+      "status": "ready"
+    },
+    {
+      "id": "Refresh current notice",
+      "system": "exists",
+      "raw": "{\"path\":\"/notices/opening\",\"exists\":false,\"currentTag\":null,\"savedTag\":null}",
+      "snapshot": {
+        "path": "/notices/opening",
+        "exists": false,
+        "currentTag": null,
+        "savedTag": null
+      },
+      "headers": {
+        "If-Match": "*"
+      },
+      "passes": false,
+      "prediction": "412 precondition failed",
+      "baselinePasses": true,
+      "disagreement": true,
+      "reason": "No current representation: existence-only precondition fails.",
+      "notice": "Independent PUT snapshot check only. Passing is not a server success prediction; authentication, other conditions and later changes are not modeled.",
+      "status": "ready"
+    },
+    {
+      "id": "Weak saved validator",
+      "system": "version",
+      "raw": "{\"path\":\"/pages/faq\",\"exists\":true,\"currentTag\":\"W/\\\"r9\\\"\",\"savedTag\":\"W/\\\"r9\\\"\"}",
+      "snapshot": {
+        "path": "/pages/faq",
+        "exists": true,
+        "currentTag": "W/\"r9\"",
+        "savedTag": "W/\"r9\""
+      },
+      "headers": {
+        "If-Match": "W/\"r9\""
+      },
+      "passes": false,
+      "prediction": "412 precondition failed",
+      "baselinePasses": true,
+      "disagreement": true,
+      "reason": "If-Match uses strong comparison: weak validators never match, even identical opaque values.",
+      "notice": "Independent PUT snapshot check only. Passing is not a server success prediction; authentication, other conditions and later changes are not modeled.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 4,
+    "ready": 4,
+    "held": 0,
+    "blocked": 0,
+    "passes": 1,
+    "failures": 3,
+    "disagreements": 3,
+    "edited": 0
+  }
+}

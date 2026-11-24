@@ -1,0 +1,227 @@
+{
+  "version": 1,
+  "app": "Precondition Desk",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "version",
+        "description": "Prevent lost edits. Update only the exact revision originally downloaded by this editor; require a matching saved strong ETag.",
+        "mode": "version"
+      },
+      {
+        "id": "create",
+        "description": "Publish a brand new resource only. Refuse to replace any existing document at the destination, even an identical version.",
+        "mode": "create"
+      },
+      {
+        "id": "exists",
+        "description": "Refresh an existing resource regardless of its revision. Require destination existence but allow replacing any current version.",
+        "mode": "exists"
+      }
+    ],
+    "records": [
+      {
+        "id": "First publication",
+        "context": "Publish a brand new resource only. Refuse to replace any existing document at the destination.",
+        "raw": "{\"path\":\"/assets/logo\",\"exists\":false,\"currentTag\":null,\"savedTag\":null}"
+      },
+      {
+        "id": "Stale copy",
+        "context": "Prevent lost edits. Require the matching saved strong ETag of the originally downloaded revision.",
+        "raw": "{\"path\":\"/assets/guide\",\"exists\":true,\"currentTag\":\"\\\"v3\\\"\",\"savedTag\":\"\\\"v2\\\"\"}"
+      },
+      {
+        "id": "Replace live banner",
+        "context": "Refresh an existing resource regardless of its revision. Require destination existence but allow replacing any current version.",
+        "raw": "{\"path\":\"/assets/banner\",\"exists\":true,\"currentTag\":\"W/\\\"latest\\\"\",\"savedTag\":null}"
+      },
+      {
+        "id": "Valid unchanged copy",
+        "context": "Save my edited document only when the exact downloaded revision remains current. Prevent losing concurrent edits.",
+        "raw": "{\"path\":\"/assets/readme\",\"exists\":true,\"currentTag\":\"\\\"one,two\\\"\",\"savedTag\":\"\\\"one,two\\\"\"}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "First publication",
+      "system": "create",
+      "raw": "{\"path\":\"/assets/logo\",\"exists\":false,\"currentTag\":null,\"savedTag\":null}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "create",
+          "similarity": 0.963903342362693
+        },
+        {
+          "system": "exists",
+          "similarity": 0.5884067773605479
+        },
+        {
+          "system": "version",
+          "similarity": 0.2887602628345994
+        }
+      ]
+    },
+    {
+      "id": "Stale copy",
+      "system": "version",
+      "raw": "{\"path\":\"/assets/guide\",\"exists\":true,\"currentTag\":\"\\\"v3\\\"\",\"savedTag\":\"\\\"v2\\\"\"}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "version",
+          "similarity": 0.9126005459013911
+        },
+        {
+          "system": "exists",
+          "similarity": 0.4973745842019752
+        },
+        {
+          "system": "create",
+          "similarity": 0.4021099073579406
+        }
+      ]
+    },
+    {
+      "id": "Replace live banner",
+      "system": "exists",
+      "raw": "{\"path\":\"/assets/banner\",\"exists\":true,\"currentTag\":\"W/\\\"latest\\\"\",\"savedTag\":null}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "exists",
+          "similarity": 0.9921895984596623
+        },
+        {
+          "system": "create",
+          "similarity": 0.6862310243174718
+        },
+        {
+          "system": "version",
+          "similarity": 0.47109689662802395
+        }
+      ]
+    },
+    {
+      "id": "Valid unchanged copy",
+      "system": "version",
+      "raw": "{\"path\":\"/assets/readme\",\"exists\":true,\"currentTag\":\"\\\"one,two\\\"\",\"savedTag\":\"\\\"one,two\\\"\"}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "version",
+          "similarity": 0.6841692941140284
+        },
+        {
+          "system": "exists",
+          "similarity": 0.48064679791975257
+        },
+        {
+          "system": "create",
+          "similarity": 0.42345167410563644
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "First publication",
+      "system": "create",
+      "raw": "{\"path\":\"/assets/logo\",\"exists\":false,\"currentTag\":null,\"savedTag\":null}",
+      "snapshot": {
+        "path": "/assets/logo",
+        "exists": false,
+        "currentTag": null,
+        "savedTag": null
+      },
+      "headers": {
+        "If-None-Match": "*"
+      },
+      "passes": true,
+      "prediction": "precondition passes",
+      "baselinePasses": true,
+      "disagreement": false,
+      "reason": "No current representation: create-only precondition passes.",
+      "notice": "Independent PUT snapshot check only. Passing is not a server success prediction; authentication, other conditions and later changes are not modeled.",
+      "status": "ready"
+    },
+    {
+      "id": "Stale copy",
+      "system": "version",
+      "raw": "{\"path\":\"/assets/guide\",\"exists\":true,\"currentTag\":\"\\\"v3\\\"\",\"savedTag\":\"\\\"v2\\\"\"}",
+      "snapshot": {
+        "path": "/assets/guide",
+        "exists": true,
+        "currentTag": "\"v3\"",
+        "savedTag": "\"v2\""
+      },
+      "headers": {
+        "If-Match": "\"v2\""
+      },
+      "passes": false,
+      "prediction": "412 precondition failed",
+      "baselinePasses": true,
+      "disagreement": true,
+      "reason": "Saved and current opaque validators differ: concurrent-edit protection fails.",
+      "notice": "Independent PUT snapshot check only. Passing is not a server success prediction; authentication, other conditions and later changes are not modeled.",
+      "status": "ready"
+    },
+    {
+      "id": "Replace live banner",
+      "system": "exists",
+      "raw": "{\"path\":\"/assets/banner\",\"exists\":true,\"currentTag\":\"W/\\\"latest\\\"\",\"savedTag\":null}",
+      "snapshot": {
+        "path": "/assets/banner",
+        "exists": true,
+        "currentTag": "W/\"latest\"",
+        "savedTag": null
+      },
+      "headers": {
+        "If-Match": "*"
+      },
+      "passes": true,
+      "prediction": "precondition passes",
+      "baselinePasses": true,
+      "disagreement": false,
+      "reason": "A current representation exists: existence-only precondition passes regardless of version.",
+      "notice": "Independent PUT snapshot check only. Passing is not a server success prediction; authentication, other conditions and later changes are not modeled.",
+      "status": "ready"
+    },
+    {
+      "id": "Valid unchanged copy",
+      "system": "version",
+      "raw": "{\"path\":\"/assets/readme\",\"exists\":true,\"currentTag\":\"\\\"one,two\\\"\",\"savedTag\":\"\\\"one,two\\\"\"}",
+      "snapshot": {
+        "path": "/assets/readme",
+        "exists": true,
+        "currentTag": "\"one,two\"",
+        "savedTag": "\"one,two\""
+      },
+      "headers": {
+        "If-Match": "\"one,two\""
+      },
+      "passes": true,
+      "prediction": "precondition passes",
+      "baselinePasses": true,
+      "disagreement": false,
+      "reason": "Strong validator equality: the exact-revision precondition passes this snapshot.",
+      "notice": "Independent PUT snapshot check only. Passing is not a server success prediction; authentication, other conditions and later changes are not modeled.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 4,
+    "ready": 4,
+    "held": 0,
+    "blocked": 0,
+    "passes": 3,
+    "failures": 1,
+    "disagreements": 1,
+    "edited": 0
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "app": "Precondition Desk",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "version",
+        "description": "Prevent lost edits. Update only the exact revision originally downloaded by this editor; require a matching saved strong ETag.",
+        "mode": "version"
+      },
+      {
+        "id": "create",
+        "description": "Publish a brand new resource only. Refuse to replace any existing document at the destination, even an identical version.",
+        "mode": "create"
+      },
+      {
+        "id": "exists",
+        "description": "Refresh an existing resource regardless of its revision. Require destination existence but allow replacing any current version.",
+        "mode": "exists"
+      }
+    ],
+    "records": [
+      {
+        "id": "same",
+        "context": "Prevent lost edits. Update only the exact revision originally downloaded by this editor; require a matching saved strong ETag.",
+        "raw": "{\"path\":\"/same\",\"exists\":true,\"currentTag\":\"\\\"new\\\"\",\"savedTag\":\"\\\"old\\\"\"}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "same",
+      "system": "version",
+      "raw": "{\"path\":\"/same\",\"exists\":true,\"currentTag\":\"\\\"new\\\"\",\"savedTag\":\"\\\"old\\\"\"}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "version",
+          "similarity": 0.9999998098184921
+        },
+        {
+          "system": "exists",
+          "similarity": 0.48382510918662675
+        },
+        {
+          "system": "create",
+          "similarity": 0.35388836731736195
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "same",
+      "system": "version",
+      "raw": "{\"path\":\"/same\",\"exists\":true,\"currentTag\":\"\\\"new\\\"\",\"savedTag\":\"\\\"old\\\"\"}",
+      "snapshot": {
+        "path": "/same",
+        "exists": true,
+        "currentTag": "\"new\"",
+        "savedTag": "\"old\""
+      },
+      "headers": {
+        "If-Match": "\"old\""
+      },
+      "passes": false,
+      "prediction": "412 precondition failed",
+      "baselinePasses": true,
+      "disagreement": true,
+      "reason": "Saved and current opaque validators differ: concurrent-edit protection fails.",
+      "notice": "Independent PUT snapshot check only. Passing is not a server success prediction; authentication, other conditions and later changes are not modeled.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 1,
+    "ready": 1,
+    "held": 0,
+    "blocked": 0,
+    "passes": 0,
+    "failures": 1,
+    "disagreements": 1,
+    "edited": 0
+  }
+}

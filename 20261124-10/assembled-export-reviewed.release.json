@@ -1,0 +1,70 @@
+{
+  "format": "precondition-desk-dry-run-v1",
+  "notice": "Independent PUT precondition worksheets only. Not executable requests, no body or origin. Recheck real server state; snapshot passing is not server success.",
+  "records": [
+    {
+      "id": "First publication",
+      "contract": "create",
+      "method": "PUT",
+      "path": "/new-object",
+      "headers": {
+        "If-None-Match": "*"
+      },
+      "observed": {
+        "path": "/new-object",
+        "exists": true,
+        "currentTag": "\"changed\"",
+        "savedTag": null
+      },
+      "preconditionPasses": false
+    },
+    {
+      "id": "Stale copy",
+      "contract": "version",
+      "method": "PUT",
+      "path": "/assets/guide",
+      "headers": {
+        "If-Match": "\"v2\""
+      },
+      "observed": {
+        "path": "/assets/guide",
+        "exists": true,
+        "currentTag": "\"v3\"",
+        "savedTag": "\"v2\""
+      },
+      "preconditionPasses": false
+    },
+    {
+      "id": "Replace live banner",
+      "contract": "exists",
+      "method": "PUT",
+      "path": "/assets/banner",
+      "headers": {
+        "If-Match": "*"
+      },
+      "observed": {
+        "path": "/assets/banner",
+        "exists": true,
+        "currentTag": "W/\"latest\"",
+        "savedTag": null
+      },
+      "preconditionPasses": true
+    },
+    {
+      "id": "Valid unchanged copy",
+      "contract": "version",
+      "method": "PUT",
+      "path": "/assets/readme",
+      "headers": {
+        "If-Match": "\"one,two\""
+      },
+      "observed": {
+        "path": "/assets/readme",
+        "exists": true,
+        "currentTag": "\"one,two\"",
+        "savedTag": "\"one,two\""
+      },
+      "preconditionPasses": true
+    }
+  ]
+}

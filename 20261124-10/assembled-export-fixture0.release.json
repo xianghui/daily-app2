@@ -1,0 +1,70 @@
+{
+  "format": "precondition-desk-dry-run-v1",
+  "notice": "Independent PUT precondition worksheets only. Not executable requests, no body or origin. Recheck real server state; snapshot passing is not server success.",
+  "records": [
+    {
+      "id": "Reviewed page",
+      "contract": "version",
+      "method": "PUT",
+      "path": "/pages/intro",
+      "headers": {
+        "If-Match": "\"r7\""
+      },
+      "observed": {
+        "path": "/pages/intro",
+        "exists": true,
+        "currentTag": "\"r7\"",
+        "savedTag": "\"r7\""
+      },
+      "preconditionPasses": true
+    },
+    {
+      "id": "New announcement",
+      "contract": "create",
+      "method": "PUT",
+      "path": "/announcements/autumn",
+      "headers": {
+        "If-None-Match": "*"
+      },
+      "observed": {
+        "path": "/announcements/autumn",
+        "exists": true,
+        "currentTag": "\"live\"",
+        "savedTag": null
+      },
+      "preconditionPasses": false
+    },
+    {
+      "id": "Refresh current notice",
+      "contract": "exists",
+      "method": "PUT",
+      "path": "/notices/opening",
+      "headers": {
+        "If-Match": "*"
+      },
+      "observed": {
+        "path": "/notices/opening",
+        "exists": false,
+        "currentTag": null,
+        "savedTag": null
+      },
+      "preconditionPasses": false
+    },
+    {
+      "id": "Weak saved validator",
+      "contract": "version",
+      "method": "PUT",
+      "path": "/pages/faq",
+      "headers": {
+        "If-Match": "W/\"r9\""
+      },
+      "observed": {
+        "path": "/pages/faq",
+        "exists": true,
+        "currentTag": "W/\"r9\"",
+        "savedTag": "W/\"r9\""
+      },
+      "preconditionPasses": false
+    }
+  ]
+}

@@ -1,0 +1,774 @@
+{
+  "app": "Merge Lantern",
+  "scope": "Independent dry-run RFC 7396 test cases; no API calls. application/merge-patch+json, not RFC 6902 JSON Patch.",
+  "cases": [
+    {
+      "id": "=row \"0\"\nO'Brien",
+      "snapshot": "orders",
+      "mediaType": "application/merge-patch+json",
+      "target": {
+        "receipt": {
+          "currency": "USD",
+          "footer": "Thanks",
+          "copies": 2
+        },
+        "channels": [
+          "email",
+          "print"
+        ],
+        "legacy": "v1"
+      },
+      "patch": {
+        "receipt": {
+          "footer": null
+        },
+        "channels": [
+          "email"
+        ]
+      },
+      "expected": {
+        "receipt": {
+          "currency": "USD",
+          "copies": 2
+        },
+        "channels": [
+          "email"
+        ],
+        "legacy": "v1"
+      }
+    },
+    {
+      "id": "=row \"1\"\nO'Brien",
+      "snapshot": "people",
+      "mediaType": "application/merge-patch+json",
+      "target": {
+        "directory": {
+          "office": "North",
+          "phone": "555-0100"
+        },
+        "visible": true,
+        "tags": [
+          "staff"
+        ]
+      },
+      "patch": {
+        "directory": {
+          "phone": null
+        },
+        "visible": false
+      },
+      "expected": {
+        "directory": {
+          "office": "North"
+        },
+        "visible": false,
+        "tags": [
+          "staff"
+        ]
+      }
+    },
+    {
+      "id": "=row \"2\"\nO'Brien",
+      "snapshot": "shipping",
+      "mediaType": "application/merge-patch+json",
+      "target": {
+        "dispatch": {
+          "courier": "Synthetic Express",
+          "zone": "A"
+        },
+        "labels": [
+          "small",
+          "large"
+        ],
+        "obsolete": true
+      },
+      "patch": {
+        "labels": [
+          "thermal"
+        ],
+        "obsolete": null
+      },
+      "expected": {
+        "dispatch": {
+          "courier": "Synthetic Express",
+          "zone": "A"
+        },
+        "labels": [
+          "thermal"
+        ]
+      }
+    },
+    {
+      "id": "=row \"3\"\nO'Brien",
+      "snapshot": "orders",
+      "mediaType": "application/merge-patch+json",
+      "target": {
+        "receipt": {
+          "currency": "USD",
+          "footer": "Thanks",
+          "copies": 2
+        },
+        "channels": [
+          "email",
+          "print"
+        ],
+        "legacy": "v1"
+      },
+      "patch": {
+        "receipt": {
+          "footer": null
+        },
+        "channels": [
+          "email"
+        ]
+      },
+      "expected": {
+        "receipt": {
+          "currency": "USD",
+          "copies": 2
+        },
+        "channels": [
+          "email"
+        ],
+        "legacy": "v1"
+      }
+    },
+    {
+      "id": "=row \"4\"\nO'Brien",
+      "snapshot": "people",
+      "mediaType": "application/merge-patch+json",
+      "target": {
+        "directory": {
+          "office": "North",
+          "phone": "555-0100"
+        },
+        "visible": true,
+        "tags": [
+          "staff"
+        ]
+      },
+      "patch": {
+        "directory": {
+          "phone": null
+        },
+        "visible": false
+      },
+      "expected": {
+        "directory": {
+          "office": "North"
+        },
+        "visible": false,
+        "tags": [
+          "staff"
+        ]
+      }
+    },
+    {
+      "id": "=row \"5\"\nO'Brien",
+      "snapshot": "shipping",
+      "mediaType": "application/merge-patch+json",
+      "target": {
+        "dispatch": {
+          "courier": "Synthetic Express",
+          "zone": "A"
+        },
+        "labels": [
+          "small",
+          "large"
+        ],
+        "obsolete": true
+      },
+      "patch": {
+        "labels": [
+          "thermal"
+        ],
+        "obsolete": null
+      },
+      "expected": {
+        "dispatch": {
+          "courier": "Synthetic Express",
+          "zone": "A"
+        },
+        "labels": [
+          "thermal"
+        ]
+      }
+    },
+    {
+      "id": "=row \"6\"\nO'Brien",
+      "snapshot": "orders",
+      "mediaType": "application/merge-patch+json",
+      "target": {
+        "receipt": {
+          "currency": "USD",
+          "footer": "Thanks",
+          "copies": 2
+        },
+        "channels": [
+          "email",
+          "print"
+        ],
+        "legacy": "v1"
+      },
+      "patch": {
+        "receipt": {
+          "footer": null
+        },
+        "channels": [
+          "email"
+        ]
+      },
+      "expected": {
+        "receipt": {
+          "currency": "USD",
+          "copies": 2
+        },
+        "channels": [
+          "email"
+        ],
+        "legacy": "v1"
+      }
+    },
+    {
+      "id": "=row \"7\"\nO'Brien",
+      "snapshot": "people",
+      "mediaType": "application/merge-patch+json",
+      "target": {
+        "directory": {
+          "office": "North",
+          "phone": "555-0100"
+        },
+        "visible": true,
+        "tags": [
+          "staff"
+        ]
+      },
+      "patch": {
+        "directory": {
+          "phone": null
+        },
+        "visible": false
+      },
+      "expected": {
+        "directory": {
+          "office": "North"
+        },
+        "visible": false,
+        "tags": [
+          "staff"
+        ]
+      }
+    },
+    {
+      "id": "=row \"8\"\nO'Brien",
+      "snapshot": "shipping",
+      "mediaType": "application/merge-patch+json",
+      "target": {
+        "dispatch": {
+          "courier": "Synthetic Express",
+          "zone": "A"
+        },
+        "labels": [
+          "small",
+          "large"
+        ],
+        "obsolete": true
+      },
+      "patch": {
+        "labels": [
+          "thermal"
+        ],
+        "obsolete": null
+      },
+      "expected": {
+        "dispatch": {
+          "courier": "Synthetic Express",
+          "zone": "A"
+        },
+        "labels": [
+          "thermal"
+        ]
+      }
+    },
+    {
+      "id": "=row \"9\"\nO'Brien",
+      "snapshot": "orders",
+      "mediaType": "application/merge-patch+json",
+      "target": {
+        "receipt": {
+          "currency": "USD",
+          "footer": "Thanks",
+          "copies": 2
+        },
+        "channels": [
+          "email",
+          "print"
+        ],
+        "legacy": "v1"
+      },
+      "patch": {
+        "receipt": {
+          "footer": null
+        },
+        "channels": [
+          "email"
+        ]
+      },
+      "expected": {
+        "receipt": {
+          "currency": "USD",
+          "copies": 2
+        },
+        "channels": [
+          "email"
+        ],
+        "legacy": "v1"
+      }
+    },
+    {
+      "id": "=row \"10\"\nO'Brien",
+      "snapshot": "people",
+      "mediaType": "application/merge-patch+json",
+      "target": {
+        "directory": {
+          "office": "North",
+          "phone": "555-0100"
+        },
+        "visible": true,
+        "tags": [
+          "staff"
+        ]
+      },
+      "patch": {
+        "directory": {
+          "phone": null
+        },
+        "visible": false
+      },
+      "expected": {
+        "directory": {
+          "office": "North"
+        },
+        "visible": false,
+        "tags": [
+          "staff"
+        ]
+      }
+    },
+    {
+      "id": "=row \"11\"\nO'Brien",
+      "snapshot": "shipping",
+      "mediaType": "application/merge-patch+json",
+      "target": {
+        "dispatch": {
+          "courier": "Synthetic Express",
+          "zone": "A"
+        },
+        "labels": [
+          "small",
+          "large"
+        ],
+        "obsolete": true
+      },
+      "patch": {
+        "labels": [
+          "thermal"
+        ],
+        "obsolete": null
+      },
+      "expected": {
+        "dispatch": {
+          "courier": "Synthetic Express",
+          "zone": "A"
+        },
+        "labels": [
+          "thermal"
+        ]
+      }
+    },
+    {
+      "id": "=row \"12\"\nO'Brien",
+      "snapshot": "orders",
+      "mediaType": "application/merge-patch+json",
+      "target": {
+        "receipt": {
+          "currency": "USD",
+          "footer": "Thanks",
+          "copies": 2
+        },
+        "channels": [
+          "email",
+          "print"
+        ],
+        "legacy": "v1"
+      },
+      "patch": {
+        "receipt": {
+          "footer": null
+        },
+        "channels": [
+          "email"
+        ]
+      },
+      "expected": {
+        "receipt": {
+          "currency": "USD",
+          "copies": 2
+        },
+        "channels": [
+          "email"
+        ],
+        "legacy": "v1"
+      }
+    },
+    {
+      "id": "=row \"13\"\nO'Brien",
+      "snapshot": "people",
+      "mediaType": "application/merge-patch+json",
+      "target": {
+        "directory": {
+          "office": "North",
+          "phone": "555-0100"
+        },
+        "visible": true,
+        "tags": [
+          "staff"
+        ]
+      },
+      "patch": {
+        "directory": {
+          "phone": null
+        },
+        "visible": false
+      },
+      "expected": {
+        "directory": {
+          "office": "North"
+        },
+        "visible": false,
+        "tags": [
+          "staff"
+        ]
+      }
+    },
+    {
+      "id": "=row \"14\"\nO'Brien",
+      "snapshot": "shipping",
+      "mediaType": "application/merge-patch+json",
+      "target": {
+        "dispatch": {
+          "courier": "Synthetic Express",
+          "zone": "A"
+        },
+        "labels": [
+          "small",
+          "large"
+        ],
+        "obsolete": true
+      },
+      "patch": {
+        "labels": [
+          "thermal"
+        ],
+        "obsolete": null
+      },
+      "expected": {
+        "dispatch": {
+          "courier": "Synthetic Express",
+          "zone": "A"
+        },
+        "labels": [
+          "thermal"
+        ]
+      }
+    },
+    {
+      "id": "=row \"15\"\nO'Brien",
+      "snapshot": "orders",
+      "mediaType": "application/merge-patch+json",
+      "target": {
+        "receipt": {
+          "currency": "USD",
+          "footer": "Thanks",
+          "copies": 2
+        },
+        "channels": [
+          "email",
+          "print"
+        ],
+        "legacy": "v1"
+      },
+      "patch": {
+        "receipt": {
+          "footer": null
+        },
+        "channels": [
+          "email"
+        ]
+      },
+      "expected": {
+        "receipt": {
+          "currency": "USD",
+          "copies": 2
+        },
+        "channels": [
+          "email"
+        ],
+        "legacy": "v1"
+      }
+    },
+    {
+      "id": "=row \"16\"\nO'Brien",
+      "snapshot": "people",
+      "mediaType": "application/merge-patch+json",
+      "target": {
+        "directory": {
+          "office": "North",
+          "phone": "555-0100"
+        },
+        "visible": true,
+        "tags": [
+          "staff"
+        ]
+      },
+      "patch": {
+        "directory": {
+          "phone": null
+        },
+        "visible": false
+      },
+      "expected": {
+        "directory": {
+          "office": "North"
+        },
+        "visible": false,
+        "tags": [
+          "staff"
+        ]
+      }
+    },
+    {
+      "id": "=row \"17\"\nO'Brien",
+      "snapshot": "shipping",
+      "mediaType": "application/merge-patch+json",
+      "target": {
+        "dispatch": {
+          "courier": "Synthetic Express",
+          "zone": "A"
+        },
+        "labels": [
+          "small",
+          "large"
+        ],
+        "obsolete": true
+      },
+      "patch": {
+        "labels": [
+          "thermal"
+        ],
+        "obsolete": null
+      },
+      "expected": {
+        "dispatch": {
+          "courier": "Synthetic Express",
+          "zone": "A"
+        },
+        "labels": [
+          "thermal"
+        ]
+      }
+    },
+    {
+      "id": "=row \"18\"\nO'Brien",
+      "snapshot": "orders",
+      "mediaType": "application/merge-patch+json",
+      "target": {
+        "receipt": {
+          "currency": "USD",
+          "footer": "Thanks",
+          "copies": 2
+        },
+        "channels": [
+          "email",
+          "print"
+        ],
+        "legacy": "v1"
+      },
+      "patch": {
+        "receipt": {
+          "footer": null
+        },
+        "channels": [
+          "email"
+        ]
+      },
+      "expected": {
+        "receipt": {
+          "currency": "USD",
+          "copies": 2
+        },
+        "channels": [
+          "email"
+        ],
+        "legacy": "v1"
+      }
+    },
+    {
+      "id": "=row \"19\"\nO'Brien",
+      "snapshot": "people",
+      "mediaType": "application/merge-patch+json",
+      "target": {
+        "directory": {
+          "office": "North",
+          "phone": "555-0100"
+        },
+        "visible": true,
+        "tags": [
+          "staff"
+        ]
+      },
+      "patch": {
+        "directory": {
+          "phone": null
+        },
+        "visible": false
+      },
+      "expected": {
+        "directory": {
+          "office": "North"
+        },
+        "visible": false,
+        "tags": [
+          "staff"
+        ]
+      }
+    },
+    {
+      "id": "=row \"20\"\nO'Brien",
+      "snapshot": "shipping",
+      "mediaType": "application/merge-patch+json",
+      "target": {
+        "dispatch": {
+          "courier": "Synthetic Express",
+          "zone": "A"
+        },
+        "labels": [
+          "small",
+          "large"
+        ],
+        "obsolete": true
+      },
+      "patch": {
+        "labels": [
+          "thermal"
+        ],
+        "obsolete": null
+      },
+      "expected": {
+        "dispatch": {
+          "courier": "Synthetic Express",
+          "zone": "A"
+        },
+        "labels": [
+          "thermal"
+        ]
+      }
+    },
+    {
+      "id": "=row \"21\"\nO'Brien",
+      "snapshot": "orders",
+      "mediaType": "application/merge-patch+json",
+      "target": {
+        "receipt": {
+          "currency": "USD",
+          "footer": "Thanks",
+          "copies": 2
+        },
+        "channels": [
+          "email",
+          "print"
+        ],
+        "legacy": "v1"
+      },
+      "patch": {
+        "receipt": {
+          "footer": null
+        },
+        "channels": [
+          "email"
+        ]
+      },
+      "expected": {
+        "receipt": {
+          "currency": "USD",
+          "copies": 2
+        },
+        "channels": [
+          "email"
+        ],
+        "legacy": "v1"
+      }
+    },
+    {
+      "id": "=row \"22\"\nO'Brien",
+      "snapshot": "people",
+      "mediaType": "application/merge-patch+json",
+      "target": {
+        "directory": {
+          "office": "North",
+          "phone": "555-0100"
+        },
+        "visible": true,
+        "tags": [
+          "staff"
+        ]
+      },
+      "patch": {
+        "directory": {
+          "phone": null
+        },
+        "visible": false
+      },
+      "expected": {
+        "directory": {
+          "office": "North"
+        },
+        "visible": false,
+        "tags": [
+          "staff"
+        ]
+      }
+    },
+    {
+      "id": "=row \"23\"\nO'Brien",
+      "snapshot": "shipping",
+      "mediaType": "application/merge-patch+json",
+      "target": {
+        "dispatch": {
+          "courier": "Synthetic Express",
+          "zone": "A"
+        },
+        "labels": [
+          "small",
+          "large"
+        ],
+        "obsolete": true
+      },
+      "patch": {
+        "labels": [
+          "thermal"
+        ],
+        "obsolete": null
+      },
+      "expected": {
+        "dispatch": {
+          "courier": "Synthetic Express",
+          "zone": "A"
+        },
+        "labels": [
+          "thermal"
+        ]
+      }
+    }
+  ]
+}

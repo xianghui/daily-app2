@@ -1,0 +1,281 @@
+{
+  "version": 1,
+  "app": "Merge Lantern",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "plants",
+        "description": "Botanical garden plant specimen, flower species, herbarium collection and seed catalog.",
+        "target": "{\"specimen\":{\"family\":\"Fern\",\"note\":\"old\"},\"locations\":[\"bed-1\"],\"active\":true}"
+      },
+      {
+        "id": "music",
+        "description": "Orchestra music performance, concert instruments, composer and musical score catalog.",
+        "target": "{\"concert\":{\"venue\":\"Hall\",\"subtitle\":\"old\"},\"instruments\":[\"oboe\",\"cello\"],\"notes\":\"draft\"}"
+      },
+      {
+        "id": "sky",
+        "description": "Astronomy telescope observations, distant stars, planet measurements and galaxy research.",
+        "target": "{\"observation\":{\"site\":\"North\",\"cloud\":\"clear\"},\"filters\":[\"red\",\"green\"],\"obsolete\":\"yes\"}"
+      }
+    ],
+    "records": [
+      {
+        "id": "Garden specimen",
+        "context": "Botanical flower species specimen and seed collection for the garden.",
+        "raw": "{\"specimen\":{\"note\":null},\"locations\":[]}"
+      },
+      {
+        "id": "Concert program",
+        "context": "Orchestra concert musical score and composer instrument catalog entry.",
+        "raw": "{\"concert\":{\"subtitle\":null},\"notes\":\"Edited \\\"program\\\", synthetic\\nSecond line\"}"
+      },
+      {
+        "id": "Telescope export",
+        "context": "Astronomy telescope observation of distant galaxy and planet measurements.",
+        "raw": "{\"observation\":{\"cloud\":null},\"filters\":[\"blue\"],\"obsolete\":null}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "Garden specimen",
+      "system": "plants",
+      "raw": "{\"specimen\":{\"note\":null},\"locations\":[]}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "plants",
+          "similarity": 0.881964429744368
+        },
+        {
+          "system": "sky",
+          "similarity": 0.22680749760557076
+        },
+        {
+          "system": "music",
+          "similarity": 0.1388570206226008
+        }
+      ]
+    },
+    {
+      "id": "Concert program",
+      "system": "music",
+      "raw": "{\n  \"concert\": {\n    \"subtitle\": null\n  },\n  \"notes\": \"Edited < & \\\"note\\\"\\nnext line\"\n}",
+      "decision": "approve",
+      "note": "=SUM(1,2)\nReviewed \"paper\", exactly.",
+      "evidence": [
+        {
+          "system": "music",
+          "similarity": 0.8921981407392069
+        },
+        {
+          "system": "sky",
+          "similarity": 0.26684143787474524
+        },
+        {
+          "system": "plants",
+          "similarity": 0.23237617750813291
+        }
+      ]
+    },
+    {
+      "id": "Telescope export",
+      "system": "sky",
+      "raw": "{\"observation\":{\"cloud\":null},\"filters\":[\"blue\"],\"obsolete\":null}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "sky",
+          "similarity": 0.8607751524211275
+        },
+        {
+          "system": "plants",
+          "similarity": 0.19110221023909443
+        },
+        {
+          "system": "music",
+          "similarity": 0.17397861380957086
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "Garden specimen",
+      "system": "plants",
+      "raw": "{\"specimen\":{\"note\":null},\"locations\":[]}",
+      "target": {
+        "specimen": {
+          "family": "Fern",
+          "note": "old"
+        },
+        "locations": [
+          "bed-1"
+        ],
+        "active": true
+      },
+      "patch": {
+        "specimen": {
+          "note": null
+        },
+        "locations": []
+      },
+      "result": {
+        "specimen": {
+          "family": "Fern"
+        },
+        "locations": [],
+        "active": true
+      },
+      "events": [
+        {
+          "path": "/specimen/note",
+          "action": "delete member"
+        },
+        {
+          "path": "/locations",
+          "action": "replace entire array"
+        }
+      ],
+      "baselineAvailable": true,
+      "baseline": {
+        "specimen": {
+          "note": null
+        },
+        "locations": [],
+        "active": true
+      },
+      "disagreement": true,
+      "reason": "RFC 7396: objects merge recursively; object-member null deletes; arrays/scalars replace in full. Root null replaces the document. Each record starts from its selected original snapshot, not the preceding patch.",
+      "status": "ready"
+    },
+    {
+      "id": "Concert program",
+      "system": "music",
+      "raw": "{\n  \"concert\": {\n    \"subtitle\": null\n  },\n  \"notes\": \"Edited < & \\\"note\\\"\\nnext line\"\n}",
+      "target": {
+        "concert": {
+          "venue": "Hall",
+          "subtitle": "old"
+        },
+        "instruments": [
+          "oboe",
+          "cello"
+        ],
+        "notes": "draft"
+      },
+      "patch": {
+        "concert": {
+          "subtitle": null
+        },
+        "notes": "Edited < & \"note\"\nnext line"
+      },
+      "result": {
+        "concert": {
+          "venue": "Hall"
+        },
+        "instruments": [
+          "oboe",
+          "cello"
+        ],
+        "notes": "Edited < & \"note\"\nnext line"
+      },
+      "events": [
+        {
+          "path": "/concert/subtitle",
+          "action": "delete member"
+        },
+        {
+          "path": "/notes",
+          "action": "replace value or root"
+        }
+      ],
+      "baselineAvailable": true,
+      "baseline": {
+        "concert": {
+          "subtitle": null
+        },
+        "instruments": [
+          "oboe",
+          "cello"
+        ],
+        "notes": "Edited < & \"note\"\nnext line"
+      },
+      "disagreement": true,
+      "reason": "RFC 7396: objects merge recursively; object-member null deletes; arrays/scalars replace in full. Root null replaces the document. Each record starts from its selected original snapshot, not the preceding patch.",
+      "status": "ready"
+    },
+    {
+      "id": "Telescope export",
+      "system": "sky",
+      "raw": "{\"observation\":{\"cloud\":null},\"filters\":[\"blue\"],\"obsolete\":null}",
+      "target": {
+        "observation": {
+          "site": "North",
+          "cloud": "clear"
+        },
+        "filters": [
+          "red",
+          "green"
+        ],
+        "obsolete": "yes"
+      },
+      "patch": {
+        "observation": {
+          "cloud": null
+        },
+        "filters": [
+          "blue"
+        ],
+        "obsolete": null
+      },
+      "result": {
+        "observation": {
+          "site": "North"
+        },
+        "filters": [
+          "blue"
+        ]
+      },
+      "events": [
+        {
+          "path": "/observation/cloud",
+          "action": "delete member"
+        },
+        {
+          "path": "/filters",
+          "action": "replace entire array"
+        },
+        {
+          "path": "/obsolete",
+          "action": "delete member"
+        }
+      ],
+      "baselineAvailable": true,
+      "baseline": {
+        "observation": {
+          "cloud": null
+        },
+        "filters": [
+          "blue"
+        ],
+        "obsolete": null
+      },
+      "disagreement": true,
+      "reason": "RFC 7396: objects merge recursively; object-member null deletes; arrays/scalars replace in full. Root null replaces the document. Each record starts from its selected original snapshot, not the preceding patch.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 3,
+    "ready": 3,
+    "held": 0,
+    "blocked": 0,
+    "changes": 7,
+    "compared": 3,
+    "disagreements": 3
+  }
+}

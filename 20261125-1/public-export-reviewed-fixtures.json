@@ -1,0 +1,99 @@
+{
+  "app": "Merge Lantern",
+  "scope": "Independent dry-run RFC 7396 test cases; no API calls. application/merge-patch+json, not RFC 6902 JSON Patch.",
+  "cases": [
+    {
+      "id": "Garden specimen",
+      "snapshot": "plants",
+      "mediaType": "application/merge-patch+json",
+      "target": {
+        "specimen": {
+          "family": "Fern",
+          "note": "old"
+        },
+        "locations": [
+          "bed-1"
+        ],
+        "active": true
+      },
+      "patch": {
+        "specimen": {
+          "note": null
+        },
+        "locations": []
+      },
+      "expected": {
+        "specimen": {
+          "family": "Fern"
+        },
+        "locations": [],
+        "active": true
+      }
+    },
+    {
+      "id": "Concert program",
+      "snapshot": "music",
+      "mediaType": "application/merge-patch+json",
+      "target": {
+        "concert": {
+          "venue": "Hall",
+          "subtitle": "old"
+        },
+        "instruments": [
+          "oboe",
+          "cello"
+        ],
+        "notes": "draft"
+      },
+      "patch": {
+        "concert": {
+          "subtitle": null
+        },
+        "notes": "Edited < & \"note\"\nnext line"
+      },
+      "expected": {
+        "concert": {
+          "venue": "Hall"
+        },
+        "instruments": [
+          "oboe",
+          "cello"
+        ],
+        "notes": "Edited < & \"note\"\nnext line"
+      }
+    },
+    {
+      "id": "Telescope export",
+      "snapshot": "sky",
+      "mediaType": "application/merge-patch+json",
+      "target": {
+        "observation": {
+          "site": "North",
+          "cloud": "clear"
+        },
+        "filters": [
+          "red",
+          "green"
+        ],
+        "obsolete": "yes"
+      },
+      "patch": {
+        "observation": {
+          "cloud": null
+        },
+        "filters": [
+          "blue"
+        ],
+        "obsolete": null
+      },
+      "expected": {
+        "observation": {
+          "site": "North"
+        },
+        "filters": [
+          "blue"
+        ]
+      }
+    }
+  ]
+}

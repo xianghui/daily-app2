@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "app": "Merge Lantern",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "orders",
+        "description": "Customer purchase orders, shopping cart checkout, payment and invoice transaction records.",
+        "target": "{\"receipt\":{\"currency\":\"USD\",\"footer\":\"Thanks\",\"copies\":2},\"channels\":[\"email\",\"print\"],\"legacy\":\"v1\"}"
+      },
+      {
+        "id": "people",
+        "description": "Employee staff directory, personnel contact details, human resources and office phone records.",
+        "target": "{\"directory\":{\"office\":\"North\",\"phone\":\"555-0100\"},\"visible\":true,\"tags\":[\"staff\"]}"
+      },
+      {
+        "id": "shipping",
+        "description": "Parcel shipping delivery, courier tracking numbers, postal warehouse dispatch and package arrival.",
+        "target": "{\"dispatch\":{\"courier\":\"Synthetic Express\",\"zone\":\"A\"},\"labels\":[\"small\",\"large\"],\"obsolete\":true}"
+      }
+    ],
+    "records": [
+      {
+        "id": "same",
+        "context": "Employee staff directory, personnel contact details, human resources and office phone records.",
+        "raw": "{\"receipt\":{\"footer\":null},\"channels\":[\"email\"]}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "same",
+      "system": "people",
+      "raw": "{\"receipt\":{\"footer\":null},\"channels\":[\"email\"]}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "people",
+          "similarity": 0.9999994900748524
+        },
+        {
+          "system": "shipping",
+          "similarity": 0.47033704655621267
+        },
+        {
+          "system": "orders",
+          "similarity": 0.4051618846527205
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "same",
+      "system": "people",
+      "raw": "{\"receipt\":{\"footer\":null},\"channels\":[\"email\"]}",
+      "target": {
+        "directory": {
+          "office": "North",
+          "phone": "555-0100"
+        },
+        "visible": true,
+        "tags": [
+          "staff"
+        ]
+      },
+      "patch": {
+        "receipt": {
+          "footer": null
+        },
+        "channels": [
+          "email"
+        ]
+      },
+      "result": {
+        "directory": {
+          "office": "North",
+          "phone": "555-0100"
+        },
+        "visible": true,
+        "tags": [
+          "staff"
+        ],
+        "receipt": {},
+        "channels": [
+          "email"
+        ]
+      },
+      "events": [
+        {
+          "path": "/receipt",
+          "action": "coerce target to empty object"
+        },
+        {
+          "path": "/channels",
+          "action": "replace entire array"
+        }
+      ],
+      "baselineAvailable": true,
+      "baseline": {
+        "directory": {
+          "office": "North",
+          "phone": "555-0100"
+        },
+        "visible": true,
+        "tags": [
+          "staff"
+        ],
+        "receipt": {
+          "footer": null
+        },
+        "channels": [
+          "email"
+        ]
+      },
+      "disagreement": true,
+      "reason": "RFC 7396: objects merge recursively; object-member null deletes; arrays/scalars replace in full. Root null replaces the document. Each record starts from its selected original snapshot, not the preceding patch.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 1,
+    "ready": 1,
+    "held": 0,
+    "blocked": 0,
+    "changes": 2,
+    "compared": 1,
+    "disagreements": 1
+  }
+}

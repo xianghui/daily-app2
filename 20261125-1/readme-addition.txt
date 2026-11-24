@@ -1,0 +1,7 @@
+
+
+## Merge Lantern — 20261125-1
+
+Real local MiniLM links informal configuration-change notes to supplied JSON snapshots before mandatory review. Deterministic RFC 7396 previews expose recursive null deletions and atomic array replacements, compare shallow object spread and export approved independent test fixtures plus complete JSON/CSV/Markdown without uploads or API calls. Both tiny fixtures matched 6/6 intended targets; 15 RFC examples and 500 independent-library cases passed. Shared immutable worker/factory from `20261115-6`, WASM from `20261107-2`; preserve those paths. Offline scope is fresh-worker inference within an already-open warmed page only. See [workflow/privacy](20261125-1/README.md) and [observed validation](20261125-1/VALIDATION.md). No digest sent.
+
+Public release verified: matching built Pages commit `6ccb5cad50ebda204cf1c1fdbcb0d98ec28e3307` and successful workflow `45433638380`. Seven exact public asset matches, both real-AI fixtures, full reviewed/export/24-record/offline/privacy/phone-width suite, 356 independently parsed artifact assertions, 33 independent merge-patch fixture checks and all 853 gallery cards passed. Combined site **999,925,934 bytes** remains below the unchanged guard; no sharing rules changed. Physical phones, other engines, cold offline startup and live-system execution are untested. Unrelated recovery edits preserved and excluded from source staging. No digest sent.

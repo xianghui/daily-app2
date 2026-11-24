@@ -1,0 +1,39 @@
+{
+  "format": "crawl-compass-fixtures-v1",
+  "notice": "Offline QA fixtures for a bounded ASCII robots subset, not a live crawler or authorization check.",
+  "robots": "# Synthetic policy: not a live website\nUser-agent: *\nDisallow: /drafts/\nAllow: /drafts/public/\nDisallow: /*.tmp$\n\nUser-agent: SearchBot\nDisallow: /drafts/\nAllow: /drafts/public/\nDisallow: /assets/\n\nUser-agent: ImageBot\nDisallow: /assets/\nAllow: /assets/photos/\nDisallow: /*.tmp$\n\nUser-agent: ArchiveBot\nDisallow: /\nAllow: /history/\n\nUser-agent: imagebot\nAllow: /assets/thumbs/\n",
+  "cases": [
+    {
+      "id": "Thumbnail exception",
+      "profile": "images",
+      "agent": "ImageBot",
+      "path": "/assets/thumbs/tiny.jpg",
+      "expected": "allow",
+      "winningLine": 22
+    },
+    {
+      "id": "Current landing",
+      "profile": "archive",
+      "agent": "ArchiveBot",
+      "path": "/welcome",
+      "expected": "disallow",
+      "winningLine": 18
+    },
+    {
+      "id": "Picture temp",
+      "profile": "images",
+      "agent": "ImageBot",
+      "path": "/assets/photos/unfinished.tmp",
+      "expected": "allow",
+      "winningLine": 14
+    },
+    {
+      "id": "Search assets",
+      "profile": "search",
+      "agent": "SearchBot",
+      "path": "/assets/site.css",
+      "expected": "disallow",
+      "winningLine": 10
+    }
+  ]
+}

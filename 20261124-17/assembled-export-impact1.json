@@ -1,0 +1,98 @@
+{
+  "version": 1,
+  "app": "Crawl Compass",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "search",
+        "description": "Web search engine indexing HTML pages and website articles for general search results.",
+        "agent": "SearchBot"
+      },
+      {
+        "id": "images",
+        "description": "Image search crawler collecting photographs, thumbnails and picture files for visual search.",
+        "agent": "ImageBot"
+      },
+      {
+        "id": "archive",
+        "description": "Historical web archive preserving snapshots and old versions for long term conservation.",
+        "agent": "ArchiveBot"
+      }
+    ],
+    "robots": "# Synthetic policy: not a live website\nUser-agent: *\nDisallow: /drafts/\nAllow: /drafts/public/\nDisallow: /*.tmp$\n\nUser-agent: SearchBot\nDisallow: /drafts/\nAllow: /drafts/public/\nDisallow: /assets/\n\nUser-agent: ImageBot\nDisallow: /assets/\nAllow: /assets/photos/\nDisallow: /*.tmp$\n\nUser-agent: ArchiveBot\nDisallow: /\nAllow: /history/\n\nUser-agent: imagebot\nAllow: /assets/thumbs/\n",
+    "records": [
+      {
+        "id": "same",
+        "context": "Image search crawler collecting photographs, thumbnails and picture files for visual search.",
+        "raw": "{\"path\":\"/assets/photos/same.jpg\"}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "same",
+      "system": "images",
+      "raw": "{\"path\":\"/assets/photos/same.jpg\"}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "images",
+          "similarity": 0.9999998700737035
+        },
+        {
+          "system": "search",
+          "similarity": 0.4366817368026374
+        },
+        {
+          "system": "archive",
+          "similarity": 0.3244693157107086
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "same",
+      "system": "images",
+      "raw": "{\"path\":\"/assets/photos/same.jpg\"}",
+      "agent": "ImageBot",
+      "path": "/assets/photos/same.jpg",
+      "selected": "allow",
+      "baseline": "disallow",
+      "disagreement": true,
+      "groups": [
+        "imagebot",
+        "imagebot"
+      ],
+      "winner": "Line 14 · allow: /assets/photos/",
+      "winningLine": 14,
+      "specificity": 15,
+      "matchedRules": [
+        {
+          "type": "disallow",
+          "pattern": "/assets/",
+          "line": 13,
+          "specificity": 8
+        },
+        {
+          "type": "allow",
+          "pattern": "/assets/photos/",
+          "line": 14,
+          "specificity": 15
+        }
+      ],
+      "reason": "Longest literal matching directive; equal specificity favors Allow. Specific agent groups replace wildcard groups.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 1,
+    "ready": 1,
+    "held": 0,
+    "blocked": 0,
+    "allowed": 1,
+    "disallowed": 0,
+    "disagreements": 1
+  }
+}

@@ -1,0 +1,229 @@
+{
+  "version": 1,
+  "app": "Crawl Compass",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "search",
+        "description": "Web search engine indexing HTML pages and website articles for general search results.",
+        "agent": "SearchBot"
+      },
+      {
+        "id": "images",
+        "description": "Image search crawler collecting photographs, thumbnails and picture files for visual search.",
+        "agent": "ImageBot"
+      },
+      {
+        "id": "archive",
+        "description": "Historical web archive preserving snapshots and old versions for long term conservation.",
+        "agent": "ArchiveBot"
+      }
+    ],
+    "robots": "# Synthetic policy: not a live website\nUser-agent: *\nDisallow: /drafts/\nAllow: /drafts/public/\nDisallow: /*.tmp$\n\nUser-agent: SearchBot\nDisallow: /drafts/\nAllow: /drafts/public/\nDisallow: /assets/\n\nUser-agent: ImageBot\nDisallow: /assets/\nAllow: /assets/photos/\nDisallow: /*.tmp$\n\nUser-agent: ArchiveBot\nDisallow: /\nAllow: /history/\n\nUser-agent: imagebot\nAllow: /assets/thumbs/\n",
+    "records": [
+      {
+        "id": "Thumbnail exception",
+        "context": "Crawl picture thumbnails and photographs for visual image search results.",
+        "raw": "{\"path\":\"/assets/thumbs/tiny.jpg\"}"
+      },
+      {
+        "id": "Current landing",
+        "context": "Collect old website snapshots for historical preservation in a web archive.",
+        "raw": "{\"path\":\"/welcome\"}"
+      },
+      {
+        "id": "Picture temp",
+        "context": "Collect photographs and image files for visual picture search.",
+        "raw": "{\"path\":\"/assets/photos/unfinished.tmp\"}"
+      },
+      {
+        "id": "Search assets",
+        "context": "Index HTML website pages and articles for general web search results.",
+        "raw": "{\"path\":\"/assets/site.css\"}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "Thumbnail exception",
+      "system": "images",
+      "raw": "{\"path\":\"/assets/blocked.jpg\"}",
+      "decision": "approve",
+      "note": "=SUM(1,2)\nReviewed \"clock\", exactly.",
+      "evidence": [
+        {
+          "system": "images",
+          "similarity": 0.8986828755382019
+        },
+        {
+          "system": "search",
+          "similarity": 0.46815413960113916
+        },
+        {
+          "system": "archive",
+          "similarity": 0.27057595677490653
+        }
+      ]
+    },
+    {
+      "id": "Current landing",
+      "system": "archive",
+      "raw": "{\"path\":\"/welcome\"}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "archive",
+          "similarity": 0.876484408436745
+        },
+        {
+          "system": "images",
+          "similarity": 0.382297797211629
+        },
+        {
+          "system": "search",
+          "similarity": 0.31258963186793476
+        }
+      ]
+    },
+    {
+      "id": "Picture temp",
+      "system": "images",
+      "raw": "{\"path\":\"/assets/photos/unfinished.tmp\"}",
+      "decision": "hold",
+      "note": "",
+      "evidence": [
+        {
+          "system": "images",
+          "similarity": 0.8373539806432947
+        },
+        {
+          "system": "search",
+          "similarity": 0.3309451733982733
+        },
+        {
+          "system": "archive",
+          "similarity": 0.2237336665285165
+        }
+      ]
+    },
+    {
+      "id": "Search assets",
+      "system": "search",
+      "raw": "{\"path\":\"/assets/site.css\"}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "search",
+          "similarity": 0.9396525828275466
+        },
+        {
+          "system": "images",
+          "similarity": 0.41775368076017716
+        },
+        {
+          "system": "archive",
+          "similarity": 0.29867462418115365
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "Thumbnail exception",
+      "system": "images",
+      "raw": "{\"path\":\"/assets/blocked.jpg\"}",
+      "agent": "ImageBot",
+      "path": "/assets/blocked.jpg",
+      "selected": "disallow",
+      "baseline": "disallow",
+      "disagreement": false,
+      "groups": [
+        "imagebot",
+        "imagebot"
+      ],
+      "winner": "Line 13 · disallow: /assets/",
+      "winningLine": 13,
+      "specificity": 8,
+      "matchedRules": [
+        {
+          "type": "disallow",
+          "pattern": "/assets/",
+          "line": 13,
+          "specificity": 8
+        }
+      ],
+      "reason": "Longest literal matching directive; equal specificity favors Allow. Specific agent groups replace wildcard groups.",
+      "status": "ready"
+    },
+    {
+      "id": "Current landing",
+      "system": "archive",
+      "raw": "{\"path\":\"/welcome\"}",
+      "agent": "ArchiveBot",
+      "path": "/welcome",
+      "selected": "disallow",
+      "baseline": "disallow",
+      "disagreement": false,
+      "groups": [
+        "archivebot"
+      ],
+      "winner": "Line 18 · disallow: /",
+      "winningLine": 18,
+      "specificity": 1,
+      "matchedRules": [
+        {
+          "type": "disallow",
+          "pattern": "/",
+          "line": 18,
+          "specificity": 1
+        }
+      ],
+      "reason": "Longest literal matching directive; equal specificity favors Allow. Specific agent groups replace wildcard groups.",
+      "status": "ready"
+    },
+    {
+      "id": "Picture temp",
+      "system": "images",
+      "raw": "{\"path\":\"/assets/photos/unfinished.tmp\"}",
+      "status": "held",
+      "reason": "Reviewer hold; no release."
+    },
+    {
+      "id": "Search assets",
+      "system": "search",
+      "raw": "{\"path\":\"/assets/site.css\"}",
+      "agent": "SearchBot",
+      "path": "/assets/site.css",
+      "selected": "disallow",
+      "baseline": "disallow",
+      "disagreement": false,
+      "groups": [
+        "searchbot"
+      ],
+      "winner": "Line 10 · disallow: /assets/",
+      "winningLine": 10,
+      "specificity": 8,
+      "matchedRules": [
+        {
+          "type": "disallow",
+          "pattern": "/assets/",
+          "line": 10,
+          "specificity": 8
+        }
+      ],
+      "reason": "Longest literal matching directive; equal specificity favors Allow. Specific agent groups replace wildcard groups.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 4,
+    "ready": 3,
+    "held": 1,
+    "blocked": 0,
+    "allowed": 0,
+    "disallowed": 3,
+    "disagreements": 0
+  }
+}

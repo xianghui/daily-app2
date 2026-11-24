@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "app": "Crawl Compass",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "search",
+        "description": "Web search engine indexing HTML pages and website articles for general search results.",
+        "agent": "SearchBot"
+      },
+      {
+        "id": "images",
+        "description": "Image search crawler collecting photographs, thumbnails and picture files for visual search.",
+        "agent": "ImageBot"
+      },
+      {
+        "id": "archive",
+        "description": "Historical web archive preserving snapshots and old versions for long term conservation.",
+        "agent": "ArchiveBot"
+      }
+    ],
+    "robots": "# Synthetic policy: not a live website\nUser-agent: *\nDisallow: /drafts/\nAllow: /drafts/public/\nDisallow: /*.tmp$\n\nUser-agent: SearchBot\nDisallow: /drafts/\nAllow: /drafts/public/\nDisallow: /assets/\n\nUser-agent: ImageBot\nDisallow: /assets/\nAllow: /assets/photos/\nDisallow: /*.tmp$\n\nUser-agent: ArchiveBot\nDisallow: /\nAllow: /history/\n\nUser-agent: imagebot\nAllow: /assets/thumbs/\n",
+    "records": [
+      {
+        "id": "same",
+        "context": "Web search engine indexing HTML pages and website articles for general search results.",
+        "raw": "{\"path\":\"/assets/photos/same.jpg\"}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "same",
+      "system": "search",
+      "raw": "{\"path\":\"/assets/photos/same.jpg\"}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "search",
+          "similarity": 0.9999999327219932
+        },
+        {
+          "system": "images",
+          "similarity": 0.4366817368026374
+        },
+        {
+          "system": "archive",
+          "similarity": 0.26777585970833534
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "same",
+      "system": "search",
+      "raw": "{\"path\":\"/assets/photos/same.jpg\"}",
+      "agent": "SearchBot",
+      "path": "/assets/photos/same.jpg",
+      "selected": "disallow",
+      "baseline": "disallow",
+      "disagreement": false,
+      "groups": [
+        "searchbot"
+      ],
+      "winner": "Line 10 · disallow: /assets/",
+      "winningLine": 10,
+      "specificity": 8,
+      "matchedRules": [
+        {
+          "type": "disallow",
+          "pattern": "/assets/",
+          "line": 10,
+          "specificity": 8
+        }
+      ],
+      "reason": "Longest literal matching directive; equal specificity favors Allow. Specific agent groups replace wildcard groups.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 1,
+    "ready": 1,
+    "held": 0,
+    "blocked": 0,
+    "allowed": 0,
+    "disallowed": 1,
+    "disagreements": 0
+  }
+}

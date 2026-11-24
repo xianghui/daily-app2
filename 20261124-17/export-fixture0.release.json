@@ -1,0 +1,39 @@
+{
+  "format": "crawl-compass-fixtures-v1",
+  "notice": "Offline QA fixtures for a bounded ASCII robots subset, not a live crawler or authorization check.",
+  "robots": "# Synthetic policy: not a live website\nUser-agent: *\nDisallow: /drafts/\nAllow: /drafts/public/\nDisallow: /*.tmp$\n\nUser-agent: SearchBot\nDisallow: /drafts/\nAllow: /drafts/public/\nDisallow: /assets/\n\nUser-agent: ImageBot\nDisallow: /assets/\nAllow: /assets/photos/\nDisallow: /*.tmp$\n\nUser-agent: ArchiveBot\nDisallow: /\nAllow: /history/\n\nUser-agent: imagebot\nAllow: /assets/thumbs/\n",
+  "cases": [
+    {
+      "id": "Public draft",
+      "profile": "search",
+      "agent": "SearchBot",
+      "path": "/drafts/public/welcome",
+      "expected": "allow",
+      "winningLine": 9
+    },
+    {
+      "id": "Photo library",
+      "profile": "images",
+      "agent": "ImageBot",
+      "path": "/assets/photos/fern.jpg",
+      "expected": "allow",
+      "winningLine": 14
+    },
+    {
+      "id": "Preserved history",
+      "profile": "archive",
+      "agent": "ArchiveBot",
+      "path": "/history/2020",
+      "expected": "allow",
+      "winningLine": 19
+    },
+    {
+      "id": "Private draft",
+      "profile": "search",
+      "agent": "SearchBot",
+      "path": "/drafts/private",
+      "expected": "disallow",
+      "winningLine": 8
+    }
+  ]
+}

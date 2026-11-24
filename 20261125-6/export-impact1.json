@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "app": "Integrity Folio",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "style",
+        "description": "Visual styling, theme colors and typography stylesheet for the public website.",
+        "target": "{\"path\": \"/assets/theme.css\", \"bytes\": 22, \"sha256\": \"2d1eee71e92aa8e601f8c9b42e946105b5f75ebe4e9647573762d98e59e7d916\"}"
+      },
+      {
+        "id": "locale",
+        "description": "French language translation catalog for the application welcome screen.",
+        "target": "{\"path\": \"/assets/fr.json\", \"bytes\": 40, \"sha256\": \"79b4519acdb12253b4b5b45552106e8a9ec34730711ac669d25b709726e9dda0\"}"
+      }
+    ],
+    "records": [
+      {
+        "id": "same",
+        "context": "French language translation catalog for the application welcome screen.",
+        "raw": "body { color: #324; }\n"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "same",
+      "system": "locale",
+      "raw": "body { color: #324; }\n",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "locale",
+          "similarity": 1.0000001079402954
+        },
+        {
+          "system": "style",
+          "similarity": 0.2701110026329237
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "same",
+      "system": "locale",
+      "raw": "body { color: #324; }\n",
+      "target": {
+        "path": "/assets/fr.json",
+        "bytes": 40,
+        "sha256": "79b4519acdb12253b4b5b45552106e8a9ec34730711ac669d25b709726e9dda0"
+      },
+      "actual": {
+        "bytes": 22,
+        "sha256": "2d1eee71e92aa8e601f8c9b42e946105b5f75ebe4e9647573762d98e59e7d916"
+      },
+      "sameBytes": false,
+      "match": false,
+      "disagreement": false,
+      "reason": "Digest differs and byte count differs; both checks reject this asset.",
+      "status": "blocked"
+    }
+  ],
+  "metrics": {
+    "records": 1,
+    "ready": 0,
+    "held": 0,
+    "blocked": 1,
+    "compared": 1,
+    "disagreements": 0
+  }
+}

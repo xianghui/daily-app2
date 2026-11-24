@@ -1,0 +1,422 @@
+{
+  "fixtures": [
+    {
+      "actual": [
+        "style",
+        "locale",
+        "policy"
+      ],
+      "expected": [
+        "style",
+        "locale",
+        "policy"
+      ],
+      "metrics": {
+        "records": 3,
+        "ready": 2,
+        "held": 0,
+        "blocked": 1,
+        "compared": 3,
+        "disagreements": 1
+      }
+    },
+    {
+      "actual": [
+        "policy",
+        "style",
+        "locale"
+      ],
+      "expected": [
+        "policy",
+        "style",
+        "locale"
+      ],
+      "metrics": {
+        "records": 3,
+        "ready": 1,
+        "held": 0,
+        "blocked": 2,
+        "compared": 3,
+        "disagreements": 1
+      }
+    }
+  ],
+  "checks": [
+    "Real fully offline fresh-worker inference in warmed open page",
+    "24 records, chunks, duplicate ready path blocks, reimport, cancel/retry, review/edit/hold/undo, clipboard/downloads"
+  ],
+  "contextOnlyImpact": [
+    {
+      "system": "style",
+      "path": "/assets/theme.css",
+      "status": "ready"
+    },
+    {
+      "system": "locale",
+      "path": "/assets/fr.json",
+      "status": "blocked"
+    }
+  ],
+  "negationProbe": {
+    "actual": "locale",
+    "intended": "locale"
+  },
+  "firstContractBaseline": {
+    "matched": 2,
+    "total": 6,
+    "scope": "Tiny fixture retrieval only, not general accuracy"
+  },
+  "network": [
+    {
+      "host": "127.0.0.1:7584",
+      "path": "/daily-app2/20261125-6/",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "127.0.0.1:7584",
+      "path": "/daily-app2/20261125-6/assets/index-DvFyDGvl.js",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "127.0.0.1:7584",
+      "path": "/daily-app2/20261125-6/assets/index-C8C7HEb8.css",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "127.0.0.1:7584",
+      "path": "/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/66499164-c50f-412a-b46f-8522837c916e",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "127.0.0.1:7584",
+      "path": "/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "127.0.0.1:7584",
+      "path": "/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "X-Xet-Cas-Uid",
+        "xip",
+        "response-content-disposition",
+        "user_id",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "xip",
+        "X-Xet-Cas-Uid",
+        "response-content-disposition",
+        "user_id",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/0887fe4d-250b-41b3-806a-4f2ee890ae7a",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/de174e01-6d2b-4376-9e13-e7a08ea12d49",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/6c99d676-fb88-4733-b5e7-6a4ba9636187",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/82fa4d3b-da27-4605-b727-cdb22da76a16",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/7a41e9a6-f305-4645-b929-dca5edb0c165",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/7bfe9ca4-e7dd-4ea8-bc0b-9993d6f827ee",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/8fa9e1bb-08fe-40c1-b781-ccd3eed56fe9",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/27687f4f-202a-42be-9f63-a90de407c422",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/b3b7369b-78a3-436e-b3d3-3b2b26d397de",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/d8e0ed81-67e1-4091-a2f0-3ba710903a54",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/4f8651fb-e82c-4857-86f9-6b5a375773e0",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/f407d302-7348-4e2e-ab20-4fbd0eb1f62b",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/348fc177-f14b-44d4-89b7-915b8b8d0dfb",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/dd0aaf22-7b43-46a7-8d34-c12d3ae16931",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/944fb823-9ae6-4bf9-95df-649f75a09b85",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/9f652ceb-f7eb-49e2-a18b-98c9aaf73c15",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/ffa2d27f-696f-4b20-80ed-243fc4ed1ea7",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/a4ec04a0-e9a2-4646-a582-de1e6c5af152",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/979b13cd-0b25-4f29-bea9-2b0164d6268c",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/670810a4-4d6a-4cb5-9b92-07382a8d11d6",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/1afba96a-b8fc-4638-bf89-2b37d4177017",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/bfbc41dc-c498-4a1b-9ecd-0e5f5e73f8e5",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/3799c78f-6254-4215-8b71-2f8a677e5e5e",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/867565a5-8f3d-49b8-a8da-d3a6100f5a3b",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,22 @@
+"id","source_context","original_text","reviewed_text","contract","decision","status","contract_json","table_json","different_rows_json","reason","review_note"
+"Interview","Research interview transcript with speaker and quotation columns, comma export with headings.","speaker,quotation
+A,""We said """"yes"""", together""
+B,""First thought
+Second thought""
+","speaker,quotation
+A,""We said """"yes"""", together""
+B,""First thought
+Second thought""
+","research","approve","ready","{""delimiter"":"","",""columns"":2,""header"":true}","{""header"":[""speaker"",""quotation""],""rows"":[[""A"",""We said \""yes\"", together""],[""B"",""First thought\nSecond thought""]]}","[{""record"":2,""strict"":[""A"",""We said \""yes\"", together""],""naive"":[""A"",""\""We said \""\""yes\""\"""","" together\""""]},{""record"":3,""strict"":[""B"",""First thought\nSecond thought""],""naive"":[""B"",""\""First thought""]},{""record"":4,""strict"":null,""naive"":[""Second thought\""""]}]","Strict quoted-field parsing preserves every string, duplicate header and interior blank record. Baseline splits on lines and delimiters without recognizing quotes; differing records are not an AI quality score.",""
+"Readings","Laboratory sensor instrument temperature readings, two semicolon fields with no headings.","T01;21.5
+T02;""22;check""
+","T01;21.5
+T02;""22;check""
+","sensor","approve","ready","{""delimiter"":"";"",""columns"":2,""header"":false}","{""header"":null,""rows"":[[""T01"",""21.5""],[""T02"",""22;check""]]}","[{""record"":2,""strict"":[""T02"",""22;check""],""naive"":[""T02"",""\""22"",""check\""""]}]","Strict quoted-field parsing preserves every string, duplicate header and interior blank record. Baseline splits on lines and delimiters without recognizing quotes; differing records are not an AI quality score.",""
+"Accessions","Museum archive accession list with identifier and title headings in a tab-separated export.","id	title
+M01	""Blue	Sky""
+M02	""A """"quoted"""" title""
+","id	title
+M01	""Blue	Sky""
+M02	""A """"quoted"""" title""
+","archive","approve","ready","{""delimiter"":""\t"",""columns"":2,""header"":true}","{""header"":[""id"",""title""],""rows"":[[""M01"",""Blue\tSky""],[""M02"",""A \""quoted\"" title""]]}","[{""record"":2,""strict"":[""M01"",""Blue\tSky""],""naive"":[""M01"",""\""Blue"",""Sky\""""]},{""record"":3,""strict"":[""M02"",""A \""quoted\"" title""],""naive"":[""M02"",""\""A \""\""quoted\""\"" title\""""]}]","Strict quoted-field parsing preserves every string, duplicate header and interior blank record. Baseline splits on lines and delimiters without recognizing quotes; differing records are not an AI quality score.",""

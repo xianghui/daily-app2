@@ -1,0 +1,80 @@
+{
+  "app": "Dialect Desk",
+  "scope": "Approved string tables, no file operations. Canonical CSV is data, not spreadsheet-safe formula execution.",
+  "tables": [
+    {
+      "id": "Contacts",
+      "contract": {
+        "delimiter": ",",
+        "columns": 3,
+        "header": true
+      },
+      "header": [
+        "name",
+        "email",
+        "note"
+      ],
+      "rows": [
+        [
+          "Lee, Sam",
+          "sam@example.test",
+          "Called \"today\""
+        ],
+        [
+          "Mina",
+          "m@example.test",
+          "Line one\nLine two"
+        ]
+      ],
+      "canonicalCsv": "name,email,note\r\n\"Lee, Sam\",sam@example.test,\"Called \"\"today\"\"\"\r\nMina,m@example.test,\"Line one\nLine two\"\r\n"
+    },
+    {
+      "id": "Stocktake",
+      "contract": {
+        "delimiter": "\t",
+        "columns": 3,
+        "header": false
+      },
+      "header": null,
+      "rows": [
+        [
+          "A01",
+          "Shelf 1",
+          "12"
+        ],
+        [
+          "A02",
+          "Shelf\t2",
+          "0"
+        ]
+      ],
+      "canonicalCsv": "A01\tShelf 1\t12\r\nA02\t\"Shelf\t2\"\t0\r\n"
+    },
+    {
+      "id": "Invoices",
+      "contract": {
+        "delimiter": ";",
+        "columns": 3,
+        "header": true
+      },
+      "header": [
+        "invoice",
+        "amount",
+        "memo"
+      ],
+      "rows": [
+        [
+          "F01",
+          "12,50",
+          "Parts; freight"
+        ],
+        [
+          "F02",
+          "0,00",
+          "Credit"
+        ]
+      ],
+      "canonicalCsv": "invoice;amount;memo\r\nF01;12,50;\"Parts; freight\"\r\nF02;0,00;Credit\r\n"
+    }
+  ]
+}

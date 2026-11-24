@@ -1,0 +1,273 @@
+{
+  "version": 1,
+  "app": "Dialect Desk",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "research",
+        "description": "Research interview transcripts with speaker and quotation, comma separated two columns with column names.",
+        "target": "{\"delimiter\": \",\", \"columns\": 2, \"header\": true}"
+      },
+      {
+        "id": "sensor",
+        "description": "Laboratory sensor instrument temperature readings, semicolon separated two columns without column names.",
+        "target": "{\"delimiter\": \";\", \"columns\": 2, \"header\": false}"
+      },
+      {
+        "id": "archive",
+        "description": "Museum archive accession list with identifier and title, tab separated two columns with column names.",
+        "target": "{\"delimiter\": \"\\t\", \"columns\": 2, \"header\": true}"
+      }
+    ],
+    "records": [
+      {
+        "id": "Interview",
+        "context": "Research interview transcript with speaker and quotation columns, comma export with headings.",
+        "raw": "speaker,quotation\nA,\"We said \"\"yes\"\", together\"\nB,\"First thought\nSecond thought\"\n"
+      },
+      {
+        "id": "Readings",
+        "context": "Laboratory sensor instrument temperature readings, two semicolon fields with no headings.",
+        "raw": "T01;21.5\nT02;\"22;check\"\n"
+      },
+      {
+        "id": "Accessions",
+        "context": "Museum archive accession list with identifier and title headings in a tab-separated export.",
+        "raw": "id\ttitle\r\nM01\t\"Blue\tSky\"\r\nM02\t\"A \"\"quoted\"\" title\"\r\n"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "Interview",
+      "system": "research",
+      "raw": "speaker,quotation\nA,\"We said \"\"yes\"\", together\"\nB,\"First thought\nSecond thought\"\n",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "research",
+          "similarity": 0.9185050313418532
+        },
+        {
+          "system": "sensor",
+          "similarity": 0.27218551855513207
+        },
+        {
+          "system": "archive",
+          "similarity": 0.2291071758297662
+        }
+      ]
+    },
+    {
+      "id": "Readings",
+      "system": "sensor",
+      "raw": "T01;21.5\nT02;\"22;check\"\nT03;23.0\n",
+      "decision": "hold",
+      "note": "=SUM(1,2)\nReviewed \"paper\", exactly.",
+      "evidence": [
+        {
+          "system": "sensor",
+          "similarity": 0.8134018122872387
+        },
+        {
+          "system": "research",
+          "similarity": 0.2042046657929914
+        },
+        {
+          "system": "archive",
+          "similarity": 0.1020170531048787
+        }
+      ]
+    },
+    {
+      "id": "Accessions",
+      "system": "archive",
+      "raw": "id\ttitle\r\nM01\t\"Blue\tSky\"\r\nM02\t\"A \"\"quoted\"\" title\"\r\n",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "archive",
+          "similarity": 0.8885433995243167
+        },
+        {
+          "system": "research",
+          "similarity": 0.1598997919240635
+        },
+        {
+          "system": "sensor",
+          "similarity": 0.14809581969125132
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "Interview",
+      "system": "research",
+      "raw": "speaker,quotation\nA,\"We said \"\"yes\"\", together\"\nB,\"First thought\nSecond thought\"\n",
+      "target": {
+        "delimiter": ",",
+        "columns": 2,
+        "header": true
+      },
+      "result": {
+        "header": [
+          "speaker",
+          "quotation"
+        ],
+        "rows": [
+          [
+            "A",
+            "We said \"yes\", together"
+          ],
+          [
+            "B",
+            "First thought\nSecond thought"
+          ]
+        ]
+      },
+      "events": [
+        {
+          "record": 2,
+          "strict": [
+            "A",
+            "We said \"yes\", together"
+          ],
+          "naive": [
+            "A",
+            "\"We said \"\"yes\"\"",
+            " together\""
+          ]
+        },
+        {
+          "record": 3,
+          "strict": [
+            "B",
+            "First thought\nSecond thought"
+          ],
+          "naive": [
+            "B",
+            "\"First thought"
+          ]
+        },
+        {
+          "record": 4,
+          "strict": null,
+          "naive": [
+            "Second thought\""
+          ]
+        }
+      ],
+      "baseline": [
+        [
+          "speaker",
+          "quotation"
+        ],
+        [
+          "A",
+          "\"We said \"\"yes\"\"",
+          " together\""
+        ],
+        [
+          "B",
+          "\"First thought"
+        ],
+        [
+          "Second thought\""
+        ]
+      ],
+      "baselineAvailable": true,
+      "disagreement": true,
+      "reason": "Strict quoted-field parsing preserves every string, duplicate header and interior blank record. Baseline splits on lines and delimiters without recognizing quotes; differing records are not an AI quality score.",
+      "status": "ready"
+    },
+    {
+      "id": "Readings",
+      "system": "sensor",
+      "raw": "T01;21.5\nT02;\"22;check\"\nT03;23.0\n",
+      "status": "held",
+      "reason": "Reviewer hold; omitted from tables."
+    },
+    {
+      "id": "Accessions",
+      "system": "archive",
+      "raw": "id\ttitle\r\nM01\t\"Blue\tSky\"\r\nM02\t\"A \"\"quoted\"\" title\"\r\n",
+      "target": {
+        "delimiter": "\t",
+        "columns": 2,
+        "header": true
+      },
+      "result": {
+        "header": [
+          "id",
+          "title"
+        ],
+        "rows": [
+          [
+            "M01",
+            "Blue\tSky"
+          ],
+          [
+            "M02",
+            "A \"quoted\" title"
+          ]
+        ]
+      },
+      "events": [
+        {
+          "record": 2,
+          "strict": [
+            "M01",
+            "Blue\tSky"
+          ],
+          "naive": [
+            "M01",
+            "\"Blue",
+            "Sky\""
+          ]
+        },
+        {
+          "record": 3,
+          "strict": [
+            "M02",
+            "A \"quoted\" title"
+          ],
+          "naive": [
+            "M02",
+            "\"A \"\"quoted\"\" title\""
+          ]
+        }
+      ],
+      "baseline": [
+        [
+          "id",
+          "title"
+        ],
+        [
+          "M01",
+          "\"Blue",
+          "Sky\""
+        ],
+        [
+          "M02",
+          "\"A \"\"quoted\"\" title\""
+        ]
+      ],
+      "baselineAvailable": true,
+      "disagreement": true,
+      "reason": "Strict quoted-field parsing preserves every string, duplicate header and interior blank record. Baseline splits on lines and delimiters without recognizing quotes; differing records are not an AI quality score.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 3,
+    "ready": 2,
+    "held": 1,
+    "blocked": 0,
+    "changes": 5,
+    "compared": 2,
+    "disagreements": 2
+  }
+}

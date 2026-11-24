@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "app": "Dialect Desk",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "crm",
+        "description": "Customer relationship management contact export with a header row, comma separated fields and three columns.",
+        "target": "{\"delimiter\": \",\", \"columns\": 3, \"header\": true}"
+      },
+      {
+        "id": "scanner",
+        "description": "Warehouse inventory barcode scanner stock counts, tab separated three columns without a header row.",
+        "target": "{\"delimiter\": \",\", \"columns\": 3, \"header\": false}"
+      }
+    ],
+    "records": [
+      {
+        "id": "same",
+        "context": "Customer relationship management contact export with a header row, comma separated fields and three columns.",
+        "raw": "a,b,c\n1,2,3\n"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "same",
+      "system": "crm",
+      "raw": "a,b,c\n1,2,3\n",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "crm",
+          "similarity": 1.0000000331724213
+        },
+        {
+          "system": "scanner",
+          "similarity": 0.3465704188723154
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "same",
+      "system": "crm",
+      "raw": "a,b,c\n1,2,3\n",
+      "target": {
+        "delimiter": ",",
+        "columns": 3,
+        "header": true
+      },
+      "result": {
+        "header": [
+          "a",
+          "b",
+          "c"
+        ],
+        "rows": [
+          [
+            "1",
+            "2",
+            "3"
+          ]
+        ]
+      },
+      "events": [],
+      "baseline": [
+        [
+          "a",
+          "b",
+          "c"
+        ],
+        [
+          "1",
+          "2",
+          "3"
+        ]
+      ],
+      "baselineAvailable": true,
+      "disagreement": false,
+      "reason": "Strict quoted-field parsing preserves every string, duplicate header and interior blank record. Baseline splits on lines and delimiters without recognizing quotes; differing records are not an AI quality score.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 1,
+    "ready": 1,
+    "held": 0,
+    "blocked": 0,
+    "changes": 0,
+    "compared": 1,
+    "disagreements": 0
+  }
+}

@@ -1,0 +1,193 @@
+"id","source_context","original_text","reviewed_text","contract","decision","status","contract_json","table_json","different_rows_json","reason","review_note"
+"'=row ""0""
+O'Brien","Customer relationship management contact export, with column names and comma fields.","name,email,note
+""Lee, Sam"",sam@example.test,""Called """"today""""""
+Mina,m@example.test,""Line one
+Line two""
+","name,email,note
+""Lee, Sam"",sam@example.test,""Called """"today""""""
+Mina,m@example.test,""Line one
+Line two""
+","crm","approve","ready","{""delimiter"":"","",""columns"":3,""header"":true}","{""header"":[""name"",""email"",""note""],""rows"":[[""Lee, Sam"",""sam@example.test"",""Called \""today\""""],[""Mina"",""m@example.test"",""Line one\nLine two""]]}","[{""record"":2,""strict"":[""Lee, Sam"",""sam@example.test"",""Called \""today\""""],""naive"":[""\""Lee"","" Sam\"""",""sam@example.test"",""\""Called \""\""today\""\""\""""]},{""record"":3,""strict"":[""Mina"",""m@example.test"",""Line one\nLine two""],""naive"":[""Mina"",""m@example.test"",""\""Line one""]},{""record"":4,""strict"":null,""naive"":[""Line two\""""]}]","Strict quoted-field parsing preserves every string, duplicate header and interior blank record. Baseline splits on lines and delimiters without recognizing quotes; differing records are not an AI quality score.",""
+"'=row ""1""
+O'Brien","Warehouse inventory barcode scanner stock counts, three tab fields and no column names.","A01	Shelf 1	12
+A02	""Shelf	2""	0
+","A01	Shelf 1	12
+A02	""Shelf	2""	0
+","scanner","approve","ready","{""delimiter"":""\t"",""columns"":3,""header"":false}","{""header"":null,""rows"":[[""A01"",""Shelf 1"",""12""],[""A02"",""Shelf\t2"",""0""]]}","[{""record"":2,""strict"":[""A02"",""Shelf\t2"",""0""],""naive"":[""A02"",""\""Shelf"",""2\"""",""0""]}]","Strict quoted-field parsing preserves every string, duplicate header and interior blank record. Baseline splits on lines and delimiters without recognizing quotes; differing records are not an AI quality score.",""
+"'=row ""2""
+O'Brien","European finance invoice ledger export, semicolon fields with column names.","invoice;amount;memo
+F01;12,50;""Parts; freight""
+F02;0,00;Credit
+","invoice;amount;memo
+F01;12,50;""Parts; freight""
+F02;0,00;Credit
+","finance","approve","ready","{""delimiter"":"";"",""columns"":3,""header"":true}","{""header"":[""invoice"",""amount"",""memo""],""rows"":[[""F01"",""12,50"",""Parts; freight""],[""F02"",""0,00"",""Credit""]]}","[{""record"":2,""strict"":[""F01"",""12,50"",""Parts; freight""],""naive"":[""F01"",""12,50"",""\""Parts"","" freight\""""]}]","Strict quoted-field parsing preserves every string, duplicate header and interior blank record. Baseline splits on lines and delimiters without recognizing quotes; differing records are not an AI quality score.",""
+"'=row ""3""
+O'Brien","Customer relationship management contact export, with column names and comma fields.","name,email,note
+""Lee, Sam"",sam@example.test,""Called """"today""""""
+Mina,m@example.test,""Line one
+Line two""
+","name,email,note
+""Lee, Sam"",sam@example.test,""Called """"today""""""
+Mina,m@example.test,""Line one
+Line two""
+","crm","approve","ready","{""delimiter"":"","",""columns"":3,""header"":true}","{""header"":[""name"",""email"",""note""],""rows"":[[""Lee, Sam"",""sam@example.test"",""Called \""today\""""],[""Mina"",""m@example.test"",""Line one\nLine two""]]}","[{""record"":2,""strict"":[""Lee, Sam"",""sam@example.test"",""Called \""today\""""],""naive"":[""\""Lee"","" Sam\"""",""sam@example.test"",""\""Called \""\""today\""\""\""""]},{""record"":3,""strict"":[""Mina"",""m@example.test"",""Line one\nLine two""],""naive"":[""Mina"",""m@example.test"",""\""Line one""]},{""record"":4,""strict"":null,""naive"":[""Line two\""""]}]","Strict quoted-field parsing preserves every string, duplicate header and interior blank record. Baseline splits on lines and delimiters without recognizing quotes; differing records are not an AI quality score.",""
+"'=row ""4""
+O'Brien","Warehouse inventory barcode scanner stock counts, three tab fields and no column names.","A01	Shelf 1	12
+A02	""Shelf	2""	0
+","A01	Shelf 1	12
+A02	""Shelf	2""	0
+","scanner","approve","ready","{""delimiter"":""\t"",""columns"":3,""header"":false}","{""header"":null,""rows"":[[""A01"",""Shelf 1"",""12""],[""A02"",""Shelf\t2"",""0""]]}","[{""record"":2,""strict"":[""A02"",""Shelf\t2"",""0""],""naive"":[""A02"",""\""Shelf"",""2\"""",""0""]}]","Strict quoted-field parsing preserves every string, duplicate header and interior blank record. Baseline splits on lines and delimiters without recognizing quotes; differing records are not an AI quality score.",""
+"'=row ""5""
+O'Brien","European finance invoice ledger export, semicolon fields with column names.","invoice;amount;memo
+F01;12,50;""Parts; freight""
+F02;0,00;Credit
+","invoice;amount;memo
+F01;12,50;""Parts; freight""
+F02;0,00;Credit
+","finance","approve","ready","{""delimiter"":"";"",""columns"":3,""header"":true}","{""header"":[""invoice"",""amount"",""memo""],""rows"":[[""F01"",""12,50"",""Parts; freight""],[""F02"",""0,00"",""Credit""]]}","[{""record"":2,""strict"":[""F01"",""12,50"",""Parts; freight""],""naive"":[""F01"",""12,50"",""\""Parts"","" freight\""""]}]","Strict quoted-field parsing preserves every string, duplicate header and interior blank record. Baseline splits on lines and delimiters without recognizing quotes; differing records are not an AI quality score.",""
+"'=row ""6""
+O'Brien","Customer relationship management contact export, with column names and comma fields.","name,email,note
+""Lee, Sam"",sam@example.test,""Called """"today""""""
+Mina,m@example.test,""Line one
+Line two""
+","name,email,note
+""Lee, Sam"",sam@example.test,""Called """"today""""""
+Mina,m@example.test,""Line one
+Line two""
+","crm","approve","ready","{""delimiter"":"","",""columns"":3,""header"":true}","{""header"":[""name"",""email"",""note""],""rows"":[[""Lee, Sam"",""sam@example.test"",""Called \""today\""""],[""Mina"",""m@example.test"",""Line one\nLine two""]]}","[{""record"":2,""strict"":[""Lee, Sam"",""sam@example.test"",""Called \""today\""""],""naive"":[""\""Lee"","" Sam\"""",""sam@example.test"",""\""Called \""\""today\""\""\""""]},{""record"":3,""strict"":[""Mina"",""m@example.test"",""Line one\nLine two""],""naive"":[""Mina"",""m@example.test"",""\""Line one""]},{""record"":4,""strict"":null,""naive"":[""Line two\""""]}]","Strict quoted-field parsing preserves every string, duplicate header and interior blank record. Baseline splits on lines and delimiters without recognizing quotes; differing records are not an AI quality score.",""
+"'=row ""7""
+O'Brien","Warehouse inventory barcode scanner stock counts, three tab fields and no column names.","A01	Shelf 1	12
+A02	""Shelf	2""	0
+","A01	Shelf 1	12
+A02	""Shelf	2""	0
+","scanner","approve","ready","{""delimiter"":""\t"",""columns"":3,""header"":false}","{""header"":null,""rows"":[[""A01"",""Shelf 1"",""12""],[""A02"",""Shelf\t2"",""0""]]}","[{""record"":2,""strict"":[""A02"",""Shelf\t2"",""0""],""naive"":[""A02"",""\""Shelf"",""2\"""",""0""]}]","Strict quoted-field parsing preserves every string, duplicate header and interior blank record. Baseline splits on lines and delimiters without recognizing quotes; differing records are not an AI quality score.",""
+"'=row ""8""
+O'Brien","European finance invoice ledger export, semicolon fields with column names.","invoice;amount;memo
+F01;12,50;""Parts; freight""
+F02;0,00;Credit
+","invoice;amount;memo
+F01;12,50;""Parts; freight""
+F02;0,00;Credit
+","finance","approve","ready","{""delimiter"":"";"",""columns"":3,""header"":true}","{""header"":[""invoice"",""amount"",""memo""],""rows"":[[""F01"",""12,50"",""Parts; freight""],[""F02"",""0,00"",""Credit""]]}","[{""record"":2,""strict"":[""F01"",""12,50"",""Parts; freight""],""naive"":[""F01"",""12,50"",""\""Parts"","" freight\""""]}]","Strict quoted-field parsing preserves every string, duplicate header and interior blank record. Baseline splits on lines and delimiters without recognizing quotes; differing records are not an AI quality score.",""
+"'=row ""9""
+O'Brien","Customer relationship management contact export, with column names and comma fields.","name,email,note
+""Lee, Sam"",sam@example.test,""Called """"today""""""
+Mina,m@example.test,""Line one
+Line two""
+","name,email,note
+""Lee, Sam"",sam@example.test,""Called """"today""""""
+Mina,m@example.test,""Line one
+Line two""
+","crm","approve","ready","{""delimiter"":"","",""columns"":3,""header"":true}","{""header"":[""name"",""email"",""note""],""rows"":[[""Lee, Sam"",""sam@example.test"",""Called \""today\""""],[""Mina"",""m@example.test"",""Line one\nLine two""]]}","[{""record"":2,""strict"":[""Lee, Sam"",""sam@example.test"",""Called \""today\""""],""naive"":[""\""Lee"","" Sam\"""",""sam@example.test"",""\""Called \""\""today\""\""\""""]},{""record"":3,""strict"":[""Mina"",""m@example.test"",""Line one\nLine two""],""naive"":[""Mina"",""m@example.test"",""\""Line one""]},{""record"":4,""strict"":null,""naive"":[""Line two\""""]}]","Strict quoted-field parsing preserves every string, duplicate header and interior blank record. Baseline splits on lines and delimiters without recognizing quotes; differing records are not an AI quality score.",""
+"'=row ""10""
+O'Brien","Warehouse inventory barcode scanner stock counts, three tab fields and no column names.","A01	Shelf 1	12
+A02	""Shelf	2""	0
+","A01	Shelf 1	12
+A02	""Shelf	2""	0
+","scanner","approve","ready","{""delimiter"":""\t"",""columns"":3,""header"":false}","{""header"":null,""rows"":[[""A01"",""Shelf 1"",""12""],[""A02"",""Shelf\t2"",""0""]]}","[{""record"":2,""strict"":[""A02"",""Shelf\t2"",""0""],""naive"":[""A02"",""\""Shelf"",""2\"""",""0""]}]","Strict quoted-field parsing preserves every string, duplicate header and interior blank record. Baseline splits on lines and delimiters without recognizing quotes; differing records are not an AI quality score.",""
+"'=row ""11""
+O'Brien","European finance invoice ledger export, semicolon fields with column names.","invoice;amount;memo
+F01;12,50;""Parts; freight""
+F02;0,00;Credit
+","invoice;amount;memo
+F01;12,50;""Parts; freight""
+F02;0,00;Credit
+","finance","approve","ready","{""delimiter"":"";"",""columns"":3,""header"":true}","{""header"":[""invoice"",""amount"",""memo""],""rows"":[[""F01"",""12,50"",""Parts; freight""],[""F02"",""0,00"",""Credit""]]}","[{""record"":2,""strict"":[""F01"",""12,50"",""Parts; freight""],""naive"":[""F01"",""12,50"",""\""Parts"","" freight\""""]}]","Strict quoted-field parsing preserves every string, duplicate header and interior blank record. Baseline splits on lines and delimiters without recognizing quotes; differing records are not an AI quality score.",""
+"'=row ""12""
+O'Brien","Customer relationship management contact export, with column names and comma fields.","name,email,note
+""Lee, Sam"",sam@example.test,""Called """"today""""""
+Mina,m@example.test,""Line one
+Line two""
+","name,email,note
+""Lee, Sam"",sam@example.test,""Called """"today""""""
+Mina,m@example.test,""Line one
+Line two""
+","crm","approve","ready","{""delimiter"":"","",""columns"":3,""header"":true}","{""header"":[""name"",""email"",""note""],""rows"":[[""Lee, Sam"",""sam@example.test"",""Called \""today\""""],[""Mina"",""m@example.test"",""Line one\nLine two""]]}","[{""record"":2,""strict"":[""Lee, Sam"",""sam@example.test"",""Called \""today\""""],""naive"":[""\""Lee"","" Sam\"""",""sam@example.test"",""\""Called \""\""today\""\""\""""]},{""record"":3,""strict"":[""Mina"",""m@example.test"",""Line one\nLine two""],""naive"":[""Mina"",""m@example.test"",""\""Line one""]},{""record"":4,""strict"":null,""naive"":[""Line two\""""]}]","Strict quoted-field parsing preserves every string, duplicate header and interior blank record. Baseline splits on lines and delimiters without recognizing quotes; differing records are not an AI quality score.",""
+"'=row ""13""
+O'Brien","Warehouse inventory barcode scanner stock counts, three tab fields and no column names.","A01	Shelf 1	12
+A02	""Shelf	2""	0
+","A01	Shelf 1	12
+A02	""Shelf	2""	0
+","scanner","approve","ready","{""delimiter"":""\t"",""columns"":3,""header"":false}","{""header"":null,""rows"":[[""A01"",""Shelf 1"",""12""],[""A02"",""Shelf\t2"",""0""]]}","[{""record"":2,""strict"":[""A02"",""Shelf\t2"",""0""],""naive"":[""A02"",""\""Shelf"",""2\"""",""0""]}]","Strict quoted-field parsing preserves every string, duplicate header and interior blank record. Baseline splits on lines and delimiters without recognizing quotes; differing records are not an AI quality score.",""
+"'=row ""14""
+O'Brien","European finance invoice ledger export, semicolon fields with column names.","invoice;amount;memo
+F01;12,50;""Parts; freight""
+F02;0,00;Credit
+","invoice;amount;memo
+F01;12,50;""Parts; freight""
+F02;0,00;Credit
+","finance","approve","ready","{""delimiter"":"";"",""columns"":3,""header"":true}","{""header"":[""invoice"",""amount"",""memo""],""rows"":[[""F01"",""12,50"",""Parts; freight""],[""F02"",""0,00"",""Credit""]]}","[{""record"":2,""strict"":[""F01"",""12,50"",""Parts; freight""],""naive"":[""F01"",""12,50"",""\""Parts"","" freight\""""]}]","Strict quoted-field parsing preserves every string, duplicate header and interior blank record. Baseline splits on lines and delimiters without recognizing quotes; differing records are not an AI quality score.",""
+"'=row ""15""
+O'Brien","Customer relationship management contact export, with column names and comma fields.","name,email,note
+""Lee, Sam"",sam@example.test,""Called """"today""""""
+Mina,m@example.test,""Line one
+Line two""
+","name,email,note
+""Lee, Sam"",sam@example.test,""Called """"today""""""
+Mina,m@example.test,""Line one
+Line two""
+","crm","approve","ready","{""delimiter"":"","",""columns"":3,""header"":true}","{""header"":[""name"",""email"",""note""],""rows"":[[""Lee, Sam"",""sam@example.test"",""Called \""today\""""],[""Mina"",""m@example.test"",""Line one\nLine two""]]}","[{""record"":2,""strict"":[""Lee, Sam"",""sam@example.test"",""Called \""today\""""],""naive"":[""\""Lee"","" Sam\"""",""sam@example.test"",""\""Called \""\""today\""\""\""""]},{""record"":3,""strict"":[""Mina"",""m@example.test"",""Line one\nLine two""],""naive"":[""Mina"",""m@example.test"",""\""Line one""]},{""record"":4,""strict"":null,""naive"":[""Line two\""""]}]","Strict quoted-field parsing preserves every string, duplicate header and interior blank record. Baseline splits on lines and delimiters without recognizing quotes; differing records are not an AI quality score.",""
+"'=row ""16""
+O'Brien","Warehouse inventory barcode scanner stock counts, three tab fields and no column names.","A01	Shelf 1	12
+A02	""Shelf	2""	0
+","A01	Shelf 1	12
+A02	""Shelf	2""	0
+","scanner","approve","ready","{""delimiter"":""\t"",""columns"":3,""header"":false}","{""header"":null,""rows"":[[""A01"",""Shelf 1"",""12""],[""A02"",""Shelf\t2"",""0""]]}","[{""record"":2,""strict"":[""A02"",""Shelf\t2"",""0""],""naive"":[""A02"",""\""Shelf"",""2\"""",""0""]}]","Strict quoted-field parsing preserves every string, duplicate header and interior blank record. Baseline splits on lines and delimiters without recognizing quotes; differing records are not an AI quality score.",""
+"'=row ""17""
+O'Brien","European finance invoice ledger export, semicolon fields with column names.","invoice;amount;memo
+F01;12,50;""Parts; freight""
+F02;0,00;Credit
+","invoice;amount;memo
+F01;12,50;""Parts; freight""
+F02;0,00;Credit
+","finance","approve","ready","{""delimiter"":"";"",""columns"":3,""header"":true}","{""header"":[""invoice"",""amount"",""memo""],""rows"":[[""F01"",""12,50"",""Parts; freight""],[""F02"",""0,00"",""Credit""]]}","[{""record"":2,""strict"":[""F01"",""12,50"",""Parts; freight""],""naive"":[""F01"",""12,50"",""\""Parts"","" freight\""""]}]","Strict quoted-field parsing preserves every string, duplicate header and interior blank record. Baseline splits on lines and delimiters without recognizing quotes; differing records are not an AI quality score.",""
+"'=row ""18""
+O'Brien","Customer relationship management contact export, with column names and comma fields.","name,email,note
+""Lee, Sam"",sam@example.test,""Called """"today""""""
+Mina,m@example.test,""Line one
+Line two""
+","name,email,note
+""Lee, Sam"",sam@example.test,""Called """"today""""""
+Mina,m@example.test,""Line one
+Line two""
+","crm","approve","ready","{""delimiter"":"","",""columns"":3,""header"":true}","{""header"":[""name"",""email"",""note""],""rows"":[[""Lee, Sam"",""sam@example.test"",""Called \""today\""""],[""Mina"",""m@example.test"",""Line one\nLine two""]]}","[{""record"":2,""strict"":[""Lee, Sam"",""sam@example.test"",""Called \""today\""""],""naive"":[""\""Lee"","" Sam\"""",""sam@example.test"",""\""Called \""\""today\""\""\""""]},{""record"":3,""strict"":[""Mina"",""m@example.test"",""Line one\nLine two""],""naive"":[""Mina"",""m@example.test"",""\""Line one""]},{""record"":4,""strict"":null,""naive"":[""Line two\""""]}]","Strict quoted-field parsing preserves every string, duplicate header and interior blank record. Baseline splits on lines and delimiters without recognizing quotes; differing records are not an AI quality score.",""
+"'=row ""19""
+O'Brien","Warehouse inventory barcode scanner stock counts, three tab fields and no column names.","A01	Shelf 1	12
+A02	""Shelf	2""	0
+","A01	Shelf 1	12
+A02	""Shelf	2""	0
+","scanner","approve","ready","{""delimiter"":""\t"",""columns"":3,""header"":false}","{""header"":null,""rows"":[[""A01"",""Shelf 1"",""12""],[""A02"",""Shelf\t2"",""0""]]}","[{""record"":2,""strict"":[""A02"",""Shelf\t2"",""0""],""naive"":[""A02"",""\""Shelf"",""2\"""",""0""]}]","Strict quoted-field parsing preserves every string, duplicate header and interior blank record. Baseline splits on lines and delimiters without recognizing quotes; differing records are not an AI quality score.",""
+"'=row ""20""
+O'Brien","European finance invoice ledger export, semicolon fields with column names.","invoice;amount;memo
+F01;12,50;""Parts; freight""
+F02;0,00;Credit
+","invoice;amount;memo
+F01;12,50;""Parts; freight""
+F02;0,00;Credit
+","finance","approve","ready","{""delimiter"":"";"",""columns"":3,""header"":true}","{""header"":[""invoice"",""amount"",""memo""],""rows"":[[""F01"",""12,50"",""Parts; freight""],[""F02"",""0,00"",""Credit""]]}","[{""record"":2,""strict"":[""F01"",""12,50"",""Parts; freight""],""naive"":[""F01"",""12,50"",""\""Parts"","" freight\""""]}]","Strict quoted-field parsing preserves every string, duplicate header and interior blank record. Baseline splits on lines and delimiters without recognizing quotes; differing records are not an AI quality score.",""
+"'=row ""21""
+O'Brien","Customer relationship management contact export, with column names and comma fields.","name,email,note
+""Lee, Sam"",sam@example.test,""Called """"today""""""
+Mina,m@example.test,""Line one
+Line two""
+","name,email,note
+""Lee, Sam"",sam@example.test,""Called """"today""""""
+Mina,m@example.test,""Line one
+Line two""
+","crm","approve","ready","{""delimiter"":"","",""columns"":3,""header"":true}","{""header"":[""name"",""email"",""note""],""rows"":[[""Lee, Sam"",""sam@example.test"",""Called \""today\""""],[""Mina"",""m@example.test"",""Line one\nLine two""]]}","[{""record"":2,""strict"":[""Lee, Sam"",""sam@example.test"",""Called \""today\""""],""naive"":[""\""Lee"","" Sam\"""",""sam@example.test"",""\""Called \""\""today\""\""\""""]},{""record"":3,""strict"":[""Mina"",""m@example.test"",""Line one\nLine two""],""naive"":[""Mina"",""m@example.test"",""\""Line one""]},{""record"":4,""strict"":null,""naive"":[""Line two\""""]}]","Strict quoted-field parsing preserves every string, duplicate header and interior blank record. Baseline splits on lines and delimiters without recognizing quotes; differing records are not an AI quality score.",""
+"'=row ""22""
+O'Brien","Warehouse inventory barcode scanner stock counts, three tab fields and no column names.","A01	Shelf 1	12
+A02	""Shelf	2""	0
+","A01	Shelf 1	12
+A02	""Shelf	2""	0
+","scanner","approve","ready","{""delimiter"":""\t"",""columns"":3,""header"":false}","{""header"":null,""rows"":[[""A01"",""Shelf 1"",""12""],[""A02"",""Shelf\t2"",""0""]]}","[{""record"":2,""strict"":[""A02"",""Shelf\t2"",""0""],""naive"":[""A02"",""\""Shelf"",""2\"""",""0""]}]","Strict quoted-field parsing preserves every string, duplicate header and interior blank record. Baseline splits on lines and delimiters without recognizing quotes; differing records are not an AI quality score.",""
+"'=row ""23""
+O'Brien","European finance invoice ledger export, semicolon fields with column names.","invoice;amount;memo
+F01;12,50;""Parts; freight""
+F02;0,00;Credit
+","invoice;amount;memo
+F01;12,50;""Parts; freight""
+F02;0,00;Credit
+","finance","approve","ready","{""delimiter"":"";"",""columns"":3,""header"":true}","{""header"":[""invoice"",""amount"",""memo""],""rows"":[[""F01"",""12,50"",""Parts; freight""],[""F02"",""0,00"",""Credit""]]}","[{""record"":2,""strict"":[""F01"",""12,50"",""Parts; freight""],""naive"":[""F01"",""12,50"",""\""Parts"","" freight\""""]}]","Strict quoted-field parsing preserves every string, duplicate header and interior blank record. Baseline splits on lines and delimiters without recognizing quotes; differing records are not an AI quality score.",""

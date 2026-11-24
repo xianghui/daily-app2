@@ -1,0 +1,141 @@
+{
+  "app": "Vary Ledger",
+  "scope": "Independent cache-key QA fixtures; no network requests.",
+  "cases": [
+    {
+      "id": "Responsive photo",
+      "contract": "device",
+      "mediaType": "application/json",
+      "varyContract": {
+        "vary": [
+          "x-device-class"
+        ]
+      },
+      "batch": {
+        "url": "/synthetic/resource",
+        "requests": [
+          {
+            "headers": {
+              "x-device-class": "mobile"
+            },
+            "representation": "version-A"
+          },
+          {
+            "headers": {
+              "x-device-class": "desktop"
+            },
+            "representation": "version-B"
+          }
+        ]
+      },
+      "expected": [
+        {
+          "index": 0,
+          "headers": {
+            "x-device-class": "mobile"
+          },
+          "representation": "version-A",
+          "key": "[\"/synthetic/resource\",[\"x-device-class\",\"mobile\"]]"
+        },
+        {
+          "index": 1,
+          "headers": {
+            "x-device-class": "desktop"
+          },
+          "representation": "version-B",
+          "key": "[\"/synthetic/resource\",[\"x-device-class\",\"desktop\"]]"
+        }
+      ]
+    },
+    {
+      "id": "Image type",
+      "contract": "format",
+      "mediaType": "application/json",
+      "varyContract": {
+        "vary": [
+          "accept"
+        ]
+      },
+      "batch": {
+        "url": "/synthetic/resource",
+        "requests": [
+          {
+            "headers": {
+              "accept": "image/avif"
+            },
+            "representation": "Edited < & \"note\"\nnext line"
+          },
+          {
+            "headers": {
+              "accept": "image/webp"
+            },
+            "representation": "version-B"
+          }
+        ]
+      },
+      "expected": [
+        {
+          "index": 0,
+          "headers": {
+            "accept": "image/avif"
+          },
+          "representation": "Edited < & \"note\"\nnext line",
+          "key": "[\"/synthetic/resource\",[\"accept\",\"image/avif\"]]"
+        },
+        {
+          "index": 1,
+          "headers": {
+            "accept": "image/webp"
+          },
+          "representation": "version-B",
+          "key": "[\"/synthetic/resource\",[\"accept\",\"image/webp\"]]"
+        }
+      ]
+    },
+    {
+      "id": "Patient page",
+      "contract": "private",
+      "mediaType": "application/json",
+      "varyContract": {
+        "vary": [
+          "*"
+        ]
+      },
+      "batch": {
+        "url": "/synthetic/resource",
+        "requests": [
+          {
+            "headers": {
+              "x-synthetic-identity": "one"
+            },
+            "representation": "version-A"
+          },
+          {
+            "headers": {
+              "x-synthetic-identity": "two"
+            },
+            "representation": "version-B"
+          }
+        ]
+      },
+      "expected": [
+        {
+          "index": 0,
+          "headers": {
+            "x-synthetic-identity": "one"
+          },
+          "representation": "version-A",
+          "key": null
+        },
+        {
+          "index": 1,
+          "headers": {
+            "x-synthetic-identity": "two"
+          },
+          "representation": "version-B",
+          "key": null
+        }
+      ]
+    }
+  ]
+}

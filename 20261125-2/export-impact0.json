@@ -1,0 +1,124 @@
+{
+  "version": 1,
+  "app": "Vary Ledger",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "language",
+        "description": "Translated help articles and localized documentation pages in different reader languages.",
+        "target": "{\"vary\": [\"accept-language\"]}"
+      },
+      {
+        "id": "compression",
+        "description": "Compressed asset downloads with gzip, brotli or identity content encoding for browser transfer.",
+        "target": "{\"vary\": [\"accept-encoding\"]}"
+      },
+      {
+        "id": "origin",
+        "description": "Cross origin API responses reflecting the requesting website origin in access control headers.",
+        "target": "{\"vary\": [\"origin\"]}"
+      }
+    ],
+    "records": [
+      {
+        "id": "same",
+        "context": "Translated help articles and localized documentation pages in different reader languages.",
+        "raw": "{\"url\": \"/synthetic/resource\", \"requests\": [{\"headers\": {\"accept-language\": \"en\"}, \"representation\": \"version-A\"}, {\"headers\": {\"accept-language\": \"fr\"}, \"representation\": \"version-B\"}]}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "same",
+      "system": "language",
+      "raw": "{\"url\": \"/synthetic/resource\", \"requests\": [{\"headers\": {\"accept-language\": \"en\"}, \"representation\": \"version-A\"}, {\"headers\": {\"accept-language\": \"fr\"}, \"representation\": \"version-B\"}]}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "language",
+          "similarity": 1.0000002250501396
+        },
+        {
+          "system": "origin",
+          "similarity": 0.17487166643080324
+        },
+        {
+          "system": "compression",
+          "similarity": 0.12725334577770986
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "same",
+      "system": "language",
+      "raw": "{\"url\": \"/synthetic/resource\", \"requests\": [{\"headers\": {\"accept-language\": \"en\"}, \"representation\": \"version-A\"}, {\"headers\": {\"accept-language\": \"fr\"}, \"representation\": \"version-B\"}]}",
+      "target": {
+        "vary": [
+          "accept-language"
+        ]
+      },
+      "patch": {
+        "url": "/synthetic/resource",
+        "requests": [
+          {
+            "headers": {
+              "accept-language": "en"
+            },
+            "representation": "version-A"
+          },
+          {
+            "headers": {
+              "accept-language": "fr"
+            },
+            "representation": "version-B"
+          }
+        ]
+      },
+      "result": [
+        {
+          "index": 0,
+          "headers": {
+            "accept-language": "en"
+          },
+          "representation": "version-A",
+          "key": "[\"/synthetic/resource\",[\"accept-language\",\"en\"]]"
+        },
+        {
+          "index": 1,
+          "headers": {
+            "accept-language": "fr"
+          },
+          "representation": "version-B",
+          "key": "[\"/synthetic/resource\",[\"accept-language\",\"fr\"]]"
+        }
+      ],
+      "events": [],
+      "reusable": true,
+      "baselineAvailable": true,
+      "baseline": [
+        {
+          "pair": [
+            0,
+            1
+          ],
+          "reason": "URL-only key aliases different representation tags"
+        }
+      ],
+      "disagreement": true,
+      "reason": "Exact raw header-value tuples; missing differs from empty. Representation labels are supplied evidence, not fetched content.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 1,
+    "ready": 1,
+    "held": 0,
+    "blocked": 0,
+    "changes": 0,
+    "compared": 1,
+    "disagreements": 1
+  }
+}

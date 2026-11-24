@@ -1,0 +1,21 @@
+"id","source_context","original_batch","reviewed_batch","contract","decision","status","contract_json","result_json","conflicts_json","reason","review_note"
+"Responsive photo","Responsive image rendering for mobile phones versus desktop computer devices.","{""url"": ""/synthetic/resource"", ""requests"": [{""headers"": {""x-device-class"": ""mobile""}, ""representation"": ""version-A""}, {""headers"": {""x-device-class"": ""desktop""}, ""representation"": ""version-B""}]}","{""url"": ""/synthetic/resource"", ""requests"": [{""headers"": {""x-device-class"": ""mobile""}, ""representation"": ""version-A""}, {""headers"": {""x-device-class"": ""desktop""}, ""representation"": ""version-B""}]}","device","approve","ready","{""vary"":[""x-device-class""]}","[{""index"":0,""headers"":{""x-device-class"":""mobile""},""representation"":""version-A"",""key"":""[\""/synthetic/resource\"",[\""x-device-class\"",\""mobile\""]]""},{""index"":1,""headers"":{""x-device-class"":""desktop""},""representation"":""version-B"",""key"":""[\""/synthetic/resource\"",[\""x-device-class\"",\""desktop\""]]""}]","[]","Exact raw header-value tuples; missing differs from empty. Representation labels are supplied evidence, not fetched content.",""
+"Image type","Image format negotiation selects webp or avif from accepted client media types.","{""url"": ""/synthetic/resource"", ""requests"": [{""headers"": {""accept"": ""image/avif""}, ""representation"": ""version-A""}, {""headers"": {""accept"": ""image/webp""}, ""representation"": ""version-B""}]}","{
+  ""url"": ""/synthetic/resource"",
+  ""requests"": [
+    {
+      ""headers"": {
+        ""accept"": ""image/avif""
+      },
+      ""representation"": ""Edited < & \""note\""\nnext line""
+    },
+    {
+      ""headers"": {
+        ""accept"": ""image/webp""
+      },
+      ""representation"": ""version-B""
+    }
+  ]
+}","format","approve","ready","{""vary"":[""accept""]}","[{""index"":0,""headers"":{""accept"":""image/avif""},""representation"":""Edited < & \""note\""\nnext line"",""key"":""[\""/synthetic/resource\"",[\""accept\"",\""image/avif\""]]""},{""index"":1,""headers"":{""accept"":""image/webp""},""representation"":""version-B"",""key"":""[\""/synthetic/resource\"",[\""accept\"",\""image/webp\""]]""}]","[]","Exact raw header-value tuples; missing differs from empty. Representation labels are supplied evidence, not fetched content.","'=SUM(1,2)
+Reviewed ""paper"", exactly."
+"Patient page","Confidential personal patient medical record response must never enter shared cache reuse.","{""url"": ""/synthetic/resource"", ""requests"": [{""headers"": {""x-synthetic-identity"": ""one""}, ""representation"": ""version-A""}, {""headers"": {""x-synthetic-identity"": ""two""}, ""representation"": ""version-B""}]}","{""url"": ""/synthetic/resource"", ""requests"": [{""headers"": {""x-synthetic-identity"": ""one""}, ""representation"": ""version-A""}, {""headers"": {""x-synthetic-identity"": ""two""}, ""representation"": ""version-B""}]}","private","approve","ready","{""vary"":[""*""]}","[{""index"":0,""headers"":{""x-synthetic-identity"":""one""},""representation"":""version-A"",""key"":null},{""index"":1,""headers"":{""x-synthetic-identity"":""two""},""representation"":""version-B"",""key"":null}]","[]","Vary: * always fails reuse; not a substitute for Cache-Control: private/no-store.",""

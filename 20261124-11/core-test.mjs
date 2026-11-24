@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';import fs from 'node:fs';import{plans,examples,parseAccept,inspect,parse,suggest,analyze,release}from'./src/core.js';
+let assertions=0;const eq=(a,b)=>{assert.deepEqual(a,b);assertions++},bad=f=>{assert.throws(f);assertions++};
+for(const e of examples){parse(JSON.stringify(e.data));for(let i=0;i<4;i++)if(e.selected[i]!==undefined)eq(inspect(e.data.records[i].raw,plans.find(p=>p.id===e.expected[i])).selected,e.selected[i]);else bad(()=>inspect(e.data.records[i].raw,plans[2]))}
+const offers=['text/html','text/plain','application/json'];const cases=[];
+for(const x of[0,.2,.7,1])for(const y of[0,.2,.7,1])for(const z of[0,.2,.7,1])for(const perm of[[0,1,2],[2,0,1],[1,2,0]])for(const pattern of[0,1,2]){const accept=pattern===0?`*/*;q=${x}, text/*;q=${y}, text/html;q=${z}`:pattern===1?`text/*;q=${x}, text/plain;q=${y}, application/json;q=${z}`:`application/*;q=${x}, */*;q=${y}, application/json;q=${z}`;const offered=perm.map(i=>offers[i]);cases.push({accept,offered,result:inspect(JSON.stringify({offered}),{id:'p',description:'probe',accept})})}
+fs.writeFileSync('negotiation-cases.json',JSON.stringify(cases));
+eq(inspect('{"offered":["TEXT/PLAIN","application/json"]}',{id:'x',description:'x',accept:'TEXT/*;Q=0.800, */*;q=0.8'}).selected,'TEXT/PLAIN');
+for(const accept of['text/html\r\n','\ntext/plain','text/plain\u00a0', 'text/plain\0','','text','text/html;q=2','text/html;q=-1','text/html;q=0.1234','text/html;level=1','text/html;q=.5','*/html','te*xt/html','text/*+json','text/plain, TEXT/PLAIN','text/html\r\nX: yes','text/html; q=0.5;v=1',Array(13).fill('text/html').join(',')])bad(()=>parseAccept(accept));
+for(const offered of[[],['text/plain','TEXT/PLAIN'],['*/*'],['text/html;a=b'],['text /html'],Array(13).fill('text/plain'),['text/ht*ml']])bad(()=>inspect(JSON.stringify({offered}),plans[0]));
+for(const s of['','null','{}','x'.repeat(50001),JSON.stringify({...examples[0].data,records:[]})])bad(()=>parse(s));
+for(const v of[null,[],Array(7).fill(Array(384).fill(0)),Array(7).fill(Array(384).fill(NaN))])bad(()=>suggest(examples[0].data,v));
+const d=examples[0].data,rows=d.records.map((r,i)=>({id:r.id,system:examples[0].expected[i],raw:r.raw,note:'',decision:'approve',evidence:[]}));eq(analyze(d,rows).metrics.disagreements,4);rows[0].decision='pending';bad(()=>analyze(d,rows));rows[0].decision='hold';eq(release(analyze(d,rows)).cases.length,3);rows[0].decision='approve';rows[0].raw='{}';eq(analyze(d,rows).checks[0].status,'blocked');
+fs.writeFileSync('core-validation.json',JSON.stringify({assertions,oracleCases:cases.length}));console.log('PASS core assertions',assertions,'generated cases',cases.length)

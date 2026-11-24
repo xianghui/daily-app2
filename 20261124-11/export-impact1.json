@@ -1,0 +1,101 @@
+{
+  "version": 1,
+  "app": "Accept Atelier",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "data-client",
+        "description": "Automated data integration client consumes structured JSON records. Plain text is a fallback, but HTML pages must never be returned.",
+        "accept": "application/json, text/plain;q=0.4, text/html;q=0"
+      },
+      {
+        "id": "reader-client",
+        "description": "Human reading a document in a web browser wants a formatted HTML page. Plain text is an acceptable fallback; structured JSON is refused.",
+        "accept": "text/html, text/plain;q=0.6, application/json;q=0"
+      },
+      {
+        "id": "terminal-client",
+        "description": "Command line terminal reader needs plain text output. Other text formats may be returned except HTML which is explicitly forbidden.",
+        "accept": "text/plain, text/*;q=0.8, text/html;q=0"
+      }
+    ],
+    "records": [
+      {
+        "id": "same",
+        "context": "Human reading a document in a web browser wants a formatted HTML page. Plain text is an acceptable fallback; structured JSON is refused.",
+        "raw": "{\"offered\":[\"text/html\",\"application/json\",\"text/plain\"]}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "same",
+      "system": "reader-client",
+      "raw": "{\"offered\":[\"text/html\",\"application/json\",\"text/plain\"]}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "reader-client",
+          "similarity": 1.000000281240836
+        },
+        {
+          "system": "data-client",
+          "similarity": 0.6960452760028935
+        },
+        {
+          "system": "terminal-client",
+          "similarity": 0.48170820982300616
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "same",
+      "system": "reader-client",
+      "raw": "{\"offered\":[\"text/html\",\"application/json\",\"text/plain\"]}",
+      "accept": "text/html, text/plain;q=0.6, application/json;q=0",
+      "offered": [
+        "text/html",
+        "application/json",
+        "text/plain"
+      ],
+      "selected": "text/html",
+      "candidates": [
+        {
+          "media": "text/html",
+          "matched": "text/html",
+          "specificity": 2,
+          "q": 1000
+        },
+        {
+          "media": "application/json",
+          "matched": "application/json",
+          "specificity": 2,
+          "q": 0
+        },
+        {
+          "media": "text/plain",
+          "matched": "text/plain",
+          "specificity": 2,
+          "q": 600
+        }
+      ],
+      "statusCode": 200,
+      "baseline": "text/html",
+      "disagreement": false,
+      "reason": "Highest positive effective quality; offered order breaks equal-quality ties.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 1,
+    "ready": 1,
+    "held": 0,
+    "blocked": 0,
+    "unacceptable": 0,
+    "disagreements": 0,
+    "edited": 0
+  }
+}

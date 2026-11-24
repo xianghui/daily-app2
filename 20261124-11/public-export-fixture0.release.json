@@ -1,0 +1,51 @@
+{
+  "format": "accept-atelier-test-cases-v1",
+  "notice": "Dry-run fixtures for a bounded parameter-free Accept subset. No endpoint contacted. Not full RFC or live server conformance.",
+  "cases": [
+    {
+      "id": "Nightly ETL",
+      "contract": "data-client",
+      "accept": "application/json, text/plain;q=0.4, text/html;q=0",
+      "offered": [
+        "text/html",
+        "application/json",
+        "text/plain"
+      ],
+      "expectedMedia": "application/json",
+      "expectedStatus": 200
+    },
+    {
+      "id": "Help article",
+      "contract": "reader-client",
+      "accept": "text/html, text/plain;q=0.6, application/json;q=0",
+      "offered": [
+        "application/json",
+        "text/html",
+        "text/plain"
+      ],
+      "expectedMedia": "text/html",
+      "expectedStatus": 200
+    },
+    {
+      "id": "Shell report",
+      "contract": "terminal-client",
+      "accept": "text/plain, text/*;q=0.8, text/html;q=0",
+      "offered": [
+        "text/html",
+        "text/plain"
+      ],
+      "expectedMedia": "text/plain",
+      "expectedStatus": 200
+    },
+    {
+      "id": "Missing API format",
+      "contract": "data-client",
+      "accept": "application/json, text/plain;q=0.4, text/html;q=0",
+      "offered": [
+        "text/html"
+      ],
+      "expectedMedia": null,
+      "expectedStatus": 406
+    }
+  ]
+}

@@ -1,0 +1,239 @@
+{
+  "version": 1,
+  "app": "Accept Atelier",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "data-client",
+        "description": "Automated data integration client consumes structured JSON records. Plain text is a fallback, but HTML pages must never be returned.",
+        "accept": "application/json, text/plain;q=0.4, text/html;q=0"
+      },
+      {
+        "id": "reader-client",
+        "description": "Human reading a document in a web browser wants a formatted HTML page. Plain text is an acceptable fallback; structured JSON is refused.",
+        "accept": "text/html, text/plain;q=0.6, application/json;q=0"
+      },
+      {
+        "id": "terminal-client",
+        "description": "Command line terminal reader needs plain text output. Other text formats may be returned except HTML which is explicitly forbidden.",
+        "accept": "text/plain, text/*;q=0.8, text/html;q=0"
+      }
+    ],
+    "records": [
+      {
+        "id": "Terminal wildcard",
+        "context": "This command line utility displays text output in a terminal and explicitly excludes HTML pages.",
+        "raw": "{\"offered\":[\"text/html\",\"text/csv\"]}"
+      },
+      {
+        "id": "Browser fallback",
+        "context": "The human document reader prefers a formatted HTML page in the web browser, then plain text.",
+        "raw": "{\"offered\":[\"application/json\",\"text/plain\"]}"
+      },
+      {
+        "id": "Warehouse feed",
+        "context": "The data pipeline consumes machine readable JSON records for an automated import.",
+        "raw": "{\"offered\":[\"text/plain\",\"application/json\"]}"
+      },
+      {
+        "id": "Malformed case",
+        "context": "A terminal command line reader displays plain text, never HTML.",
+        "raw": "{\"offered\":[\"text/plain;charset=utf-8\"]}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "Terminal wildcard",
+      "system": "terminal-client",
+      "raw": "{\"offered\":[\"text/html\",\"text/csv\"]}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "terminal-client",
+          "similarity": 0.5528142919113715
+        },
+        {
+          "system": "reader-client",
+          "similarity": 0.5005847546268323
+        },
+        {
+          "system": "data-client",
+          "similarity": 0.38053771799895375
+        }
+      ]
+    },
+    {
+      "id": "Browser fallback",
+      "system": "reader-client",
+      "raw": "{\"offered\":[\"application/json\",\"text/plain\"]}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "reader-client",
+          "similarity": 0.74992470035783
+        },
+        {
+          "system": "terminal-client",
+          "similarity": 0.5117626016474359
+        },
+        {
+          "system": "data-client",
+          "similarity": 0.47760739398882596
+        }
+      ]
+    },
+    {
+      "id": "Warehouse feed",
+      "system": "data-client",
+      "raw": "{\"offered\":[\"text/plain\",\"application/json\"]}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "data-client",
+          "similarity": 0.5805796947731199
+        },
+        {
+          "system": "reader-client",
+          "similarity": 0.2750964435780582
+        },
+        {
+          "system": "terminal-client",
+          "similarity": 0.2027105882239001
+        }
+      ]
+    },
+    {
+      "id": "Malformed case",
+      "system": "terminal-client",
+      "raw": "{\"offered\":[\"text/plain;charset=utf-8\"]}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "terminal-client",
+          "similarity": 0.8689732360648654
+        },
+        {
+          "system": "reader-client",
+          "similarity": 0.5699338801724299
+        },
+        {
+          "system": "data-client",
+          "similarity": 0.3549206997175024
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "Terminal wildcard",
+      "system": "terminal-client",
+      "raw": "{\"offered\":[\"text/html\",\"text/csv\"]}",
+      "accept": "text/plain, text/*;q=0.8, text/html;q=0",
+      "offered": [
+        "text/html",
+        "text/csv"
+      ],
+      "selected": "text/csv",
+      "candidates": [
+        {
+          "media": "text/html",
+          "matched": "text/html",
+          "specificity": 2,
+          "q": 0
+        },
+        {
+          "media": "text/csv",
+          "matched": "text/*",
+          "specificity": 1,
+          "q": 800
+        }
+      ],
+      "statusCode": 200,
+      "baseline": "text/html",
+      "disagreement": true,
+      "reason": "Highest positive effective quality; offered order breaks equal-quality ties.",
+      "status": "ready"
+    },
+    {
+      "id": "Browser fallback",
+      "system": "reader-client",
+      "raw": "{\"offered\":[\"application/json\",\"text/plain\"]}",
+      "accept": "text/html, text/plain;q=0.6, application/json;q=0",
+      "offered": [
+        "application/json",
+        "text/plain"
+      ],
+      "selected": "text/plain",
+      "candidates": [
+        {
+          "media": "application/json",
+          "matched": "application/json",
+          "specificity": 2,
+          "q": 0
+        },
+        {
+          "media": "text/plain",
+          "matched": "text/plain",
+          "specificity": 2,
+          "q": 600
+        }
+      ],
+      "statusCode": 200,
+      "baseline": "application/json",
+      "disagreement": true,
+      "reason": "Highest positive effective quality; offered order breaks equal-quality ties.",
+      "status": "ready"
+    },
+    {
+      "id": "Warehouse feed",
+      "system": "data-client",
+      "raw": "{\"offered\":[\"text/plain\",\"application/json\"]}",
+      "accept": "application/json, text/plain;q=0.4, text/html;q=0",
+      "offered": [
+        "text/plain",
+        "application/json"
+      ],
+      "selected": "application/json",
+      "candidates": [
+        {
+          "media": "text/plain",
+          "matched": "text/plain",
+          "specificity": 2,
+          "q": 400
+        },
+        {
+          "media": "application/json",
+          "matched": "application/json",
+          "specificity": 2,
+          "q": 1000
+        }
+      ],
+      "statusCode": 200,
+      "baseline": "text/plain",
+      "disagreement": true,
+      "reason": "Highest positive effective quality; offered order breaks equal-quality ties.",
+      "status": "ready"
+    },
+    {
+      "id": "Malformed case",
+      "system": "terminal-client",
+      "raw": "{\"offered\":[\"text/plain;charset=utf-8\"]}",
+      "status": "blocked",
+      "reason": "Use type/subtype tokens without parameters or whitespace."
+    }
+  ],
+  "metrics": {
+    "records": 4,
+    "ready": 3,
+    "held": 0,
+    "blocked": 1,
+    "unacceptable": 0,
+    "disagreements": 3,
+    "edited": 0
+  }
+}

@@ -44,3 +44,7 @@ To stay within that guard, one additional byte-identical 541,470-byte legacy geo
 ## Publication
 
 Local/assembled verification does not establish a public release. Final matching Pages status, public asset hashes, public real inference/workflow/artifact/offline/privacy tests and affected legacy regression are recorded in `publication-status.json` and public-prefixed reports after deployment. No digest is sent by this builder.
+
+Public release verified: matching Pages commit `32b5a6a7f28bca7a4a844bb4310c16681bfd103d` and workflow `45363627311` succeeded. Nine public asset byte checks, both real-AI fixtures, full review/export/maximum-batch/offline/privacy suite, independently parsed actual artifacts, all 846 gallery cards and affected legacy PNG/STL import/export passed. Combined site 999,684,186 bytes remains below the unchanged guard. Source staging preserves and excludes unrelated pre-existing recovery work.
+
+Source-record recovery: an initial report-collection cwd assertion failed but a non-fail-fast shell continued and pushed app sources without the root gallery/documentation hunks. A follow-up commit completes those scoped root hunks and release records. Lesson: assert the app report directory and use fail-fast shell execution before staging/committing dependent release steps; recognize valid CSV CRLF with cr-at-eol during whitespace checks.

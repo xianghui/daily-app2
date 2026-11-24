@@ -1,0 +1,223 @@
+{
+  "version": 1,
+  "app": "Range Relay",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "resume-download",
+        "description": "Resume an interrupted large file download from byte offset 200 and retrieve all remaining bytes.",
+        "range": "bytes=200-"
+      },
+      {
+        "id": "header-preview",
+        "description": "Preview the beginning of a file: read its first 100 bytes to inspect the header or magic signature.",
+        "range": "bytes=0-99"
+      },
+      {
+        "id": "trailer-inspection",
+        "description": "Inspect the end of a file: retrieve its last 80 bytes to read a footer or trailing metadata.",
+        "range": "bytes=-80"
+      }
+    ],
+    "records": [
+      {
+        "id": "Tiny trailer",
+        "context": "Inspect the last eighty bytes of a file footer, including trailing metadata at the end.",
+        "raw": "{\"length\":12}"
+      },
+      {
+        "id": "Expired offset",
+        "context": "Resume an interrupted download from byte offset 200, requesting the remaining file.",
+        "raw": "{\"length\":150}"
+      },
+      {
+        "id": "Opening probe",
+        "context": "Read the opening file header and first 100 bytes for a magic signature preview.",
+        "raw": "{\"length\":500}"
+      },
+      {
+        "id": "Bad length",
+        "context": "Continue an interrupted file download from offset 200 until the end.",
+        "raw": "{\"length\":-5}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "Tiny trailer",
+      "system": "trailer-inspection",
+      "raw": "{\"length\":0}",
+      "decision": "approve",
+      "note": "=SUM(1,2)\nReviewed \"intent\", exactly.",
+      "evidence": [
+        {
+          "system": "trailer-inspection",
+          "similarity": 0.8781342760384209
+        },
+        {
+          "system": "header-preview",
+          "similarity": 0.5921394464244807
+        },
+        {
+          "system": "resume-download",
+          "similarity": 0.4287331745419816
+        }
+      ]
+    },
+    {
+      "id": "Expired offset",
+      "system": "resume-download",
+      "raw": "{\"length\":150}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "resume-download",
+          "similarity": 0.9020352521607174
+        },
+        {
+          "system": "header-preview",
+          "similarity": 0.44947438377167725
+        },
+        {
+          "system": "trailer-inspection",
+          "similarity": 0.445195162690646
+        }
+      ]
+    },
+    {
+      "id": "Opening probe",
+      "system": "header-preview",
+      "raw": "{\"length\":500}",
+      "decision": "hold",
+      "note": "",
+      "evidence": [
+        {
+          "system": "header-preview",
+          "similarity": 0.8815817825645859
+        },
+        {
+          "system": "trailer-inspection",
+          "similarity": 0.5091281686451893
+        },
+        {
+          "system": "resume-download",
+          "similarity": 0.3979660277980772
+        }
+      ]
+    },
+    {
+      "id": "Bad length",
+      "system": "resume-download",
+      "raw": "{\"length\":-5}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "resume-download",
+          "similarity": 0.8719603166879748
+        },
+        {
+          "system": "trailer-inspection",
+          "similarity": 0.40035743797401885
+        },
+        {
+          "system": "header-preview",
+          "similarity": 0.3608812376745468
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "Tiny trailer",
+      "system": "trailer-inspection",
+      "raw": "{\"length\":0}",
+      "range": "bytes=-80",
+      "length": 0,
+      "statusCode": 416,
+      "selected": "bytes */0",
+      "intervals": [],
+      "witnesses": [
+        {
+          "index": 0,
+          "request": {
+            "kind": "suffix",
+            "count": 80
+          },
+          "first": 0,
+          "last": -1,
+          "satisfiable": false
+        }
+      ],
+      "payloadBytes": 0,
+      "multipart": false,
+      "contentRanges": [],
+      "unsatisfiedContentRange": "bytes */0",
+      "baseline": 0,
+      "baselineStatus": 200,
+      "disagreement": true,
+      "omittedPayloadBytes": 0,
+      "reason": "No satisfiable interval: expect 416 and an unsatisfied Content-Range in this worksheet.",
+      "status": "ready"
+    },
+    {
+      "id": "Expired offset",
+      "system": "resume-download",
+      "raw": "{\"length\":150}",
+      "range": "bytes=200-",
+      "length": 150,
+      "statusCode": 416,
+      "selected": "bytes */150",
+      "intervals": [],
+      "witnesses": [
+        {
+          "index": 0,
+          "request": {
+            "kind": "position",
+            "first": 200,
+            "last": null
+          },
+          "first": 200,
+          "last": 149,
+          "satisfiable": false
+        }
+      ],
+      "payloadBytes": 0,
+      "multipart": false,
+      "contentRanges": [],
+      "unsatisfiedContentRange": "bytes */150",
+      "baseline": 150,
+      "baselineStatus": 200,
+      "disagreement": true,
+      "omittedPayloadBytes": 150,
+      "reason": "No satisfiable interval: expect 416 and an unsatisfied Content-Range in this worksheet.",
+      "status": "ready"
+    },
+    {
+      "id": "Opening probe",
+      "system": "header-preview",
+      "raw": "{\"length\":500}",
+      "status": "held",
+      "reason": "Reviewer hold; no fixture release."
+    },
+    {
+      "id": "Bad length",
+      "system": "resume-download",
+      "raw": "{\"length\":-5}",
+      "status": "blocked",
+      "reason": "Case must contain only integer length, 0–1,000,000,000 bytes."
+    }
+  ],
+  "metrics": {
+    "records": 4,
+    "ready": 2,
+    "held": 1,
+    "blocked": 1,
+    "unacceptable": 2,
+    "disagreements": 2,
+    "edited": 1,
+    "payloadBytes": 0,
+    "omittedPayloadBytes": 150
+  }
+}

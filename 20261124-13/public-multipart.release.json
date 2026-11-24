@@ -1,0 +1,42 @@
+{
+  "format": "range-relay-test-cases-v1",
+  "notice": "Dry-run GET fixtures assuming Range is honored and bytes use an unchanged identity representation. No URL requests. Not full HTTP conformance. Coalesce adjacent ranges; multipart payload counts exclude framing.",
+  "cases": [
+    {
+      "id": "Multipart\n\"QA\", sample",
+      "contract": "resume-download",
+      "range": "bytes=0-9,5-15,16-20,90-,200-300",
+      "length": 100,
+      "expectedStatus": 206,
+      "intervals": [
+        [
+          0,
+          20
+        ],
+        [
+          90,
+          99
+        ]
+      ],
+      "contentRanges": [
+        "bytes 0-20/100",
+        "bytes 90-99/100"
+      ],
+      "unsatisfiedContentRange": null,
+      "multipart": true,
+      "payloadBytes": 31
+    },
+    {
+      "id": "Empty",
+      "contract": "resume-download",
+      "range": "bytes=0-9,5-15,16-20,90-,200-300",
+      "length": 0,
+      "expectedStatus": 416,
+      "intervals": [],
+      "contentRanges": [],
+      "unsatisfiedContentRange": "bytes */0",
+      "multipart": false,
+      "payloadBytes": 0
+    }
+  ]
+}

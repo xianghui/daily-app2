@@ -1,0 +1,106 @@
+{
+  "version": 1,
+  "app": "Range Relay",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "resume-download",
+        "description": "Resume an interrupted large file download from byte offset 200 and retrieve all remaining bytes.",
+        "range": "bytes=200-"
+      },
+      {
+        "id": "header-preview",
+        "description": "Preview the beginning of a file: read its first 100 bytes to inspect the header or magic signature.",
+        "range": "bytes=0-99"
+      },
+      {
+        "id": "trailer-inspection",
+        "description": "Inspect the end of a file: retrieve its last 80 bytes to read a footer or trailing metadata.",
+        "range": "bytes=-80"
+      }
+    ],
+    "records": [
+      {
+        "id": "same",
+        "context": "Preview the beginning of a file: read its first 100 bytes to inspect the header or magic signature.",
+        "raw": "{\"length\":250}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "same",
+      "system": "header-preview",
+      "raw": "{\"length\":250}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "header-preview",
+          "similarity": 1.0000000795300554
+        },
+        {
+          "system": "trailer-inspection",
+          "similarity": 0.6200297116615552
+        },
+        {
+          "system": "resume-download",
+          "similarity": 0.43573334508833605
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "same",
+      "system": "header-preview",
+      "raw": "{\"length\":250}",
+      "range": "bytes=0-99",
+      "length": 250,
+      "statusCode": 206,
+      "selected": "bytes 0-99/250",
+      "intervals": [
+        [
+          0,
+          99
+        ]
+      ],
+      "witnesses": [
+        {
+          "index": 0,
+          "request": {
+            "kind": "position",
+            "first": 0,
+            "last": 99
+          },
+          "first": 0,
+          "last": 99,
+          "satisfiable": true
+        }
+      ],
+      "payloadBytes": 100,
+      "multipart": false,
+      "contentRanges": [
+        "bytes 0-99/250"
+      ],
+      "unsatisfiedContentRange": null,
+      "baseline": 250,
+      "baselineStatus": 200,
+      "disagreement": true,
+      "omittedPayloadBytes": 150,
+      "reason": "Satisfiable intervals clipped to the representation, sorted and coalesced. Disjoint intervals require multipart output; byte count excludes framing.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 1,
+    "ready": 1,
+    "held": 0,
+    "blocked": 0,
+    "unacceptable": 0,
+    "disagreements": 1,
+    "edited": 0,
+    "payloadBytes": 100,
+    "omittedPayloadBytes": 150
+  }
+}

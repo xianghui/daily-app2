@@ -1,0 +1,49 @@
+{
+  "format": "range-relay-test-cases-v1",
+  "notice": "Dry-run GET fixtures assuming Range is honored and bytes use an unchanged identity representation. No URL requests. Not full HTTP conformance. Coalesce adjacent ranges; multipart payload counts exclude framing.",
+  "cases": [
+    {
+      "id": "Tiny trailer",
+      "contract": "trailer-inspection",
+      "range": "bytes=-80",
+      "length": 0,
+      "expectedStatus": 416,
+      "intervals": [],
+      "contentRanges": [],
+      "unsatisfiedContentRange": "bytes */0",
+      "multipart": false,
+      "payloadBytes": 0
+    },
+    {
+      "id": "Expired offset",
+      "contract": "resume-download",
+      "range": "bytes=200-",
+      "length": 150,
+      "expectedStatus": 416,
+      "intervals": [],
+      "contentRanges": [],
+      "unsatisfiedContentRange": "bytes */150",
+      "multipart": false,
+      "payloadBytes": 0
+    },
+    {
+      "id": "Opening probe",
+      "contract": "header-preview",
+      "range": "bytes=0-99",
+      "length": 500,
+      "expectedStatus": 206,
+      "intervals": [
+        [
+          0,
+          99
+        ]
+      ],
+      "contentRanges": [
+        "bytes 0-99/500"
+      ],
+      "unsatisfiedContentRange": null,
+      "multipart": false,
+      "payloadBytes": 100
+    }
+  ]
+}

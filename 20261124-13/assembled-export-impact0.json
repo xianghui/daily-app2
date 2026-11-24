@@ -1,0 +1,106 @@
+{
+  "version": 1,
+  "app": "Range Relay",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "resume-download",
+        "description": "Resume an interrupted large file download from byte offset 200 and retrieve all remaining bytes.",
+        "range": "bytes=200-"
+      },
+      {
+        "id": "header-preview",
+        "description": "Preview the beginning of a file: read its first 100 bytes to inspect the header or magic signature.",
+        "range": "bytes=0-99"
+      },
+      {
+        "id": "trailer-inspection",
+        "description": "Inspect the end of a file: retrieve its last 80 bytes to read a footer or trailing metadata.",
+        "range": "bytes=-80"
+      }
+    ],
+    "records": [
+      {
+        "id": "same",
+        "context": "Resume an interrupted large file download from byte offset 200 and retrieve all remaining bytes.",
+        "raw": "{\"length\":250}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "same",
+      "system": "resume-download",
+      "raw": "{\"length\":250}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "resume-download",
+          "similarity": 0.9999995729250116
+        },
+        {
+          "system": "trailer-inspection",
+          "similarity": 0.4821541140463823
+        },
+        {
+          "system": "header-preview",
+          "similarity": 0.43573334508833605
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "same",
+      "system": "resume-download",
+      "raw": "{\"length\":250}",
+      "range": "bytes=200-",
+      "length": 250,
+      "statusCode": 206,
+      "selected": "bytes 200-249/250",
+      "intervals": [
+        [
+          200,
+          249
+        ]
+      ],
+      "witnesses": [
+        {
+          "index": 0,
+          "request": {
+            "kind": "position",
+            "first": 200,
+            "last": null
+          },
+          "first": 200,
+          "last": 249,
+          "satisfiable": true
+        }
+      ],
+      "payloadBytes": 50,
+      "multipart": false,
+      "contentRanges": [
+        "bytes 200-249/250"
+      ],
+      "unsatisfiedContentRange": null,
+      "baseline": 250,
+      "baselineStatus": 200,
+      "disagreement": true,
+      "omittedPayloadBytes": 200,
+      "reason": "Satisfiable intervals clipped to the representation, sorted and coalesced. Disjoint intervals require multipart output; byte count excludes framing.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 1,
+    "ready": 1,
+    "held": 0,
+    "blocked": 0,
+    "unacceptable": 0,
+    "disagreements": 1,
+    "edited": 0,
+    "payloadBytes": 50,
+    "omittedPayloadBytes": 200
+  }
+}

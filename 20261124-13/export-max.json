@@ -1,0 +1,1576 @@
+{
+  "version": 1,
+  "app": "Range Relay",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "resume-download",
+        "description": "Resume an interrupted large file download from byte offset 200 and retrieve all remaining bytes.",
+        "range": "bytes=200-"
+      },
+      {
+        "id": "header-preview",
+        "description": "Preview the beginning of a file: read its first 100 bytes to inspect the header or magic signature.",
+        "range": "bytes=0-99"
+      },
+      {
+        "id": "trailer-inspection",
+        "description": "Inspect the end of a file: retrieve its last 80 bytes to read a footer or trailing metadata.",
+        "range": "bytes=-80"
+      }
+    ],
+    "records": [
+      {
+        "id": "=row \"0\"\nnext",
+        "context": "Continue the interrupted file transfer from offset 200 through the end of the download.",
+        "raw": "{\"length\":250}"
+      },
+      {
+        "id": "=row \"1\"\nnext",
+        "context": "Read only the first 100 bytes at the beginning of the file to identify the header.",
+        "raw": "{\"length\":65}"
+      },
+      {
+        "id": "=row \"2\"\nnext",
+        "context": "Read the last 80 bytes at the end of this binary file to inspect trailing metadata.",
+        "raw": "{\"length\":1000}"
+      },
+      {
+        "id": "=row \"3\"\nnext",
+        "context": "Preview the beginning of this file and inspect its first header bytes.",
+        "raw": "{\"length\":0}"
+      },
+      {
+        "id": "=row \"4\"\nnext",
+        "context": "Continue the interrupted file transfer from offset 200 through the end of the download.",
+        "raw": "{\"length\":250}"
+      },
+      {
+        "id": "=row \"5\"\nnext",
+        "context": "Read only the first 100 bytes at the beginning of the file to identify the header.",
+        "raw": "{\"length\":65}"
+      },
+      {
+        "id": "=row \"6\"\nnext",
+        "context": "Read the last 80 bytes at the end of this binary file to inspect trailing metadata.",
+        "raw": "{\"length\":1000}"
+      },
+      {
+        "id": "=row \"7\"\nnext",
+        "context": "Preview the beginning of this file and inspect its first header bytes.",
+        "raw": "{\"length\":0}"
+      },
+      {
+        "id": "=row \"8\"\nnext",
+        "context": "Continue the interrupted file transfer from offset 200 through the end of the download.",
+        "raw": "{\"length\":250}"
+      },
+      {
+        "id": "=row \"9\"\nnext",
+        "context": "Read only the first 100 bytes at the beginning of the file to identify the header.",
+        "raw": "{\"length\":65}"
+      },
+      {
+        "id": "=row \"10\"\nnext",
+        "context": "Read the last 80 bytes at the end of this binary file to inspect trailing metadata.",
+        "raw": "{\"length\":1000}"
+      },
+      {
+        "id": "=row \"11\"\nnext",
+        "context": "Preview the beginning of this file and inspect its first header bytes.",
+        "raw": "{\"length\":0}"
+      },
+      {
+        "id": "=row \"12\"\nnext",
+        "context": "Continue the interrupted file transfer from offset 200 through the end of the download.",
+        "raw": "{\"length\":250}"
+      },
+      {
+        "id": "=row \"13\"\nnext",
+        "context": "Read only the first 100 bytes at the beginning of the file to identify the header.",
+        "raw": "{\"length\":65}"
+      },
+      {
+        "id": "=row \"14\"\nnext",
+        "context": "Read the last 80 bytes at the end of this binary file to inspect trailing metadata.",
+        "raw": "{\"length\":1000}"
+      },
+      {
+        "id": "=row \"15\"\nnext",
+        "context": "Preview the beginning of this file and inspect its first header bytes.",
+        "raw": "{\"length\":0}"
+      },
+      {
+        "id": "=row \"16\"\nnext",
+        "context": "Continue the interrupted file transfer from offset 200 through the end of the download.",
+        "raw": "{\"length\":250}"
+      },
+      {
+        "id": "=row \"17\"\nnext",
+        "context": "Read only the first 100 bytes at the beginning of the file to identify the header.",
+        "raw": "{\"length\":65}"
+      },
+      {
+        "id": "=row \"18\"\nnext",
+        "context": "Read the last 80 bytes at the end of this binary file to inspect trailing metadata.",
+        "raw": "{\"length\":1000}"
+      },
+      {
+        "id": "=row \"19\"\nnext",
+        "context": "Preview the beginning of this file and inspect its first header bytes.",
+        "raw": "{\"length\":0}"
+      },
+      {
+        "id": "=row \"20\"\nnext",
+        "context": "Continue the interrupted file transfer from offset 200 through the end of the download.",
+        "raw": "{\"length\":250}"
+      },
+      {
+        "id": "=row \"21\"\nnext",
+        "context": "Read only the first 100 bytes at the beginning of the file to identify the header.",
+        "raw": "{\"length\":65}"
+      },
+      {
+        "id": "=row \"22\"\nnext",
+        "context": "Read the last 80 bytes at the end of this binary file to inspect trailing metadata.",
+        "raw": "{\"length\":1000}"
+      },
+      {
+        "id": "=row \"23\"\nnext",
+        "context": "Preview the beginning of this file and inspect its first header bytes.",
+        "raw": "{\"length\":0}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "=row \"0\"\nnext",
+      "system": "resume-download",
+      "raw": "{\"length\":250}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "resume-download",
+          "similarity": 0.847349894487523
+        },
+        {
+          "system": "header-preview",
+          "similarity": 0.35141776116408774
+        },
+        {
+          "system": "trailer-inspection",
+          "similarity": 0.334649861984923
+        }
+      ]
+    },
+    {
+      "id": "=row \"1\"\nnext",
+      "system": "header-preview",
+      "raw": "{\"length\":65}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "header-preview",
+          "similarity": 0.7931831497083355
+        },
+        {
+          "system": "trailer-inspection",
+          "similarity": 0.5691743440728054
+        },
+        {
+          "system": "resume-download",
+          "similarity": 0.4816492214566163
+        }
+      ]
+    },
+    {
+      "id": "=row \"2\"\nnext",
+      "system": "trailer-inspection",
+      "raw": "{\"length\":1000}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "trailer-inspection",
+          "similarity": 0.715009433669647
+        },
+        {
+          "system": "header-preview",
+          "similarity": 0.595010587333505
+        },
+        {
+          "system": "resume-download",
+          "similarity": 0.46272044189981126
+        }
+      ]
+    },
+    {
+      "id": "=row \"3\"\nnext",
+      "system": "header-preview",
+      "raw": "{\"length\":0}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "header-preview",
+          "similarity": 0.8391379256328311
+        },
+        {
+          "system": "trailer-inspection",
+          "similarity": 0.5846343748203569
+        },
+        {
+          "system": "resume-download",
+          "similarity": 0.44742012056340463
+        }
+      ]
+    },
+    {
+      "id": "=row \"4\"\nnext",
+      "system": "resume-download",
+      "raw": "{\"length\":250}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "resume-download",
+          "similarity": 0.8407795170396121
+        },
+        {
+          "system": "header-preview",
+          "similarity": 0.34699170558946857
+        },
+        {
+          "system": "trailer-inspection",
+          "similarity": 0.32845576565585677
+        }
+      ]
+    },
+    {
+      "id": "=row \"5\"\nnext",
+      "system": "header-preview",
+      "raw": "{\"length\":65}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "header-preview",
+          "similarity": 0.7931831497083355
+        },
+        {
+          "system": "trailer-inspection",
+          "similarity": 0.5691743440728054
+        },
+        {
+          "system": "resume-download",
+          "similarity": 0.4816492214566163
+        }
+      ]
+    },
+    {
+      "id": "=row \"6\"\nnext",
+      "system": "trailer-inspection",
+      "raw": "{\"length\":1000}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "trailer-inspection",
+          "similarity": 0.715009433669647
+        },
+        {
+          "system": "header-preview",
+          "similarity": 0.595010587333505
+        },
+        {
+          "system": "resume-download",
+          "similarity": 0.46272044189981126
+        }
+      ]
+    },
+    {
+      "id": "=row \"7\"\nnext",
+      "system": "header-preview",
+      "raw": "{\"length\":0}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "header-preview",
+          "similarity": 0.8391379256328311
+        },
+        {
+          "system": "trailer-inspection",
+          "similarity": 0.5846343748203569
+        },
+        {
+          "system": "resume-download",
+          "similarity": 0.44742012056340463
+        }
+      ]
+    },
+    {
+      "id": "=row \"8\"\nnext",
+      "system": "resume-download",
+      "raw": "{\"length\":250}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "resume-download",
+          "similarity": 0.8407795170396121
+        },
+        {
+          "system": "header-preview",
+          "similarity": 0.34699170558946857
+        },
+        {
+          "system": "trailer-inspection",
+          "similarity": 0.32845576565585677
+        }
+      ]
+    },
+    {
+      "id": "=row \"9\"\nnext",
+      "system": "header-preview",
+      "raw": "{\"length\":65}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "header-preview",
+          "similarity": 0.7931831497083355
+        },
+        {
+          "system": "trailer-inspection",
+          "similarity": 0.5691743440728054
+        },
+        {
+          "system": "resume-download",
+          "similarity": 0.4816492214566163
+        }
+      ]
+    },
+    {
+      "id": "=row \"10\"\nnext",
+      "system": "trailer-inspection",
+      "raw": "{\"length\":1000}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "trailer-inspection",
+          "similarity": 0.715009433669647
+        },
+        {
+          "system": "header-preview",
+          "similarity": 0.595010587333505
+        },
+        {
+          "system": "resume-download",
+          "similarity": 0.46272044189981126
+        }
+      ]
+    },
+    {
+      "id": "=row \"11\"\nnext",
+      "system": "header-preview",
+      "raw": "{\"length\":0}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "header-preview",
+          "similarity": 0.8391379256328311
+        },
+        {
+          "system": "trailer-inspection",
+          "similarity": 0.5846343748203569
+        },
+        {
+          "system": "resume-download",
+          "similarity": 0.44742012056340463
+        }
+      ]
+    },
+    {
+      "id": "=row \"12\"\nnext",
+      "system": "resume-download",
+      "raw": "{\"length\":250}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "resume-download",
+          "similarity": 0.8407795170396121
+        },
+        {
+          "system": "header-preview",
+          "similarity": 0.34699170558946857
+        },
+        {
+          "system": "trailer-inspection",
+          "similarity": 0.32845576565585677
+        }
+      ]
+    },
+    {
+      "id": "=row \"13\"\nnext",
+      "system": "header-preview",
+      "raw": "{\"length\":65}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "header-preview",
+          "similarity": 0.7931831497083355
+        },
+        {
+          "system": "trailer-inspection",
+          "similarity": 0.5691743440728054
+        },
+        {
+          "system": "resume-download",
+          "similarity": 0.4816492214566163
+        }
+      ]
+    },
+    {
+      "id": "=row \"14\"\nnext",
+      "system": "trailer-inspection",
+      "raw": "{\"length\":1000}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "trailer-inspection",
+          "similarity": 0.715009433669647
+        },
+        {
+          "system": "header-preview",
+          "similarity": 0.595010587333505
+        },
+        {
+          "system": "resume-download",
+          "similarity": 0.46272044189981126
+        }
+      ]
+    },
+    {
+      "id": "=row \"15\"\nnext",
+      "system": "header-preview",
+      "raw": "{\"length\":0}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "header-preview",
+          "similarity": 0.8391379256328311
+        },
+        {
+          "system": "trailer-inspection",
+          "similarity": 0.5846343748203569
+        },
+        {
+          "system": "resume-download",
+          "similarity": 0.44742012056340463
+        }
+      ]
+    },
+    {
+      "id": "=row \"16\"\nnext",
+      "system": "resume-download",
+      "raw": "{\"length\":250}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "resume-download",
+          "similarity": 0.8407795170396121
+        },
+        {
+          "system": "header-preview",
+          "similarity": 0.34699170558946857
+        },
+        {
+          "system": "trailer-inspection",
+          "similarity": 0.32845576565585677
+        }
+      ]
+    },
+    {
+      "id": "=row \"17\"\nnext",
+      "system": "header-preview",
+      "raw": "{\"length\":65}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "header-preview",
+          "similarity": 0.7931831497083355
+        },
+        {
+          "system": "trailer-inspection",
+          "similarity": 0.5691743440728054
+        },
+        {
+          "system": "resume-download",
+          "similarity": 0.4816492214566163
+        }
+      ]
+    },
+    {
+      "id": "=row \"18\"\nnext",
+      "system": "trailer-inspection",
+      "raw": "{\"length\":1000}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "trailer-inspection",
+          "similarity": 0.715009433669647
+        },
+        {
+          "system": "header-preview",
+          "similarity": 0.595010587333505
+        },
+        {
+          "system": "resume-download",
+          "similarity": 0.46272044189981126
+        }
+      ]
+    },
+    {
+      "id": "=row \"19\"\nnext",
+      "system": "header-preview",
+      "raw": "{\"length\":0}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "header-preview",
+          "similarity": 0.8391379256328311
+        },
+        {
+          "system": "trailer-inspection",
+          "similarity": 0.5846343748203569
+        },
+        {
+          "system": "resume-download",
+          "similarity": 0.44742012056340463
+        }
+      ]
+    },
+    {
+      "id": "=row \"20\"\nnext",
+      "system": "resume-download",
+      "raw": "{\"length\":250}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "resume-download",
+          "similarity": 0.8407795170396121
+        },
+        {
+          "system": "header-preview",
+          "similarity": 0.34699170558946857
+        },
+        {
+          "system": "trailer-inspection",
+          "similarity": 0.32845576565585677
+        }
+      ]
+    },
+    {
+      "id": "=row \"21\"\nnext",
+      "system": "header-preview",
+      "raw": "{\"length\":65}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "header-preview",
+          "similarity": 0.7954361752716477
+        },
+        {
+          "system": "trailer-inspection",
+          "similarity": 0.5687686529712145
+        },
+        {
+          "system": "resume-download",
+          "similarity": 0.4718816069478133
+        }
+      ]
+    },
+    {
+      "id": "=row \"22\"\nnext",
+      "system": "trailer-inspection",
+      "raw": "{\"length\":1000}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "trailer-inspection",
+          "similarity": 0.7291002092369813
+        },
+        {
+          "system": "header-preview",
+          "similarity": 0.6072158900822201
+        },
+        {
+          "system": "resume-download",
+          "similarity": 0.47678667304359457
+        }
+      ]
+    },
+    {
+      "id": "=row \"23\"\nnext",
+      "system": "header-preview",
+      "raw": "{\"length\":0}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "header-preview",
+          "similarity": 0.849304164360538
+        },
+        {
+          "system": "trailer-inspection",
+          "similarity": 0.5847225025098645
+        },
+        {
+          "system": "resume-download",
+          "similarity": 0.43993441556706914
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "=row \"0\"\nnext",
+      "system": "resume-download",
+      "raw": "{\"length\":250}",
+      "range": "bytes=200-",
+      "length": 250,
+      "statusCode": 206,
+      "selected": "bytes 200-249/250",
+      "intervals": [
+        [
+          200,
+          249
+        ]
+      ],
+      "witnesses": [
+        {
+          "index": 0,
+          "request": {
+            "kind": "position",
+            "first": 200,
+            "last": null
+          },
+          "first": 200,
+          "last": 249,
+          "satisfiable": true
+        }
+      ],
+      "payloadBytes": 50,
+      "multipart": false,
+      "contentRanges": [
+        "bytes 200-249/250"
+      ],
+      "unsatisfiedContentRange": null,
+      "baseline": 250,
+      "baselineStatus": 200,
+      "disagreement": true,
+      "omittedPayloadBytes": 200,
+      "reason": "Satisfiable intervals clipped to the representation, sorted and coalesced. Disjoint intervals require multipart output; byte count excludes framing.",
+      "status": "ready"
+    },
+    {
+      "id": "=row \"1\"\nnext",
+      "system": "header-preview",
+      "raw": "{\"length\":65}",
+      "range": "bytes=0-99",
+      "length": 65,
+      "statusCode": 206,
+      "selected": "bytes 0-64/65",
+      "intervals": [
+        [
+          0,
+          64
+        ]
+      ],
+      "witnesses": [
+        {
+          "index": 0,
+          "request": {
+            "kind": "position",
+            "first": 0,
+            "last": 99
+          },
+          "first": 0,
+          "last": 64,
+          "satisfiable": true
+        }
+      ],
+      "payloadBytes": 65,
+      "multipart": false,
+      "contentRanges": [
+        "bytes 0-64/65"
+      ],
+      "unsatisfiedContentRange": null,
+      "baseline": 65,
+      "baselineStatus": 200,
+      "disagreement": true,
+      "omittedPayloadBytes": 0,
+      "reason": "Satisfiable intervals clipped to the representation, sorted and coalesced. Disjoint intervals require multipart output; byte count excludes framing.",
+      "status": "ready"
+    },
+    {
+      "id": "=row \"2\"\nnext",
+      "system": "trailer-inspection",
+      "raw": "{\"length\":1000}",
+      "range": "bytes=-80",
+      "length": 1000,
+      "statusCode": 206,
+      "selected": "bytes 920-999/1000",
+      "intervals": [
+        [
+          920,
+          999
+        ]
+      ],
+      "witnesses": [
+        {
+          "index": 0,
+          "request": {
+            "kind": "suffix",
+            "count": 80
+          },
+          "first": 920,
+          "last": 999,
+          "satisfiable": true
+        }
+      ],
+      "payloadBytes": 80,
+      "multipart": false,
+      "contentRanges": [
+        "bytes 920-999/1000"
+      ],
+      "unsatisfiedContentRange": null,
+      "baseline": 1000,
+      "baselineStatus": 200,
+      "disagreement": true,
+      "omittedPayloadBytes": 920,
+      "reason": "Satisfiable intervals clipped to the representation, sorted and coalesced. Disjoint intervals require multipart output; byte count excludes framing.",
+      "status": "ready"
+    },
+    {
+      "id": "=row \"3\"\nnext",
+      "system": "header-preview",
+      "raw": "{\"length\":0}",
+      "range": "bytes=0-99",
+      "length": 0,
+      "statusCode": 416,
+      "selected": "bytes */0",
+      "intervals": [],
+      "witnesses": [
+        {
+          "index": 0,
+          "request": {
+            "kind": "position",
+            "first": 0,
+            "last": 99
+          },
+          "first": 0,
+          "last": -1,
+          "satisfiable": false
+        }
+      ],
+      "payloadBytes": 0,
+      "multipart": false,
+      "contentRanges": [],
+      "unsatisfiedContentRange": "bytes */0",
+      "baseline": 0,
+      "baselineStatus": 200,
+      "disagreement": true,
+      "omittedPayloadBytes": 0,
+      "reason": "No satisfiable interval: expect 416 and an unsatisfied Content-Range in this worksheet.",
+      "status": "ready"
+    },
+    {
+      "id": "=row \"4\"\nnext",
+      "system": "resume-download",
+      "raw": "{\"length\":250}",
+      "range": "bytes=200-",
+      "length": 250,
+      "statusCode": 206,
+      "selected": "bytes 200-249/250",
+      "intervals": [
+        [
+          200,
+          249
+        ]
+      ],
+      "witnesses": [
+        {
+          "index": 0,
+          "request": {
+            "kind": "position",
+            "first": 200,
+            "last": null
+          },
+          "first": 200,
+          "last": 249,
+          "satisfiable": true
+        }
+      ],
+      "payloadBytes": 50,
+      "multipart": false,
+      "contentRanges": [
+        "bytes 200-249/250"
+      ],
+      "unsatisfiedContentRange": null,
+      "baseline": 250,
+      "baselineStatus": 200,
+      "disagreement": true,
+      "omittedPayloadBytes": 200,
+      "reason": "Satisfiable intervals clipped to the representation, sorted and coalesced. Disjoint intervals require multipart output; byte count excludes framing.",
+      "status": "ready"
+    },
+    {
+      "id": "=row \"5\"\nnext",
+      "system": "header-preview",
+      "raw": "{\"length\":65}",
+      "range": "bytes=0-99",
+      "length": 65,
+      "statusCode": 206,
+      "selected": "bytes 0-64/65",
+      "intervals": [
+        [
+          0,
+          64
+        ]
+      ],
+      "witnesses": [
+        {
+          "index": 0,
+          "request": {
+            "kind": "position",
+            "first": 0,
+            "last": 99
+          },
+          "first": 0,
+          "last": 64,
+          "satisfiable": true
+        }
+      ],
+      "payloadBytes": 65,
+      "multipart": false,
+      "contentRanges": [
+        "bytes 0-64/65"
+      ],
+      "unsatisfiedContentRange": null,
+      "baseline": 65,
+      "baselineStatus": 200,
+      "disagreement": true,
+      "omittedPayloadBytes": 0,
+      "reason": "Satisfiable intervals clipped to the representation, sorted and coalesced. Disjoint intervals require multipart output; byte count excludes framing.",
+      "status": "ready"
+    },
+    {
+      "id": "=row \"6\"\nnext",
+      "system": "trailer-inspection",
+      "raw": "{\"length\":1000}",
+      "range": "bytes=-80",
+      "length": 1000,
+      "statusCode": 206,
+      "selected": "bytes 920-999/1000",
+      "intervals": [
+        [
+          920,
+          999
+        ]
+      ],
+      "witnesses": [
+        {
+          "index": 0,
+          "request": {
+            "kind": "suffix",
+            "count": 80
+          },
+          "first": 920,
+          "last": 999,
+          "satisfiable": true
+        }
+      ],
+      "payloadBytes": 80,
+      "multipart": false,
+      "contentRanges": [
+        "bytes 920-999/1000"
+      ],
+      "unsatisfiedContentRange": null,
+      "baseline": 1000,
+      "baselineStatus": 200,
+      "disagreement": true,
+      "omittedPayloadBytes": 920,
+      "reason": "Satisfiable intervals clipped to the representation, sorted and coalesced. Disjoint intervals require multipart output; byte count excludes framing.",
+      "status": "ready"
+    },
+    {
+      "id": "=row \"7\"\nnext",
+      "system": "header-preview",
+      "raw": "{\"length\":0}",
+      "range": "bytes=0-99",
+      "length": 0,
+      "statusCode": 416,
+      "selected": "bytes */0",
+      "intervals": [],
+      "witnesses": [
+        {
+          "index": 0,
+          "request": {
+            "kind": "position",
+            "first": 0,
+            "last": 99
+          },
+          "first": 0,
+          "last": -1,
+          "satisfiable": false
+        }
+      ],
+      "payloadBytes": 0,
+      "multipart": false,
+      "contentRanges": [],
+      "unsatisfiedContentRange": "bytes */0",
+      "baseline": 0,
+      "baselineStatus": 200,
+      "disagreement": true,
+      "omittedPayloadBytes": 0,
+      "reason": "No satisfiable interval: expect 416 and an unsatisfied Content-Range in this worksheet.",
+      "status": "ready"
+    },
+    {
+      "id": "=row \"8\"\nnext",
+      "system": "resume-download",
+      "raw": "{\"length\":250}",
+      "range": "bytes=200-",
+      "length": 250,
+      "statusCode": 206,
+      "selected": "bytes 200-249/250",
+      "intervals": [
+        [
+          200,
+          249
+        ]
+      ],
+      "witnesses": [
+        {
+          "index": 0,
+          "request": {
+            "kind": "position",
+            "first": 200,
+            "last": null
+          },
+          "first": 200,
+          "last": 249,
+          "satisfiable": true
+        }
+      ],
+      "payloadBytes": 50,
+      "multipart": false,
+      "contentRanges": [
+        "bytes 200-249/250"
+      ],
+      "unsatisfiedContentRange": null,
+      "baseline": 250,
+      "baselineStatus": 200,
+      "disagreement": true,
+      "omittedPayloadBytes": 200,
+      "reason": "Satisfiable intervals clipped to the representation, sorted and coalesced. Disjoint intervals require multipart output; byte count excludes framing.",
+      "status": "ready"
+    },
+    {
+      "id": "=row \"9\"\nnext",
+      "system": "header-preview",
+      "raw": "{\"length\":65}",
+      "range": "bytes=0-99",
+      "length": 65,
+      "statusCode": 206,
+      "selected": "bytes 0-64/65",
+      "intervals": [
+        [
+          0,
+          64
+        ]
+      ],
+      "witnesses": [
+        {
+          "index": 0,
+          "request": {
+            "kind": "position",
+            "first": 0,
+            "last": 99
+          },
+          "first": 0,
+          "last": 64,
+          "satisfiable": true
+        }
+      ],
+      "payloadBytes": 65,
+      "multipart": false,
+      "contentRanges": [
+        "bytes 0-64/65"
+      ],
+      "unsatisfiedContentRange": null,
+      "baseline": 65,
+      "baselineStatus": 200,
+      "disagreement": true,
+      "omittedPayloadBytes": 0,
+      "reason": "Satisfiable intervals clipped to the representation, sorted and coalesced. Disjoint intervals require multipart output; byte count excludes framing.",
+      "status": "ready"
+    },
+    {
+      "id": "=row \"10\"\nnext",
+      "system": "trailer-inspection",
+      "raw": "{\"length\":1000}",
+      "range": "bytes=-80",
+      "length": 1000,
+      "statusCode": 206,
+      "selected": "bytes 920-999/1000",
+      "intervals": [
+        [
+          920,
+          999
+        ]
+      ],
+      "witnesses": [
+        {
+          "index": 0,
+          "request": {
+            "kind": "suffix",
+            "count": 80
+          },
+          "first": 920,
+          "last": 999,
+          "satisfiable": true
+        }
+      ],
+      "payloadBytes": 80,
+      "multipart": false,
+      "contentRanges": [
+        "bytes 920-999/1000"
+      ],
+      "unsatisfiedContentRange": null,
+      "baseline": 1000,
+      "baselineStatus": 200,
+      "disagreement": true,
+      "omittedPayloadBytes": 920,
+      "reason": "Satisfiable intervals clipped to the representation, sorted and coalesced. Disjoint intervals require multipart output; byte count excludes framing.",
+      "status": "ready"
+    },
+    {
+      "id": "=row \"11\"\nnext",
+      "system": "header-preview",
+      "raw": "{\"length\":0}",
+      "range": "bytes=0-99",
+      "length": 0,
+      "statusCode": 416,
+      "selected": "bytes */0",
+      "intervals": [],
+      "witnesses": [
+        {
+          "index": 0,
+          "request": {
+            "kind": "position",
+            "first": 0,
+            "last": 99
+          },
+          "first": 0,
+          "last": -1,
+          "satisfiable": false
+        }
+      ],
+      "payloadBytes": 0,
+      "multipart": false,
+      "contentRanges": [],
+      "unsatisfiedContentRange": "bytes */0",
+      "baseline": 0,
+      "baselineStatus": 200,
+      "disagreement": true,
+      "omittedPayloadBytes": 0,
+      "reason": "No satisfiable interval: expect 416 and an unsatisfied Content-Range in this worksheet.",
+      "status": "ready"
+    },
+    {
+      "id": "=row \"12\"\nnext",
+      "system": "resume-download",
+      "raw": "{\"length\":250}",
+      "range": "bytes=200-",
+      "length": 250,
+      "statusCode": 206,
+      "selected": "bytes 200-249/250",
+      "intervals": [
+        [
+          200,
+          249
+        ]
+      ],
+      "witnesses": [
+        {
+          "index": 0,
+          "request": {
+            "kind": "position",
+            "first": 200,
+            "last": null
+          },
+          "first": 200,
+          "last": 249,
+          "satisfiable": true
+        }
+      ],
+      "payloadBytes": 50,
+      "multipart": false,
+      "contentRanges": [
+        "bytes 200-249/250"
+      ],
+      "unsatisfiedContentRange": null,
+      "baseline": 250,
+      "baselineStatus": 200,
+      "disagreement": true,
+      "omittedPayloadBytes": 200,
+      "reason": "Satisfiable intervals clipped to the representation, sorted and coalesced. Disjoint intervals require multipart output; byte count excludes framing.",
+      "status": "ready"
+    },
+    {
+      "id": "=row \"13\"\nnext",
+      "system": "header-preview",
+      "raw": "{\"length\":65}",
+      "range": "bytes=0-99",
+      "length": 65,
+      "statusCode": 206,
+      "selected": "bytes 0-64/65",
+      "intervals": [
+        [
+          0,
+          64
+        ]
+      ],
+      "witnesses": [
+        {
+          "index": 0,
+          "request": {
+            "kind": "position",
+            "first": 0,
+            "last": 99
+          },
+          "first": 0,
+          "last": 64,
+          "satisfiable": true
+        }
+      ],
+      "payloadBytes": 65,
+      "multipart": false,
+      "contentRanges": [
+        "bytes 0-64/65"
+      ],
+      "unsatisfiedContentRange": null,
+      "baseline": 65,
+      "baselineStatus": 200,
+      "disagreement": true,
+      "omittedPayloadBytes": 0,
+      "reason": "Satisfiable intervals clipped to the representation, sorted and coalesced. Disjoint intervals require multipart output; byte count excludes framing.",
+      "status": "ready"
+    },
+    {
+      "id": "=row \"14\"\nnext",
+      "system": "trailer-inspection",
+      "raw": "{\"length\":1000}",
+      "range": "bytes=-80",
+      "length": 1000,
+      "statusCode": 206,
+      "selected": "bytes 920-999/1000",
+      "intervals": [
+        [
+          920,
+          999
+        ]
+      ],
+      "witnesses": [
+        {
+          "index": 0,
+          "request": {
+            "kind": "suffix",
+            "count": 80
+          },
+          "first": 920,
+          "last": 999,
+          "satisfiable": true
+        }
+      ],
+      "payloadBytes": 80,
+      "multipart": false,
+      "contentRanges": [
+        "bytes 920-999/1000"
+      ],
+      "unsatisfiedContentRange": null,
+      "baseline": 1000,
+      "baselineStatus": 200,
+      "disagreement": true,
+      "omittedPayloadBytes": 920,
+      "reason": "Satisfiable intervals clipped to the representation, sorted and coalesced. Disjoint intervals require multipart output; byte count excludes framing.",
+      "status": "ready"
+    },
+    {
+      "id": "=row \"15\"\nnext",
+      "system": "header-preview",
+      "raw": "{\"length\":0}",
+      "range": "bytes=0-99",
+      "length": 0,
+      "statusCode": 416,
+      "selected": "bytes */0",
+      "intervals": [],
+      "witnesses": [
+        {
+          "index": 0,
+          "request": {
+            "kind": "position",
+            "first": 0,
+            "last": 99
+          },
+          "first": 0,
+          "last": -1,
+          "satisfiable": false
+        }
+      ],
+      "payloadBytes": 0,
+      "multipart": false,
+      "contentRanges": [],
+      "unsatisfiedContentRange": "bytes */0",
+      "baseline": 0,
+      "baselineStatus": 200,
+      "disagreement": true,
+      "omittedPayloadBytes": 0,
+      "reason": "No satisfiable interval: expect 416 and an unsatisfied Content-Range in this worksheet.",
+      "status": "ready"
+    },
+    {
+      "id": "=row \"16\"\nnext",
+      "system": "resume-download",
+      "raw": "{\"length\":250}",
+      "range": "bytes=200-",
+      "length": 250,
+      "statusCode": 206,
+      "selected": "bytes 200-249/250",
+      "intervals": [
+        [
+          200,
+          249
+        ]
+      ],
+      "witnesses": [
+        {
+          "index": 0,
+          "request": {
+            "kind": "position",
+            "first": 200,
+            "last": null
+          },
+          "first": 200,
+          "last": 249,
+          "satisfiable": true
+        }
+      ],
+      "payloadBytes": 50,
+      "multipart": false,
+      "contentRanges": [
+        "bytes 200-249/250"
+      ],
+      "unsatisfiedContentRange": null,
+      "baseline": 250,
+      "baselineStatus": 200,
+      "disagreement": true,
+      "omittedPayloadBytes": 200,
+      "reason": "Satisfiable intervals clipped to the representation, sorted and coalesced. Disjoint intervals require multipart output; byte count excludes framing.",
+      "status": "ready"
+    },
+    {
+      "id": "=row \"17\"\nnext",
+      "system": "header-preview",
+      "raw": "{\"length\":65}",
+      "range": "bytes=0-99",
+      "length": 65,
+      "statusCode": 206,
+      "selected": "bytes 0-64/65",
+      "intervals": [
+        [
+          0,
+          64
+        ]
+      ],
+      "witnesses": [
+        {
+          "index": 0,
+          "request": {
+            "kind": "position",
+            "first": 0,
+            "last": 99
+          },
+          "first": 0,
+          "last": 64,
+          "satisfiable": true
+        }
+      ],
+      "payloadBytes": 65,
+      "multipart": false,
+      "contentRanges": [
+        "bytes 0-64/65"
+      ],
+      "unsatisfiedContentRange": null,
+      "baseline": 65,
+      "baselineStatus": 200,
+      "disagreement": true,
+      "omittedPayloadBytes": 0,
+      "reason": "Satisfiable intervals clipped to the representation, sorted and coalesced. Disjoint intervals require multipart output; byte count excludes framing.",
+      "status": "ready"
+    },
+    {
+      "id": "=row \"18\"\nnext",
+      "system": "trailer-inspection",
+      "raw": "{\"length\":1000}",
+      "range": "bytes=-80",
+      "length": 1000,
+      "statusCode": 206,
+      "selected": "bytes 920-999/1000",
+      "intervals": [
+        [
+          920,
+          999
+        ]
+      ],
+      "witnesses": [
+        {
+          "index": 0,
+          "request": {
+            "kind": "suffix",
+            "count": 80
+          },
+          "first": 920,
+          "last": 999,
+          "satisfiable": true
+        }
+      ],
+      "payloadBytes": 80,
+      "multipart": false,
+      "contentRanges": [
+        "bytes 920-999/1000"
+      ],
+      "unsatisfiedContentRange": null,
+      "baseline": 1000,
+      "baselineStatus": 200,
+      "disagreement": true,
+      "omittedPayloadBytes": 920,
+      "reason": "Satisfiable intervals clipped to the representation, sorted and coalesced. Disjoint intervals require multipart output; byte count excludes framing.",
+      "status": "ready"
+    },
+    {
+      "id": "=row \"19\"\nnext",
+      "system": "header-preview",
+      "raw": "{\"length\":0}",
+      "range": "bytes=0-99",
+      "length": 0,
+      "statusCode": 416,
+      "selected": "bytes */0",
+      "intervals": [],
+      "witnesses": [
+        {
+          "index": 0,
+          "request": {
+            "kind": "position",
+            "first": 0,
+            "last": 99
+          },
+          "first": 0,
+          "last": -1,
+          "satisfiable": false
+        }
+      ],
+      "payloadBytes": 0,
+      "multipart": false,
+      "contentRanges": [],
+      "unsatisfiedContentRange": "bytes */0",
+      "baseline": 0,
+      "baselineStatus": 200,
+      "disagreement": true,
+      "omittedPayloadBytes": 0,
+      "reason": "No satisfiable interval: expect 416 and an unsatisfied Content-Range in this worksheet.",
+      "status": "ready"
+    },
+    {
+      "id": "=row \"20\"\nnext",
+      "system": "resume-download",
+      "raw": "{\"length\":250}",
+      "range": "bytes=200-",
+      "length": 250,
+      "statusCode": 206,
+      "selected": "bytes 200-249/250",
+      "intervals": [
+        [
+          200,
+          249
+        ]
+      ],
+      "witnesses": [
+        {
+          "index": 0,
+          "request": {
+            "kind": "position",
+            "first": 200,
+            "last": null
+          },
+          "first": 200,
+          "last": 249,
+          "satisfiable": true
+        }
+      ],
+      "payloadBytes": 50,
+      "multipart": false,
+      "contentRanges": [
+        "bytes 200-249/250"
+      ],
+      "unsatisfiedContentRange": null,
+      "baseline": 250,
+      "baselineStatus": 200,
+      "disagreement": true,
+      "omittedPayloadBytes": 200,
+      "reason": "Satisfiable intervals clipped to the representation, sorted and coalesced. Disjoint intervals require multipart output; byte count excludes framing.",
+      "status": "ready"
+    },
+    {
+      "id": "=row \"21\"\nnext",
+      "system": "header-preview",
+      "raw": "{\"length\":65}",
+      "range": "bytes=0-99",
+      "length": 65,
+      "statusCode": 206,
+      "selected": "bytes 0-64/65",
+      "intervals": [
+        [
+          0,
+          64
+        ]
+      ],
+      "witnesses": [
+        {
+          "index": 0,
+          "request": {
+            "kind": "position",
+            "first": 0,
+            "last": 99
+          },
+          "first": 0,
+          "last": 64,
+          "satisfiable": true
+        }
+      ],
+      "payloadBytes": 65,
+      "multipart": false,
+      "contentRanges": [
+        "bytes 0-64/65"
+      ],
+      "unsatisfiedContentRange": null,
+      "baseline": 65,
+      "baselineStatus": 200,
+      "disagreement": true,
+      "omittedPayloadBytes": 0,
+      "reason": "Satisfiable intervals clipped to the representation, sorted and coalesced. Disjoint intervals require multipart output; byte count excludes framing.",
+      "status": "ready"
+    },
+    {
+      "id": "=row \"22\"\nnext",
+      "system": "trailer-inspection",
+      "raw": "{\"length\":1000}",
+      "range": "bytes=-80",
+      "length": 1000,
+      "statusCode": 206,
+      "selected": "bytes 920-999/1000",
+      "intervals": [
+        [
+          920,
+          999
+        ]
+      ],
+      "witnesses": [
+        {
+          "index": 0,
+          "request": {
+            "kind": "suffix",
+            "count": 80
+          },
+          "first": 920,
+          "last": 999,
+          "satisfiable": true
+        }
+      ],
+      "payloadBytes": 80,
+      "multipart": false,
+      "contentRanges": [
+        "bytes 920-999/1000"
+      ],
+      "unsatisfiedContentRange": null,
+      "baseline": 1000,
+      "baselineStatus": 200,
+      "disagreement": true,
+      "omittedPayloadBytes": 920,
+      "reason": "Satisfiable intervals clipped to the representation, sorted and coalesced. Disjoint intervals require multipart output; byte count excludes framing.",
+      "status": "ready"
+    },
+    {
+      "id": "=row \"23\"\nnext",
+      "system": "header-preview",
+      "raw": "{\"length\":0}",
+      "range": "bytes=0-99",
+      "length": 0,
+      "statusCode": 416,
+      "selected": "bytes */0",
+      "intervals": [],
+      "witnesses": [
+        {
+          "index": 0,
+          "request": {
+            "kind": "position",
+            "first": 0,
+            "last": 99
+          },
+          "first": 0,
+          "last": -1,
+          "satisfiable": false
+        }
+      ],
+      "payloadBytes": 0,
+      "multipart": false,
+      "contentRanges": [],
+      "unsatisfiedContentRange": "bytes */0",
+      "baseline": 0,
+      "baselineStatus": 200,
+      "disagreement": true,
+      "omittedPayloadBytes": 0,
+      "reason": "No satisfiable interval: expect 416 and an unsatisfied Content-Range in this worksheet.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 24,
+    "ready": 24,
+    "held": 0,
+    "blocked": 0,
+    "unacceptable": 6,
+    "disagreements": 24,
+    "edited": 0,
+    "payloadBytes": 1170,
+    "omittedPayloadBytes": 6720
+  }
+}

@@ -1,0 +1,188 @@
+{
+  "version": 1,
+  "app": "Member Sentinel",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "stock",
+        "description": "Warehouse stock inventory adjustments with product SKU and whole-unit quantity.",
+        "target": "{\"required\":[\"sku\",\"quantity\"]}"
+      },
+      {
+        "id": "billing",
+        "description": "Customer billing invoice payment records with invoice identifier and integer amount in cents.",
+        "target": "{\"required\":[\"invoice\",\"cents\"]}"
+      },
+      {
+        "id": "people",
+        "description": "Member account directory contact imports with user identifier and email address.",
+        "target": "{\"required\":[\"userId\",\"email\"]}"
+      }
+    ],
+    "records": [
+      {
+        "id": "Operations handoff-1",
+        "context": "The storeroom counted these product units for the stock import.",
+        "raw": "{\"sku\":\"BOLT-4\",\"quantity\":12}"
+      },
+      {
+        "id": "Operations handoff-2",
+        "context": "This accounts receivable invoice settlement should record the money in cents.",
+        "raw": "{\"invoice\":\"INV-17\",\"cents\":4500,\"cents\":5400}"
+      },
+      {
+        "id": "Operations handoff-3",
+        "context": "New subscriber contact details for our member directory.",
+        "raw": "{\"userId\":9007199254740993,\"email\":\"ava@example.test\"}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "Operations handoff-1",
+      "system": "stock",
+      "raw": "{\"sku\":\"BOLT-4\",\"quantity\":12}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "stock",
+          "similarity": 0.5434977158729573
+        },
+        {
+          "system": "billing",
+          "similarity": 0.2696023224211793
+        },
+        {
+          "system": "people",
+          "similarity": 0.19599368868569955
+        }
+      ]
+    },
+    {
+      "id": "Operations handoff-2",
+      "system": "billing",
+      "raw": "{\"invoice\":\"INV-17\",\"cents\":4500,\"cents\":5400}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "billing",
+          "similarity": 0.670631402742617
+        },
+        {
+          "system": "stock",
+          "similarity": 0.15207631277541656
+        },
+        {
+          "system": "people",
+          "similarity": 0.10457483499658282
+        }
+      ]
+    },
+    {
+      "id": "Operations handoff-3",
+      "system": "people",
+      "raw": "{\"userId\":9007199254740993,\"email\":\"ava@example.test\"}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "people",
+          "similarity": 0.553142947169657
+        },
+        {
+          "system": "billing",
+          "similarity": 0.17116872095364347
+        },
+        {
+          "system": "stock",
+          "similarity": 0.14692502515896758
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "Operations handoff-1",
+      "system": "stock",
+      "raw": "{\"sku\":\"BOLT-4\",\"quantity\":12}",
+      "target": {
+        "required": [
+          "sku",
+          "quantity"
+        ]
+      },
+      "baseline": true,
+      "match": true,
+      "issues": [],
+      "disagreement": false,
+      "value": {
+        "sku": "BOLT-4",
+        "quantity": 12
+      },
+      "reason": "All required keys present; no duplicate decoded members or unsupported numeric literals detected. Field types/business rules still require review.",
+      "status": "ready"
+    },
+    {
+      "id": "Operations handoff-2",
+      "system": "billing",
+      "raw": "{\"invoice\":\"INV-17\",\"cents\":4500,\"cents\":5400}",
+      "target": {
+        "required": [
+          "invoice",
+          "cents"
+        ]
+      },
+      "baseline": true,
+      "match": false,
+      "issues": [
+        {
+          "kind": "duplicate",
+          "path": "/cents",
+          "offset": 33,
+          "firstOffset": 20,
+          "reason": "Repeated decoded object member \"cents\". Earlier value would be overwritten."
+        }
+      ],
+      "disagreement": true,
+      "value": null,
+      "reason": "Repeated decoded object member \"cents\". Earlier value would be overwritten.",
+      "status": "blocked"
+    },
+    {
+      "id": "Operations handoff-3",
+      "system": "people",
+      "raw": "{\"userId\":9007199254740993,\"email\":\"ava@example.test\"}",
+      "target": {
+        "required": [
+          "userId",
+          "email"
+        ]
+      },
+      "baseline": true,
+      "match": false,
+      "issues": [
+        {
+          "kind": "number",
+          "path": "/userId",
+          "offset": 10,
+          "token": "9007199254740993",
+          "reason": "Numeric magnitude exceeds 2^53−1. Quote identifiers or use an agreed exact-decimal string."
+        }
+      ],
+      "disagreement": true,
+      "value": null,
+      "reason": "Numeric magnitude exceeds 2^53−1. Quote identifiers or use an agreed exact-decimal string.",
+      "status": "blocked"
+    }
+  ],
+  "metrics": {
+    "records": 3,
+    "ready": 1,
+    "held": 0,
+    "blocked": 2,
+    "compared": 3,
+    "disagreements": 2
+  }
+}

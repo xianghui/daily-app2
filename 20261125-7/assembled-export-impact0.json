@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "app": "Member Sentinel",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "stock",
+        "description": "Warehouse stock inventory adjustments with product SKU and whole-unit quantity.",
+        "target": "{\"required\":[\"sku\",\"quantity\"]}"
+      },
+      {
+        "id": "billing",
+        "description": "Customer billing invoice payment records with invoice identifier and integer amount in cents.",
+        "target": "{\"required\":[\"invoice\",\"cents\"]}"
+      }
+    ],
+    "records": [
+      {
+        "id": "same",
+        "context": "Warehouse stock inventory adjustments with product SKU and whole-unit quantity.",
+        "raw": "{\"sku\":\"BOLT-4\",\"quantity\":12}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "same",
+      "system": "stock",
+      "raw": "{\"sku\":\"BOLT-4\",\"quantity\":12}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "stock",
+          "similarity": 1.0000001334256765
+        },
+        {
+          "system": "billing",
+          "similarity": 0.18551967176647072
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "same",
+      "system": "stock",
+      "raw": "{\"sku\":\"BOLT-4\",\"quantity\":12}",
+      "target": {
+        "required": [
+          "sku",
+          "quantity"
+        ]
+      },
+      "baseline": true,
+      "match": true,
+      "issues": [],
+      "disagreement": false,
+      "value": {
+        "sku": "BOLT-4",
+        "quantity": 12
+      },
+      "reason": "All required keys present; no duplicate decoded members or unsupported numeric literals detected. Field types/business rules still require review.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 1,
+    "ready": 1,
+    "held": 0,
+    "blocked": 0,
+    "compared": 1,
+    "disagreements": 0
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "app": "Member Sentinel",
+  "scope": "Approved JSON payloads only. Source strings preserved exactly; no network requests or imports executed. Not a full JSON Schema validator.",
+  "payloads": [
+    {
+      "id": "Second delivery-1",
+      "contract": "people",
+      "raw": "{\"userId\":\"9007199254740993\",\"email\":\"kai@example.test\"}",
+      "value": {
+        "userId": "9007199254740993",
+        "email": "kai@example.test"
+      }
+    },
+    {
+      "id": "Second delivery-2",
+      "contract": "stock",
+      "raw": "{\n  \"sku\": \"Nut, \\\"é\\\"\",\n  \"quantity\": 7\n}",
+      "value": {
+        "sku": "Nut, \"é\"",
+        "quantity": 7
+      }
+    },
+    {
+      "id": "Second delivery-3",
+      "contract": "billing",
+      "raw": "{\"invoice\":\"INV-18\",\"cents\":2500}",
+      "value": {
+        "invoice": "INV-18",
+        "cents": 2500
+      }
+    }
+  ]
+}

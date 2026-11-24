@@ -1,0 +1,164 @@
+{
+  "version": 1,
+  "app": "Member Sentinel",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "stock",
+        "description": "Warehouse stock inventory adjustments with product SKU and whole-unit quantity.",
+        "target": "{\"required\":[\"sku\",\"quantity\"]}"
+      },
+      {
+        "id": "billing",
+        "description": "Customer billing invoice payment records with invoice identifier and integer amount in cents.",
+        "target": "{\"required\":[\"invoice\",\"cents\"]}"
+      },
+      {
+        "id": "people",
+        "description": "Member account directory contact imports with user identifier and email address.",
+        "target": "{\"required\":[\"userId\",\"email\"]}"
+      }
+    ],
+    "records": [
+      {
+        "id": "Second delivery-1",
+        "context": "The user account signup contact list needs this email entry.",
+        "raw": "{\"userId\":\"9007199254740993\",\"email\":\"kai@example.test\"}"
+      },
+      {
+        "id": "Second delivery-2",
+        "context": "A warehouse product stock correction from the shelf count.",
+        "raw": "{\"sku\":\"NUT-7\",\"quantity\":3,\"meta\":{\"bin\":1,\"b\\u0069n\":2}}"
+      },
+      {
+        "id": "Second delivery-3",
+        "context": "Finance supplied the invoice payment amount for the billing import.",
+        "raw": "{\"invoice\":\"INV-18\",\"cents\":2500}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "Second delivery-1",
+      "system": "people",
+      "raw": "{\"userId\":\"9007199254740993\",\"email\":\"kai@example.test\"}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "people",
+          "similarity": 0.6136850837899784
+        },
+        {
+          "system": "billing",
+          "similarity": 0.07859649471015925
+        },
+        {
+          "system": "stock",
+          "similarity": -0.009476116877499293
+        }
+      ]
+    },
+    {
+      "id": "Second delivery-2",
+      "system": "stock",
+      "raw": "{\n  \"sku\": \"Nut, \\\"é\\\"\",\n  \"quantity\": 7\n}",
+      "decision": "hold",
+      "note": "=SUM(1,2)\nReviewed \"paper\", exactly.",
+      "evidence": [
+        {
+          "system": "stock",
+          "similarity": 0.6590626918471464
+        },
+        {
+          "system": "billing",
+          "similarity": 0.17687742772462128
+        },
+        {
+          "system": "people",
+          "similarity": 0.04994812128718254
+        }
+      ]
+    },
+    {
+      "id": "Second delivery-3",
+      "system": "billing",
+      "raw": "{\"invoice\":\"INV-18\",\"cents\":2500}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "billing",
+          "similarity": 0.5630762616549128
+        },
+        {
+          "system": "people",
+          "similarity": 0.2532364356550381
+        },
+        {
+          "system": "stock",
+          "similarity": 0.19395222830667277
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "Second delivery-1",
+      "system": "people",
+      "raw": "{\"userId\":\"9007199254740993\",\"email\":\"kai@example.test\"}",
+      "target": {
+        "required": [
+          "userId",
+          "email"
+        ]
+      },
+      "baseline": true,
+      "match": true,
+      "issues": [],
+      "disagreement": false,
+      "value": {
+        "userId": "9007199254740993",
+        "email": "kai@example.test"
+      },
+      "reason": "All required keys present; no duplicate decoded members or unsupported numeric literals detected. Field types/business rules still require review.",
+      "status": "ready"
+    },
+    {
+      "id": "Second delivery-2",
+      "system": "stock",
+      "raw": "{\n  \"sku\": \"Nut, \\\"é\\\"\",\n  \"quantity\": 7\n}",
+      "status": "held",
+      "reason": "Reviewer hold; omitted from approved payload export."
+    },
+    {
+      "id": "Second delivery-3",
+      "system": "billing",
+      "raw": "{\"invoice\":\"INV-18\",\"cents\":2500}",
+      "target": {
+        "required": [
+          "invoice",
+          "cents"
+        ]
+      },
+      "baseline": true,
+      "match": true,
+      "issues": [],
+      "disagreement": false,
+      "value": {
+        "invoice": "INV-18",
+        "cents": 2500
+      },
+      "reason": "All required keys present; no duplicate decoded members or unsupported numeric literals detected. Field types/business rules still require review.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 3,
+    "ready": 2,
+    "held": 1,
+    "blocked": 0,
+    "compared": 2,
+    "disagreements": 0
+  }
+}

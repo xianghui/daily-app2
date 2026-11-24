@@ -1,0 +1,6 @@
+
+## Member Sentinel — 20261125-7
+
+Real local MiniLM matches informal mixed JSON handoff notes to supplied contracts before mandatory human review. A bounded source-aware scan exposes duplicate decoded object members, unsafe numeric literals and missing required keys beyond parse-only acceptance. Both tiny batches matched 6/6 intended contracts; a negation probe failed, so review remains essential. Complete JSON/CSV/Markdown and approved-only payload artifacts preserve exact source strings and all originals. Fresh-worker offline inference works within an already-open warmed page only. Preserve shared worker/factory from `20261115-6` and WASM from `20261107-2`. See [workflow/privacy](20261125-7/README.md) and [observed validation](20261125-7/VALIDATION.md). No digest sent.
+
+Public release verified: matching Pages commit `c921752854be8e656d0b8747b62187696ab6f3ed` reports built; final workflow `45498841025` succeeded. Seven exact public assets, both real-AI fixtures, the full reviewed/24-record/offline/export/privacy suite, 389 independent artifact assertions and all 859 public gallery cards passed. Combined site is **999,900,076 bytes**, below the unchanged guard. An already-public recovery app remains deployed; unrelated uncommitted recovery source/root edits remain preserved and outside this source commit. No digest sent.

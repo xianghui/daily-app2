@@ -1,0 +1,83 @@
+{
+  "version": 1,
+  "app": "Member Sentinel",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "stock",
+        "description": "Warehouse stock inventory adjustments with product SKU and whole-unit quantity.",
+        "target": "{\"required\":[\"sku\",\"quantity\"]}"
+      },
+      {
+        "id": "billing",
+        "description": "Customer billing invoice payment records with invoice identifier and integer amount in cents.",
+        "target": "{\"required\":[\"invoice\",\"cents\"]}"
+      }
+    ],
+    "records": [
+      {
+        "id": "same",
+        "context": "Customer billing invoice payment records with invoice identifier and integer amount in cents.",
+        "raw": "{\"sku\":\"BOLT-4\",\"quantity\":12}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "same",
+      "system": "billing",
+      "raw": "{\"sku\":\"BOLT-4\",\"quantity\":12}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "billing",
+          "similarity": 0.9999997736000711
+        },
+        {
+          "system": "stock",
+          "similarity": 0.18551967176647072
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "same",
+      "system": "billing",
+      "raw": "{\"sku\":\"BOLT-4\",\"quantity\":12}",
+      "target": {
+        "required": [
+          "invoice",
+          "cents"
+        ]
+      },
+      "baseline": true,
+      "match": false,
+      "issues": [
+        {
+          "kind": "missing",
+          "path": "/invoice",
+          "reason": "Required top-level key \"invoice\" is missing."
+        },
+        {
+          "kind": "missing",
+          "path": "/cents",
+          "reason": "Required top-level key \"cents\" is missing."
+        }
+      ],
+      "disagreement": true,
+      "value": null,
+      "reason": "Required top-level key \"invoice\" is missing. Required top-level key \"cents\" is missing.",
+      "status": "blocked"
+    }
+  ],
+  "metrics": {
+    "records": 1,
+    "ready": 0,
+    "held": 0,
+    "blocked": 1,
+    "compared": 1,
+    "disagreements": 1
+  }
+}

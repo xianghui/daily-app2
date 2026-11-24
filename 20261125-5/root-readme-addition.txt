@@ -1,0 +1,7 @@
+
+
+## Form Parcel — 20261125-5
+
+Real local MiniLM retrieves submission contracts from informal handoff notes before mandatory review. Deterministic ordered-entry form encoding preserves duplicates, empty strings and CRLF-normalized values; compare object-conversion losses and export complete JSON/CSV/Markdown plus approved method/URL/body fixtures without uploads or submissions. Both tiny paraphrased batches matched all 6 intended contracts. Independent intercepted Chrome forms validate 96 cases. Shared immutable worker/factory from `20261115-6`, WASM from `20261107-2`; preserve these assets. Offline scope: fresh-worker inference in an already-open warmed page only. See [workflow/privacy](20261125-5/README.md) and [observed validation](20261125-5/VALIDATION.md). No digest sent.
+
+Public release verified: matching built Pages commit `9f8e5f989675b152dd9572dead1747f4a4127cdb` and successful workflow `45477699043`. Seven exact public asset matches, both real-AI paraphrase fixtures, full review/export/24-record/offline/privacy/phone-width suite, 687 independent artifact assertions, dense Unicode audit reimport and all 857 gallery cards passed. Combined site **999,911,269 bytes** is below the unchanged guard; no sharing rules changed. Physical phones, other engines, cold offline startup, DOM control selection and real endpoint acceptance remain untested. Unrelated recovery work is preserved and excluded from source staging.

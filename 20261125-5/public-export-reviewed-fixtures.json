@@ -1,0 +1,176 @@
+{
+  "app": "Form Parcel",
+  "scope": "Offline QA fixtures only. No requests sent. Completed text entry lists; no files or DOM control selection.",
+  "fixtures": [
+    {
+      "id": "Membership",
+      "contract": {
+        "method": "POST",
+        "action": "https://museum.example.test/renew?source=desk"
+      },
+      "request": {
+        "method": "POST",
+        "url": "https://museum.example.test/renew?source=desk",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        "body": "member=A+%26+B&address=Floor+2%0D%0A12+Lane&option=print&option=digital&empty=",
+        "serialized": "member=A+%26+B&address=Floor+2%0D%0A12+Lane&option=print&option=digital&empty="
+      },
+      "expectedEntries": [
+        [
+          "member",
+          "A & B"
+        ],
+        [
+          "address",
+          "Floor 2\r\n12 Lane"
+        ],
+        [
+          "option",
+          "print"
+        ],
+        [
+          "option",
+          "digital"
+        ],
+        [
+          "empty",
+          ""
+        ]
+      ],
+      "originalEntries": [
+        [
+          "member",
+          "A & B"
+        ],
+        [
+          "address",
+          "Floor 2\n12 Lane"
+        ],
+        [
+          "option",
+          "print"
+        ],
+        [
+          "option",
+          "digital"
+        ],
+        [
+          "empty",
+          ""
+        ]
+      ]
+    },
+    {
+      "id": "Recipe lookup",
+      "contract": {
+        "method": "GET",
+        "action": "https://recipes.example.test/find?old=1"
+      },
+      "request": {
+        "method": "GET",
+        "url": "https://recipes.example.test/find?ingredient=cr%C3%A8me+br%C3%BBl%C3%A9e&diet=vegan&diet=nut+free&note=first%0D%0Asecond",
+        "headers": {},
+        "body": null,
+        "serialized": "ingredient=cr%C3%A8me+br%C3%BBl%C3%A9e&diet=vegan&diet=nut+free&note=first%0D%0Asecond"
+      },
+      "expectedEntries": [
+        [
+          "ingredient",
+          "crème brûlée"
+        ],
+        [
+          "diet",
+          "vegan"
+        ],
+        [
+          "diet",
+          "nut free"
+        ],
+        [
+          "note",
+          "first\r\nsecond"
+        ]
+      ],
+      "originalEntries": [
+        [
+          "ingredient",
+          "crème brûlée"
+        ],
+        [
+          "diet",
+          "vegan"
+        ],
+        [
+          "diet",
+          "nut free"
+        ],
+        [
+          "note",
+          "first\nsecond"
+        ]
+      ]
+    },
+    {
+      "id": "Bicycle intake",
+      "contract": {
+        "method": "POST",
+        "action": "https://bikes.example.test/intake"
+      },
+      "request": {
+        "method": "POST",
+        "url": "https://bikes.example.test/intake",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        "body": "fault=brake+%3D+noisy&part=cable&part=pad&notes=Line+one%0D%0ALine+two%0D%0ALine+three&emoji=%F0%9F%9A%B2",
+        "serialized": "fault=brake+%3D+noisy&part=cable&part=pad&notes=Line+one%0D%0ALine+two%0D%0ALine+three&emoji=%F0%9F%9A%B2"
+      },
+      "expectedEntries": [
+        [
+          "fault",
+          "brake = noisy"
+        ],
+        [
+          "part",
+          "cable"
+        ],
+        [
+          "part",
+          "pad"
+        ],
+        [
+          "notes",
+          "Line one\r\nLine two\r\nLine three"
+        ],
+        [
+          "emoji",
+          "🚲"
+        ]
+      ],
+      "originalEntries": [
+        [
+          "fault",
+          "brake = noisy"
+        ],
+        [
+          "part",
+          "cable"
+        ],
+        [
+          "part",
+          "pad"
+        ],
+        [
+          "notes",
+          "Line one\rLine two\nLine three"
+        ],
+        [
+          "emoji",
+          "🚲"
+        ]
+      ]
+    }
+  ]
+}

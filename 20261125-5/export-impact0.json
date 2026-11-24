@@ -1,0 +1,136 @@
+{
+  "version": 1,
+  "app": "Form Parcel",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "registration",
+        "description": "Community workshop participant registration and dietary preferences, submitted as a new sign-up form.",
+        "target": "{\"method\": \"POST\", \"action\": \"https://forms.example.test/register?campaign=autumn\"}"
+      },
+      {
+        "id": "catalog",
+        "description": "Library catalog search filters, subject selections and book lookup submitted as a shareable search.",
+        "target": "{\"method\": \"GET\", \"action\": \"https://library.example.test/search?stale=discard\"}"
+      }
+    ],
+    "records": [
+      {
+        "id": "same",
+        "context": "Community workshop participant registration and dietary preferences, submitted as a new sign-up form.",
+        "raw": "[[\"tag\",\"a\"],[\"tag\",\"b\"]]"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "same",
+      "system": "registration",
+      "raw": "[[\"tag\",\"a\"],[\"tag\",\"b\"]]",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "registration",
+          "similarity": 0.9999998443020568
+        },
+        {
+          "system": "catalog",
+          "similarity": 0.13696522149886914
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "same",
+      "system": "registration",
+      "raw": "[[\"tag\",\"a\"],[\"tag\",\"b\"]]",
+      "target": {
+        "method": "POST",
+        "action": "https://forms.example.test/register?campaign=autumn"
+      },
+      "result": {
+        "method": "POST",
+        "url": "https://forms.example.test/register?campaign=autumn",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        "body": "tag=a&tag=b",
+        "serialized": "tag=a&tag=b"
+      },
+      "expected": [
+        [
+          "tag",
+          "a"
+        ],
+        [
+          "tag",
+          "b"
+        ]
+      ],
+      "original": [
+        [
+          "tag",
+          "a"
+        ],
+        [
+          "tag",
+          "b"
+        ]
+      ],
+      "events": [
+        {
+          "position": 1,
+          "expected": [
+            "tag",
+            "a"
+          ],
+          "objectShortcut": [
+            "tag",
+            "b"
+          ]
+        },
+        {
+          "position": 2,
+          "expected": [
+            "tag",
+            "b"
+          ],
+          "objectShortcut": null
+        }
+      ],
+      "baseline": {
+        "method": "POST",
+        "url": "https://forms.example.test/register?campaign=autumn",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        "body": "tag=b",
+        "serialized": "tag=b"
+      },
+      "baselineEntries": [
+        [
+          "tag",
+          "b"
+        ]
+      ],
+      "baselineAvailable": true,
+      "disagreement": true,
+      "duplicateLoss": 1,
+      "normalizedStrings": 0,
+      "payloadBytes": 11,
+      "reason": "Ordered entries retain every occurrence and empty string. Names/values normalize line breaks to CRLF before UTF-8 form encoding. The object-conversion baseline collapses repeated names, can reorder integer-like keys, and does not normalize line breaks. This is deterministic data QA, not AI accuracy.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 1,
+    "ready": 1,
+    "held": 0,
+    "blocked": 0,
+    "changes": 1,
+    "compared": 1,
+    "disagreements": 1
+  }
+}

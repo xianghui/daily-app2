@@ -1,0 +1,529 @@
+{
+  "version": 1,
+  "app": "Form Parcel",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "registration",
+        "description": "Community workshop participant registration and dietary preferences, submitted as a new sign-up form.",
+        "target": "{\"method\": \"POST\", \"action\": \"https://forms.example.test/register?campaign=autumn\"}"
+      },
+      {
+        "id": "catalog",
+        "description": "Library catalog search filters, subject selections and book lookup submitted as a shareable search.",
+        "target": "{\"method\": \"GET\", \"action\": \"https://library.example.test/search?stale=discard\"}"
+      },
+      {
+        "id": "feedback",
+        "description": "Product support feedback survey, comments and customer satisfaction ratings collected after a service visit.",
+        "target": "{\"method\": \"POST\", \"action\": \"https://support.example.test/survey\"}"
+      }
+    ],
+    "records": [
+      {
+        "id": "Workshop sign-up",
+        "context": "Sign this person up for our pottery session; they avoid nuts and want a vegetarian lunch.",
+        "raw": "[[\"name\", \"Mina + Lee\"], [\"diet\", \"vegetarian\"], [\"diet\", \"no nuts\"], [\"note\", \"Arrive early\\nBring tea & cups\"], [\"optional\", \"\"]]"
+      },
+      {
+        "id": "Book search",
+        "context": "Find books about galaxies; narrow the results to science and local history.",
+        "raw": "[[\"q\", \"space & time\"], [\"subject\", \"physics\"], [\"subject\", \"history\"], [\"literal\", \"a+b=c\"], [\"\", \"empty name\"]]"
+      },
+      {
+        "id": "Service survey",
+        "context": "Ask how the customer felt about our technician visit and collect suggestions.",
+        "raw": "[[\"rating\", \"4\"], [\"comment\", \"Helpful\\rFast\"], [\"tag\", \"friendly\"], [\"tag\", \"clear\"], [\"name\", \"Zo\\u00eb ~!*()\"]]"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "Workshop sign-up",
+      "system": "registration",
+      "raw": "[[\"name\", \"Mina + Lee\"], [\"diet\", \"vegetarian\"], [\"diet\", \"no nuts\"], [\"note\", \"Arrive early\\nBring tea & cups\"], [\"optional\", \"\"]]",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "registration",
+          "similarity": 0.4709708556249044
+        },
+        {
+          "system": "feedback",
+          "similarity": 0.10501847161321709
+        },
+        {
+          "system": "catalog",
+          "similarity": 0.036359693170650166
+        }
+      ]
+    },
+    {
+      "id": "Book search",
+      "system": "catalog",
+      "raw": "[[\"q\", \"space & time\"], [\"subject\", \"physics\"], [\"subject\", \"history\"], [\"literal\", \"a+b=c\"], [\"\", \"empty name\"]]",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "catalog",
+          "similarity": 0.3389085839917197
+        },
+        {
+          "system": "feedback",
+          "similarity": 0.08015648846922274
+        },
+        {
+          "system": "registration",
+          "similarity": 0.0799681133013433
+        }
+      ]
+    },
+    {
+      "id": "Service survey",
+      "system": "feedback",
+      "raw": "[[\"rating\", \"4\"], [\"comment\", \"Helpful\\rFast\"], [\"tag\", \"friendly\"], [\"tag\", \"clear\"], [\"name\", \"Zo\\u00eb ~!*()\"]]",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "feedback",
+          "similarity": 0.49452345966768185
+        },
+        {
+          "system": "catalog",
+          "similarity": 0.12067377242046501
+        },
+        {
+          "system": "registration",
+          "similarity": 0.10194846149513911
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "Workshop sign-up",
+      "system": "registration",
+      "raw": "[[\"name\", \"Mina + Lee\"], [\"diet\", \"vegetarian\"], [\"diet\", \"no nuts\"], [\"note\", \"Arrive early\\nBring tea & cups\"], [\"optional\", \"\"]]",
+      "target": {
+        "method": "POST",
+        "action": "https://forms.example.test/register?campaign=autumn"
+      },
+      "result": {
+        "method": "POST",
+        "url": "https://forms.example.test/register?campaign=autumn",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        "body": "name=Mina+%2B+Lee&diet=vegetarian&diet=no+nuts&note=Arrive+early%0D%0ABring+tea+%26+cups&optional=",
+        "serialized": "name=Mina+%2B+Lee&diet=vegetarian&diet=no+nuts&note=Arrive+early%0D%0ABring+tea+%26+cups&optional="
+      },
+      "expected": [
+        [
+          "name",
+          "Mina + Lee"
+        ],
+        [
+          "diet",
+          "vegetarian"
+        ],
+        [
+          "diet",
+          "no nuts"
+        ],
+        [
+          "note",
+          "Arrive early\r\nBring tea & cups"
+        ],
+        [
+          "optional",
+          ""
+        ]
+      ],
+      "original": [
+        [
+          "name",
+          "Mina + Lee"
+        ],
+        [
+          "diet",
+          "vegetarian"
+        ],
+        [
+          "diet",
+          "no nuts"
+        ],
+        [
+          "note",
+          "Arrive early\nBring tea & cups"
+        ],
+        [
+          "optional",
+          ""
+        ]
+      ],
+      "events": [
+        {
+          "position": 2,
+          "expected": [
+            "diet",
+            "vegetarian"
+          ],
+          "objectShortcut": [
+            "diet",
+            "no nuts"
+          ]
+        },
+        {
+          "position": 3,
+          "expected": [
+            "diet",
+            "no nuts"
+          ],
+          "objectShortcut": [
+            "note",
+            "Arrive early\nBring tea & cups"
+          ]
+        },
+        {
+          "position": 4,
+          "expected": [
+            "note",
+            "Arrive early\r\nBring tea & cups"
+          ],
+          "objectShortcut": [
+            "optional",
+            ""
+          ]
+        },
+        {
+          "position": 5,
+          "expected": [
+            "optional",
+            ""
+          ],
+          "objectShortcut": null
+        }
+      ],
+      "baseline": {
+        "method": "POST",
+        "url": "https://forms.example.test/register?campaign=autumn",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        "body": "name=Mina+%2B+Lee&diet=no+nuts&note=Arrive+early%0ABring+tea+%26+cups&optional=",
+        "serialized": "name=Mina+%2B+Lee&diet=no+nuts&note=Arrive+early%0ABring+tea+%26+cups&optional="
+      },
+      "baselineEntries": [
+        [
+          "name",
+          "Mina + Lee"
+        ],
+        [
+          "diet",
+          "no nuts"
+        ],
+        [
+          "note",
+          "Arrive early\nBring tea & cups"
+        ],
+        [
+          "optional",
+          ""
+        ]
+      ],
+      "baselineAvailable": true,
+      "disagreement": true,
+      "duplicateLoss": 1,
+      "normalizedStrings": 1,
+      "payloadBytes": 98,
+      "reason": "Ordered entries retain every occurrence and empty string. Names/values normalize line breaks to CRLF before UTF-8 form encoding. The object-conversion baseline collapses repeated names, can reorder integer-like keys, and does not normalize line breaks. This is deterministic data QA, not AI accuracy.",
+      "status": "ready"
+    },
+    {
+      "id": "Book search",
+      "system": "catalog",
+      "raw": "[[\"q\", \"space & time\"], [\"subject\", \"physics\"], [\"subject\", \"history\"], [\"literal\", \"a+b=c\"], [\"\", \"empty name\"]]",
+      "target": {
+        "method": "GET",
+        "action": "https://library.example.test/search?stale=discard"
+      },
+      "result": {
+        "method": "GET",
+        "url": "https://library.example.test/search?q=space+%26+time&subject=physics&subject=history&literal=a%2Bb%3Dc&=empty+name",
+        "headers": {},
+        "body": null,
+        "serialized": "q=space+%26+time&subject=physics&subject=history&literal=a%2Bb%3Dc&=empty+name"
+      },
+      "expected": [
+        [
+          "q",
+          "space & time"
+        ],
+        [
+          "subject",
+          "physics"
+        ],
+        [
+          "subject",
+          "history"
+        ],
+        [
+          "literal",
+          "a+b=c"
+        ],
+        [
+          "",
+          "empty name"
+        ]
+      ],
+      "original": [
+        [
+          "q",
+          "space & time"
+        ],
+        [
+          "subject",
+          "physics"
+        ],
+        [
+          "subject",
+          "history"
+        ],
+        [
+          "literal",
+          "a+b=c"
+        ],
+        [
+          "",
+          "empty name"
+        ]
+      ],
+      "events": [
+        {
+          "position": 2,
+          "expected": [
+            "subject",
+            "physics"
+          ],
+          "objectShortcut": [
+            "subject",
+            "history"
+          ]
+        },
+        {
+          "position": 3,
+          "expected": [
+            "subject",
+            "history"
+          ],
+          "objectShortcut": [
+            "literal",
+            "a+b=c"
+          ]
+        },
+        {
+          "position": 4,
+          "expected": [
+            "literal",
+            "a+b=c"
+          ],
+          "objectShortcut": [
+            "",
+            "empty name"
+          ]
+        },
+        {
+          "position": 5,
+          "expected": [
+            "",
+            "empty name"
+          ],
+          "objectShortcut": null
+        }
+      ],
+      "baseline": {
+        "method": "GET",
+        "url": "https://library.example.test/search?q=space+%26+time&subject=history&literal=a%2Bb%3Dc&=empty+name",
+        "headers": {},
+        "body": null,
+        "serialized": "q=space+%26+time&subject=history&literal=a%2Bb%3Dc&=empty+name"
+      },
+      "baselineEntries": [
+        [
+          "q",
+          "space & time"
+        ],
+        [
+          "subject",
+          "history"
+        ],
+        [
+          "literal",
+          "a+b=c"
+        ],
+        [
+          "",
+          "empty name"
+        ]
+      ],
+      "baselineAvailable": true,
+      "disagreement": true,
+      "duplicateLoss": 1,
+      "normalizedStrings": 0,
+      "payloadBytes": 78,
+      "reason": "Ordered entries retain every occurrence and empty string. Names/values normalize line breaks to CRLF before UTF-8 form encoding. The object-conversion baseline collapses repeated names, can reorder integer-like keys, and does not normalize line breaks. This is deterministic data QA, not AI accuracy.",
+      "status": "ready"
+    },
+    {
+      "id": "Service survey",
+      "system": "feedback",
+      "raw": "[[\"rating\", \"4\"], [\"comment\", \"Helpful\\rFast\"], [\"tag\", \"friendly\"], [\"tag\", \"clear\"], [\"name\", \"Zo\\u00eb ~!*()\"]]",
+      "target": {
+        "method": "POST",
+        "action": "https://support.example.test/survey"
+      },
+      "result": {
+        "method": "POST",
+        "url": "https://support.example.test/survey",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        "body": "rating=4&comment=Helpful%0D%0AFast&tag=friendly&tag=clear&name=Zo%C3%AB+%7E%21*%28%29",
+        "serialized": "rating=4&comment=Helpful%0D%0AFast&tag=friendly&tag=clear&name=Zo%C3%AB+%7E%21*%28%29"
+      },
+      "expected": [
+        [
+          "rating",
+          "4"
+        ],
+        [
+          "comment",
+          "Helpful\r\nFast"
+        ],
+        [
+          "tag",
+          "friendly"
+        ],
+        [
+          "tag",
+          "clear"
+        ],
+        [
+          "name",
+          "Zoë ~!*()"
+        ]
+      ],
+      "original": [
+        [
+          "rating",
+          "4"
+        ],
+        [
+          "comment",
+          "Helpful\rFast"
+        ],
+        [
+          "tag",
+          "friendly"
+        ],
+        [
+          "tag",
+          "clear"
+        ],
+        [
+          "name",
+          "Zoë ~!*()"
+        ]
+      ],
+      "events": [
+        {
+          "position": 2,
+          "expected": [
+            "comment",
+            "Helpful\r\nFast"
+          ],
+          "objectShortcut": [
+            "comment",
+            "Helpful\rFast"
+          ]
+        },
+        {
+          "position": 3,
+          "expected": [
+            "tag",
+            "friendly"
+          ],
+          "objectShortcut": [
+            "tag",
+            "clear"
+          ]
+        },
+        {
+          "position": 4,
+          "expected": [
+            "tag",
+            "clear"
+          ],
+          "objectShortcut": [
+            "name",
+            "Zoë ~!*()"
+          ]
+        },
+        {
+          "position": 5,
+          "expected": [
+            "name",
+            "Zoë ~!*()"
+          ],
+          "objectShortcut": null
+        }
+      ],
+      "baseline": {
+        "method": "POST",
+        "url": "https://support.example.test/survey",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        "body": "rating=4&comment=Helpful%0DFast&tag=clear&name=Zo%C3%AB+%7E%21*%28%29",
+        "serialized": "rating=4&comment=Helpful%0DFast&tag=clear&name=Zo%C3%AB+%7E%21*%28%29"
+      },
+      "baselineEntries": [
+        [
+          "rating",
+          "4"
+        ],
+        [
+          "comment",
+          "Helpful\rFast"
+        ],
+        [
+          "tag",
+          "clear"
+        ],
+        [
+          "name",
+          "Zoë ~!*()"
+        ]
+      ],
+      "baselineAvailable": true,
+      "disagreement": true,
+      "duplicateLoss": 1,
+      "normalizedStrings": 1,
+      "payloadBytes": 85,
+      "reason": "Ordered entries retain every occurrence and empty string. Names/values normalize line breaks to CRLF before UTF-8 form encoding. The object-conversion baseline collapses repeated names, can reorder integer-like keys, and does not normalize line breaks. This is deterministic data QA, not AI accuracy.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 3,
+    "ready": 3,
+    "held": 0,
+    "blocked": 0,
+    "changes": 3,
+    "compared": 3,
+    "disagreements": 3
+  }
+}

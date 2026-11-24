@@ -1,0 +1,529 @@
+{
+  "version": 1,
+  "app": "Form Parcel",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "museum",
+        "description": "Museum membership renewal application with postal address and member options.",
+        "target": "{\"method\": \"POST\", \"action\": \"https://museum.example.test/renew?source=desk\"}"
+      },
+      {
+        "id": "recipe",
+        "description": "Cooking recipe ingredient search and dietary filters in a shareable recipe directory.",
+        "target": "{\"method\": \"GET\", \"action\": \"https://recipes.example.test/find?old=1\"}"
+      },
+      {
+        "id": "repair",
+        "description": "Bicycle repair intake booking, mechanical fault notes and replacement part requests.",
+        "target": "{\"method\": \"POST\", \"action\": \"https://bikes.example.test/intake\"}"
+      }
+    ],
+    "records": [
+      {
+        "id": "Membership",
+        "context": "Keep the family annual gallery pass active; mailing info and newsletter choices attached.",
+        "raw": "[[\"member\", \"A & B\"], [\"address\", \"Floor 2\\n12 Lane\"], [\"option\", \"print\"], [\"option\", \"digital\"], [\"empty\", \"\"]]"
+      },
+      {
+        "id": "Recipe lookup",
+        "context": "Looking for dinner ideas without dairy; ingredients and exclusion filters below.",
+        "raw": "[[\"ingredient\", \"cr\\u00e8me br\\u00fbl\\u00e9e\"], [\"diet\", \"vegan\"], [\"diet\", \"nut free\"], [\"q\", \"50% + herbs\"], [\"line\\nname\", \"one\\r\\ntwo\"]]"
+      },
+      {
+        "id": "Bicycle intake",
+        "context": "Drop the commuter cycle off: squeaky front stopper and new pads needed.",
+        "raw": "[[\"fault\", \"brake = noisy\"], [\"part\", \"cable\"], [\"part\", \"pad\"], [\"notes\", \"Line one\\rLine two\\nLine three\"], [\"emoji\", \"\\ud83d\\udeb2\"]]"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "Membership",
+      "system": "museum",
+      "raw": "[[\"member\", \"A & B\"], [\"address\", \"Floor 2\\n12 Lane\"], [\"option\", \"print\"], [\"option\", \"digital\"], [\"empty\", \"\"]]",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "museum",
+          "similarity": 0.39271897594319277
+        },
+        {
+          "system": "repair",
+          "similarity": 0.17506218757373504
+        },
+        {
+          "system": "recipe",
+          "similarity": 0.14738787505233708
+        }
+      ]
+    },
+    {
+      "id": "Recipe lookup",
+      "system": "recipe",
+      "raw": "[[\"ingredient\", \"cr\\u00e8me br\\u00fbl\\u00e9e\"], [\"diet\", \"vegan\"], [\"diet\", \"nut free\"], [\"q\", \"50% + herbs\"], [\"line\\nname\", \"one\\r\\ntwo\"]]",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "recipe",
+          "similarity": 0.5233503234350465
+        },
+        {
+          "system": "repair",
+          "similarity": 0.18354811589076442
+        },
+        {
+          "system": "museum",
+          "similarity": 0.0023725927604652548
+        }
+      ]
+    },
+    {
+      "id": "Bicycle intake",
+      "system": "repair",
+      "raw": "[[\"fault\", \"brake = noisy\"], [\"part\", \"cable\"], [\"part\", \"pad\"], [\"notes\", \"Line one\\rLine two\\nLine three\"], [\"emoji\", \"\\ud83d\\udeb2\"]]",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "repair",
+          "similarity": 0.25360560239641355
+        },
+        {
+          "system": "museum",
+          "similarity": 0.022697358710770072
+        },
+        {
+          "system": "recipe",
+          "similarity": -0.04261195364664708
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "Membership",
+      "system": "museum",
+      "raw": "[[\"member\", \"A & B\"], [\"address\", \"Floor 2\\n12 Lane\"], [\"option\", \"print\"], [\"option\", \"digital\"], [\"empty\", \"\"]]",
+      "target": {
+        "method": "POST",
+        "action": "https://museum.example.test/renew?source=desk"
+      },
+      "result": {
+        "method": "POST",
+        "url": "https://museum.example.test/renew?source=desk",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        "body": "member=A+%26+B&address=Floor+2%0D%0A12+Lane&option=print&option=digital&empty=",
+        "serialized": "member=A+%26+B&address=Floor+2%0D%0A12+Lane&option=print&option=digital&empty="
+      },
+      "expected": [
+        [
+          "member",
+          "A & B"
+        ],
+        [
+          "address",
+          "Floor 2\r\n12 Lane"
+        ],
+        [
+          "option",
+          "print"
+        ],
+        [
+          "option",
+          "digital"
+        ],
+        [
+          "empty",
+          ""
+        ]
+      ],
+      "original": [
+        [
+          "member",
+          "A & B"
+        ],
+        [
+          "address",
+          "Floor 2\n12 Lane"
+        ],
+        [
+          "option",
+          "print"
+        ],
+        [
+          "option",
+          "digital"
+        ],
+        [
+          "empty",
+          ""
+        ]
+      ],
+      "events": [
+        {
+          "position": 2,
+          "expected": [
+            "address",
+            "Floor 2\r\n12 Lane"
+          ],
+          "objectShortcut": [
+            "address",
+            "Floor 2\n12 Lane"
+          ]
+        },
+        {
+          "position": 3,
+          "expected": [
+            "option",
+            "print"
+          ],
+          "objectShortcut": [
+            "option",
+            "digital"
+          ]
+        },
+        {
+          "position": 4,
+          "expected": [
+            "option",
+            "digital"
+          ],
+          "objectShortcut": [
+            "empty",
+            ""
+          ]
+        },
+        {
+          "position": 5,
+          "expected": [
+            "empty",
+            ""
+          ],
+          "objectShortcut": null
+        }
+      ],
+      "baseline": {
+        "method": "POST",
+        "url": "https://museum.example.test/renew?source=desk",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        "body": "member=A+%26+B&address=Floor+2%0A12+Lane&option=digital&empty=",
+        "serialized": "member=A+%26+B&address=Floor+2%0A12+Lane&option=digital&empty="
+      },
+      "baselineEntries": [
+        [
+          "member",
+          "A & B"
+        ],
+        [
+          "address",
+          "Floor 2\n12 Lane"
+        ],
+        [
+          "option",
+          "digital"
+        ],
+        [
+          "empty",
+          ""
+        ]
+      ],
+      "baselineAvailable": true,
+      "disagreement": true,
+      "duplicateLoss": 1,
+      "normalizedStrings": 1,
+      "payloadBytes": 78,
+      "reason": "Ordered entries retain every occurrence and empty string. Names/values normalize line breaks to CRLF before UTF-8 form encoding. The object-conversion baseline collapses repeated names, can reorder integer-like keys, and does not normalize line breaks. This is deterministic data QA, not AI accuracy.",
+      "status": "ready"
+    },
+    {
+      "id": "Recipe lookup",
+      "system": "recipe",
+      "raw": "[[\"ingredient\", \"cr\\u00e8me br\\u00fbl\\u00e9e\"], [\"diet\", \"vegan\"], [\"diet\", \"nut free\"], [\"q\", \"50% + herbs\"], [\"line\\nname\", \"one\\r\\ntwo\"]]",
+      "target": {
+        "method": "GET",
+        "action": "https://recipes.example.test/find?old=1"
+      },
+      "result": {
+        "method": "GET",
+        "url": "https://recipes.example.test/find?ingredient=cr%C3%A8me+br%C3%BBl%C3%A9e&diet=vegan&diet=nut+free&q=50%25+%2B+herbs&line%0D%0Aname=one%0D%0Atwo",
+        "headers": {},
+        "body": null,
+        "serialized": "ingredient=cr%C3%A8me+br%C3%BBl%C3%A9e&diet=vegan&diet=nut+free&q=50%25+%2B+herbs&line%0D%0Aname=one%0D%0Atwo"
+      },
+      "expected": [
+        [
+          "ingredient",
+          "crème brûlée"
+        ],
+        [
+          "diet",
+          "vegan"
+        ],
+        [
+          "diet",
+          "nut free"
+        ],
+        [
+          "q",
+          "50% + herbs"
+        ],
+        [
+          "line\r\nname",
+          "one\r\ntwo"
+        ]
+      ],
+      "original": [
+        [
+          "ingredient",
+          "crème brûlée"
+        ],
+        [
+          "diet",
+          "vegan"
+        ],
+        [
+          "diet",
+          "nut free"
+        ],
+        [
+          "q",
+          "50% + herbs"
+        ],
+        [
+          "line\nname",
+          "one\r\ntwo"
+        ]
+      ],
+      "events": [
+        {
+          "position": 2,
+          "expected": [
+            "diet",
+            "vegan"
+          ],
+          "objectShortcut": [
+            "diet",
+            "nut free"
+          ]
+        },
+        {
+          "position": 3,
+          "expected": [
+            "diet",
+            "nut free"
+          ],
+          "objectShortcut": [
+            "q",
+            "50% + herbs"
+          ]
+        },
+        {
+          "position": 4,
+          "expected": [
+            "q",
+            "50% + herbs"
+          ],
+          "objectShortcut": [
+            "line\nname",
+            "one\r\ntwo"
+          ]
+        },
+        {
+          "position": 5,
+          "expected": [
+            "line\r\nname",
+            "one\r\ntwo"
+          ],
+          "objectShortcut": null
+        }
+      ],
+      "baseline": {
+        "method": "GET",
+        "url": "https://recipes.example.test/find?ingredient=cr%C3%A8me+br%C3%BBl%C3%A9e&diet=nut+free&q=50%25+%2B+herbs&line%0Aname=one%0D%0Atwo",
+        "headers": {},
+        "body": null,
+        "serialized": "ingredient=cr%C3%A8me+br%C3%BBl%C3%A9e&diet=nut+free&q=50%25+%2B+herbs&line%0Aname=one%0D%0Atwo"
+      },
+      "baselineEntries": [
+        [
+          "ingredient",
+          "crème brûlée"
+        ],
+        [
+          "diet",
+          "nut free"
+        ],
+        [
+          "q",
+          "50% + herbs"
+        ],
+        [
+          "line\nname",
+          "one\r\ntwo"
+        ]
+      ],
+      "baselineAvailable": true,
+      "disagreement": true,
+      "duplicateLoss": 1,
+      "normalizedStrings": 1,
+      "payloadBytes": 109,
+      "reason": "Ordered entries retain every occurrence and empty string. Names/values normalize line breaks to CRLF before UTF-8 form encoding. The object-conversion baseline collapses repeated names, can reorder integer-like keys, and does not normalize line breaks. This is deterministic data QA, not AI accuracy.",
+      "status": "ready"
+    },
+    {
+      "id": "Bicycle intake",
+      "system": "repair",
+      "raw": "[[\"fault\", \"brake = noisy\"], [\"part\", \"cable\"], [\"part\", \"pad\"], [\"notes\", \"Line one\\rLine two\\nLine three\"], [\"emoji\", \"\\ud83d\\udeb2\"]]",
+      "target": {
+        "method": "POST",
+        "action": "https://bikes.example.test/intake"
+      },
+      "result": {
+        "method": "POST",
+        "url": "https://bikes.example.test/intake",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        "body": "fault=brake+%3D+noisy&part=cable&part=pad&notes=Line+one%0D%0ALine+two%0D%0ALine+three&emoji=%F0%9F%9A%B2",
+        "serialized": "fault=brake+%3D+noisy&part=cable&part=pad&notes=Line+one%0D%0ALine+two%0D%0ALine+three&emoji=%F0%9F%9A%B2"
+      },
+      "expected": [
+        [
+          "fault",
+          "brake = noisy"
+        ],
+        [
+          "part",
+          "cable"
+        ],
+        [
+          "part",
+          "pad"
+        ],
+        [
+          "notes",
+          "Line one\r\nLine two\r\nLine three"
+        ],
+        [
+          "emoji",
+          "🚲"
+        ]
+      ],
+      "original": [
+        [
+          "fault",
+          "brake = noisy"
+        ],
+        [
+          "part",
+          "cable"
+        ],
+        [
+          "part",
+          "pad"
+        ],
+        [
+          "notes",
+          "Line one\rLine two\nLine three"
+        ],
+        [
+          "emoji",
+          "🚲"
+        ]
+      ],
+      "events": [
+        {
+          "position": 2,
+          "expected": [
+            "part",
+            "cable"
+          ],
+          "objectShortcut": [
+            "part",
+            "pad"
+          ]
+        },
+        {
+          "position": 3,
+          "expected": [
+            "part",
+            "pad"
+          ],
+          "objectShortcut": [
+            "notes",
+            "Line one\rLine two\nLine three"
+          ]
+        },
+        {
+          "position": 4,
+          "expected": [
+            "notes",
+            "Line one\r\nLine two\r\nLine three"
+          ],
+          "objectShortcut": [
+            "emoji",
+            "🚲"
+          ]
+        },
+        {
+          "position": 5,
+          "expected": [
+            "emoji",
+            "🚲"
+          ],
+          "objectShortcut": null
+        }
+      ],
+      "baseline": {
+        "method": "POST",
+        "url": "https://bikes.example.test/intake",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        "body": "fault=brake+%3D+noisy&part=pad&notes=Line+one%0DLine+two%0ALine+three&emoji=%F0%9F%9A%B2",
+        "serialized": "fault=brake+%3D+noisy&part=pad&notes=Line+one%0DLine+two%0ALine+three&emoji=%F0%9F%9A%B2"
+      },
+      "baselineEntries": [
+        [
+          "fault",
+          "brake = noisy"
+        ],
+        [
+          "part",
+          "pad"
+        ],
+        [
+          "notes",
+          "Line one\rLine two\nLine three"
+        ],
+        [
+          "emoji",
+          "🚲"
+        ]
+      ],
+      "baselineAvailable": true,
+      "disagreement": true,
+      "duplicateLoss": 1,
+      "normalizedStrings": 1,
+      "payloadBytes": 105,
+      "reason": "Ordered entries retain every occurrence and empty string. Names/values normalize line breaks to CRLF before UTF-8 form encoding. The object-conversion baseline collapses repeated names, can reorder integer-like keys, and does not normalize line breaks. This is deterministic data QA, not AI accuracy.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 3,
+    "ready": 3,
+    "held": 0,
+    "blocked": 0,
+    "changes": 3,
+    "compared": 3,
+    "disagreements": 3
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "app": "Form Parcel",
+  "scope": "Offline QA fixtures only. No requests sent. Completed text entry lists; no files or DOM control selection.",
+  "fixtures": [
+    {
+      "id": "Workshop sign-up",
+      "contract": {
+        "method": "POST",
+        "action": "https://forms.example.test/register?campaign=autumn"
+      },
+      "request": {
+        "method": "POST",
+        "url": "https://forms.example.test/register?campaign=autumn",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        "body": "name=Mina+%2B+Lee&diet=vegetarian&diet=no+nuts&note=Arrive+early%0D%0ABring+tea+%26+cups&optional=",
+        "serialized": "name=Mina+%2B+Lee&diet=vegetarian&diet=no+nuts&note=Arrive+early%0D%0ABring+tea+%26+cups&optional="
+      },
+      "expectedEntries": [
+        [
+          "name",
+          "Mina + Lee"
+        ],
+        [
+          "diet",
+          "vegetarian"
+        ],
+        [
+          "diet",
+          "no nuts"
+        ],
+        [
+          "note",
+          "Arrive early\r\nBring tea & cups"
+        ],
+        [
+          "optional",
+          ""
+        ]
+      ],
+      "originalEntries": [
+        [
+          "name",
+          "Mina + Lee"
+        ],
+        [
+          "diet",
+          "vegetarian"
+        ],
+        [
+          "diet",
+          "no nuts"
+        ],
+        [
+          "note",
+          "Arrive early\nBring tea & cups"
+        ],
+        [
+          "optional",
+          ""
+        ]
+      ]
+    },
+    {
+      "id": "Book search",
+      "contract": {
+        "method": "GET",
+        "action": "https://library.example.test/search?stale=discard"
+      },
+      "request": {
+        "method": "GET",
+        "url": "https://library.example.test/search?q=space+%26+time&subject=physics&subject=history&literal=a%2Bb%3Dc&=empty+name",
+        "headers": {},
+        "body": null,
+        "serialized": "q=space+%26+time&subject=physics&subject=history&literal=a%2Bb%3Dc&=empty+name"
+      },
+      "expectedEntries": [
+        [
+          "q",
+          "space & time"
+        ],
+        [
+          "subject",
+          "physics"
+        ],
+        [
+          "subject",
+          "history"
+        ],
+        [
+          "literal",
+          "a+b=c"
+        ],
+        [
+          "",
+          "empty name"
+        ]
+      ],
+      "originalEntries": [
+        [
+          "q",
+          "space & time"
+        ],
+        [
+          "subject",
+          "physics"
+        ],
+        [
+          "subject",
+          "history"
+        ],
+        [
+          "literal",
+          "a+b=c"
+        ],
+        [
+          "",
+          "empty name"
+        ]
+      ]
+    },
+    {
+      "id": "Service survey",
+      "contract": {
+        "method": "POST",
+        "action": "https://support.example.test/survey"
+      },
+      "request": {
+        "method": "POST",
+        "url": "https://support.example.test/survey",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        "body": "rating=4&comment=Helpful%0D%0AFast&tag=friendly&tag=clear&name=Zo%C3%AB+%7E%21*%28%29",
+        "serialized": "rating=4&comment=Helpful%0D%0AFast&tag=friendly&tag=clear&name=Zo%C3%AB+%7E%21*%28%29"
+      },
+      "expectedEntries": [
+        [
+          "rating",
+          "4"
+        ],
+        [
+          "comment",
+          "Helpful\r\nFast"
+        ],
+        [
+          "tag",
+          "friendly"
+        ],
+        [
+          "tag",
+          "clear"
+        ],
+        [
+          "name",
+          "Zoë ~!*()"
+        ]
+      ],
+      "originalEntries": [
+        [
+          "rating",
+          "4"
+        ],
+        [
+          "comment",
+          "Helpful\rFast"
+        ],
+        [
+          "tag",
+          "friendly"
+        ],
+        [
+          "tag",
+          "clear"
+        ],
+        [
+          "name",
+          "Zoë ~!*()"
+        ]
+      ]
+    }
+  ]
+}

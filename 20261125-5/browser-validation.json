@@ -1,0 +1,452 @@
+{
+  "fixtures": [
+    {
+      "actual": [
+        "registration",
+        "catalog",
+        "feedback"
+      ],
+      "expected": [
+        "registration",
+        "catalog",
+        "feedback"
+      ],
+      "counts": [
+        {
+          "profile": "registration",
+          "fields": 5,
+          "duplicateLoss": 1,
+          "payload": "name=Mina+%2B+Lee&diet=vegetarian&diet=no+nuts&note=Arrive+early%0D%0ABring+tea+%26+cups&optional="
+        },
+        {
+          "profile": "catalog",
+          "fields": 5,
+          "duplicateLoss": 1,
+          "payload": "q=space+%26+time&subject=physics&subject=history&literal=a%2Bb%3Dc&=empty+name"
+        },
+        {
+          "profile": "feedback",
+          "fields": 5,
+          "duplicateLoss": 1,
+          "payload": "rating=4&comment=Helpful%0D%0AFast&tag=friendly&tag=clear&name=Zo%C3%AB+%7E%21*%28%29"
+        }
+      ]
+    },
+    {
+      "actual": [
+        "museum",
+        "recipe",
+        "repair"
+      ],
+      "expected": [
+        "museum",
+        "recipe",
+        "repair"
+      ],
+      "counts": [
+        {
+          "profile": "museum",
+          "fields": 5,
+          "duplicateLoss": 1,
+          "payload": "member=A+%26+B&address=Floor+2%0D%0A12+Lane&option=print&option=digital&empty="
+        },
+        {
+          "profile": "recipe",
+          "fields": 5,
+          "duplicateLoss": 1,
+          "payload": "ingredient=cr%C3%A8me+br%C3%BBl%C3%A9e&diet=vegan&diet=nut+free&q=50%25+%2B+herbs&line%0D%0Aname=one%0D%0Atwo"
+        },
+        {
+          "profile": "repair",
+          "fields": 5,
+          "duplicateLoss": 1,
+          "payload": "fault=brake+%3D+noisy&part=cable&part=pad&notes=Line+one%0D%0ALine+two%0D%0ALine+three&emoji=%F0%9F%9A%B2"
+        }
+      ]
+    }
+  ],
+  "checks": [
+    "Fresh-worker real inference fully offline in already-open warmed page",
+    "24-row chunks, audit reimport, cancel/retry, review/undo/edit/hold, blocked fragments, downloads and clipboard"
+  ],
+  "contextOnlyImpact": [
+    {
+      "method": "POST",
+      "url": "https://forms.example.test/register?campaign=autumn",
+      "headers": {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      "body": "tag=a&tag=b",
+      "serialized": "tag=a&tag=b"
+    },
+    {
+      "method": "GET",
+      "url": "https://library.example.test/search?tag=a&tag=b",
+      "headers": {},
+      "body": null,
+      "serialized": "tag=a&tag=b"
+    }
+  ],
+  "negationProbe": {
+    "actual": "catalog",
+    "intended": "catalog"
+  },
+  "network": [
+    {
+      "host": "127.0.0.1:7584",
+      "path": "/daily-app2/20261125-5/",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "127.0.0.1:7584",
+      "path": "/daily-app2/20261125-5/assets/index-BfzyIPFA.js",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "127.0.0.1:7584",
+      "path": "/daily-app2/20261125-5/assets/index-NCCRdIno.css",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "127.0.0.1:7584",
+      "path": "/daily-app2/20261115-6/assets/ai.worker-lkOoPoq8.js",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/7362c374-e6c7-4751-8010-6066a2727573",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "127.0.0.1:7584",
+      "path": "/daily-app2/20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "127.0.0.1:7584",
+      "path": "/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "X-Xet-Cas-Uid",
+        "user_id",
+        "xip",
+        "response-content-disposition",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+        "etag"
+      ],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "huggingface.co",
+      "path": "/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "queryKeys": [
+        "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+        "etag"
+      ],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "us.aws.cdn.hf.co",
+      "path": "/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194",
+      "queryKeys": [
+        "response-content-disposition",
+        "X-Xet-Cas-Uid",
+        "xip",
+        "user_id",
+        "Expires",
+        "Policy",
+        "Signature",
+        "Key-Pair-Id",
+        "Hash-Algorithm"
+      ],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/a7e4bce9-34d3-403e-abcd-f5bc907de8fe",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/198a5dff-9308-4833-a2a9-004c3d60f8f6",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/5e87cbf7-d37f-45f6-8c54-79ea9002f551",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/fcbe7049-cba3-4498-9d25-b4c68f014347",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/20696e54-71ba-4aa3-a7a3-bce4c204f805",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/82b82915-5dc4-4f4d-a530-a2df2fa9eca8",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/7d754624-9c3a-41b6-8340-e000724c9ab5",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/3704ce5a-9990-4834-b7f1-0a3ccc800be4",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/4e5ff6e9-8ae1-40a9-a706-6972087ca34b",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/f5f8d182-7870-4617-b5a6-6f11c0743e62",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/b5ac8bc4-e829-416b-90f9-1dc69d366ed8",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/3b4d630a-5c40-4aaf-ab71-fc4fdf7294c1",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/99e35dda-4b3a-4268-b2fe-bce53c3649cb",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/28bb6a34-6e16-4b99-8413-3ae030761c38",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/11d9c5b0-08df-4943-b119-777b1f331679",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/d07f1385-4824-4567-a5de-bf156671f323",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/c1697886-f1db-457d-a227-47c6aa17caae",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/ec22e829-a83b-4fb9-9493-9deb2e22699f",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/2079a677-8035-4bb5-bc67-8b843afa92a2",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/bc4cc9b5-67fe-40d6-a7f1-215a9ac79fff",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/ed61d63a-5eaf-4d46-8b1b-f9a3ebcbbf2b",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/f39d313b-4c7a-401b-90ce-9c0a821b0426",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/ca44ce2c-b949-4962-95eb-a6dd43f80478",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    },
+    {
+      "host": "",
+      "path": "http://127.0.0.1:7584/8a85f728-7803-4c3c-ac77-b6c36aabf9f9",
+      "queryKeys": [],
+      "method": "GET",
+      "body": false
+    }
+  ],
+  "errors": [],
+  "firstContractBaseline": {
+    "matched": 2,
+    "total": 6,
+    "scope": "Tiny fixture retrieval only, not general accuracy"
+  }
+}

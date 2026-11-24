@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "app": "Pointer Workshop",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "email",
+        "description": "Customer wants to change the email address used to receive billing invoices and payment receipts.",
+        "pointer": "/billing/email",
+        "type": "string"
+      },
+      {
+        "id": "theme",
+        "description": "Designer wants to change the interface color theme and visual appearance preference.",
+        "pointer": "/ui/theme",
+        "type": "string"
+      },
+      {
+        "id": "label",
+        "description": "Editor wants to rename the display label in the imported slash-named a/b metadata section.",
+        "pointer": "/a~1b/~0label",
+        "type": "string"
+      }
+    ],
+    "records": [
+      {
+        "id": "same",
+        "context": "Designer wants to change the interface color theme and visual appearance preference.",
+        "raw": "{\"document\":{\"billing\":{\"email\":\"old@example.test\"},\"ui\":{\"theme\":\"light\"},\"a/b\":{\"~label\":\"Old title\"}},\"value\":\"finance@example.test\"}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "same",
+      "system": "theme",
+      "raw": "{\"document\":{\"billing\":{\"email\":\"old@example.test\"},\"ui\":{\"theme\":\"light\"},\"a/b\":{\"~label\":\"Old title\"}},\"value\":\"finance@example.test\"}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "theme",
+          "similarity": 1.0000001946298085
+        },
+        {
+          "system": "email",
+          "similarity": 0.24970948664236584
+        },
+        {
+          "system": "label",
+          "similarity": 0.16921041180445215
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "same",
+      "system": "theme",
+      "raw": "{\"document\":{\"billing\":{\"email\":\"old@example.test\"},\"ui\":{\"theme\":\"light\"},\"a/b\":{\"~label\":\"Old title\"}},\"value\":\"finance@example.test\"}",
+      "pointer": "/ui/theme",
+      "before": "light",
+      "value": "finance@example.test",
+      "document": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      },
+      "after": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "finance@example.test"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/ui/theme",
+          "value": "light"
+        },
+        {
+          "op": "replace",
+          "path": "/ui/theme",
+          "value": "finance@example.test"
+        }
+      ],
+      "changed": true,
+      "baselineValid": true,
+      "disagreement": false,
+      "reason": "Existing typed scalar replaced after an exact test guard.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 1,
+    "ready": 1,
+    "held": 0,
+    "blocked": 0,
+    "changed": 1,
+    "disagreements": 0
+  }
+}

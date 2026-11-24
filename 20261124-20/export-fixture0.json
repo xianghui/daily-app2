@@ -1,0 +1,259 @@
+{
+  "version": 1,
+  "app": "Pointer Workshop",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "email",
+        "description": "Customer wants to change the email address used to receive billing invoices and payment receipts.",
+        "pointer": "/billing/email",
+        "type": "string"
+      },
+      {
+        "id": "theme",
+        "description": "Designer wants to change the interface color theme and visual appearance preference.",
+        "pointer": "/ui/theme",
+        "type": "string"
+      },
+      {
+        "id": "label",
+        "description": "Editor wants to rename the display label in the imported slash-named a/b metadata section.",
+        "pointer": "/a~1b/~0label",
+        "type": "string"
+      }
+    ],
+    "records": [
+      {
+        "id": "Receipt recipient",
+        "context": "Send future billing invoices and payment receipts to the new email address.",
+        "raw": "{\"document\":{\"billing\":{\"email\":\"old@example.test\"},\"ui\":{\"theme\":\"light\"},\"a/b\":{\"~label\":\"Old title\"}},\"value\":\"finance@example.test\"}"
+      },
+      {
+        "id": "Dark interface",
+        "context": "Change the user interface visual appearance to the dark color theme.",
+        "raw": "{\"document\":{\"billing\":{\"email\":\"old@example.test\"},\"ui\":{\"theme\":\"light\"},\"a/b\":{\"~label\":\"Old title\"}},\"value\":\"dark\"}"
+      },
+      {
+        "id": "Imported display name",
+        "context": "Rename the display label inside the imported slash-named a/b metadata section.",
+        "raw": "{\"document\":{\"billing\":{\"email\":\"old@example.test\"},\"ui\":{\"theme\":\"light\"},\"a/b\":{\"~label\":\"Old title\"}},\"value\":\"New title\"}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "Receipt recipient",
+      "system": "email",
+      "raw": "{\"document\":{\"billing\":{\"email\":\"old@example.test\"},\"ui\":{\"theme\":\"light\"},\"a/b\":{\"~label\":\"Old title\"}},\"value\":\"finance@example.test\"}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "email",
+          "similarity": 0.7897304066114884
+        },
+        {
+          "system": "theme",
+          "similarity": 0.14481307106340674
+        },
+        {
+          "system": "label",
+          "similarity": -0.022984343337552934
+        }
+      ]
+    },
+    {
+      "id": "Dark interface",
+      "system": "theme",
+      "raw": "{\"document\":{\"billing\":{\"email\":\"old@example.test\"},\"ui\":{\"theme\":\"light\"},\"a/b\":{\"~label\":\"Old title\"}},\"value\":\"dark\"}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "theme",
+          "similarity": 0.6204429748785522
+        },
+        {
+          "system": "email",
+          "similarity": 0.1568452061709708
+        },
+        {
+          "system": "label",
+          "similarity": 0.12648993098047612
+        }
+      ]
+    },
+    {
+      "id": "Imported display name",
+      "system": "label",
+      "raw": "{\"document\":{\"billing\":{\"email\":\"old@example.test\"},\"ui\":{\"theme\":\"light\"},\"a/b\":{\"~label\":\"Old title\"}},\"value\":\"New title\"}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "label",
+          "similarity": 0.9344728819373292
+        },
+        {
+          "system": "theme",
+          "similarity": 0.14350229015883995
+        },
+        {
+          "system": "email",
+          "similarity": 0.1083228638403613
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "Receipt recipient",
+      "system": "email",
+      "raw": "{\"document\":{\"billing\":{\"email\":\"old@example.test\"},\"ui\":{\"theme\":\"light\"},\"a/b\":{\"~label\":\"Old title\"}},\"value\":\"finance@example.test\"}",
+      "pointer": "/billing/email",
+      "before": "old@example.test",
+      "value": "finance@example.test",
+      "document": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      },
+      "after": {
+        "billing": {
+          "email": "finance@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/billing/email",
+          "value": "old@example.test"
+        },
+        {
+          "op": "replace",
+          "path": "/billing/email",
+          "value": "finance@example.test"
+        }
+      ],
+      "changed": true,
+      "baselineValid": true,
+      "disagreement": false,
+      "reason": "Existing typed scalar replaced after an exact test guard.",
+      "status": "ready"
+    },
+    {
+      "id": "Dark interface",
+      "system": "theme",
+      "raw": "{\"document\":{\"billing\":{\"email\":\"old@example.test\"},\"ui\":{\"theme\":\"light\"},\"a/b\":{\"~label\":\"Old title\"}},\"value\":\"dark\"}",
+      "pointer": "/ui/theme",
+      "before": "light",
+      "value": "dark",
+      "document": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      },
+      "after": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "dark"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/ui/theme",
+          "value": "light"
+        },
+        {
+          "op": "replace",
+          "path": "/ui/theme",
+          "value": "dark"
+        }
+      ],
+      "changed": true,
+      "baselineValid": true,
+      "disagreement": false,
+      "reason": "Existing typed scalar replaced after an exact test guard.",
+      "status": "ready"
+    },
+    {
+      "id": "Imported display name",
+      "system": "label",
+      "raw": "{\"document\":{\"billing\":{\"email\":\"old@example.test\"},\"ui\":{\"theme\":\"light\"},\"a/b\":{\"~label\":\"Old title\"}},\"value\":\"New title\"}",
+      "pointer": "/a~1b/~0label",
+      "before": "Old title",
+      "value": "New title",
+      "document": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      },
+      "after": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "New title"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/a~1b/~0label",
+          "value": "Old title"
+        },
+        {
+          "op": "replace",
+          "path": "/a~1b/~0label",
+          "value": "New title"
+        }
+      ],
+      "changed": true,
+      "baselineValid": false,
+      "disagreement": true,
+      "reason": "Literal slash-split lookup fails: JSON Pointer escape decoding is required.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 3,
+    "ready": 3,
+    "held": 0,
+    "blocked": 0,
+    "changed": 3,
+    "disagreements": 1
+  }
+}

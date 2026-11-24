@@ -1,0 +1,87 @@
+{
+  "format": "pointer-workshop-fixtures-v1",
+  "notice": "Independent snapshots, not a sequential batch. Dry-run only. Apply each patch only to its matching document; the test guard is mandatory. No endpoint calls.",
+  "cases": [
+    {
+      "id": "Staff correction",
+      "document": {
+        "staff": [
+          {
+            "name": "Ari"
+          },
+          {
+            "name": "Bo"
+          }
+        ]
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/staff/0/name",
+          "value": "Ari"
+        },
+        {
+          "op": "replace",
+          "path": "/staff/0/name",
+          "value": "Casey"
+        }
+      ],
+      "expectedDocument": {
+        "staff": [
+          {
+            "name": "Casey"
+          },
+          {
+            "name": "Bo"
+          }
+        ]
+      }
+    },
+    {
+      "id": "Maintenance switch",
+      "document": {
+        "maintenance": false
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/maintenance",
+          "value": false
+        },
+        {
+          "op": "replace",
+          "path": "/maintenance",
+          "value": true
+        }
+      ],
+      "expectedDocument": {
+        "maintenance": true
+      }
+    },
+    {
+      "id": "Retry budget",
+      "document": {
+        "jobs": {
+          "retries": 3
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/jobs/retries",
+          "value": 3
+        },
+        {
+          "op": "replace",
+          "path": "/jobs/retries",
+          "value": 5
+        }
+      ],
+      "expectedDocument": {
+        "jobs": {
+          "retries": 5
+        }
+      }
+    }
+  ]
+}

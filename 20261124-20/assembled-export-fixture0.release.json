@@ -1,0 +1,117 @@
+{
+  "format": "pointer-workshop-fixtures-v1",
+  "notice": "Independent snapshots, not a sequential batch. Dry-run only. Apply each patch only to its matching document; the test guard is mandatory. No endpoint calls.",
+  "cases": [
+    {
+      "id": "Receipt recipient",
+      "document": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/billing/email",
+          "value": "old@example.test"
+        },
+        {
+          "op": "replace",
+          "path": "/billing/email",
+          "value": "finance@example.test"
+        }
+      ],
+      "expectedDocument": {
+        "billing": {
+          "email": "finance@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      }
+    },
+    {
+      "id": "Dark interface",
+      "document": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/ui/theme",
+          "value": "light"
+        },
+        {
+          "op": "replace",
+          "path": "/ui/theme",
+          "value": "dark"
+        }
+      ],
+      "expectedDocument": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "dark"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      }
+    },
+    {
+      "id": "Imported display name",
+      "document": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/a~1b/~0label",
+          "value": "Old title"
+        },
+        {
+          "op": "replace",
+          "path": "/a~1b/~0label",
+          "value": "New title"
+        }
+      ],
+      "expectedDocument": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "New title"
+        }
+      }
+    }
+  ]
+}

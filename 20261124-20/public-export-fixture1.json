@@ -1,0 +1,229 @@
+{
+  "version": 1,
+  "app": "Pointer Workshop",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "retry",
+        "description": "Operator wants to adjust the maximum number of retry attempts for failed background jobs.",
+        "pointer": "/jobs/retries",
+        "type": "number"
+      },
+      {
+        "id": "pause",
+        "description": "Operator wants to enable or disable the maintenance mode that pauses customer access.",
+        "pointer": "/maintenance",
+        "type": "boolean"
+      },
+      {
+        "id": "first",
+        "description": "Coordinator wants to rename the first team member in the ordered staff roster.",
+        "pointer": "/staff/0/name",
+        "type": "string"
+      }
+    ],
+    "records": [
+      {
+        "id": "Staff correction",
+        "context": "Rename the first team member in the ordered staff roster.",
+        "raw": "{\"document\":{\"staff\":[{\"name\":\"Ari\"},{\"name\":\"Bo\"}]},\"value\":\"Casey\"}"
+      },
+      {
+        "id": "Maintenance switch",
+        "context": "Enable maintenance mode to pause customer access.",
+        "raw": "{\"document\":{\"maintenance\":false},\"value\":true}"
+      },
+      {
+        "id": "Retry budget",
+        "context": "Adjust the maximum retry attempts for failed background jobs.",
+        "raw": "{\"document\":{\"jobs\":{\"retries\":3}},\"value\":5}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "Staff correction",
+      "system": "first",
+      "raw": "{\"document\":{\"staff\":[{\"name\":\"Ari\"},{\"name\":\"Bo\"}]},\"value\":\"Casey\"}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "first",
+          "similarity": 0.8868192209222795
+        },
+        {
+          "system": "pause",
+          "similarity": 0.15810850388878384
+        },
+        {
+          "system": "retry",
+          "similarity": 0.13557928752593676
+        }
+      ]
+    },
+    {
+      "id": "Maintenance switch",
+      "system": "pause",
+      "raw": "{\"document\":{\"maintenance\":false},\"value\":true}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "pause",
+          "similarity": 0.7437088240234991
+        },
+        {
+          "system": "retry",
+          "similarity": 0.16616609733796822
+        },
+        {
+          "system": "first",
+          "similarity": 0.11342474148893157
+        }
+      ]
+    },
+    {
+      "id": "Retry budget",
+      "system": "retry",
+      "raw": "{\"document\":{\"jobs\":{\"retries\":3}},\"value\":5}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "retry",
+          "similarity": 0.7971491952295254
+        },
+        {
+          "system": "pause",
+          "similarity": 0.20179326059569538
+        },
+        {
+          "system": "first",
+          "similarity": 0.03969035179175748
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "Staff correction",
+      "system": "first",
+      "raw": "{\"document\":{\"staff\":[{\"name\":\"Ari\"},{\"name\":\"Bo\"}]},\"value\":\"Casey\"}",
+      "pointer": "/staff/0/name",
+      "before": "Ari",
+      "value": "Casey",
+      "document": {
+        "staff": [
+          {
+            "name": "Ari"
+          },
+          {
+            "name": "Bo"
+          }
+        ]
+      },
+      "after": {
+        "staff": [
+          {
+            "name": "Casey"
+          },
+          {
+            "name": "Bo"
+          }
+        ]
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/staff/0/name",
+          "value": "Ari"
+        },
+        {
+          "op": "replace",
+          "path": "/staff/0/name",
+          "value": "Casey"
+        }
+      ],
+      "changed": true,
+      "baselineValid": true,
+      "disagreement": false,
+      "reason": "Existing typed scalar replaced after an exact test guard.",
+      "status": "ready"
+    },
+    {
+      "id": "Maintenance switch",
+      "system": "pause",
+      "raw": "{\"document\":{\"maintenance\":false},\"value\":true}",
+      "pointer": "/maintenance",
+      "before": false,
+      "value": true,
+      "document": {
+        "maintenance": false
+      },
+      "after": {
+        "maintenance": true
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/maintenance",
+          "value": false
+        },
+        {
+          "op": "replace",
+          "path": "/maintenance",
+          "value": true
+        }
+      ],
+      "changed": true,
+      "baselineValid": true,
+      "disagreement": false,
+      "reason": "Existing typed scalar replaced after an exact test guard.",
+      "status": "ready"
+    },
+    {
+      "id": "Retry budget",
+      "system": "retry",
+      "raw": "{\"document\":{\"jobs\":{\"retries\":3}},\"value\":5}",
+      "pointer": "/jobs/retries",
+      "before": 3,
+      "value": 5,
+      "document": {
+        "jobs": {
+          "retries": 3
+        }
+      },
+      "after": {
+        "jobs": {
+          "retries": 5
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/jobs/retries",
+          "value": 3
+        },
+        {
+          "op": "replace",
+          "path": "/jobs/retries",
+          "value": 5
+        }
+      ],
+      "changed": true,
+      "baselineValid": true,
+      "disagreement": false,
+      "reason": "Existing typed scalar replaced after an exact test guard.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 3,
+    "ready": 3,
+    "held": 0,
+    "blocked": 0,
+    "changed": 3,
+    "disagreements": 0
+  }
+}

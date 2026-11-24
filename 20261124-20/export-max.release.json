@@ -1,0 +1,894 @@
+{
+  "format": "pointer-workshop-fixtures-v1",
+  "notice": "Independent snapshots, not a sequential batch. Dry-run only. Apply each patch only to its matching document; the test guard is mandatory. No endpoint calls.",
+  "cases": [
+    {
+      "id": "=row \"0\"\nnext",
+      "document": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/billing/email",
+          "value": "old@example.test"
+        },
+        {
+          "op": "replace",
+          "path": "/billing/email",
+          "value": "finance@example.test"
+        }
+      ],
+      "expectedDocument": {
+        "billing": {
+          "email": "finance@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      }
+    },
+    {
+      "id": "=row \"1\"\nnext",
+      "document": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/ui/theme",
+          "value": "light"
+        },
+        {
+          "op": "replace",
+          "path": "/ui/theme",
+          "value": "dark"
+        }
+      ],
+      "expectedDocument": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "dark"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      }
+    },
+    {
+      "id": "=row \"2\"\nnext",
+      "document": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/a~1b/~0label",
+          "value": "Old title"
+        },
+        {
+          "op": "replace",
+          "path": "/a~1b/~0label",
+          "value": "New title"
+        }
+      ],
+      "expectedDocument": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "New title"
+        }
+      }
+    },
+    {
+      "id": "=row \"3\"\nnext",
+      "document": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/billing/email",
+          "value": "old@example.test"
+        },
+        {
+          "op": "replace",
+          "path": "/billing/email",
+          "value": "finance@example.test"
+        }
+      ],
+      "expectedDocument": {
+        "billing": {
+          "email": "finance@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      }
+    },
+    {
+      "id": "=row \"4\"\nnext",
+      "document": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/ui/theme",
+          "value": "light"
+        },
+        {
+          "op": "replace",
+          "path": "/ui/theme",
+          "value": "dark"
+        }
+      ],
+      "expectedDocument": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "dark"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      }
+    },
+    {
+      "id": "=row \"5\"\nnext",
+      "document": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/a~1b/~0label",
+          "value": "Old title"
+        },
+        {
+          "op": "replace",
+          "path": "/a~1b/~0label",
+          "value": "New title"
+        }
+      ],
+      "expectedDocument": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "New title"
+        }
+      }
+    },
+    {
+      "id": "=row \"6\"\nnext",
+      "document": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/billing/email",
+          "value": "old@example.test"
+        },
+        {
+          "op": "replace",
+          "path": "/billing/email",
+          "value": "finance@example.test"
+        }
+      ],
+      "expectedDocument": {
+        "billing": {
+          "email": "finance@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      }
+    },
+    {
+      "id": "=row \"7\"\nnext",
+      "document": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/ui/theme",
+          "value": "light"
+        },
+        {
+          "op": "replace",
+          "path": "/ui/theme",
+          "value": "dark"
+        }
+      ],
+      "expectedDocument": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "dark"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      }
+    },
+    {
+      "id": "=row \"8\"\nnext",
+      "document": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/a~1b/~0label",
+          "value": "Old title"
+        },
+        {
+          "op": "replace",
+          "path": "/a~1b/~0label",
+          "value": "New title"
+        }
+      ],
+      "expectedDocument": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "New title"
+        }
+      }
+    },
+    {
+      "id": "=row \"9\"\nnext",
+      "document": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/billing/email",
+          "value": "old@example.test"
+        },
+        {
+          "op": "replace",
+          "path": "/billing/email",
+          "value": "finance@example.test"
+        }
+      ],
+      "expectedDocument": {
+        "billing": {
+          "email": "finance@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      }
+    },
+    {
+      "id": "=row \"10\"\nnext",
+      "document": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/ui/theme",
+          "value": "light"
+        },
+        {
+          "op": "replace",
+          "path": "/ui/theme",
+          "value": "dark"
+        }
+      ],
+      "expectedDocument": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "dark"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      }
+    },
+    {
+      "id": "=row \"11\"\nnext",
+      "document": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/a~1b/~0label",
+          "value": "Old title"
+        },
+        {
+          "op": "replace",
+          "path": "/a~1b/~0label",
+          "value": "New title"
+        }
+      ],
+      "expectedDocument": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "New title"
+        }
+      }
+    },
+    {
+      "id": "=row \"12\"\nnext",
+      "document": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/billing/email",
+          "value": "old@example.test"
+        },
+        {
+          "op": "replace",
+          "path": "/billing/email",
+          "value": "finance@example.test"
+        }
+      ],
+      "expectedDocument": {
+        "billing": {
+          "email": "finance@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      }
+    },
+    {
+      "id": "=row \"13\"\nnext",
+      "document": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/ui/theme",
+          "value": "light"
+        },
+        {
+          "op": "replace",
+          "path": "/ui/theme",
+          "value": "dark"
+        }
+      ],
+      "expectedDocument": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "dark"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      }
+    },
+    {
+      "id": "=row \"14\"\nnext",
+      "document": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/a~1b/~0label",
+          "value": "Old title"
+        },
+        {
+          "op": "replace",
+          "path": "/a~1b/~0label",
+          "value": "New title"
+        }
+      ],
+      "expectedDocument": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "New title"
+        }
+      }
+    },
+    {
+      "id": "=row \"15\"\nnext",
+      "document": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/billing/email",
+          "value": "old@example.test"
+        },
+        {
+          "op": "replace",
+          "path": "/billing/email",
+          "value": "finance@example.test"
+        }
+      ],
+      "expectedDocument": {
+        "billing": {
+          "email": "finance@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      }
+    },
+    {
+      "id": "=row \"16\"\nnext",
+      "document": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/ui/theme",
+          "value": "light"
+        },
+        {
+          "op": "replace",
+          "path": "/ui/theme",
+          "value": "dark"
+        }
+      ],
+      "expectedDocument": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "dark"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      }
+    },
+    {
+      "id": "=row \"17\"\nnext",
+      "document": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/a~1b/~0label",
+          "value": "Old title"
+        },
+        {
+          "op": "replace",
+          "path": "/a~1b/~0label",
+          "value": "New title"
+        }
+      ],
+      "expectedDocument": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "New title"
+        }
+      }
+    },
+    {
+      "id": "=row \"18\"\nnext",
+      "document": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/billing/email",
+          "value": "old@example.test"
+        },
+        {
+          "op": "replace",
+          "path": "/billing/email",
+          "value": "finance@example.test"
+        }
+      ],
+      "expectedDocument": {
+        "billing": {
+          "email": "finance@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      }
+    },
+    {
+      "id": "=row \"19\"\nnext",
+      "document": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/ui/theme",
+          "value": "light"
+        },
+        {
+          "op": "replace",
+          "path": "/ui/theme",
+          "value": "dark"
+        }
+      ],
+      "expectedDocument": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "dark"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      }
+    },
+    {
+      "id": "=row \"20\"\nnext",
+      "document": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/a~1b/~0label",
+          "value": "Old title"
+        },
+        {
+          "op": "replace",
+          "path": "/a~1b/~0label",
+          "value": "New title"
+        }
+      ],
+      "expectedDocument": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "New title"
+        }
+      }
+    },
+    {
+      "id": "=row \"21\"\nnext",
+      "document": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/billing/email",
+          "value": "old@example.test"
+        },
+        {
+          "op": "replace",
+          "path": "/billing/email",
+          "value": "finance@example.test"
+        }
+      ],
+      "expectedDocument": {
+        "billing": {
+          "email": "finance@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      }
+    },
+    {
+      "id": "=row \"22\"\nnext",
+      "document": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/ui/theme",
+          "value": "light"
+        },
+        {
+          "op": "replace",
+          "path": "/ui/theme",
+          "value": "dark"
+        }
+      ],
+      "expectedDocument": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "dark"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      }
+    },
+    {
+      "id": "=row \"23\"\nnext",
+      "document": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "Old title"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/a~1b/~0label",
+          "value": "Old title"
+        },
+        {
+          "op": "replace",
+          "path": "/a~1b/~0label",
+          "value": "New title"
+        }
+      ],
+      "expectedDocument": {
+        "billing": {
+          "email": "old@example.test"
+        },
+        "ui": {
+          "theme": "light"
+        },
+        "a/b": {
+          "~label": "New title"
+        }
+      }
+    }
+  ]
+}

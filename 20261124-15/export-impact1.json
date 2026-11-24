@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "app": "Disposition Desk",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "billing",
+        "description": "Customer invoices, payment receipts and billing statements. Save as an attachment download.",
+        "disposition": "attachment"
+      },
+      {
+        "id": "gallery",
+        "description": "Artwork photography, image previews and online gallery pictures. Display inline in the browser.",
+        "disposition": "inline"
+      },
+      {
+        "id": "research",
+        "description": "Research papers, academic publications and scientific reports. Save as an attachment download.",
+        "disposition": "attachment"
+      }
+    ],
+    "records": [
+      {
+        "id": "same",
+        "context": "Artwork photography, image previews and online gallery pictures. Display inline in the browser.",
+        "raw": "{\"filename\":\"same.pdf\",\"fallback\":\"same.pdf\"}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "same",
+      "system": "gallery",
+      "raw": "{\"filename\":\"same.pdf\",\"fallback\":\"same.pdf\"}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "gallery",
+          "similarity": 1.0000005758180592
+        },
+        {
+          "system": "research",
+          "similarity": 0.21460828579316635
+        },
+        {
+          "system": "billing",
+          "similarity": 0.19247874854742641
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "same",
+      "system": "gallery",
+      "raw": "{\"filename\":\"same.pdf\",\"fallback\":\"same.pdf\"}",
+      "filename": "same.pdf",
+      "fallback": "same.pdf",
+      "header": "inline; filename=\"same.pdf\"; filename*=UTF-8''same.pdf",
+      "selected": "inline",
+      "utf8Bytes": 8,
+      "roundTrip": true,
+      "extended": "same.pdf",
+      "baseline": "faithful ASCII",
+      "disagreement": false,
+      "reason": "Original Unicode name round-trips through filename*. ASCII fallback uses quoted-string escaping. Actual browser behavior must be integration-tested.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 1,
+    "ready": 1,
+    "held": 0,
+    "blocked": 0,
+    "extended": 0,
+    "disagreements": 0
+  }
+}

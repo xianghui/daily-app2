@@ -1,0 +1,7 @@
+import a from 'node:assert/strict';import fs from 'node:fs';import{inspect,plans,examples,parse,suggest,analyze}from './src/core.js';
+let n=0;for(const [name,fallback,ext]of[['résumé.pdf','resume.pdf','r%C3%A9sum%C3%A9.pdf'],["O'Brien (final).pdf",'obrien.pdf',"O%27Brien%20%28final%29.pdf"],['😀.txt','emoji.txt','%F0%9F%98%80.txt'],['Study "A".pdf','Study "A".pdf','Study%20%22A%22.pdf']]){const c=inspect(JSON.stringify({filename:name,fallback}),plans[0]);a.equal(c.extended,ext);a(c.roundTrip);n++}
+for(const filename of['../a','a/b','a\\b','.', '..','\r\nX:yes',' a','a ', '\u202eexe.pdf','\ud800','a\u0000b']){a.throws(()=>inspect(JSON.stringify({filename,fallback:'safe.txt'}),plans[0]));n++}
+for(const fallback of['é.txt','../a','a\n.txt','']){a.throws(()=>inspect(JSON.stringify({filename:'safe.txt',fallback}),plans[0]));n++}
+a.throws(()=>inspect('{"filename":"x","fallback":"x","extra":1}',plans[0]));a.throws(()=>suggest(examples[0].data,[[NaN]]));a.throws(()=>analyze(examples[0].data,[]));
+for(const ex of examples){parse(JSON.stringify(ex.data));const rows=ex.data.records.map((r,i)=>({...r,system:ex.expected[i],decision:'approve',note:'',evidence:[]}));const r=analyze(ex.data,rows);a.equal(r.checks.length,4);a.equal(r.metrics.ready,ex===examples[0]?4:3);n+=2}
+fs.writeFileSync('core-validation.json',JSON.stringify({checks:n+3,knownEncodingAndRejectionCases:true}));console.log('PASS core',n+3);

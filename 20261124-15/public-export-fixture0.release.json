@@ -1,0 +1,38 @@
+{
+  "format": "disposition-desk-header-fixtures-v1",
+  "notice": "Dry-run HTTP header fixtures only. No endpoint calls. Not a filesystem sanitizer or full HTTP parser; browsers may rewrite filenames.",
+  "cases": [
+    {
+      "id": "French receipt",
+      "profile": "billing",
+      "disposition": "attachment",
+      "header": "attachment; filename=\"receipt-november.pdf\"; filename*=UTF-8''re%C3%A7u%20novembre.pdf",
+      "filename": "reçu novembre.pdf",
+      "fallback": "receipt-november.pdf"
+    },
+    {
+      "id": "Gallery preview",
+      "profile": "gallery",
+      "disposition": "inline",
+      "header": "inline; filename=\"evening.jpg\"; filename*=UTF-8''%E5%A4%95%E6%99%AF.jpg",
+      "filename": "夕景.jpg",
+      "fallback": "evening.jpg"
+    },
+    {
+      "id": "Study draft",
+      "profile": "research",
+      "disposition": "attachment",
+      "header": "attachment; filename=\"Study \\\"A\\\".pdf\"; filename*=UTF-8''Study%20%22A%22.pdf",
+      "filename": "Study \"A\".pdf",
+      "fallback": "Study \"A\".pdf"
+    },
+    {
+      "id": "Plain invoice",
+      "profile": "billing",
+      "disposition": "attachment",
+      "header": "attachment; filename=\"invoice-42.pdf\"; filename*=UTF-8''invoice-42.pdf",
+      "filename": "invoice-42.pdf",
+      "fallback": "invoice-42.pdf"
+    }
+  ]
+}

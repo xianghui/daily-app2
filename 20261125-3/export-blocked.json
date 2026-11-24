@@ -1,0 +1,169 @@
+{
+  "version": 1,
+  "app": "Cron Witness",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "pulse",
+        "description": "Service health heartbeat every quarter hour around the clock throughout each day.",
+        "target": "{\"cron\": \"*/15 * * * *\"}"
+      },
+      {
+        "id": "weekend",
+        "description": "Weekend support handover on Saturday and Sunday at ten UTC.",
+        "target": "{\"cron\": \"0 10 * * 0,6\"}"
+      },
+      {
+        "id": "archive",
+        "description": "Archive reconciliation on the fifteenth of the month plus weekly Friday audit at eighteen UTC.",
+        "target": "{\"cron\": \"0 18 15 * 5\"}"
+      }
+    ],
+    "records": [
+      {
+        "id": "Heartbeat",
+        "context": "Service health heartbeat every fifteen minutes all day and all night.",
+        "raw": "{\"start\": \"2026-11-09\", \"days\": 5}"
+      },
+      {
+        "id": "Support handoff",
+        "context": "Support handover every weekend, Saturday and Sunday at ten UTC.",
+        "raw": "{\"start\": \"2026-11-09\", \"days\": 5}"
+      },
+      {
+        "id": "Archive audit",
+        "context": "Archive reconciliation on the fifteenth and weekly Friday audit at eighteen UTC.",
+        "raw": "{\"start\": \"2026-11-09\", \"days\": 5}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "Heartbeat",
+      "system": "pulse",
+      "raw": "{\"constructor\":\"blocked\"}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "pulse",
+          "similarity": 0.9234407302457054
+        },
+        {
+          "system": "weekend",
+          "similarity": 0.21466625566838873
+        },
+        {
+          "system": "archive",
+          "similarity": 0.1246783207461129
+        }
+      ]
+    },
+    {
+      "id": "Support handoff",
+      "system": "weekend",
+      "raw": "{\n  \"start\": \"2026-11-10\",\n  \"days\": 5\n}",
+      "decision": "approve",
+      "note": "=SUM(1,2)\nReviewed \"paper\", exactly.",
+      "evidence": [
+        {
+          "system": "weekend",
+          "similarity": 0.9342063470149419
+        },
+        {
+          "system": "pulse",
+          "similarity": 0.27352250390318333
+        },
+        {
+          "system": "archive",
+          "similarity": 0.1931236277535508
+        }
+      ]
+    },
+    {
+      "id": "Archive audit",
+      "system": "archive",
+      "raw": "{\"start\": \"2026-11-09\", \"days\": 5}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "archive",
+          "similarity": 0.9767310739323719
+        },
+        {
+          "system": "weekend",
+          "similarity": 0.2619540693701087
+        },
+        {
+          "system": "pulse",
+          "similarity": 0.14174792796366603
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "Heartbeat",
+      "system": "pulse",
+      "raw": "{\"constructor\":\"blocked\"}",
+      "status": "blocked",
+      "reason": "Unsafe object key blocked: constructor"
+    },
+    {
+      "id": "Support handoff",
+      "system": "weekend",
+      "raw": "{\n  \"start\": \"2026-11-10\",\n  \"days\": 5\n}",
+      "target": {
+        "cron": "0 10 * * 0,6"
+      },
+      "patch": {
+        "start": "2026-11-10",
+        "days": 5
+      },
+      "result": [
+        "2026-11-14T10:00:00.000Z"
+      ],
+      "events": [],
+      "baseline": [
+        "2026-11-14T10:00:00.000Z"
+      ],
+      "baselineAvailable": true,
+      "disagreement": false,
+      "reason": "UTC minute resolution; [start midnight, start + days) exclusive end. Restricted DOM and DOW use OR; with either field * they use AND. Each occurrence is a QA expectation, not a scheduled job.",
+      "status": "ready"
+    },
+    {
+      "id": "Archive audit",
+      "system": "archive",
+      "raw": "{\"start\": \"2026-11-09\", \"days\": 5}",
+      "target": {
+        "cron": "0 18 15 * 5"
+      },
+      "patch": {
+        "start": "2026-11-09",
+        "days": 5
+      },
+      "result": [
+        "2026-11-13T18:00:00.000Z"
+      ],
+      "events": [
+        "2026-11-13T18:00:00.000Z"
+      ],
+      "baseline": [],
+      "baselineAvailable": true,
+      "disagreement": true,
+      "reason": "UTC minute resolution; [start midnight, start + days) exclusive end. Restricted DOM and DOW use OR; with either field * they use AND. Each occurrence is a QA expectation, not a scheduled job.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 3,
+    "ready": 2,
+    "held": 0,
+    "blocked": 1,
+    "changes": 1,
+    "compared": 2,
+    "disagreements": 1
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "version": 1,
+  "app": "Cron Witness",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "office",
+        "description": "Office staff weekday business morning briefing, Monday through Friday at nine UTC.",
+        "target": "{\"cron\": \"0 9 * * 1-5\"}"
+      },
+      {
+        "id": "backup",
+        "description": "Nightly database backup every calendar day at two thirty UTC, including weekends.",
+        "target": "{\"cron\": \"30 2 * * *\"}"
+      },
+      {
+        "id": "union",
+        "description": "Monthly first-day accounting close plus weekly Monday finance review, both at noon UTC.",
+        "target": "{\"cron\": \"0 12 1 * 1\"}"
+      }
+    ],
+    "records": [
+      {
+        "id": "same",
+        "context": "Office staff weekday business morning briefing, Monday through Friday at nine UTC.",
+        "raw": "{\"start\": \"2026-11-25\", \"days\": 14}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "same",
+      "system": "office",
+      "raw": "{\"start\": \"2026-11-25\", \"days\": 14}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "office",
+          "similarity": 0.9999998764687044
+        },
+        {
+          "system": "union",
+          "similarity": 0.4332692797062738
+        },
+        {
+          "system": "backup",
+          "similarity": 0.37279351708761094
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "same",
+      "system": "office",
+      "raw": "{\"start\": \"2026-11-25\", \"days\": 14}",
+      "target": {
+        "cron": "0 9 * * 1-5"
+      },
+      "patch": {
+        "start": "2026-11-25",
+        "days": 14
+      },
+      "result": [
+        "2026-11-25T09:00:00.000Z",
+        "2026-11-26T09:00:00.000Z",
+        "2026-11-27T09:00:00.000Z",
+        "2026-11-30T09:00:00.000Z",
+        "2026-12-01T09:00:00.000Z",
+        "2026-12-02T09:00:00.000Z",
+        "2026-12-03T09:00:00.000Z",
+        "2026-12-04T09:00:00.000Z",
+        "2026-12-07T09:00:00.000Z",
+        "2026-12-08T09:00:00.000Z"
+      ],
+      "events": [],
+      "baseline": [
+        "2026-11-25T09:00:00.000Z",
+        "2026-11-26T09:00:00.000Z",
+        "2026-11-27T09:00:00.000Z",
+        "2026-11-30T09:00:00.000Z",
+        "2026-12-01T09:00:00.000Z",
+        "2026-12-02T09:00:00.000Z",
+        "2026-12-03T09:00:00.000Z",
+        "2026-12-04T09:00:00.000Z",
+        "2026-12-07T09:00:00.000Z",
+        "2026-12-08T09:00:00.000Z"
+      ],
+      "baselineAvailable": true,
+      "disagreement": false,
+      "reason": "UTC minute resolution; [start midnight, start + days) exclusive end. Restricted DOM and DOW use OR; with either field * they use AND. Each occurrence is a QA expectation, not a scheduled job.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 1,
+    "ready": 1,
+    "held": 0,
+    "blocked": 0,
+    "changes": 0,
+    "compared": 1,
+    "disagreements": 0
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "version": 1,
+  "app": "Namespace Loom",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "orders",
+        "description": "Customer purchase orders, shopping cart checkout, payment and invoice transaction records.",
+        "defaultNamespace": "urn:shop:orders",
+        "prefixes": {
+          "o": "urn:shop:orders",
+          "x": "urn:shop:orders"
+        }
+      },
+      {
+        "id": "people",
+        "description": "Employee staff directory, personnel contact details, human resources and office phone records.",
+        "defaultNamespace": "urn:office:people",
+        "prefixes": {
+          "o": "urn:office:people",
+          "x": "urn:office:people"
+        }
+      },
+      {
+        "id": "shipping",
+        "description": "Parcel shipping delivery, courier tracking numbers, postal warehouse dispatch and package arrival.",
+        "defaultNamespace": "urn:parcel:shipping",
+        "prefixes": {
+          "o": "urn:parcel:shipping",
+          "x": "urn:parcel:shipping"
+        }
+      }
+    ],
+    "records": [
+      {
+        "id": "same",
+        "context": "Employee staff directory, personnel contact details, human resources and office phone records.",
+        "raw": "{\"element\":\"receipt\",\"attributes\":[{\"name\":\"id\",\"value\":\"A-12\"},{\"name\":\"o:id\",\"value\":\"remote-7\"}],\"text\":\"Paid < confirmed & packed\"}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "same",
+      "system": "people",
+      "raw": "{\"element\":\"receipt\",\"attributes\":[{\"name\":\"id\",\"value\":\"A-12\"},{\"name\":\"o:id\",\"value\":\"remote-7\"}],\"text\":\"Paid < confirmed & packed\"}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "people",
+          "similarity": 0.9999994900748524
+        },
+        {
+          "system": "shipping",
+          "similarity": 0.47033704655621267
+        },
+        {
+          "system": "orders",
+          "similarity": 0.4051618846527205
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "same",
+      "system": "people",
+      "raw": "{\"element\":\"receipt\",\"attributes\":[{\"name\":\"id\",\"value\":\"A-12\"},{\"name\":\"o:id\",\"value\":\"remote-7\"}],\"text\":\"Paid < confirmed & packed\"}",
+      "element": {
+        "qname": "receipt",
+        "namespace": "urn:office:people",
+        "local": "receipt",
+        "key": "{urn:office:people}receipt"
+      },
+      "attributes": [
+        {
+          "qname": "id",
+          "namespace": "",
+          "local": "id",
+          "key": "{}id",
+          "value": "A-12"
+        },
+        {
+          "qname": "o:id",
+          "namespace": "urn:office:people",
+          "local": "id",
+          "key": "{urn:office:people}id",
+          "value": "remote-7"
+        }
+      ],
+      "text": "Paid < confirmed & packed",
+      "xml": "<receipt xmlns=\"urn:office:people\" xmlns:o=\"urn:office:people\" xmlns:x=\"urn:office:people\" id=\"A-12\" o:id=\"remote-7\">Paid &lt; confirmed &amp; packed</receipt>",
+      "baseline": [
+        {
+          "qname": "id",
+          "namespace": "urn:office:people",
+          "local": "id",
+          "key": "{}id",
+          "value": "A-12"
+        },
+        {
+          "qname": "o:id",
+          "namespace": "urn:office:people",
+          "local": "id",
+          "key": "{urn:office:people}id",
+          "value": "remote-7"
+        }
+      ],
+      "disagreement": true,
+      "reason": "Unprefixed elements use the default namespace; unprefixed attributes never do. Expanded attribute names must be unique.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 1,
+    "ready": 1,
+    "held": 0,
+    "blocked": 0,
+    "attributes": 2,
+    "disagreements": 1
+  }
+}

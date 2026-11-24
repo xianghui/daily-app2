@@ -1,0 +1,12 @@
+const a=require('assert/strict'),fs=require('fs');(async()=>{const{plans,examples,inspect,expand,parse,suggest,analyze}=await import('./src/core.js');let passed=0;const check=(f)=>{f();passed++};const raw=(element='entry',attributes=[],text='')=>JSON.stringify({element,attributes,text});const p=plans[0];
+check(()=>a.equal(expand('id',p,true).namespace,''));check(()=>a.equal(expand('entry',p).namespace,p.defaultNamespace));check(()=>a.equal(expand('xml:lang',p,true).namespace,'http://www.w3.org/XML/1998/namespace'));
+check(()=>a.throws(()=>inspect(raw('entry',[{name:'o:id',value:'1'},{name:'x:id',value:'2'}]),p),/Duplicate expanded/));check(()=>a.equal(inspect(raw('entry',[{name:'id',value:'1'},{name:'o:id',value:'2'}]),p).attributes.length,2));
+for(const name of['foo:bar','a:b:c','xmlns','xmlns:hi','1bad','with space','é'])check(()=>a.throws(()=>inspect(raw(name),p)));
+for(const t of['\u0000','\u0001','\uD800','\uFFFF'])check(()=>a.throws(()=>inspect(raw('entry',[],t),p),/Forbidden/));
+check(()=>a.equal(inspect(raw('entry',[],'😀\t\n\r'),p).text,'😀\t\n\r'));check(()=>a.throws(()=>inspect(raw('entry',[{name:'id',value:'a'},{name:'id',value:'b'}]),p)));
+check(()=>a.throws(()=>inspect(raw('entry',[{name:'xml:space',value:'nonsense'}]),p)));check(()=>a.throws(()=>inspect(raw('entry',Array(13).fill({name:'id',value:'x'})),p)));check(()=>a.throws(()=>inspect(raw('entry',[],'x'.repeat(501)),p)));check(()=>a.throws(()=>suggest(examples[0].data,Array(6).fill(Array(384).fill(0)))));
+for(const override of[{defaultNamespace:'http://www.w3.org/2000/xmlns/'},{prefixes:{xml:'urn:bad'}},{prefixes:{a:''}},{prefixes:{x:'javascript:bad'}},{prefixes:{x:'urn:ok',XMLn:'urn:no'}}])check(()=>a.throws(()=>parse(JSON.stringify({...examples[0].data,plans:[{...p,...override},plans[1]]}))));
+const outputs=[];for(const e of examples){const rows=e.data.records.map((r,i)=>({...r,system:e.expected[i],decision:'approve',note:'',evidence:[]})),r=analyze(e.data,rows);a.equal(r.checks.length,3);outputs.push(r)}
+// Every namespace alias collision blocks independent of order or lexical prefix name.
+for(let i=0;i<30;i++){const q={...p,prefixes:{a:'urn:test:'+i,b:'urn:test:'+i}};check(()=>a.throws(()=>inspect(raw('entry',[{name:'a:k',value:'1'},{name:'b:k',value:'2'}]),q),/Duplicate/))}
+fs.writeFileSync('oracle-validation.json',JSON.stringify({passed,fixtures:outputs},null,2));console.log('PASS oracle',passed)})().catch(e=>{console.error(e);process.exit(1)});

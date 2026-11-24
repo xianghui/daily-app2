@@ -1,0 +1,244 @@
+{
+  "version": 1,
+  "app": "Namespace Loom",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "plants",
+        "description": "Botanical garden plant specimen, flower species, herbarium collection and seed catalog.",
+        "defaultNamespace": "urn:garden:plants",
+        "prefixes": {
+          "s": "urn:garden:plants",
+          "alias": "urn:garden:plants"
+        }
+      },
+      {
+        "id": "music",
+        "description": "Orchestra music performance, concert instruments, composer and musical score catalog.",
+        "defaultNamespace": "",
+        "prefixes": {
+          "s": "urn:arts:music",
+          "alias": "urn:arts:music"
+        }
+      },
+      {
+        "id": "sky",
+        "description": "Astronomy telescope observations, distant stars, planet measurements and galaxy research.",
+        "defaultNamespace": "urn:science:sky",
+        "prefixes": {
+          "s": "urn:science:sky",
+          "alias": "urn:science:sky"
+        }
+      }
+    ],
+    "records": [
+      {
+        "id": "Herbarium",
+        "context": "Botanical flower species specimen and seed collection for the garden.",
+        "raw": "{\"element\":\"specimen\",\"attributes\":[{\"name\":\"code\",\"value\":\"F-4\"},{\"name\":\"s:code\",\"value\":\"S-5\"}],\"text\":\"Fern & moss\"}"
+      },
+      {
+        "id": "Orchestra",
+        "context": "Orchestra concert musical score and composer instrument catalog entry.",
+        "raw": "{\"element\":\"score\",\"attributes\":[{\"name\":\"s:id\",\"value\":\"Q-2\"},{\"name\":\"xml:space\",\"value\":\"preserve\"}],\"text\":\"Allegro\\nmoderato\"}"
+      },
+      {
+        "id": "Telescope",
+        "context": "Astronomy telescope observation of distant galaxy and planet measurements.",
+        "raw": "{\"element\":\"s:observation\",\"attributes\":[{\"name\":\"id\",\"value\":\"T-3\"},{\"name\":\"site\",\"value\":\"North \\\"dome\\\"\\nA\"}],\"text\":\"Star < 8\"}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "Herbarium",
+      "system": "plants",
+      "raw": "{\"element\":\"bad:unbound\",\"attributes\":[],\"text\":\"\"}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "plants",
+          "similarity": 0.881964429744368
+        },
+        {
+          "system": "sky",
+          "similarity": 0.22680749760557076
+        },
+        {
+          "system": "music",
+          "similarity": 0.1388570206226008
+        }
+      ]
+    },
+    {
+      "id": "Orchestra",
+      "system": "music",
+      "raw": "{\n  \"element\": \"score\",\n  \"attributes\": [\n    {\n      \"name\": \"s:id\",\n      \"value\": \"Q-2\"\n    },\n    {\n      \"name\": \"xml:space\",\n      \"value\": \"preserve\"\n    },\n    {\n      \"name\": \"id\",\n      \"value\": \"=X\\n\\\"quoted\\\"\\tvalue\"\n    }\n  ],\n  \"text\": \"Edited < & \\\"note\\\"\\nnext line\"\n}",
+      "decision": "approve",
+      "note": "=SUM(1,2)\nReviewed \"paper\", exactly.",
+      "evidence": [
+        {
+          "system": "music",
+          "similarity": 0.8921981407392069
+        },
+        {
+          "system": "sky",
+          "similarity": 0.26684143787474524
+        },
+        {
+          "system": "plants",
+          "similarity": 0.23237617750813291
+        }
+      ]
+    },
+    {
+      "id": "Telescope",
+      "system": "sky",
+      "raw": "{\"element\":\"s:observation\",\"attributes\":[{\"name\":\"id\",\"value\":\"T-3\"},{\"name\":\"site\",\"value\":\"North \\\"dome\\\"\\nA\"}],\"text\":\"Star < 8\"}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "sky",
+          "similarity": 0.8607751524211275
+        },
+        {
+          "system": "plants",
+          "similarity": 0.19110221023909443
+        },
+        {
+          "system": "music",
+          "similarity": 0.17397861380957086
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "Herbarium",
+      "system": "plants",
+      "raw": "{\"element\":\"bad:unbound\",\"attributes\":[],\"text\":\"\"}",
+      "status": "blocked",
+      "reason": "Unbound prefix: bad"
+    },
+    {
+      "id": "Orchestra",
+      "system": "music",
+      "raw": "{\n  \"element\": \"score\",\n  \"attributes\": [\n    {\n      \"name\": \"s:id\",\n      \"value\": \"Q-2\"\n    },\n    {\n      \"name\": \"xml:space\",\n      \"value\": \"preserve\"\n    },\n    {\n      \"name\": \"id\",\n      \"value\": \"=X\\n\\\"quoted\\\"\\tvalue\"\n    }\n  ],\n  \"text\": \"Edited < & \\\"note\\\"\\nnext line\"\n}",
+      "element": {
+        "qname": "score",
+        "namespace": "",
+        "local": "score",
+        "key": "{}score"
+      },
+      "attributes": [
+        {
+          "qname": "s:id",
+          "namespace": "urn:arts:music",
+          "local": "id",
+          "key": "{urn:arts:music}id",
+          "value": "Q-2"
+        },
+        {
+          "qname": "xml:space",
+          "namespace": "http://www.w3.org/XML/1998/namespace",
+          "local": "space",
+          "key": "{http://www.w3.org/XML/1998/namespace}space",
+          "value": "preserve"
+        },
+        {
+          "qname": "id",
+          "namespace": "",
+          "local": "id",
+          "key": "{}id",
+          "value": "=X\n\"quoted\"\tvalue"
+        }
+      ],
+      "text": "Edited < & \"note\"\nnext line",
+      "xml": "<score xmlns:s=\"urn:arts:music\" xmlns:alias=\"urn:arts:music\" s:id=\"Q-2\" xml:space=\"preserve\" id=\"=X&#10;&quot;quoted&quot;&#9;value\">Edited &lt; &amp; &quot;note&quot;&#10;next line</score>",
+      "baseline": [
+        {
+          "qname": "s:id",
+          "namespace": "urn:arts:music",
+          "local": "id",
+          "key": "{urn:arts:music}id",
+          "value": "Q-2"
+        },
+        {
+          "qname": "xml:space",
+          "namespace": "http://www.w3.org/XML/1998/namespace",
+          "local": "space",
+          "key": "{http://www.w3.org/XML/1998/namespace}space",
+          "value": "preserve"
+        },
+        {
+          "qname": "id",
+          "namespace": "",
+          "local": "id",
+          "key": "{}id",
+          "value": "=X\n\"quoted\"\tvalue"
+        }
+      ],
+      "disagreement": false,
+      "reason": "Unprefixed elements use the default namespace; unprefixed attributes never do. Expanded attribute names must be unique.",
+      "status": "ready"
+    },
+    {
+      "id": "Telescope",
+      "system": "sky",
+      "raw": "{\"element\":\"s:observation\",\"attributes\":[{\"name\":\"id\",\"value\":\"T-3\"},{\"name\":\"site\",\"value\":\"North \\\"dome\\\"\\nA\"}],\"text\":\"Star < 8\"}",
+      "element": {
+        "qname": "s:observation",
+        "namespace": "urn:science:sky",
+        "local": "observation",
+        "key": "{urn:science:sky}observation"
+      },
+      "attributes": [
+        {
+          "qname": "id",
+          "namespace": "",
+          "local": "id",
+          "key": "{}id",
+          "value": "T-3"
+        },
+        {
+          "qname": "site",
+          "namespace": "",
+          "local": "site",
+          "key": "{}site",
+          "value": "North \"dome\"\nA"
+        }
+      ],
+      "text": "Star < 8",
+      "xml": "<s:observation xmlns=\"urn:science:sky\" xmlns:s=\"urn:science:sky\" xmlns:alias=\"urn:science:sky\" id=\"T-3\" site=\"North &quot;dome&quot;&#10;A\">Star &lt; 8</s:observation>",
+      "baseline": [
+        {
+          "qname": "id",
+          "namespace": "urn:science:sky",
+          "local": "id",
+          "key": "{}id",
+          "value": "T-3"
+        },
+        {
+          "qname": "site",
+          "namespace": "urn:science:sky",
+          "local": "site",
+          "key": "{}site",
+          "value": "North \"dome\"\nA"
+        }
+      ],
+      "disagreement": true,
+      "reason": "Unprefixed elements use the default namespace; unprefixed attributes never do. Expanded attribute names must be unique.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 3,
+    "ready": 2,
+    "held": 0,
+    "blocked": 1,
+    "attributes": 5,
+    "disagreements": 1
+  }
+}

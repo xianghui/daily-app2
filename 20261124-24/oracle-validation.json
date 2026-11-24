@@ -1,0 +1,434 @@
+{
+  "passed": 57,
+  "fixtures": [
+    {
+      "version": 1,
+      "app": "Namespace Loom",
+      "originalInput": {
+        "plans": [
+          {
+            "id": "orders",
+            "description": "Customer purchase orders, shopping cart checkout, payment and invoice transaction records.",
+            "defaultNamespace": "urn:shop:orders",
+            "prefixes": {
+              "o": "urn:shop:orders",
+              "x": "urn:shop:orders"
+            }
+          },
+          {
+            "id": "people",
+            "description": "Employee staff directory, personnel contact details, human resources and office phone records.",
+            "defaultNamespace": "urn:office:people",
+            "prefixes": {
+              "o": "urn:office:people",
+              "x": "urn:office:people"
+            }
+          },
+          {
+            "id": "shipping",
+            "description": "Parcel shipping delivery, courier tracking numbers, postal warehouse dispatch and package arrival.",
+            "defaultNamespace": "urn:parcel:shipping",
+            "prefixes": {
+              "o": "urn:parcel:shipping",
+              "x": "urn:parcel:shipping"
+            }
+          }
+        ],
+        "records": [
+          {
+            "id": "Receipt",
+            "context": "Shopping cart checkout purchase and invoice transaction export.",
+            "raw": "{\"element\":\"receipt\",\"attributes\":[{\"name\":\"id\",\"value\":\"A-12\"},{\"name\":\"o:id\",\"value\":\"remote-7\"}],\"text\":\"Paid < confirmed & packed\"}"
+          },
+          {
+            "id": "Staff contact",
+            "context": "Human resources employee office telephone contact directory entry.",
+            "raw": "{\"element\":\"o:person\",\"attributes\":[{\"name\":\"xml:lang\",\"value\":\"en\"},{\"name\":\"id\",\"value\":\"staff-4\"}],\"text\":\"Synthetic employee\"}"
+          },
+          {
+            "id": "Parcel label",
+            "context": "Courier tracking for parcel dispatch from the postal warehouse.",
+            "raw": "{\"element\":\"parcel\",\"attributes\":[{\"name\":\"o:code\",\"value\":\"P-1\"},{\"name\":\"x:code\",\"value\":\"P-2\"}],\"text\":\"\"}"
+          }
+        ]
+      },
+      "reviews": [
+        {
+          "id": "Receipt",
+          "context": "Shopping cart checkout purchase and invoice transaction export.",
+          "raw": "{\"element\":\"receipt\",\"attributes\":[{\"name\":\"id\",\"value\":\"A-12\"},{\"name\":\"o:id\",\"value\":\"remote-7\"}],\"text\":\"Paid < confirmed & packed\"}",
+          "system": "orders",
+          "decision": "approve",
+          "note": "",
+          "evidence": []
+        },
+        {
+          "id": "Staff contact",
+          "context": "Human resources employee office telephone contact directory entry.",
+          "raw": "{\"element\":\"o:person\",\"attributes\":[{\"name\":\"xml:lang\",\"value\":\"en\"},{\"name\":\"id\",\"value\":\"staff-4\"}],\"text\":\"Synthetic employee\"}",
+          "system": "people",
+          "decision": "approve",
+          "note": "",
+          "evidence": []
+        },
+        {
+          "id": "Parcel label",
+          "context": "Courier tracking for parcel dispatch from the postal warehouse.",
+          "raw": "{\"element\":\"parcel\",\"attributes\":[{\"name\":\"o:code\",\"value\":\"P-1\"},{\"name\":\"x:code\",\"value\":\"P-2\"}],\"text\":\"\"}",
+          "system": "shipping",
+          "decision": "approve",
+          "note": "",
+          "evidence": []
+        }
+      ],
+      "checks": [
+        {
+          "id": "Receipt",
+          "system": "orders",
+          "raw": "{\"element\":\"receipt\",\"attributes\":[{\"name\":\"id\",\"value\":\"A-12\"},{\"name\":\"o:id\",\"value\":\"remote-7\"}],\"text\":\"Paid < confirmed & packed\"}",
+          "element": {
+            "qname": "receipt",
+            "namespace": "urn:shop:orders",
+            "local": "receipt",
+            "key": "{urn:shop:orders}receipt"
+          },
+          "attributes": [
+            {
+              "qname": "id",
+              "namespace": "",
+              "local": "id",
+              "key": "{}id",
+              "value": "A-12"
+            },
+            {
+              "qname": "o:id",
+              "namespace": "urn:shop:orders",
+              "local": "id",
+              "key": "{urn:shop:orders}id",
+              "value": "remote-7"
+            }
+          ],
+          "text": "Paid < confirmed & packed",
+          "xml": "<receipt xmlns=\"urn:shop:orders\" xmlns:o=\"urn:shop:orders\" xmlns:x=\"urn:shop:orders\" id=\"A-12\" o:id=\"remote-7\">Paid &lt; confirmed &amp; packed</receipt>",
+          "baseline": [
+            {
+              "qname": "id",
+              "namespace": "urn:shop:orders",
+              "local": "id",
+              "key": "{}id",
+              "value": "A-12"
+            },
+            {
+              "qname": "o:id",
+              "namespace": "urn:shop:orders",
+              "local": "id",
+              "key": "{urn:shop:orders}id",
+              "value": "remote-7"
+            }
+          ],
+          "disagreement": true,
+          "reason": "Unprefixed elements use the default namespace; unprefixed attributes never do. Expanded attribute names must be unique.",
+          "status": "ready"
+        },
+        {
+          "id": "Staff contact",
+          "system": "people",
+          "raw": "{\"element\":\"o:person\",\"attributes\":[{\"name\":\"xml:lang\",\"value\":\"en\"},{\"name\":\"id\",\"value\":\"staff-4\"}],\"text\":\"Synthetic employee\"}",
+          "element": {
+            "qname": "o:person",
+            "namespace": "urn:office:people",
+            "local": "person",
+            "key": "{urn:office:people}person"
+          },
+          "attributes": [
+            {
+              "qname": "xml:lang",
+              "namespace": "http://www.w3.org/XML/1998/namespace",
+              "local": "lang",
+              "key": "{http://www.w3.org/XML/1998/namespace}lang",
+              "value": "en"
+            },
+            {
+              "qname": "id",
+              "namespace": "",
+              "local": "id",
+              "key": "{}id",
+              "value": "staff-4"
+            }
+          ],
+          "text": "Synthetic employee",
+          "xml": "<o:person xmlns=\"urn:office:people\" xmlns:o=\"urn:office:people\" xmlns:x=\"urn:office:people\" xml:lang=\"en\" id=\"staff-4\">Synthetic employee</o:person>",
+          "baseline": [
+            {
+              "qname": "xml:lang",
+              "namespace": "http://www.w3.org/XML/1998/namespace",
+              "local": "lang",
+              "key": "{http://www.w3.org/XML/1998/namespace}lang",
+              "value": "en"
+            },
+            {
+              "qname": "id",
+              "namespace": "urn:office:people",
+              "local": "id",
+              "key": "{}id",
+              "value": "staff-4"
+            }
+          ],
+          "disagreement": true,
+          "reason": "Unprefixed elements use the default namespace; unprefixed attributes never do. Expanded attribute names must be unique.",
+          "status": "ready"
+        },
+        {
+          "id": "Parcel label",
+          "system": "shipping",
+          "raw": "{\"element\":\"parcel\",\"attributes\":[{\"name\":\"o:code\",\"value\":\"P-1\"},{\"name\":\"x:code\",\"value\":\"P-2\"}],\"text\":\"\"}",
+          "status": "blocked",
+          "reason": "Duplicate expanded attribute {urn:parcel:shipping}code (prefix aliases do not create new names)."
+        }
+      ],
+      "metrics": {
+        "records": 3,
+        "ready": 2,
+        "held": 0,
+        "blocked": 1,
+        "attributes": 4,
+        "disagreements": 2
+      }
+    },
+    {
+      "version": 1,
+      "app": "Namespace Loom",
+      "originalInput": {
+        "plans": [
+          {
+            "id": "plants",
+            "description": "Botanical garden plant specimen, flower species, herbarium collection and seed catalog.",
+            "defaultNamespace": "urn:garden:plants",
+            "prefixes": {
+              "s": "urn:garden:plants",
+              "alias": "urn:garden:plants"
+            }
+          },
+          {
+            "id": "music",
+            "description": "Orchestra music performance, concert instruments, composer and musical score catalog.",
+            "defaultNamespace": "",
+            "prefixes": {
+              "s": "urn:arts:music",
+              "alias": "urn:arts:music"
+            }
+          },
+          {
+            "id": "sky",
+            "description": "Astronomy telescope observations, distant stars, planet measurements and galaxy research.",
+            "defaultNamespace": "urn:science:sky",
+            "prefixes": {
+              "s": "urn:science:sky",
+              "alias": "urn:science:sky"
+            }
+          }
+        ],
+        "records": [
+          {
+            "id": "Herbarium",
+            "context": "Botanical flower species specimen and seed collection for the garden.",
+            "raw": "{\"element\":\"specimen\",\"attributes\":[{\"name\":\"code\",\"value\":\"F-4\"},{\"name\":\"s:code\",\"value\":\"S-5\"}],\"text\":\"Fern & moss\"}"
+          },
+          {
+            "id": "Orchestra",
+            "context": "Orchestra concert musical score and composer instrument catalog entry.",
+            "raw": "{\"element\":\"score\",\"attributes\":[{\"name\":\"s:id\",\"value\":\"Q-2\"},{\"name\":\"xml:space\",\"value\":\"preserve\"}],\"text\":\"Allegro\\nmoderato\"}"
+          },
+          {
+            "id": "Telescope",
+            "context": "Astronomy telescope observation of distant galaxy and planet measurements.",
+            "raw": "{\"element\":\"s:observation\",\"attributes\":[{\"name\":\"id\",\"value\":\"T-3\"},{\"name\":\"site\",\"value\":\"North \\\"dome\\\"\\nA\"}],\"text\":\"Star < 8\"}"
+          }
+        ]
+      },
+      "reviews": [
+        {
+          "id": "Herbarium",
+          "context": "Botanical flower species specimen and seed collection for the garden.",
+          "raw": "{\"element\":\"specimen\",\"attributes\":[{\"name\":\"code\",\"value\":\"F-4\"},{\"name\":\"s:code\",\"value\":\"S-5\"}],\"text\":\"Fern & moss\"}",
+          "system": "plants",
+          "decision": "approve",
+          "note": "",
+          "evidence": []
+        },
+        {
+          "id": "Orchestra",
+          "context": "Orchestra concert musical score and composer instrument catalog entry.",
+          "raw": "{\"element\":\"score\",\"attributes\":[{\"name\":\"s:id\",\"value\":\"Q-2\"},{\"name\":\"xml:space\",\"value\":\"preserve\"}],\"text\":\"Allegro\\nmoderato\"}",
+          "system": "music",
+          "decision": "approve",
+          "note": "",
+          "evidence": []
+        },
+        {
+          "id": "Telescope",
+          "context": "Astronomy telescope observation of distant galaxy and planet measurements.",
+          "raw": "{\"element\":\"s:observation\",\"attributes\":[{\"name\":\"id\",\"value\":\"T-3\"},{\"name\":\"site\",\"value\":\"North \\\"dome\\\"\\nA\"}],\"text\":\"Star < 8\"}",
+          "system": "sky",
+          "decision": "approve",
+          "note": "",
+          "evidence": []
+        }
+      ],
+      "checks": [
+        {
+          "id": "Herbarium",
+          "system": "plants",
+          "raw": "{\"element\":\"specimen\",\"attributes\":[{\"name\":\"code\",\"value\":\"F-4\"},{\"name\":\"s:code\",\"value\":\"S-5\"}],\"text\":\"Fern & moss\"}",
+          "element": {
+            "qname": "specimen",
+            "namespace": "urn:garden:plants",
+            "local": "specimen",
+            "key": "{urn:garden:plants}specimen"
+          },
+          "attributes": [
+            {
+              "qname": "code",
+              "namespace": "",
+              "local": "code",
+              "key": "{}code",
+              "value": "F-4"
+            },
+            {
+              "qname": "s:code",
+              "namespace": "urn:garden:plants",
+              "local": "code",
+              "key": "{urn:garden:plants}code",
+              "value": "S-5"
+            }
+          ],
+          "text": "Fern & moss",
+          "xml": "<specimen xmlns=\"urn:garden:plants\" xmlns:s=\"urn:garden:plants\" xmlns:alias=\"urn:garden:plants\" code=\"F-4\" s:code=\"S-5\">Fern &amp; moss</specimen>",
+          "baseline": [
+            {
+              "qname": "code",
+              "namespace": "urn:garden:plants",
+              "local": "code",
+              "key": "{}code",
+              "value": "F-4"
+            },
+            {
+              "qname": "s:code",
+              "namespace": "urn:garden:plants",
+              "local": "code",
+              "key": "{urn:garden:plants}code",
+              "value": "S-5"
+            }
+          ],
+          "disagreement": true,
+          "reason": "Unprefixed elements use the default namespace; unprefixed attributes never do. Expanded attribute names must be unique.",
+          "status": "ready"
+        },
+        {
+          "id": "Orchestra",
+          "system": "music",
+          "raw": "{\"element\":\"score\",\"attributes\":[{\"name\":\"s:id\",\"value\":\"Q-2\"},{\"name\":\"xml:space\",\"value\":\"preserve\"}],\"text\":\"Allegro\\nmoderato\"}",
+          "element": {
+            "qname": "score",
+            "namespace": "",
+            "local": "score",
+            "key": "{}score"
+          },
+          "attributes": [
+            {
+              "qname": "s:id",
+              "namespace": "urn:arts:music",
+              "local": "id",
+              "key": "{urn:arts:music}id",
+              "value": "Q-2"
+            },
+            {
+              "qname": "xml:space",
+              "namespace": "http://www.w3.org/XML/1998/namespace",
+              "local": "space",
+              "key": "{http://www.w3.org/XML/1998/namespace}space",
+              "value": "preserve"
+            }
+          ],
+          "text": "Allegro\nmoderato",
+          "xml": "<score xmlns:s=\"urn:arts:music\" xmlns:alias=\"urn:arts:music\" s:id=\"Q-2\" xml:space=\"preserve\">Allegro&#10;moderato</score>",
+          "baseline": [
+            {
+              "qname": "s:id",
+              "namespace": "urn:arts:music",
+              "local": "id",
+              "key": "{urn:arts:music}id",
+              "value": "Q-2"
+            },
+            {
+              "qname": "xml:space",
+              "namespace": "http://www.w3.org/XML/1998/namespace",
+              "local": "space",
+              "key": "{http://www.w3.org/XML/1998/namespace}space",
+              "value": "preserve"
+            }
+          ],
+          "disagreement": false,
+          "reason": "Unprefixed elements use the default namespace; unprefixed attributes never do. Expanded attribute names must be unique.",
+          "status": "ready"
+        },
+        {
+          "id": "Telescope",
+          "system": "sky",
+          "raw": "{\"element\":\"s:observation\",\"attributes\":[{\"name\":\"id\",\"value\":\"T-3\"},{\"name\":\"site\",\"value\":\"North \\\"dome\\\"\\nA\"}],\"text\":\"Star < 8\"}",
+          "element": {
+            "qname": "s:observation",
+            "namespace": "urn:science:sky",
+            "local": "observation",
+            "key": "{urn:science:sky}observation"
+          },
+          "attributes": [
+            {
+              "qname": "id",
+              "namespace": "",
+              "local": "id",
+              "key": "{}id",
+              "value": "T-3"
+            },
+            {
+              "qname": "site",
+              "namespace": "",
+              "local": "site",
+              "key": "{}site",
+              "value": "North \"dome\"\nA"
+            }
+          ],
+          "text": "Star < 8",
+          "xml": "<s:observation xmlns=\"urn:science:sky\" xmlns:s=\"urn:science:sky\" xmlns:alias=\"urn:science:sky\" id=\"T-3\" site=\"North &quot;dome&quot;&#10;A\">Star &lt; 8</s:observation>",
+          "baseline": [
+            {
+              "qname": "id",
+              "namespace": "urn:science:sky",
+              "local": "id",
+              "key": "{}id",
+              "value": "T-3"
+            },
+            {
+              "qname": "site",
+              "namespace": "urn:science:sky",
+              "local": "site",
+              "key": "{}site",
+              "value": "North \"dome\"\nA"
+            }
+          ],
+          "disagreement": true,
+          "reason": "Unprefixed elements use the default namespace; unprefixed attributes never do. Expanded attribute names must be unique.",
+          "status": "ready"
+        }
+      ],
+      "metrics": {
+        "records": 3,
+        "ready": 3,
+        "held": 0,
+        "blocked": 0,
+        "attributes": 6,
+        "disagreements": 2
+      }
+    }
+  ]
+}

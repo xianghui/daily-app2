@@ -1,0 +1,337 @@
+{
+  "schema": "peerframe-desk/v1",
+  "original": {
+    "title": "Synthetic lab timeline",
+    "profiles": [
+      {
+        "id": "row-ledger",
+        "description": "Transaction ledger: show the running balance after each individual entry, breaking equal timestamps by entry identifier. Accumulate one row at a time.",
+        "mode": "rows"
+      },
+      {
+        "id": "peer-summary",
+        "description": "Period-end reporting: all entries sharing the same day or period receive the same cumulative total including the entire group for that period.",
+        "mode": "peers"
+      }
+    ],
+    "requests": [
+      {
+        "id": "event-log",
+        "context": "After each individual event show the updated running count. Process one row at a time, using the identifier to break ties.",
+        "records": [
+          {
+            "id": "z",
+            "partition": "bench",
+            "key": 0,
+            "value": 7
+          },
+          {
+            "id": "a",
+            "partition": "bench",
+            "key": 0,
+            "value": 3
+          },
+          {
+            "id": "m",
+            "partition": "bench",
+            "key": 1,
+            "value": -2
+          }
+        ]
+      },
+      {
+        "id": "weekly-summary",
+        "context": "Weekly summary: measurements in the same week share the full cumulative total through the end of that week.",
+        "records": [
+          {
+            "id": "a",
+            "partition": "trial",
+            "key": 1,
+            "value": 8
+          },
+          {
+            "id": "b",
+            "partition": "trial",
+            "key": 1,
+            "value": 2
+          },
+          {
+            "id": "c",
+            "partition": "trial",
+            "key": 2,
+            "value": 3
+          },
+          {
+            "id": "d",
+            "partition": "trial",
+            "key": 2,
+            "value": -1
+          }
+        ]
+      },
+      {
+        "id": "tube-ledger",
+        "context": "Individual entry ledger showing the running quantity immediately after each entry. For matching times sort by entry identifier.",
+        "records": [
+          {
+            "id": "a",
+            "partition": "tube-A",
+            "key": 1,
+            "value": 11
+          },
+          {
+            "id": "b",
+            "partition": "tube-A",
+            "key": 1,
+            "value": -4
+          },
+          {
+            "id": "c",
+            "partition": "tube-B",
+            "key": 1,
+            "value": 6
+          }
+        ]
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "event-log",
+      "profile": "row-ledger",
+      "decision": "approve",
+      "note": "=SUM(1,2)\nReviewed \"entry\", <script> & 🍞",
+      "candidates": [
+        {
+          "id": "row-ledger",
+          "score": 0.42156799287081387
+        },
+        {
+          "id": "peer-summary",
+          "score": 0.292098296375173
+        }
+      ]
+    },
+    {
+      "id": "weekly-summary",
+      "profile": "peer-summary",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "peer-summary",
+          "score": 0.6925120328364868
+        },
+        {
+          "id": "row-ledger",
+          "score": 0.33722468218936597
+        }
+      ]
+    },
+    {
+      "id": "tube-ledger",
+      "profile": "row-ledger",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "row-ledger",
+          "score": 0.7000390188467844
+        },
+        {
+          "id": "peer-summary",
+          "score": 0.425276426035586
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "event-log",
+      "context": "After each individual event show the updated running count. Process one row at a time, using the identifier to break ties.",
+      "decision": "approve",
+      "note": "=SUM(1,2)\nReviewed \"entry\", <script> & 🍞",
+      "profile": "row-ledger",
+      "mode": "rows",
+      "source": [
+        {
+          "id": "z",
+          "partition": "bench",
+          "key": 0,
+          "value": 7
+        },
+        {
+          "id": "a",
+          "partition": "bench",
+          "key": 0,
+          "value": 3
+        },
+        {
+          "id": "m",
+          "partition": "bench",
+          "key": 1,
+          "value": -2
+        }
+      ],
+      "result": [
+        {
+          "id": "a",
+          "partition": "bench",
+          "key": 0,
+          "value": 3,
+          "total": 3
+        },
+        {
+          "id": "z",
+          "partition": "bench",
+          "key": 0,
+          "value": 7,
+          "total": 10
+        },
+        {
+          "id": "m",
+          "partition": "bench",
+          "key": 1,
+          "value": -2,
+          "total": 8
+        }
+      ],
+      "differences": []
+    },
+    {
+      "id": "weekly-summary",
+      "context": "Weekly summary: measurements in the same week share the full cumulative total through the end of that week.",
+      "decision": "approve",
+      "note": "",
+      "profile": "peer-summary",
+      "mode": "peers",
+      "source": [
+        {
+          "id": "a",
+          "partition": "trial",
+          "key": 1,
+          "value": 8
+        },
+        {
+          "id": "b",
+          "partition": "trial",
+          "key": 1,
+          "value": 2
+        },
+        {
+          "id": "c",
+          "partition": "trial",
+          "key": 2,
+          "value": 3
+        },
+        {
+          "id": "d",
+          "partition": "trial",
+          "key": 2,
+          "value": -1
+        }
+      ],
+      "result": [
+        {
+          "id": "a",
+          "partition": "trial",
+          "key": 1,
+          "value": 8,
+          "total": 10
+        },
+        {
+          "id": "b",
+          "partition": "trial",
+          "key": 1,
+          "value": 2,
+          "total": 10
+        },
+        {
+          "id": "c",
+          "partition": "trial",
+          "key": 2,
+          "value": 3,
+          "total": 12
+        },
+        {
+          "id": "d",
+          "partition": "trial",
+          "key": 2,
+          "value": -1,
+          "total": 12
+        }
+      ],
+      "differences": [
+        {
+          "id": "a",
+          "baseline": 8,
+          "reviewed": 10
+        },
+        {
+          "id": "c",
+          "baseline": 13,
+          "reviewed": 12
+        }
+      ]
+    },
+    {
+      "id": "tube-ledger",
+      "context": "Individual entry ledger showing the running quantity immediately after each entry. For matching times sort by entry identifier.",
+      "decision": "approve",
+      "note": "",
+      "profile": "row-ledger",
+      "mode": "rows",
+      "source": [
+        {
+          "id": "a",
+          "partition": "tube-A",
+          "key": 1,
+          "value": 11
+        },
+        {
+          "id": "b",
+          "partition": "tube-A",
+          "key": 1,
+          "value": -4
+        },
+        {
+          "id": "c",
+          "partition": "tube-B",
+          "key": 1,
+          "value": 6
+        }
+      ],
+      "result": [
+        {
+          "id": "a",
+          "partition": "tube-A",
+          "key": 1,
+          "value": 11,
+          "total": 11
+        },
+        {
+          "id": "b",
+          "partition": "tube-A",
+          "key": 1,
+          "value": -4,
+          "total": 7
+        },
+        {
+          "id": "c",
+          "partition": "tube-B",
+          "key": 1,
+          "value": 6,
+          "total": 6
+        }
+      ],
+      "differences": []
+    }
+  ],
+  "metrics": {
+    "requests": 3,
+    "approved": 3,
+    "held": 0,
+    "records": 10,
+    "differentTotals": 2
+  }
+}

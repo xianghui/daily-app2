@@ -2300,3 +2300,8 @@ Public release verified: final matching built Pages commit `cb393bc69a679c2df716
 ## Cursor Lantern — 20261125-13
 
 Local MiniLM matches informal pagination handoffs to supplied dataset snapshots. Review links and settings, compare lossless compound-key page expectations with single-key boundary losses, and export reusable QA JSON plus complete JSON/CSV/Markdown audits without uploads or database calls. Both synthetic batches retained all 15 record visits versus five skipped by the shortcut; six known-answer semantic links matched. Shared immutable MiniLM worker/runtime from `20261115-6` and `20261107-2` must stay published. See [workflow](20261125-13/README.md) and [observed validation](20261125-13/VALIDATION.md).
+
+
+## Peerframe Desk — 20261125-14
+
+Local MiniLM frame-intent inference for running-total reporting handoffs. Review row-by-row versus whole-peer accumulation, compare tie-related differences and export source-preserving JSON/CSV/Markdown plus read-only SQLite window QA fixtures. Reuses the immutable worker/factory from `20261115-6` and WASM from `20261107-2`; preserve their paths. See [workflow](20261125-14/README.md) and [observed validation](20261125-14/VALIDATION.md).

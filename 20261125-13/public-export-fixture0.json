@@ -1,0 +1,385 @@
+{
+  "schema": "cursor-lantern/v1",
+  "originalInput": {
+    "title": "Workshop export QA · synthetic",
+    "feeds": [
+      {
+        "id": "clay",
+        "description": "Pottery ceramics workshop: clay bowls, kiln firing, glazing and sculpture.",
+        "records": [
+          {
+            "id": "bowl-a",
+            "key": 10
+          },
+          {
+            "id": "bowl-b",
+            "key": 10
+          },
+          {
+            "id": "bowl-c",
+            "key": 10
+          },
+          {
+            "id": "bowl-d",
+            "key": 20
+          },
+          {
+            "id": "bowl-e",
+            "key": 30
+          }
+        ]
+      },
+      {
+        "id": "sky",
+        "description": "Astronomy observations: telescopes, stars, planets and night sky charts.",
+        "records": [
+          {
+            "id": "star-a",
+            "key": 1
+          },
+          {
+            "id": "star-b",
+            "key": 2
+          },
+          {
+            "id": "star-c",
+            "key": 2
+          },
+          {
+            "id": "star-d",
+            "key": 2
+          },
+          {
+            "id": "star-e",
+            "key": 4
+          }
+        ]
+      }
+    ],
+    "requests": [
+      {
+        "id": "req-1",
+        "context": "Export clay ceramic bowls kiln firing glazing workshop records",
+        "pageSize": 2,
+        "direction": "asc"
+      },
+      {
+        "id": "req-2",
+        "context": "Export astronomy telescope star planet night sky observations",
+        "pageSize": 2,
+        "direction": "desc"
+      },
+      {
+        "id": "req-3",
+        "context": "Pottery ceramic sculpture bowls clay kiln glazing export",
+        "pageSize": 1,
+        "direction": "desc"
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "req-1",
+      "feed": "clay",
+      "pageSize": 2,
+      "direction": "asc",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "clay",
+          "score": 0.6801085302630051
+        },
+        {
+          "id": "sky",
+          "score": 0.11542427485883489
+        }
+      ]
+    },
+    {
+      "id": "req-2",
+      "feed": "sky",
+      "pageSize": 2,
+      "direction": "desc",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "sky",
+          "score": 0.5997152789828516
+        },
+        {
+          "id": "clay",
+          "score": -0.026653591568245705
+        }
+      ]
+    },
+    {
+      "id": "req-3",
+      "feed": "clay",
+      "pageSize": 1,
+      "direction": "desc",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "clay",
+          "score": 0.7726156690438729
+        },
+        {
+          "id": "sky",
+          "score": 0.09151127155688625
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "req-1",
+      "source": {
+        "id": "req-1",
+        "context": "Export clay ceramic bowls kiln firing glazing workshop records",
+        "pageSize": 2,
+        "direction": "asc"
+      },
+      "review": {
+        "id": "req-1",
+        "feed": "clay",
+        "pageSize": 2,
+        "direction": "asc",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "clay",
+            "score": 0.6801085302630051
+          },
+          {
+            "id": "sky",
+            "score": 0.11542427485883489
+          }
+        ]
+      },
+      "plan": {
+        "feed": "clay",
+        "pageSize": 2,
+        "direction": "asc",
+        "sourceCount": 5,
+        "pages": [
+          {
+            "number": 1,
+            "after": null,
+            "ids": [
+              "bowl-a",
+              "bowl-b"
+            ],
+            "nextCursor": "WzEwLCJib3dsLWIiXQ=="
+          },
+          {
+            "number": 2,
+            "after": "WzEwLCJib3dsLWIiXQ==",
+            "ids": [
+              "bowl-c",
+              "bowl-d"
+            ],
+            "nextCursor": "WzIwLCJib3dsLWQiXQ=="
+          },
+          {
+            "number": 3,
+            "after": "WzIwLCJib3dsLWQiXQ==",
+            "ids": [
+              "bowl-e"
+            ],
+            "nextCursor": null
+          }
+        ],
+        "baselinePages": [
+          [
+            "bowl-a",
+            "bowl-b"
+          ],
+          [
+            "bowl-d",
+            "bowl-e"
+          ]
+        ],
+        "baselineSkipped": [
+          "bowl-c"
+        ]
+      }
+    },
+    {
+      "id": "req-2",
+      "source": {
+        "id": "req-2",
+        "context": "Export astronomy telescope star planet night sky observations",
+        "pageSize": 2,
+        "direction": "desc"
+      },
+      "review": {
+        "id": "req-2",
+        "feed": "sky",
+        "pageSize": 2,
+        "direction": "desc",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "sky",
+            "score": 0.5997152789828516
+          },
+          {
+            "id": "clay",
+            "score": -0.026653591568245705
+          }
+        ]
+      },
+      "plan": {
+        "feed": "sky",
+        "pageSize": 2,
+        "direction": "desc",
+        "sourceCount": 5,
+        "pages": [
+          {
+            "number": 1,
+            "after": null,
+            "ids": [
+              "star-e",
+              "star-d"
+            ],
+            "nextCursor": "WzIsInN0YXItZCJd"
+          },
+          {
+            "number": 2,
+            "after": "WzIsInN0YXItZCJd",
+            "ids": [
+              "star-c",
+              "star-b"
+            ],
+            "nextCursor": "WzIsInN0YXItYiJd"
+          },
+          {
+            "number": 3,
+            "after": "WzIsInN0YXItYiJd",
+            "ids": [
+              "star-a"
+            ],
+            "nextCursor": null
+          }
+        ],
+        "baselinePages": [
+          [
+            "star-e",
+            "star-d"
+          ],
+          [
+            "star-a"
+          ]
+        ],
+        "baselineSkipped": [
+          "star-c",
+          "star-b"
+        ]
+      }
+    },
+    {
+      "id": "req-3",
+      "source": {
+        "id": "req-3",
+        "context": "Pottery ceramic sculpture bowls clay kiln glazing export",
+        "pageSize": 1,
+        "direction": "desc"
+      },
+      "review": {
+        "id": "req-3",
+        "feed": "clay",
+        "pageSize": 1,
+        "direction": "desc",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "clay",
+            "score": 0.7726156690438729
+          },
+          {
+            "id": "sky",
+            "score": 0.09151127155688625
+          }
+        ]
+      },
+      "plan": {
+        "feed": "clay",
+        "pageSize": 1,
+        "direction": "desc",
+        "sourceCount": 5,
+        "pages": [
+          {
+            "number": 1,
+            "after": null,
+            "ids": [
+              "bowl-e"
+            ],
+            "nextCursor": "WzMwLCJib3dsLWUiXQ=="
+          },
+          {
+            "number": 2,
+            "after": "WzMwLCJib3dsLWUiXQ==",
+            "ids": [
+              "bowl-d"
+            ],
+            "nextCursor": "WzIwLCJib3dsLWQiXQ=="
+          },
+          {
+            "number": 3,
+            "after": "WzIwLCJib3dsLWQiXQ==",
+            "ids": [
+              "bowl-c"
+            ],
+            "nextCursor": "WzEwLCJib3dsLWMiXQ=="
+          },
+          {
+            "number": 4,
+            "after": "WzEwLCJib3dsLWMiXQ==",
+            "ids": [
+              "bowl-b"
+            ],
+            "nextCursor": "WzEwLCJib3dsLWIiXQ=="
+          },
+          {
+            "number": 5,
+            "after": "WzEwLCJib3dsLWIiXQ==",
+            "ids": [
+              "bowl-a"
+            ],
+            "nextCursor": null
+          }
+        ],
+        "baselinePages": [
+          [
+            "bowl-e"
+          ],
+          [
+            "bowl-d"
+          ],
+          [
+            "bowl-c"
+          ]
+        ],
+        "baselineSkipped": [
+          "bowl-b",
+          "bowl-a"
+        ]
+      }
+    }
+  ],
+  "metrics": {
+    "requests": 3,
+    "approved": 3,
+    "held": 0,
+    "expectedRecords": 15,
+    "compoundReturned": 15,
+    "singleKeySkipped": 5
+  },
+  "baseline": "Same reviewed feed, direction and page size; next page filters only key > lastKey (asc) or key < lastKey (desc). Compound key+ID uses strict tuple ordering. Counts are synthetic/supplied-data witnesses, not production performance or AI accuracy."
+}

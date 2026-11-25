@@ -1,0 +1,116 @@
+{
+  "schema": "cursor-lantern/v1",
+  "originalInput": {
+    "title": "Negation challenge",
+    "feeds": [
+      {
+        "id": "include",
+        "description": "Export all records including archived records.",
+        "records": [
+          {
+            "id": "a",
+            "key": 1
+          }
+        ]
+      },
+      {
+        "id": "exclude",
+        "description": "Export active records only; exclude archived records.",
+        "records": [
+          {
+            "id": "b",
+            "key": 1
+          }
+        ]
+      }
+    ],
+    "requests": [
+      {
+        "id": "challenge",
+        "context": "Do not include archived records in the export.",
+        "pageSize": 2,
+        "direction": "asc"
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "challenge",
+      "feed": "exclude",
+      "pageSize": 2,
+      "direction": "asc",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "exclude",
+          "score": 0.772264229526649
+        },
+        {
+          "id": "include",
+          "score": 0.7306160227868591
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "challenge",
+      "source": {
+        "id": "challenge",
+        "context": "Do not include archived records in the export.",
+        "pageSize": 2,
+        "direction": "asc"
+      },
+      "review": {
+        "id": "challenge",
+        "feed": "exclude",
+        "pageSize": 2,
+        "direction": "asc",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "exclude",
+            "score": 0.772264229526649
+          },
+          {
+            "id": "include",
+            "score": 0.7306160227868591
+          }
+        ]
+      },
+      "plan": {
+        "feed": "exclude",
+        "pageSize": 2,
+        "direction": "asc",
+        "sourceCount": 1,
+        "pages": [
+          {
+            "number": 1,
+            "after": null,
+            "ids": [
+              "b"
+            ],
+            "nextCursor": null
+          }
+        ],
+        "baselinePages": [
+          [
+            "b"
+          ]
+        ],
+        "baselineSkipped": []
+      }
+    }
+  ],
+  "metrics": {
+    "requests": 1,
+    "approved": 1,
+    "held": 0,
+    "expectedRecords": 1,
+    "compoundReturned": 1,
+    "singleKeySkipped": 0
+  },
+  "baseline": "Same reviewed feed, direction and page size; next page filters only key > lastKey (asc) or key < lastKey (desc). Compound key+ID uses strict tuple ordering. Counts are synthetic/supplied-data witnesses, not production performance or AI accuracy."
+}

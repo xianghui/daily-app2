@@ -1,0 +1,161 @@
+{
+  "schema": "cursor-lantern-qa/v1",
+  "ordering": "numeric key, then UTF-16 ID; both reverse for desc; immutable snapshot; no locale collation",
+  "cursorFormat": "Base64 UTF-8 JSON [key,id]; transparent fixture token, not signed or secret",
+  "cases": [
+    {
+      "id": "job-2",
+      "records": [
+        {
+          "id": "loaf-a",
+          "key": 5
+        },
+        {
+          "id": "loaf-b",
+          "key": 5
+        },
+        {
+          "id": "loaf-c",
+          "key": 5
+        },
+        {
+          "id": "loaf-d",
+          "key": 8
+        },
+        {
+          "id": "loaf-e",
+          "key": 8
+        }
+      ],
+      "feed": "bread",
+      "pageSize": 1,
+      "direction": "desc",
+      "sourceCount": 5,
+      "pages": [
+        {
+          "number": 1,
+          "after": null,
+          "ids": [
+            "loaf-e"
+          ],
+          "nextCursor": "WzgsImxvYWYtZSJd"
+        },
+        {
+          "number": 2,
+          "after": "WzgsImxvYWYtZSJd",
+          "ids": [
+            "loaf-d"
+          ],
+          "nextCursor": "WzgsImxvYWYtZCJd"
+        },
+        {
+          "number": 3,
+          "after": "WzgsImxvYWYtZCJd",
+          "ids": [
+            "loaf-c"
+          ],
+          "nextCursor": "WzUsImxvYWYtYyJd"
+        },
+        {
+          "number": 4,
+          "after": "WzUsImxvYWYtYyJd",
+          "ids": [
+            "loaf-b"
+          ],
+          "nextCursor": "WzUsImxvYWYtYiJd"
+        },
+        {
+          "number": 5,
+          "after": "WzUsImxvYWYtYiJd",
+          "ids": [
+            "loaf-a"
+          ],
+          "nextCursor": null
+        }
+      ],
+      "baselinePages": [
+        [
+          "loaf-e"
+        ],
+        [
+          "loaf-c"
+        ]
+      ],
+      "baselineSkipped": [
+        "loaf-d",
+        "loaf-b",
+        "loaf-a"
+      ]
+    },
+    {
+      "id": "job-3",
+      "records": [
+        {
+          "id": "book-a",
+          "key": 100
+        },
+        {
+          "id": "book-b",
+          "key": 100
+        },
+        {
+          "id": "book-c",
+          "key": 100
+        },
+        {
+          "id": "book-d",
+          "key": 110
+        },
+        {
+          "id": "book-e",
+          "key": 120
+        }
+      ],
+      "feed": "books",
+      "pageSize": 2,
+      "direction": "desc",
+      "sourceCount": 5,
+      "pages": [
+        {
+          "number": 1,
+          "after": null,
+          "ids": [
+            "book-e",
+            "book-d"
+          ],
+          "nextCursor": "WzExMCwiYm9vay1kIl0="
+        },
+        {
+          "number": 2,
+          "after": "WzExMCwiYm9vay1kIl0=",
+          "ids": [
+            "book-c",
+            "book-b"
+          ],
+          "nextCursor": "WzEwMCwiYm9vay1iIl0="
+        },
+        {
+          "number": 3,
+          "after": "WzEwMCwiYm9vay1iIl0=",
+          "ids": [
+            "book-a"
+          ],
+          "nextCursor": null
+        }
+      ],
+      "baselinePages": [
+        [
+          "book-e",
+          "book-d"
+        ],
+        [
+          "book-c",
+          "book-b"
+        ]
+      ],
+      "baselineSkipped": [
+        "book-a"
+      ]
+    }
+  ]
+}

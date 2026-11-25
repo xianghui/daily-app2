@@ -1,0 +1,399 @@
+{
+  "schema": "cursor-lantern/v1",
+  "originalInput": {
+    "title": "Service export QA · synthetic",
+    "feeds": [
+      {
+        "id": "bread",
+        "description": "Bakery bread production: dough, ovens, sourdough baking and temperature sensors.",
+        "records": [
+          {
+            "id": "loaf-a",
+            "key": 5
+          },
+          {
+            "id": "loaf-b",
+            "key": 5
+          },
+          {
+            "id": "loaf-c",
+            "key": 5
+          },
+          {
+            "id": "loaf-d",
+            "key": 8
+          },
+          {
+            "id": "loaf-e",
+            "key": 8
+          }
+        ]
+      },
+      {
+        "id": "books",
+        "description": "Library audiobook catalog: authors, book titles, reading records and literature.",
+        "records": [
+          {
+            "id": "book-a",
+            "key": 100
+          },
+          {
+            "id": "book-b",
+            "key": 100
+          },
+          {
+            "id": "book-c",
+            "key": 100
+          },
+          {
+            "id": "book-d",
+            "key": 110
+          },
+          {
+            "id": "book-e",
+            "key": 120
+          }
+        ]
+      }
+    ],
+    "requests": [
+      {
+        "id": "job-1",
+        "context": "Library audiobook author book titles reading catalog export",
+        "pageSize": 2,
+        "direction": "asc"
+      },
+      {
+        "id": "job-2",
+        "context": "Bakery bread dough sourdough oven baking production export",
+        "pageSize": 1,
+        "direction": "desc"
+      },
+      {
+        "id": "job-3",
+        "context": "Book catalog literature library audiobook authors reading export",
+        "pageSize": 2,
+        "direction": "desc"
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "job-1",
+      "feed": "books",
+      "pageSize": 1,
+      "direction": "desc",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "books",
+          "score": 0.8034314652016349
+        },
+        {
+          "id": "bread",
+          "score": 0.14119117009980003
+        }
+      ]
+    },
+    {
+      "id": "job-2",
+      "feed": "bread",
+      "pageSize": 1,
+      "direction": "desc",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "bread",
+          "score": 0.6917992097614447
+        },
+        {
+          "id": "books",
+          "score": 0.06544045558113756
+        }
+      ]
+    },
+    {
+      "id": "job-3",
+      "feed": "books",
+      "pageSize": 2,
+      "direction": "desc",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "books",
+          "score": 0.79659558042478
+        },
+        {
+          "id": "bread",
+          "score": 0.15521934711024687
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "job-1",
+      "source": {
+        "id": "job-1",
+        "context": "Library audiobook author book titles reading catalog export",
+        "pageSize": 2,
+        "direction": "asc"
+      },
+      "review": {
+        "id": "job-1",
+        "feed": "books",
+        "pageSize": 1,
+        "direction": "desc",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "books",
+            "score": 0.8034314652016349
+          },
+          {
+            "id": "bread",
+            "score": 0.14119117009980003
+          }
+        ]
+      },
+      "plan": {
+        "feed": "books",
+        "pageSize": 1,
+        "direction": "desc",
+        "sourceCount": 5,
+        "pages": [
+          {
+            "number": 1,
+            "after": null,
+            "ids": [
+              "book-e"
+            ],
+            "nextCursor": "WzEyMCwiYm9vay1lIl0="
+          },
+          {
+            "number": 2,
+            "after": "WzEyMCwiYm9vay1lIl0=",
+            "ids": [
+              "book-d"
+            ],
+            "nextCursor": "WzExMCwiYm9vay1kIl0="
+          },
+          {
+            "number": 3,
+            "after": "WzExMCwiYm9vay1kIl0=",
+            "ids": [
+              "book-c"
+            ],
+            "nextCursor": "WzEwMCwiYm9vay1jIl0="
+          },
+          {
+            "number": 4,
+            "after": "WzEwMCwiYm9vay1jIl0=",
+            "ids": [
+              "book-b"
+            ],
+            "nextCursor": "WzEwMCwiYm9vay1iIl0="
+          },
+          {
+            "number": 5,
+            "after": "WzEwMCwiYm9vay1iIl0=",
+            "ids": [
+              "book-a"
+            ],
+            "nextCursor": null
+          }
+        ],
+        "baselinePages": [
+          [
+            "book-e"
+          ],
+          [
+            "book-d"
+          ],
+          [
+            "book-c"
+          ]
+        ],
+        "baselineSkipped": [
+          "book-b",
+          "book-a"
+        ]
+      }
+    },
+    {
+      "id": "job-2",
+      "source": {
+        "id": "job-2",
+        "context": "Bakery bread dough sourdough oven baking production export",
+        "pageSize": 1,
+        "direction": "desc"
+      },
+      "review": {
+        "id": "job-2",
+        "feed": "bread",
+        "pageSize": 1,
+        "direction": "desc",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "bread",
+            "score": 0.6917992097614447
+          },
+          {
+            "id": "books",
+            "score": 0.06544045558113756
+          }
+        ]
+      },
+      "plan": {
+        "feed": "bread",
+        "pageSize": 1,
+        "direction": "desc",
+        "sourceCount": 5,
+        "pages": [
+          {
+            "number": 1,
+            "after": null,
+            "ids": [
+              "loaf-e"
+            ],
+            "nextCursor": "WzgsImxvYWYtZSJd"
+          },
+          {
+            "number": 2,
+            "after": "WzgsImxvYWYtZSJd",
+            "ids": [
+              "loaf-d"
+            ],
+            "nextCursor": "WzgsImxvYWYtZCJd"
+          },
+          {
+            "number": 3,
+            "after": "WzgsImxvYWYtZCJd",
+            "ids": [
+              "loaf-c"
+            ],
+            "nextCursor": "WzUsImxvYWYtYyJd"
+          },
+          {
+            "number": 4,
+            "after": "WzUsImxvYWYtYyJd",
+            "ids": [
+              "loaf-b"
+            ],
+            "nextCursor": "WzUsImxvYWYtYiJd"
+          },
+          {
+            "number": 5,
+            "after": "WzUsImxvYWYtYiJd",
+            "ids": [
+              "loaf-a"
+            ],
+            "nextCursor": null
+          }
+        ],
+        "baselinePages": [
+          [
+            "loaf-e"
+          ],
+          [
+            "loaf-c"
+          ]
+        ],
+        "baselineSkipped": [
+          "loaf-d",
+          "loaf-b",
+          "loaf-a"
+        ]
+      }
+    },
+    {
+      "id": "job-3",
+      "source": {
+        "id": "job-3",
+        "context": "Book catalog literature library audiobook authors reading export",
+        "pageSize": 2,
+        "direction": "desc"
+      },
+      "review": {
+        "id": "job-3",
+        "feed": "books",
+        "pageSize": 2,
+        "direction": "desc",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "books",
+            "score": 0.79659558042478
+          },
+          {
+            "id": "bread",
+            "score": 0.15521934711024687
+          }
+        ]
+      },
+      "plan": {
+        "feed": "books",
+        "pageSize": 2,
+        "direction": "desc",
+        "sourceCount": 5,
+        "pages": [
+          {
+            "number": 1,
+            "after": null,
+            "ids": [
+              "book-e",
+              "book-d"
+            ],
+            "nextCursor": "WzExMCwiYm9vay1kIl0="
+          },
+          {
+            "number": 2,
+            "after": "WzExMCwiYm9vay1kIl0=",
+            "ids": [
+              "book-c",
+              "book-b"
+            ],
+            "nextCursor": "WzEwMCwiYm9vay1iIl0="
+          },
+          {
+            "number": 3,
+            "after": "WzEwMCwiYm9vay1iIl0=",
+            "ids": [
+              "book-a"
+            ],
+            "nextCursor": null
+          }
+        ],
+        "baselinePages": [
+          [
+            "book-e",
+            "book-d"
+          ],
+          [
+            "book-c",
+            "book-b"
+          ]
+        ],
+        "baselineSkipped": [
+          "book-a"
+        ]
+      }
+    }
+  ],
+  "metrics": {
+    "requests": 3,
+    "approved": 3,
+    "held": 0,
+    "expectedRecords": 15,
+    "compoundReturned": 15,
+    "singleKeySkipped": 6
+  },
+  "baseline": "Same reviewed feed, direction and page size; next page filters only key > lastKey (asc) or key < lastKey (desc). Compound key+ID uses strict tuple ordering. Counts are synthetic/supplied-data witnesses, not production performance or AI accuracy."
+}

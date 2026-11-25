@@ -1,0 +1,233 @@
+{
+  "schema": "cursor-lantern-qa/v1",
+  "ordering": "numeric key, then UTF-16 ID; both reverse for desc; immutable snapshot; no locale collation",
+  "cursorFormat": "Base64 UTF-8 JSON [key,id]; transparent fixture token, not signed or secret",
+  "cases": [
+    {
+      "id": "req-1",
+      "records": [
+        {
+          "id": "bowl-a",
+          "key": 10
+        },
+        {
+          "id": "bowl-b",
+          "key": 10
+        },
+        {
+          "id": "bowl-c",
+          "key": 10
+        },
+        {
+          "id": "bowl-d",
+          "key": 20
+        },
+        {
+          "id": "bowl-e",
+          "key": 30
+        }
+      ],
+      "feed": "clay",
+      "pageSize": 2,
+      "direction": "asc",
+      "sourceCount": 5,
+      "pages": [
+        {
+          "number": 1,
+          "after": null,
+          "ids": [
+            "bowl-a",
+            "bowl-b"
+          ],
+          "nextCursor": "WzEwLCJib3dsLWIiXQ=="
+        },
+        {
+          "number": 2,
+          "after": "WzEwLCJib3dsLWIiXQ==",
+          "ids": [
+            "bowl-c",
+            "bowl-d"
+          ],
+          "nextCursor": "WzIwLCJib3dsLWQiXQ=="
+        },
+        {
+          "number": 3,
+          "after": "WzIwLCJib3dsLWQiXQ==",
+          "ids": [
+            "bowl-e"
+          ],
+          "nextCursor": null
+        }
+      ],
+      "baselinePages": [
+        [
+          "bowl-a",
+          "bowl-b"
+        ],
+        [
+          "bowl-d",
+          "bowl-e"
+        ]
+      ],
+      "baselineSkipped": [
+        "bowl-c"
+      ]
+    },
+    {
+      "id": "req-2",
+      "records": [
+        {
+          "id": "star-a",
+          "key": 1
+        },
+        {
+          "id": "star-b",
+          "key": 2
+        },
+        {
+          "id": "star-c",
+          "key": 2
+        },
+        {
+          "id": "star-d",
+          "key": 2
+        },
+        {
+          "id": "star-e",
+          "key": 4
+        }
+      ],
+      "feed": "sky",
+      "pageSize": 2,
+      "direction": "desc",
+      "sourceCount": 5,
+      "pages": [
+        {
+          "number": 1,
+          "after": null,
+          "ids": [
+            "star-e",
+            "star-d"
+          ],
+          "nextCursor": "WzIsInN0YXItZCJd"
+        },
+        {
+          "number": 2,
+          "after": "WzIsInN0YXItZCJd",
+          "ids": [
+            "star-c",
+            "star-b"
+          ],
+          "nextCursor": "WzIsInN0YXItYiJd"
+        },
+        {
+          "number": 3,
+          "after": "WzIsInN0YXItYiJd",
+          "ids": [
+            "star-a"
+          ],
+          "nextCursor": null
+        }
+      ],
+      "baselinePages": [
+        [
+          "star-e",
+          "star-d"
+        ],
+        [
+          "star-a"
+        ]
+      ],
+      "baselineSkipped": [
+        "star-c",
+        "star-b"
+      ]
+    },
+    {
+      "id": "req-3",
+      "records": [
+        {
+          "id": "bowl-a",
+          "key": 10
+        },
+        {
+          "id": "bowl-b",
+          "key": 10
+        },
+        {
+          "id": "bowl-c",
+          "key": 10
+        },
+        {
+          "id": "bowl-d",
+          "key": 20
+        },
+        {
+          "id": "bowl-e",
+          "key": 30
+        }
+      ],
+      "feed": "clay",
+      "pageSize": 1,
+      "direction": "desc",
+      "sourceCount": 5,
+      "pages": [
+        {
+          "number": 1,
+          "after": null,
+          "ids": [
+            "bowl-e"
+          ],
+          "nextCursor": "WzMwLCJib3dsLWUiXQ=="
+        },
+        {
+          "number": 2,
+          "after": "WzMwLCJib3dsLWUiXQ==",
+          "ids": [
+            "bowl-d"
+          ],
+          "nextCursor": "WzIwLCJib3dsLWQiXQ=="
+        },
+        {
+          "number": 3,
+          "after": "WzIwLCJib3dsLWQiXQ==",
+          "ids": [
+            "bowl-c"
+          ],
+          "nextCursor": "WzEwLCJib3dsLWMiXQ=="
+        },
+        {
+          "number": 4,
+          "after": "WzEwLCJib3dsLWMiXQ==",
+          "ids": [
+            "bowl-b"
+          ],
+          "nextCursor": "WzEwLCJib3dsLWIiXQ=="
+        },
+        {
+          "number": 5,
+          "after": "WzEwLCJib3dsLWIiXQ==",
+          "ids": [
+            "bowl-a"
+          ],
+          "nextCursor": null
+        }
+      ],
+      "baselinePages": [
+        [
+          "bowl-e"
+        ],
+        [
+          "bowl-d"
+        ],
+        [
+          "bowl-c"
+        ]
+      ],
+      "baselineSkipped": [
+        "bowl-b",
+        "bowl-a"
+      ]
+    }
+  ]
+}

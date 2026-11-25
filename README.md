@@ -2332,3 +2332,8 @@ Public release verified: matching built Pages commit `673e1400ebf82ebc7240182b45
 ## Subtotal Studio — 20261125-19
 
 Local MiniLM report-intent inference assists two-dimensional detail/ROLLUP/CUBE summaries. Review every contract, retain null-versus-subtotal grouping masks, inspect source lineage and per-level conservation, and export complete JSON/CSV/Markdown without uploads. Six simple requests matched; only one of four harder wording probes matched, so manual review is essential. Reuses immutable shared worker/runtime from 20261115-6 and 20261107-2; preserve those paths. See [workflow](20261125-19/README.md) and [validation](20261125-19/VALIDATION.md).
+
+
+## Absence Desk — 20261125-20
+
+Local MiniLM handoff-to-policy inference for nullable candidate/completed roster reconciliation. Review ordinary absence, null-safe absence or confirmed presence, inspect exact reference witnesses and SQL NOT IN omissions, then export selected rosters plus complete JSON/CSV/Markdown. Six simple requests matched; only one of four harder wording probes matched, so mandatory human review remains essential. Independent SQLite validates selected rows and three-valued baselines. Reuses immutable worker/runtime from 20261115-6 and WASM from 20261107-2; preserve these assets. See [workflow](20261125-20/README.md) and [validation](20261125-20/VALIDATION.md).

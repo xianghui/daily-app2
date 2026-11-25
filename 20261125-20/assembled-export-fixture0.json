@@ -1,0 +1,518 @@
+{
+  "schema": "absence-desk/v1",
+  "original": {
+    "title": "Synthetic customer follow-up",
+    "profiles": [
+      {
+        "id": "absent",
+        "description": "Keep people or items absent from the completed reference roster: no equal known key exists. Missing keys do not match anything, including another missing key.",
+        "mode": "absent"
+      },
+      {
+        "id": "missing-equal",
+        "description": "Keep items absent from the reference using null-safe equality. Treat two missing keys as the same key, so missing in both rosters counts as a match and is excluded.",
+        "mode": "nullsafe"
+      },
+      {
+        "id": "present",
+        "description": "Keep only people or items already present in the completed reference roster with an equal known key. Missing keys never match. Confirmed completions only.",
+        "mode": "present"
+      }
+    ],
+    "requests": [
+      {
+        "id": "unanswered",
+        "context": "Follow up with customers absent from the completed roster. Unknown customer identifiers never match each other; retain those for manual investigation.",
+        "rows": [
+          {
+            "id": "r1",
+            "key": "a",
+            "label": "Aster"
+          },
+          {
+            "id": "r2",
+            "key": "b",
+            "label": "Birch"
+          },
+          {
+            "id": "r3",
+            "key": "b",
+            "label": "Birch duplicate occurrence"
+          },
+          {
+            "id": "r4",
+            "key": null,
+            "label": "Unknown customer"
+          },
+          {
+            "id": "r5",
+            "key": "",
+            "label": "Blank but known key"
+          }
+        ],
+        "reference": [
+          {
+            "id": "r1",
+            "key": "a",
+            "label": "Answered"
+          },
+          {
+            "id": "r2",
+            "key": null,
+            "label": "Unidentified reply"
+          }
+        ]
+      },
+      {
+        "id": "confirmed",
+        "context": "List only confirmed completions: customers already present in the answered roster with an equal known identifier. Missing identifiers never match.",
+        "rows": [
+          {
+            "id": "r1",
+            "key": "a",
+            "label": "Aster"
+          },
+          {
+            "id": "r2",
+            "key": "b",
+            "label": "Birch"
+          },
+          {
+            "id": "r3",
+            "key": null,
+            "label": "Unknown"
+          }
+        ],
+        "reference": [
+          {
+            "id": "r1",
+            "key": "a",
+            "label": "Answered"
+          },
+          {
+            "id": "r2",
+            "key": "a",
+            "label": "Repeated reply"
+          },
+          {
+            "id": "r3",
+            "key": null,
+            "label": "Unknown reply"
+          }
+        ]
+      },
+      {
+        "id": "anonymous",
+        "context": "Find absent items using null-safe equality: treat two missing keys as the same key. If missing occurs in both rosters, exclude it as a match.",
+        "rows": [
+          {
+            "id": "r1",
+            "key": null,
+            "label": "Anonymous"
+          },
+          {
+            "id": "r2",
+            "key": "x",
+            "label": "Outstanding"
+          },
+          {
+            "id": "r3",
+            "key": "a",
+            "label": "Done"
+          }
+        ],
+        "reference": [
+          {
+            "id": "r1",
+            "key": null,
+            "label": "Anonymous completion"
+          },
+          {
+            "id": "r2",
+            "key": "a",
+            "label": "Done"
+          }
+        ]
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "unanswered",
+      "profile": "absent",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "absent",
+          "score": 0.5597045750959502
+        },
+        {
+          "id": "present",
+          "score": 0.539444640533743
+        },
+        {
+          "id": "missing-equal",
+          "score": 0.4952425876684185
+        }
+      ]
+    },
+    {
+      "id": "confirmed",
+      "profile": "present",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "present",
+          "score": 0.6472458183973885
+        },
+        {
+          "id": "absent",
+          "score": 0.5057467098157892
+        },
+        {
+          "id": "missing-equal",
+          "score": 0.46197107105593926
+        }
+      ]
+    },
+    {
+      "id": "anonymous",
+      "profile": "missing-equal",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "missing-equal",
+          "score": 0.9007723751367944
+        },
+        {
+          "id": "absent",
+          "score": 0.7143283022332698
+        },
+        {
+          "id": "present",
+          "score": 0.6363479192516595
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "unanswered",
+      "context": "Follow up with customers absent from the completed roster. Unknown customer identifiers never match each other; retain those for manual investigation.",
+      "rows": [
+        {
+          "id": "r1",
+          "key": "a",
+          "label": "Aster"
+        },
+        {
+          "id": "r2",
+          "key": "b",
+          "label": "Birch"
+        },
+        {
+          "id": "r3",
+          "key": "b",
+          "label": "Birch duplicate occurrence"
+        },
+        {
+          "id": "r4",
+          "key": null,
+          "label": "Unknown customer"
+        },
+        {
+          "id": "r5",
+          "key": "",
+          "label": "Blank but known key"
+        }
+      ],
+      "reference": [
+        {
+          "id": "r1",
+          "key": "a",
+          "label": "Answered"
+        },
+        {
+          "id": "r2",
+          "key": null,
+          "label": "Unidentified reply"
+        }
+      ],
+      "profile": "absent",
+      "mode": "absent",
+      "decision": "approve",
+      "note": "",
+      "witnesses": [
+        {
+          "id": "r1",
+          "key": "a",
+          "label": "Aster",
+          "matches": [
+            "r1"
+          ],
+          "keep": false,
+          "baselineKeep": false,
+          "baselineTruth": "FALSE"
+        },
+        {
+          "id": "r2",
+          "key": "b",
+          "label": "Birch",
+          "matches": [],
+          "keep": true,
+          "baselineKeep": false,
+          "baselineTruth": "UNKNOWN"
+        },
+        {
+          "id": "r3",
+          "key": "b",
+          "label": "Birch duplicate occurrence",
+          "matches": [],
+          "keep": true,
+          "baselineKeep": false,
+          "baselineTruth": "UNKNOWN"
+        },
+        {
+          "id": "r4",
+          "key": null,
+          "label": "Unknown customer",
+          "matches": [],
+          "keep": true,
+          "baselineKeep": false,
+          "baselineTruth": "UNKNOWN"
+        },
+        {
+          "id": "r5",
+          "key": "",
+          "label": "Blank but known key",
+          "matches": [],
+          "keep": true,
+          "baselineKeep": false,
+          "baselineTruth": "UNKNOWN"
+        }
+      ],
+      "selected": [
+        {
+          "id": "r2",
+          "key": "b",
+          "label": "Birch",
+          "matches": [],
+          "keep": true,
+          "baselineKeep": false,
+          "baselineTruth": "UNKNOWN"
+        },
+        {
+          "id": "r3",
+          "key": "b",
+          "label": "Birch duplicate occurrence",
+          "matches": [],
+          "keep": true,
+          "baselineKeep": false,
+          "baselineTruth": "UNKNOWN"
+        },
+        {
+          "id": "r4",
+          "key": null,
+          "label": "Unknown customer",
+          "matches": [],
+          "keep": true,
+          "baselineKeep": false,
+          "baselineTruth": "UNKNOWN"
+        },
+        {
+          "id": "r5",
+          "key": "",
+          "label": "Blank but known key",
+          "matches": [],
+          "keep": true,
+          "baselineKeep": false,
+          "baselineTruth": "UNKNOWN"
+        }
+      ],
+      "changed": 4,
+      "baselineCount": 0
+    },
+    {
+      "id": "confirmed",
+      "context": "List only confirmed completions: customers already present in the answered roster with an equal known identifier. Missing identifiers never match.",
+      "rows": [
+        {
+          "id": "r1",
+          "key": "a",
+          "label": "Aster"
+        },
+        {
+          "id": "r2",
+          "key": "b",
+          "label": "Birch"
+        },
+        {
+          "id": "r3",
+          "key": null,
+          "label": "Unknown"
+        }
+      ],
+      "reference": [
+        {
+          "id": "r1",
+          "key": "a",
+          "label": "Answered"
+        },
+        {
+          "id": "r2",
+          "key": "a",
+          "label": "Repeated reply"
+        },
+        {
+          "id": "r3",
+          "key": null,
+          "label": "Unknown reply"
+        }
+      ],
+      "profile": "present",
+      "mode": "present",
+      "decision": "approve",
+      "note": "",
+      "witnesses": [
+        {
+          "id": "r1",
+          "key": "a",
+          "label": "Aster",
+          "matches": [
+            "r1",
+            "r2"
+          ],
+          "keep": true,
+          "baselineKeep": true,
+          "baselineTruth": "TRUE"
+        },
+        {
+          "id": "r2",
+          "key": "b",
+          "label": "Birch",
+          "matches": [],
+          "keep": false,
+          "baselineKeep": false,
+          "baselineTruth": "UNKNOWN"
+        },
+        {
+          "id": "r3",
+          "key": null,
+          "label": "Unknown",
+          "matches": [],
+          "keep": false,
+          "baselineKeep": false,
+          "baselineTruth": "UNKNOWN"
+        }
+      ],
+      "selected": [
+        {
+          "id": "r1",
+          "key": "a",
+          "label": "Aster",
+          "matches": [
+            "r1",
+            "r2"
+          ],
+          "keep": true,
+          "baselineKeep": true,
+          "baselineTruth": "TRUE"
+        }
+      ],
+      "changed": 0,
+      "baselineCount": 1
+    },
+    {
+      "id": "anonymous",
+      "context": "Find absent items using null-safe equality: treat two missing keys as the same key. If missing occurs in both rosters, exclude it as a match.",
+      "rows": [
+        {
+          "id": "r1",
+          "key": null,
+          "label": "Anonymous"
+        },
+        {
+          "id": "r2",
+          "key": "x",
+          "label": "Outstanding"
+        },
+        {
+          "id": "r3",
+          "key": "a",
+          "label": "Done"
+        }
+      ],
+      "reference": [
+        {
+          "id": "r1",
+          "key": null,
+          "label": "Anonymous completion"
+        },
+        {
+          "id": "r2",
+          "key": "a",
+          "label": "Done"
+        }
+      ],
+      "profile": "missing-equal",
+      "mode": "nullsafe",
+      "decision": "approve",
+      "note": "",
+      "witnesses": [
+        {
+          "id": "r1",
+          "key": null,
+          "label": "Anonymous",
+          "matches": [
+            "r1"
+          ],
+          "keep": false,
+          "baselineKeep": false,
+          "baselineTruth": "UNKNOWN"
+        },
+        {
+          "id": "r2",
+          "key": "x",
+          "label": "Outstanding",
+          "matches": [],
+          "keep": true,
+          "baselineKeep": false,
+          "baselineTruth": "UNKNOWN"
+        },
+        {
+          "id": "r3",
+          "key": "a",
+          "label": "Done",
+          "matches": [
+            "r2"
+          ],
+          "keep": false,
+          "baselineKeep": false,
+          "baselineTruth": "FALSE"
+        }
+      ],
+      "selected": [
+        {
+          "id": "r2",
+          "key": "x",
+          "label": "Outstanding",
+          "matches": [],
+          "keep": true,
+          "baselineKeep": false,
+          "baselineTruth": "UNKNOWN"
+        }
+      ],
+      "changed": 1,
+      "baselineCount": 0
+    }
+  ],
+  "metrics": {
+    "records": 18,
+    "approved": 3,
+    "held": 0,
+    "changed": 5
+  }
+}

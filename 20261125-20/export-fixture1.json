@@ -1,0 +1,457 @@
+{
+  "schema": "absence-desk/v1",
+  "original": {
+    "title": "Synthetic workshop return reconciliation",
+    "profiles": [
+      {
+        "id": "absent",
+        "description": "Keep people or items absent from the completed reference roster: no equal known key exists. Missing keys do not match anything, including another missing key.",
+        "mode": "absent"
+      },
+      {
+        "id": "missing-equal",
+        "description": "Keep items absent from the reference using null-safe equality. Treat two missing keys as the same key, so missing in both rosters counts as a match and is excluded.",
+        "mode": "nullsafe"
+      },
+      {
+        "id": "present",
+        "description": "Keep only people or items already present in the completed reference roster with an equal known key. Missing keys never match. Confirmed completions only.",
+        "mode": "present"
+      }
+    ],
+    "requests": [
+      {
+        "id": "nullable",
+        "context": "Null-safe absence report: missing keys in both equipment rosters are equal and count as a returned match. Retain only items with no match.",
+        "rows": [
+          {
+            "id": "r1",
+            "key": null,
+            "label": "Unnumbered tool"
+          },
+          {
+            "id": "r2",
+            "key": "s1",
+            "label": "Saw"
+          },
+          {
+            "id": "r3",
+            "key": "s2",
+            "label": "Plane"
+          },
+          {
+            "id": "r4",
+            "key": "s2",
+            "label": "Second occurrence"
+          }
+        ],
+        "reference": [
+          {
+            "id": "r1",
+            "key": null,
+            "label": "Unnumbered return"
+          },
+          {
+            "id": "r2",
+            "key": "s1",
+            "label": "Saw returned"
+          }
+        ]
+      },
+      {
+        "id": "empty",
+        "context": "Equipment absent from the returned roster needs follow-up. Missing identifiers never match another missing value; keep unknowns for investigation.",
+        "rows": [
+          {
+            "id": "r1",
+            "key": "t1",
+            "label": "Trowel"
+          },
+          {
+            "id": "r2",
+            "key": null,
+            "label": "Unknown tool"
+          }
+        ],
+        "reference": []
+      },
+      {
+        "id": "returned",
+        "context": "Keep only equipment already present in the return roster with a known matching key. Missing identifiers never count as confirmed returns.",
+        "rows": [
+          {
+            "id": "r1",
+            "key": "s1",
+            "label": "Saw"
+          },
+          {
+            "id": "r2",
+            "key": "s2",
+            "label": "Plane"
+          },
+          {
+            "id": "r3",
+            "key": "s1",
+            "label": "Repeated checkout"
+          },
+          {
+            "id": "r4",
+            "key": null,
+            "label": "Unknown"
+          }
+        ],
+        "reference": [
+          {
+            "id": "r1",
+            "key": "s1",
+            "label": "Returned saw"
+          }
+        ]
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "nullable",
+      "profile": "missing-equal",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "missing-equal",
+          "score": 0.7567730271451674
+        },
+        {
+          "id": "absent",
+          "score": 0.6704088704381801
+        },
+        {
+          "id": "present",
+          "score": 0.583300982403002
+        }
+      ]
+    },
+    {
+      "id": "empty",
+      "profile": "absent",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "absent",
+          "score": 0.6145499863473985
+        },
+        {
+          "id": "missing-equal",
+          "score": 0.602585660243723
+        },
+        {
+          "id": "present",
+          "score": 0.5387580854170445
+        }
+      ]
+    },
+    {
+      "id": "returned",
+      "profile": "present",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "present",
+          "score": 0.6254944467780635
+        },
+        {
+          "id": "absent",
+          "score": 0.6249857527139832
+        },
+        {
+          "id": "missing-equal",
+          "score": 0.6011783806686918
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "nullable",
+      "context": "Null-safe absence report: missing keys in both equipment rosters are equal and count as a returned match. Retain only items with no match.",
+      "rows": [
+        {
+          "id": "r1",
+          "key": null,
+          "label": "Unnumbered tool"
+        },
+        {
+          "id": "r2",
+          "key": "s1",
+          "label": "Saw"
+        },
+        {
+          "id": "r3",
+          "key": "s2",
+          "label": "Plane"
+        },
+        {
+          "id": "r4",
+          "key": "s2",
+          "label": "Second occurrence"
+        }
+      ],
+      "reference": [
+        {
+          "id": "r1",
+          "key": null,
+          "label": "Unnumbered return"
+        },
+        {
+          "id": "r2",
+          "key": "s1",
+          "label": "Saw returned"
+        }
+      ],
+      "profile": "missing-equal",
+      "mode": "nullsafe",
+      "decision": "approve",
+      "note": "",
+      "witnesses": [
+        {
+          "id": "r1",
+          "key": null,
+          "label": "Unnumbered tool",
+          "matches": [
+            "r1"
+          ],
+          "keep": false,
+          "baselineKeep": false,
+          "baselineTruth": "UNKNOWN"
+        },
+        {
+          "id": "r2",
+          "key": "s1",
+          "label": "Saw",
+          "matches": [
+            "r2"
+          ],
+          "keep": false,
+          "baselineKeep": false,
+          "baselineTruth": "FALSE"
+        },
+        {
+          "id": "r3",
+          "key": "s2",
+          "label": "Plane",
+          "matches": [],
+          "keep": true,
+          "baselineKeep": false,
+          "baselineTruth": "UNKNOWN"
+        },
+        {
+          "id": "r4",
+          "key": "s2",
+          "label": "Second occurrence",
+          "matches": [],
+          "keep": true,
+          "baselineKeep": false,
+          "baselineTruth": "UNKNOWN"
+        }
+      ],
+      "selected": [
+        {
+          "id": "r3",
+          "key": "s2",
+          "label": "Plane",
+          "matches": [],
+          "keep": true,
+          "baselineKeep": false,
+          "baselineTruth": "UNKNOWN"
+        },
+        {
+          "id": "r4",
+          "key": "s2",
+          "label": "Second occurrence",
+          "matches": [],
+          "keep": true,
+          "baselineKeep": false,
+          "baselineTruth": "UNKNOWN"
+        }
+      ],
+      "changed": 2,
+      "baselineCount": 0
+    },
+    {
+      "id": "empty",
+      "context": "Equipment absent from the returned roster needs follow-up. Missing identifiers never match another missing value; keep unknowns for investigation.",
+      "rows": [
+        {
+          "id": "r1",
+          "key": "t1",
+          "label": "Trowel"
+        },
+        {
+          "id": "r2",
+          "key": null,
+          "label": "Unknown tool"
+        }
+      ],
+      "reference": [],
+      "profile": "absent",
+      "mode": "absent",
+      "decision": "approve",
+      "note": "",
+      "witnesses": [
+        {
+          "id": "r1",
+          "key": "t1",
+          "label": "Trowel",
+          "matches": [],
+          "keep": true,
+          "baselineKeep": true,
+          "baselineTruth": "TRUE"
+        },
+        {
+          "id": "r2",
+          "key": null,
+          "label": "Unknown tool",
+          "matches": [],
+          "keep": true,
+          "baselineKeep": true,
+          "baselineTruth": "TRUE"
+        }
+      ],
+      "selected": [
+        {
+          "id": "r1",
+          "key": "t1",
+          "label": "Trowel",
+          "matches": [],
+          "keep": true,
+          "baselineKeep": true,
+          "baselineTruth": "TRUE"
+        },
+        {
+          "id": "r2",
+          "key": null,
+          "label": "Unknown tool",
+          "matches": [],
+          "keep": true,
+          "baselineKeep": true,
+          "baselineTruth": "TRUE"
+        }
+      ],
+      "changed": 0,
+      "baselineCount": 2
+    },
+    {
+      "id": "returned",
+      "context": "Keep only equipment already present in the return roster with a known matching key. Missing identifiers never count as confirmed returns.",
+      "rows": [
+        {
+          "id": "r1",
+          "key": "s1",
+          "label": "Saw"
+        },
+        {
+          "id": "r2",
+          "key": "s2",
+          "label": "Plane"
+        },
+        {
+          "id": "r3",
+          "key": "s1",
+          "label": "Repeated checkout"
+        },
+        {
+          "id": "r4",
+          "key": null,
+          "label": "Unknown"
+        }
+      ],
+      "reference": [
+        {
+          "id": "r1",
+          "key": "s1",
+          "label": "Returned saw"
+        }
+      ],
+      "profile": "present",
+      "mode": "present",
+      "decision": "approve",
+      "note": "",
+      "witnesses": [
+        {
+          "id": "r1",
+          "key": "s1",
+          "label": "Saw",
+          "matches": [
+            "r1"
+          ],
+          "keep": true,
+          "baselineKeep": true,
+          "baselineTruth": "TRUE"
+        },
+        {
+          "id": "r2",
+          "key": "s2",
+          "label": "Plane",
+          "matches": [],
+          "keep": false,
+          "baselineKeep": false,
+          "baselineTruth": "FALSE"
+        },
+        {
+          "id": "r3",
+          "key": "s1",
+          "label": "Repeated checkout",
+          "matches": [
+            "r1"
+          ],
+          "keep": true,
+          "baselineKeep": true,
+          "baselineTruth": "TRUE"
+        },
+        {
+          "id": "r4",
+          "key": null,
+          "label": "Unknown",
+          "matches": [],
+          "keep": false,
+          "baselineKeep": false,
+          "baselineTruth": "UNKNOWN"
+        }
+      ],
+      "selected": [
+        {
+          "id": "r1",
+          "key": "s1",
+          "label": "Saw",
+          "matches": [
+            "r1"
+          ],
+          "keep": true,
+          "baselineKeep": true,
+          "baselineTruth": "TRUE"
+        },
+        {
+          "id": "r3",
+          "key": "s1",
+          "label": "Repeated checkout",
+          "matches": [
+            "r1"
+          ],
+          "keep": true,
+          "baselineKeep": true,
+          "baselineTruth": "TRUE"
+        }
+      ],
+      "changed": 0,
+      "baselineCount": 2
+    }
+  ],
+  "metrics": {
+    "records": 13,
+    "approved": 3,
+    "held": 0,
+    "changed": 2
+  }
+}

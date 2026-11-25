@@ -1,0 +1,319 @@
+{
+  "schema": "accrual-folio/v1",
+  "original": {
+    "title": "Synthetic leap-year accrual review",
+    "unit": "EUR",
+    "profiles": [
+      {
+        "id": "actual360",
+        "description": "Actual/360 money market basis: count the actual elapsed calendar days and divide by a fixed 360-day year.",
+        "rule": "ACT/360"
+      },
+      {
+        "id": "fixed365",
+        "description": "Actual/365 fixed basis: count real elapsed calendar days over a constant 365-day year, even in leap years.",
+        "rule": "ACT/365F"
+      },
+      {
+        "id": "european",
+        "description": "European 30E/360 basis: twelve 30-day months, replace either date day 31 with 30. No special February month-end rule.",
+        "rule": "30E/360"
+      }
+    ],
+    "requests": [
+      {
+        "id": "B1",
+        "note": "Use European thirty-day months, 30E/360. Neither February end nor maturity has special treatment.",
+        "start": "2024-02-29",
+        "end": "2024-05-31",
+        "principal": "25000",
+        "rate": "3.75"
+      },
+      {
+        "id": "B2",
+        "note": "Actual/360 convention: the true number of calendar days over 360.",
+        "start": "2024-02-28",
+        "end": "2024-03-01",
+        "principal": "25000",
+        "rate": "3.75"
+      },
+      {
+        "id": "B3",
+        "note": "Use Actual/365 fixed. Keep 365 as denominator during the leap year.",
+        "start": "2024-02-28",
+        "end": "2024-03-01",
+        "principal": "25000",
+        "rate": "3.75"
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "B1",
+      "profile": "european",
+      "start": "2024-02-29",
+      "end": "2024-06-01",
+      "principal": "25000",
+      "rate": "3.75",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "european",
+          "score": 0.8048574205220415
+        },
+        {
+          "id": "fixed365",
+          "score": 0.4400300081451986
+        },
+        {
+          "id": "actual360",
+          "score": 0.4145925849242668
+        }
+      ]
+    },
+    {
+      "id": "B2",
+      "profile": "actual360",
+      "start": "2024-02-28",
+      "end": "2024-03-01",
+      "principal": "25000",
+      "rate": "3.75",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "fixed365",
+          "score": 0.6490648769152045
+        },
+        {
+          "id": "actual360",
+          "score": 0.6421046746666551
+        },
+        {
+          "id": "european",
+          "score": 0.467331201379687
+        }
+      ]
+    },
+    {
+      "id": "B3",
+      "profile": "fixed365",
+      "start": "2024-02-28",
+      "end": "2024-03-01",
+      "principal": "25000",
+      "rate": "3.75",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "fixed365",
+          "score": 0.6703335486960392
+        },
+        {
+          "id": "actual360",
+          "score": 0.5302509849424799
+        },
+        {
+          "id": "european",
+          "score": 0.4991356059281993
+        }
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "id": "B1",
+      "note": "Use European thirty-day months, 30E/360. Neither February end nor maturity has special treatment.",
+      "start": "2024-02-29",
+      "end": "2024-05-31",
+      "principal": "25000",
+      "rate": "3.75",
+      "review": {
+        "id": "B1",
+        "profile": "european",
+        "start": "2024-02-29",
+        "end": "2024-06-01",
+        "principal": "25000",
+        "rate": "3.75",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "european",
+            "score": 0.8048574205220415
+          },
+          {
+            "id": "fixed365",
+            "score": 0.4400300081451986
+          },
+          {
+            "id": "actual360",
+            "score": 0.4145925849242668
+          }
+        ]
+      },
+      "rule": "30E/360",
+      "output": {
+        "days": 92,
+        "denominator": 360,
+        "actualDays": 93,
+        "yearFraction": "92/360",
+        "interestCents": "23958",
+        "interest": "239.58",
+        "exactCentsNumerator": "8625000000000",
+        "exactCentsDenominator": "360000000",
+        "witness": {
+          "startDay": 29,
+          "endDay": 1,
+          "adjustedStartDay": 29,
+          "adjustedEndDay": 1,
+          "yearPart": 0,
+          "monthPart": 120
+        }
+      },
+      "baseline": {
+        "days": 93,
+        "denominator": 360,
+        "actualDays": 93,
+        "yearFraction": "93/360",
+        "interestCents": "24219",
+        "interest": "242.19",
+        "exactCentsNumerator": "8718750000000",
+        "exactCentsDenominator": "360000000",
+        "witness": {
+          "elapsedCalendarDays": 93,
+          "fixedYearDays": 360
+        }
+      }
+    },
+    {
+      "id": "B2",
+      "note": "Actual/360 convention: the true number of calendar days over 360.",
+      "start": "2024-02-28",
+      "end": "2024-03-01",
+      "principal": "25000",
+      "rate": "3.75",
+      "review": {
+        "id": "B2",
+        "profile": "actual360",
+        "start": "2024-02-28",
+        "end": "2024-03-01",
+        "principal": "25000",
+        "rate": "3.75",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "fixed365",
+            "score": 0.6490648769152045
+          },
+          {
+            "id": "actual360",
+            "score": 0.6421046746666551
+          },
+          {
+            "id": "european",
+            "score": 0.467331201379687
+          }
+        ]
+      },
+      "rule": "ACT/360",
+      "output": {
+        "days": 2,
+        "denominator": 360,
+        "actualDays": 2,
+        "yearFraction": "2/360",
+        "interestCents": "521",
+        "interest": "5.21",
+        "exactCentsNumerator": "187500000000",
+        "exactCentsDenominator": "360000000",
+        "witness": {
+          "elapsedCalendarDays": 2,
+          "fixedYearDays": 360
+        }
+      },
+      "baseline": {
+        "days": 2,
+        "denominator": 360,
+        "actualDays": 2,
+        "yearFraction": "2/360",
+        "interestCents": "521",
+        "interest": "5.21",
+        "exactCentsNumerator": "187500000000",
+        "exactCentsDenominator": "360000000",
+        "witness": {
+          "elapsedCalendarDays": 2,
+          "fixedYearDays": 360
+        }
+      }
+    },
+    {
+      "id": "B3",
+      "note": "Use Actual/365 fixed. Keep 365 as denominator during the leap year.",
+      "start": "2024-02-28",
+      "end": "2024-03-01",
+      "principal": "25000",
+      "rate": "3.75",
+      "review": {
+        "id": "B3",
+        "profile": "fixed365",
+        "start": "2024-02-28",
+        "end": "2024-03-01",
+        "principal": "25000",
+        "rate": "3.75",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "fixed365",
+            "score": 0.6703335486960392
+          },
+          {
+            "id": "actual360",
+            "score": 0.5302509849424799
+          },
+          {
+            "id": "european",
+            "score": 0.4991356059281993
+          }
+        ]
+      },
+      "rule": "ACT/365F",
+      "output": {
+        "days": 2,
+        "denominator": 365,
+        "actualDays": 2,
+        "yearFraction": "2/365",
+        "interestCents": "514",
+        "interest": "5.14",
+        "exactCentsNumerator": "187500000000",
+        "exactCentsDenominator": "365000000",
+        "witness": {
+          "elapsedCalendarDays": 2,
+          "fixedYearDays": 365
+        }
+      },
+      "baseline": {
+        "days": 2,
+        "denominator": 360,
+        "actualDays": 2,
+        "yearFraction": "2/360",
+        "interestCents": "521",
+        "interest": "5.21",
+        "exactCentsNumerator": "187500000000",
+        "exactCentsDenominator": "360000000",
+        "witness": {
+          "elapsedCalendarDays": 2,
+          "fixedYearDays": 360
+        }
+      }
+    }
+  ],
+  "metrics": {
+    "requests": 3,
+    "approved": 3,
+    "held": 0,
+    "baselineDifferences": 2
+  }
+}

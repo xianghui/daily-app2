@@ -1,0 +1,293 @@
+{
+  "schema": "accrual-folio/v1",
+  "original": {
+    "title": "Synthetic month-end accrual review",
+    "unit": "USD",
+    "profiles": [
+      {
+        "id": "actual360",
+        "description": "Actual/360 money market basis: count the actual elapsed calendar days and divide by a fixed 360-day year.",
+        "rule": "ACT/360"
+      },
+      {
+        "id": "fixed365",
+        "description": "Actual/365 fixed basis: count real elapsed calendar days over a constant 365-day year, even in leap years.",
+        "rule": "ACT/365F"
+      },
+      {
+        "id": "european",
+        "description": "European 30E/360 basis: twelve 30-day months, replace either date day 31 with 30. No special February month-end rule.",
+        "rule": "30E/360"
+      }
+    ],
+    "requests": [
+      {
+        "id": "A1",
+        "note": "Money market interest using actual calendar days divided by 360.",
+        "start": "2026-01-31",
+        "end": "2026-03-31",
+        "principal": "10000.00",
+        "rate": "5"
+      },
+      {
+        "id": "A2",
+        "note": "Actual elapsed days with a fixed 365-day annual denominator.",
+        "start": "2026-01-31",
+        "end": "2026-03-31",
+        "principal": "10000.00",
+        "rate": "5"
+      },
+      {
+        "id": "A3",
+        "note": "European 30E/360, with day 31 clamped to 30 in both dates.",
+        "start": "2026-01-31",
+        "end": "2026-03-31",
+        "principal": "10000.00",
+        "rate": "5"
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "A1",
+      "profile": "actual360",
+      "start": "2026-01-31",
+      "end": "2026-03-31",
+      "principal": "20000",
+      "rate": "2.5",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "actual360",
+          "score": 0.810049352493954
+        },
+        {
+          "id": "fixed365",
+          "score": 0.4779202186023428
+        },
+        {
+          "id": "european",
+          "score": 0.3790749871575958
+        }
+      ]
+    },
+    {
+      "id": "A2",
+      "profile": "fixed365",
+      "start": "2026-01-31",
+      "end": "2026-03-31",
+      "principal": "10000.00",
+      "rate": "5",
+      "decision": "hold",
+      "note": "",
+      "candidates": [
+        {
+          "id": "fixed365",
+          "score": 0.7148863141343541
+        },
+        {
+          "id": "actual360",
+          "score": 0.5902865926434762
+        },
+        {
+          "id": "european",
+          "score": 0.47584109246671613
+        }
+      ]
+    },
+    {
+      "id": "A3",
+      "profile": "european",
+      "start": "2026-01-31",
+      "end": "2026-03-31",
+      "principal": "10000.00",
+      "rate": "5",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "european",
+          "score": 0.7411619530587343
+        },
+        {
+          "id": "actual360",
+          "score": 0.49175403238157417
+        },
+        {
+          "id": "fixed365",
+          "score": 0.4618496636576645
+        }
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "id": "A1",
+      "note": "Money market interest using actual calendar days divided by 360.",
+      "start": "2026-01-31",
+      "end": "2026-03-31",
+      "principal": "10000.00",
+      "rate": "5",
+      "review": {
+        "id": "A1",
+        "profile": "actual360",
+        "start": "2026-01-31",
+        "end": "2026-03-31",
+        "principal": "20000",
+        "rate": "2.5",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "actual360",
+            "score": 0.810049352493954
+          },
+          {
+            "id": "fixed365",
+            "score": 0.4779202186023428
+          },
+          {
+            "id": "european",
+            "score": 0.3790749871575958
+          }
+        ]
+      },
+      "rule": "ACT/360",
+      "output": {
+        "days": 59,
+        "denominator": 360,
+        "actualDays": 59,
+        "yearFraction": "59/360",
+        "interestCents": "8194",
+        "interest": "81.94",
+        "exactCentsNumerator": "2950000000000",
+        "exactCentsDenominator": "360000000",
+        "witness": {
+          "elapsedCalendarDays": 59,
+          "fixedYearDays": 360
+        }
+      },
+      "baseline": {
+        "days": 59,
+        "denominator": 360,
+        "actualDays": 59,
+        "yearFraction": "59/360",
+        "interestCents": "8194",
+        "interest": "81.94",
+        "exactCentsNumerator": "2950000000000",
+        "exactCentsDenominator": "360000000",
+        "witness": {
+          "elapsedCalendarDays": 59,
+          "fixedYearDays": 360
+        }
+      }
+    },
+    {
+      "id": "A2",
+      "note": "Actual elapsed days with a fixed 365-day annual denominator.",
+      "start": "2026-01-31",
+      "end": "2026-03-31",
+      "principal": "10000.00",
+      "rate": "5",
+      "review": {
+        "id": "A2",
+        "profile": "fixed365",
+        "start": "2026-01-31",
+        "end": "2026-03-31",
+        "principal": "10000.00",
+        "rate": "5",
+        "decision": "hold",
+        "note": "",
+        "candidates": [
+          {
+            "id": "fixed365",
+            "score": 0.7148863141343541
+          },
+          {
+            "id": "actual360",
+            "score": 0.5902865926434762
+          },
+          {
+            "id": "european",
+            "score": 0.47584109246671613
+          }
+        ]
+      },
+      "rule": "ACT/365F",
+      "output": null,
+      "baseline": null
+    },
+    {
+      "id": "A3",
+      "note": "European 30E/360, with day 31 clamped to 30 in both dates.",
+      "start": "2026-01-31",
+      "end": "2026-03-31",
+      "principal": "10000.00",
+      "rate": "5",
+      "review": {
+        "id": "A3",
+        "profile": "european",
+        "start": "2026-01-31",
+        "end": "2026-03-31",
+        "principal": "10000.00",
+        "rate": "5",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "european",
+            "score": 0.7411619530587343
+          },
+          {
+            "id": "actual360",
+            "score": 0.49175403238157417
+          },
+          {
+            "id": "fixed365",
+            "score": 0.4618496636576645
+          }
+        ]
+      },
+      "rule": "30E/360",
+      "output": {
+        "days": 60,
+        "denominator": 360,
+        "actualDays": 59,
+        "yearFraction": "60/360",
+        "interestCents": "8333",
+        "interest": "83.33",
+        "exactCentsNumerator": "3000000000000",
+        "exactCentsDenominator": "360000000",
+        "witness": {
+          "startDay": 31,
+          "endDay": 31,
+          "adjustedStartDay": 30,
+          "adjustedEndDay": 30,
+          "yearPart": 0,
+          "monthPart": 60
+        }
+      },
+      "baseline": {
+        "days": 59,
+        "denominator": 360,
+        "actualDays": 59,
+        "yearFraction": "59/360",
+        "interestCents": "8194",
+        "interest": "81.94",
+        "exactCentsNumerator": "2950000000000",
+        "exactCentsDenominator": "360000000",
+        "witness": {
+          "elapsedCalendarDays": 59,
+          "fixedYearDays": 360
+        }
+      }
+    }
+  ],
+  "metrics": {
+    "requests": 3,
+    "approved": 2,
+    "held": 1,
+    "baselineDifferences": 1
+  }
+}

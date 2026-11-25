@@ -1,0 +1,3 @@
+import{defineConfig}from'vite';import react from'@vitejs/plugin-react';import{readFileSync}from'node:fs';
+const shared='/daily-app2/20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm';
+export default defineConfig({plugins:[react(),{name:'verified-shared-wasm',generateBundle(_,bundle){for(const[name,asset]of Object.entries(bundle)){if(!name.endsWith('.wasm'))continue;const bytes=readFileSync('../20261107-2/dist/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm');if(!bytes.equals(Buffer.from(asset.source)))throw Error('Shared WASM bytes differ');for(const chunk of Object.values(bundle))if(chunk.type==='chunk')chunk.code=chunk.code.replaceAll('/daily-app2/20261125-12/'+name,shared);delete bundle[name]}}}],base:'/daily-app2/20261125-12/'});

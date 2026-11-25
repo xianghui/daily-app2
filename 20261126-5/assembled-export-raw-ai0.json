@@ -1,0 +1,280 @@
+{
+  "schema": "flowmark-ledger/v1",
+  "original": {
+    "title": "Synthetic top-up month",
+    "currency": "USD",
+    "opening": "100000",
+    "profiles": [
+      {
+        "id": "mark",
+        "description": "Valuation snapshot: current market worth of all investment holdings. The total account balance measured at market prices.",
+        "rule": "valuation"
+      },
+      {
+        "id": "add",
+        "description": "Cash contribution received: the investor deposits new savings, adds funds, pays money in, tops up the portfolio. Fresh capital transferred into the account from an outside bank.",
+        "rule": "contribution"
+      },
+      {
+        "id": "take",
+        "description": "Cash withdrawal paid out: the investor takes money out, removes funds from the portfolio and spends the proceeds elsewhere. Capital leaves the account for an outside purchase.",
+        "rule": "withdrawal"
+      }
+    ],
+    "requests": [
+      {
+        "id": "A1",
+        "day": "10",
+        "amount": "110000",
+        "note": "Market valuation of the whole investment account before the cash top-up."
+      },
+      {
+        "id": "A2",
+        "day": "10",
+        "amount": "90000",
+        "note": "Investor deposited new savings into the portfolio from a separate bank account."
+      },
+      {
+        "id": "A3",
+        "day": "20",
+        "amount": "180000",
+        "note": "Closing portfolio valuation: total market worth of all account holdings."
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "A1",
+      "profile": "mark",
+      "day": "10",
+      "amount": "110000",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "mark",
+          "score": 0.6882259851010578
+        },
+        {
+          "id": "add",
+          "score": 0.5107060927648797
+        },
+        {
+          "id": "take",
+          "score": 0.4305942059698542
+        }
+      ]
+    },
+    {
+      "id": "A2",
+      "profile": "add",
+      "day": "10",
+      "amount": "90000",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "add",
+          "score": 0.7104008544434085
+        },
+        {
+          "id": "take",
+          "score": 0.5466200290705413
+        },
+        {
+          "id": "mark",
+          "score": 0.37075044855762723
+        }
+      ]
+    },
+    {
+      "id": "A3",
+      "profile": "mark",
+      "day": "20",
+      "amount": "180000",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "mark",
+          "score": 0.6974047883380788
+        },
+        {
+          "id": "take",
+          "score": 0.3796781990702651
+        },
+        {
+          "id": "add",
+          "score": 0.3545178315039851
+        }
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "id": "A1",
+      "day": "10",
+      "amount": "110000",
+      "note": "Market valuation of the whole investment account before the cash top-up.",
+      "review": {
+        "id": "A1",
+        "profile": "mark",
+        "day": "10",
+        "amount": "110000",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "mark",
+            "score": 0.6882259851010578
+          },
+          {
+            "id": "add",
+            "score": 0.5107060927648797
+          },
+          {
+            "id": "take",
+            "score": 0.4305942059698542
+          }
+        ]
+      },
+      "rule": "valuation"
+    },
+    {
+      "id": "A2",
+      "day": "10",
+      "amount": "90000",
+      "note": "Investor deposited new savings into the portfolio from a separate bank account.",
+      "review": {
+        "id": "A2",
+        "profile": "add",
+        "day": "10",
+        "amount": "90000",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "add",
+            "score": 0.7104008544434085
+          },
+          {
+            "id": "take",
+            "score": 0.5466200290705413
+          },
+          {
+            "id": "mark",
+            "score": 0.37075044855762723
+          }
+        ]
+      },
+      "rule": "contribution"
+    },
+    {
+      "id": "A3",
+      "day": "20",
+      "amount": "180000",
+      "note": "Closing portfolio valuation: total market worth of all account holdings.",
+      "review": {
+        "id": "A3",
+        "profile": "mark",
+        "day": "20",
+        "amount": "180000",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "mark",
+            "score": 0.6974047883380788
+          },
+          {
+            "id": "take",
+            "score": 0.3796781990702651
+          },
+          {
+            "id": "add",
+            "score": 0.3545178315039851
+          }
+        ]
+      },
+      "rule": "valuation"
+    }
+  ],
+  "worksheet": {
+    "status": "ready",
+    "errors": [],
+    "steps": [
+      {
+        "id": "A1",
+        "day": 10,
+        "kind": "valuation",
+        "status": "approved",
+        "amount": "110000",
+        "capitalBefore": "100000",
+        "capitalAfter": "110000",
+        "intervalFrom": "opening",
+        "periodFactor": {
+          "exact": "11/10",
+          "value": 1.1
+        },
+        "cumulativeFactor": {
+          "exact": "11/10",
+          "value": 1.1
+        }
+      },
+      {
+        "id": "A2",
+        "day": 10,
+        "kind": "contribution",
+        "status": "approved",
+        "amount": "90000",
+        "capitalBefore": "110000",
+        "capitalAfter": "200000",
+        "intervalFrom": null,
+        "periodFactor": null,
+        "cumulativeFactor": {
+          "exact": "11/10",
+          "value": 1.1
+        }
+      },
+      {
+        "id": "A3",
+        "day": 20,
+        "kind": "valuation",
+        "status": "approved",
+        "amount": "180000",
+        "capitalBefore": "200000",
+        "capitalAfter": "180000",
+        "intervalFrom": "A2",
+        "periodFactor": {
+          "exact": "9/10",
+          "value": 0.9
+        },
+        "cumulativeFactor": {
+          "exact": "99/100",
+          "value": 0.99
+        }
+      }
+    ],
+    "opening": "100000",
+    "closing": "180000",
+    "contributions": "90000",
+    "withdrawals": "0",
+    "netGain": "-10000",
+    "timeWeightedReturn": {
+      "exact": "-1/100",
+      "value": -0.01
+    },
+    "naiveNetGainReturn": {
+      "exact": "-1/10",
+      "value": -0.1
+    },
+    "finalMark": "A3",
+    "days": 20
+  },
+  "metrics": {
+    "requests": 3,
+    "approved": 3,
+    "held": 0,
+    "valuations": 2
+  }
+}

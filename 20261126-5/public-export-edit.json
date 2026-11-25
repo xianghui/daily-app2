@@ -1,0 +1,427 @@
+{
+  "schema": "flowmark-ledger/v1",
+  "original": {
+    "title": "Synthetic withdrawal and refill",
+    "currency": "EUR",
+    "opening": "200000",
+    "profiles": [
+      {
+        "id": "mark",
+        "description": "Valuation snapshot: current market worth of all investment holdings. The total account balance measured at market prices.",
+        "rule": "valuation"
+      },
+      {
+        "id": "add",
+        "description": "Cash contribution received: the investor deposits new savings, adds funds, pays money in, tops up the portfolio. Fresh capital transferred into the account from an outside bank.",
+        "rule": "contribution"
+      },
+      {
+        "id": "take",
+        "description": "Cash withdrawal paid out: the investor takes money out, removes funds from the portfolio and spends the proceeds elsewhere. Capital leaves the account for an outside purchase.",
+        "rule": "withdrawal"
+      }
+    ],
+    "requests": [
+      {
+        "id": "B1",
+        "day": "5",
+        "amount": "220000",
+        "note": "Entire investment account valued at market prices just before cash is removed."
+      },
+      {
+        "id": "B2",
+        "day": "5",
+        "amount": "120000",
+        "note": "Investor withdrew cash from the portfolio to pay for an outside purchase."
+      },
+      {
+        "id": "B3",
+        "day": "12",
+        "amount": "120000",
+        "note": "Total portfolio market value measured immediately before the next cash addition."
+      },
+      {
+        "id": "B4",
+        "day": "12",
+        "amount": "80000",
+        "note": "Additional investor capital transferred into the account from outside savings."
+      },
+      {
+        "id": "B5",
+        "day": "20",
+        "amount": "180000",
+        "note": "End-of-period market valuation of the complete portfolio holdings."
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "B1",
+      "profile": "mark",
+      "day": "5",
+      "amount": "220000",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "take",
+          "score": 0.6143949828922544
+        },
+        {
+          "id": "mark",
+          "score": 0.5928348416279579
+        },
+        {
+          "id": "add",
+          "score": 0.5108378327053084
+        }
+      ]
+    },
+    {
+      "id": "B2",
+      "profile": "take",
+      "day": "5",
+      "amount": "120000",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "take",
+          "score": 0.7810166612234257
+        },
+        {
+          "id": "add",
+          "score": 0.6180511362786122
+        },
+        {
+          "id": "mark",
+          "score": 0.22876419326728992
+        }
+      ]
+    },
+    {
+      "id": "B3",
+      "profile": "mark",
+      "day": "12",
+      "amount": "120000",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "mark",
+          "score": 0.5582570124737566
+        },
+        {
+          "id": "add",
+          "score": 0.47015739418015745
+        },
+        {
+          "id": "take",
+          "score": 0.32957478704274007
+        }
+      ]
+    },
+    {
+      "id": "B4",
+      "profile": "add",
+      "day": "12",
+      "amount": "80000",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "add",
+          "score": 0.7232959348018192
+        },
+        {
+          "id": "take",
+          "score": 0.6309605556841308
+        },
+        {
+          "id": "mark",
+          "score": 0.41967326710830066
+        }
+      ]
+    },
+    {
+      "id": "B5",
+      "profile": "mark",
+      "day": "20",
+      "amount": "200000",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "mark",
+          "score": 0.6326997818480069
+        },
+        {
+          "id": "take",
+          "score": 0.29345954215866266
+        },
+        {
+          "id": "add",
+          "score": 0.26079414751376545
+        }
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "id": "B1",
+      "day": "5",
+      "amount": "220000",
+      "note": "Entire investment account valued at market prices just before cash is removed.",
+      "review": {
+        "id": "B1",
+        "profile": "mark",
+        "day": "5",
+        "amount": "220000",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "take",
+            "score": 0.6143949828922544
+          },
+          {
+            "id": "mark",
+            "score": 0.5928348416279579
+          },
+          {
+            "id": "add",
+            "score": 0.5108378327053084
+          }
+        ]
+      },
+      "rule": "valuation"
+    },
+    {
+      "id": "B2",
+      "day": "5",
+      "amount": "120000",
+      "note": "Investor withdrew cash from the portfolio to pay for an outside purchase.",
+      "review": {
+        "id": "B2",
+        "profile": "take",
+        "day": "5",
+        "amount": "120000",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "take",
+            "score": 0.7810166612234257
+          },
+          {
+            "id": "add",
+            "score": 0.6180511362786122
+          },
+          {
+            "id": "mark",
+            "score": 0.22876419326728992
+          }
+        ]
+      },
+      "rule": "withdrawal"
+    },
+    {
+      "id": "B3",
+      "day": "12",
+      "amount": "120000",
+      "note": "Total portfolio market value measured immediately before the next cash addition.",
+      "review": {
+        "id": "B3",
+        "profile": "mark",
+        "day": "12",
+        "amount": "120000",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "mark",
+            "score": 0.5582570124737566
+          },
+          {
+            "id": "add",
+            "score": 0.47015739418015745
+          },
+          {
+            "id": "take",
+            "score": 0.32957478704274007
+          }
+        ]
+      },
+      "rule": "valuation"
+    },
+    {
+      "id": "B4",
+      "day": "12",
+      "amount": "80000",
+      "note": "Additional investor capital transferred into the account from outside savings.",
+      "review": {
+        "id": "B4",
+        "profile": "add",
+        "day": "12",
+        "amount": "80000",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "add",
+            "score": 0.7232959348018192
+          },
+          {
+            "id": "take",
+            "score": 0.6309605556841308
+          },
+          {
+            "id": "mark",
+            "score": 0.41967326710830066
+          }
+        ]
+      },
+      "rule": "contribution"
+    },
+    {
+      "id": "B5",
+      "day": "20",
+      "amount": "180000",
+      "note": "End-of-period market valuation of the complete portfolio holdings.",
+      "review": {
+        "id": "B5",
+        "profile": "mark",
+        "day": "20",
+        "amount": "200000",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "mark",
+            "score": 0.6326997818480069
+          },
+          {
+            "id": "take",
+            "score": 0.29345954215866266
+          },
+          {
+            "id": "add",
+            "score": 0.26079414751376545
+          }
+        ]
+      },
+      "rule": "valuation"
+    }
+  ],
+  "worksheet": {
+    "status": "ready",
+    "errors": [],
+    "steps": [
+      {
+        "id": "B1",
+        "day": 5,
+        "kind": "valuation",
+        "status": "approved",
+        "amount": "220000",
+        "capitalBefore": "200000",
+        "capitalAfter": "220000",
+        "intervalFrom": "opening",
+        "periodFactor": {
+          "exact": "11/10",
+          "value": 1.1
+        },
+        "cumulativeFactor": {
+          "exact": "11/10",
+          "value": 1.1
+        }
+      },
+      {
+        "id": "B2",
+        "day": 5,
+        "kind": "withdrawal",
+        "status": "approved",
+        "amount": "120000",
+        "capitalBefore": "220000",
+        "capitalAfter": "100000",
+        "intervalFrom": null,
+        "periodFactor": null,
+        "cumulativeFactor": {
+          "exact": "11/10",
+          "value": 1.1
+        }
+      },
+      {
+        "id": "B3",
+        "day": 12,
+        "kind": "valuation",
+        "status": "approved",
+        "amount": "120000",
+        "capitalBefore": "100000",
+        "capitalAfter": "120000",
+        "intervalFrom": "B2",
+        "periodFactor": {
+          "exact": "6/5",
+          "value": 1.2
+        },
+        "cumulativeFactor": {
+          "exact": "33/25",
+          "value": 1.32
+        }
+      },
+      {
+        "id": "B4",
+        "day": 12,
+        "kind": "contribution",
+        "status": "approved",
+        "amount": "80000",
+        "capitalBefore": "120000",
+        "capitalAfter": "200000",
+        "intervalFrom": null,
+        "periodFactor": null,
+        "cumulativeFactor": {
+          "exact": "33/25",
+          "value": 1.32
+        }
+      },
+      {
+        "id": "B5",
+        "day": 20,
+        "kind": "valuation",
+        "status": "approved",
+        "amount": "200000",
+        "capitalBefore": "200000",
+        "capitalAfter": "200000",
+        "intervalFrom": "B4",
+        "periodFactor": {
+          "exact": "1/1",
+          "value": 1
+        },
+        "cumulativeFactor": {
+          "exact": "33/25",
+          "value": 1.32
+        }
+      }
+    ],
+    "opening": "200000",
+    "closing": "200000",
+    "contributions": "80000",
+    "withdrawals": "120000",
+    "netGain": "40000",
+    "timeWeightedReturn": {
+      "exact": "8/25",
+      "value": 0.32
+    },
+    "naiveNetGainReturn": {
+      "exact": "1/5",
+      "value": 0.2
+    },
+    "finalMark": "B5",
+    "days": 20
+  },
+  "metrics": {
+    "requests": 5,
+    "approved": 5,
+    "held": 0,
+    "valuations": 3
+  }
+}

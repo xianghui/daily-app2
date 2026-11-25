@@ -1,0 +1,224 @@
+{
+  "schema": "effective-ledger/v1",
+  "original": {
+    "title": "Synthetic community venue worksheet",
+    "books": [
+      {
+        "id": "garden",
+        "description": "Outdoor garden plot rental for planting vegetables, per plot day.",
+        "versions": [
+          {
+            "id": "summer",
+            "from": "2025-01-01",
+            "until": "2026-01-01",
+            "cents": 100
+          },
+          {
+            "id": "new",
+            "from": "2026-01-01",
+            "until": null,
+            "cents": 125
+          }
+        ]
+      },
+      {
+        "id": "tools",
+        "description": "Carpentry hand tool rental, saws and planes for woodworking, per tool day.",
+        "versions": [
+          {
+            "id": "first",
+            "from": "2025-01-01",
+            "until": "2026-05-01",
+            "cents": 350
+          },
+          {
+            "id": "second",
+            "from": "2026-05-01",
+            "until": null,
+            "cents": 400
+          }
+        ]
+      },
+      {
+        "id": "studio",
+        "description": "Music rehearsal studio rental with piano and sound equipment, per hour.",
+        "versions": [
+          {
+            "id": "first",
+            "from": "2025-01-01",
+            "until": "2026-02-01",
+            "cents": 800
+          },
+          {
+            "id": "second",
+            "from": "2026-02-01",
+            "until": null,
+            "cents": 1000
+          }
+        ]
+      }
+    ],
+    "requests": [
+      {
+        "id": "band",
+        "context": "Music rehearsal studio with piano and sound equipment for the band.",
+        "date": "2026-02-01",
+        "quantity": 3
+      },
+      {
+        "id": "plants",
+        "context": "Vegetable planting in a rented outdoor garden plot.",
+        "date": "2025-06-01",
+        "quantity": 4
+      },
+      {
+        "id": "saw",
+        "context": "Renting hand saws and carpentry planes for woodworking.",
+        "date": "2026-04-30",
+        "quantity": 2
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "band",
+      "book": "studio",
+      "date": "2026-02-01",
+      "quantity": 3,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "studio",
+          "score": 0.7821425319132053
+        },
+        {
+          "id": "tools",
+          "score": 0.2746125118285632
+        },
+        {
+          "id": "garden",
+          "score": 0.07205231024706878
+        }
+      ]
+    },
+    {
+      "id": "plants",
+      "book": "garden",
+      "date": "2025-06-01",
+      "quantity": 4,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "garden",
+          "score": 0.8536125372987164
+        },
+        {
+          "id": "studio",
+          "score": 0.11125850590451261
+        },
+        {
+          "id": "tools",
+          "score": 0.10826084561368318
+        }
+      ]
+    },
+    {
+      "id": "saw",
+      "book": "tools",
+      "date": "2026-04-30",
+      "quantity": 2,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "tools",
+          "score": 0.8538116520278656
+        },
+        {
+          "id": "studio",
+          "score": 0.2483149782568286
+        },
+        {
+          "id": "garden",
+          "score": 0.17995949859456345
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "band",
+      "context": "Music rehearsal studio with piano and sound equipment for the band.",
+      "date": "2026-02-01",
+      "quantity": 3,
+      "book": "studio",
+      "decision": "approve",
+      "note": "",
+      "status": "ready",
+      "matches": [
+        "second"
+      ],
+      "version": "second",
+      "rate": 1000,
+      "total": 3000,
+      "baseline": 3000,
+      "baselineVersions": [
+        "second"
+      ],
+      "difference": 0
+    },
+    {
+      "id": "plants",
+      "context": "Vegetable planting in a rented outdoor garden plot.",
+      "date": "2025-06-01",
+      "quantity": 4,
+      "book": "garden",
+      "decision": "approve",
+      "note": "",
+      "status": "ready",
+      "matches": [
+        "summer"
+      ],
+      "version": "summer",
+      "rate": 100,
+      "total": 400,
+      "baseline": 500,
+      "baselineVersions": [
+        "new"
+      ],
+      "difference": -100
+    },
+    {
+      "id": "saw",
+      "context": "Renting hand saws and carpentry planes for woodworking.",
+      "date": "2026-04-30",
+      "quantity": 2,
+      "book": "tools",
+      "decision": "approve",
+      "note": "",
+      "status": "ready",
+      "matches": [
+        "first"
+      ],
+      "version": "first",
+      "rate": 350,
+      "total": 700,
+      "baseline": 800,
+      "baselineVersions": [
+        "second"
+      ],
+      "difference": -100
+    }
+  ],
+  "metrics": {
+    "requests": 3,
+    "versions": 6,
+    "ready": 3,
+    "blocked": 0,
+    "held": 0,
+    "changed": 2,
+    "totalCents": 4100
+  }
+}

@@ -1,0 +1,229 @@
+{
+  "schema": "effective-ledger/v1",
+  "original": {
+    "title": "Synthetic print-shop historical worksheet",
+    "books": [
+      {
+        "id": "print",
+        "description": "Full color paper printing, posters and flyers, charged per printed sheet.",
+        "versions": [
+          {
+            "id": "old",
+            "from": "2025-01-01",
+            "until": "2026-01-01",
+            "cents": 15
+          },
+          {
+            "id": "current",
+            "from": "2026-01-01",
+            "until": null,
+            "cents": 22
+          }
+        ]
+      },
+      {
+        "id": "delivery",
+        "description": "Courier delivery, parcel transport and shipping, charged per delivery.",
+        "versions": [
+          {
+            "id": "winter",
+            "from": "2025-01-01",
+            "until": "2026-02-01",
+            "cents": 450
+          },
+          {
+            "id": "special",
+            "from": "2026-01-15",
+            "until": "2026-03-01",
+            "cents": 500
+          },
+          {
+            "id": "spring",
+            "from": "2026-03-01",
+            "until": null,
+            "cents": 600
+          }
+        ]
+      },
+      {
+        "id": "storage",
+        "description": "Warehouse shelf storage, box holding and inventory space, charged per box day.",
+        "versions": [
+          {
+            "id": "early",
+            "from": "2025-01-01",
+            "until": "2025-07-01",
+            "cents": 30
+          },
+          {
+            "id": "later",
+            "from": "2026-01-01",
+            "until": null,
+            "cents": 40
+          }
+        ]
+      }
+    ],
+    "requests": [
+      {
+        "id": "flyers",
+        "context": "Full color flyers printed on paper sheets for an exhibition.",
+        "date": "2025-12-31",
+        "quantity": 200
+      },
+      {
+        "id": "courier",
+        "context": "Parcel courier transport and shipping to the customer.",
+        "date": "2026-01-20",
+        "quantity": 2
+      },
+      {
+        "id": "boxes",
+        "context": "Holding boxes on warehouse shelves for storage.",
+        "date": "2025-08-01",
+        "quantity": 10
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "flyers",
+      "book": "print",
+      "date": "2025-12-31",
+      "quantity": 200,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "print",
+          "score": 0.7032977631564228
+        },
+        {
+          "id": "delivery",
+          "score": 0.19776910514360826
+        },
+        {
+          "id": "storage",
+          "score": 0.12977582270253796
+        }
+      ]
+    },
+    {
+      "id": "courier",
+      "book": "delivery",
+      "date": "2026-01-20",
+      "quantity": 2,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "delivery",
+          "score": 0.7393151803024548
+        },
+        {
+          "id": "storage",
+          "score": 0.3747437128775962
+        },
+        {
+          "id": "print",
+          "score": 0.3499462345555925
+        }
+      ]
+    },
+    {
+      "id": "boxes",
+      "book": "storage",
+      "date": "2025-08-01",
+      "quantity": 10,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "storage",
+          "score": 0.6382374392700247
+        },
+        {
+          "id": "delivery",
+          "score": 0.17622212410328755
+        },
+        {
+          "id": "print",
+          "score": 0.13441885347652044
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "flyers",
+      "context": "Full color flyers printed on paper sheets for an exhibition.",
+      "date": "2025-12-31",
+      "quantity": 200,
+      "book": "print",
+      "decision": "approve",
+      "note": "",
+      "status": "ready",
+      "matches": [
+        "old"
+      ],
+      "version": "old",
+      "rate": 15,
+      "total": 3000,
+      "baseline": 4400,
+      "baselineVersions": [
+        "current"
+      ],
+      "difference": -1400
+    },
+    {
+      "id": "courier",
+      "context": "Parcel courier transport and shipping to the customer.",
+      "date": "2026-01-20",
+      "quantity": 2,
+      "book": "delivery",
+      "decision": "approve",
+      "note": "",
+      "status": "overlap",
+      "matches": [
+        "winter",
+        "special"
+      ],
+      "version": null,
+      "rate": null,
+      "total": null,
+      "baseline": 1200,
+      "baselineVersions": [
+        "spring"
+      ],
+      "difference": null
+    },
+    {
+      "id": "boxes",
+      "context": "Holding boxes on warehouse shelves for storage.",
+      "date": "2025-08-01",
+      "quantity": 10,
+      "book": "storage",
+      "decision": "approve",
+      "note": "",
+      "status": "gap",
+      "matches": [],
+      "version": null,
+      "rate": null,
+      "total": null,
+      "baseline": 400,
+      "baselineVersions": [
+        "later"
+      ],
+      "difference": null
+    }
+  ],
+  "metrics": {
+    "requests": 3,
+    "versions": 7,
+    "ready": 1,
+    "blocked": 2,
+    "held": 0,
+    "changed": 1,
+    "totalCents": 3000
+  }
+}

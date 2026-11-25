@@ -1,0 +1,740 @@
+{
+  "schema": "podium-desk/v1",
+  "original": {
+    "title": "Synthetic workshop prize desk",
+    "profiles": [
+      {
+        "id": "exact-rows",
+        "description": "Select exactly N rows, even if equally scoring candidates must be split. Break ties by original input order. A hard maximum number of shortlist entries.",
+        "mode": "rows"
+      },
+      {
+        "id": "competition-places",
+        "description": "Select competition places up to N, including everyone tied at a qualifying place. Equal scores share a place; following places have gaps: 1, 1, 3.",
+        "mode": "rank"
+      },
+      {
+        "id": "distinct-levels",
+        "description": "Select the top N distinct score levels. Equal scores share a level and the next different score uses the next number without gaps: 1, 1, 2.",
+        "mode": "dense"
+      }
+    ],
+    "requests": [
+      {
+        "id": "podium",
+        "context": "Include everyone sharing the top three competition places. Joint first means the next place is third, not second.",
+        "limit": 3,
+        "direction": "higher",
+        "rows": [
+          {
+            "id": "r1",
+            "label": "Ink",
+            "score": 95
+          },
+          {
+            "id": "r2",
+            "label": "Clay",
+            "score": 95
+          },
+          {
+            "id": "r3",
+            "label": "Loom",
+            "score": 90
+          },
+          {
+            "id": "r4",
+            "label": "Paper",
+            "score": 90
+          },
+          {
+            "id": "r5",
+            "label": "Glass",
+            "score": 80
+          }
+        ]
+      },
+      {
+        "id": "seats",
+        "context": "We have exactly three seats. Select only three rows even when scores tie, using original order to break equal scores.",
+        "limit": 3,
+        "direction": "higher",
+        "rows": [
+          {
+            "id": "r1",
+            "label": "Ink",
+            "score": 95
+          },
+          {
+            "id": "r2",
+            "label": "Clay",
+            "score": 95
+          },
+          {
+            "id": "r3",
+            "label": "Loom",
+            "score": 90
+          },
+          {
+            "id": "r4",
+            "label": "Paper",
+            "score": 90
+          },
+          {
+            "id": "r5",
+            "label": "Glass",
+            "score": 80
+          }
+        ]
+      },
+      {
+        "id": "levels",
+        "context": "Invite the best three distinct score levels. Equal scores share a level; the next different score is the next level without gaps.",
+        "limit": 3,
+        "direction": "higher",
+        "rows": [
+          {
+            "id": "r1",
+            "label": "Ink",
+            "score": 95
+          },
+          {
+            "id": "r2",
+            "label": "Clay",
+            "score": 95
+          },
+          {
+            "id": "r3",
+            "label": "Loom",
+            "score": 90
+          },
+          {
+            "id": "r4",
+            "label": "Paper",
+            "score": 90
+          },
+          {
+            "id": "r5",
+            "label": "Glass",
+            "score": 80
+          }
+        ]
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "podium",
+      "profile": "competition-places",
+      "limit": 3,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "competition-places",
+          "score": 0.5611870331901029
+        },
+        {
+          "id": "distinct-levels",
+          "score": 0.36677511768755583
+        },
+        {
+          "id": "exact-rows",
+          "score": 0.2816201634687768
+        }
+      ]
+    },
+    {
+      "id": "seats",
+      "profile": "exact-rows",
+      "limit": 3,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "competition-places",
+          "score": 0.5429189912722363
+        },
+        {
+          "id": "exact-rows",
+          "score": 0.5333314250783915
+        },
+        {
+          "id": "distinct-levels",
+          "score": 0.48704320012034424
+        }
+      ]
+    },
+    {
+      "id": "levels",
+      "profile": "distinct-levels",
+      "limit": 3,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "distinct-levels",
+          "score": 0.7060079346199848
+        },
+        {
+          "id": "competition-places",
+          "score": 0.540331205848486
+        },
+        {
+          "id": "exact-rows",
+          "score": 0.38965935947016717
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "podium",
+      "context": "Include everyone sharing the top three competition places. Joint first means the next place is third, not second.",
+      "rows": [
+        {
+          "id": "r1",
+          "label": "Ink",
+          "score": 95
+        },
+        {
+          "id": "r2",
+          "label": "Clay",
+          "score": 95
+        },
+        {
+          "id": "r3",
+          "label": "Loom",
+          "score": 90
+        },
+        {
+          "id": "r4",
+          "label": "Paper",
+          "score": 90
+        },
+        {
+          "id": "r5",
+          "label": "Glass",
+          "score": 80
+        }
+      ],
+      "direction": "higher",
+      "decision": "approve",
+      "note": "",
+      "profile": "competition-places",
+      "mode": "rank",
+      "limit": 3,
+      "ranked": [
+        {
+          "id": "r1",
+          "label": "Ink",
+          "score": 95,
+          "sourceIndex": 0,
+          "position": 1,
+          "rank": 1,
+          "dense": 1,
+          "selected": true,
+          "baseline": true
+        },
+        {
+          "id": "r2",
+          "label": "Clay",
+          "score": 95,
+          "sourceIndex": 1,
+          "position": 2,
+          "rank": 1,
+          "dense": 1,
+          "selected": true,
+          "baseline": true
+        },
+        {
+          "id": "r3",
+          "label": "Loom",
+          "score": 90,
+          "sourceIndex": 2,
+          "position": 3,
+          "rank": 3,
+          "dense": 2,
+          "selected": true,
+          "baseline": true
+        },
+        {
+          "id": "r4",
+          "label": "Paper",
+          "score": 90,
+          "sourceIndex": 3,
+          "position": 4,
+          "rank": 3,
+          "dense": 2,
+          "selected": true,
+          "baseline": false
+        },
+        {
+          "id": "r5",
+          "label": "Glass",
+          "score": 80,
+          "sourceIndex": 4,
+          "position": 5,
+          "rank": 5,
+          "dense": 3,
+          "selected": false,
+          "baseline": false
+        }
+      ],
+      "selected": [
+        {
+          "id": "r1",
+          "label": "Ink",
+          "score": 95,
+          "sourceIndex": 0,
+          "position": 1,
+          "rank": 1,
+          "dense": 1,
+          "selected": true,
+          "baseline": true
+        },
+        {
+          "id": "r2",
+          "label": "Clay",
+          "score": 95,
+          "sourceIndex": 1,
+          "position": 2,
+          "rank": 1,
+          "dense": 1,
+          "selected": true,
+          "baseline": true
+        },
+        {
+          "id": "r3",
+          "label": "Loom",
+          "score": 90,
+          "sourceIndex": 2,
+          "position": 3,
+          "rank": 3,
+          "dense": 2,
+          "selected": true,
+          "baseline": true
+        },
+        {
+          "id": "r4",
+          "label": "Paper",
+          "score": 90,
+          "sourceIndex": 3,
+          "position": 4,
+          "rank": 3,
+          "dense": 2,
+          "selected": true,
+          "baseline": false
+        }
+      ],
+      "baseline": [
+        {
+          "id": "r1",
+          "label": "Ink",
+          "score": 95,
+          "sourceIndex": 0,
+          "position": 1,
+          "rank": 1,
+          "dense": 1,
+          "selected": true,
+          "baseline": true
+        },
+        {
+          "id": "r2",
+          "label": "Clay",
+          "score": 95,
+          "sourceIndex": 1,
+          "position": 2,
+          "rank": 1,
+          "dense": 1,
+          "selected": true,
+          "baseline": true
+        },
+        {
+          "id": "r3",
+          "label": "Loom",
+          "score": 90,
+          "sourceIndex": 2,
+          "position": 3,
+          "rank": 3,
+          "dense": 2,
+          "selected": true,
+          "baseline": true
+        }
+      ],
+      "changed": [
+        "r4"
+      ],
+      "baselineSplitsTie": true,
+      "selectedSplitsTie": false
+    },
+    {
+      "id": "seats",
+      "context": "We have exactly three seats. Select only three rows even when scores tie, using original order to break equal scores.",
+      "rows": [
+        {
+          "id": "r1",
+          "label": "Ink",
+          "score": 95
+        },
+        {
+          "id": "r2",
+          "label": "Clay",
+          "score": 95
+        },
+        {
+          "id": "r3",
+          "label": "Loom",
+          "score": 90
+        },
+        {
+          "id": "r4",
+          "label": "Paper",
+          "score": 90
+        },
+        {
+          "id": "r5",
+          "label": "Glass",
+          "score": 80
+        }
+      ],
+      "direction": "higher",
+      "decision": "approve",
+      "note": "",
+      "profile": "exact-rows",
+      "mode": "rows",
+      "limit": 3,
+      "ranked": [
+        {
+          "id": "r1",
+          "label": "Ink",
+          "score": 95,
+          "sourceIndex": 0,
+          "position": 1,
+          "rank": 1,
+          "dense": 1,
+          "selected": true,
+          "baseline": true
+        },
+        {
+          "id": "r2",
+          "label": "Clay",
+          "score": 95,
+          "sourceIndex": 1,
+          "position": 2,
+          "rank": 1,
+          "dense": 1,
+          "selected": true,
+          "baseline": true
+        },
+        {
+          "id": "r3",
+          "label": "Loom",
+          "score": 90,
+          "sourceIndex": 2,
+          "position": 3,
+          "rank": 3,
+          "dense": 2,
+          "selected": true,
+          "baseline": true
+        },
+        {
+          "id": "r4",
+          "label": "Paper",
+          "score": 90,
+          "sourceIndex": 3,
+          "position": 4,
+          "rank": 3,
+          "dense": 2,
+          "selected": false,
+          "baseline": false
+        },
+        {
+          "id": "r5",
+          "label": "Glass",
+          "score": 80,
+          "sourceIndex": 4,
+          "position": 5,
+          "rank": 5,
+          "dense": 3,
+          "selected": false,
+          "baseline": false
+        }
+      ],
+      "selected": [
+        {
+          "id": "r1",
+          "label": "Ink",
+          "score": 95,
+          "sourceIndex": 0,
+          "position": 1,
+          "rank": 1,
+          "dense": 1,
+          "selected": true,
+          "baseline": true
+        },
+        {
+          "id": "r2",
+          "label": "Clay",
+          "score": 95,
+          "sourceIndex": 1,
+          "position": 2,
+          "rank": 1,
+          "dense": 1,
+          "selected": true,
+          "baseline": true
+        },
+        {
+          "id": "r3",
+          "label": "Loom",
+          "score": 90,
+          "sourceIndex": 2,
+          "position": 3,
+          "rank": 3,
+          "dense": 2,
+          "selected": true,
+          "baseline": true
+        }
+      ],
+      "baseline": [
+        {
+          "id": "r1",
+          "label": "Ink",
+          "score": 95,
+          "sourceIndex": 0,
+          "position": 1,
+          "rank": 1,
+          "dense": 1,
+          "selected": true,
+          "baseline": true
+        },
+        {
+          "id": "r2",
+          "label": "Clay",
+          "score": 95,
+          "sourceIndex": 1,
+          "position": 2,
+          "rank": 1,
+          "dense": 1,
+          "selected": true,
+          "baseline": true
+        },
+        {
+          "id": "r3",
+          "label": "Loom",
+          "score": 90,
+          "sourceIndex": 2,
+          "position": 3,
+          "rank": 3,
+          "dense": 2,
+          "selected": true,
+          "baseline": true
+        }
+      ],
+      "changed": [],
+      "baselineSplitsTie": true,
+      "selectedSplitsTie": true
+    },
+    {
+      "id": "levels",
+      "context": "Invite the best three distinct score levels. Equal scores share a level; the next different score is the next level without gaps.",
+      "rows": [
+        {
+          "id": "r1",
+          "label": "Ink",
+          "score": 95
+        },
+        {
+          "id": "r2",
+          "label": "Clay",
+          "score": 95
+        },
+        {
+          "id": "r3",
+          "label": "Loom",
+          "score": 90
+        },
+        {
+          "id": "r4",
+          "label": "Paper",
+          "score": 90
+        },
+        {
+          "id": "r5",
+          "label": "Glass",
+          "score": 80
+        }
+      ],
+      "direction": "higher",
+      "decision": "approve",
+      "note": "",
+      "profile": "distinct-levels",
+      "mode": "dense",
+      "limit": 3,
+      "ranked": [
+        {
+          "id": "r1",
+          "label": "Ink",
+          "score": 95,
+          "sourceIndex": 0,
+          "position": 1,
+          "rank": 1,
+          "dense": 1,
+          "selected": true,
+          "baseline": true
+        },
+        {
+          "id": "r2",
+          "label": "Clay",
+          "score": 95,
+          "sourceIndex": 1,
+          "position": 2,
+          "rank": 1,
+          "dense": 1,
+          "selected": true,
+          "baseline": true
+        },
+        {
+          "id": "r3",
+          "label": "Loom",
+          "score": 90,
+          "sourceIndex": 2,
+          "position": 3,
+          "rank": 3,
+          "dense": 2,
+          "selected": true,
+          "baseline": true
+        },
+        {
+          "id": "r4",
+          "label": "Paper",
+          "score": 90,
+          "sourceIndex": 3,
+          "position": 4,
+          "rank": 3,
+          "dense": 2,
+          "selected": true,
+          "baseline": false
+        },
+        {
+          "id": "r5",
+          "label": "Glass",
+          "score": 80,
+          "sourceIndex": 4,
+          "position": 5,
+          "rank": 5,
+          "dense": 3,
+          "selected": true,
+          "baseline": false
+        }
+      ],
+      "selected": [
+        {
+          "id": "r1",
+          "label": "Ink",
+          "score": 95,
+          "sourceIndex": 0,
+          "position": 1,
+          "rank": 1,
+          "dense": 1,
+          "selected": true,
+          "baseline": true
+        },
+        {
+          "id": "r2",
+          "label": "Clay",
+          "score": 95,
+          "sourceIndex": 1,
+          "position": 2,
+          "rank": 1,
+          "dense": 1,
+          "selected": true,
+          "baseline": true
+        },
+        {
+          "id": "r3",
+          "label": "Loom",
+          "score": 90,
+          "sourceIndex": 2,
+          "position": 3,
+          "rank": 3,
+          "dense": 2,
+          "selected": true,
+          "baseline": true
+        },
+        {
+          "id": "r4",
+          "label": "Paper",
+          "score": 90,
+          "sourceIndex": 3,
+          "position": 4,
+          "rank": 3,
+          "dense": 2,
+          "selected": true,
+          "baseline": false
+        },
+        {
+          "id": "r5",
+          "label": "Glass",
+          "score": 80,
+          "sourceIndex": 4,
+          "position": 5,
+          "rank": 5,
+          "dense": 3,
+          "selected": true,
+          "baseline": false
+        }
+      ],
+      "baseline": [
+        {
+          "id": "r1",
+          "label": "Ink",
+          "score": 95,
+          "sourceIndex": 0,
+          "position": 1,
+          "rank": 1,
+          "dense": 1,
+          "selected": true,
+          "baseline": true
+        },
+        {
+          "id": "r2",
+          "label": "Clay",
+          "score": 95,
+          "sourceIndex": 1,
+          "position": 2,
+          "rank": 1,
+          "dense": 1,
+          "selected": true,
+          "baseline": true
+        },
+        {
+          "id": "r3",
+          "label": "Loom",
+          "score": 90,
+          "sourceIndex": 2,
+          "position": 3,
+          "rank": 3,
+          "dense": 2,
+          "selected": true,
+          "baseline": true
+        }
+      ],
+      "changed": [
+        "r4",
+        "r5"
+      ],
+      "baselineSplitsTie": true,
+      "selectedSplitsTie": false
+    }
+  ],
+  "metrics": {
+    "approved": 3,
+    "held": 0,
+    "records": 15,
+    "selected": 12,
+    "baseline": 9,
+    "changed": 3,
+    "baselineSplits": 3,
+    "reviewedSplits": 1
+  }
+}

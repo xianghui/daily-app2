@@ -1,0 +1,636 @@
+{
+  "schema": "podium-desk/v1",
+  "original": {
+    "title": "Synthetic service timing worksheet",
+    "profiles": [
+      {
+        "id": "exact-rows",
+        "description": "Select exactly N rows, even if equally scoring candidates must be split. Break ties by original input order. A hard maximum number of shortlist entries.",
+        "mode": "rows"
+      },
+      {
+        "id": "competition-places",
+        "description": "Select competition places up to N, including everyone tied at a qualifying place. Equal scores share a place; following places have gaps: 1, 1, 3.",
+        "mode": "rank"
+      },
+      {
+        "id": "distinct-levels",
+        "description": "Select the top N distinct score levels. Equal scores share a level and the next different score uses the next number without gaps: 1, 1, 2.",
+        "mode": "dense"
+      }
+    ],
+    "requests": [
+      {
+        "id": "timing-bands",
+        "context": "Take the two best distinct timing values, keeping every tied row. Number different values consecutively without gaps.",
+        "limit": 2,
+        "direction": "lower",
+        "rows": [
+          {
+            "id": "r1",
+            "label": "Desk A",
+            "score": 8
+          },
+          {
+            "id": "r2",
+            "label": "Desk B",
+            "score": 8
+          },
+          {
+            "id": "r3",
+            "label": "Desk C",
+            "score": 10
+          },
+          {
+            "id": "r4",
+            "label": "Desk D",
+            "score": 10
+          },
+          {
+            "id": "r5",
+            "label": "Desk E",
+            "score": 12
+          }
+        ]
+      },
+      {
+        "id": "timing-places",
+        "context": "Keep the first two competition places including equal scores. Joint first consumes two places, so the next candidate is third.",
+        "limit": 2,
+        "direction": "lower",
+        "rows": [
+          {
+            "id": "r1",
+            "label": "Desk A",
+            "score": 8
+          },
+          {
+            "id": "r2",
+            "label": "Desk B",
+            "score": 8
+          },
+          {
+            "id": "r3",
+            "label": "Desk C",
+            "score": 10
+          },
+          {
+            "id": "r4",
+            "label": "Desk D",
+            "score": 10
+          },
+          {
+            "id": "r5",
+            "label": "Desk E",
+            "score": 12
+          }
+        ]
+      },
+      {
+        "id": "limited-rechecks",
+        "context": "Only two recheck slots exist. Hard cap the result at exactly two rows; original order resolves equal scores.",
+        "limit": 2,
+        "direction": "lower",
+        "rows": [
+          {
+            "id": "r1",
+            "label": "Desk A",
+            "score": 8
+          },
+          {
+            "id": "r2",
+            "label": "Desk B",
+            "score": 8
+          },
+          {
+            "id": "r3",
+            "label": "Desk C",
+            "score": 8
+          },
+          {
+            "id": "r4",
+            "label": "Desk D",
+            "score": 10
+          },
+          {
+            "id": "r5",
+            "label": "Desk E",
+            "score": 12
+          }
+        ]
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "timing-bands",
+      "profile": "exact-rows",
+      "limit": 2,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "distinct-levels",
+          "score": 0.499999323127108
+        },
+        {
+          "id": "exact-rows",
+          "score": 0.45757073871007137
+        },
+        {
+          "id": "competition-places",
+          "score": 0.36813932932384047
+        }
+      ]
+    },
+    {
+      "id": "timing-places",
+      "profile": "competition-places",
+      "limit": 2,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "competition-places",
+          "score": 0.5807479529869695
+        },
+        {
+          "id": "distinct-levels",
+          "score": 0.5030422629362118
+        },
+        {
+          "id": "exact-rows",
+          "score": 0.3985282346704596
+        }
+      ]
+    },
+    {
+      "id": "limited-rechecks",
+      "profile": "exact-rows",
+      "limit": 2,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "distinct-levels",
+          "score": 0.49800776033805383
+        },
+        {
+          "id": "competition-places",
+          "score": 0.4369608151616841
+        },
+        {
+          "id": "exact-rows",
+          "score": 0.4000879972785151
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "timing-bands",
+      "context": "Take the two best distinct timing values, keeping every tied row. Number different values consecutively without gaps.",
+      "rows": [
+        {
+          "id": "r1",
+          "label": "Desk A",
+          "score": 8
+        },
+        {
+          "id": "r2",
+          "label": "Desk B",
+          "score": 8
+        },
+        {
+          "id": "r3",
+          "label": "Desk C",
+          "score": 10
+        },
+        {
+          "id": "r4",
+          "label": "Desk D",
+          "score": 10
+        },
+        {
+          "id": "r5",
+          "label": "Desk E",
+          "score": 12
+        }
+      ],
+      "direction": "lower",
+      "decision": "approve",
+      "note": "",
+      "profile": "exact-rows",
+      "mode": "rows",
+      "limit": 2,
+      "ranked": [
+        {
+          "id": "r1",
+          "label": "Desk A",
+          "score": 8,
+          "sourceIndex": 0,
+          "position": 1,
+          "rank": 1,
+          "dense": 1,
+          "selected": true,
+          "baseline": true
+        },
+        {
+          "id": "r2",
+          "label": "Desk B",
+          "score": 8,
+          "sourceIndex": 1,
+          "position": 2,
+          "rank": 1,
+          "dense": 1,
+          "selected": true,
+          "baseline": true
+        },
+        {
+          "id": "r3",
+          "label": "Desk C",
+          "score": 10,
+          "sourceIndex": 2,
+          "position": 3,
+          "rank": 3,
+          "dense": 2,
+          "selected": false,
+          "baseline": false
+        },
+        {
+          "id": "r4",
+          "label": "Desk D",
+          "score": 10,
+          "sourceIndex": 3,
+          "position": 4,
+          "rank": 3,
+          "dense": 2,
+          "selected": false,
+          "baseline": false
+        },
+        {
+          "id": "r5",
+          "label": "Desk E",
+          "score": 12,
+          "sourceIndex": 4,
+          "position": 5,
+          "rank": 5,
+          "dense": 3,
+          "selected": false,
+          "baseline": false
+        }
+      ],
+      "selected": [
+        {
+          "id": "r1",
+          "label": "Desk A",
+          "score": 8,
+          "sourceIndex": 0,
+          "position": 1,
+          "rank": 1,
+          "dense": 1,
+          "selected": true,
+          "baseline": true
+        },
+        {
+          "id": "r2",
+          "label": "Desk B",
+          "score": 8,
+          "sourceIndex": 1,
+          "position": 2,
+          "rank": 1,
+          "dense": 1,
+          "selected": true,
+          "baseline": true
+        }
+      ],
+      "baseline": [
+        {
+          "id": "r1",
+          "label": "Desk A",
+          "score": 8,
+          "sourceIndex": 0,
+          "position": 1,
+          "rank": 1,
+          "dense": 1,
+          "selected": true,
+          "baseline": true
+        },
+        {
+          "id": "r2",
+          "label": "Desk B",
+          "score": 8,
+          "sourceIndex": 1,
+          "position": 2,
+          "rank": 1,
+          "dense": 1,
+          "selected": true,
+          "baseline": true
+        }
+      ],
+      "changed": [],
+      "baselineSplitsTie": false,
+      "selectedSplitsTie": false
+    },
+    {
+      "id": "timing-places",
+      "context": "Keep the first two competition places including equal scores. Joint first consumes two places, so the next candidate is third.",
+      "rows": [
+        {
+          "id": "r1",
+          "label": "Desk A",
+          "score": 8
+        },
+        {
+          "id": "r2",
+          "label": "Desk B",
+          "score": 8
+        },
+        {
+          "id": "r3",
+          "label": "Desk C",
+          "score": 10
+        },
+        {
+          "id": "r4",
+          "label": "Desk D",
+          "score": 10
+        },
+        {
+          "id": "r5",
+          "label": "Desk E",
+          "score": 12
+        }
+      ],
+      "direction": "lower",
+      "decision": "approve",
+      "note": "",
+      "profile": "competition-places",
+      "mode": "rank",
+      "limit": 2,
+      "ranked": [
+        {
+          "id": "r1",
+          "label": "Desk A",
+          "score": 8,
+          "sourceIndex": 0,
+          "position": 1,
+          "rank": 1,
+          "dense": 1,
+          "selected": true,
+          "baseline": true
+        },
+        {
+          "id": "r2",
+          "label": "Desk B",
+          "score": 8,
+          "sourceIndex": 1,
+          "position": 2,
+          "rank": 1,
+          "dense": 1,
+          "selected": true,
+          "baseline": true
+        },
+        {
+          "id": "r3",
+          "label": "Desk C",
+          "score": 10,
+          "sourceIndex": 2,
+          "position": 3,
+          "rank": 3,
+          "dense": 2,
+          "selected": false,
+          "baseline": false
+        },
+        {
+          "id": "r4",
+          "label": "Desk D",
+          "score": 10,
+          "sourceIndex": 3,
+          "position": 4,
+          "rank": 3,
+          "dense": 2,
+          "selected": false,
+          "baseline": false
+        },
+        {
+          "id": "r5",
+          "label": "Desk E",
+          "score": 12,
+          "sourceIndex": 4,
+          "position": 5,
+          "rank": 5,
+          "dense": 3,
+          "selected": false,
+          "baseline": false
+        }
+      ],
+      "selected": [
+        {
+          "id": "r1",
+          "label": "Desk A",
+          "score": 8,
+          "sourceIndex": 0,
+          "position": 1,
+          "rank": 1,
+          "dense": 1,
+          "selected": true,
+          "baseline": true
+        },
+        {
+          "id": "r2",
+          "label": "Desk B",
+          "score": 8,
+          "sourceIndex": 1,
+          "position": 2,
+          "rank": 1,
+          "dense": 1,
+          "selected": true,
+          "baseline": true
+        }
+      ],
+      "baseline": [
+        {
+          "id": "r1",
+          "label": "Desk A",
+          "score": 8,
+          "sourceIndex": 0,
+          "position": 1,
+          "rank": 1,
+          "dense": 1,
+          "selected": true,
+          "baseline": true
+        },
+        {
+          "id": "r2",
+          "label": "Desk B",
+          "score": 8,
+          "sourceIndex": 1,
+          "position": 2,
+          "rank": 1,
+          "dense": 1,
+          "selected": true,
+          "baseline": true
+        }
+      ],
+      "changed": [],
+      "baselineSplitsTie": false,
+      "selectedSplitsTie": false
+    },
+    {
+      "id": "limited-rechecks",
+      "context": "Only two recheck slots exist. Hard cap the result at exactly two rows; original order resolves equal scores.",
+      "rows": [
+        {
+          "id": "r1",
+          "label": "Desk A",
+          "score": 8
+        },
+        {
+          "id": "r2",
+          "label": "Desk B",
+          "score": 8
+        },
+        {
+          "id": "r3",
+          "label": "Desk C",
+          "score": 8
+        },
+        {
+          "id": "r4",
+          "label": "Desk D",
+          "score": 10
+        },
+        {
+          "id": "r5",
+          "label": "Desk E",
+          "score": 12
+        }
+      ],
+      "direction": "lower",
+      "decision": "approve",
+      "note": "",
+      "profile": "exact-rows",
+      "mode": "rows",
+      "limit": 2,
+      "ranked": [
+        {
+          "id": "r1",
+          "label": "Desk A",
+          "score": 8,
+          "sourceIndex": 0,
+          "position": 1,
+          "rank": 1,
+          "dense": 1,
+          "selected": true,
+          "baseline": true
+        },
+        {
+          "id": "r2",
+          "label": "Desk B",
+          "score": 8,
+          "sourceIndex": 1,
+          "position": 2,
+          "rank": 1,
+          "dense": 1,
+          "selected": true,
+          "baseline": true
+        },
+        {
+          "id": "r3",
+          "label": "Desk C",
+          "score": 8,
+          "sourceIndex": 2,
+          "position": 3,
+          "rank": 1,
+          "dense": 1,
+          "selected": false,
+          "baseline": false
+        },
+        {
+          "id": "r4",
+          "label": "Desk D",
+          "score": 10,
+          "sourceIndex": 3,
+          "position": 4,
+          "rank": 4,
+          "dense": 2,
+          "selected": false,
+          "baseline": false
+        },
+        {
+          "id": "r5",
+          "label": "Desk E",
+          "score": 12,
+          "sourceIndex": 4,
+          "position": 5,
+          "rank": 5,
+          "dense": 3,
+          "selected": false,
+          "baseline": false
+        }
+      ],
+      "selected": [
+        {
+          "id": "r1",
+          "label": "Desk A",
+          "score": 8,
+          "sourceIndex": 0,
+          "position": 1,
+          "rank": 1,
+          "dense": 1,
+          "selected": true,
+          "baseline": true
+        },
+        {
+          "id": "r2",
+          "label": "Desk B",
+          "score": 8,
+          "sourceIndex": 1,
+          "position": 2,
+          "rank": 1,
+          "dense": 1,
+          "selected": true,
+          "baseline": true
+        }
+      ],
+      "baseline": [
+        {
+          "id": "r1",
+          "label": "Desk A",
+          "score": 8,
+          "sourceIndex": 0,
+          "position": 1,
+          "rank": 1,
+          "dense": 1,
+          "selected": true,
+          "baseline": true
+        },
+        {
+          "id": "r2",
+          "label": "Desk B",
+          "score": 8,
+          "sourceIndex": 1,
+          "position": 2,
+          "rank": 1,
+          "dense": 1,
+          "selected": true,
+          "baseline": true
+        }
+      ],
+      "changed": [],
+      "baselineSplitsTie": true,
+      "selectedSplitsTie": true
+    }
+  ],
+  "metrics": {
+    "approved": 3,
+    "held": 0,
+    "records": 15,
+    "selected": 6,
+    "baseline": 6,
+    "changed": 0,
+    "baselineSplits": 1,
+    "reviewedSplits": 1
+  }
+}

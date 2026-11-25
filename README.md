@@ -2315,3 +2315,10 @@ Local MiniLM proposes whole-field, prefix and substring intent for recurring lit
 ## Multiplicity Desk — 20261125-16
 
 Local MiniLM handoff-intent inference assists duplicate-preserving reconciliation across two export lists. Review combine/shared/remainder operations; inspect occurrence witnesses against distinct-only losses; export source-complete JSON/CSV/Markdown and independent SQLite QA queries. Reuses immutable same-origin worker from `20261115-6` and WASM from `20261107-2`; preserve both apps. See [workflow and limits](20261125-16/README.md) and [observed validation](20261125-16/VALIDATION.md).
+
+
+## Podium Desk — 20261125-17
+
+Local MiniLM interprets informal tie-policy handoffs for scored shortlists. Review exact-row, competition-place and dense-level policies/cutoffs; inspect inclusion differences against exact-row truncation and export useful shortlist CSV plus complete JSON/CSV/Markdown. Real CPU inference matched **4/6** intended policies: both hard caps were mistaken for tie-preserving rules, so mandatory human review is essential. Independent SQLite checks cover 1,800 ranking scenarios, and downloaded artifacts preserve every original. Shared immutable worker/factory from `20261115-6` and WASM from `20261107-2` must stay published. Offline scope is fresh-worker inference in an already-open warmed page only. See [workflow/privacy](20261125-17/README.md) and [observed validation](20261125-17/VALIDATION.md). No invitations or digest sent.
+
+Public release verified: matching built Pages commit `a7fb9195dea1950bb9d11beafecd3917c0be48d5`, successful workflow `45574280679`, seven exact public asset matches, both real-AI fixtures, full reviewed/export/960-row/offline/privacy suite, **13,922** independent public ranking/artifact assertions and all **870** gallery cards. Combined site **812,136,675 bytes** stays below the unchanged guard; no sharing-rule changes. Physical phones, other engines, cold offline startup and ranking-policy intent beyond the small fixtures remain unverified. Unrelated untracked recovery work preserved/excluded. No digest sent.

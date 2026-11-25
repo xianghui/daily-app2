@@ -1,0 +1,356 @@
+{
+  "schema": "literal-loom/v1",
+  "original": {
+    "title": "Synthetic catalog search handoff",
+    "profiles": [
+      {
+        "id": "whole-field",
+        "description": "Exact whole-field match. The complete field must equal the search term, with no extra characters before or after it.",
+        "mode": "exact"
+      },
+      {
+        "id": "opening-text",
+        "description": "Prefix search: the field must start with the search term. Additional characters after the term are allowed, but none before it.",
+        "mode": "prefix"
+      },
+      {
+        "id": "anywhere-text",
+        "description": "Substring search: find the search term anywhere inside a field, allowing additional text both before and after it.",
+        "mode": "contains"
+      }
+    ],
+    "requests": [
+      {
+        "id": "discount",
+        "context": "Find the search term anywhere inside the description, even with other words before and after it.",
+        "term": "20%",
+        "records": [
+          {
+            "id": "r1",
+            "value": "Save 20% today"
+          },
+          {
+            "id": "r2",
+            "value": "Save 200 today"
+          },
+          {
+            "id": "r3",
+            "value": "20%"
+          },
+          {
+            "id": "r4",
+            "value": "20X"
+          }
+        ]
+      },
+      {
+        "id": "sku",
+        "context": "The complete SKU field must equal the search term exactly, with no additional characters before or after it.",
+        "term": "AB_1",
+        "records": [
+          {
+            "id": "r1",
+            "value": "AB_1"
+          },
+          {
+            "id": "r2",
+            "value": "ABX1"
+          },
+          {
+            "id": "r3",
+            "value": "AB_12"
+          },
+          {
+            "id": "r4",
+            "value": "ab_1"
+          }
+        ]
+      },
+      {
+        "id": "category",
+        "context": "Prefix search: category names beginning with the literal search term.",
+        "term": "A_",
+        "records": [
+          {
+            "id": "r1",
+            "value": "A_tools"
+          },
+          {
+            "id": "r2",
+            "value": "ABtools"
+          },
+          {
+            "id": "r3",
+            "value": "xA_tools"
+          },
+          {
+            "id": "r4",
+            "value": "a_parts"
+          }
+        ]
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "discount",
+      "profile": "anywhere-text",
+      "term": "20%",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "anywhere-text",
+          "score": 0.5834874369995203
+        },
+        {
+          "id": "opening-text",
+          "score": 0.5064346811314071
+        },
+        {
+          "id": "whole-field",
+          "score": 0.47422718602181274
+        }
+      ]
+    },
+    {
+      "id": "sku",
+      "profile": "whole-field",
+      "term": "AB_1",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "whole-field",
+          "score": 0.7633982781916657
+        },
+        {
+          "id": "opening-text",
+          "score": 0.7106557144774714
+        },
+        {
+          "id": "anywhere-text",
+          "score": 0.5384470219593435
+        }
+      ]
+    },
+    {
+      "id": "category",
+      "profile": "opening-text",
+      "term": "A_",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "opening-text",
+          "score": 0.6117323769564954
+        },
+        {
+          "id": "anywhere-text",
+          "score": 0.40963255611161675
+        },
+        {
+          "id": "whole-field",
+          "score": 0.37996762268024364
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "discount",
+      "context": "Find the search term anywhere inside the description, even with other words before and after it.",
+      "decision": "approve",
+      "term": "20%",
+      "note": "",
+      "profile": "anywhere-text",
+      "mode": "contains",
+      "source": [
+        {
+          "id": "r1",
+          "value": "Save 20% today"
+        },
+        {
+          "id": "r2",
+          "value": "Save 200 today"
+        },
+        {
+          "id": "r3",
+          "value": "20%"
+        },
+        {
+          "id": "r4",
+          "value": "20X"
+        }
+      ],
+      "pattern": "%20\\%%",
+      "baselinePattern": "%20%%",
+      "result": [
+        {
+          "id": "r1",
+          "value": "Save 20% today",
+          "match": true,
+          "baseline": true
+        },
+        {
+          "id": "r2",
+          "value": "Save 200 today",
+          "match": false,
+          "baseline": true
+        },
+        {
+          "id": "r3",
+          "value": "20%",
+          "match": true,
+          "baseline": true
+        },
+        {
+          "id": "r4",
+          "value": "20X",
+          "match": false,
+          "baseline": true
+        }
+      ],
+      "differences": [
+        "r2",
+        "r4"
+      ],
+      "query": "SELECT id, value FROM records WHERE value LIKE :pattern ESCAPE '\\' ORDER BY id",
+      "bindings": {
+        "pattern": "%20\\%%"
+      }
+    },
+    {
+      "id": "sku",
+      "context": "The complete SKU field must equal the search term exactly, with no additional characters before or after it.",
+      "decision": "approve",
+      "term": "AB_1",
+      "note": "",
+      "profile": "whole-field",
+      "mode": "exact",
+      "source": [
+        {
+          "id": "r1",
+          "value": "AB_1"
+        },
+        {
+          "id": "r2",
+          "value": "ABX1"
+        },
+        {
+          "id": "r3",
+          "value": "AB_12"
+        },
+        {
+          "id": "r4",
+          "value": "ab_1"
+        }
+      ],
+      "pattern": "AB\\_1",
+      "baselinePattern": "AB_1",
+      "result": [
+        {
+          "id": "r1",
+          "value": "AB_1",
+          "match": true,
+          "baseline": true
+        },
+        {
+          "id": "r2",
+          "value": "ABX1",
+          "match": false,
+          "baseline": true
+        },
+        {
+          "id": "r3",
+          "value": "AB_12",
+          "match": false,
+          "baseline": false
+        },
+        {
+          "id": "r4",
+          "value": "ab_1",
+          "match": true,
+          "baseline": true
+        }
+      ],
+      "differences": [
+        "r2"
+      ],
+      "query": "SELECT id, value FROM records WHERE value LIKE :pattern ESCAPE '\\' ORDER BY id",
+      "bindings": {
+        "pattern": "AB\\_1"
+      }
+    },
+    {
+      "id": "category",
+      "context": "Prefix search: category names beginning with the literal search term.",
+      "decision": "approve",
+      "term": "A_",
+      "note": "",
+      "profile": "opening-text",
+      "mode": "prefix",
+      "source": [
+        {
+          "id": "r1",
+          "value": "A_tools"
+        },
+        {
+          "id": "r2",
+          "value": "ABtools"
+        },
+        {
+          "id": "r3",
+          "value": "xA_tools"
+        },
+        {
+          "id": "r4",
+          "value": "a_parts"
+        }
+      ],
+      "pattern": "A\\_%",
+      "baselinePattern": "A_%",
+      "result": [
+        {
+          "id": "r1",
+          "value": "A_tools",
+          "match": true,
+          "baseline": true
+        },
+        {
+          "id": "r2",
+          "value": "ABtools",
+          "match": false,
+          "baseline": true
+        },
+        {
+          "id": "r3",
+          "value": "xA_tools",
+          "match": false,
+          "baseline": false
+        },
+        {
+          "id": "r4",
+          "value": "a_parts",
+          "match": true,
+          "baseline": true
+        }
+      ],
+      "differences": [
+        "r2"
+      ],
+      "query": "SELECT id, value FROM records WHERE value LIKE :pattern ESCAPE '\\' ORDER BY id",
+      "bindings": {
+        "pattern": "A\\_%"
+      }
+    }
+  ],
+  "metrics": {
+    "requests": 3,
+    "approved": 3,
+    "held": 0,
+    "records": 12,
+    "differentMatches": 4,
+    "matches": 6
+  }
+}

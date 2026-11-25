@@ -1,0 +1,354 @@
+{
+  "schema": "literal-loom/v1",
+  "original": {
+    "title": "Synthetic archive search handoff",
+    "profiles": [
+      {
+        "id": "whole-field",
+        "description": "Exact whole-field match. The complete field must equal the search term, with no extra characters before or after it.",
+        "mode": "exact"
+      },
+      {
+        "id": "opening-text",
+        "description": "Prefix search: the field must start with the search term. Additional characters after the term are allowed, but none before it.",
+        "mode": "prefix"
+      },
+      {
+        "id": "anywhere-text",
+        "description": "Substring search: find the search term anywhere inside a field, allowing additional text both before and after it.",
+        "mode": "contains"
+      }
+    ],
+    "requests": [
+      {
+        "id": "path",
+        "context": "The field must begin with the search term as its opening prefix, with any extra text only after it.",
+        "term": "C:\\",
+        "records": [
+          {
+            "id": "r1",
+            "value": "C:\\docs"
+          },
+          {
+            "id": "r2",
+            "value": "C:docs"
+          },
+          {
+            "id": "r3",
+            "value": "xC:\\docs"
+          },
+          {
+            "id": "r4",
+            "value": "c:\\"
+          }
+        ]
+      },
+      {
+        "id": "tag",
+        "context": "Look for the search term as a substring anywhere within the title, including when surrounded by other words.",
+        "term": "_draft",
+        "records": [
+          {
+            "id": "r1",
+            "value": "file_draft_final"
+          },
+          {
+            "id": "r2",
+            "value": "fileXdraft_final"
+          },
+          {
+            "id": "r3",
+            "value": "_draft"
+          },
+          {
+            "id": "r4",
+            "value": "draft"
+          }
+        ]
+      },
+      {
+        "id": "code",
+        "context": "Whole-field equality: accept only fields exactly equal to the full search term, without a prefix or suffix.",
+        "term": "O'Brien%",
+        "records": [
+          {
+            "id": "r1",
+            "value": "O'Brien%"
+          },
+          {
+            "id": "r2",
+            "value": "O'BrienX"
+          },
+          {
+            "id": "r3",
+            "value": "O'Brien%copy"
+          },
+          {
+            "id": "r4",
+            "value": "o'brien%"
+          }
+        ]
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "path",
+      "profile": "opening-text",
+      "term": "=new_%\n\"🍞",
+      "decision": "approve",
+      "note": "=SUM(1,2)\nReviewed \"term\", <script> & 🍞",
+      "candidates": [
+        {
+          "id": "opening-text",
+          "score": 0.9041047064201112
+        },
+        {
+          "id": "whole-field",
+          "score": 0.7024795525684309
+        },
+        {
+          "id": "anywhere-text",
+          "score": 0.5919430125587593
+        }
+      ]
+    },
+    {
+      "id": "tag",
+      "profile": "anywhere-text",
+      "term": "_draft",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "anywhere-text",
+          "score": 0.711663691518855
+        },
+        {
+          "id": "opening-text",
+          "score": 0.6236610321379923
+        },
+        {
+          "id": "whole-field",
+          "score": 0.5424413303910611
+        }
+      ]
+    },
+    {
+      "id": "code",
+      "profile": "whole-field",
+      "term": "O'Brien%",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "whole-field",
+          "score": 0.7708484014434507
+        },
+        {
+          "id": "opening-text",
+          "score": 0.6235560785107691
+        },
+        {
+          "id": "anywhere-text",
+          "score": 0.5583588001139501
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "path",
+      "context": "The field must begin with the search term as its opening prefix, with any extra text only after it.",
+      "decision": "approve",
+      "term": "=new_%\n\"🍞",
+      "note": "=SUM(1,2)\nReviewed \"term\", <script> & 🍞",
+      "profile": "opening-text",
+      "mode": "prefix",
+      "source": [
+        {
+          "id": "r1",
+          "value": "C:\\docs"
+        },
+        {
+          "id": "r2",
+          "value": "C:docs"
+        },
+        {
+          "id": "r3",
+          "value": "xC:\\docs"
+        },
+        {
+          "id": "r4",
+          "value": "c:\\"
+        }
+      ],
+      "pattern": "=new\\_\\%\n\"🍞%",
+      "baselinePattern": "=new_%\n\"🍞%",
+      "result": [
+        {
+          "id": "r1",
+          "value": "C:\\docs",
+          "match": false,
+          "baseline": false
+        },
+        {
+          "id": "r2",
+          "value": "C:docs",
+          "match": false,
+          "baseline": false
+        },
+        {
+          "id": "r3",
+          "value": "xC:\\docs",
+          "match": false,
+          "baseline": false
+        },
+        {
+          "id": "r4",
+          "value": "c:\\",
+          "match": false,
+          "baseline": false
+        }
+      ],
+      "differences": [],
+      "query": "SELECT id, value FROM records WHERE value LIKE :pattern ESCAPE '\\' ORDER BY id",
+      "bindings": {
+        "pattern": "=new\\_\\%\n\"🍞%"
+      }
+    },
+    {
+      "id": "tag",
+      "context": "Look for the search term as a substring anywhere within the title, including when surrounded by other words.",
+      "decision": "approve",
+      "term": "_draft",
+      "note": "",
+      "profile": "anywhere-text",
+      "mode": "contains",
+      "source": [
+        {
+          "id": "r1",
+          "value": "file_draft_final"
+        },
+        {
+          "id": "r2",
+          "value": "fileXdraft_final"
+        },
+        {
+          "id": "r3",
+          "value": "_draft"
+        },
+        {
+          "id": "r4",
+          "value": "draft"
+        }
+      ],
+      "pattern": "%\\_draft%",
+      "baselinePattern": "%_draft%",
+      "result": [
+        {
+          "id": "r1",
+          "value": "file_draft_final",
+          "match": true,
+          "baseline": true
+        },
+        {
+          "id": "r2",
+          "value": "fileXdraft_final",
+          "match": false,
+          "baseline": true
+        },
+        {
+          "id": "r3",
+          "value": "_draft",
+          "match": true,
+          "baseline": true
+        },
+        {
+          "id": "r4",
+          "value": "draft",
+          "match": false,
+          "baseline": false
+        }
+      ],
+      "differences": [
+        "r2"
+      ],
+      "query": "SELECT id, value FROM records WHERE value LIKE :pattern ESCAPE '\\' ORDER BY id",
+      "bindings": {
+        "pattern": "%\\_draft%"
+      }
+    },
+    {
+      "id": "code",
+      "context": "Whole-field equality: accept only fields exactly equal to the full search term, without a prefix or suffix.",
+      "decision": "approve",
+      "term": "O'Brien%",
+      "note": "",
+      "profile": "whole-field",
+      "mode": "exact",
+      "source": [
+        {
+          "id": "r1",
+          "value": "O'Brien%"
+        },
+        {
+          "id": "r2",
+          "value": "O'BrienX"
+        },
+        {
+          "id": "r3",
+          "value": "O'Brien%copy"
+        },
+        {
+          "id": "r4",
+          "value": "o'brien%"
+        }
+      ],
+      "pattern": "O'Brien\\%",
+      "baselinePattern": "O'Brien%",
+      "result": [
+        {
+          "id": "r1",
+          "value": "O'Brien%",
+          "match": true,
+          "baseline": true
+        },
+        {
+          "id": "r2",
+          "value": "O'BrienX",
+          "match": false,
+          "baseline": true
+        },
+        {
+          "id": "r3",
+          "value": "O'Brien%copy",
+          "match": false,
+          "baseline": true
+        },
+        {
+          "id": "r4",
+          "value": "o'brien%",
+          "match": true,
+          "baseline": true
+        }
+      ],
+      "differences": [
+        "r2",
+        "r3"
+      ],
+      "query": "SELECT id, value FROM records WHERE value LIKE :pattern ESCAPE '\\' ORDER BY id",
+      "bindings": {
+        "pattern": "O'Brien\\%"
+      }
+    }
+  ],
+  "metrics": {
+    "requests": 3,
+    "approved": 3,
+    "held": 0,
+    "records": 12,
+    "differentMatches": 3,
+    "matches": 4
+  }
+}

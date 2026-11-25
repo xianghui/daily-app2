@@ -1,0 +1,109 @@
+{
+  "version": 1,
+  "app": "Patch Ledger",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "delivery",
+        "description": "Change the shipping delivery address for an order, where the parcel should be delivered.",
+        "pointer": "/shipping/address"
+      },
+      {
+        "id": "contact",
+        "description": "Update the customer contact email address used for receipts and account notifications.",
+        "pointer": "/customer/email"
+      },
+      {
+        "id": "label",
+        "description": "Rename the printed product display label used on the package and storefront.",
+        "pointer": "/display~1label/~0text"
+      }
+    ],
+    "records": [
+      {
+        "id": "same",
+        "context": "Update the customer contact email address used for receipts and account notifications.",
+        "raw": "{\"snapshot\":{\"shipping\":{\"address\":\"18 Maple Lane\"},\"customer\":{\"email\":\"buyer@example.test\"},\"display/label\":{\"~text\":\"Blue mug\"}},\"current\":{\"shipping\":{\"address\":\"18 Maple Lane\"},\"customer\":{\"email\":\"buyer@example.test\"},\"display/label\":{\"~text\":\"Blue mug\"}},\"value\":\"27 Cedar Road\"}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "same",
+      "system": "contact",
+      "raw": "{\"snapshot\":{\"shipping\":{\"address\":\"18 Maple Lane\"},\"customer\":{\"email\":\"buyer@example.test\"},\"display/label\":{\"~text\":\"Blue mug\"}},\"current\":{\"shipping\":{\"address\":\"18 Maple Lane\"},\"customer\":{\"email\":\"buyer@example.test\"},\"display/label\":{\"~text\":\"Blue mug\"}},\"value\":\"27 Cedar Road\"}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "contact",
+          "similarity": 0.9999999905190784
+        },
+        {
+          "system": "delivery",
+          "similarity": 0.35226338400634805
+        },
+        {
+          "system": "label",
+          "similarity": 0.29874950626716146
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "same",
+      "system": "contact",
+      "raw": "{\"snapshot\":{\"shipping\":{\"address\":\"18 Maple Lane\"},\"customer\":{\"email\":\"buyer@example.test\"},\"display/label\":{\"~text\":\"Blue mug\"}},\"current\":{\"shipping\":{\"address\":\"18 Maple Lane\"},\"customer\":{\"email\":\"buyer@example.test\"},\"display/label\":{\"~text\":\"Blue mug\"}},\"value\":\"27 Cedar Road\"}",
+      "pointer": "/customer/email",
+      "before": "buyer@example.test",
+      "actual": "buyer@example.test",
+      "patch": [
+        {
+          "op": "test",
+          "path": "/customer/email",
+          "value": "buyer@example.test"
+        },
+        {
+          "op": "replace",
+          "path": "/customer/email",
+          "value": "27 Cedar Road"
+        }
+      ],
+      "guardPassed": true,
+      "projectedDocument": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "27 Cedar Road"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      },
+      "baselineDocument": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "27 Cedar Road"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      },
+      "disagreement": false,
+      "reason": "Target still equals the supplied snapshot. Test passes; replacement can apply locally.",
+      "status": "ready"
+    }
+  ],
+  "metrics": {
+    "records": 1,
+    "ready": 1,
+    "held": 0,
+    "blocked": 0,
+    "conflicts": 0,
+    "disagreements": 0
+  }
+}

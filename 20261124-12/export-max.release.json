@@ -1,0 +1,918 @@
+{
+  "format": "patch-ledger-fixtures-v1",
+  "notice": "Independent local test fixtures, not a combined transaction. No endpoint contacted. Expected failure leaves current unchanged.",
+  "cases": [
+    {
+      "id": "=row \"0\"\nnext",
+      "current": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/shipping/address",
+          "value": "18 Maple Lane"
+        },
+        {
+          "op": "replace",
+          "path": "/shipping/address",
+          "value": "27 Cedar Road"
+        }
+      ],
+      "expectedSuccess": true,
+      "expectedDocument": {
+        "shipping": {
+          "address": "27 Cedar Road"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      }
+    },
+    {
+      "id": "=row \"1\"\nnext",
+      "current": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/customer/email",
+          "value": "buyer@example.test"
+        },
+        {
+          "op": "replace",
+          "path": "/customer/email",
+          "value": "new@example.test"
+        }
+      ],
+      "expectedSuccess": true,
+      "expectedDocument": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "new@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      }
+    },
+    {
+      "id": "=row \"2\"\nnext",
+      "current": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/display~1label/~0text",
+          "value": "Blue mug"
+        },
+        {
+          "op": "replace",
+          "path": "/display~1label/~0text",
+          "value": "Ocean cup"
+        }
+      ],
+      "expectedSuccess": true,
+      "expectedDocument": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Ocean cup"
+        }
+      }
+    },
+    {
+      "id": "=row \"3\"\nnext",
+      "current": {
+        "shipping": {
+          "address": "Already changed"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/shipping/address",
+          "value": "18 Maple Lane"
+        },
+        {
+          "op": "replace",
+          "path": "/shipping/address",
+          "value": "41 Oak Street"
+        }
+      ],
+      "expectedSuccess": false,
+      "expectedDocument": {
+        "shipping": {
+          "address": "Already changed"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      }
+    },
+    {
+      "id": "=row \"4\"\nnext",
+      "current": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/shipping/address",
+          "value": "18 Maple Lane"
+        },
+        {
+          "op": "replace",
+          "path": "/shipping/address",
+          "value": "27 Cedar Road"
+        }
+      ],
+      "expectedSuccess": true,
+      "expectedDocument": {
+        "shipping": {
+          "address": "27 Cedar Road"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      }
+    },
+    {
+      "id": "=row \"5\"\nnext",
+      "current": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/customer/email",
+          "value": "buyer@example.test"
+        },
+        {
+          "op": "replace",
+          "path": "/customer/email",
+          "value": "new@example.test"
+        }
+      ],
+      "expectedSuccess": true,
+      "expectedDocument": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "new@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      }
+    },
+    {
+      "id": "=row \"6\"\nnext",
+      "current": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/display~1label/~0text",
+          "value": "Blue mug"
+        },
+        {
+          "op": "replace",
+          "path": "/display~1label/~0text",
+          "value": "Ocean cup"
+        }
+      ],
+      "expectedSuccess": true,
+      "expectedDocument": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Ocean cup"
+        }
+      }
+    },
+    {
+      "id": "=row \"7\"\nnext",
+      "current": {
+        "shipping": {
+          "address": "Already changed"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/shipping/address",
+          "value": "18 Maple Lane"
+        },
+        {
+          "op": "replace",
+          "path": "/shipping/address",
+          "value": "41 Oak Street"
+        }
+      ],
+      "expectedSuccess": false,
+      "expectedDocument": {
+        "shipping": {
+          "address": "Already changed"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      }
+    },
+    {
+      "id": "=row \"8\"\nnext",
+      "current": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/shipping/address",
+          "value": "18 Maple Lane"
+        },
+        {
+          "op": "replace",
+          "path": "/shipping/address",
+          "value": "27 Cedar Road"
+        }
+      ],
+      "expectedSuccess": true,
+      "expectedDocument": {
+        "shipping": {
+          "address": "27 Cedar Road"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      }
+    },
+    {
+      "id": "=row \"9\"\nnext",
+      "current": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/customer/email",
+          "value": "buyer@example.test"
+        },
+        {
+          "op": "replace",
+          "path": "/customer/email",
+          "value": "new@example.test"
+        }
+      ],
+      "expectedSuccess": true,
+      "expectedDocument": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "new@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      }
+    },
+    {
+      "id": "=row \"10\"\nnext",
+      "current": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/display~1label/~0text",
+          "value": "Blue mug"
+        },
+        {
+          "op": "replace",
+          "path": "/display~1label/~0text",
+          "value": "Ocean cup"
+        }
+      ],
+      "expectedSuccess": true,
+      "expectedDocument": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Ocean cup"
+        }
+      }
+    },
+    {
+      "id": "=row \"11\"\nnext",
+      "current": {
+        "shipping": {
+          "address": "Already changed"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/shipping/address",
+          "value": "18 Maple Lane"
+        },
+        {
+          "op": "replace",
+          "path": "/shipping/address",
+          "value": "41 Oak Street"
+        }
+      ],
+      "expectedSuccess": false,
+      "expectedDocument": {
+        "shipping": {
+          "address": "Already changed"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      }
+    },
+    {
+      "id": "=row \"12\"\nnext",
+      "current": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/shipping/address",
+          "value": "18 Maple Lane"
+        },
+        {
+          "op": "replace",
+          "path": "/shipping/address",
+          "value": "27 Cedar Road"
+        }
+      ],
+      "expectedSuccess": true,
+      "expectedDocument": {
+        "shipping": {
+          "address": "27 Cedar Road"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      }
+    },
+    {
+      "id": "=row \"13\"\nnext",
+      "current": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/customer/email",
+          "value": "buyer@example.test"
+        },
+        {
+          "op": "replace",
+          "path": "/customer/email",
+          "value": "new@example.test"
+        }
+      ],
+      "expectedSuccess": true,
+      "expectedDocument": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "new@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      }
+    },
+    {
+      "id": "=row \"14\"\nnext",
+      "current": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/display~1label/~0text",
+          "value": "Blue mug"
+        },
+        {
+          "op": "replace",
+          "path": "/display~1label/~0text",
+          "value": "Ocean cup"
+        }
+      ],
+      "expectedSuccess": true,
+      "expectedDocument": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Ocean cup"
+        }
+      }
+    },
+    {
+      "id": "=row \"15\"\nnext",
+      "current": {
+        "shipping": {
+          "address": "Already changed"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/shipping/address",
+          "value": "18 Maple Lane"
+        },
+        {
+          "op": "replace",
+          "path": "/shipping/address",
+          "value": "41 Oak Street"
+        }
+      ],
+      "expectedSuccess": false,
+      "expectedDocument": {
+        "shipping": {
+          "address": "Already changed"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      }
+    },
+    {
+      "id": "=row \"16\"\nnext",
+      "current": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/shipping/address",
+          "value": "18 Maple Lane"
+        },
+        {
+          "op": "replace",
+          "path": "/shipping/address",
+          "value": "27 Cedar Road"
+        }
+      ],
+      "expectedSuccess": true,
+      "expectedDocument": {
+        "shipping": {
+          "address": "27 Cedar Road"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      }
+    },
+    {
+      "id": "=row \"17\"\nnext",
+      "current": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/customer/email",
+          "value": "buyer@example.test"
+        },
+        {
+          "op": "replace",
+          "path": "/customer/email",
+          "value": "new@example.test"
+        }
+      ],
+      "expectedSuccess": true,
+      "expectedDocument": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "new@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      }
+    },
+    {
+      "id": "=row \"18\"\nnext",
+      "current": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/display~1label/~0text",
+          "value": "Blue mug"
+        },
+        {
+          "op": "replace",
+          "path": "/display~1label/~0text",
+          "value": "Ocean cup"
+        }
+      ],
+      "expectedSuccess": true,
+      "expectedDocument": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Ocean cup"
+        }
+      }
+    },
+    {
+      "id": "=row \"19\"\nnext",
+      "current": {
+        "shipping": {
+          "address": "Already changed"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/shipping/address",
+          "value": "18 Maple Lane"
+        },
+        {
+          "op": "replace",
+          "path": "/shipping/address",
+          "value": "41 Oak Street"
+        }
+      ],
+      "expectedSuccess": false,
+      "expectedDocument": {
+        "shipping": {
+          "address": "Already changed"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      }
+    },
+    {
+      "id": "=row \"20\"\nnext",
+      "current": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/shipping/address",
+          "value": "18 Maple Lane"
+        },
+        {
+          "op": "replace",
+          "path": "/shipping/address",
+          "value": "27 Cedar Road"
+        }
+      ],
+      "expectedSuccess": true,
+      "expectedDocument": {
+        "shipping": {
+          "address": "27 Cedar Road"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      }
+    },
+    {
+      "id": "=row \"21\"\nnext",
+      "current": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/customer/email",
+          "value": "buyer@example.test"
+        },
+        {
+          "op": "replace",
+          "path": "/customer/email",
+          "value": "new@example.test"
+        }
+      ],
+      "expectedSuccess": true,
+      "expectedDocument": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "new@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      }
+    },
+    {
+      "id": "=row \"22\"\nnext",
+      "current": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/display~1label/~0text",
+          "value": "Blue mug"
+        },
+        {
+          "op": "replace",
+          "path": "/display~1label/~0text",
+          "value": "Ocean cup"
+        }
+      ],
+      "expectedSuccess": true,
+      "expectedDocument": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Ocean cup"
+        }
+      }
+    },
+    {
+      "id": "=row \"23\"\nnext",
+      "current": {
+        "shipping": {
+          "address": "Already changed"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/shipping/address",
+          "value": "18 Maple Lane"
+        },
+        {
+          "op": "replace",
+          "path": "/shipping/address",
+          "value": "41 Oak Street"
+        }
+      ],
+      "expectedSuccess": false,
+      "expectedDocument": {
+        "shipping": {
+          "address": "Already changed"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      }
+    }
+  ]
+}

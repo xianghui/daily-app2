@@ -1,0 +1,158 @@
+{
+  "format": "patch-ledger-fixtures-v1",
+  "notice": "Independent local test fixtures, not a combined transaction. No endpoint contacted. Expected failure leaves current unchanged.",
+  "cases": [
+    {
+      "id": "Redirect parcel",
+      "current": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/shipping/address",
+          "value": "18 Maple Lane"
+        },
+        {
+          "op": "replace",
+          "path": "/shipping/address",
+          "value": "27 Cedar Road"
+        }
+      ],
+      "expectedSuccess": true,
+      "expectedDocument": {
+        "shipping": {
+          "address": "27 Cedar Road"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      }
+    },
+    {
+      "id": "Receipt contact",
+      "current": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/customer/email",
+          "value": "buyer@example.test"
+        },
+        {
+          "op": "replace",
+          "path": "/customer/email",
+          "value": "new@example.test"
+        }
+      ],
+      "expectedSuccess": true,
+      "expectedDocument": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "new@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      }
+    },
+    {
+      "id": "Package title",
+      "current": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/display~1label/~0text",
+          "value": "Blue mug"
+        },
+        {
+          "op": "replace",
+          "path": "/display~1label/~0text",
+          "value": "Ocean cup"
+        }
+      ],
+      "expectedSuccess": true,
+      "expectedDocument": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Ocean cup"
+        }
+      }
+    },
+    {
+      "id": "Concurrent move",
+      "current": {
+        "shipping": {
+          "address": "Already changed"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/shipping/address",
+          "value": "18 Maple Lane"
+        },
+        {
+          "op": "replace",
+          "path": "/shipping/address",
+          "value": "41 Oak Street"
+        }
+      ],
+      "expectedSuccess": false,
+      "expectedDocument": {
+        "shipping": {
+          "address": "Already changed"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      }
+    }
+  ]
+}

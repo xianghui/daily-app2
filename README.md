@@ -211,6 +211,11 @@ Local MiniLM reconciles reworded ranked choices with canonical poll options; man
 Local real MiniLM event retrieval helps incident coordinators reconcile time-bounded recollections. Mandatory review/holds feed interval intersections, explicit contradictions and strict non-overlap before-links, with complete JSON/CSV/Markdown source audits. Both tiny fixtures matched all eight intended identities and exposed the seeded five-minute conflict; negation still mislinked, so semantic similarity is not identity or truth verification. Offline fresh-worker inference tested only inside an already-open page. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow/privacy](20261109-16/README.md) and [observed validation](20261109-16/VALIDATION.md).
 
 
+## Receipt Current — 20261109-17
+
+Real local MiniLM account retrieval assists a human-reviewed cash-application plan, followed by oldest-due invoice splitting, exact-cent conservation and unapplied-credit/held-cash reporting. Eight simple fixture links matched; a negated memo still mislinked, so this is not payer authentication or transaction posting. Complete JSON/CSV/Markdown preserves all receipts/invoices. Fresh-worker offline inference tested only within an already-open page. Reuses immutable shared WASM from `20261107-2`; preserve it. See [workflow/privacy](20261109-17/README.md) and [observed validation](20261109-17/VALIDATION.md).
+
+
 ## Transfer Twin — 20261109-18
 
 Real local MiniLM memo inference plus exact one-to-one internal-transfer pairing under opposite-cent/account/date constraints. Mandatory review, preserved unmatched rows and complete JSON/CSV/Markdown audits. Two tiny synthetic fixtures matched all six intended debit outcomes (four transfer pairs and two unpaired); a negated memo still mislinked, so this is never identity verification or transaction posting. Fresh-worker offline inference tested only inside an already-open page. Reuses immutable WASM from `20261107-2`; preserve that asset. See [workflow/privacy](20261109-18/README.md) and [observed validation](20261109-18/VALIDATION.md).
@@ -259,7 +264,6 @@ Real local MiniLM reconciles free-text maintenance cadence notes to reviewed rec
 ## Unpublished draft — 20261110-3: Quote Canopy
 
 Real local MiniLM inference matched 12/12 tiny synthetic quote links; fee-inclusive order comparison matched 600 independent assignment-oracle cases. Review/holds, exact units/quantities, all maximum dimensions, exports, offline fresh-worker inference and defensive production-browser checks passed locally. Three Pages workflows failed (one before jobs, one after a successful combined build, and the documented legacy rebuild). GitHub reported an Actions partial outage; the new public app remained unavailable, so public AI/runtime verification could not pass. This tested draft is excluded from APPS and combined deployment; do not count it as completed. Preserve all older entries and resolve hosting before promotion. See [draft workflow](20261110-3/README.md), [publication status](20261110-3/publication-status.json), [attempts](20261110-3/hosting-attempts.json) and [validation](20261110-3/VALIDATION.md).
-
 
 
 ## Referee Weave — 20261110-4
@@ -466,7 +470,6 @@ Cost Tapestry public release, byte-matched runtime assets, both real-AI fixtures
 
 Real local MiniLM grade retrieval supports mandatory human review of recycled-fiber stock. Exact bounded whole-kg optimization meets mass/recycled-content constraints at minimum supplied cost, compared with a cheapest-first baseline. Six simple fixture links matched; optimizer matched 250 independent exhaustive cases. Complete JSON/CSV/Markdown preserves originals and held lots. Offline fresh-worker inference tested only in an already-open page. Material compatibility, recycled properties and certification are not inferred. Reuses immutable WASM from `20261107-2`; preserve that asset. See [workflow/privacy](20261111-16/README.md) and [observed validation](20261111-16/VALIDATION.md).
 
-
 ## Carton Compass — 20261111-17
 
 Real local MiniLM reconciles packing-slip item descriptions with supplied product catalogs. Mandatory quantity/dimension/weight review feeds homogeneous-grid carton fit and dimensional-weight charge comparison; complete JSON/CSV/Markdown preserves held/no-fit orders. Both tiny fixtures matched 6/6 links; negation mislinked and requires review. 1800 independent grid/BigInt billing cases, maximum batches, downloaded artifacts, offline fresh-worker inference and defensive browser checks passed. Not unrestricted 3D packing, live postage or packaging certification. Offline scope is an already-open warmed page only. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261111-17/README.md) and [observed checks](20261111-17/VALIDATION.md).
@@ -502,8 +505,8 @@ Concordance Bench public release, byte-matched runtime assets, both real-AI fixt
 
 Real local MiniLM reconciles rough equipment stoppage notes before mandatory identity/time review and deterministic overlap-safe downtime unions. Both tiny fixtures matched 12/12 intended links; naive sums double-counted 20 and 30 asset-minutes respectively. Negation/unrelated text mislinked, so holds and complete-log verification are essential. 2,400 independent minute-grid cases, complete JSON/CSV/Markdown artifacts and fresh-worker offline inference passed. Offline scope is an already-open warmed page only; logged availability is not proof of operation or a reliability forecast. Reuses immutable WASM from `20261107-2`; preserve it. See [workflow/privacy](20261111-22/README.md) and [observed validation](20261111-22/VALIDATION.md).
 
-Uptime Mosaic public release, byte-matched runtime assets, both real-AI fixtures, the full public workflow suite and preserved 599-entry gallery passed on the first Pages deployment.
 
+Uptime Mosaic public release, byte-matched runtime assets, both real-AI fixtures, the full public workflow suite and preserved 599-entry gallery passed on the first Pages deployment.
 
 ## Mix Observatory — 20261111-23
 
@@ -1045,8 +1048,8 @@ Real local MiniLM reconciles both proxy endpoints to a supplied membership regis
 
 Combined-site size guard: deploy-only byte-identical geometry WASM reuse now also covers `20261030-17`, preserving its source build and existing JS URLs with query-versioned worker/shell references. Preserve shared host `20261028-24`; real worker/image-import/STL-export checks are required before release.
 
-Quorum Canopy public release: first matching Pages build `8fe00083cf0f33996299e1b4ad4909640b9c34b4` reached built. Byte-matched public app/worker/factory/WASM, both real-AI fixtures, full reviewed workflow/artifact/offline checks, privacy traffic audit, all 686 preserved gallery cards and the newly deduplicated older geometry app passed. Source commit excludes unrelated pre-existing edits.
 
+Quorum Canopy public release: first matching Pages build `8fe00083cf0f33996299e1b4ad4909640b9c34b4` reached built. Byte-matched public app/worker/factory/WASM, both real-AI fixtures, full reviewed workflow/artifact/offline checks, privacy traffic audit, all 686 preserved gallery cards and the newly deduplicated older geometry app passed. Source commit excludes unrelated pre-existing edits.
 
 ## Cost Current — 20261115-14
 
@@ -1175,7 +1178,6 @@ Uncertainty Weave public release: matching Pages `eaf88bcbd28f919d6ad82fc7c97be7
 Local MiniLM reconciles informal telemetry tallies with an approved event dictionary. Review positive counts, build Huffman prefix codes, compare fixed-width payload bits and round-trip a canonical-ID sample. Two tiny fixtures matched 7/7 identities; 140 independent exhaustive-merge oracle cases checked optimum code length. No file-compression or future-traffic claim. Reuses immutable runtime assets from `20261115-6` and `20261107-2`; preserve their builds. See [workflow](20261116-6/README.md) and [observed validation](20261116-6/VALIDATION.md).
 
 Prefix Press public release: matching Pages `f40fd5c80e93080c6804cb674b19a6e7e7ce638d` reached built. Public app/runtime byte audits, both real-AI fixtures, offline fresh-worker inference, reviewed artifacts and all 703 gallery cards passed. Source commit excludes unrelated pre-existing changes.
-
 
 ## Reach Quilt — 20261116-7
 
@@ -1767,7 +1769,6 @@ Local MiniLM reconciles informal compound names to a fixed neutral-formula catal
 
 Public release: matching Pages `45da5001c9dde1cc0c109252939613c5c198edb2` and workflow `44945054607` succeeded. Seven public asset byte matches, both real-AI fixtures, complete reviewed/export/max-batch/offline/privacy suite, all 786 gallery cards and the affected older geometry app's real import/export regression passed. Combined size 999,593,305 bytes remains below the unchanged guard. Source staging preserves and excludes unrelated pre-existing recovery work; no digest sent.
 
-
 ## Return Passage — 20261122-6
 
 Local MiniLM reconciles informal workflow handoff endpoints. Review all counts and stages, compare absorbing-chain expected repeat visits/terminal shares with one-pass stage counts and export complete JSON/CSV/Markdown. Actual neural fixtures matched 5/6 editorial and 8/8 repair endpoints before review; the editorial error needed correction. Stationary, memoryless scenario assumptions apply, not elapsed-time guarantees. Shared runtime paths from `20261115-6` and `20261107-2` must remain published. See [workflow](20261122-6/README.md) and [observed validation](20261122-6/VALIDATION.md).
@@ -1969,8 +1970,8 @@ Linecraft Desk public release verified: matching built Pages commit `6a0c5cbc7d6
 
 Real local MiniLM routes identifier context notes to supplied checksum profiles before mandatory human review. Exact ISBN-10, GTIN-13 and Luhn checks expose format-only misses; repair candidates never auto-apply. Valid-only release CSV plus complete JSON/CSV/Markdown preserve leading zeros and all held/blocked records. Both tiny fixtures matched 4/4 intended profiles; 1,000 independent checksum/completion oracles passed, not general accuracy or identifier authenticity assurance. Fresh-worker offline inference only in an already-open warmed page; preserve shared worker/factory from `20261115-6` and WASM from `20261107-2`. No new sharing rules, size-guard changes or external actions. See [workflow/privacy](20261123-9/README.md) and [observed checks](20261123-9/VALIDATION.md). No digest sent.
 
-Checkline Desk public release verified: matching Pages commit `54ea83eb898623e0dbacd7a55cb98671a8e7dc39` and workflow `45087101906` succeeded. Seven public gallery/app/runtime assets byte-match assembled output; both real-model fixtures, full review/repair/export/maximum-batch/offline/privacy suite, independently parsed public artifacts and all 814 gallery cards passed. Combined size **999,867,068 bytes** remains below the unchanged guard. No new sharing rules; unrelated recovery work preserved and excluded from this source commit. Physical phones, cold offline startup and catalog clients remain untested. No digest sent.
 
+Checkline Desk public release verified: matching Pages commit `54ea83eb898623e0dbacd7a55cb98671a8e7dc39` and workflow `45087101906` succeeded. Seven public gallery/app/runtime assets byte-match assembled output; both real-model fixtures, full review/repair/export/maximum-batch/offline/privacy suite, independently parsed public artifacts and all 814 gallery cards passed. Combined size **999,867,068 bytes** remains below the unchanged guard. No new sharing rules; unrelated recovery work preserved and excluded from this source commit. Physical phones, cold offline startup and catalog clients remain untested. No digest sent.
 
 ## Glyph Ledger — 20261123-10
 
@@ -2139,6 +2140,11 @@ Real local MiniLM links client handoff notes to editable media-preference contra
 Public release verified: matching built Pages commit `16746b85727a149260e15034ee104349980328a9` and successful workflow `45310779202`. Nine exact public asset matches, both real-AI fixtures, full review/export/24-case/offline/privacy/CRLF-regression suite, 931 independently parsed public artifact assertions and all 840 gallery cards passed. Combined site **999,809,147 bytes**; unchanged guard and sharing rules. Negation can misroute; physical phones, other engines, cold offline startup and actual endpoints remain untested. Unrelated recovery edits preserved and excluded from source staging. No digest sent.
 
 
+## Patch Ledger — 20261124-12
+
+Real local MiniLM matches informal change requests to supplied target-field descriptions before mandatory review. Exact RFC 6901 JSON Pointer resolution, deep-value `test` guards and deterministic replacement produce independent patch worksheets; export reviewed fixtures plus complete JSON/CSV/Markdown without uploads or endpoint requests. Both tiny fixtures matched 8/8 intended field links, and an independent `fast-json-patch` oracle passed 162 cases. A negation probe misrouted (`contact` for a delivery request), so review remains essential and the guard proves only the old value was unchanged, not that the request was understood. Fresh-worker offline inference is tested only within an already-open warmed page; cold reload and physical phones remain untested. Reuses the immutable worker from `20261115-6` and byte-identical WASM from `20261107-2`; preserve those paths. See [workflow/privacy](20261124-12/README.md) and [observed validation](20261124-12/VALIDATION.md). No digest sent.
+
+
 ## Range Relay — 20261124-13
 
 Real local MiniLM matches downloader intent to explicit byte-range contracts before mandatory review. Exact clipping, suffix resolution and coalescing produce 206/416 expectations and payload counts; export approved test fixtures plus complete JSON/CSV/Markdown without URLs or uploads. Both tiny fixtures matched 8/8 intended links; a negation probe misrouted. Independent byte-set oracle passed 1,144 cases. Offline scope is fresh-worker inference within an already-open warmed page only. Preserve immutable worker/factory from `20261115-6` and WASM from `20261107-2`. See [workflow/privacy](20261124-13/README.md) and [observed validation](20261124-13/VALIDATION.md). No digest sent.
@@ -2289,6 +2295,7 @@ Public release verified: Pages commit `6c9d609b1c5ace877820a48a6b76257ffdd0534a`
 Real local Whisper tiny.en q8 transcribes 1–6 short English PCM16 mono 16 kHz WAV clips before mandatory listening review. Edit/hold/undo and apply a source-preserving playlist; export complete audio-bearing JSON, spreadsheet-safe CSV, Markdown and clip-level WebVTT without uploads. Two synthetic clips made 3 word edits over 33 reference words; human corrections reduced that supplied-reference count to zero, not a general accuracy claim. Fresh-worker offline inference is tested only in an already-open warmed page. New bundled ASR worker reuses immutable CPU factory from `20261115-6` and byte-identical WASM from `20261107-2`; preserve those paths. Deploy-only identical geometry reuse for `20261105-24` and `20261105-23` → `20261028-24` preserves original source builds/compatibility URLs and the unchanged size guard. See [workflow/privacy](20261125-12/README.md) and [observed validation](20261125-12/VALIDATION.md). No digest sent.
 
 Public release verified: final matching built Pages commit `cb393bc69a679c2df71662e62af039ed70bcb591`, successful workflow `45539204846`, 18 exact public gallery/app/worker/runtime/legacy asset matches, both real-Whisper fixtures, full six-clip reviewed/export/offline/privacy suite, 213 independent artifact assertions, native VTT parsing and all 864 public gallery cards. Both affected legacy image/STL import/export workflows pass. Final combined site **999,974,766 bytes** stays below the unchanged guard. Physical phones, other engines, cold offline startup and representative speech accuracy remain untested. Unrelated recovery work preserved and excluded from source staging; no digest sent.
+
 
 ## Cursor Lantern — 20261125-13
 

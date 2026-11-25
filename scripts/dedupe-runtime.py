@@ -47,39 +47,45 @@ for wasm in list(deploy.glob('*/assets/'+name)):
 geometryName='manifold-BE4c7gO-.wasm'
 geometryShared=deploy/'20261028-24/assets'/geometryName
 geometryBytes=geometryShared.read_bytes()
-geometryChanges=[]
-for appName in ['20261105-24','20261105-23','20261105-21','20261028-18','20261028-19','20261028-21','20261028-27','20261028-26','20261028-25','20261028-22','20261028-23','20261030-28','20261025-7','20261025-8','20261030-10','20261030-11','20261030-12','20261030-13','20261030-14','20261030-15','20261030-16','20261030-17','20261030-18','20261030-19','20261030-20','20261030-21','20261030-22','20261030-23','20261030-24','20261030-25','20261030-26','20261030-27','20261030-29','20261030-30','20261028-15','20261028-14','20261028-13','20261028-12','20261028-11','20261028-10','20261028-9','20261028-8','20261028-7','20261028-6','20261028-5','20261028-4','20261028-3','20261028-2','20261028-1','20261028-16','20261028-17','20261028-28','20261028-29','20261028-30','20261029-1','20261029-2','20261029-3','20261029-4','20261029-5','20261029-6','20261029-7','20261029-8','20261029-9','20261029-10','20261029-11','20261029-12','20261029-13','20261029-14','20261029-15','20261029-16','20261029-17','20261029-18','20261029-19','20261029-20','20261029-21','20261029-23','20261029-24','20261029-25','20261029-26','20261029-27','20261029-28','20261029-29','20261029-30','20261029-31','20261029-32','20261029-33','20261031-27','20261106-11','20261106-10','20261106-9','20261106-8','20261106-7','20261106-6','20261106-5','20261106-4','20261106-3','20261106-2']:
- folder=deploy/appName;duplicate=folder/'assets'/geometryName
- if not duplicate.exists():continue
- if duplicate.read_bytes()!=geometryBytes:raise SystemExit('Geometry runtime mismatch: '+appName)
- old='/daily-app2/'+appName+'/assets/'+geometryName
- new='/daily-app2/20261028-24/assets/'+geometryName
+geometrySharedURL='/daily-app2/20261028-24/assets/'+geometryName
+geometryChanges=[];geometrySkipped=[]
+# Discover every remaining byte-identical copy instead of trusting a frozen list.
+# A folder is eligible only when the geometry URL is reached through a worker
+# that a main bundle loads and the HTML shell links that main bundle.
+# Anything wired differently keeps its own copy so no URL is left dangling.
+for duplicate in sorted(deploy.glob('*/assets/'+geometryName)):
+ folder=duplicate.parent.parent
+ if folder.name==geometryShared.parent.parent.name:continue
+ if duplicate.read_bytes()!=geometryBytes:raise SystemExit('Geometry runtime mismatch: '+folder.name)
+ old='/daily-app2/'+folder.name+'/assets/'+geometryName
+ jsFiles=list(folder.glob('assets/*.js'))
  workers=[]
- for f in folder.glob('assets/*.js'):
+ for f in jsFiles:
   text=f.read_text()
   if old not in text:continue
-  text=text.replace(old,new);f.write_text(text)
-  workers.append((f.name,f.name+'?shared='+hashlib.sha256(text.encode()).hexdigest()[:12]))
- if not workers:raise SystemExit('Missing geometry runtime reference: '+appName)
+  rewritten=text.replace(old,geometrySharedURL)
+  workers.append((f,rewritten,f.name+'?shared='+hashlib.sha256(rewritten.encode()).hexdigest()[:12]))
+ if not workers:geometrySkipped.append({'folder':folder.name,'reason':'no-worker-reference'});continue
  mains=[]
- for f in folder.glob('assets/*.js'):
+ for f in jsFiles:
   # Vite browser-external warning strings mention worker names but are not entry references.
   if f.name.startswith('__vite-browser-external-'):continue
   text=f.read_text();revised=text
-  for oldWorker,newWorker in workers:revised=revised.replace(oldWorker,newWorker)
-  if text!=revised:
-   f.write_text(revised);mains.append((f.name,f.name+'?shared='+hashlib.sha256(revised.encode()).hexdigest()[:12]))
- if not mains:raise SystemExit('Missing geometry worker entry: '+appName)
- html=folder/'index.html';text=html.read_text()
- for oldMain,newMain in mains:
-  if oldMain not in text:raise SystemExit('Unlinked geometry entry: '+appName)
-  text=text.replace(oldMain,newMain)
- html.write_text(text)
+  for worker,_,newRef in workers:revised=revised.replace(worker.name,newRef)
+  if text!=revised:mains.append((f,revised,f.name+'?shared='+hashlib.sha256(revised.encode()).hexdigest()[:12]))
+ if not mains:geometrySkipped.append({'folder':folder.name,'reason':'geometry-referenced-directly-by-entry'});continue
+ html=folder/'index.html';htmlText=html.read_text()
+ if not any(main.name in htmlText for main,_,_ in mains):
+  geometrySkipped.append({'folder':folder.name,'reason':'entry-not-linked-by-html'});continue
+ for worker,rewritten,_ in workers:worker.write_text(rewritten)
+ for main,revised,_ in mains:main.write_text(revised)
+ for main,_,newRef in mains:htmlText=htmlText.replace(main.name,newRef)
+ html.write_text(htmlText)
  for f in folder.rglob('*'):
   if f.suffix in ['.js','.mjs','.html','.css'] and old in f.read_text():raise SystemExit('Dangling geometry runtime URL: '+str(f))
  duplicate.unlink()
- geometryChanges.append({'folder':appName,'bytesRemoved':len(geometryBytes),'legacyJsURLsRetained':True,'queryVersionedEntries':True})
-report={'beforeBytes':before,'afterBytes':size(),'sharedWasmSHA256':sha,'sharedURL':sharedURL,'apps':changed,'sourceBuildsUnmodified':True,'geometryReuse':geometryChanges,'geometrySharedURL':'/daily-app2/20261028-24/assets/'+geometryName,'geometrySHA256':hashlib.sha256(geometryBytes).hexdigest()}
+ geometryChanges.append({'folder':folder.name,'bytesRemoved':len(geometryBytes),'legacyJsURLsRetained':True,'queryVersionedEntries':True})
+report={'beforeBytes':before,'afterBytes':size(),'sharedWasmSHA256':sha,'sharedURL':sharedURL,'apps':changed,'sourceBuildsUnmodified':True,'geometryReuse':geometryChanges,'geometrySkipped':geometrySkipped,'geometrySharedURL':geometrySharedURL,'geometrySHA256':hashlib.sha256(geometryBytes).hexdigest()}
 reportPath=deploy/'runtime-deduplication.json'
 for _ in range(4):
  reportPath.write_text(json.dumps(report,indent=2))

@@ -1,0 +1,108 @@
+{
+  "format": "patch-ledger-fixtures-v1",
+  "notice": "Independent local test fixtures, not a combined transaction. No endpoint contacted. Expected failure leaves current unchanged.",
+  "cases": [
+    {
+      "id": "Fresh product name",
+      "current": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/display~1label/~0text",
+          "value": "Blue mug"
+        },
+        {
+          "op": "replace",
+          "path": "/display~1label/~0text",
+          "value": "=SUM(1,2)\nSpecial \"edition\""
+        }
+      ],
+      "expectedSuccess": true,
+      "expectedDocument": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "=SUM(1,2)\nSpecial \"edition\""
+        }
+      }
+    },
+    {
+      "id": "Account contact",
+      "current": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "buyer@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/customer/email",
+          "value": "buyer@example.test"
+        },
+        {
+          "op": "replace",
+          "path": "/customer/email",
+          "value": "support@example.test"
+        }
+      ],
+      "expectedSuccess": true,
+      "expectedDocument": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "support@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      }
+    },
+    {
+      "id": "Missing field",
+      "current": {
+        "customer": {
+          "email": "buyer@example.test"
+        }
+      },
+      "patch": [
+        {
+          "op": "test",
+          "path": "/shipping/address",
+          "value": "18 Maple Lane"
+        },
+        {
+          "op": "replace",
+          "path": "/shipping/address",
+          "value": "6 Birch Walk"
+        }
+      ],
+      "expectedSuccess": false,
+      "expectedDocument": {
+        "customer": {
+          "email": "buyer@example.test"
+        }
+      }
+    }
+  ]
+}

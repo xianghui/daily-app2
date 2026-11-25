@@ -1,0 +1,229 @@
+{
+  "version": 1,
+  "app": "Patch Ledger",
+  "originalInput": {
+    "plans": [
+      {
+        "id": "delivery",
+        "description": "Change the shipping delivery address for an order, where the parcel should be delivered.",
+        "pointer": "/shipping/address"
+      },
+      {
+        "id": "contact",
+        "description": "Update the customer contact email address used for receipts and account notifications.",
+        "pointer": "/customer/email"
+      },
+      {
+        "id": "label",
+        "description": "Rename the printed product display label used on the package and storefront.",
+        "pointer": "/display~1label/~0text"
+      }
+    ],
+    "records": [
+      {
+        "id": "Fresh product name",
+        "context": "Use a new title for the printed product label on the package and storefront.",
+        "raw": "{\"snapshot\":{\"shipping\":{\"address\":\"18 Maple Lane\"},\"customer\":{\"email\":\"buyer@example.test\"},\"display/label\":{\"~text\":\"Blue mug\"}},\"current\":{\"shipping\":{\"address\":\"18 Maple Lane\"},\"customer\":{\"email\":\"buyer@example.test\"},\"display/label\":{\"~text\":\"Blue mug\"}},\"value\":\"=SUM(1,2)\\nSpecial \\\"edition\\\"\"}"
+      },
+      {
+        "id": "Account contact",
+        "context": "Update the customer contact email for receipts and account notifications.",
+        "raw": "{\"snapshot\":{\"shipping\":{\"address\":\"18 Maple Lane\"},\"customer\":{\"email\":\"buyer@example.test\"},\"display/label\":{\"~text\":\"Blue mug\"}},\"current\":{\"shipping\":{\"address\":\"18 Maple Lane\"},\"customer\":{\"email\":\"buyer@example.test\"},\"display/label\":{\"~text\":\"Blue mug\"}},\"value\":\"support@example.test\"}"
+      },
+      {
+        "id": "Missing field",
+        "context": "Update the shipping delivery address for this parcel destination.",
+        "raw": "{\"snapshot\":{\"shipping\":{\"address\":\"18 Maple Lane\"},\"customer\":{\"email\":\"buyer@example.test\"},\"display/label\":{\"~text\":\"Blue mug\"}},\"current\":{\"customer\":{\"email\":\"buyer@example.test\"}},\"value\":\"6 Birch Walk\"}"
+      },
+      {
+        "id": "Bad snapshot",
+        "context": "Rename the printed product display label used on the package and storefront.",
+        "raw": "{\"snapshot\":{},\"current\":{\"shipping\":{\"address\":\"18 Maple Lane\"},\"customer\":{\"email\":\"buyer@example.test\"},\"display/label\":{\"~text\":\"Blue mug\"}},\"value\":\"Missing old field\"}"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "Fresh product name",
+      "system": "label",
+      "raw": "{",
+      "decision": "approve",
+      "note": "=SUM(1,2)\nReviewed \"intent\", exactly.",
+      "evidence": [
+        {
+          "system": "label",
+          "similarity": 0.8593199658764157
+        },
+        {
+          "system": "delivery",
+          "similarity": 0.3702314165791532
+        },
+        {
+          "system": "contact",
+          "similarity": 0.34955326006916065
+        }
+      ]
+    },
+    {
+      "id": "Account contact",
+      "system": "contact",
+      "raw": "{\"snapshot\":{\"shipping\":{\"address\":\"18 Maple Lane\"},\"customer\":{\"email\":\"buyer@example.test\"},\"display/label\":{\"~text\":\"Blue mug\"}},\"current\":{\"shipping\":{\"address\":\"18 Maple Lane\"},\"customer\":{\"email\":\"buyer@example.test\"},\"display/label\":{\"~text\":\"Blue mug\"}},\"value\":\"support@example.test\"}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "contact",
+          "similarity": 0.9611911279867955
+        },
+        {
+          "system": "delivery",
+          "similarity": 0.29453696083648695
+        },
+        {
+          "system": "label",
+          "similarity": 0.26519004262458584
+        }
+      ]
+    },
+    {
+      "id": "Missing field",
+      "system": "delivery",
+      "raw": "{\"snapshot\":{\"shipping\":{\"address\":\"18 Maple Lane\"},\"customer\":{\"email\":\"buyer@example.test\"},\"display/label\":{\"~text\":\"Blue mug\"}},\"current\":{\"customer\":{\"email\":\"buyer@example.test\"}},\"value\":\"6 Birch Walk\"}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "delivery",
+          "similarity": 0.7868049131135868
+        },
+        {
+          "system": "contact",
+          "similarity": 0.4444143634545373
+        },
+        {
+          "system": "label",
+          "similarity": 0.3379595892762182
+        }
+      ]
+    },
+    {
+      "id": "Bad snapshot",
+      "system": "label",
+      "raw": "{\"snapshot\":{},\"current\":{\"shipping\":{\"address\":\"18 Maple Lane\"},\"customer\":{\"email\":\"buyer@example.test\"},\"display/label\":{\"~text\":\"Blue mug\"}},\"value\":\"Missing old field\"}",
+      "decision": "approve",
+      "note": "",
+      "evidence": [
+        {
+          "system": "label",
+          "similarity": 0.9946492407415695
+        },
+        {
+          "system": "delivery",
+          "similarity": 0.33349249613902404
+        },
+        {
+          "system": "contact",
+          "similarity": 0.31267521781665475
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "Fresh product name",
+      "system": "label",
+      "raw": "{",
+      "status": "blocked",
+      "reason": "Case must be valid JSON."
+    },
+    {
+      "id": "Account contact",
+      "system": "contact",
+      "raw": "{\"snapshot\":{\"shipping\":{\"address\":\"18 Maple Lane\"},\"customer\":{\"email\":\"buyer@example.test\"},\"display/label\":{\"~text\":\"Blue mug\"}},\"current\":{\"shipping\":{\"address\":\"18 Maple Lane\"},\"customer\":{\"email\":\"buyer@example.test\"},\"display/label\":{\"~text\":\"Blue mug\"}},\"value\":\"support@example.test\"}",
+      "pointer": "/customer/email",
+      "before": "buyer@example.test",
+      "actual": "buyer@example.test",
+      "patch": [
+        {
+          "op": "test",
+          "path": "/customer/email",
+          "value": "buyer@example.test"
+        },
+        {
+          "op": "replace",
+          "path": "/customer/email",
+          "value": "support@example.test"
+        }
+      ],
+      "guardPassed": true,
+      "projectedDocument": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "support@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      },
+      "baselineDocument": {
+        "shipping": {
+          "address": "18 Maple Lane"
+        },
+        "customer": {
+          "email": "support@example.test"
+        },
+        "display/label": {
+          "~text": "Blue mug"
+        }
+      },
+      "disagreement": false,
+      "reason": "Target still equals the supplied snapshot. Test passes; replacement can apply locally.",
+      "status": "ready"
+    },
+    {
+      "id": "Missing field",
+      "system": "delivery",
+      "raw": "{\"snapshot\":{\"shipping\":{\"address\":\"18 Maple Lane\"},\"customer\":{\"email\":\"buyer@example.test\"},\"display/label\":{\"~text\":\"Blue mug\"}},\"current\":{\"customer\":{\"email\":\"buyer@example.test\"}},\"value\":\"6 Birch Walk\"}",
+      "pointer": "/shipping/address",
+      "before": "18 Maple Lane",
+      "patch": [
+        {
+          "op": "test",
+          "path": "/shipping/address",
+          "value": "18 Maple Lane"
+        },
+        {
+          "op": "replace",
+          "path": "/shipping/address",
+          "value": "6 Birch Walk"
+        }
+      ],
+      "guardPassed": false,
+      "projectedDocument": {
+        "customer": {
+          "email": "buyer@example.test"
+        }
+      },
+      "disagreement": false,
+      "reason": "Target missing in current document. Test fails; current document remains unchanged.",
+      "status": "ready"
+    },
+    {
+      "id": "Bad snapshot",
+      "system": "label",
+      "raw": "{\"snapshot\":{},\"current\":{\"shipping\":{\"address\":\"18 Maple Lane\"},\"customer\":{\"email\":\"buyer@example.test\"},\"display/label\":{\"~text\":\"Blue mug\"}},\"value\":\"Missing old field\"}",
+      "status": "blocked",
+      "reason": "Pointer target is missing; replace never creates a field."
+    }
+  ],
+  "metrics": {
+    "records": 4,
+    "ready": 2,
+    "held": 0,
+    "blocked": 2,
+    "conflicts": 1,
+    "disagreements": 0
+  }
+}

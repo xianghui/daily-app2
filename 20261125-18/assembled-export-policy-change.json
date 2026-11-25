@@ -1,0 +1,335 @@
+{
+  "schema": "count-orchard/v1",
+  "original": {
+    "title": "Synthetic lab response audit",
+    "profiles": [
+      {
+        "id": "all-rows",
+        "description": "Count every record, including rows with missing null field values. Total number of source rows. COUNT(*)",
+        "mode": "rows"
+      },
+      {
+        "id": "filled-values",
+        "description": "Count non-null field values, including repeated values, zero, false and empty strings. Missing null values are excluded. COUNT(value)",
+        "mode": "present"
+      },
+      {
+        "id": "unique-values",
+        "description": "Count distinct non-null values. Repeated identical typed values count only once. Missing null values are excluded. COUNT(DISTINCT value)",
+        "mode": "distinct"
+      }
+    ],
+    "requests": [
+      {
+        "id": "answer-variety",
+        "context": "Count distinct non-null response values, removing repeated identical typed answers.",
+        "rows": [
+          {
+            "id": "r1",
+            "value": 0
+          },
+          {
+            "id": "r2",
+            "value": 0
+          },
+          {
+            "id": "r3",
+            "value": false
+          },
+          {
+            "id": "r4",
+            "value": "0"
+          },
+          {
+            "id": "r5",
+            "value": ""
+          },
+          {
+            "id": "r6",
+            "value": null
+          }
+        ]
+      },
+      {
+        "id": "observed-answers",
+        "context": "Count non-null observations including zero and false. Repeated answers each contribute one.",
+        "rows": [
+          {
+            "id": "r1",
+            "value": 0
+          },
+          {
+            "id": "r2",
+            "value": 0
+          },
+          {
+            "id": "r3",
+            "value": false
+          },
+          {
+            "id": "r4",
+            "value": "0"
+          },
+          {
+            "id": "r5",
+            "value": ""
+          },
+          {
+            "id": "r6",
+            "value": null
+          }
+        ]
+      },
+      {
+        "id": "empty-panel",
+        "context": "Total rows in this panel, regardless of whether a value is missing.",
+        "rows": []
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "answer-variety",
+      "profile": "all-rows",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "unique-values",
+          "score": 0.6104488714085993
+        },
+        {
+          "id": "filled-values",
+          "score": 0.4673933340324037
+        },
+        {
+          "id": "all-rows",
+          "score": 0.37203814208837344
+        }
+      ]
+    },
+    {
+      "id": "observed-answers",
+      "profile": "filled-values",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "filled-values",
+          "score": 0.6331634220766392
+        },
+        {
+          "id": "unique-values",
+          "score": 0.5657650054432289
+        },
+        {
+          "id": "all-rows",
+          "score": 0.5546678293773311
+        }
+      ]
+    },
+    {
+      "id": "empty-panel",
+      "profile": "all-rows",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "all-rows",
+          "score": 0.5853236188283372
+        },
+        {
+          "id": "filled-values",
+          "score": 0.5135473066269505
+        },
+        {
+          "id": "unique-values",
+          "score": 0.4700897615777296
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "answer-variety",
+      "context": "Count distinct non-null response values, removing repeated identical typed answers.",
+      "rows": [
+        {
+          "id": "r1",
+          "value": 0
+        },
+        {
+          "id": "r2",
+          "value": 0
+        },
+        {
+          "id": "r3",
+          "value": false
+        },
+        {
+          "id": "r4",
+          "value": "0"
+        },
+        {
+          "id": "r5",
+          "value": ""
+        },
+        {
+          "id": "r6",
+          "value": null
+        }
+      ],
+      "profile": "all-rows",
+      "mode": "rows",
+      "decision": "approve",
+      "note": "",
+      "count": 6,
+      "baseline": 1,
+      "witnesses": [
+        {
+          "id": "r1",
+          "value": 0,
+          "included": true,
+          "reason": "Every source row",
+          "baseline": false
+        },
+        {
+          "id": "r2",
+          "value": 0,
+          "included": true,
+          "reason": "Every source row",
+          "baseline": false
+        },
+        {
+          "id": "r3",
+          "value": false,
+          "included": true,
+          "reason": "Every source row",
+          "baseline": false
+        },
+        {
+          "id": "r4",
+          "value": "0",
+          "included": true,
+          "reason": "Every source row",
+          "baseline": true
+        },
+        {
+          "id": "r5",
+          "value": "",
+          "included": true,
+          "reason": "Every source row",
+          "baseline": false
+        },
+        {
+          "id": "r6",
+          "value": null,
+          "included": true,
+          "reason": "Every source row",
+          "baseline": false
+        }
+      ],
+      "changed": 5
+    },
+    {
+      "id": "observed-answers",
+      "context": "Count non-null observations including zero and false. Repeated answers each contribute one.",
+      "rows": [
+        {
+          "id": "r1",
+          "value": 0
+        },
+        {
+          "id": "r2",
+          "value": 0
+        },
+        {
+          "id": "r3",
+          "value": false
+        },
+        {
+          "id": "r4",
+          "value": "0"
+        },
+        {
+          "id": "r5",
+          "value": ""
+        },
+        {
+          "id": "r6",
+          "value": null
+        }
+      ],
+      "profile": "filled-values",
+      "mode": "present",
+      "decision": "approve",
+      "note": "",
+      "count": 5,
+      "baseline": 1,
+      "witnesses": [
+        {
+          "id": "r1",
+          "value": 0,
+          "included": true,
+          "reason": "Non-null value",
+          "baseline": false
+        },
+        {
+          "id": "r2",
+          "value": 0,
+          "included": true,
+          "reason": "Non-null value",
+          "baseline": false
+        },
+        {
+          "id": "r3",
+          "value": false,
+          "included": true,
+          "reason": "Non-null value",
+          "baseline": false
+        },
+        {
+          "id": "r4",
+          "value": "0",
+          "included": true,
+          "reason": "Non-null value",
+          "baseline": true
+        },
+        {
+          "id": "r5",
+          "value": "",
+          "included": true,
+          "reason": "Non-null value",
+          "baseline": false
+        },
+        {
+          "id": "r6",
+          "value": null,
+          "included": false,
+          "reason": "Explicit null",
+          "baseline": false
+        }
+      ],
+      "changed": 4
+    },
+    {
+      "id": "empty-panel",
+      "context": "Total rows in this panel, regardless of whether a value is missing.",
+      "rows": [],
+      "profile": "all-rows",
+      "mode": "rows",
+      "decision": "approve",
+      "note": "",
+      "count": 0,
+      "baseline": 0,
+      "witnesses": [],
+      "changed": 0
+    }
+  ],
+  "metrics": {
+    "records": 12,
+    "approved": 3,
+    "held": 0,
+    "changed": 9
+  }
+}

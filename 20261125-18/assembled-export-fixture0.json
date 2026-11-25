@@ -1,0 +1,428 @@
+{
+  "schema": "count-orchard/v1",
+  "original": {
+    "title": "Synthetic registration audit",
+    "profiles": [
+      {
+        "id": "all-rows",
+        "description": "Count every record, including rows with missing null field values. Total number of source rows. COUNT(*)",
+        "mode": "rows"
+      },
+      {
+        "id": "filled-values",
+        "description": "Count non-null field values, including repeated values, zero, false and empty strings. Missing null values are excluded. COUNT(value)",
+        "mode": "present"
+      },
+      {
+        "id": "unique-values",
+        "description": "Count distinct non-null values. Repeated identical typed values count only once. Missing null values are excluded. COUNT(DISTINCT value)",
+        "mode": "distinct"
+      }
+    ],
+    "requests": [
+      {
+        "id": "registrations",
+        "context": "Total number of registration records, including those whose department field is missing.",
+        "rows": [
+          {
+            "id": "r1",
+            "value": "Design"
+          },
+          {
+            "id": "r2",
+            "value": null
+          },
+          {
+            "id": "r3",
+            "value": "Design"
+          },
+          {
+            "id": "r4",
+            "value": ""
+          },
+          {
+            "id": "r5",
+            "value": 0
+          },
+          {
+            "id": "r6",
+            "value": false
+          }
+        ]
+      },
+      {
+        "id": "filled-departments",
+        "context": "How many department values are non-null? Include repeated values, empty strings, zero and false.",
+        "rows": [
+          {
+            "id": "r1",
+            "value": "Design"
+          },
+          {
+            "id": "r2",
+            "value": null
+          },
+          {
+            "id": "r3",
+            "value": "Design"
+          },
+          {
+            "id": "r4",
+            "value": ""
+          },
+          {
+            "id": "r5",
+            "value": 0
+          },
+          {
+            "id": "r6",
+            "value": false
+          }
+        ]
+      },
+      {
+        "id": "distinct-departments",
+        "context": "Number of distinct non-null department values. Count each different typed value once, excluding missing nulls.",
+        "rows": [
+          {
+            "id": "r1",
+            "value": "Design"
+          },
+          {
+            "id": "r2",
+            "value": null
+          },
+          {
+            "id": "r3",
+            "value": "Design"
+          },
+          {
+            "id": "r4",
+            "value": ""
+          },
+          {
+            "id": "r5",
+            "value": 0
+          },
+          {
+            "id": "r6",
+            "value": false
+          }
+        ]
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "registrations",
+      "profile": "all-rows",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "all-rows",
+          "score": 0.47280951585862524
+        },
+        {
+          "id": "filled-values",
+          "score": 0.44474915195645714
+        },
+        {
+          "id": "unique-values",
+          "score": 0.39179437933311606
+        }
+      ]
+    },
+    {
+      "id": "filled-departments",
+      "profile": "filled-values",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "filled-values",
+          "score": 0.6351707931923515
+        },
+        {
+          "id": "unique-values",
+          "score": 0.5278736948268495
+        },
+        {
+          "id": "all-rows",
+          "score": 0.4408868456082033
+        }
+      ]
+    },
+    {
+      "id": "distinct-departments",
+      "profile": "unique-values",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "unique-values",
+          "score": 0.7229256914892018
+        },
+        {
+          "id": "filled-values",
+          "score": 0.6713681607368747
+        },
+        {
+          "id": "all-rows",
+          "score": 0.5486996420153457
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "registrations",
+      "context": "Total number of registration records, including those whose department field is missing.",
+      "rows": [
+        {
+          "id": "r1",
+          "value": "Design"
+        },
+        {
+          "id": "r2",
+          "value": null
+        },
+        {
+          "id": "r3",
+          "value": "Design"
+        },
+        {
+          "id": "r4",
+          "value": ""
+        },
+        {
+          "id": "r5",
+          "value": 0
+        },
+        {
+          "id": "r6",
+          "value": false
+        }
+      ],
+      "profile": "all-rows",
+      "mode": "rows",
+      "decision": "approve",
+      "note": "",
+      "count": 6,
+      "baseline": 2,
+      "witnesses": [
+        {
+          "id": "r1",
+          "value": "Design",
+          "included": true,
+          "reason": "Every source row",
+          "baseline": true
+        },
+        {
+          "id": "r2",
+          "value": null,
+          "included": true,
+          "reason": "Every source row",
+          "baseline": false
+        },
+        {
+          "id": "r3",
+          "value": "Design",
+          "included": true,
+          "reason": "Every source row",
+          "baseline": true
+        },
+        {
+          "id": "r4",
+          "value": "",
+          "included": true,
+          "reason": "Every source row",
+          "baseline": false
+        },
+        {
+          "id": "r5",
+          "value": 0,
+          "included": true,
+          "reason": "Every source row",
+          "baseline": false
+        },
+        {
+          "id": "r6",
+          "value": false,
+          "included": true,
+          "reason": "Every source row",
+          "baseline": false
+        }
+      ],
+      "changed": 4
+    },
+    {
+      "id": "filled-departments",
+      "context": "How many department values are non-null? Include repeated values, empty strings, zero and false.",
+      "rows": [
+        {
+          "id": "r1",
+          "value": "Design"
+        },
+        {
+          "id": "r2",
+          "value": null
+        },
+        {
+          "id": "r3",
+          "value": "Design"
+        },
+        {
+          "id": "r4",
+          "value": ""
+        },
+        {
+          "id": "r5",
+          "value": 0
+        },
+        {
+          "id": "r6",
+          "value": false
+        }
+      ],
+      "profile": "filled-values",
+      "mode": "present",
+      "decision": "approve",
+      "note": "",
+      "count": 5,
+      "baseline": 2,
+      "witnesses": [
+        {
+          "id": "r1",
+          "value": "Design",
+          "included": true,
+          "reason": "Non-null value",
+          "baseline": true
+        },
+        {
+          "id": "r2",
+          "value": null,
+          "included": false,
+          "reason": "Explicit null",
+          "baseline": false
+        },
+        {
+          "id": "r3",
+          "value": "Design",
+          "included": true,
+          "reason": "Non-null value",
+          "baseline": true
+        },
+        {
+          "id": "r4",
+          "value": "",
+          "included": true,
+          "reason": "Non-null value",
+          "baseline": false
+        },
+        {
+          "id": "r5",
+          "value": 0,
+          "included": true,
+          "reason": "Non-null value",
+          "baseline": false
+        },
+        {
+          "id": "r6",
+          "value": false,
+          "included": true,
+          "reason": "Non-null value",
+          "baseline": false
+        }
+      ],
+      "changed": 3
+    },
+    {
+      "id": "distinct-departments",
+      "context": "Number of distinct non-null department values. Count each different typed value once, excluding missing nulls.",
+      "rows": [
+        {
+          "id": "r1",
+          "value": "Design"
+        },
+        {
+          "id": "r2",
+          "value": null
+        },
+        {
+          "id": "r3",
+          "value": "Design"
+        },
+        {
+          "id": "r4",
+          "value": ""
+        },
+        {
+          "id": "r5",
+          "value": 0
+        },
+        {
+          "id": "r6",
+          "value": false
+        }
+      ],
+      "profile": "unique-values",
+      "mode": "distinct",
+      "decision": "approve",
+      "note": "",
+      "count": 4,
+      "baseline": 2,
+      "witnesses": [
+        {
+          "id": "r1",
+          "value": "Design",
+          "included": true,
+          "reason": "First distinct non-null value",
+          "baseline": true
+        },
+        {
+          "id": "r2",
+          "value": null,
+          "included": false,
+          "reason": "Explicit null",
+          "baseline": false
+        },
+        {
+          "id": "r3",
+          "value": "Design",
+          "included": false,
+          "reason": "Duplicate typed value",
+          "baseline": true
+        },
+        {
+          "id": "r4",
+          "value": "",
+          "included": true,
+          "reason": "First distinct non-null value",
+          "baseline": false
+        },
+        {
+          "id": "r5",
+          "value": 0,
+          "included": true,
+          "reason": "First distinct non-null value",
+          "baseline": false
+        },
+        {
+          "id": "r6",
+          "value": false,
+          "included": true,
+          "reason": "First distinct non-null value",
+          "baseline": false
+        }
+      ],
+      "changed": 4
+    }
+  ],
+  "metrics": {
+    "records": 18,
+    "approved": 3,
+    "held": 0,
+    "changed": 11
+  }
+}

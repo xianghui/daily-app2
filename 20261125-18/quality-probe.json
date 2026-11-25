@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Inventory distinct codes",
+    "context": "How many different non-null warehouse batch codes appear? Repeated codes are counted once.",
+    "expected": "unique-values",
+    "actual": "unique-values",
+    "correct": true
+  },
+  {
+    "name": "Keep repeats",
+    "context": "Do not deduplicate. Count all non-null answers, including repeated answers and zero.",
+    "expected": "filled-values",
+    "actual": "unique-values",
+    "correct": false
+  },
+  {
+    "name": "Missing included",
+    "context": "Do not exclude missing values. Count the number of rows, including every null entry.",
+    "expected": "all-rows",
+    "actual": "all-rows",
+    "correct": true
+  },
+  {
+    "name": "Zero-only measured",
+    "context": "Count observed values that are not null. Zero and false are observations, not missing.",
+    "expected": "filled-values",
+    "actual": "filled-values",
+    "correct": true
+  }
+]

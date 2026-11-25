@@ -1,0 +1,26 @@
+{
+  "commit": "5484a52073ccdac57c52c03a1d3af837dd8cdb6b",
+  "attempts": [
+    {
+      "run": 45651561782,
+      "build": "success",
+      "deploy": "failure",
+      "error": "GitHub Pages deployment creation HTTP 500",
+      "noMatchingActiveWorkflowBeforeRetry": true
+    }
+  ],
+  "recovery": [
+    {
+      "method": "POST pages/builds",
+      "result": "empty error response, gh parser unexpected end of JSON; no workflow appeared after bounded wait"
+    },
+    {
+      "method": "rerun-failed-jobs",
+      "result": "HTTP 500; subsequent GET confirms completed/failure attempt 1"
+    },
+    {
+      "method": "POST pages/builds with response headers",
+      "result": "HTTP 500 Internal Server Error, Content-Length 0, request ED2E:3307E2:28E6B8B:3F09AE6:6B07094F"
+    }
+  ]
+}

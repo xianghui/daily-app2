@@ -1,0 +1,33 @@
+{
+  "input": {
+    "title": "Synthetic studio prepaid contracts",
+    "currency": "USD",
+    "reportMonth": "2026-11",
+    "profiles": [
+      {
+        "id": "coverage",
+        "rule": "service",
+        "description": "Continuous service coverage over time: stand-ready support, maintenance, hosting or access subscription. Recognize prepaid value evenly across inclusive service months."
+      },
+      {
+        "id": "handover",
+        "rule": "delivery",
+        "description": "Point-in-time physical goods delivery: prepaid equipment, merchandise or a finished product. Recognize the full value when goods are delivered and accepted by the customer."
+      }
+    ],
+    "requests": [
+      {
+        "id": "challenge",
+        "note": "Not a continuous hosting subscription or stand-ready maintenance service: this is a prepaid physical server delivered and accepted in November.",
+        "value": "12345",
+        "startMonth": "2026-11",
+        "endMonth": "2027-10",
+        "deliveryMonth": "2026-11"
+      }
+    ]
+  },
+  "expected": "handover",
+  "actual": "coverage",
+  "correct": false,
+  "limitation": "Negation and mixed obligations require human review; this one challenge cannot establish general performance."
+}

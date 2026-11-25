@@ -1,0 +1,273 @@
+{
+  "schema": "deferral-folio/v1",
+  "original": {
+    "title": "Synthetic workshop delivery and support",
+    "currency": "EUR",
+    "reportMonth": "2027-02",
+    "profiles": [
+      {
+        "id": "coverage",
+        "rule": "service",
+        "description": "Continuous service coverage over time: stand-ready support, maintenance, hosting or access subscription. Recognize prepaid value evenly across inclusive service months."
+      },
+      {
+        "id": "handover",
+        "rule": "delivery",
+        "description": "Point-in-time physical goods delivery: prepaid equipment, merchandise or a finished product. Recognize the full value when goods are delivered and accepted by the customer."
+      }
+    ],
+    "requests": [
+      {
+        "id": "W1",
+        "note": "Advance payment for a custom cabinet, a physical product delivered and signed for by the buyer in January.",
+        "value": "87001",
+        "startMonth": "",
+        "endMonth": "",
+        "deliveryMonth": "2027-01"
+      },
+      {
+        "id": "W2",
+        "note": "Quarterly technical support subscription; technicians remain available continuously for the covered service months.",
+        "value": "10001",
+        "startMonth": "2027-01",
+        "endMonth": "2027-03",
+        "deliveryMonth": ""
+      },
+      {
+        "id": "W3",
+        "note": "Prepaid machine order awaiting physical equipment delivery and customer acceptance in April.",
+        "value": "22200",
+        "startMonth": "",
+        "endMonth": "",
+        "deliveryMonth": "2027-04"
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "W1",
+      "profile": "handover",
+      "value": "88001",
+      "startMonth": "",
+      "endMonth": "",
+      "deliveryMonth": "2027-01",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "handover",
+          "score": 0.3880247810730597
+        },
+        {
+          "id": "coverage",
+          "score": 0.2852169426283309
+        }
+      ]
+    },
+    {
+      "id": "W2",
+      "profile": "coverage",
+      "value": "10001",
+      "startMonth": "2027-01",
+      "endMonth": "2027-03",
+      "deliveryMonth": "",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "coverage",
+          "score": 0.5466622771803699
+        },
+        {
+          "id": "handover",
+          "score": 0.22547950390415178
+        }
+      ]
+    },
+    {
+      "id": "W3",
+      "profile": "handover",
+      "value": "22200",
+      "startMonth": "",
+      "endMonth": "",
+      "deliveryMonth": "2027-04",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "handover",
+          "score": 0.5191778867966795
+        },
+        {
+          "id": "coverage",
+          "score": 0.48291366659571167
+        }
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "id": "W1",
+      "note": "Advance payment for a custom cabinet, a physical product delivered and signed for by the buyer in January.",
+      "value": "87001",
+      "startMonth": "",
+      "endMonth": "",
+      "deliveryMonth": "2027-01",
+      "review": {
+        "id": "W1",
+        "profile": "handover",
+        "value": "88001",
+        "startMonth": "",
+        "endMonth": "",
+        "deliveryMonth": "2027-01",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "handover",
+            "score": 0.3880247810730597
+          },
+          {
+            "id": "coverage",
+            "score": 0.2852169426283309
+          }
+        ]
+      },
+      "rule": "delivery"
+    },
+    {
+      "id": "W2",
+      "note": "Quarterly technical support subscription; technicians remain available continuously for the covered service months.",
+      "value": "10001",
+      "startMonth": "2027-01",
+      "endMonth": "2027-03",
+      "deliveryMonth": "",
+      "review": {
+        "id": "W2",
+        "profile": "coverage",
+        "value": "10001",
+        "startMonth": "2027-01",
+        "endMonth": "2027-03",
+        "deliveryMonth": "",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "coverage",
+            "score": 0.5466622771803699
+          },
+          {
+            "id": "handover",
+            "score": 0.22547950390415178
+          }
+        ]
+      },
+      "rule": "service"
+    },
+    {
+      "id": "W3",
+      "note": "Prepaid machine order awaiting physical equipment delivery and customer acceptance in April.",
+      "value": "22200",
+      "startMonth": "",
+      "endMonth": "",
+      "deliveryMonth": "2027-04",
+      "review": {
+        "id": "W3",
+        "profile": "handover",
+        "value": "22200",
+        "startMonth": "",
+        "endMonth": "",
+        "deliveryMonth": "2027-04",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "handover",
+            "score": 0.5191778867966795
+          },
+          {
+            "id": "coverage",
+            "score": 0.48291366659571167
+          }
+        ]
+      },
+      "rule": "delivery"
+    }
+  ],
+  "worksheet": {
+    "status": "ready",
+    "reportMonth": "2027-02",
+    "entries": [
+      {
+        "id": "W1",
+        "status": "ready",
+        "schedule": [
+          {
+            "month": "2027-01",
+            "value": "88001"
+          }
+        ],
+        "prior": "88001",
+        "current": "0",
+        "future": "0",
+        "recognizedThrough": "88001",
+        "baselineImmediate": "88001",
+        "baselineOverstatement": "0"
+      },
+      {
+        "id": "W2",
+        "status": "ready",
+        "schedule": [
+          {
+            "month": "2027-01",
+            "value": "3334"
+          },
+          {
+            "month": "2027-02",
+            "value": "3334"
+          },
+          {
+            "month": "2027-03",
+            "value": "3333"
+          }
+        ],
+        "prior": "3334",
+        "current": "3334",
+        "future": "3333",
+        "recognizedThrough": "6668",
+        "baselineImmediate": "10001",
+        "baselineOverstatement": "3333"
+      },
+      {
+        "id": "W3",
+        "status": "ready",
+        "schedule": [
+          {
+            "month": "2027-04",
+            "value": "22200"
+          }
+        ],
+        "prior": "0",
+        "current": "0",
+        "future": "22200",
+        "recognizedThrough": "0",
+        "baselineImmediate": "22200",
+        "baselineOverstatement": "22200"
+      }
+    ],
+    "errors": [],
+    "total": "120202",
+    "prior": "91335",
+    "current": "3334",
+    "future": "25533",
+    "recognizedThrough": "94669",
+    "baselineImmediate": "120202",
+    "baselineOverstatement": "25533",
+    "conserved": true
+  },
+  "metrics": {
+    "contracts": 3,
+    "approved": 3,
+    "held": 0
+  }
+}

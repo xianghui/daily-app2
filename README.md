@@ -2403,3 +2403,8 @@ Public release verified: matching built Pages commit `a7768c3121e69edfd6c8f9e64f
 ## Settlement Folio — 20261126-6
 
 Local MiniLM event inference assists payment-processor clearing reconciliation. Review sales, refunds, fees, bank payouts and internal reserve transfers; inspect exact available/reserved balance trails, closing differences and sales-minus-refunds shortcut gaps; export complete JSON/CSV/Markdown plus balance worksheets. Two simple synthetic fixtures matched 11/11 event classes; a negation challenge failed, so mandatory human review remains essential. Shared immutable worker/runtime assets from `20261115-6` and WASM from `20261107-2` must remain published. See [workflow](20261126-6/README.md) and [observed validation](20261126-6/VALIDATION.md).
+
+
+## Deferral Folio — 20261126-7
+
+Prepaid-contract recognition planning with real local MiniLM treatment retrieval, mandatory human review and exact month/cent allocation. Distinguish continuous service from point-in-time delivery, edit values/dates/cutoff, hold or undo, conserve originals and export complete JSON/CSV/Markdown plus monthly schedules. Simple synthetic fixtures matched 6/6 suggestions; a negation-heavy challenge was wrong and is explicitly documented. Reuses the immutable MiniLM worker/runtime from `20261115-6` and WASM from `20261107-2`; preserve these paths. [Workflow and limitations](20261126-7/README.md) · [Observed validation](20261126-7/VALIDATION.md).

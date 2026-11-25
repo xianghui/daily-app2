@@ -1,0 +1,8 @@
+
+
+## Mentor Grove — 20261125-9
+
+Real local MiniLM builds independent learner-goal→mentor-offer and mentor-ideal→learner-background preferences before mandatory review. Capacity-aware deferred acceptance produces a stable introduction worksheet with explicit blocking-pair witnesses versus input-order assignment, while preserving held/unmatched records in complete JSON/CSV/Markdown. Two tiny cohorts matched all 12 learner and 6 mentor first choices; the limited-seat fixture had 0 versus 3 baseline blocking pairs, not a general accuracy or outcome claim. Independent Python checks passed 3,707 assertions across 300 preference fixtures. Shared immutable worker/factory from `20261115-6`, WASM from `20261107-2`; preserve these assets. Offline scope: fresh-worker inference within an already-open warmed page only. See [workflow/privacy](20261125-9/README.md) and [observed validation](20261125-9/VALIDATION.md). No invitations or digest sent.
+
+
+Public release verified: matching built Pages commit `25a5f3b1161a18c925daecf047f00eebcb62fad3`, successful workflow `45516357941`, seven exact public app/runtime/root asset matches, both real-AI fixtures, separate semantic probe, full reviewed/export/offline/24-learner suite, 8-mentor/64-text dense round trip, **434** independent public artifact assertions and all 861 gallery cards. Combined site **999,900,403 bytes** remains below the unchanged guard; no sharing rules changed. Physical phones, other engines, cold offline startup and real participant outcomes remain untested. Unrelated recovery edits preserved and excluded from source staging. No digest sent.

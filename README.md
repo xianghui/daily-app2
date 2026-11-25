@@ -2371,3 +2371,10 @@ Publication blocked: root deployment pushed gh-pages commit `5484a52073ccdac57c5
 Prior public gallery is independently verified byte-identical to restored source, all 877 cards/categories/search intact. Root restoration deploy pushed `0ab9c94bf7456d06cbb703b5f864d1bcc4ec6eab` (877 apps, 814,002,142 bytes); its workflow was still active at last check. No completed Variant Grove entry remains.
 
 Final hosting check: restoration workflow `45652162717` also completed with deployment-creation HTTP 500 (build passed). The source draft is pushed to main (`c9fc2839`, first push HTTP 500 then successful retry). Existing public 877-app gallery remains the verified prior version; Variant Grove is unpublished, not completed. Further Pages retries deferred to hosting recovery/scheduler.
+
+
+## Rollforward Desk — 20261126-2
+
+Real local MiniLM retrieves calendar conventions from payment-date handoffs before mandatory review. Inspect following, preceding and month-preserving modified-following date witnesses against always-following; preserve all sources/holds in JSON/CSV/Markdown without uploads or payment actions. Six straightforward links matched, but all three harder probes needed correction/hold. Independent Python validates 1,200 rolling-date cases. Reuses immutable worker/runtime from `20261115-6` and WASM from `20261107-2`; preserve them. See [workflow/privacy](20261126-2/README.md) and [observed validation](20261126-2/VALIDATION.md). No digest sent.
+
+Public release verified: matching built Pages commit `316d7c5082e63429632bfced76891f980c80e8a7`, successful workflow `45661583845`, seven exact public asset matches, both real-AI fixtures, full reviewed/export/max-batch/offline/privacy suite, **556** independent public artifact assertions and all **878** gallery cards. Combined site **814,266,858 bytes**, below unchanged guard; existing sharing rules untouched. Physical phones, other engines, cold offline startup and representative contractual-language accuracy remain unverified. No digest sent; unrelated drafts preserved/excluded.

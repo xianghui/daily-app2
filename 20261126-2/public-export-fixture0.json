@@ -1,0 +1,362 @@
+{
+  "schema": "rollforward-desk/v1",
+  "original": {
+    "title": "Synthetic month-end payment review",
+    "weekend": [
+      0,
+      6
+    ],
+    "holidays": [
+      "2026-02-02"
+    ],
+    "profiles": [
+      {
+        "id": "next",
+        "description": "Following. Roll forward, later, after the holiday or weekend, to the next business day.",
+        "rule": "following"
+      },
+      {
+        "id": "month",
+        "description": "Modified following. Stay within the original month. At month end roll back rather than cross into a different month.",
+        "rule": "modified-following"
+      },
+      {
+        "id": "prior",
+        "description": "Preceding. Roll backward, earlier, before the holiday or weekend, to the previous business day.",
+        "rule": "preceding"
+      }
+    ],
+    "requests": [
+      {
+        "id": "A1",
+        "note": "Move this payment forward to the next business day after the weekend.",
+        "date": "2026-01-31"
+      },
+      {
+        "id": "A2",
+        "note": "Modified following: next working day, but if next month use the previous working day.",
+        "date": "2026-01-31"
+      },
+      {
+        "id": "A3",
+        "note": "Preceding: roll back to the previous working day.",
+        "date": "2026-01-31"
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "A1",
+      "profile": "next",
+      "date": "2026-01-31",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "next",
+          "score": 0.6003676017157
+        },
+        {
+          "id": "prior",
+          "score": 0.47852391340214195
+        },
+        {
+          "id": "month",
+          "score": 0.34997935001921227
+        }
+      ]
+    },
+    {
+      "id": "A2",
+      "profile": "month",
+      "date": "2026-01-31",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "month",
+          "score": 0.6302485788606803
+        },
+        {
+          "id": "prior",
+          "score": 0.4420500691481475
+        },
+        {
+          "id": "next",
+          "score": 0.4348472010827043
+        }
+      ]
+    },
+    {
+      "id": "A3",
+      "profile": "prior",
+      "date": "2026-01-31",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "prior",
+          "score": 0.8049110137489841
+        },
+        {
+          "id": "next",
+          "score": 0.6488559634070541
+        },
+        {
+          "id": "month",
+          "score": 0.5040164363269357
+        }
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "id": "A1",
+      "note": "Move this payment forward to the next business day after the weekend.",
+      "date": "2026-01-31",
+      "review": {
+        "id": "A1",
+        "profile": "next",
+        "date": "2026-01-31",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "next",
+            "score": 0.6003676017157
+          },
+          {
+            "id": "prior",
+            "score": 0.47852391340214195
+          },
+          {
+            "id": "month",
+            "score": 0.34997935001921227
+          }
+        ]
+      },
+      "rule": "following",
+      "output": {
+        "date": "2026-02-03",
+        "shiftDays": 3,
+        "witness": [
+          {
+            "date": "2026-01-31",
+            "closed": true,
+            "direction": 1
+          },
+          {
+            "date": "2026-02-01",
+            "closed": true,
+            "direction": 1
+          },
+          {
+            "date": "2026-02-02",
+            "closed": true,
+            "direction": 1
+          },
+          {
+            "date": "2026-02-03",
+            "closed": false,
+            "direction": 1
+          }
+        ]
+      },
+      "baseline": {
+        "date": "2026-02-03",
+        "shiftDays": 3,
+        "witness": [
+          {
+            "date": "2026-01-31",
+            "closed": true,
+            "direction": 1
+          },
+          {
+            "date": "2026-02-01",
+            "closed": true,
+            "direction": 1
+          },
+          {
+            "date": "2026-02-02",
+            "closed": true,
+            "direction": 1
+          },
+          {
+            "date": "2026-02-03",
+            "closed": false,
+            "direction": 1
+          }
+        ]
+      },
+      "baselineError": null
+    },
+    {
+      "id": "A2",
+      "note": "Modified following: next working day, but if next month use the previous working day.",
+      "date": "2026-01-31",
+      "review": {
+        "id": "A2",
+        "profile": "month",
+        "date": "2026-01-31",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "month",
+            "score": 0.6302485788606803
+          },
+          {
+            "id": "prior",
+            "score": 0.4420500691481475
+          },
+          {
+            "id": "next",
+            "score": 0.4348472010827043
+          }
+        ]
+      },
+      "rule": "modified-following",
+      "output": {
+        "date": "2026-01-30",
+        "shiftDays": -1,
+        "witness": [
+          {
+            "date": "2026-01-31",
+            "closed": true,
+            "direction": 1
+          },
+          {
+            "date": "2026-02-01",
+            "closed": true,
+            "direction": 1
+          },
+          {
+            "date": "2026-02-02",
+            "closed": true,
+            "direction": 1
+          },
+          {
+            "date": "2026-02-03",
+            "closed": false,
+            "direction": 1
+          },
+          {
+            "date": "2026-01-31",
+            "closed": true,
+            "direction": -1
+          },
+          {
+            "date": "2026-01-30",
+            "closed": false,
+            "direction": -1
+          }
+        ]
+      },
+      "baseline": {
+        "date": "2026-02-03",
+        "shiftDays": 3,
+        "witness": [
+          {
+            "date": "2026-01-31",
+            "closed": true,
+            "direction": 1
+          },
+          {
+            "date": "2026-02-01",
+            "closed": true,
+            "direction": 1
+          },
+          {
+            "date": "2026-02-02",
+            "closed": true,
+            "direction": 1
+          },
+          {
+            "date": "2026-02-03",
+            "closed": false,
+            "direction": 1
+          }
+        ]
+      },
+      "baselineError": null
+    },
+    {
+      "id": "A3",
+      "note": "Preceding: roll back to the previous working day.",
+      "date": "2026-01-31",
+      "review": {
+        "id": "A3",
+        "profile": "prior",
+        "date": "2026-01-31",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "prior",
+            "score": 0.8049110137489841
+          },
+          {
+            "id": "next",
+            "score": 0.6488559634070541
+          },
+          {
+            "id": "month",
+            "score": 0.5040164363269357
+          }
+        ]
+      },
+      "rule": "preceding",
+      "output": {
+        "date": "2026-01-30",
+        "shiftDays": -1,
+        "witness": [
+          {
+            "date": "2026-01-31",
+            "closed": true,
+            "direction": -1
+          },
+          {
+            "date": "2026-01-30",
+            "closed": false,
+            "direction": -1
+          }
+        ]
+      },
+      "baseline": {
+        "date": "2026-02-03",
+        "shiftDays": 3,
+        "witness": [
+          {
+            "date": "2026-01-31",
+            "closed": true,
+            "direction": 1
+          },
+          {
+            "date": "2026-02-01",
+            "closed": true,
+            "direction": 1
+          },
+          {
+            "date": "2026-02-02",
+            "closed": true,
+            "direction": 1
+          },
+          {
+            "date": "2026-02-03",
+            "closed": false,
+            "direction": 1
+          }
+        ]
+      },
+      "baselineError": null
+    }
+  ],
+  "metrics": {
+    "baselineBlocked": 0,
+    "requests": 3,
+    "approved": 3,
+    "held": 0,
+    "moved": 3,
+    "baselineDifferences": 2
+  }
+}

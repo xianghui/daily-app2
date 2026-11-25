@@ -1,0 +1,323 @@
+{
+  "schema": "rollforward-desk/v1",
+  "original": {
+    "title": "Synthetic holiday payment review",
+    "weekend": [
+      0,
+      6
+    ],
+    "holidays": [
+      "2026-12-25",
+      "2026-12-31"
+    ],
+    "profiles": [
+      {
+        "id": "next",
+        "description": "Following. Roll forward, later, after the holiday or weekend, to the next business day.",
+        "rule": "following"
+      },
+      {
+        "id": "month",
+        "description": "Modified following. Stay within the original month. At month end roll back rather than cross into a different month.",
+        "rule": "modified-following"
+      },
+      {
+        "id": "prior",
+        "description": "Preceding. Roll backward, earlier, before the holiday or weekend, to the previous business day.",
+        "rule": "preceding"
+      }
+    ],
+    "requests": [
+      {
+        "id": "B1",
+        "note": "Use the preceding business day before a weekend or holiday.",
+        "date": "2026-12-25"
+      },
+      {
+        "id": "B2",
+        "note": "Move payment later to the following business day after the holiday.",
+        "date": "2026-12-31"
+      },
+      {
+        "id": "B3",
+        "note": "Modified following date adjustment, fall back before month-end if rolling forward crosses months.",
+        "date": "2026-12-31"
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "B1",
+      "profile": "prior",
+      "date": "2026-12-25",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "prior",
+          "score": 0.7164817278590133
+        },
+        {
+          "id": "next",
+          "score": 0.5950192802186633
+        },
+        {
+          "id": "month",
+          "score": 0.35768102022611914
+        }
+      ]
+    },
+    {
+      "id": "B2",
+      "profile": "next",
+      "date": "2026-12-31",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "next",
+          "score": 0.5346985623774972
+        },
+        {
+          "id": "prior",
+          "score": 0.44875080493624264
+        },
+        {
+          "id": "month",
+          "score": 0.3234498534852641
+        }
+      ]
+    },
+    {
+      "id": "B3",
+      "profile": "month",
+      "date": "2026-12-31",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "month",
+          "score": 0.7975694610980167
+        },
+        {
+          "id": "prior",
+          "score": 0.540683973946598
+        },
+        {
+          "id": "next",
+          "score": 0.43033977156059716
+        }
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "id": "B1",
+      "note": "Use the preceding business day before a weekend or holiday.",
+      "date": "2026-12-25",
+      "review": {
+        "id": "B1",
+        "profile": "prior",
+        "date": "2026-12-25",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "prior",
+            "score": 0.7164817278590133
+          },
+          {
+            "id": "next",
+            "score": 0.5950192802186633
+          },
+          {
+            "id": "month",
+            "score": 0.35768102022611914
+          }
+        ]
+      },
+      "rule": "preceding",
+      "output": {
+        "date": "2026-12-24",
+        "shiftDays": -1,
+        "witness": [
+          {
+            "date": "2026-12-25",
+            "closed": true,
+            "direction": -1
+          },
+          {
+            "date": "2026-12-24",
+            "closed": false,
+            "direction": -1
+          }
+        ]
+      },
+      "baseline": {
+        "date": "2026-12-28",
+        "shiftDays": 3,
+        "witness": [
+          {
+            "date": "2026-12-25",
+            "closed": true,
+            "direction": 1
+          },
+          {
+            "date": "2026-12-26",
+            "closed": true,
+            "direction": 1
+          },
+          {
+            "date": "2026-12-27",
+            "closed": true,
+            "direction": 1
+          },
+          {
+            "date": "2026-12-28",
+            "closed": false,
+            "direction": 1
+          }
+        ]
+      },
+      "baselineError": null
+    },
+    {
+      "id": "B2",
+      "note": "Move payment later to the following business day after the holiday.",
+      "date": "2026-12-31",
+      "review": {
+        "id": "B2",
+        "profile": "next",
+        "date": "2026-12-31",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "next",
+            "score": 0.5346985623774972
+          },
+          {
+            "id": "prior",
+            "score": 0.44875080493624264
+          },
+          {
+            "id": "month",
+            "score": 0.3234498534852641
+          }
+        ]
+      },
+      "rule": "following",
+      "output": {
+        "date": "2027-01-01",
+        "shiftDays": 1,
+        "witness": [
+          {
+            "date": "2026-12-31",
+            "closed": true,
+            "direction": 1
+          },
+          {
+            "date": "2027-01-01",
+            "closed": false,
+            "direction": 1
+          }
+        ]
+      },
+      "baseline": {
+        "date": "2027-01-01",
+        "shiftDays": 1,
+        "witness": [
+          {
+            "date": "2026-12-31",
+            "closed": true,
+            "direction": 1
+          },
+          {
+            "date": "2027-01-01",
+            "closed": false,
+            "direction": 1
+          }
+        ]
+      },
+      "baselineError": null
+    },
+    {
+      "id": "B3",
+      "note": "Modified following date adjustment, fall back before month-end if rolling forward crosses months.",
+      "date": "2026-12-31",
+      "review": {
+        "id": "B3",
+        "profile": "month",
+        "date": "2026-12-31",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "month",
+            "score": 0.7975694610980167
+          },
+          {
+            "id": "prior",
+            "score": 0.540683973946598
+          },
+          {
+            "id": "next",
+            "score": 0.43033977156059716
+          }
+        ]
+      },
+      "rule": "modified-following",
+      "output": {
+        "date": "2026-12-30",
+        "shiftDays": -1,
+        "witness": [
+          {
+            "date": "2026-12-31",
+            "closed": true,
+            "direction": 1
+          },
+          {
+            "date": "2027-01-01",
+            "closed": false,
+            "direction": 1
+          },
+          {
+            "date": "2026-12-31",
+            "closed": true,
+            "direction": -1
+          },
+          {
+            "date": "2026-12-30",
+            "closed": false,
+            "direction": -1
+          }
+        ]
+      },
+      "baseline": {
+        "date": "2027-01-01",
+        "shiftDays": 1,
+        "witness": [
+          {
+            "date": "2026-12-31",
+            "closed": true,
+            "direction": 1
+          },
+          {
+            "date": "2027-01-01",
+            "closed": false,
+            "direction": 1
+          }
+        ]
+      },
+      "baselineError": null
+    }
+  ],
+  "metrics": {
+    "baselineBlocked": 0,
+    "requests": 3,
+    "approved": 3,
+    "held": 0,
+    "moved": 3,
+    "baselineDifferences": 2
+  }
+}

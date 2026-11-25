@@ -2353,3 +2353,10 @@ Public release verified: Pages commit `30be10ef6699d1049f5ef5b7bcf7ab36cab67212`
 ## Quantile Dock — 20261125-23
 
 Local MiniLM reporting-contract retrieval for raw measurement handoffs. Review units, type-7 versus observed-rank percentiles and upper-limit goals; export complete JSON/CSV/Markdown plus approved worksheets with sorted rank witnesses. Six synthetic contract links and 300 independent random arithmetic cases passed; nearest-match inference cannot reject irrelevant notes or verify units. Reuses the preserved immutable worker/runtime in `20261115-6` and WASM in `20261107-2`. See [workflow](20261125-23/README.md) and [validation](20261125-23/VALIDATION.md).
+
+
+## Carryfield Desk — 20261125-24
+
+Local MiniLM row-role inference assists sectioned-table cleanup. Review headings, details and reset barriers; expose global-fill category leaks, retain exact group-source witnesses and export tidy CSV plus complete JSON/CSV/Markdown without uploads. Real inference matched 12/13 synthetic roles, while harder wording matched only 4/8 desired reviews; mandatory human correction/holds are essential. Shared worker/factory in `20261115-6` and WASM in `20261107-2` must remain published. Offline scope is fresh-worker inference in an already-open warmed page only. See [workflow/privacy](20261125-24/README.md) and [observed validation](20261125-24/VALIDATION.md). No digest sent.
+
+Public release verified: matching built Pages commit `ee87baa16fc34ea607e43797894f5e94eda5b82e`, successful workflow `45641858488`, seven matching public assets, full real-AI reviewed/export/maximum-batch/offline/privacy suite, **804** independent public artifact assertions and all **877** gallery cards. Combined site **814,002,142 bytes**, unchanged guard/sharing rules. No digest sent; unrelated drafts preserved/excluded.

@@ -1,0 +1,257 @@
+{
+  "version": 1,
+  "originalInput": {
+    "name": "Facilities receipts",
+    "title": "Synthetic facilities cash application",
+    "accounts": [
+      {
+        "id": "A",
+        "text": "Customer account for garden landscaping, lawn mowing and hedge trimming."
+      },
+      {
+        "id": "B",
+        "text": "Customer account for office computer repair, laptop maintenance and IT equipment service."
+      },
+      {
+        "id": "C",
+        "text": "Customer account for window washing and exterior glass cleaning."
+      }
+    ],
+    "invoices": [
+      {
+        "id": "I1",
+        "account": "A",
+        "due": "2026-10-02",
+        "cents": 2500
+      },
+      {
+        "id": "I2",
+        "account": "A",
+        "due": "2026-10-01",
+        "cents": 3500
+      },
+      {
+        "id": "I3",
+        "account": "B",
+        "due": "2026-10-03",
+        "cents": 7000
+      },
+      {
+        "id": "I4",
+        "account": "C",
+        "due": "2026-10-04",
+        "cents": 9000
+      }
+    ],
+    "payments": [
+      {
+        "id": "P1",
+        "text": "Payment for mowing the lawn and trimming garden hedges.",
+        "cents": 4000
+      },
+      {
+        "id": "P2",
+        "text": "Final payment for the landscaping work.",
+        "cents": 3000
+      },
+      {
+        "id": "P3",
+        "text": "Payment for repairing the office laptops.",
+        "cents": 5000
+      },
+      {
+        "id": "P4",
+        "text": "Payment for washing the building windows.",
+        "cents": 9000
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "P1",
+      "text": "Payment for mowing the lawn and trimming garden hedges.",
+      "cents": 4000,
+      "selected": "A",
+      "proposed": "A",
+      "ranking": [
+        {
+          "id": "A",
+          "score": 0.6993459126400382
+        },
+        {
+          "id": "C",
+          "score": 0.35226264651805733
+        },
+        {
+          "id": "B",
+          "score": 0.26782721826584255
+        }
+      ],
+      "baseline": "",
+      "decision": "approve",
+      "note": "",
+      "allocated": 4000,
+      "credit": 0,
+      "held": 0
+    },
+    {
+      "id": "P2",
+      "text": "Final payment for the landscaping work.",
+      "cents": 3000,
+      "selected": "A",
+      "proposed": "A",
+      "ranking": [
+        {
+          "id": "A",
+          "score": 0.5414706398983297
+        },
+        {
+          "id": "C",
+          "score": 0.2714141216603123
+        },
+        {
+          "id": "B",
+          "score": 0.2446323216946125
+        }
+      ],
+      "baseline": "",
+      "decision": "approve",
+      "note": "",
+      "allocated": 2000,
+      "credit": 1000,
+      "held": 0
+    },
+    {
+      "id": "P3",
+      "text": "Payment for repairing the office laptops.",
+      "cents": 5000,
+      "selected": "B",
+      "proposed": "B",
+      "ranking": [
+        {
+          "id": "B",
+          "score": 0.6455193817304715
+        },
+        {
+          "id": "C",
+          "score": 0.33472076454578736
+        },
+        {
+          "id": "A",
+          "score": 0.26946999496888485
+        }
+      ],
+      "baseline": "",
+      "decision": "approve",
+      "note": "",
+      "allocated": 5000,
+      "credit": 0,
+      "held": 0
+    },
+    {
+      "id": "P4",
+      "text": "Payment for washing the building windows.",
+      "cents": 9000,
+      "selected": "C",
+      "proposed": "C",
+      "ranking": [
+        {
+          "id": "C",
+          "score": 0.6310513198115183
+        },
+        {
+          "id": "A",
+          "score": 0.29454281592145487
+        },
+        {
+          "id": "B",
+          "score": 0.2734535688445009
+        }
+      ],
+      "baseline": "",
+      "decision": "approve",
+      "note": "",
+      "allocated": 9000,
+      "credit": 0,
+      "held": 0
+    }
+  ],
+  "invoices": [
+    {
+      "id": "I1",
+      "account": "A",
+      "due": "2026-10-02",
+      "cents": 2500,
+      "remaining": 0,
+      "allocated": 2500
+    },
+    {
+      "id": "I2",
+      "account": "A",
+      "due": "2026-10-01",
+      "cents": 3500,
+      "remaining": 0,
+      "allocated": 3500
+    },
+    {
+      "id": "I3",
+      "account": "B",
+      "due": "2026-10-03",
+      "cents": 7000,
+      "remaining": 2000,
+      "allocated": 5000
+    },
+    {
+      "id": "I4",
+      "account": "C",
+      "due": "2026-10-04",
+      "cents": 9000,
+      "remaining": 0,
+      "allocated": 9000
+    }
+  ],
+  "allocations": [
+    {
+      "payment": "P1",
+      "invoice": "I2",
+      "account": "A",
+      "cents": 3500
+    },
+    {
+      "payment": "P1",
+      "invoice": "I1",
+      "account": "A",
+      "cents": 500
+    },
+    {
+      "payment": "P2",
+      "invoice": "I1",
+      "account": "A",
+      "cents": 2000
+    },
+    {
+      "payment": "P3",
+      "invoice": "I3",
+      "account": "B",
+      "cents": 5000
+    },
+    {
+      "payment": "P4",
+      "invoice": "I4",
+      "account": "C",
+      "cents": 9000
+    }
+  ],
+  "metrics": {
+    "total": 4,
+    "approved": 4,
+    "held": 0,
+    "totalCents": 21000,
+    "allocatedCents": 20000,
+    "creditCents": 1000,
+    "heldCents": 0,
+    "outstandingCents": 2000,
+    "aiReviewAgreement": 4,
+    "exactReviewAgreement": 0
+  }
+}

@@ -1,0 +1,5 @@
+import assert from 'node:assert/strict';import {examples,parse,plan,suggest,texts} from './src/core.js';
+let cases=0;
+for(let cash=1;cash<100;cash++)for(let a=1;a<60;a+=7)for(let b=1;b<50;b+=9){const d=structuredClone(examples[0]);d.invoices=[{id:'late',account:'A',due:'2026-10-02',cents:a},{id:'early',account:'A',due:'2026-10-01',cents:b}];d.payments=[{id:'p',text:'test',cents:cash}];parse(JSON.stringify(d));const r=plan(d,[{...d.payments[0],selected:'A',proposed:'A',decision:'approve'}]);assert.equal(r.metrics.allocatedCents,Math.min(cash,a+b));assert.equal(r.metrics.creditCents,Math.max(0,cash-a-b));assert.equal(r.invoices[1].allocated,Math.min(cash,b));assert.equal(r.metrics.outstandingCents,Math.max(0,a+b-cash));cases++;}
+const d=examples[0];assert.throws(()=>suggest(d,[[NaN]]),/Malformed/);assert.throws(()=>plan(d,d.payments),/Review every/);let rows=d.payments.map(r=>({...r,selected:'A',decision:'hold'}));assert.equal(plan(d,rows).metrics.heldCents,22000);rows[0].cents=1;assert.throws(()=>plan(d,rows),/mismatch/);
+console.log('PASS',cases,'independent closed-form allocation comparisons; date ordering, caps, conservation, hold and schema guards.');

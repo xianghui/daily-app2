@@ -1,0 +1,346 @@
+{
+  "schema": "triangle-harbor/v1",
+  "original": {
+    "title": "Synthetic rising new-payment triangle",
+    "currency": "USD",
+    "profiles": [
+      {
+        "id": "period",
+        "rule": "incremental",
+        "description": "Incremental claim payments: each cell contains only new repair costs paid during that development period. Add successive payments to obtain cumulative totals."
+      },
+      {
+        "id": "to-date",
+        "rule": "cumulative",
+        "description": "Cumulative claim payments: each cell is total repair costs paid to date since the warranty cohort began. Running totals already include all prior development periods."
+      }
+    ],
+    "requests": [
+      {
+        "id": "A1",
+        "note": "Incremental payments for warranty repairs. Each column records only new claim costs paid in that period, excluding previous periods.",
+        "cohorts": [
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "cells": [
+          [
+            "100",
+            "150",
+            "180"
+          ],
+          [
+            "120",
+            "180"
+          ],
+          [
+            "150"
+          ]
+        ]
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "A1",
+      "profile": "period",
+      "cells": "[[\"100\",\"150\",\"180\"],[\"120\",\"180\"],[\"150\"]]",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "period",
+          "score": 0.7555723728829808
+        },
+        {
+          "id": "to-date",
+          "score": 0.6905270561099467
+        }
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "id": "A1",
+      "note": "Incremental payments for warranty repairs. Each column records only new claim costs paid in that period, excluding previous periods.",
+      "cohorts": [
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "cells": [
+        [
+          "100",
+          "150",
+          "180"
+        ],
+        [
+          "120",
+          "180"
+        ],
+        [
+          "150"
+        ]
+      ],
+      "review": {
+        "id": "A1",
+        "profile": "period",
+        "cells": "[[\"100\",\"150\",\"180\"],[\"120\",\"180\"],[\"150\"]]",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "period",
+            "score": 0.7555723728829808
+          },
+          {
+            "id": "to-date",
+            "score": 0.6905270561099467
+          }
+        ]
+      },
+      "reviewedCells": [
+        [
+          "100",
+          "150",
+          "180"
+        ],
+        [
+          "120",
+          "180"
+        ],
+        [
+          "150"
+        ]
+      ],
+      "rule": "incremental",
+      "status": "ready",
+      "calculation": {
+        "cumulative": [
+          [
+            "100",
+            "250",
+            "430"
+          ],
+          [
+            "120",
+            "300"
+          ],
+          [
+            "150"
+          ]
+        ],
+        "factors": [
+          {
+            "from": 1,
+            "to": 2,
+            "numerator": "550",
+            "denominator": "220",
+            "factor": {
+              "n": "5",
+              "d": "2"
+            },
+            "cohorts": [
+              0,
+              1
+            ]
+          },
+          {
+            "from": 2,
+            "to": 3,
+            "numerator": "430",
+            "denominator": "250",
+            "factor": {
+              "n": "43",
+              "d": "25"
+            },
+            "cohorts": [
+              0
+            ]
+          }
+        ],
+        "rows": [
+          {
+            "cohortIndex": 0,
+            "observedPeriods": 3,
+            "latest": {
+              "n": "430",
+              "d": "1"
+            },
+            "ultimate": {
+              "n": "430",
+              "d": "1"
+            },
+            "unpaid": {
+              "n": "0",
+              "d": "1"
+            }
+          },
+          {
+            "cohortIndex": 1,
+            "observedPeriods": 2,
+            "latest": {
+              "n": "300",
+              "d": "1"
+            },
+            "ultimate": {
+              "n": "516",
+              "d": "1"
+            },
+            "unpaid": {
+              "n": "216",
+              "d": "1"
+            }
+          },
+          {
+            "cohortIndex": 2,
+            "observedPeriods": 1,
+            "latest": {
+              "n": "150",
+              "d": "1"
+            },
+            "ultimate": {
+              "n": "645",
+              "d": "1"
+            },
+            "unpaid": {
+              "n": "495",
+              "d": "1"
+            }
+          }
+        ],
+        "latest": {
+          "n": "880",
+          "d": "1"
+        },
+        "ultimate": {
+          "n": "1591",
+          "d": "1"
+        },
+        "unpaid": {
+          "n": "711",
+          "d": "1"
+        },
+        "reconciled": true
+      },
+      "error": null,
+      "baseline": {
+        "cumulative": [
+          [
+            "100",
+            "150",
+            "180"
+          ],
+          [
+            "120",
+            "180"
+          ],
+          [
+            "150"
+          ]
+        ],
+        "factors": [
+          {
+            "from": 1,
+            "to": 2,
+            "numerator": "330",
+            "denominator": "220",
+            "factor": {
+              "n": "3",
+              "d": "2"
+            },
+            "cohorts": [
+              0,
+              1
+            ]
+          },
+          {
+            "from": 2,
+            "to": 3,
+            "numerator": "180",
+            "denominator": "150",
+            "factor": {
+              "n": "6",
+              "d": "5"
+            },
+            "cohorts": [
+              0
+            ]
+          }
+        ],
+        "rows": [
+          {
+            "cohortIndex": 0,
+            "observedPeriods": 3,
+            "latest": {
+              "n": "180",
+              "d": "1"
+            },
+            "ultimate": {
+              "n": "180",
+              "d": "1"
+            },
+            "unpaid": {
+              "n": "0",
+              "d": "1"
+            }
+          },
+          {
+            "cohortIndex": 1,
+            "observedPeriods": 2,
+            "latest": {
+              "n": "180",
+              "d": "1"
+            },
+            "ultimate": {
+              "n": "216",
+              "d": "1"
+            },
+            "unpaid": {
+              "n": "36",
+              "d": "1"
+            }
+          },
+          {
+            "cohortIndex": 2,
+            "observedPeriods": 1,
+            "latest": {
+              "n": "150",
+              "d": "1"
+            },
+            "ultimate": {
+              "n": "270",
+              "d": "1"
+            },
+            "unpaid": {
+              "n": "120",
+              "d": "1"
+            }
+          }
+        ],
+        "latest": {
+          "n": "510",
+          "d": "1"
+        },
+        "ultimate": {
+          "n": "666",
+          "d": "1"
+        },
+        "unpaid": {
+          "n": "156",
+          "d": "1"
+        },
+        "reconciled": true
+      },
+      "baselineError": null
+    }
+  ],
+  "metrics": {
+    "triangles": 1,
+    "ready": 1,
+    "held": 0,
+    "blocked": 0
+  },
+  "status": "ready"
+}

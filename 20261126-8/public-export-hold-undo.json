@@ -1,0 +1,704 @@
+{
+  "schema": "triangle-harbor/v1",
+  "original": {
+    "title": "Synthetic workshop service-plan review",
+    "currency": "EUR",
+    "profiles": [
+      {
+        "id": "period",
+        "rule": "incremental",
+        "description": "Incremental claim payments: each cell contains only new repair costs paid during that development period. Add successive payments to obtain cumulative totals."
+      },
+      {
+        "id": "to-date",
+        "rule": "cumulative",
+        "description": "Cumulative claim payments: each cell is total repair costs paid to date since the warranty cohort began. Running totals already include all prior development periods."
+      }
+    ],
+    "requests": [
+      {
+        "id": "W1",
+        "note": "Running total of all repair payments since each cohort started. Prior paid amounts are already included in every successive snapshot.",
+        "cohorts": [
+          "Batch 1",
+          "Batch 2",
+          "Batch 3",
+          "Batch 4"
+        ],
+        "cells": [
+          [
+            "8000",
+            "12000",
+            "14400",
+            "15000"
+          ],
+          [
+            "10000",
+            "15000",
+            "18000"
+          ],
+          [
+            "12000",
+            "18000"
+          ],
+          [
+            "14000"
+          ]
+        ]
+      },
+      {
+        "id": "W2",
+        "note": "Separate new repair disbursements for each development age. Columns are period-only amounts and must be accumulated before development analysis.",
+        "cohorts": [
+          "Batch 1",
+          "Batch 2",
+          "Batch 3",
+          "Batch 4"
+        ],
+        "cells": [
+          [
+            "8000",
+            "4000",
+            "2400",
+            "600"
+          ],
+          [
+            "10000",
+            "5000",
+            "3000"
+          ],
+          [
+            "12000",
+            "6000"
+          ],
+          [
+            "14000"
+          ]
+        ]
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "W1",
+      "profile": "to-date",
+      "cells": "[[\"8000\",\"12000\",\"14400\",\"15000\"],[\"10000\",\"15000\",\"18000\"],[\"12000\",\"18000\"],[\"14000\"]]",
+      "decision": "approve",
+      "note": "=SUM(1,2)\nReviewed \"triangle\", <script> & 🧾",
+      "candidates": [
+        {
+          "id": "to-date",
+          "score": 0.7046040620871185
+        },
+        {
+          "id": "period",
+          "score": 0.6624514064192729
+        }
+      ]
+    },
+    {
+      "id": "W2",
+      "profile": "period",
+      "cells": "[[\"8000\",\"4000\",\"2400\",\"600\"],[\"10000\",\"5000\",\"3000\"],[\"12000\",\"6000\"],[\"14000\"]]",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "period",
+          "score": 0.560493310047398
+        },
+        {
+          "id": "to-date",
+          "score": 0.49792692350922685
+        }
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "id": "W1",
+      "note": "Running total of all repair payments since each cohort started. Prior paid amounts are already included in every successive snapshot.",
+      "cohorts": [
+        "Batch 1",
+        "Batch 2",
+        "Batch 3",
+        "Batch 4"
+      ],
+      "cells": [
+        [
+          "8000",
+          "12000",
+          "14400",
+          "15000"
+        ],
+        [
+          "10000",
+          "15000",
+          "18000"
+        ],
+        [
+          "12000",
+          "18000"
+        ],
+        [
+          "14000"
+        ]
+      ],
+      "review": {
+        "id": "W1",
+        "profile": "to-date",
+        "cells": "[[\"8000\",\"12000\",\"14400\",\"15000\"],[\"10000\",\"15000\",\"18000\"],[\"12000\",\"18000\"],[\"14000\"]]",
+        "decision": "approve",
+        "note": "=SUM(1,2)\nReviewed \"triangle\", <script> & 🧾",
+        "candidates": [
+          {
+            "id": "to-date",
+            "score": 0.7046040620871185
+          },
+          {
+            "id": "period",
+            "score": 0.6624514064192729
+          }
+        ]
+      },
+      "reviewedCells": [
+        [
+          "8000",
+          "12000",
+          "14400",
+          "15000"
+        ],
+        [
+          "10000",
+          "15000",
+          "18000"
+        ],
+        [
+          "12000",
+          "18000"
+        ],
+        [
+          "14000"
+        ]
+      ],
+      "rule": "cumulative",
+      "status": "ready",
+      "calculation": {
+        "cumulative": [
+          [
+            "8000",
+            "12000",
+            "14400",
+            "15000"
+          ],
+          [
+            "10000",
+            "15000",
+            "18000"
+          ],
+          [
+            "12000",
+            "18000"
+          ],
+          [
+            "14000"
+          ]
+        ],
+        "factors": [
+          {
+            "from": 1,
+            "to": 2,
+            "numerator": "45000",
+            "denominator": "30000",
+            "factor": {
+              "n": "3",
+              "d": "2"
+            },
+            "cohorts": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "from": 2,
+            "to": 3,
+            "numerator": "32400",
+            "denominator": "27000",
+            "factor": {
+              "n": "6",
+              "d": "5"
+            },
+            "cohorts": [
+              0,
+              1
+            ]
+          },
+          {
+            "from": 3,
+            "to": 4,
+            "numerator": "15000",
+            "denominator": "14400",
+            "factor": {
+              "n": "25",
+              "d": "24"
+            },
+            "cohorts": [
+              0
+            ]
+          }
+        ],
+        "rows": [
+          {
+            "cohortIndex": 0,
+            "observedPeriods": 4,
+            "latest": {
+              "n": "15000",
+              "d": "1"
+            },
+            "ultimate": {
+              "n": "15000",
+              "d": "1"
+            },
+            "unpaid": {
+              "n": "0",
+              "d": "1"
+            }
+          },
+          {
+            "cohortIndex": 1,
+            "observedPeriods": 3,
+            "latest": {
+              "n": "18000",
+              "d": "1"
+            },
+            "ultimate": {
+              "n": "18750",
+              "d": "1"
+            },
+            "unpaid": {
+              "n": "750",
+              "d": "1"
+            }
+          },
+          {
+            "cohortIndex": 2,
+            "observedPeriods": 2,
+            "latest": {
+              "n": "18000",
+              "d": "1"
+            },
+            "ultimate": {
+              "n": "22500",
+              "d": "1"
+            },
+            "unpaid": {
+              "n": "4500",
+              "d": "1"
+            }
+          },
+          {
+            "cohortIndex": 3,
+            "observedPeriods": 1,
+            "latest": {
+              "n": "14000",
+              "d": "1"
+            },
+            "ultimate": {
+              "n": "26250",
+              "d": "1"
+            },
+            "unpaid": {
+              "n": "12250",
+              "d": "1"
+            }
+          }
+        ],
+        "latest": {
+          "n": "65000",
+          "d": "1"
+        },
+        "ultimate": {
+          "n": "82500",
+          "d": "1"
+        },
+        "unpaid": {
+          "n": "17500",
+          "d": "1"
+        },
+        "reconciled": true
+      },
+      "error": null,
+      "baseline": {
+        "cumulative": [
+          [
+            "8000",
+            "12000",
+            "14400",
+            "15000"
+          ],
+          [
+            "10000",
+            "15000",
+            "18000"
+          ],
+          [
+            "12000",
+            "18000"
+          ],
+          [
+            "14000"
+          ]
+        ],
+        "factors": [
+          {
+            "from": 1,
+            "to": 2,
+            "numerator": "45000",
+            "denominator": "30000",
+            "factor": {
+              "n": "3",
+              "d": "2"
+            },
+            "cohorts": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "from": 2,
+            "to": 3,
+            "numerator": "32400",
+            "denominator": "27000",
+            "factor": {
+              "n": "6",
+              "d": "5"
+            },
+            "cohorts": [
+              0,
+              1
+            ]
+          },
+          {
+            "from": 3,
+            "to": 4,
+            "numerator": "15000",
+            "denominator": "14400",
+            "factor": {
+              "n": "25",
+              "d": "24"
+            },
+            "cohorts": [
+              0
+            ]
+          }
+        ],
+        "rows": [
+          {
+            "cohortIndex": 0,
+            "observedPeriods": 4,
+            "latest": {
+              "n": "15000",
+              "d": "1"
+            },
+            "ultimate": {
+              "n": "15000",
+              "d": "1"
+            },
+            "unpaid": {
+              "n": "0",
+              "d": "1"
+            }
+          },
+          {
+            "cohortIndex": 1,
+            "observedPeriods": 3,
+            "latest": {
+              "n": "18000",
+              "d": "1"
+            },
+            "ultimate": {
+              "n": "18750",
+              "d": "1"
+            },
+            "unpaid": {
+              "n": "750",
+              "d": "1"
+            }
+          },
+          {
+            "cohortIndex": 2,
+            "observedPeriods": 2,
+            "latest": {
+              "n": "18000",
+              "d": "1"
+            },
+            "ultimate": {
+              "n": "22500",
+              "d": "1"
+            },
+            "unpaid": {
+              "n": "4500",
+              "d": "1"
+            }
+          },
+          {
+            "cohortIndex": 3,
+            "observedPeriods": 1,
+            "latest": {
+              "n": "14000",
+              "d": "1"
+            },
+            "ultimate": {
+              "n": "26250",
+              "d": "1"
+            },
+            "unpaid": {
+              "n": "12250",
+              "d": "1"
+            }
+          }
+        ],
+        "latest": {
+          "n": "65000",
+          "d": "1"
+        },
+        "ultimate": {
+          "n": "82500",
+          "d": "1"
+        },
+        "unpaid": {
+          "n": "17500",
+          "d": "1"
+        },
+        "reconciled": true
+      },
+      "baselineError": null
+    },
+    {
+      "id": "W2",
+      "note": "Separate new repair disbursements for each development age. Columns are period-only amounts and must be accumulated before development analysis.",
+      "cohorts": [
+        "Batch 1",
+        "Batch 2",
+        "Batch 3",
+        "Batch 4"
+      ],
+      "cells": [
+        [
+          "8000",
+          "4000",
+          "2400",
+          "600"
+        ],
+        [
+          "10000",
+          "5000",
+          "3000"
+        ],
+        [
+          "12000",
+          "6000"
+        ],
+        [
+          "14000"
+        ]
+      ],
+      "review": {
+        "id": "W2",
+        "profile": "period",
+        "cells": "[[\"8000\",\"4000\",\"2400\",\"600\"],[\"10000\",\"5000\",\"3000\"],[\"12000\",\"6000\"],[\"14000\"]]",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "period",
+            "score": 0.560493310047398
+          },
+          {
+            "id": "to-date",
+            "score": 0.49792692350922685
+          }
+        ]
+      },
+      "reviewedCells": [
+        [
+          "8000",
+          "4000",
+          "2400",
+          "600"
+        ],
+        [
+          "10000",
+          "5000",
+          "3000"
+        ],
+        [
+          "12000",
+          "6000"
+        ],
+        [
+          "14000"
+        ]
+      ],
+      "rule": "incremental",
+      "status": "ready",
+      "calculation": {
+        "cumulative": [
+          [
+            "8000",
+            "12000",
+            "14400",
+            "15000"
+          ],
+          [
+            "10000",
+            "15000",
+            "18000"
+          ],
+          [
+            "12000",
+            "18000"
+          ],
+          [
+            "14000"
+          ]
+        ],
+        "factors": [
+          {
+            "from": 1,
+            "to": 2,
+            "numerator": "45000",
+            "denominator": "30000",
+            "factor": {
+              "n": "3",
+              "d": "2"
+            },
+            "cohorts": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "from": 2,
+            "to": 3,
+            "numerator": "32400",
+            "denominator": "27000",
+            "factor": {
+              "n": "6",
+              "d": "5"
+            },
+            "cohorts": [
+              0,
+              1
+            ]
+          },
+          {
+            "from": 3,
+            "to": 4,
+            "numerator": "15000",
+            "denominator": "14400",
+            "factor": {
+              "n": "25",
+              "d": "24"
+            },
+            "cohorts": [
+              0
+            ]
+          }
+        ],
+        "rows": [
+          {
+            "cohortIndex": 0,
+            "observedPeriods": 4,
+            "latest": {
+              "n": "15000",
+              "d": "1"
+            },
+            "ultimate": {
+              "n": "15000",
+              "d": "1"
+            },
+            "unpaid": {
+              "n": "0",
+              "d": "1"
+            }
+          },
+          {
+            "cohortIndex": 1,
+            "observedPeriods": 3,
+            "latest": {
+              "n": "18000",
+              "d": "1"
+            },
+            "ultimate": {
+              "n": "18750",
+              "d": "1"
+            },
+            "unpaid": {
+              "n": "750",
+              "d": "1"
+            }
+          },
+          {
+            "cohortIndex": 2,
+            "observedPeriods": 2,
+            "latest": {
+              "n": "18000",
+              "d": "1"
+            },
+            "ultimate": {
+              "n": "22500",
+              "d": "1"
+            },
+            "unpaid": {
+              "n": "4500",
+              "d": "1"
+            }
+          },
+          {
+            "cohortIndex": 3,
+            "observedPeriods": 1,
+            "latest": {
+              "n": "14000",
+              "d": "1"
+            },
+            "ultimate": {
+              "n": "26250",
+              "d": "1"
+            },
+            "unpaid": {
+              "n": "12250",
+              "d": "1"
+            }
+          }
+        ],
+        "latest": {
+          "n": "65000",
+          "d": "1"
+        },
+        "ultimate": {
+          "n": "82500",
+          "d": "1"
+        },
+        "unpaid": {
+          "n": "17500",
+          "d": "1"
+        },
+        "reconciled": true
+      },
+      "error": null,
+      "baseline": null,
+      "baselineError": "Cumulative costs must not decrease; recoveries/negative development are outside this worksheet"
+    }
+  ],
+  "metrics": {
+    "triangles": 2,
+    "ready": 2,
+    "held": 0,
+    "blocked": 0
+  },
+  "status": "ready"
+}

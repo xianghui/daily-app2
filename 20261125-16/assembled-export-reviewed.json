@@ -1,0 +1,441 @@
+{
+  "schema": "multiplicity-desk/v1",
+  "original": {
+    "title": "Synthetic print queue handoff",
+    "profiles": [
+      {
+        "id": "combine-all",
+        "description": "Combine both exports into one list, keeping every repeated occurrence from both sources. Append all rows; do not deduplicate.",
+        "operation": "combine"
+      },
+      {
+        "id": "shared-copies",
+        "description": "Keep only shared occurrences found in both exports. Pair matching copies one-to-one; return the smaller count of each value.",
+        "operation": "overlap"
+      },
+      {
+        "id": "left-remainder",
+        "description": "Subtract the right export from the left export, cancelling one left occurrence for each matching right copy. Keep leftover left copies.",
+        "operation": "subtract"
+      }
+    ],
+    "requests": [
+      {
+        "id": "merged-queue",
+        "context": "Append all rows from both print queues into one list, preserving every repeated occurrence from both sources.",
+        "left": [
+          {
+            "id": "r1",
+            "value": "Map"
+          },
+          {
+            "id": "r2",
+            "value": "Map"
+          },
+          {
+            "id": "r3",
+            "value": "Guide"
+          }
+        ],
+        "right": [
+          {
+            "id": "r1",
+            "value": "Map"
+          },
+          {
+            "id": "r2",
+            "value": "Guide"
+          },
+          {
+            "id": "r3",
+            "value": "Guide"
+          }
+        ]
+      },
+      {
+        "id": "not-printed",
+        "context": "Subtract printed copies from requested copies. Each printed copy cancels one requested copy; keep leftover requests only.",
+        "left": [
+          {
+            "id": "r1",
+            "value": "Map"
+          },
+          {
+            "id": "r2",
+            "value": "Map"
+          },
+          {
+            "id": "r3",
+            "value": "Guide"
+          },
+          {
+            "id": "r4",
+            "value": "Guide"
+          },
+          {
+            "id": "r5",
+            "value": "Guide"
+          }
+        ],
+        "right": [
+          {
+            "id": "r1",
+            "value": "Map"
+          },
+          {
+            "id": "r2",
+            "value": "Guide"
+          }
+        ]
+      },
+      {
+        "id": "agreed-copies",
+        "context": "Return only shared copies present in both export lists, matching one occurrence against one occurrence and taking the smaller count.",
+        "left": [
+          {
+            "id": "r1",
+            "value": "Map"
+          },
+          {
+            "id": "r2",
+            "value": "Map"
+          },
+          {
+            "id": "r3",
+            "value": "Guide"
+          }
+        ],
+        "right": [
+          {
+            "id": "r1",
+            "value": "Map"
+          },
+          {
+            "id": "r2",
+            "value": "Guide"
+          },
+          {
+            "id": "r3",
+            "value": "Guide"
+          }
+        ]
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "merged-queue",
+      "profile": "combine-all",
+      "decision": "approve",
+      "note": "=SUM(1,2)\nReviewed \"copies\", <script> & 🍞",
+      "candidates": [
+        {
+          "id": "combine-all",
+          "score": 0.6712934388187963
+        },
+        {
+          "id": "left-remainder",
+          "score": 0.4367157226728326
+        },
+        {
+          "id": "shared-copies",
+          "score": 0.4097467741423403
+        }
+      ]
+    },
+    {
+      "id": "not-printed",
+      "profile": "left-remainder",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "left-remainder",
+          "score": 0.5560778790690092
+        },
+        {
+          "id": "shared-copies",
+          "score": 0.3902515412429044
+        },
+        {
+          "id": "combine-all",
+          "score": 0.2729989531228651
+        }
+      ]
+    },
+    {
+      "id": "agreed-copies",
+      "profile": "shared-copies",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "shared-copies",
+          "score": 0.8433908092616345
+        },
+        {
+          "id": "combine-all",
+          "score": 0.7093595191825798
+        },
+        {
+          "id": "left-remainder",
+          "score": 0.6502283095639524
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "merged-queue",
+      "context": "Append all rows from both print queues into one list, preserving every repeated occurrence from both sources.",
+      "decision": "approve",
+      "note": "=SUM(1,2)\nReviewed \"copies\", <script> & 🍞",
+      "profile": "combine-all",
+      "operation": "combine",
+      "left": [
+        {
+          "id": "r1",
+          "value": "Map"
+        },
+        {
+          "id": "r2",
+          "value": "Map"
+        },
+        {
+          "id": "r3",
+          "value": "Guide"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "value": "Map"
+        },
+        {
+          "id": "r2",
+          "value": "Guide"
+        },
+        {
+          "id": "r3",
+          "value": "Guide"
+        }
+      ],
+      "output": [
+        {
+          "id": "r1",
+          "value": "Map",
+          "side": "left",
+          "sourceIndex": 0
+        },
+        {
+          "id": "r2",
+          "value": "Map",
+          "side": "left",
+          "sourceIndex": 1
+        },
+        {
+          "id": "r3",
+          "value": "Guide",
+          "side": "left",
+          "sourceIndex": 2
+        },
+        {
+          "id": "r1",
+          "value": "Map",
+          "side": "right",
+          "sourceIndex": 0
+        },
+        {
+          "id": "r2",
+          "value": "Guide",
+          "side": "right",
+          "sourceIndex": 1
+        },
+        {
+          "id": "r3",
+          "value": "Guide",
+          "side": "right",
+          "sourceIndex": 2
+        }
+      ],
+      "baseline": [
+        "Map",
+        "Guide"
+      ],
+      "counts": [
+        {
+          "value": "Map",
+          "left": 2,
+          "right": 1,
+          "output": 3,
+          "baseline": 1
+        },
+        {
+          "value": "Guide",
+          "left": 1,
+          "right": 2,
+          "output": 3,
+          "baseline": 1
+        }
+      ],
+      "difference": 4
+    },
+    {
+      "id": "not-printed",
+      "context": "Subtract printed copies from requested copies. Each printed copy cancels one requested copy; keep leftover requests only.",
+      "decision": "approve",
+      "note": "",
+      "profile": "left-remainder",
+      "operation": "subtract",
+      "left": [
+        {
+          "id": "r1",
+          "value": "Map"
+        },
+        {
+          "id": "r2",
+          "value": "Map"
+        },
+        {
+          "id": "r3",
+          "value": "Guide"
+        },
+        {
+          "id": "r4",
+          "value": "Guide"
+        },
+        {
+          "id": "r5",
+          "value": "Guide"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "value": "Map"
+        },
+        {
+          "id": "r2",
+          "value": "Guide"
+        }
+      ],
+      "output": [
+        {
+          "id": "r2",
+          "value": "Map",
+          "side": "left",
+          "sourceIndex": 1
+        },
+        {
+          "id": "r4",
+          "value": "Guide",
+          "side": "left",
+          "sourceIndex": 3
+        },
+        {
+          "id": "r5",
+          "value": "Guide",
+          "side": "left",
+          "sourceIndex": 4
+        }
+      ],
+      "baseline": [],
+      "counts": [
+        {
+          "value": "Map",
+          "left": 2,
+          "right": 1,
+          "output": 1,
+          "baseline": 0
+        },
+        {
+          "value": "Guide",
+          "left": 3,
+          "right": 1,
+          "output": 2,
+          "baseline": 0
+        }
+      ],
+      "difference": 3
+    },
+    {
+      "id": "agreed-copies",
+      "context": "Return only shared copies present in both export lists, matching one occurrence against one occurrence and taking the smaller count.",
+      "decision": "approve",
+      "note": "",
+      "profile": "shared-copies",
+      "operation": "overlap",
+      "left": [
+        {
+          "id": "r1",
+          "value": "Map"
+        },
+        {
+          "id": "r2",
+          "value": "Map"
+        },
+        {
+          "id": "r3",
+          "value": "Guide"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "value": "Map"
+        },
+        {
+          "id": "r2",
+          "value": "Guide"
+        },
+        {
+          "id": "r3",
+          "value": "Guide"
+        }
+      ],
+      "output": [
+        {
+          "id": "r1",
+          "value": "Map",
+          "side": "left",
+          "sourceIndex": 0
+        },
+        {
+          "id": "r3",
+          "value": "Guide",
+          "side": "left",
+          "sourceIndex": 2
+        }
+      ],
+      "baseline": [
+        "Map",
+        "Guide"
+      ],
+      "counts": [
+        {
+          "value": "Map",
+          "left": 2,
+          "right": 1,
+          "output": 1,
+          "baseline": 1
+        },
+        {
+          "value": "Guide",
+          "left": 1,
+          "right": 2,
+          "output": 1,
+          "baseline": 1
+        }
+      ],
+      "difference": 0
+    }
+  ],
+  "metrics": {
+    "approved": 3,
+    "held": 0,
+    "records": 19,
+    "outputRows": 11,
+    "baselineRows": 4,
+    "lostByDistinct": 7
+  }
+}

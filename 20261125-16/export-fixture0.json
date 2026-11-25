@@ -1,0 +1,452 @@
+{
+  "schema": "multiplicity-desk/v1",
+  "original": {
+    "title": "Synthetic dispatch worksheet",
+    "profiles": [
+      {
+        "id": "combine-all",
+        "description": "Combine both exports into one list, keeping every repeated occurrence from both sources. Append all rows; do not deduplicate.",
+        "operation": "combine"
+      },
+      {
+        "id": "shared-copies",
+        "description": "Keep only shared occurrences found in both exports. Pair matching copies one-to-one; return the smaller count of each value.",
+        "operation": "overlap"
+      },
+      {
+        "id": "left-remainder",
+        "description": "Subtract the right export from the left export, cancelling one left occurrence for each matching right copy. Keep leftover left copies.",
+        "operation": "subtract"
+      }
+    ],
+    "requests": [
+      {
+        "id": "unfulfilled",
+        "context": "Cancel one ordered copy for each dispatched copy. Keep the remaining unfulfilled items from the order export.",
+        "left": [
+          {
+            "id": "r1",
+            "value": "Blue mug"
+          },
+          {
+            "id": "r2",
+            "value": "Blue mug"
+          },
+          {
+            "id": "r3",
+            "value": "Blue mug"
+          },
+          {
+            "id": "r4",
+            "value": "Tea tin"
+          },
+          {
+            "id": "r5",
+            "value": "Spoon"
+          }
+        ],
+        "right": [
+          {
+            "id": "r1",
+            "value": "Blue mug"
+          },
+          {
+            "id": "r2",
+            "value": "Tea tin"
+          },
+          {
+            "id": "r3",
+            "value": "Tea tin"
+          }
+        ]
+      },
+      {
+        "id": "agreed",
+        "context": "Find shared occurrences between the two counts, pairing matching copies one-to-one and keeping the smaller quantity.",
+        "left": [
+          {
+            "id": "r1",
+            "value": "Blue mug"
+          },
+          {
+            "id": "r2",
+            "value": "Blue mug"
+          },
+          {
+            "id": "r3",
+            "value": "Tea tin"
+          },
+          {
+            "id": "r4",
+            "value": "Tea tin"
+          }
+        ],
+        "right": [
+          {
+            "id": "r1",
+            "value": "Blue mug"
+          },
+          {
+            "id": "r2",
+            "value": "Blue mug"
+          },
+          {
+            "id": "r3",
+            "value": "Blue mug"
+          },
+          {
+            "id": "r4",
+            "value": "Tea tin"
+          }
+        ]
+      },
+      {
+        "id": "all-scans",
+        "context": "Append all scans from both shifts into a single list. Keep every repeated occurrence; do not deduplicate.",
+        "left": [
+          {
+            "id": "r1",
+            "value": "Spoon"
+          },
+          {
+            "id": "r2",
+            "value": "Spoon"
+          }
+        ],
+        "right": [
+          {
+            "id": "r1",
+            "value": "Spoon"
+          },
+          {
+            "id": "r2",
+            "value": "Tea tin"
+          }
+        ]
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "unfulfilled",
+      "profile": "left-remainder",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "left-remainder",
+          "score": 0.6903185188455676
+        },
+        {
+          "id": "combine-all",
+          "score": 0.4828541984468837
+        },
+        {
+          "id": "shared-copies",
+          "score": 0.47428910884490094
+        }
+      ]
+    },
+    {
+      "id": "agreed",
+      "profile": "shared-copies",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "shared-copies",
+          "score": 0.6048129819138558
+        },
+        {
+          "id": "left-remainder",
+          "score": 0.3637560958724076
+        },
+        {
+          "id": "combine-all",
+          "score": 0.3572243563868663
+        }
+      ]
+    },
+    {
+      "id": "all-scans",
+      "profile": "combine-all",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "combine-all",
+          "score": 0.5812302206807812
+        },
+        {
+          "id": "left-remainder",
+          "score": 0.4615783388920595
+        },
+        {
+          "id": "shared-copies",
+          "score": 0.3962777689301507
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "unfulfilled",
+      "context": "Cancel one ordered copy for each dispatched copy. Keep the remaining unfulfilled items from the order export.",
+      "decision": "approve",
+      "note": "",
+      "profile": "left-remainder",
+      "operation": "subtract",
+      "left": [
+        {
+          "id": "r1",
+          "value": "Blue mug"
+        },
+        {
+          "id": "r2",
+          "value": "Blue mug"
+        },
+        {
+          "id": "r3",
+          "value": "Blue mug"
+        },
+        {
+          "id": "r4",
+          "value": "Tea tin"
+        },
+        {
+          "id": "r5",
+          "value": "Spoon"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "value": "Blue mug"
+        },
+        {
+          "id": "r2",
+          "value": "Tea tin"
+        },
+        {
+          "id": "r3",
+          "value": "Tea tin"
+        }
+      ],
+      "output": [
+        {
+          "id": "r2",
+          "value": "Blue mug",
+          "side": "left",
+          "sourceIndex": 1
+        },
+        {
+          "id": "r3",
+          "value": "Blue mug",
+          "side": "left",
+          "sourceIndex": 2
+        },
+        {
+          "id": "r5",
+          "value": "Spoon",
+          "side": "left",
+          "sourceIndex": 4
+        }
+      ],
+      "baseline": [
+        "Spoon"
+      ],
+      "counts": [
+        {
+          "value": "Blue mug",
+          "left": 3,
+          "right": 1,
+          "output": 2,
+          "baseline": 0
+        },
+        {
+          "value": "Tea tin",
+          "left": 1,
+          "right": 2,
+          "output": 0,
+          "baseline": 0
+        },
+        {
+          "value": "Spoon",
+          "left": 1,
+          "right": 0,
+          "output": 1,
+          "baseline": 1
+        }
+      ],
+      "difference": 2
+    },
+    {
+      "id": "agreed",
+      "context": "Find shared occurrences between the two counts, pairing matching copies one-to-one and keeping the smaller quantity.",
+      "decision": "approve",
+      "note": "",
+      "profile": "shared-copies",
+      "operation": "overlap",
+      "left": [
+        {
+          "id": "r1",
+          "value": "Blue mug"
+        },
+        {
+          "id": "r2",
+          "value": "Blue mug"
+        },
+        {
+          "id": "r3",
+          "value": "Tea tin"
+        },
+        {
+          "id": "r4",
+          "value": "Tea tin"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "value": "Blue mug"
+        },
+        {
+          "id": "r2",
+          "value": "Blue mug"
+        },
+        {
+          "id": "r3",
+          "value": "Blue mug"
+        },
+        {
+          "id": "r4",
+          "value": "Tea tin"
+        }
+      ],
+      "output": [
+        {
+          "id": "r1",
+          "value": "Blue mug",
+          "side": "left",
+          "sourceIndex": 0
+        },
+        {
+          "id": "r2",
+          "value": "Blue mug",
+          "side": "left",
+          "sourceIndex": 1
+        },
+        {
+          "id": "r3",
+          "value": "Tea tin",
+          "side": "left",
+          "sourceIndex": 2
+        }
+      ],
+      "baseline": [
+        "Blue mug",
+        "Tea tin"
+      ],
+      "counts": [
+        {
+          "value": "Blue mug",
+          "left": 2,
+          "right": 3,
+          "output": 2,
+          "baseline": 1
+        },
+        {
+          "value": "Tea tin",
+          "left": 2,
+          "right": 1,
+          "output": 1,
+          "baseline": 1
+        }
+      ],
+      "difference": 1
+    },
+    {
+      "id": "all-scans",
+      "context": "Append all scans from both shifts into a single list. Keep every repeated occurrence; do not deduplicate.",
+      "decision": "approve",
+      "note": "",
+      "profile": "combine-all",
+      "operation": "combine",
+      "left": [
+        {
+          "id": "r1",
+          "value": "Spoon"
+        },
+        {
+          "id": "r2",
+          "value": "Spoon"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "value": "Spoon"
+        },
+        {
+          "id": "r2",
+          "value": "Tea tin"
+        }
+      ],
+      "output": [
+        {
+          "id": "r1",
+          "value": "Spoon",
+          "side": "left",
+          "sourceIndex": 0
+        },
+        {
+          "id": "r2",
+          "value": "Spoon",
+          "side": "left",
+          "sourceIndex": 1
+        },
+        {
+          "id": "r1",
+          "value": "Spoon",
+          "side": "right",
+          "sourceIndex": 0
+        },
+        {
+          "id": "r2",
+          "value": "Tea tin",
+          "side": "right",
+          "sourceIndex": 1
+        }
+      ],
+      "baseline": [
+        "Spoon",
+        "Tea tin"
+      ],
+      "counts": [
+        {
+          "value": "Spoon",
+          "left": 2,
+          "right": 1,
+          "output": 3,
+          "baseline": 1
+        },
+        {
+          "value": "Tea tin",
+          "left": 0,
+          "right": 1,
+          "output": 1,
+          "baseline": 1
+        }
+      ],
+      "difference": 2
+    }
+  ],
+  "metrics": {
+    "approved": 3,
+    "held": 0,
+    "records": 20,
+    "outputRows": 10,
+    "baselineRows": 5,
+    "lostByDistinct": 5
+  }
+}

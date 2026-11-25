@@ -2310,3 +2310,8 @@ Local MiniLM frame-intent inference for running-total reporting handoffs. Review
 ## Literal Loom — 20261125-15
 
 Local MiniLM proposes whole-field, prefix and substring intent for recurring literal-search handoffs. Review every intent and term, hold uncertainty, compare escaped LIKE selections with the same-mode unescaped baseline and export complete JSON/CSV/Markdown plus SQLite QA fixtures. Two concise synthetic fixtures matched six modes, while a wordy negative-constraint prefix request was misclassified; human review is mandatory. Offline fresh-worker inference in an already-open page was tested; offline startup is not promised. Reuses immutable worker/runtime assets from 20261115-6 and 20261107-2; preserve them. See [workflow and limits](20261125-15/README.md) and [observed validation](20261125-15/VALIDATION.md).
+
+
+## Multiplicity Desk — 20261125-16
+
+Local MiniLM handoff-intent inference assists duplicate-preserving reconciliation across two export lists. Review combine/shared/remainder operations; inspect occurrence witnesses against distinct-only losses; export source-complete JSON/CSV/Markdown and independent SQLite QA queries. Reuses immutable same-origin worker from `20261115-6` and WASM from `20261107-2`; preserve both apps. See [workflow and limits](20261125-16/README.md) and [observed validation](20261125-16/VALIDATION.md).

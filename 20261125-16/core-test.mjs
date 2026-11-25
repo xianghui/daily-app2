@@ -1,0 +1,7 @@
+import assert from 'node:assert/strict';import fs from 'node:fs';import {examples,parse,imported,calculate,apply,suggest} from './src/core.js';
+let checks=0;const vals=['','A','a','é','é',"O'Brien",'=X\n🍞'];
+for(let n=0;n<7;n++)for(let m=0;m<7;m++)for(const operation of ['combine','overlap','subtract']){const l=Array.from({length:n},(_,i)=>({id:'l'+i,value:vals[i%3]})),r=Array.from({length:m},(_,i)=>({id:'r'+i,value:vals[i%2]}));const out=calculate(l,r,operation);for(const value of vals){const lc=l.filter(x=>x.value===value).length,rc=r.filter(x=>x.value===value).length;assert.equal(out.output.filter(x=>x.value===value).length,operation==='combine'?lc+rc:operation==='overlap'?Math.min(lc,rc):Math.max(0,lc-rc))}assert(out.difference>=0);checks++}
+for(const e of examples){const d=parse(JSON.stringify(e.data));assert.deepEqual(imported(JSON.stringify({schema:'multiplicity-desk/v1',original:d})),d);assert.throws(()=>suggest(d,[[NaN]]));assert.throws(()=>apply(d,d.requests.map(q=>({id:q.id,profile:d.profiles[0].id,decision:'pending',note:''}))))}
+for(const bad of ['', '{}','null','[]','x'.repeat(240001)])assert.throws(()=>parse(bad));
+const result=calculate(vals.map((value,i)=>({id:'x'+i,value})),[], 'combine');assert.deepEqual(result.output.map(x=>x.value),vals);
+fs.writeFileSync('core-validation.json',JSON.stringify({countFixtures:checks,exactUnicodeAndCase:true,schemasAndBounds:true},null,2));console.log('PASS core',checks);

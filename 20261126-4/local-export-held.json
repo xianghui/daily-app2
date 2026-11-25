@@ -1,0 +1,522 @@
+{
+  "schema": "exit-ledger/v1",
+  "original": {
+    "title": "Synthetic sensor bench exits",
+    "horizon": 12,
+    "profiles": [
+      {
+        "id": "failed",
+        "description": "Observed equipment failure: the unit broke down, stopped functioning or failed its trial. Terminal failure event.",
+        "rule": "failure"
+      },
+      {
+        "id": "retired",
+        "description": "Planned equipment retirement: a functioning unit was permanently decommissioned or disposed of before it failed. Competing terminal event.",
+        "rule": "retirement"
+      },
+      {
+        "id": "running",
+        "description": "Right censored follow-up: the equipment is still operating when observation ends. No terminal event was observed.",
+        "rule": "censored"
+      }
+    ],
+    "requests": [
+      {
+        "id": "B1",
+        "day": "2",
+        "note": "Sensor failed its trial and stopped functioning."
+      },
+      {
+        "id": "B2",
+        "day": "4",
+        "note": "Healthy sensor permanently retired as part of scheduled disposal."
+      },
+      {
+        "id": "B3",
+        "day": "4",
+        "note": "Sensor still operating when observation ended, right censored."
+      },
+      {
+        "id": "B4",
+        "day": "8",
+        "note": "The sensor broke down during testing. Observed failure."
+      },
+      {
+        "id": "B5",
+        "day": "12",
+        "note": "Working sensor decommissioned permanently before failure."
+      },
+      {
+        "id": "B6",
+        "day": "16",
+        "note": "Follow-up stopped while the sensor remained operational."
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "B1",
+      "profile": "failed",
+      "day": "2",
+      "decision": "hold",
+      "note": "=SUM(1,2)\nReviewed \"exit\", <script> & 🧾",
+      "candidates": [
+        {
+          "id": "failed",
+          "score": 0.5476987896470088
+        },
+        {
+          "id": "running",
+          "score": 0.3712689852514802
+        },
+        {
+          "id": "retired",
+          "score": 0.27063165957662905
+        }
+      ]
+    },
+    {
+      "id": "B2",
+      "profile": "retired",
+      "day": "4",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "retired",
+          "score": 0.49117524006389623
+        },
+        {
+          "id": "running",
+          "score": 0.3739303695525641
+        },
+        {
+          "id": "failed",
+          "score": 0.30089610433672453
+        }
+      ]
+    },
+    {
+      "id": "B3",
+      "profile": "running",
+      "day": "4",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "running",
+          "score": 0.7363497752846992
+        },
+        {
+          "id": "failed",
+          "score": 0.3286306321859347
+        },
+        {
+          "id": "retired",
+          "score": 0.27646435137999253
+        }
+      ]
+    },
+    {
+      "id": "B4",
+      "profile": "failed",
+      "day": "8",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "failed",
+          "score": 0.6204945767915825
+        },
+        {
+          "id": "running",
+          "score": 0.4240416692355323
+        },
+        {
+          "id": "retired",
+          "score": 0.2526847645316068
+        }
+      ]
+    },
+    {
+      "id": "B5",
+      "profile": "retired",
+      "day": "12",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "retired",
+          "score": 0.5273662601949396
+        },
+        {
+          "id": "failed",
+          "score": 0.4655150663024127
+        },
+        {
+          "id": "running",
+          "score": 0.4006329161740354
+        }
+      ]
+    },
+    {
+      "id": "B6",
+      "profile": "running",
+      "day": "16",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "running",
+          "score": 0.5808010200419925
+        },
+        {
+          "id": "failed",
+          "score": 0.38467038121321495
+        },
+        {
+          "id": "retired",
+          "score": 0.3740770896509376
+        }
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "id": "B1",
+      "day": "2",
+      "note": "Sensor failed its trial and stopped functioning.",
+      "review": {
+        "id": "B1",
+        "profile": "failed",
+        "day": "2",
+        "decision": "hold",
+        "note": "=SUM(1,2)\nReviewed \"exit\", <script> & 🧾",
+        "candidates": [
+          {
+            "id": "failed",
+            "score": 0.5476987896470088
+          },
+          {
+            "id": "running",
+            "score": 0.3712689852514802
+          },
+          {
+            "id": "retired",
+            "score": 0.27063165957662905
+          }
+        ]
+      },
+      "rule": "failure"
+    },
+    {
+      "id": "B2",
+      "day": "4",
+      "note": "Healthy sensor permanently retired as part of scheduled disposal.",
+      "review": {
+        "id": "B2",
+        "profile": "retired",
+        "day": "4",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "retired",
+            "score": 0.49117524006389623
+          },
+          {
+            "id": "running",
+            "score": 0.3739303695525641
+          },
+          {
+            "id": "failed",
+            "score": 0.30089610433672453
+          }
+        ]
+      },
+      "rule": "retirement"
+    },
+    {
+      "id": "B3",
+      "day": "4",
+      "note": "Sensor still operating when observation ended, right censored.",
+      "review": {
+        "id": "B3",
+        "profile": "running",
+        "day": "4",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "running",
+            "score": 0.7363497752846992
+          },
+          {
+            "id": "failed",
+            "score": 0.3286306321859347
+          },
+          {
+            "id": "retired",
+            "score": 0.27646435137999253
+          }
+        ]
+      },
+      "rule": "censored"
+    },
+    {
+      "id": "B4",
+      "day": "8",
+      "note": "The sensor broke down during testing. Observed failure.",
+      "review": {
+        "id": "B4",
+        "profile": "failed",
+        "day": "8",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "failed",
+            "score": 0.6204945767915825
+          },
+          {
+            "id": "running",
+            "score": 0.4240416692355323
+          },
+          {
+            "id": "retired",
+            "score": 0.2526847645316068
+          }
+        ]
+      },
+      "rule": "failure"
+    },
+    {
+      "id": "B5",
+      "day": "12",
+      "note": "Working sensor decommissioned permanently before failure.",
+      "review": {
+        "id": "B5",
+        "profile": "retired",
+        "day": "12",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "retired",
+            "score": 0.5273662601949396
+          },
+          {
+            "id": "failed",
+            "score": 0.4655150663024127
+          },
+          {
+            "id": "running",
+            "score": 0.4006329161740354
+          }
+        ]
+      },
+      "rule": "retirement"
+    },
+    {
+      "id": "B6",
+      "day": "16",
+      "note": "Follow-up stopped while the sensor remained operational.",
+      "review": {
+        "id": "B6",
+        "profile": "running",
+        "day": "16",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "running",
+            "score": 0.5808010200419925
+          },
+          {
+            "id": "failed",
+            "score": 0.38467038121321495
+          },
+          {
+            "id": "retired",
+            "score": 0.3740770896509376
+          }
+        ]
+      },
+      "rule": "censored"
+    }
+  ],
+  "curve": {
+    "steps": [
+      {
+        "day": 4,
+        "atRisk": 5,
+        "atRiskIds": [
+          "B2",
+          "B3",
+          "B4",
+          "B5",
+          "B6"
+        ],
+        "failures": [],
+        "retirements": [
+          "B2"
+        ],
+        "censored": [
+          "B3"
+        ],
+        "survivalBefore": {
+          "exact": "1/1",
+          "value": 1
+        },
+        "failureIncidence": {
+          "exact": "0/1",
+          "value": 0
+        },
+        "retirementIncidence": {
+          "exact": "1/5",
+          "value": 0.2
+        },
+        "eventFree": {
+          "exact": "4/5",
+          "value": 0.8
+        },
+        "naiveFailure": {
+          "exact": "0/1",
+          "value": 0
+        },
+        "remaining": 3
+      },
+      {
+        "day": 8,
+        "atRisk": 3,
+        "atRiskIds": [
+          "B4",
+          "B5",
+          "B6"
+        ],
+        "failures": [
+          "B4"
+        ],
+        "retirements": [],
+        "censored": [],
+        "survivalBefore": {
+          "exact": "4/5",
+          "value": 0.8
+        },
+        "failureIncidence": {
+          "exact": "4/15",
+          "value": 0.26666666666666666
+        },
+        "retirementIncidence": {
+          "exact": "1/5",
+          "value": 0.2
+        },
+        "eventFree": {
+          "exact": "8/15",
+          "value": 0.5333333333333333
+        },
+        "naiveFailure": {
+          "exact": "1/3",
+          "value": 0.3333333333333333
+        },
+        "remaining": 2
+      },
+      {
+        "day": 12,
+        "atRisk": 2,
+        "atRiskIds": [
+          "B5",
+          "B6"
+        ],
+        "failures": [],
+        "retirements": [
+          "B5"
+        ],
+        "censored": [],
+        "survivalBefore": {
+          "exact": "8/15",
+          "value": 0.5333333333333333
+        },
+        "failureIncidence": {
+          "exact": "4/15",
+          "value": 0.26666666666666666
+        },
+        "retirementIncidence": {
+          "exact": "7/15",
+          "value": 0.4666666666666667
+        },
+        "eventFree": {
+          "exact": "4/15",
+          "value": 0.26666666666666666
+        },
+        "naiveFailure": {
+          "exact": "1/3",
+          "value": 0.3333333333333333
+        },
+        "remaining": 1
+      },
+      {
+        "day": 16,
+        "atRisk": 1,
+        "atRiskIds": [
+          "B6"
+        ],
+        "failures": [],
+        "retirements": [],
+        "censored": [
+          "B6"
+        ],
+        "survivalBefore": {
+          "exact": "4/15",
+          "value": 0.26666666666666666
+        },
+        "failureIncidence": {
+          "exact": "4/15",
+          "value": 0.26666666666666666
+        },
+        "retirementIncidence": {
+          "exact": "7/15",
+          "value": 0.4666666666666667
+        },
+        "eventFree": {
+          "exact": "4/15",
+          "value": 0.26666666666666666
+        },
+        "naiveFailure": {
+          "exact": "1/3",
+          "value": 0.3333333333333333
+        },
+        "remaining": 0
+      }
+    ],
+    "horizon": 12,
+    "supported": true,
+    "atHorizon": {
+      "failureIncidence": {
+        "exact": "4/15",
+        "value": 0.26666666666666666
+      },
+      "retirementIncidence": {
+        "exact": "7/15",
+        "value": 0.4666666666666667
+      },
+      "eventFree": {
+        "exact": "4/15",
+        "value": 0.26666666666666666
+      },
+      "naiveFailure": {
+        "exact": "1/3",
+        "value": 0.3333333333333333
+      }
+    },
+    "lastObservedDay": 16
+  },
+  "metrics": {
+    "requests": 6,
+    "approved": 5,
+    "held": 1,
+    "failures": 1,
+    "retirements": 2,
+    "censored": 2
+  }
+}

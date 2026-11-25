@@ -1,0 +1,560 @@
+{
+  "schema": "exit-ledger/v1",
+  "original": {
+    "title": "Synthetic workshop fleet follow-up",
+    "horizon": 20,
+    "profiles": [
+      {
+        "id": "failed",
+        "description": "Observed equipment failure: the unit broke down, stopped functioning or failed its trial. Terminal failure event.",
+        "rule": "failure"
+      },
+      {
+        "id": "retired",
+        "description": "Planned equipment retirement: a functioning unit was permanently decommissioned or disposed of before it failed. Competing terminal event.",
+        "rule": "retirement"
+      },
+      {
+        "id": "running",
+        "description": "Right censored follow-up: the equipment is still operating when observation ends. No terminal event was observed.",
+        "rule": "censored"
+      }
+    ],
+    "requests": [
+      {
+        "id": "A1",
+        "day": "5",
+        "note": "Working equipment permanently decommissioned in a planned retirement."
+      },
+      {
+        "id": "A2",
+        "day": "10",
+        "note": "Motor broke down and the unit stopped functioning."
+      },
+      {
+        "id": "A3",
+        "day": "10",
+        "note": "Functioning unit disposed of on schedule before any failure."
+      },
+      {
+        "id": "A4",
+        "day": "15",
+        "note": "Still operating at the final observation. No terminal event observed."
+      },
+      {
+        "id": "A5",
+        "day": "20",
+        "note": "Unit suffered a terminal mechanical failure during the trial."
+      },
+      {
+        "id": "A6",
+        "day": "25",
+        "note": "Equipment still running when follow-up ended."
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "A1",
+      "profile": "retired",
+      "day": "5",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "retired",
+          "score": 0.8152598648727887
+        },
+        {
+          "id": "failed",
+          "score": 0.4262189117079396
+        },
+        {
+          "id": "running",
+          "score": 0.31952549056546947
+        }
+      ]
+    },
+    {
+      "id": "A2",
+      "profile": "failed",
+      "day": "10",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "failed",
+          "score": 0.6693424896598098
+        },
+        {
+          "id": "retired",
+          "score": 0.3907821497942838
+        },
+        {
+          "id": "running",
+          "score": 0.2842234666765649
+        }
+      ]
+    },
+    {
+      "id": "A3",
+      "profile": "retired",
+      "day": "10",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "retired",
+          "score": 0.5313712079425652
+        },
+        {
+          "id": "failed",
+          "score": 0.5230107959889466
+        },
+        {
+          "id": "running",
+          "score": 0.3356091101017064
+        }
+      ]
+    },
+    {
+      "id": "A4",
+      "profile": "running",
+      "day": "15",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "running",
+          "score": 0.737597350767228
+        },
+        {
+          "id": "failed",
+          "score": 0.4754726073509841
+        },
+        {
+          "id": "retired",
+          "score": 0.41573384078722064
+        }
+      ]
+    },
+    {
+      "id": "A5",
+      "profile": "failed",
+      "day": "20",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "failed",
+          "score": 0.7836123626495907
+        },
+        {
+          "id": "retired",
+          "score": 0.5078268125639366
+        },
+        {
+          "id": "running",
+          "score": 0.3731173112339037
+        }
+      ]
+    },
+    {
+      "id": "A6",
+      "profile": "running",
+      "day": "25",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "retired",
+          "score": 0.5486910492800596
+        },
+        {
+          "id": "failed",
+          "score": 0.5444147170598637
+        },
+        {
+          "id": "running",
+          "score": 0.5403591919412987
+        }
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "id": "A1",
+      "day": "5",
+      "note": "Working equipment permanently decommissioned in a planned retirement.",
+      "review": {
+        "id": "A1",
+        "profile": "retired",
+        "day": "5",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "retired",
+            "score": 0.8152598648727887
+          },
+          {
+            "id": "failed",
+            "score": 0.4262189117079396
+          },
+          {
+            "id": "running",
+            "score": 0.31952549056546947
+          }
+        ]
+      },
+      "rule": "retirement"
+    },
+    {
+      "id": "A2",
+      "day": "10",
+      "note": "Motor broke down and the unit stopped functioning.",
+      "review": {
+        "id": "A2",
+        "profile": "failed",
+        "day": "10",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "failed",
+            "score": 0.6693424896598098
+          },
+          {
+            "id": "retired",
+            "score": 0.3907821497942838
+          },
+          {
+            "id": "running",
+            "score": 0.2842234666765649
+          }
+        ]
+      },
+      "rule": "failure"
+    },
+    {
+      "id": "A3",
+      "day": "10",
+      "note": "Functioning unit disposed of on schedule before any failure.",
+      "review": {
+        "id": "A3",
+        "profile": "retired",
+        "day": "10",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "retired",
+            "score": 0.5313712079425652
+          },
+          {
+            "id": "failed",
+            "score": 0.5230107959889466
+          },
+          {
+            "id": "running",
+            "score": 0.3356091101017064
+          }
+        ]
+      },
+      "rule": "retirement"
+    },
+    {
+      "id": "A4",
+      "day": "15",
+      "note": "Still operating at the final observation. No terminal event observed.",
+      "review": {
+        "id": "A4",
+        "profile": "running",
+        "day": "15",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "running",
+            "score": 0.737597350767228
+          },
+          {
+            "id": "failed",
+            "score": 0.4754726073509841
+          },
+          {
+            "id": "retired",
+            "score": 0.41573384078722064
+          }
+        ]
+      },
+      "rule": "censored"
+    },
+    {
+      "id": "A5",
+      "day": "20",
+      "note": "Unit suffered a terminal mechanical failure during the trial.",
+      "review": {
+        "id": "A5",
+        "profile": "failed",
+        "day": "20",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "failed",
+            "score": 0.7836123626495907
+          },
+          {
+            "id": "retired",
+            "score": 0.5078268125639366
+          },
+          {
+            "id": "running",
+            "score": 0.3731173112339037
+          }
+        ]
+      },
+      "rule": "failure"
+    },
+    {
+      "id": "A6",
+      "day": "25",
+      "note": "Equipment still running when follow-up ended.",
+      "review": {
+        "id": "A6",
+        "profile": "running",
+        "day": "25",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "retired",
+            "score": 0.5486910492800596
+          },
+          {
+            "id": "failed",
+            "score": 0.5444147170598637
+          },
+          {
+            "id": "running",
+            "score": 0.5403591919412987
+          }
+        ]
+      },
+      "rule": "censored"
+    }
+  ],
+  "curve": {
+    "steps": [
+      {
+        "day": 5,
+        "atRisk": 6,
+        "atRiskIds": [
+          "A1",
+          "A2",
+          "A3",
+          "A4",
+          "A5",
+          "A6"
+        ],
+        "failures": [],
+        "retirements": [
+          "A1"
+        ],
+        "censored": [],
+        "survivalBefore": {
+          "exact": "1/1",
+          "value": 1
+        },
+        "failureIncidence": {
+          "exact": "0/1",
+          "value": 0
+        },
+        "retirementIncidence": {
+          "exact": "1/6",
+          "value": 0.16666666666666666
+        },
+        "eventFree": {
+          "exact": "5/6",
+          "value": 0.8333333333333334
+        },
+        "naiveFailure": {
+          "exact": "0/1",
+          "value": 0
+        },
+        "remaining": 5
+      },
+      {
+        "day": 10,
+        "atRisk": 5,
+        "atRiskIds": [
+          "A2",
+          "A3",
+          "A4",
+          "A5",
+          "A6"
+        ],
+        "failures": [
+          "A2"
+        ],
+        "retirements": [
+          "A3"
+        ],
+        "censored": [],
+        "survivalBefore": {
+          "exact": "5/6",
+          "value": 0.8333333333333334
+        },
+        "failureIncidence": {
+          "exact": "1/6",
+          "value": 0.16666666666666666
+        },
+        "retirementIncidence": {
+          "exact": "1/3",
+          "value": 0.3333333333333333
+        },
+        "eventFree": {
+          "exact": "1/2",
+          "value": 0.5
+        },
+        "naiveFailure": {
+          "exact": "1/5",
+          "value": 0.2
+        },
+        "remaining": 3
+      },
+      {
+        "day": 15,
+        "atRisk": 3,
+        "atRiskIds": [
+          "A4",
+          "A5",
+          "A6"
+        ],
+        "failures": [],
+        "retirements": [],
+        "censored": [
+          "A4"
+        ],
+        "survivalBefore": {
+          "exact": "1/2",
+          "value": 0.5
+        },
+        "failureIncidence": {
+          "exact": "1/6",
+          "value": 0.16666666666666666
+        },
+        "retirementIncidence": {
+          "exact": "1/3",
+          "value": 0.3333333333333333
+        },
+        "eventFree": {
+          "exact": "1/2",
+          "value": 0.5
+        },
+        "naiveFailure": {
+          "exact": "1/5",
+          "value": 0.2
+        },
+        "remaining": 2
+      },
+      {
+        "day": 20,
+        "atRisk": 2,
+        "atRiskIds": [
+          "A5",
+          "A6"
+        ],
+        "failures": [
+          "A5"
+        ],
+        "retirements": [],
+        "censored": [],
+        "survivalBefore": {
+          "exact": "1/2",
+          "value": 0.5
+        },
+        "failureIncidence": {
+          "exact": "5/12",
+          "value": 0.4166666666666667
+        },
+        "retirementIncidence": {
+          "exact": "1/3",
+          "value": 0.3333333333333333
+        },
+        "eventFree": {
+          "exact": "1/4",
+          "value": 0.25
+        },
+        "naiveFailure": {
+          "exact": "3/5",
+          "value": 0.6
+        },
+        "remaining": 1
+      },
+      {
+        "day": 25,
+        "atRisk": 1,
+        "atRiskIds": [
+          "A6"
+        ],
+        "failures": [],
+        "retirements": [],
+        "censored": [
+          "A6"
+        ],
+        "survivalBefore": {
+          "exact": "1/4",
+          "value": 0.25
+        },
+        "failureIncidence": {
+          "exact": "5/12",
+          "value": 0.4166666666666667
+        },
+        "retirementIncidence": {
+          "exact": "1/3",
+          "value": 0.3333333333333333
+        },
+        "eventFree": {
+          "exact": "1/4",
+          "value": 0.25
+        },
+        "naiveFailure": {
+          "exact": "3/5",
+          "value": 0.6
+        },
+        "remaining": 0
+      }
+    ],
+    "horizon": 20,
+    "supported": true,
+    "atHorizon": {
+      "failureIncidence": {
+        "exact": "5/12",
+        "value": 0.4166666666666667
+      },
+      "retirementIncidence": {
+        "exact": "1/3",
+        "value": 0.3333333333333333
+      },
+      "eventFree": {
+        "exact": "1/4",
+        "value": 0.25
+      },
+      "naiveFailure": {
+        "exact": "3/5",
+        "value": 0.6
+      }
+    },
+    "lastObservedDay": 25
+  },
+  "metrics": {
+    "requests": 6,
+    "approved": 6,
+    "held": 0,
+    "failures": 2,
+    "retirements": 2,
+    "censored": 2
+  }
+}

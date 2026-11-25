@@ -1,0 +1,518 @@
+{
+  "schema": "settlement-folio/v1",
+  "original": {
+    "title": "Synthetic shop weekly settlement",
+    "currency": "USD",
+    "openingAvailable": "0",
+    "openingReserved": "0",
+    "closingAvailable": "0",
+    "closingReserved": "1000",
+    "profiles": [
+      {
+        "id": "sales",
+        "rule": "sale",
+        "description": "Customer card payment received for a completed sale. Gross proceeds from selling goods are credited to the merchant processor balance."
+      },
+      {
+        "id": "refunds",
+        "rule": "refund",
+        "description": "Customer refund: return money to a buyer after a returned purchase or cancellation. Reverse the sale payment back to the customer."
+      },
+      {
+        "id": "fees",
+        "rule": "fee",
+        "description": "Processor service fees charged to the merchant: card transaction commission and payment processing charges deducted from available balance."
+      },
+      {
+        "id": "bank",
+        "rule": "payout",
+        "description": "Payout settlement: transfer the available merchant balance out to the business bank account. Bank disbursement sent to the merchant."
+      },
+      {
+        "id": "locked",
+        "rule": "reserve",
+        "description": "Reserve withholding: processor locks available funds in a rolling security reserve. Money moves from available balance into restricted reserve."
+      },
+      {
+        "id": "unlocked",
+        "rule": "release",
+        "description": "Reserve release: processor unlocks previously restricted security funds. Money moves out of the held reserve back into available balance."
+      }
+    ],
+    "requests": [
+      {
+        "id": "A1",
+        "amount": "10000",
+        "note": "Gross card payments from customers purchasing goods in the shop."
+      },
+      {
+        "id": "A2",
+        "amount": "2000",
+        "note": "Refund sent back to a customer who returned a purchase."
+      },
+      {
+        "id": "A3",
+        "amount": "300",
+        "note": "Card processing commission charged by the payment provider."
+      },
+      {
+        "id": "A4",
+        "amount": "1000",
+        "note": "Available merchant funds withheld into the locked rolling security reserve."
+      },
+      {
+        "id": "A5",
+        "amount": "6700",
+        "note": "Merchant payout transferred from the processor balance to the business bank account."
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "A1",
+      "profile": "sales",
+      "amount": "10000",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "sales",
+          "score": 0.8101138052721566
+        },
+        {
+          "id": "fees",
+          "score": 0.600838473890318
+        },
+        {
+          "id": "bank",
+          "score": 0.46548289159389206
+        },
+        {
+          "id": "refunds",
+          "score": 0.28086754984440965
+        },
+        {
+          "id": "unlocked",
+          "score": 0.17018070704507862
+        },
+        {
+          "id": "locked",
+          "score": 0.1655780214348434
+        }
+      ]
+    },
+    {
+      "id": "A2",
+      "profile": "refunds",
+      "amount": "2000",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "refunds",
+          "score": 0.7806081348702832
+        },
+        {
+          "id": "sales",
+          "score": 0.4133830211259747
+        },
+        {
+          "id": "bank",
+          "score": 0.34240377379405906
+        },
+        {
+          "id": "fees",
+          "score": 0.2658099298263773
+        },
+        {
+          "id": "unlocked",
+          "score": 0.15157881133995077
+        },
+        {
+          "id": "locked",
+          "score": 0.08105569595848734
+        }
+      ]
+    },
+    {
+      "id": "A3",
+      "profile": "fees",
+      "amount": "300",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "fees",
+          "score": 0.8036267705200337
+        },
+        {
+          "id": "sales",
+          "score": 0.6121254169502675
+        },
+        {
+          "id": "bank",
+          "score": 0.3994888636391556
+        },
+        {
+          "id": "refunds",
+          "score": 0.27413583275363573
+        },
+        {
+          "id": "locked",
+          "score": 0.25980874344348653
+        },
+        {
+          "id": "unlocked",
+          "score": 0.2574958693861963
+        }
+      ]
+    },
+    {
+      "id": "A4",
+      "profile": "locked",
+      "amount": "1000",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "locked",
+          "score": 0.7643792974008942
+        },
+        {
+          "id": "unlocked",
+          "score": 0.6795405849574224
+        },
+        {
+          "id": "bank",
+          "score": 0.3897157774065013
+        },
+        {
+          "id": "fees",
+          "score": 0.32698776384421757
+        },
+        {
+          "id": "sales",
+          "score": 0.3066600373541683
+        },
+        {
+          "id": "refunds",
+          "score": 0.1386620287494073
+        }
+      ]
+    },
+    {
+      "id": "A5",
+      "profile": "bank",
+      "amount": "6700",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "bank",
+          "score": 0.8118196518854206
+        },
+        {
+          "id": "sales",
+          "score": 0.6695065071519354
+        },
+        {
+          "id": "fees",
+          "score": 0.6031212438523446
+        },
+        {
+          "id": "unlocked",
+          "score": 0.4386067978521801
+        },
+        {
+          "id": "locked",
+          "score": 0.38013809359592454
+        },
+        {
+          "id": "refunds",
+          "score": 0.3599716119140734
+        }
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "id": "A1",
+      "amount": "10000",
+      "note": "Gross card payments from customers purchasing goods in the shop.",
+      "review": {
+        "id": "A1",
+        "profile": "sales",
+        "amount": "10000",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "sales",
+            "score": 0.8101138052721566
+          },
+          {
+            "id": "fees",
+            "score": 0.600838473890318
+          },
+          {
+            "id": "bank",
+            "score": 0.46548289159389206
+          },
+          {
+            "id": "refunds",
+            "score": 0.28086754984440965
+          },
+          {
+            "id": "unlocked",
+            "score": 0.17018070704507862
+          },
+          {
+            "id": "locked",
+            "score": 0.1655780214348434
+          }
+        ]
+      },
+      "rule": "sale"
+    },
+    {
+      "id": "A2",
+      "amount": "2000",
+      "note": "Refund sent back to a customer who returned a purchase.",
+      "review": {
+        "id": "A2",
+        "profile": "refunds",
+        "amount": "2000",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "refunds",
+            "score": 0.7806081348702832
+          },
+          {
+            "id": "sales",
+            "score": 0.4133830211259747
+          },
+          {
+            "id": "bank",
+            "score": 0.34240377379405906
+          },
+          {
+            "id": "fees",
+            "score": 0.2658099298263773
+          },
+          {
+            "id": "unlocked",
+            "score": 0.15157881133995077
+          },
+          {
+            "id": "locked",
+            "score": 0.08105569595848734
+          }
+        ]
+      },
+      "rule": "refund"
+    },
+    {
+      "id": "A3",
+      "amount": "300",
+      "note": "Card processing commission charged by the payment provider.",
+      "review": {
+        "id": "A3",
+        "profile": "fees",
+        "amount": "300",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "fees",
+            "score": 0.8036267705200337
+          },
+          {
+            "id": "sales",
+            "score": 0.6121254169502675
+          },
+          {
+            "id": "bank",
+            "score": 0.3994888636391556
+          },
+          {
+            "id": "refunds",
+            "score": 0.27413583275363573
+          },
+          {
+            "id": "locked",
+            "score": 0.25980874344348653
+          },
+          {
+            "id": "unlocked",
+            "score": 0.2574958693861963
+          }
+        ]
+      },
+      "rule": "fee"
+    },
+    {
+      "id": "A4",
+      "amount": "1000",
+      "note": "Available merchant funds withheld into the locked rolling security reserve.",
+      "review": {
+        "id": "A4",
+        "profile": "locked",
+        "amount": "1000",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "locked",
+            "score": 0.7643792974008942
+          },
+          {
+            "id": "unlocked",
+            "score": 0.6795405849574224
+          },
+          {
+            "id": "bank",
+            "score": 0.3897157774065013
+          },
+          {
+            "id": "fees",
+            "score": 0.32698776384421757
+          },
+          {
+            "id": "sales",
+            "score": 0.3066600373541683
+          },
+          {
+            "id": "refunds",
+            "score": 0.1386620287494073
+          }
+        ]
+      },
+      "rule": "reserve"
+    },
+    {
+      "id": "A5",
+      "amount": "6700",
+      "note": "Merchant payout transferred from the processor balance to the business bank account.",
+      "review": {
+        "id": "A5",
+        "profile": "bank",
+        "amount": "6700",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "bank",
+            "score": 0.8118196518854206
+          },
+          {
+            "id": "sales",
+            "score": 0.6695065071519354
+          },
+          {
+            "id": "fees",
+            "score": 0.6031212438523446
+          },
+          {
+            "id": "unlocked",
+            "score": 0.4386067978521801
+          },
+          {
+            "id": "locked",
+            "score": 0.38013809359592454
+          },
+          {
+            "id": "refunds",
+            "score": 0.3599716119140734
+          }
+        ]
+      },
+      "rule": "payout"
+    }
+  ],
+  "worksheet": {
+    "status": "ready",
+    "errors": [],
+    "steps": [
+      {
+        "id": "A1",
+        "kind": "sale",
+        "status": "approved",
+        "amount": "10000",
+        "availableBefore": "0",
+        "availableAfter": "10000",
+        "reservedBefore": "0",
+        "reservedAfter": "0"
+      },
+      {
+        "id": "A2",
+        "kind": "refund",
+        "status": "approved",
+        "amount": "2000",
+        "availableBefore": "10000",
+        "availableAfter": "8000",
+        "reservedBefore": "0",
+        "reservedAfter": "0"
+      },
+      {
+        "id": "A3",
+        "kind": "fee",
+        "status": "approved",
+        "amount": "300",
+        "availableBefore": "8000",
+        "availableAfter": "7700",
+        "reservedBefore": "0",
+        "reservedAfter": "0"
+      },
+      {
+        "id": "A4",
+        "kind": "reserve",
+        "status": "approved",
+        "amount": "1000",
+        "availableBefore": "7700",
+        "availableAfter": "6700",
+        "reservedBefore": "0",
+        "reservedAfter": "1000"
+      },
+      {
+        "id": "A5",
+        "kind": "payout",
+        "status": "approved",
+        "amount": "6700",
+        "availableBefore": "6700",
+        "availableAfter": "0",
+        "reservedBefore": "1000",
+        "reservedAfter": "1000"
+      }
+    ],
+    "balances": {
+      "openingAvailable": "0",
+      "openingReserved": "0",
+      "closingAvailable": "0",
+      "closingReserved": "1000"
+    },
+    "computedAvailable": "0",
+    "computedReserved": "1000",
+    "availableDifference": "0",
+    "reservedDifference": "0",
+    "totals": {
+      "sale": "10000",
+      "refund": "2000",
+      "fee": "300",
+      "payout": "6700",
+      "reserve": "1000",
+      "release": "0"
+    },
+    "netAfterFees": "7700",
+    "baselineSalesLessRefunds": "8000",
+    "baselineMinusActualPayout": "1300",
+    "totalBalanceChange": "1000",
+    "conserved": true
+  },
+  "metrics": {
+    "requests": 5,
+    "approved": 5,
+    "held": 0
+  }
+}

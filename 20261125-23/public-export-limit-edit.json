@@ -1,0 +1,319 @@
+{
+  "schema": "quantile-dock/v1",
+  "original": {
+    "title": "Synthetic workshop percentile migration",
+    "contracts": [
+      {
+        "id": "temp",
+        "description": "Kiln oven temperature readings during ceramic firing.",
+        "unit": "°C",
+        "method": "linear",
+        "percentile": 25,
+        "limit": 100
+      },
+      {
+        "id": "mass",
+        "description": "Finished package weight measured using a weighing scale.",
+        "unit": "grams",
+        "method": "rank",
+        "percentile": 75,
+        "limit": 105
+      },
+      {
+        "id": "noise",
+        "description": "Machine sound loudness readings in decibels.",
+        "unit": "dB",
+        "method": "linear",
+        "percentile": 50,
+        "limit": 65
+      }
+    ],
+    "batches": [
+      {
+        "id": "sound",
+        "context": "Decibel measurements of loud machine noise.",
+        "values": [
+          80,
+          50,
+          70,
+          60
+        ]
+      },
+      {
+        "id": "packs",
+        "context": "Grams of finished boxes measured on the weighing scale.",
+        "values": [
+          101,
+          104,
+          107,
+          102
+        ]
+      },
+      {
+        "id": "oven",
+        "context": "Heat readings from the ceramic kiln during firing.",
+        "values": [
+          140,
+          80,
+          120,
+          100
+        ]
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "sound",
+      "contract": "noise",
+      "method": "linear",
+      "percentile": 50,
+      "limit": 64,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "noise",
+          "score": 0.8758442167102771
+        },
+        {
+          "id": "mass",
+          "score": 0.18752532500012686
+        },
+        {
+          "id": "temp",
+          "score": 0.13600838673715826
+        }
+      ]
+    },
+    {
+      "id": "packs",
+      "contract": "mass",
+      "method": "rank",
+      "percentile": 75,
+      "limit": 105,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "mass",
+          "score": 0.7482647283890658
+        },
+        {
+          "id": "noise",
+          "score": 0.1775809517346005
+        },
+        {
+          "id": "temp",
+          "score": 0.1109738624620005
+        }
+      ]
+    },
+    {
+      "id": "oven",
+      "contract": "temp",
+      "method": "linear",
+      "percentile": 25,
+      "limit": 100,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "temp",
+          "score": 0.8939640347957531
+        },
+        {
+          "id": "noise",
+          "score": 0.22524834328077015
+        },
+        {
+          "id": "mass",
+          "score": 0.1717755685973165
+        }
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "id": "sound",
+      "context": "Decibel measurements of loud machine noise.",
+      "values": [
+        80,
+        50,
+        70,
+        60
+      ],
+      "contract": "noise",
+      "method": "linear",
+      "percentile": 50,
+      "limit": 64,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "noise",
+          "score": 0.8758442167102771
+        },
+        {
+          "id": "mass",
+          "score": 0.18752532500012686
+        },
+        {
+          "id": "temp",
+          "score": 0.13600838673715826
+        }
+      ],
+      "unit": "dB",
+      "result": {
+        "value": 65,
+        "sorted": [
+          50,
+          60,
+          70,
+          80
+        ],
+        "lowerRank": 2,
+        "upperRank": 3,
+        "weight": 0.5
+      },
+      "baseline": {
+        "value": 60,
+        "sorted": [
+          50,
+          60,
+          70,
+          80
+        ],
+        "lowerRank": 2,
+        "upperRank": 2,
+        "weight": 0
+      },
+      "pass": false,
+      "changed": true,
+      "verdictChanged": true
+    },
+    {
+      "id": "packs",
+      "context": "Grams of finished boxes measured on the weighing scale.",
+      "values": [
+        101,
+        104,
+        107,
+        102
+      ],
+      "contract": "mass",
+      "method": "rank",
+      "percentile": 75,
+      "limit": 105,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "mass",
+          "score": 0.7482647283890658
+        },
+        {
+          "id": "noise",
+          "score": 0.1775809517346005
+        },
+        {
+          "id": "temp",
+          "score": 0.1109738624620005
+        }
+      ],
+      "unit": "grams",
+      "result": {
+        "value": 104,
+        "sorted": [
+          101,
+          102,
+          104,
+          107
+        ],
+        "lowerRank": 3,
+        "upperRank": 3,
+        "weight": 0
+      },
+      "baseline": {
+        "value": 104,
+        "sorted": [
+          101,
+          102,
+          104,
+          107
+        ],
+        "lowerRank": 3,
+        "upperRank": 3,
+        "weight": 0
+      },
+      "pass": true,
+      "changed": false,
+      "verdictChanged": false
+    },
+    {
+      "id": "oven",
+      "context": "Heat readings from the ceramic kiln during firing.",
+      "values": [
+        140,
+        80,
+        120,
+        100
+      ],
+      "contract": "temp",
+      "method": "linear",
+      "percentile": 25,
+      "limit": 100,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "temp",
+          "score": 0.8939640347957531
+        },
+        {
+          "id": "noise",
+          "score": 0.22524834328077015
+        },
+        {
+          "id": "mass",
+          "score": 0.1717755685973165
+        }
+      ],
+      "unit": "°C",
+      "result": {
+        "value": 95,
+        "sorted": [
+          80,
+          100,
+          120,
+          140
+        ],
+        "lowerRank": 1,
+        "upperRank": 2,
+        "weight": 0.75
+      },
+      "baseline": {
+        "value": 80,
+        "sorted": [
+          80,
+          100,
+          120,
+          140
+        ],
+        "lowerRank": 1,
+        "upperRank": 1,
+        "weight": 0
+      },
+      "pass": true,
+      "changed": true,
+      "verdictChanged": false
+    }
+  ],
+  "metrics": {
+    "batches": 3,
+    "observations": 12,
+    "approved": 3,
+    "held": 0,
+    "changed": 2,
+    "verdictChanged": 1
+  }
+}

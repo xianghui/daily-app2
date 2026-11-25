@@ -1,0 +1,319 @@
+{
+  "schema": "quantile-dock/v1",
+  "original": {
+    "title": "Synthetic service percentile migration",
+    "contracts": [
+      {
+        "id": "parcel",
+        "description": "Parcel delivery transit duration from shipping to customer arrival.",
+        "unit": "days",
+        "method": "rank",
+        "percentile": 90,
+        "limit": 5
+      },
+      {
+        "id": "web",
+        "description": "Website page loading latency measured in milliseconds.",
+        "unit": "ms",
+        "method": "linear",
+        "percentile": 90,
+        "limit": 400
+      },
+      {
+        "id": "queue",
+        "description": "Customer support telephone waiting time before an agent answers.",
+        "unit": "minutes",
+        "method": "linear",
+        "percentile": 50,
+        "limit": 6
+      }
+    ],
+    "batches": [
+      {
+        "id": "homepage",
+        "context": "Browser page load speed for the website homepage.",
+        "values": [
+          500,
+          100,
+          300,
+          200
+        ]
+      },
+      {
+        "id": "phone",
+        "context": "Minutes callers waited on the support phone line for an agent.",
+        "values": [
+          10,
+          2,
+          8,
+          4
+        ]
+      },
+      {
+        "id": "boxes",
+        "context": "Days spent by shipped parcels before customer delivery.",
+        "values": [
+          2,
+          5,
+          3,
+          4
+        ]
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "homepage",
+      "contract": "web",
+      "method": "linear",
+      "percentile": 90,
+      "limit": 400,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "web",
+          "score": 0.7076140519111395
+        },
+        {
+          "id": "parcel",
+          "score": 0.1779409517878674
+        },
+        {
+          "id": "queue",
+          "score": 0.1727646414349546
+        }
+      ]
+    },
+    {
+      "id": "phone",
+      "contract": "queue",
+      "method": "linear",
+      "percentile": 50,
+      "limit": 6,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "queue",
+          "score": 0.8028631052977097
+        },
+        {
+          "id": "parcel",
+          "score": 0.2995433809127132
+        },
+        {
+          "id": "web",
+          "score": 0.26355508204934863
+        }
+      ]
+    },
+    {
+      "id": "boxes",
+      "contract": "parcel",
+      "method": "rank",
+      "percentile": 90,
+      "limit": 5,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "parcel",
+          "score": 0.653388246573948
+        },
+        {
+          "id": "queue",
+          "score": 0.31941235448466093
+        },
+        {
+          "id": "web",
+          "score": 0.2928967733900629
+        }
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "id": "homepage",
+      "context": "Browser page load speed for the website homepage.",
+      "values": [
+        500,
+        100,
+        300,
+        200
+      ],
+      "contract": "web",
+      "method": "linear",
+      "percentile": 90,
+      "limit": 400,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "web",
+          "score": 0.7076140519111395
+        },
+        {
+          "id": "parcel",
+          "score": 0.1779409517878674
+        },
+        {
+          "id": "queue",
+          "score": 0.1727646414349546
+        }
+      ],
+      "unit": "ms",
+      "result": {
+        "value": 440,
+        "sorted": [
+          100,
+          200,
+          300,
+          500
+        ],
+        "lowerRank": 3,
+        "upperRank": 4,
+        "weight": 0.7000000000000002
+      },
+      "baseline": {
+        "value": 500,
+        "sorted": [
+          100,
+          200,
+          300,
+          500
+        ],
+        "lowerRank": 4,
+        "upperRank": 4,
+        "weight": 0
+      },
+      "pass": false,
+      "changed": true,
+      "verdictChanged": false
+    },
+    {
+      "id": "phone",
+      "context": "Minutes callers waited on the support phone line for an agent.",
+      "values": [
+        10,
+        2,
+        8,
+        4
+      ],
+      "contract": "queue",
+      "method": "linear",
+      "percentile": 50,
+      "limit": 6,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "queue",
+          "score": 0.8028631052977097
+        },
+        {
+          "id": "parcel",
+          "score": 0.2995433809127132
+        },
+        {
+          "id": "web",
+          "score": 0.26355508204934863
+        }
+      ],
+      "unit": "minutes",
+      "result": {
+        "value": 6,
+        "sorted": [
+          2,
+          4,
+          8,
+          10
+        ],
+        "lowerRank": 2,
+        "upperRank": 3,
+        "weight": 0.5
+      },
+      "baseline": {
+        "value": 4,
+        "sorted": [
+          2,
+          4,
+          8,
+          10
+        ],
+        "lowerRank": 2,
+        "upperRank": 2,
+        "weight": 0
+      },
+      "pass": true,
+      "changed": true,
+      "verdictChanged": false
+    },
+    {
+      "id": "boxes",
+      "context": "Days spent by shipped parcels before customer delivery.",
+      "values": [
+        2,
+        5,
+        3,
+        4
+      ],
+      "contract": "parcel",
+      "method": "rank",
+      "percentile": 90,
+      "limit": 5,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "parcel",
+          "score": 0.653388246573948
+        },
+        {
+          "id": "queue",
+          "score": 0.31941235448466093
+        },
+        {
+          "id": "web",
+          "score": 0.2928967733900629
+        }
+      ],
+      "unit": "days",
+      "result": {
+        "value": 5,
+        "sorted": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "lowerRank": 4,
+        "upperRank": 4,
+        "weight": 0
+      },
+      "baseline": {
+        "value": 5,
+        "sorted": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "lowerRank": 4,
+        "upperRank": 4,
+        "weight": 0
+      },
+      "pass": true,
+      "changed": false,
+      "verdictChanged": false
+    }
+  ],
+  "metrics": {
+    "batches": 3,
+    "observations": 12,
+    "approved": 3,
+    "held": 0,
+    "changed": 2,
+    "verdictChanged": 0
+  }
+}

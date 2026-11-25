@@ -1,0 +1,90 @@
+{
+  "title": "Synthetic service percentile migration",
+  "scope": "Approved descriptive percentile worksheets only; no causal or population guarantees",
+  "batches": [
+    {
+      "id": "homepage",
+      "contract": "web",
+      "unit": "ms",
+      "values": [
+        500,
+        100,
+        300,
+        200
+      ],
+      "method": "linear",
+      "percentile": 90,
+      "limit": 400,
+      "result": {
+        "value": 440,
+        "sorted": [
+          100,
+          200,
+          300,
+          500
+        ],
+        "lowerRank": 3,
+        "upperRank": 4,
+        "weight": 0.7000000000000002
+      },
+      "pass": false,
+      "note": ""
+    },
+    {
+      "id": "phone",
+      "contract": "queue",
+      "unit": "minutes",
+      "values": [
+        10,
+        2,
+        8,
+        4
+      ],
+      "method": "linear",
+      "percentile": 50,
+      "limit": 6,
+      "result": {
+        "value": 6,
+        "sorted": [
+          2,
+          4,
+          8,
+          10
+        ],
+        "lowerRank": 2,
+        "upperRank": 3,
+        "weight": 0.5
+      },
+      "pass": true,
+      "note": ""
+    },
+    {
+      "id": "boxes",
+      "contract": "parcel",
+      "unit": "days",
+      "values": [
+        2,
+        5,
+        3,
+        4
+      ],
+      "method": "rank",
+      "percentile": 90,
+      "limit": 5,
+      "result": {
+        "value": 5,
+        "sorted": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "lowerRank": 4,
+        "upperRank": 4,
+        "weight": 0
+      },
+      "pass": true,
+      "note": ""
+    }
+  ]
+}

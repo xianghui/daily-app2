@@ -2,6 +2,8 @@
 
 A local-first worksheet for turning informal change requests into reviewed, guarded JSON Patch fixtures. Unlike the collection's audit and reporting apps, this prepares **independent test cases with a `test` guard**, not a combined transaction, a live endpoint call, or an applied change.
 
+Closest sibling: **Pointer Workshop** (`20261124-20`) also emits `test` + `replace` RFC 6901 fixtures, but it validates one document against a declared scalar type. This app instead carries a supplied `snapshot` next to the `current` document and compares them, so a target edited by someone else after the snapshot is reported as an expected test failure rather than silently patched.
+
 ## Use
 
 1. Choose either synthetic example, paste JSON or import source/audit `.json`. Supply 2–5 `plans` (`id`, English `description`, RFC 6901 `pointer`) and 1–24 `records` (`id`, English `context`, `raw`). `raw` is a JSON string containing only `snapshot`, `current` and `value`. Descriptions are your semantic goal; pointers are explicit target constraints. Edit contracts in the source before inference.

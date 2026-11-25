@@ -1,6 +1,32 @@
 # Latest scheduled builder validation
 
-20261024-7 — **Afterglide**
+## 20261125-13 — Cursor Lantern / 20261124-12 — Patch Ledger
+
+Combined-site release. Root predeploy: **866 built, 0 failed, 0 skipped**. Root deploy reported
+`Published`. Assembled site **811,067,212 bytes**, below the unchanged conservative 1 GB guard.
+
+The size guard was close to failure before this release. `scripts/dedupe-runtime.py` deduplicated a
+hardcoded list of 97 geometry folders while 357 byte-identical `manifold-BE4c7gO-.wasm` copies
+remained available, leaving only 25 KB of headroom against the 1 GB limit. The script now discovers
+eligible folders dynamically and verifies each one — byte-identical WASM, reached through a worker
+that a main bundle loads, and linked by the HTML shell. **447 folders** are deduplicated in this
+build. Deploy-only: source `dist/` trees are unmodified, legacy JS URLs are retained with
+query-versioned worker and shell references, and no dangling geometry URL remains. Seven folders
+whose geometry is referenced directly by the entry bundle keep their own copies and are reported in
+`geometrySkipped` rather than rewritten unsafely. Shared canonical host `20261028-24` is intact.
+
+20261124-12 Patch Ledger was built and validated locally but omitted from the gallery index and the
+deploy tree, so `https://xianghui.github.io/daily-app2/20261124-12/` returned 404 while every
+sibling `20261124-*` URL returned 200. It is now published. Live browser check: real local MiniLM
+inference correct on both synthetic fixtures, zero page errors, zero non-GET requests.
+
+Live public verification: **866/866 gallery URLs return 200**; live gallery folder set is identical
+to the committed index; every gallery entry has committed source and a build present; all 714
+app-directory links in the root README resolve. The 7 folders referenced directly above remain
+published. See `20261124-12/VALIDATION.md`, `20261125-13/VALIDATION.md` and the per-app JSON
+reports for detail. No digest sent.
+
+## 20261024-7 — **Afterglide**
 
 App build, 270 parameter geometry cases and 24 image/STL integration cases passed. Real PNG/JPEG/ASCII/binary STL browser imports and downloaded geometry, malformed-file recovery, all presets, variations, portable save/open, undo/redo, drag/drop, joint-pose previews, individual parts and ZIP exports passed. Mobile touch orbit/pinch and 320/390 px tab/sheet/export checks passed. Production deploy-tree browser suite passed.
 

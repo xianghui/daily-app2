@@ -1,0 +1,252 @@
+{
+  "schema": "reply-canopy/v1",
+  "originalInput": {
+    "minimumSimilarity": 0.25,
+    "messages": [
+      {
+        "id": "p",
+        "subject": "Update",
+        "text": "The bakery oven temperature sensor needs repair before bread baking can resume.",
+        "time": "2026-12-02T09:00:00Z"
+      },
+      {
+        "id": "q",
+        "subject": "Update",
+        "text": "The library audiobook catalog has missing author names and incorrect book titles.",
+        "time": "2026-12-02T09:01:00Z"
+      },
+      {
+        "id": "r",
+        "subject": "Technician report",
+        "text": "The bread bakery oven temperature sensor has been repaired and baking can resume.",
+        "time": "2026-12-02T10:00:00Z"
+      },
+      {
+        "id": "s",
+        "subject": "Catalog progress",
+        "text": "The library audiobook author names and book titles have been corrected.",
+        "time": "2026-12-02T10:01:00Z"
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "p",
+      "parent": "",
+      "decision": "approve",
+      "note": "=SUM(1,2)\nReviewed \"entry\", exactly.",
+      "candidates": []
+    },
+    {
+      "id": "q",
+      "parent": "",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "p",
+          "time": "2026-12-02T09:00:00Z",
+          "score": 0.1336992297296824
+        }
+      ]
+    },
+    {
+      "id": "r",
+      "parent": "p",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "p",
+          "time": "2026-12-02T09:00:00Z",
+          "score": 0.9486447184249652
+        },
+        {
+          "id": "q",
+          "time": "2026-12-02T09:01:00Z",
+          "score": 0.15462273457911208
+        }
+      ]
+    },
+    {
+      "id": "s",
+      "parent": "q",
+      "decision": "hold",
+      "note": "",
+      "candidates": [
+        {
+          "id": "q",
+          "time": "2026-12-02T09:01:00Z",
+          "score": 0.8659887677929754
+        },
+        {
+          "id": "r",
+          "time": "2026-12-02T10:00:00Z",
+          "score": 0.11398465481838994
+        },
+        {
+          "id": "p",
+          "time": "2026-12-02T09:00:00Z",
+          "score": 0.0990988693842517
+        }
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "id": "p",
+      "subject": "Update",
+      "text": "The bakery oven temperature sensor needs repair before bread baking can resume.",
+      "time": "2026-12-02T09:00:00Z",
+      "decision": "approve",
+      "parent": "",
+      "thread": "p",
+      "baselineParent": "",
+      "note": "=SUM(1,2)\nReviewed \"entry\", exactly.",
+      "candidates": []
+    },
+    {
+      "id": "q",
+      "subject": "Update",
+      "text": "The library audiobook catalog has missing author names and incorrect book titles.",
+      "time": "2026-12-02T09:01:00Z",
+      "decision": "approve",
+      "parent": "",
+      "thread": "q",
+      "baselineParent": "p",
+      "note": "",
+      "candidates": [
+        {
+          "id": "p",
+          "time": "2026-12-02T09:00:00Z",
+          "score": 0.1336992297296824
+        }
+      ]
+    },
+    {
+      "id": "r",
+      "subject": "Technician report",
+      "text": "The bread bakery oven temperature sensor has been repaired and baking can resume.",
+      "time": "2026-12-02T10:00:00Z",
+      "decision": "approve",
+      "parent": "p",
+      "thread": "p",
+      "baselineParent": "",
+      "note": "",
+      "candidates": [
+        {
+          "id": "p",
+          "time": "2026-12-02T09:00:00Z",
+          "score": 0.9486447184249652
+        },
+        {
+          "id": "q",
+          "time": "2026-12-02T09:01:00Z",
+          "score": 0.15462273457911208
+        }
+      ]
+    },
+    {
+      "id": "s",
+      "subject": "Catalog progress",
+      "text": "The library audiobook author names and book titles have been corrected.",
+      "time": "2026-12-02T10:01:00Z",
+      "decision": "hold",
+      "parent": "",
+      "thread": "s",
+      "baselineParent": "",
+      "note": "",
+      "candidates": [
+        {
+          "id": "q",
+          "time": "2026-12-02T09:01:00Z",
+          "score": 0.8659887677929754
+        },
+        {
+          "id": "r",
+          "time": "2026-12-02T10:00:00Z",
+          "score": 0.11398465481838994
+        },
+        {
+          "id": "p",
+          "time": "2026-12-02T09:00:00Z",
+          "score": 0.0990988693842517
+        }
+      ]
+    }
+  ],
+  "metrics": {
+    "messages": 4,
+    "approved": 3,
+    "held": 1,
+    "links": 1,
+    "threads": 2,
+    "parentDifferences": 2
+  },
+  "baselineDescription": "Latest earlier message with the same subject (case-insensitive, one Re: removed). Differences are not accuracy gains.",
+  "threads": [
+    {
+      "root": "p",
+      "messages": [
+        {
+          "id": "p",
+          "subject": "Update",
+          "text": "The bakery oven temperature sensor needs repair before bread baking can resume.",
+          "time": "2026-12-02T09:00:00Z",
+          "decision": "approve",
+          "parent": "",
+          "thread": "p",
+          "baselineParent": "",
+          "note": "=SUM(1,2)\nReviewed \"entry\", exactly.",
+          "candidates": []
+        },
+        {
+          "id": "r",
+          "subject": "Technician report",
+          "text": "The bread bakery oven temperature sensor has been repaired and baking can resume.",
+          "time": "2026-12-02T10:00:00Z",
+          "decision": "approve",
+          "parent": "p",
+          "thread": "p",
+          "baselineParent": "",
+          "note": "",
+          "candidates": [
+            {
+              "id": "p",
+              "time": "2026-12-02T09:00:00Z",
+              "score": 0.9486447184249652
+            },
+            {
+              "id": "q",
+              "time": "2026-12-02T09:01:00Z",
+              "score": 0.15462273457911208
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "root": "q",
+      "messages": [
+        {
+          "id": "q",
+          "subject": "Update",
+          "text": "The library audiobook catalog has missing author names and incorrect book titles.",
+          "time": "2026-12-02T09:01:00Z",
+          "decision": "approve",
+          "parent": "",
+          "thread": "q",
+          "baselineParent": "p",
+          "note": "",
+          "candidates": [
+            {
+              "id": "p",
+              "time": "2026-12-02T09:00:00Z",
+              "score": 0.1336992297296824
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

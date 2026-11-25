@@ -1,0 +1,280 @@
+{
+  "schema": "reply-canopy/v1",
+  "originalInput": {
+    "minimumSimilarity": 0.25,
+    "messages": [
+      {
+        "id": "a",
+        "subject": "Planning",
+        "text": "The pottery workshop needs clay, ceramic bowls and a kiln firing schedule.",
+        "time": "2026-12-01T09:00:00Z"
+      },
+      {
+        "id": "b",
+        "subject": "Planning",
+        "text": "The astronomy evening needs telescopes, star charts and a clear sky.",
+        "time": "2026-12-01T09:01:00Z"
+      },
+      {
+        "id": "c",
+        "subject": "Supplies arrived",
+        "text": "Clay and ceramic bowls are ready for the pottery workshop kiln firing.",
+        "time": "2026-12-01T10:00:00Z"
+      },
+      {
+        "id": "d",
+        "subject": "Night update",
+        "text": "Telescopes and star charts are ready for the astronomy evening sky viewing.",
+        "time": "2026-12-01T10:01:00Z"
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "a",
+      "parent": "",
+      "decision": "approve",
+      "note": "",
+      "candidates": []
+    },
+    {
+      "id": "b",
+      "parent": "",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "a",
+          "time": "2026-12-01T09:00:00Z",
+          "score": 0.1368637492244166
+        }
+      ]
+    },
+    {
+      "id": "c",
+      "parent": "a",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "a",
+          "time": "2026-12-01T09:00:00Z",
+          "score": 0.8782199963490728
+        },
+        {
+          "id": "b",
+          "time": "2026-12-01T09:01:00Z",
+          "score": 0.05438154035876515
+        }
+      ]
+    },
+    {
+      "id": "d",
+      "parent": "b",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "b",
+          "time": "2026-12-01T09:01:00Z",
+          "score": 0.8495196049265592
+        },
+        {
+          "id": "c",
+          "time": "2026-12-01T10:00:00Z",
+          "score": 0.10920076529531912
+        },
+        {
+          "id": "a",
+          "time": "2026-12-01T09:00:00Z",
+          "score": 0.04660060004022323
+        }
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "id": "a",
+      "subject": "Planning",
+      "text": "The pottery workshop needs clay, ceramic bowls and a kiln firing schedule.",
+      "time": "2026-12-01T09:00:00Z",
+      "decision": "approve",
+      "parent": "",
+      "thread": "a",
+      "baselineParent": "",
+      "note": "",
+      "candidates": []
+    },
+    {
+      "id": "b",
+      "subject": "Planning",
+      "text": "The astronomy evening needs telescopes, star charts and a clear sky.",
+      "time": "2026-12-01T09:01:00Z",
+      "decision": "approve",
+      "parent": "",
+      "thread": "b",
+      "baselineParent": "a",
+      "note": "",
+      "candidates": [
+        {
+          "id": "a",
+          "time": "2026-12-01T09:00:00Z",
+          "score": 0.1368637492244166
+        }
+      ]
+    },
+    {
+      "id": "c",
+      "subject": "Supplies arrived",
+      "text": "Clay and ceramic bowls are ready for the pottery workshop kiln firing.",
+      "time": "2026-12-01T10:00:00Z",
+      "decision": "approve",
+      "parent": "a",
+      "thread": "a",
+      "baselineParent": "",
+      "note": "",
+      "candidates": [
+        {
+          "id": "a",
+          "time": "2026-12-01T09:00:00Z",
+          "score": 0.8782199963490728
+        },
+        {
+          "id": "b",
+          "time": "2026-12-01T09:01:00Z",
+          "score": 0.05438154035876515
+        }
+      ]
+    },
+    {
+      "id": "d",
+      "subject": "Night update",
+      "text": "Telescopes and star charts are ready for the astronomy evening sky viewing.",
+      "time": "2026-12-01T10:01:00Z",
+      "decision": "approve",
+      "parent": "b",
+      "thread": "b",
+      "baselineParent": "",
+      "note": "",
+      "candidates": [
+        {
+          "id": "b",
+          "time": "2026-12-01T09:01:00Z",
+          "score": 0.8495196049265592
+        },
+        {
+          "id": "c",
+          "time": "2026-12-01T10:00:00Z",
+          "score": 0.10920076529531912
+        },
+        {
+          "id": "a",
+          "time": "2026-12-01T09:00:00Z",
+          "score": 0.04660060004022323
+        }
+      ]
+    }
+  ],
+  "metrics": {
+    "messages": 4,
+    "approved": 4,
+    "held": 0,
+    "links": 2,
+    "threads": 2,
+    "parentDifferences": 3
+  },
+  "baselineDescription": "Latest earlier message with the same subject (case-insensitive, one Re: removed). Differences are not accuracy gains.",
+  "threads": [
+    {
+      "root": "a",
+      "messages": [
+        {
+          "id": "a",
+          "subject": "Planning",
+          "text": "The pottery workshop needs clay, ceramic bowls and a kiln firing schedule.",
+          "time": "2026-12-01T09:00:00Z",
+          "decision": "approve",
+          "parent": "",
+          "thread": "a",
+          "baselineParent": "",
+          "note": "",
+          "candidates": []
+        },
+        {
+          "id": "c",
+          "subject": "Supplies arrived",
+          "text": "Clay and ceramic bowls are ready for the pottery workshop kiln firing.",
+          "time": "2026-12-01T10:00:00Z",
+          "decision": "approve",
+          "parent": "a",
+          "thread": "a",
+          "baselineParent": "",
+          "note": "",
+          "candidates": [
+            {
+              "id": "a",
+              "time": "2026-12-01T09:00:00Z",
+              "score": 0.8782199963490728
+            },
+            {
+              "id": "b",
+              "time": "2026-12-01T09:01:00Z",
+              "score": 0.05438154035876515
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "root": "b",
+      "messages": [
+        {
+          "id": "b",
+          "subject": "Planning",
+          "text": "The astronomy evening needs telescopes, star charts and a clear sky.",
+          "time": "2026-12-01T09:01:00Z",
+          "decision": "approve",
+          "parent": "",
+          "thread": "b",
+          "baselineParent": "a",
+          "note": "",
+          "candidates": [
+            {
+              "id": "a",
+              "time": "2026-12-01T09:00:00Z",
+              "score": 0.1368637492244166
+            }
+          ]
+        },
+        {
+          "id": "d",
+          "subject": "Night update",
+          "text": "Telescopes and star charts are ready for the astronomy evening sky viewing.",
+          "time": "2026-12-01T10:01:00Z",
+          "decision": "approve",
+          "parent": "b",
+          "thread": "b",
+          "baselineParent": "",
+          "note": "",
+          "candidates": [
+            {
+              "id": "b",
+              "time": "2026-12-01T09:01:00Z",
+              "score": 0.8495196049265592
+            },
+            {
+              "id": "c",
+              "time": "2026-12-01T10:00:00Z",
+              "score": 0.10920076529531912
+            },
+            {
+              "id": "a",
+              "time": "2026-12-01T09:00:00Z",
+              "score": 0.04660060004022323
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

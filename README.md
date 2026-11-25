@@ -2270,3 +2270,9 @@ Real local MiniLM builds independent learner-goal→mentor-offer and mentor-idea
 
 
 Public release verified: matching built Pages commit `25a5f3b1161a18c925daecf047f00eebcb62fad3`, successful workflow `45516357941`, seven exact public app/runtime/root asset matches, both real-AI fixtures, separate semantic probe, full reviewed/export/offline/24-learner suite, 8-mentor/64-text dense round trip, **434** independent public artifact assertions and all 861 gallery cards. Combined site **999,900,403 bytes** remains below the unchanged guard; no sharing rules changed. Physical phones, other engines, cold offline startup and real participant outcomes remain untested. Unrelated recovery edits preserved and excluded from source staging. No digest sent.
+
+## Reply Canopy — 20261125-10
+
+Real local MiniLM excerpt embeddings assist editorial reconstruction of fragmented email handoffs. Review earlier-message parents, roots and holds; strict UTC chronology prevents cycles, originals survive, and JSON/CSV/Markdown reflect the applied review. Both small synthetic fixtures matched all 8 intended parent decisions versus 2/8 same-subject baseline; not a general accuracy estimate. Fresh-worker offline inference is tested only within a warmed open page. See [workflow/privacy](20261125-10/README.md) and [observed validation](20261125-10/VALIDATION.md).
+
+The combined collection size guard remains 1,000,000,000 bytes. Deploy-only deduplication now also shares Kelvin & Cell (`20261105-21`)'s byte-identical `manifold-BE4c7gO-.wasm` with immutable `20261028-24/assets/`; retain that older app. Source builds and legacy JS URLs remain intact, with query-versioned revised references. The new utility itself reuses the documented 20261115-6 MiniLM worker and 20261107-2 WASM runtime. Validation reports record legacy real geometry import/export checks and public asset verification.

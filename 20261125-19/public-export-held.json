@@ -1,0 +1,392 @@
+{
+  "schema": "subtotal-studio/v1",
+  "original": {
+    "title": "Synthetic workshop material usage",
+    "profiles": [
+      {
+        "id": "detail-only",
+        "description": "Only grouped details for each region and product pair. No subtotals or grand total. GROUP BY both dimensions.",
+        "mode": "detail"
+      },
+      {
+        "id": "hierarchy",
+        "description": "Hierarchical report: region and product details, then subtotal for each region, then grand total. Ordered ROLLUP.",
+        "mode": "rollup"
+      },
+      {
+        "id": "all-combinations",
+        "description": "All combinations: region/product details, subtotals by region AND independently by product, plus grand total. Full CUBE.",
+        "mode": "cube"
+      }
+    ],
+    "requests": [
+      {
+        "id": "usage",
+        "context": "Only grouped details for each workshop and material pair, without subtotals.",
+        "dimensions": [
+          "Workshop",
+          "Material"
+        ],
+        "rows": [
+          {
+            "id": "r1",
+            "a": "Clay",
+            "b": "Glaze",
+            "amount": 5
+          },
+          {
+            "id": "r2",
+            "a": "Clay",
+            "b": "Glaze",
+            "amount": 3
+          },
+          {
+            "id": "r3",
+            "a": "Wood",
+            "b": "Oil",
+            "amount": 4
+          }
+        ]
+      },
+      {
+        "id": "department",
+        "context": "Hierarchical report of workshop material details followed by workshop subtotals and overall grand total.",
+        "dimensions": [
+          "Workshop",
+          "Material"
+        ],
+        "rows": [
+          {
+            "id": "r1",
+            "a": null,
+            "b": "Oil",
+            "amount": 8
+          },
+          {
+            "id": "r2",
+            "a": "ALL",
+            "b": "Oil",
+            "amount": 2
+          },
+          {
+            "id": "r3",
+            "a": "Wood",
+            "b": null,
+            "amount": 6
+          }
+        ]
+      },
+      {
+        "id": "empty-cube",
+        "context": "All combinations: separate workshop totals, separate material totals, joint details and grand total.",
+        "dimensions": [
+          "Workshop",
+          "Material"
+        ],
+        "rows": []
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "usage",
+      "profile": "detail-only",
+      "decision": "hold",
+      "note": "=SUM(1,2)\nReviewed \"totals\", <script> & 🍏",
+      "candidates": [
+        {
+          "id": "detail-only",
+          "score": 0.6308498604929695
+        },
+        {
+          "id": "all-combinations",
+          "score": 0.48097063039291815
+        },
+        {
+          "id": "hierarchy",
+          "score": 0.4517861077602032
+        }
+      ]
+    },
+    {
+      "id": "department",
+      "profile": "hierarchy",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "hierarchy",
+          "score": 0.6474083867809574
+        },
+        {
+          "id": "detail-only",
+          "score": 0.522176469741284
+        },
+        {
+          "id": "all-combinations",
+          "score": 0.4505016121274356
+        }
+      ]
+    },
+    {
+      "id": "empty-cube",
+      "profile": "all-combinations",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "all-combinations",
+          "score": 0.6508642194908232
+        },
+        {
+          "id": "detail-only",
+          "score": 0.5793301637377724
+        },
+        {
+          "id": "hierarchy",
+          "score": 0.5364982347832994
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "usage",
+      "context": "Only grouped details for each workshop and material pair, without subtotals.",
+      "dimensions": [
+        "Workshop",
+        "Material"
+      ],
+      "rows": [
+        {
+          "id": "r1",
+          "a": "Clay",
+          "b": "Glaze",
+          "amount": 5
+        },
+        {
+          "id": "r2",
+          "a": "Clay",
+          "b": "Glaze",
+          "amount": 3
+        },
+        {
+          "id": "r3",
+          "a": "Wood",
+          "b": "Oil",
+          "amount": 4
+        }
+      ],
+      "profile": "detail-only",
+      "mode": "detail",
+      "decision": "hold",
+      "note": "=SUM(1,2)\nReviewed \"totals\", <script> & 🍏"
+    },
+    {
+      "id": "department",
+      "context": "Hierarchical report of workshop material details followed by workshop subtotals and overall grand total.",
+      "dimensions": [
+        "Workshop",
+        "Material"
+      ],
+      "rows": [
+        {
+          "id": "r1",
+          "a": null,
+          "b": "Oil",
+          "amount": 8
+        },
+        {
+          "id": "r2",
+          "a": "ALL",
+          "b": "Oil",
+          "amount": 2
+        },
+        {
+          "id": "r3",
+          "a": "Wood",
+          "b": null,
+          "amount": 6
+        }
+      ],
+      "profile": "hierarchy",
+      "mode": "rollup",
+      "decision": "approve",
+      "note": "",
+      "groups": [
+        {
+          "mask": 0,
+          "a": null,
+          "b": "Oil",
+          "sum": 8,
+          "sourceIds": [
+            "r1"
+          ]
+        },
+        {
+          "mask": 0,
+          "a": "ALL",
+          "b": "Oil",
+          "sum": 2,
+          "sourceIds": [
+            "r2"
+          ]
+        },
+        {
+          "mask": 0,
+          "a": "Wood",
+          "b": null,
+          "sum": 6,
+          "sourceIds": [
+            "r3"
+          ]
+        },
+        {
+          "mask": 1,
+          "a": null,
+          "b": null,
+          "sum": 8,
+          "sourceIds": [
+            "r1"
+          ]
+        },
+        {
+          "mask": 1,
+          "a": "ALL",
+          "b": null,
+          "sum": 2,
+          "sourceIds": [
+            "r2"
+          ]
+        },
+        {
+          "mask": 1,
+          "a": "Wood",
+          "b": null,
+          "sum": 6,
+          "sourceIds": [
+            "r3"
+          ]
+        },
+        {
+          "mask": 3,
+          "a": null,
+          "b": null,
+          "sum": 16,
+          "sourceIds": [
+            "r1",
+            "r2",
+            "r3"
+          ]
+        }
+      ],
+      "total": 16,
+      "levelTotals": [
+        {
+          "mask": 0,
+          "sum": 16,
+          "rows": 3
+        },
+        {
+          "mask": 1,
+          "sum": 16,
+          "rows": 3
+        },
+        {
+          "mask": 3,
+          "sum": 16,
+          "rows": 3
+        }
+      ],
+      "baselineGroups": 3,
+      "collisions": [
+        {
+          "label": [
+            "ALL",
+            "Oil"
+          ],
+          "masks": [
+            0,
+            0
+          ]
+        },
+        {
+          "label": [
+            "Wood",
+            "ALL"
+          ],
+          "masks": [
+            0,
+            1
+          ]
+        },
+        {
+          "label": [
+            "ALL",
+            "ALL"
+          ],
+          "masks": [
+            1,
+            1,
+            3
+          ]
+        }
+      ],
+      "changed": 4
+    },
+    {
+      "id": "empty-cube",
+      "context": "All combinations: separate workshop totals, separate material totals, joint details and grand total.",
+      "dimensions": [
+        "Workshop",
+        "Material"
+      ],
+      "rows": [],
+      "profile": "all-combinations",
+      "mode": "cube",
+      "decision": "approve",
+      "note": "",
+      "groups": [
+        {
+          "mask": 3,
+          "a": null,
+          "b": null,
+          "sum": 0,
+          "sourceIds": []
+        }
+      ],
+      "total": 0,
+      "levelTotals": [
+        {
+          "mask": 0,
+          "sum": 0,
+          "rows": 0
+        },
+        {
+          "mask": 1,
+          "sum": 0,
+          "rows": 0
+        },
+        {
+          "mask": 2,
+          "sum": 0,
+          "rows": 0
+        },
+        {
+          "mask": 3,
+          "sum": 0,
+          "rows": 0
+        }
+      ],
+      "baselineGroups": 1,
+      "collisions": [],
+      "changed": 0
+    }
+  ],
+  "metrics": {
+    "records": 6,
+    "approved": 2,
+    "held": 1,
+    "changed": 4
+  }
+}

@@ -1,0 +1,565 @@
+{
+  "schema": "subtotal-studio/v1",
+  "original": {
+    "title": "Synthetic sales summary",
+    "profiles": [
+      {
+        "id": "detail-only",
+        "description": "Only grouped details for each region and product pair. No subtotals or grand total. GROUP BY both dimensions.",
+        "mode": "detail"
+      },
+      {
+        "id": "hierarchy",
+        "description": "Hierarchical report: region and product details, then subtotal for each region, then grand total. Ordered ROLLUP.",
+        "mode": "rollup"
+      },
+      {
+        "id": "all-combinations",
+        "description": "All combinations: region/product details, subtotals by region AND independently by product, plus grand total. Full CUBE.",
+        "mode": "cube"
+      }
+    ],
+    "requests": [
+      {
+        "id": "regional",
+        "context": "Hierarchical regional sales report: product detail inside each region, region subtotals and a grand total.",
+        "dimensions": [
+          "Region",
+          "Product"
+        ],
+        "rows": [
+          {
+            "id": "r1",
+            "a": "North",
+            "b": "Tea",
+            "amount": 10
+          },
+          {
+            "id": "r2",
+            "a": "North",
+            "b": "Coffee",
+            "amount": 20
+          },
+          {
+            "id": "r3",
+            "a": null,
+            "b": "Tea",
+            "amount": 5
+          },
+          {
+            "id": "r4",
+            "a": "ALL",
+            "b": "Tea",
+            "amount": 7
+          }
+        ]
+      },
+      {
+        "id": "cross-tab",
+        "context": "All combinations of sales totals: every region/product pair, each region total, each product total, and overall total.",
+        "dimensions": [
+          "Region",
+          "Product"
+        ],
+        "rows": [
+          {
+            "id": "r1",
+            "a": "North",
+            "b": "Tea",
+            "amount": 10
+          },
+          {
+            "id": "r2",
+            "a": "South",
+            "b": "Tea",
+            "amount": 20
+          },
+          {
+            "id": "r3",
+            "a": null,
+            "b": null,
+            "amount": 5
+          }
+        ]
+      },
+      {
+        "id": "details",
+        "context": "Only group sales by the exact region and product pair. No subtotal levels and no grand total.",
+        "dimensions": [
+          "Region",
+          "Product"
+        ],
+        "rows": [
+          {
+            "id": "r1",
+            "a": "North",
+            "b": "Tea",
+            "amount": 10
+          },
+          {
+            "id": "r2",
+            "a": "North",
+            "b": "Tea",
+            "amount": -2
+          },
+          {
+            "id": "r3",
+            "a": "South",
+            "b": "Coffee",
+            "amount": 20
+          }
+        ]
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "regional",
+      "profile": "hierarchy",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "hierarchy",
+          "score": 0.8203015964750329
+        },
+        {
+          "id": "detail-only",
+          "score": 0.607876676783875
+        },
+        {
+          "id": "all-combinations",
+          "score": 0.548568815342373
+        }
+      ]
+    },
+    {
+      "id": "cross-tab",
+      "profile": "all-combinations",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "all-combinations",
+          "score": 0.7653364040544147
+        },
+        {
+          "id": "detail-only",
+          "score": 0.6856225843922928
+        },
+        {
+          "id": "hierarchy",
+          "score": 0.6669244442510199
+        }
+      ]
+    },
+    {
+      "id": "details",
+      "profile": "detail-only",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "detail-only",
+          "score": 0.7943636604796047
+        },
+        {
+          "id": "hierarchy",
+          "score": 0.664989434974933
+        },
+        {
+          "id": "all-combinations",
+          "score": 0.6390555834913836
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "regional",
+      "context": "Hierarchical regional sales report: product detail inside each region, region subtotals and a grand total.",
+      "dimensions": [
+        "Region",
+        "Product"
+      ],
+      "rows": [
+        {
+          "id": "r1",
+          "a": "North",
+          "b": "Tea",
+          "amount": 10
+        },
+        {
+          "id": "r2",
+          "a": "North",
+          "b": "Coffee",
+          "amount": 20
+        },
+        {
+          "id": "r3",
+          "a": null,
+          "b": "Tea",
+          "amount": 5
+        },
+        {
+          "id": "r4",
+          "a": "ALL",
+          "b": "Tea",
+          "amount": 7
+        }
+      ],
+      "profile": "hierarchy",
+      "mode": "rollup",
+      "decision": "approve",
+      "note": "",
+      "groups": [
+        {
+          "mask": 0,
+          "a": "North",
+          "b": "Tea",
+          "sum": 10,
+          "sourceIds": [
+            "r1"
+          ]
+        },
+        {
+          "mask": 0,
+          "a": "North",
+          "b": "Coffee",
+          "sum": 20,
+          "sourceIds": [
+            "r2"
+          ]
+        },
+        {
+          "mask": 0,
+          "a": null,
+          "b": "Tea",
+          "sum": 5,
+          "sourceIds": [
+            "r3"
+          ]
+        },
+        {
+          "mask": 0,
+          "a": "ALL",
+          "b": "Tea",
+          "sum": 7,
+          "sourceIds": [
+            "r4"
+          ]
+        },
+        {
+          "mask": 1,
+          "a": "North",
+          "b": null,
+          "sum": 30,
+          "sourceIds": [
+            "r1",
+            "r2"
+          ]
+        },
+        {
+          "mask": 1,
+          "a": null,
+          "b": null,
+          "sum": 5,
+          "sourceIds": [
+            "r3"
+          ]
+        },
+        {
+          "mask": 1,
+          "a": "ALL",
+          "b": null,
+          "sum": 7,
+          "sourceIds": [
+            "r4"
+          ]
+        },
+        {
+          "mask": 3,
+          "a": null,
+          "b": null,
+          "sum": 42,
+          "sourceIds": [
+            "r1",
+            "r2",
+            "r3",
+            "r4"
+          ]
+        }
+      ],
+      "total": 42,
+      "levelTotals": [
+        {
+          "mask": 0,
+          "sum": 42,
+          "rows": 4
+        },
+        {
+          "mask": 1,
+          "sum": 42,
+          "rows": 4
+        },
+        {
+          "mask": 3,
+          "sum": 42,
+          "rows": 4
+        }
+      ],
+      "baselineGroups": 5,
+      "collisions": [
+        {
+          "label": [
+            "ALL",
+            "Tea"
+          ],
+          "masks": [
+            0,
+            0
+          ]
+        },
+        {
+          "label": [
+            "ALL",
+            "ALL"
+          ],
+          "masks": [
+            1,
+            1,
+            3
+          ]
+        }
+      ],
+      "changed": 3
+    },
+    {
+      "id": "cross-tab",
+      "context": "All combinations of sales totals: every region/product pair, each region total, each product total, and overall total.",
+      "dimensions": [
+        "Region",
+        "Product"
+      ],
+      "rows": [
+        {
+          "id": "r1",
+          "a": "North",
+          "b": "Tea",
+          "amount": 10
+        },
+        {
+          "id": "r2",
+          "a": "South",
+          "b": "Tea",
+          "amount": 20
+        },
+        {
+          "id": "r3",
+          "a": null,
+          "b": null,
+          "amount": 5
+        }
+      ],
+      "profile": "all-combinations",
+      "mode": "cube",
+      "decision": "approve",
+      "note": "",
+      "groups": [
+        {
+          "mask": 0,
+          "a": "North",
+          "b": "Tea",
+          "sum": 10,
+          "sourceIds": [
+            "r1"
+          ]
+        },
+        {
+          "mask": 0,
+          "a": "South",
+          "b": "Tea",
+          "sum": 20,
+          "sourceIds": [
+            "r2"
+          ]
+        },
+        {
+          "mask": 0,
+          "a": null,
+          "b": null,
+          "sum": 5,
+          "sourceIds": [
+            "r3"
+          ]
+        },
+        {
+          "mask": 1,
+          "a": "North",
+          "b": null,
+          "sum": 10,
+          "sourceIds": [
+            "r1"
+          ]
+        },
+        {
+          "mask": 1,
+          "a": "South",
+          "b": null,
+          "sum": 20,
+          "sourceIds": [
+            "r2"
+          ]
+        },
+        {
+          "mask": 1,
+          "a": null,
+          "b": null,
+          "sum": 5,
+          "sourceIds": [
+            "r3"
+          ]
+        },
+        {
+          "mask": 2,
+          "a": null,
+          "b": "Tea",
+          "sum": 30,
+          "sourceIds": [
+            "r1",
+            "r2"
+          ]
+        },
+        {
+          "mask": 2,
+          "a": null,
+          "b": null,
+          "sum": 5,
+          "sourceIds": [
+            "r3"
+          ]
+        },
+        {
+          "mask": 3,
+          "a": null,
+          "b": null,
+          "sum": 35,
+          "sourceIds": [
+            "r1",
+            "r2",
+            "r3"
+          ]
+        }
+      ],
+      "total": 35,
+      "levelTotals": [
+        {
+          "mask": 0,
+          "sum": 35,
+          "rows": 3
+        },
+        {
+          "mask": 1,
+          "sum": 35,
+          "rows": 3
+        },
+        {
+          "mask": 2,
+          "sum": 35,
+          "rows": 3
+        },
+        {
+          "mask": 3,
+          "sum": 35,
+          "rows": 3
+        }
+      ],
+      "baselineGroups": 6,
+      "collisions": [
+        {
+          "label": [
+            "ALL",
+            "ALL"
+          ],
+          "masks": [
+            0,
+            1,
+            2,
+            3
+          ]
+        }
+      ],
+      "changed": 3
+    },
+    {
+      "id": "details",
+      "context": "Only group sales by the exact region and product pair. No subtotal levels and no grand total.",
+      "dimensions": [
+        "Region",
+        "Product"
+      ],
+      "rows": [
+        {
+          "id": "r1",
+          "a": "North",
+          "b": "Tea",
+          "amount": 10
+        },
+        {
+          "id": "r2",
+          "a": "North",
+          "b": "Tea",
+          "amount": -2
+        },
+        {
+          "id": "r3",
+          "a": "South",
+          "b": "Coffee",
+          "amount": 20
+        }
+      ],
+      "profile": "detail-only",
+      "mode": "detail",
+      "decision": "approve",
+      "note": "",
+      "groups": [
+        {
+          "mask": 0,
+          "a": "North",
+          "b": "Tea",
+          "sum": 8,
+          "sourceIds": [
+            "r1",
+            "r2"
+          ]
+        },
+        {
+          "mask": 0,
+          "a": "South",
+          "b": "Coffee",
+          "sum": 20,
+          "sourceIds": [
+            "r3"
+          ]
+        }
+      ],
+      "total": 28,
+      "levelTotals": [
+        {
+          "mask": 0,
+          "sum": 28,
+          "rows": 3
+        }
+      ],
+      "baselineGroups": 2,
+      "collisions": [],
+      "changed": 0
+    }
+  ],
+  "metrics": {
+    "records": 10,
+    "approved": 3,
+    "held": 0,
+    "changed": 6
+  }
+}

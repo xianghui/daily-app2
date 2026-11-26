@@ -25,6 +25,7 @@
 ## Publishing
 - Root gallery inline scripts compile; exactly one new AI utility entry; all 890 previous entries and categories unchanged. New total 891. Existing utility-focused tagline retained.
 - Root predeploy: 891 built, zero failed/skipped; deploy-only shared-runtime reuse reduces assembled site to **817,758,271 bytes**, under the unchanged 1,000,000,000-byte guard.
+- Final Pages head `a9e067118f785d7d01d70c208ec3b1522b4352d9` reached **built**, workflow `45766437434` succeeded. Public app, bundled CSS/JS, shared worker/factory/WASM hashes match the assembled tree (seven assets including gallery/app HTML). Public real inference, both fixtures, fresh-worker offline run, maximum batch, review/edit/undo/hold, cancellation/retry, downloads/clipboard, privacy and 1440/390/320 layout checks passed again; all 891 gallery cards and old links preserved. An initial publication was superseded by the tokenizer-documentation correction; the documented legacy build trigger was used once after no final-head build was queued. No Pages source settings changed.
 - Assembled and public checks are recorded in their `*-browser-validation.json`, `*-artifact-validation.json`, `*-gallery-browser.json` and `*-assets.json` reports. Publication is complete only after those checks and Pages commit verification, recorded in `publication-status.json`.
 
 ## Known limitations

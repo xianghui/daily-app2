@@ -2426,3 +2426,7 @@ Public release verified: matching built Pages commit `1e4c01ec6e37d1fd8ce6f07cb5
 ## Rate Anchor — 20261126-10
 
 Local MiniLM treatment retrieval assists foreign-currency month-end reviews: fixed-money balances use closing rates; historical-cost goods/services keep their reference rate. Review every proposal, hold ambiguity, inspect exact signed carrying bridges versus all-closing baselines and export JSON/CSV/Markdown without postings. Reuses the immutable shared runtime from `20261115-6` and WASM from `20261107-2`; preserve those paths. Eight simple fixture treatments matched; a cash-refundable-advance challenge failed and is explicitly excluded. See [workflow](20261126-10/README.md) and [observed checks](20261126-10/VALIDATION.md).
+
+## Recoverable Shelf — 20261126-11
+
+Real local MiniLM links stocktake notes to supplied inventory valuation profiles. Review every estimate, inspect item-level write-downs hidden by aggregate netting, and export complete JSON/CSV/Markdown. Both simple fixtures matched 8/8 links; negation and unrelated-item challenges failed, requiring human hold/correction. Shared immutable runtime from `20261115-6` and `20261107-2` must remain available. See [workflow](20261126-11/README.md) and [observed validation](20261126-11/VALIDATION.md).

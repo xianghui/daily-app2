@@ -1,0 +1,23 @@
+# Observed validation — Heatfield Scout
+
+## Local production bundle
+
+- `npm run predeploy`: passed. Real production base, same-origin shared worker/factory/WASM (hashes in `bundle-audit.json`), not development-only inference.
+- Headless installed Chrome, GPU disabled, actual WASM CPU inference: both cool-spring and warm-spell synthetic batches matched **4/4** intended crop references. First-profile-only semantic baseline matched **1/4**. This tiny easy fixture is not a general accuracy estimate. Classification materially changes base/cap and stage targets; different weather logs produce different stage dates and remaining heat.
+- Cool fixture: 3/4 thresholds reached, two reached dates differ from fixed-day baseline, one below-zero field-day. Corn totals exactly **57 GDD**; 40-GDD check first crosses on **2027-04-15**, while 100 GDD remains unreached. Warm fixture: 4/4 thresholds reached, four fixed-day disagreements. These are assumption comparisons, not prediction accuracy or time savings.
+- Negation probe **failed**: “Not sweet corn. Only garden peas in this field.” still selected sweetcorn. Unrelated instruction-like text forced sunflower. Mandatory review/holds are essential; neither probe caused uploads or changed tool authority.
+- Independent Python Decimal/date replay: **300 random cases, 32,812 assertions**, exact daily heat, cumulative totals, threshold dates, remaining heat and calendar deltas. Caught and fixed a floating-point remaining-heat subtraction; remaining GDD now uses integer twentieth-degree-day units too. `core-test.mjs` checks hand-replayed known answers, pending/held identities, malformed vectors and original-envelope restoration.
+- `browser-test.cjs`: review/profile/start edits, undo, invalid start, mandatory approve/hold, held-record retention, snapshot/export invalidation, multiline formula-like reviewer note, clipboard, JSON/CSV/Markdown downloads; maximum 24 fields/8 profiles/90 days, real chunked inference, audit reimport; empty/invalid/oversized inputs, malformed file formats, temperature/date/order limits; cancellation and real retry. **12,024 independent artifact assertions** using Python csv/Decimal on downloaded outputs.
+- `defensive-test.cjs`: ten checks covering actual worker/model-host network aborts plus unsupported Worker/WASM, construction/worker failure, malformed model output, accelerated timeout, late stale messages and cancellation during worker fetch. Fault injection is used only for defensive paths, never successful inference.
+- `recovery-test.cjs`: actual worker network failure recovers to real inference in the same page. Late schema-valid old vectors and old errors cannot overwrite a newer real model run.
+- Actual successful online inference → worker termination → fully offline fresh-worker real inference passes in an already-open warmed production page. **Cold offline navigation/reload unverified and not claimed.** Cache eviction/private browsing may require redownload.
+- Production request capture: no model-host request before explicit click; all observed requests are GET with no bodies, only same-origin runtime plus documented Hugging Face/CDN model files; no input text in URLs. Sanitized paths/query-key names only are recorded; signed CDN values are not stored. No remote inference integration. Built text credential-pattern scan passed; source also reviewed. Pattern scan alone is not an exhaustive secrets proof.
+- Desktop 1440px and 390/320px phone-width layouts: no horizontal overflow, explicit labels, keyboard export focus order, 44px controls; screenshots visually inspected. Fixed minimum-width grid overflow and short controls before acceptance. Headless viewport simulation is not physical-phone certification.
+
+## Limits / not tested
+
+No agronomic threshold validation, field trials, cultivar accuracy, biological stage confirmation, stress/frost damage estimation, yield prediction, representative semantic benchmark or measured productivity gain. Physical phones, other browser engines, cold offline launch, accessibility screen-reader testing and durable storage persistence are unverified. Weather must be complete and shared across the run; crop instructions are data, never authority. All examples are synthetic.
+
+## Publication
+
+Pending combined-site deployment and public checks. This section will be updated from observed results, not branch-push assumptions.

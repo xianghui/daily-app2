@@ -27,3 +27,11 @@ See local-browser-validation.json, core-validation.json, challenge-validation.js
 Root predeploy assembled 887 apps with zero failures/skips; deduplicated site 816,689,858 bytes in the final rebuilt deployment, under unchanged 1,000,000,000-byte guard. All 886 older gallery entries preserved byte-for-byte as parsed metadata; AI Utilities remains first and earlier STL/game/SaaS categories retained. Every inline script compiled with Node new Function. Gallery browser: all cards/old links, search, 1440/320px overflow and no JS errors passed.
 
 Production deploy-tree suite repeated real two-fixture inference (8/8 simple links), max batch, review/edit/undo/hold, downloads, independent artifact parsing, offline fresh-worker and desktop/phone checks. Same-origin shared worker, factory and WASM byte hashes match production source. Final root deployment rebuild includes app title/favicon metadata update; public verification below targets this final build.
+
+## Public GitHub Pages
+
+Root `npm run deploy` published combined gh-pages commit `5f04d4c2ef6d405b60231cdefb0c2bd8236631d2`. Pages build API reached `built` at that exact commit; workflow `45740439849` completed build/deploy/report successfully. No manual rebuild trigger needed.
+
+Public URL https://xianghui.github.io/daily-app2/20261126-11/ returned HTTP 200. Public root index, app HTML/favicon/CSS/JS, shared worker, WASM factory and binary all matched assembled SHA-256 byte hashes (8 paths). Public browser repeated the full actual-model suite: both fixtures 8/8 intended links, fresh-worker offline inference, maximum batch, original audit reimport, mandatory review, profile/estimate edits, undo/holds, cancellation/retry, invalid inputs, clipboard/downloads and 1440/390/320px checks. Zero page errors. Independent Python parsed/recalculated 10 actual public downloaded JSON audits and their CSV/Markdown companions, preserving reviewed edits, multiline notes and every row. Public gallery retained all 887 cards/old links with working search and no tested overflow.
+
+No physical-phone inference, other browser engines, cold offline navigation or accounting-policy validity was tested or claimed. Negation and irrelevant-input failures remain documented limitations, not hidden fallback behavior. Test JSON, CSV, Markdown and screenshots are synthetic only.

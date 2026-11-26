@@ -40,3 +40,7 @@ Shared worker/factory/WASM hashes match `runtime-provenance.json`. Fresh termina
 ## Publication
 
 Root combined assembly contains new app and every previous gallery app, with size below the existing guard; source builds and immutable runtime paths preserved. Inline gallery scripts compile; new entry appears exactly once in AI Utilities ahead of previous categories, and all older entries are unchanged. Assembled and public browser/artifact/runtime/gallery reports accompany this file; `publication-status.json` is the authority for final hosting status.
+
+### Completed public verification
+
+Pages commit `47d48a91977aeda64f3eda4ae58d91a9acc3ee8e` reached `built`; matching workflow [45753383522](https://github.com/xianghui/daily-app2/actions/runs/45753383522) succeeded. Public production app at https://xianghui.github.io/daily-app2/20261126-13/ reran the complete real-browser suite: both batches matched 8/8 labels; review, edits, holds, undo, maximum-batch reimport, invalid inputs, cancellation/retry, clipboard, phone/desktop layouts and fresh-worker offline inference passed. Eleven public downloaded audits passed 671 independent artifact assertions, with CSV/Markdown parsed. Eight public gallery/app/runtime assets matched assembled SHA-256 bytes, including worker, module factory and WASM. Public gallery rendered 889 cards with every old link intact and working search. No digest was sent.

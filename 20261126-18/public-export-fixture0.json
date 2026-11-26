@@ -1,0 +1,253 @@
+{
+  "format": "clearing-bridge-v1",
+  "original": {
+    "title": "Workshop month-end reconciliation",
+    "cutoff": "2026-11-30",
+    "bankBalance": 100000,
+    "bookBalance": 108000,
+    "records": [
+      {
+        "id": "W1",
+        "note": "Cash receipts entered in our cashbook and deposited, but not yet credited on the bank statement: deposit in transit.",
+        "amount": 20000
+      },
+      {
+        "id": "W2",
+        "note": "Cheque payment already recorded in our cashbook, still unpresented and not cleared by the bank.",
+        "amount": 10000
+      },
+      {
+        "id": "W3",
+        "note": "Bank credited interest income on the statement; cashbook has not recorded this receipt.",
+        "amount": 3000
+      },
+      {
+        "id": "W4",
+        "note": "Bank service charge debited on the statement, not yet entered as an expense in the cashbook.",
+        "amount": 1000
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "W1",
+      "kind": "transit",
+      "amount": 20000,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "transit",
+          "reference": "Deposit in transit: cash receipt already entered in the cashbook, deposited but not yet credited or showing on the bank statement.",
+          "score": 0.9339004680016798
+        },
+        {
+          "id": "receipt",
+          "reference": "Bank has credited interest income or a customer direct deposit receipt to the statement, but the cashbook has not recorded the money received.",
+          "score": 0.7508039143517248
+        },
+        {
+          "id": "outstanding",
+          "reference": "Outstanding unpresented cheque or payment: money paid and recorded in the cashbook, but not yet cleared or debited on the bank statement.",
+          "score": 0.6402896454945386
+        },
+        {
+          "id": "charge",
+          "reference": "Bank has debited a service fee, bank charge or direct debit payment on the statement, but the cashbook has not recorded this expense.",
+          "score": 0.5731729742209772
+        }
+      ]
+    },
+    {
+      "id": "W2",
+      "kind": "outstanding",
+      "amount": 10000,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "outstanding",
+          "reference": "Outstanding unpresented cheque or payment: money paid and recorded in the cashbook, but not yet cleared or debited on the bank statement.",
+          "score": 0.8358939469104065
+        },
+        {
+          "id": "receipt",
+          "reference": "Bank has credited interest income or a customer direct deposit receipt to the statement, but the cashbook has not recorded the money received.",
+          "score": 0.5923132166353137
+        },
+        {
+          "id": "transit",
+          "reference": "Deposit in transit: cash receipt already entered in the cashbook, deposited but not yet credited or showing on the bank statement.",
+          "score": 0.5921431547847718
+        },
+        {
+          "id": "charge",
+          "reference": "Bank has debited a service fee, bank charge or direct debit payment on the statement, but the cashbook has not recorded this expense.",
+          "score": 0.5581837963901238
+        }
+      ]
+    },
+    {
+      "id": "W3",
+      "kind": "receipt",
+      "amount": 3000,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "receipt",
+          "reference": "Bank has credited interest income or a customer direct deposit receipt to the statement, but the cashbook has not recorded the money received.",
+          "score": 0.9233628023792448
+        },
+        {
+          "id": "charge",
+          "reference": "Bank has debited a service fee, bank charge or direct debit payment on the statement, but the cashbook has not recorded this expense.",
+          "score": 0.7008288508240923
+        },
+        {
+          "id": "outstanding",
+          "reference": "Outstanding unpresented cheque or payment: money paid and recorded in the cashbook, but not yet cleared or debited on the bank statement.",
+          "score": 0.691194623879196
+        },
+        {
+          "id": "transit",
+          "reference": "Deposit in transit: cash receipt already entered in the cashbook, deposited but not yet credited or showing on the bank statement.",
+          "score": 0.6653782559873793
+        }
+      ]
+    },
+    {
+      "id": "W4",
+      "kind": "charge",
+      "amount": 1000,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "charge",
+          "reference": "Bank has debited a service fee, bank charge or direct debit payment on the statement, but the cashbook has not recorded this expense.",
+          "score": 0.9039307823228655
+        },
+        {
+          "id": "receipt",
+          "reference": "Bank has credited interest income or a customer direct deposit receipt to the statement, but the cashbook has not recorded the money received.",
+          "score": 0.7245375662185627
+        },
+        {
+          "id": "outstanding",
+          "reference": "Outstanding unpresented cheque or payment: money paid and recorded in the cashbook, but not yet cleared or debited on the bank statement.",
+          "score": 0.6841412850464382
+        },
+        {
+          "id": "transit",
+          "reference": "Deposit in transit: cash receipt already entered in the cashbook, deposited but not yet credited or showing on the bank statement.",
+          "score": 0.5535199676005091
+        }
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "id": "W1",
+      "note": "Cash receipts entered in our cashbook and deposited, but not yet credited on the bank statement: deposit in transit.",
+      "amount": 20000,
+      "kind": "transit",
+      "reviewedAmount": 20000,
+      "decision": "approve",
+      "reviewerNote": "",
+      "side": "bank",
+      "signedAdjustment": 20000
+    },
+    {
+      "id": "W2",
+      "note": "Cheque payment already recorded in our cashbook, still unpresented and not cleared by the bank.",
+      "amount": 10000,
+      "kind": "outstanding",
+      "reviewedAmount": 10000,
+      "decision": "approve",
+      "reviewerNote": "",
+      "side": "bank",
+      "signedAdjustment": -10000
+    },
+    {
+      "id": "W3",
+      "note": "Bank credited interest income on the statement; cashbook has not recorded this receipt.",
+      "amount": 3000,
+      "kind": "receipt",
+      "reviewedAmount": 3000,
+      "decision": "approve",
+      "reviewerNote": "",
+      "side": "book",
+      "signedAdjustment": 3000
+    },
+    {
+      "id": "W4",
+      "note": "Bank service charge debited on the statement, not yet entered as an expense in the cashbook.",
+      "amount": 1000,
+      "kind": "charge",
+      "reviewedAmount": 1000,
+      "decision": "approve",
+      "reviewerNote": "",
+      "side": "book",
+      "signedAdjustment": -1000
+    }
+  ],
+  "metrics": {
+    "records": 4,
+    "reviewed": 4,
+    "held": 0
+  },
+  "status": "balanced",
+  "summary": {
+    "bank": 110000,
+    "book": 110000,
+    "gap": 0,
+    "baselineBank": 100000,
+    "baselineBook": 120000,
+    "baselineGap": -20000,
+    "misroutedItems": 2,
+    "bankAdjustment": 10000,
+    "bookAdjustment": 2000
+  },
+  "bankTrail": [
+    {
+      "id": "W1",
+      "adjustment": 20000,
+      "balance": 120000
+    },
+    {
+      "id": "W2",
+      "adjustment": -10000,
+      "balance": 110000
+    }
+  ],
+  "bookTrail": [
+    {
+      "id": "W3",
+      "adjustment": 3000,
+      "balance": 111000
+    },
+    {
+      "id": "W4",
+      "adjustment": -1000,
+      "balance": 110000
+    }
+  ],
+  "bookAdjustments": [
+    {
+      "id": "W3",
+      "kind": "receipt",
+      "amount": 3000,
+      "note": "Bank credited interest income on the statement; cashbook has not recorded this receipt.",
+      "reviewerNote": ""
+    },
+    {
+      "id": "W4",
+      "kind": "charge",
+      "amount": -1000,
+      "note": "Bank service charge debited on the statement, not yet entered as an expense in the cashbook.",
+      "reviewerNote": ""
+    }
+  ],
+  "blockers": []
+}

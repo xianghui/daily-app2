@@ -1,0 +1,208 @@
+{
+  "format": "clearing-bridge-v1",
+  "original": {
+    "title": "Studio reconciliation with unresolved difference",
+    "cutoff": "2026-10-31",
+    "bankBalance": 250000,
+    "bookBalance": 254000,
+    "records": [
+      {
+        "id": "S1",
+        "note": "Direct debit expense taken from the bank account and shown on the statement, missing from our cashbook.",
+        "amount": 8000
+      },
+      {
+        "id": "S2",
+        "note": "Customer direct deposit credited by the bank, not yet recorded in our cashbook as money received.",
+        "amount": 5000
+      },
+      {
+        "id": "S3",
+        "note": "Issued cheque entered as a payment in the cashbook; the bank has not debited it yet because it remains outstanding.",
+        "amount": 7000
+      },
+      {
+        "id": "S4",
+        "note": "Deposit recorded as cash received in the cashbook, still in transit and absent from bank statement credits.",
+        "amount": 9000
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "S1",
+      "kind": "charge",
+      "amount": 8000,
+      "decision": "hold",
+      "note": "=SUM(1,2)\nReviewed \"charge\", <script> & 🌿",
+      "candidates": [
+        {
+          "id": "charge",
+          "reference": "Bank has debited a service fee, bank charge or direct debit payment on the statement, but the cashbook has not recorded this expense.",
+          "score": 0.810950659524674
+        },
+        {
+          "id": "receipt",
+          "reference": "Bank has credited interest income or a customer direct deposit receipt to the statement, but the cashbook has not recorded the money received.",
+          "score": 0.6427002860066313
+        },
+        {
+          "id": "outstanding",
+          "reference": "Outstanding unpresented cheque or payment: money paid and recorded in the cashbook, but not yet cleared or debited on the bank statement.",
+          "score": 0.5616625799137159
+        },
+        {
+          "id": "transit",
+          "reference": "Deposit in transit: cash receipt already entered in the cashbook, deposited but not yet credited or showing on the bank statement.",
+          "score": 0.5128426885389683
+        }
+      ]
+    },
+    {
+      "id": "S2",
+      "kind": "receipt",
+      "amount": 5000,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "receipt",
+          "reference": "Bank has credited interest income or a customer direct deposit receipt to the statement, but the cashbook has not recorded the money received.",
+          "score": 0.832020086076768
+        },
+        {
+          "id": "transit",
+          "reference": "Deposit in transit: cash receipt already entered in the cashbook, deposited but not yet credited or showing on the bank statement.",
+          "score": 0.7267570095540782
+        },
+        {
+          "id": "outstanding",
+          "reference": "Outstanding unpresented cheque or payment: money paid and recorded in the cashbook, but not yet cleared or debited on the bank statement.",
+          "score": 0.6852075694061478
+        },
+        {
+          "id": "charge",
+          "reference": "Bank has debited a service fee, bank charge or direct debit payment on the statement, but the cashbook has not recorded this expense.",
+          "score": 0.6599733639248885
+        }
+      ]
+    },
+    {
+      "id": "S3",
+      "kind": "outstanding",
+      "amount": 7000,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "outstanding",
+          "reference": "Outstanding unpresented cheque or payment: money paid and recorded in the cashbook, but not yet cleared or debited on the bank statement.",
+          "score": 0.8408572748768081
+        },
+        {
+          "id": "transit",
+          "reference": "Deposit in transit: cash receipt already entered in the cashbook, deposited but not yet credited or showing on the bank statement.",
+          "score": 0.6668270696732645
+        },
+        {
+          "id": "receipt",
+          "reference": "Bank has credited interest income or a customer direct deposit receipt to the statement, but the cashbook has not recorded the money received.",
+          "score": 0.6449166799188056
+        },
+        {
+          "id": "charge",
+          "reference": "Bank has debited a service fee, bank charge or direct debit payment on the statement, but the cashbook has not recorded this expense.",
+          "score": 0.6076226197804415
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "kind": "transit",
+      "amount": 9000,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "transit",
+          "reference": "Deposit in transit: cash receipt already entered in the cashbook, deposited but not yet credited or showing on the bank statement.",
+          "score": 0.8451642205813945
+        },
+        {
+          "id": "receipt",
+          "reference": "Bank has credited interest income or a customer direct deposit receipt to the statement, but the cashbook has not recorded the money received.",
+          "score": 0.7454535736263186
+        },
+        {
+          "id": "outstanding",
+          "reference": "Outstanding unpresented cheque or payment: money paid and recorded in the cashbook, but not yet cleared or debited on the bank statement.",
+          "score": 0.69478930414359
+        },
+        {
+          "id": "charge",
+          "reference": "Bank has debited a service fee, bank charge or direct debit payment on the statement, but the cashbook has not recorded this expense.",
+          "score": 0.5732201550874407
+        }
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "id": "S1",
+      "note": "Direct debit expense taken from the bank account and shown on the statement, missing from our cashbook.",
+      "amount": 8000,
+      "kind": "charge",
+      "reviewedAmount": 8000,
+      "decision": "hold",
+      "reviewerNote": "=SUM(1,2)\nReviewed \"charge\", <script> & 🌿",
+      "side": "book",
+      "signedAdjustment": -8000
+    },
+    {
+      "id": "S2",
+      "note": "Customer direct deposit credited by the bank, not yet recorded in our cashbook as money received.",
+      "amount": 5000,
+      "kind": "receipt",
+      "reviewedAmount": 5000,
+      "decision": "approve",
+      "reviewerNote": "",
+      "side": "book",
+      "signedAdjustment": 5000
+    },
+    {
+      "id": "S3",
+      "note": "Issued cheque entered as a payment in the cashbook; the bank has not debited it yet because it remains outstanding.",
+      "amount": 7000,
+      "kind": "outstanding",
+      "reviewedAmount": 7000,
+      "decision": "approve",
+      "reviewerNote": "",
+      "side": "bank",
+      "signedAdjustment": -7000
+    },
+    {
+      "id": "S4",
+      "note": "Deposit recorded as cash received in the cashbook, still in transit and absent from bank statement credits.",
+      "amount": 9000,
+      "kind": "transit",
+      "reviewedAmount": 9000,
+      "decision": "approve",
+      "reviewerNote": "",
+      "side": "bank",
+      "signedAdjustment": 9000
+    }
+  ],
+  "metrics": {
+    "records": 4,
+    "reviewed": 3,
+    "held": 1
+  },
+  "status": "blocked",
+  "summary": null,
+  "bankTrail": [],
+  "bookTrail": [],
+  "bookAdjustments": [],
+  "blockers": [
+    "Held items block the complete reconciliation. All original records remain in the audit exports."
+  ]
+}

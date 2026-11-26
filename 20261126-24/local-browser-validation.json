@@ -1,0 +1,183 @@
+{
+  "fixtures": [
+    {
+      "expected": [
+        "goodwill",
+        "eligible",
+        "eligible",
+        "outside"
+      ],
+      "actual": [
+        "goodwill",
+        "eligible",
+        "eligible",
+        "outside"
+      ],
+      "correct": 4,
+      "total": 4,
+      "summary": {
+        "carryingMinor": 1000000,
+        "recoverableMinor": 650000,
+        "lossMinor": 350000,
+        "allocatedMinor": 350000,
+        "unallocatedMinor": 0,
+        "goodwillLossMinor": 200000,
+        "baselineFloorBreaches": 1,
+        "changedRows": 3,
+        "identityVerified": true,
+        "rows": [
+          {
+            "id": "premium",
+            "type": "goodwill",
+            "carryingMinor": 200000,
+            "floorMinor": 0,
+            "lossMinor": 200000,
+            "endingMinor": 0,
+            "baselineLossMinor": 70000
+          },
+          {
+            "id": "press",
+            "type": "eligible",
+            "carryingMinor": 500000,
+            "floorMinor": 450000,
+            "lossMinor": 50000,
+            "endingMinor": 450000,
+            "baselineLossMinor": 175000
+          },
+          {
+            "id": "software",
+            "type": "eligible",
+            "carryingMinor": 300000,
+            "floorMinor": 100000,
+            "lossMinor": 100000,
+            "endingMinor": 200000,
+            "baselineLossMinor": 105000
+          },
+          {
+            "id": "cash",
+            "type": "outside",
+            "carryingMinor": 80000,
+            "floorMinor": 0,
+            "lossMinor": 0,
+            "endingMinor": 80000,
+            "baselineLossMinor": 0
+          }
+        ]
+      }
+    },
+    {
+      "expected": [
+        "outside",
+        "eligible",
+        "goodwill",
+        "eligible"
+      ],
+      "actual": [
+        "outside",
+        "eligible",
+        "goodwill",
+        "eligible"
+      ],
+      "correct": 4,
+      "total": 4,
+      "summary": {
+        "carryingMinor": 900003,
+        "recoverableMinor": 600003,
+        "lossMinor": 300000,
+        "allocatedMinor": 300000,
+        "unallocatedMinor": 0,
+        "goodwillLossMinor": 100000,
+        "baselineFloorBreaches": 0,
+        "changedRows": 3,
+        "identityVerified": true,
+        "rows": [
+          {
+            "id": "invoices",
+            "type": "outside",
+            "carryingMinor": 70000,
+            "floorMinor": 0,
+            "lossMinor": 0,
+            "endingMinor": 70000,
+            "baselineLossMinor": 0
+          },
+          {
+            "id": "cameras",
+            "type": "eligible",
+            "carryingMinor": 400001,
+            "floorMinor": 100000,
+            "lossMinor": 100000,
+            "endingMinor": 300001,
+            "baselineLossMinor": 133333
+          },
+          {
+            "id": "synergy",
+            "type": "goodwill",
+            "carryingMinor": 100000,
+            "floorMinor": 0,
+            "lossMinor": 100000,
+            "endingMinor": 0,
+            "baselineLossMinor": 33333
+          },
+          {
+            "id": "editing",
+            "type": "eligible",
+            "carryingMinor": 400002,
+            "floorMinor": 100000,
+            "lossMinor": 100000,
+            "endingMinor": 300002,
+            "baselineLossMinor": 133334
+          }
+        ]
+      }
+    }
+  ],
+  "checks": [
+    "Mandatory review/completeness; carrying/role/floor/recoverable edits; undo; nonzero goodwill floor and unallocated residual blocked; multiline formula note; holds; clipboard; export invalidation",
+    "Real fresh-worker offline inference in warmed open page with GPU disabled",
+    "Maximum 24 records + 3 references / 27 texts / 7 real embedding chunks; audit reimport preserves originals",
+    "Empty/malformed/oversized source, invalid amounts/note/floor and unsupported/malformed/oversized imports",
+    "Cancellation and real inference retry",
+    {
+      "probe": "This is not acquisition goodwill; it is production equipment in this unit.",
+      "actual": "goodwill",
+      "warning": "Nearest reference is forced; human review required"
+    },
+    {
+      "probe": "Please refill the coffee machine in the kitchen.",
+      "actual": "eligible",
+      "warning": "Nearest reference is forced; human review required"
+    },
+    "1440/390/320 no overflow; labels, keyboard and 44px controls"
+  ],
+  "privacy": {
+    "requests": 49,
+    "allGetWithoutBodies": true,
+    "externalPaths": [
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194"
+    ],
+    "queryKeys": [
+      "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "etag",
+      "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "X-Xet-Cas-Uid",
+      "response-content-disposition",
+      "xip",
+      "user_id",
+      "Expires",
+      "Policy",
+      "Signature",
+      "Key-Pair-Id",
+      "Hash-Algorithm"
+    ],
+    "preloadModelRequests": 0
+  },
+  "errors": []
+}

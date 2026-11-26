@@ -1,0 +1,40 @@
+# Floorwise Desk
+
+Local semantic asset-role review → exact, floor-constrained cash-generating-unit impairment allocation → reviewed JSON/CSV/Markdown handoff.
+
+## User and bottleneck
+Finance reviewers receive mixed asset notes with carrying amounts. Before allocating a unit impairment loss they must distinguish goodwill, eligible operating assets and outside-scope financial/inventory/other-unit assets, write down goodwill first, and redistribute remaining losses around verified individual asset floors. This is distinct from existing depreciation, commissioning-cost, stock valuation and tier-claim allocation utilities: the output is a source-linked goodwill-first impairment allocation with individual caps and explicit unallocated residuals.
+
+## Use
+1. Choose either synthetic example, paste source JSON, or import `.json`.
+2. Click **Load AI & classify asset notes** after reading the download/privacy notice.
+3. Inspect source snippets, reference descriptions and cosine rankings. Correct every role, carrying amount, floor and the unit recoverable amount. Approve or hold each record; bulk approval means you checked every record. Confirm unit completeness and prior individual tests.
+4. Apply the reviewed loss worksheet. Any edit disables stale exports. Undo restores the previous review (up to 40 changes); original inputs never change.
+5. Download full JSON, audit CSV or Markdown/copy. Complete worksheet CSV is available only with no unresolved blocker. Held/outside-scope records remain in audit exports. Reimporting an audit restores its original inputs, not old approvals.
+
+## Input/output contract
+Source object: `{title,currency,recoverableMinor,records:[{id,note,amountMinor,floorMinor}]}`. Currency is three uppercase letters, with exactly 100 minor units per unit (not a general currency-exponent database). 1–24 unique ASCII IDs ≤32 characters; each note ≤200 characters; title ≤100; source ≤60,000 characters; import envelope ≤8 MB. Carrying amounts are integers 0–10,000,000,000, floor 0–carrying; unit recoverable value 0–1,000,000,000,000. Control codes/malformed Unicode rejected. Maximum 27 inference texts in chunks of four. Reviewer notes are multiline ≤500 characters. No untrusted text becomes instructions or tool authority.
+
+JSON `floorwise-desk-v1` retains originals, current review, model candidates, confirmations, blockers and applied results. CSV uses CRLF, quoted text and doubled quotes; spreadsheet-formula-leading text is prefixed with an apostrophe. Numeric amounts remain numeric. Worksheet CSV contains every source ID, role, carrying amount, floor, loss, ending amount and naive baseline loss. Markdown includes reviewed summary and all original source snippets/reviewer notes. Exports are handoffs, not journal entries.
+
+## Actual AI and runtime
+- Model: [Xenova/all-MiniLM-L6-v2](https://huggingface.co/Xenova/all-MiniLM-L6-v2), Apache-2.0 model, q8 ONNX feature extraction.
+- [Transformers.js](https://github.com/huggingface/transformers.js) 4.3.2 (Apache-2.0) / ONNX Runtime Web 1.31.0-dev.20260914-8d85527a0 (MIT), mean pooling, normalized 384-dimensional vectors, WASM CPU single thread. No WebGPU or API key required.
+- Each short original note is embedded against the three displayed role descriptions. Cosine ranking proposes the nearest role; this meaning-based classification is real neural inference, not keyword routing, canned results or a remote chat wrapper. AI does not compute or validate accounting amounts.
+- Output vector count, dimensionality, normalization and finite values are validated. Input notes are capped at 200 characters. The shared feature pipeline uses tokenizer truncation (configured maximum 512 tokens); its `max_length:256` call argument is not forwarded by this runtime, so we do **not** claim a 256-token bound. See tokenizer audit and source implementation.
+- Reuses immutable same-origin worker `../20261115-6/assets/ai.worker-lkOoPoq8.js`, factory `../20261115-6/runtime/ort-wasm-simd-threaded.asyncify.mjs` and WASM `../20261107-2/assets/ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm`. Preserve those older apps when publishing. Their exact hashes/lengths are in `runtime-provenance.json`; protocol is `{id,texts}` → progress/batch/result vectors/error. Worker code is bundled locally by the originating app, not a runtime CDN import.
+- Initial download roughly 50 MB (~23 MB model, 26.86 MB WASM, tokenizer and JS). Internet required initially; Hugging Face and its CDN distribute only model/tokenizer files. Model host revision currently resolves through `main` (observed commit `751bff37182d3f1213fa05d7196b954e230abad9`); upstream changes may affect behavior.
+- Current desktop Chrome/Edge with WebAssembly SIMD, module workers, Blob workers and Cache API recommended. Real tests used installed desktop Chrome with GPU disabled. Actual phone hardware, Safari/Firefox, low-memory performance and assistive-technology behavior are not verified; responsive phone-width layouts were tested. Errors give retry/device guidance. Download progress, chunk progress, cancellation and 180-second timeout are visible.
+
+## Privacy/cache
+No provider integration or credentials. No content upload, telemetry, external account writes, fetching of input URLs, or content persistence. Code/model downloads are GETs; reviewed data lives only in React memory until you export. Cache API stores worker/factory/WASM/model assets, not input records. Browser site-data clearing removes cached assets. Tests verify zero model-host requests before explicit processing and only bodyless download traffic afterward. Model hosts still receive ordinary file-request metadata such as IP address.
+
+After a successful online run, a **fresh worker in the same already-open warmed page** was tested with all network disabled and real inference succeeded. Offline navigation/reload is **not supported**; no service worker app-shell cache exists. Eviction/private mode/CSP/network failures can prevent cache reuse. No fake fallback.
+
+## Deterministic algorithm and scope
+Unit carrying amount is the sum of reviewed goodwill and eligible assets only; loss = max(0, carrying − reviewed recoverable value). Goodwill is reduced first (zero floor required). Remaining loss is allocated proportional to original reviewed eligible carrying values. Exact BigInt rational comparisons saturate individual caps (`carrying − floor`), then redistribute to unsaturated assets. Largest remainders allocate integer minor units; source order breaks ties. If floors prevent full allocation, preserve the residual, display a blocker and disable complete worksheet export. No silent below-floor amount. The identity `allocated + residual = required loss` always holds.
+
+Baseline distributes the same required loss proportionally over all included carrying values, ignoring priority/floors. Displayed counts of differing rows and floor breaches are computed comparisons, not accuracy/time-saved claims. Estimates of fair value/value in use must be supplied and verified independently. The individual floor should reflect the highest applicable fair value less costs of disposal (if measurable), value in use (if determinable) and zero under your verified policy; this app does not derive floors. Assume prior individual impairment tests and one complete unit have been verified. No reversals, liabilities, corporate asset allocations, multiple currencies, revaluation, tax or ledger posting. Multiple goodwill rows split their first-tier loss proportionally.
+
+## Validation
+Run `node core-test.mjs`; `node browser-test.cjs`; `node defensive-test.cjs`; `node recovery-test.cjs`; `python3 artifact-test.py`; `python3 bundle-audit.py`. `serve-built.py` serves production files at their real base and referenced runtime paths. Observed results and known model failures are in `VALIDATION.md`; test scripts/reports/parsed artifacts are included. Build: `npm run predeploy`. Per-app gh-pages script is contractual only—publish the combined collection from the repository root, never deploy this app alone.

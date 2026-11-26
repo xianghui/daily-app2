@@ -2504,3 +2504,8 @@ Public release verified: matching built Pages commit `13277aea031e5e0dc8bbac51ac
 ## Floorwise Desk — 20261126-24
 
 Local real MiniLM asset-role inference supports a reviewed cash-generating-unit impairment handoff. Goodwill absorbs loss first, then exact proportional allocation redistributes around individual floors; unresolved residuals block complete worksheets. Audit exports preserve outside-scope and held records. Simple fixtures matched 8/8 roles locally and publicly; negation/unrelated-text probes failed, so human review remains mandatory. Full public workflow, offline fresh-worker scope, export parsing and immutable runtime hashes verified. Reuses shared worker/factory from `20261115-6` and WASM from `20261107-2`; preserve those paths. See [workflow and requirements](20261126-24/README.md), [observed validation](20261126-24/VALIDATION.md), and [public app](https://xianghui.github.io/daily-app2/20261126-24/).
+
+
+## Rootwater Planner — 20261127-1
+
+Local MiniLM crop-reference matching turns rough bed notes into reviewed daily root-zone water balances and end-of-day watering worksheets. Verify soil/weather assumptions, preserve unmet ET and compare fixed-daily watering. Complete JSON/CSV/Markdown exports retain every bed; no uploads or irrigation controls. Distinct from catchment/tank sizing and condensation checks. Reuses the immutable worker/factory from `20261115-6` and WASM from `20261107-2`; preserve those paths. See [workflow](20261127-1/README.md) and [observed validation](20261127-1/VALIDATION.md).

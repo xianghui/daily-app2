@@ -1,0 +1,5 @@
+import{calculate,parse,suggest,examples,apply,profiles,imported}from'./src/core.js';import fs from'node:fs';import a from'node:assert/strict';
+let cases=[];for(const profile of profiles.map(p=>p.id))for(const completed of[0,1,2,113,1000000])for(const ending of[0,1,7,999999])for(const percent of[0,1,25,50,99,100])for(const cost of['0','1','10001','999999999999']){if(!completed&&!ending)continue;const input={profile,completed,ending,percent,cost};try{cases.push({input,output:calculate(input)})}catch(e){cases.push({input,error:e.message})}}
+for(const v of[[],[[null]],Array(7).fill(Array(384).fill(0))])a.throws(()=>suggest(examples[0].data,v));
+for(const data of[null,{},[],{...examples[0].data,requests:[{...examples[0].data.requests[0],id:'bad space'}]},{...examples[0].data,requests:[{...examples[0].data.requests[0],note:'\ud800'}]},{...examples[0].data,requests:[{...examples[0].data.requests[0],cost:'01'}]}])a.throws(()=>parse(JSON.stringify(data)));
+fs.writeFileSync('core-cases.json',JSON.stringify(cases));console.log('Generated',cases.length,'allocation cases; malformed vectors and source checks passed');

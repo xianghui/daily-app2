@@ -1,0 +1,298 @@
+{
+  "schema": "rate-anchor/v1",
+  "original": {
+    "title": "Synthetic archive closing review",
+    "foreign": "GBP",
+    "functional": "EUR",
+    "closingRate": "1.15",
+    "profiles": [
+      {
+        "id": "monetary",
+        "rule": "closing",
+        "description": "Monetary cash balances, trade receivables and trade payables. A fixed amount of currency will be received or paid in money; remeasure at the closing exchange rate."
+      },
+      {
+        "id": "cost",
+        "rule": "historical",
+        "description": "Nonmonetary equipment, inventory and prepaid services held at historical cost. The benefit is goods or services, not a fixed cash receipt; retain the original historical exchange rate."
+      }
+    ],
+    "requests": [
+      {
+        "id": "B1",
+        "note": "Boxes of archival paper remain in inventory at historical purchase cost, to be consumed as supplies.",
+        "balance": "80000",
+        "referenceRate": "1.25"
+      },
+      {
+        "id": "B2",
+        "note": "Foreign currency held in our bank account: cash available as a fixed sterling balance.",
+        "balance": "70000",
+        "referenceRate": "1.25"
+      },
+      {
+        "id": "B3",
+        "note": "Scanning equipment is a nonmonetary historical-cost asset used to digitize records, not a cash claim.",
+        "balance": "125000",
+        "referenceRate": "1.25"
+      },
+      {
+        "id": "B4",
+        "note": "Trade creditor for scanning services already received. The sterling invoice is still payable in money.",
+        "balance": "-40000",
+        "referenceRate": "1.25"
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "B1",
+      "profile": "cost",
+      "balance": "0",
+      "referenceRate": "1.25",
+      "decision": "approve",
+      "note": "=SUM(1,2)\nReviewed \"rate\", <script> & ⚓",
+      "candidates": [
+        {
+          "id": "cost",
+          "score": 0.5170643084938267
+        },
+        {
+          "id": "monetary",
+          "score": 0.18890719651908125
+        }
+      ]
+    },
+    {
+      "id": "B2",
+      "profile": "monetary",
+      "balance": "70000",
+      "referenceRate": "1.25",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "monetary",
+          "score": 0.6409120459997113
+        },
+        {
+          "id": "cost",
+          "score": 0.3233420439296837
+        }
+      ]
+    },
+    {
+      "id": "B3",
+      "profile": "cost",
+      "balance": "125000",
+      "referenceRate": "1.25",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "cost",
+          "score": 0.5251729286448261
+        },
+        {
+          "id": "monetary",
+          "score": 0.17376584012835988
+        }
+      ]
+    },
+    {
+      "id": "B4",
+      "profile": "monetary",
+      "balance": "-40000",
+      "referenceRate": "1.25",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "monetary",
+          "score": 0.4271632958426029
+        },
+        {
+          "id": "cost",
+          "score": 0.37361223055417314
+        }
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "id": "B1",
+      "note": "Boxes of archival paper remain in inventory at historical purchase cost, to be consumed as supplies.",
+      "balance": "80000",
+      "referenceRate": "1.25",
+      "review": {
+        "id": "B1",
+        "profile": "cost",
+        "balance": "0",
+        "referenceRate": "1.25",
+        "decision": "approve",
+        "note": "=SUM(1,2)\nReviewed \"rate\", <script> & ⚓",
+        "candidates": [
+          {
+            "id": "cost",
+            "score": 0.5170643084938267
+          },
+          {
+            "id": "monetary",
+            "score": 0.18890719651908125
+          }
+        ]
+      },
+      "rule": "historical",
+      "status": "ready",
+      "calculation": {
+        "rule": "historical",
+        "rate": "1.25",
+        "referenceMinor": "0",
+        "reviewedMinor": "0",
+        "movementMinor": "0",
+        "allClosingMinor": "0",
+        "baselineMovementMinor": "0",
+        "differenceMinor": "0",
+        "exactNumerator": "0",
+        "exactDenominator": "1000000",
+        "rounding": "half-away-from-zero; each endpoint once",
+        "reconciled": true
+      }
+    },
+    {
+      "id": "B2",
+      "note": "Foreign currency held in our bank account: cash available as a fixed sterling balance.",
+      "balance": "70000",
+      "referenceRate": "1.25",
+      "review": {
+        "id": "B2",
+        "profile": "monetary",
+        "balance": "70000",
+        "referenceRate": "1.25",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "monetary",
+            "score": 0.6409120459997113
+          },
+          {
+            "id": "cost",
+            "score": 0.3233420439296837
+          }
+        ]
+      },
+      "rule": "closing",
+      "status": "ready",
+      "calculation": {
+        "rule": "closing",
+        "rate": "1.15",
+        "referenceMinor": "87500",
+        "reviewedMinor": "80500",
+        "movementMinor": "-7000",
+        "allClosingMinor": "80500",
+        "baselineMovementMinor": "-7000",
+        "differenceMinor": "0",
+        "exactNumerator": "80500000000",
+        "exactDenominator": "1000000",
+        "rounding": "half-away-from-zero; each endpoint once",
+        "reconciled": true
+      }
+    },
+    {
+      "id": "B3",
+      "note": "Scanning equipment is a nonmonetary historical-cost asset used to digitize records, not a cash claim.",
+      "balance": "125000",
+      "referenceRate": "1.25",
+      "review": {
+        "id": "B3",
+        "profile": "cost",
+        "balance": "125000",
+        "referenceRate": "1.25",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "cost",
+            "score": 0.5251729286448261
+          },
+          {
+            "id": "monetary",
+            "score": 0.17376584012835988
+          }
+        ]
+      },
+      "rule": "historical",
+      "status": "ready",
+      "calculation": {
+        "rule": "historical",
+        "rate": "1.25",
+        "referenceMinor": "156250",
+        "reviewedMinor": "156250",
+        "movementMinor": "0",
+        "allClosingMinor": "143750",
+        "baselineMovementMinor": "-12500",
+        "differenceMinor": "12500",
+        "exactNumerator": "156250000000",
+        "exactDenominator": "1000000",
+        "rounding": "half-away-from-zero; each endpoint once",
+        "reconciled": true
+      }
+    },
+    {
+      "id": "B4",
+      "note": "Trade creditor for scanning services already received. The sterling invoice is still payable in money.",
+      "balance": "-40000",
+      "referenceRate": "1.25",
+      "review": {
+        "id": "B4",
+        "profile": "monetary",
+        "balance": "-40000",
+        "referenceRate": "1.25",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "monetary",
+            "score": 0.4271632958426029
+          },
+          {
+            "id": "cost",
+            "score": 0.37361223055417314
+          }
+        ]
+      },
+      "rule": "closing",
+      "status": "ready",
+      "calculation": {
+        "rule": "closing",
+        "rate": "1.15",
+        "referenceMinor": "-50000",
+        "reviewedMinor": "-46000",
+        "movementMinor": "4000",
+        "allClosingMinor": "-46000",
+        "baselineMovementMinor": "4000",
+        "differenceMinor": "0",
+        "exactNumerator": "-46000000000",
+        "exactDenominator": "1000000",
+        "rounding": "half-away-from-zero; each endpoint once",
+        "reconciled": true
+      }
+    }
+  ],
+  "metrics": {
+    "records": 4,
+    "ready": 4,
+    "held": 0,
+    "differences": 1
+  },
+  "totals": {
+    "scope": "approved rows only; signed net, not a trial balance",
+    "referenceMinor": "193750",
+    "reviewedMinor": "190750",
+    "movementMinor": "-3000",
+    "allClosingMinor": "178250",
+    "differenceMinor": "12500"
+  },
+  "status": "ready"
+}

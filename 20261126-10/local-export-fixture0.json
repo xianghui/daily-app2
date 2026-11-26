@@ -1,0 +1,298 @@
+{
+  "schema": "rate-anchor/v1",
+  "original": {
+    "title": "Synthetic workshop month-end review",
+    "foreign": "EUR",
+    "functional": "USD",
+    "closingRate": "1.2",
+    "profiles": [
+      {
+        "id": "monetary",
+        "rule": "closing",
+        "description": "Monetary cash balances, trade receivables and trade payables. A fixed amount of currency will be received or paid in money; remeasure at the closing exchange rate."
+      },
+      {
+        "id": "cost",
+        "rule": "historical",
+        "description": "Nonmonetary equipment, inventory and prepaid services held at historical cost. The benefit is goods or services, not a fixed cash receipt; retain the original historical exchange rate."
+      }
+    ],
+    "requests": [
+      {
+        "id": "A1",
+        "note": "A customer owes us a fixed euro amount for an invoice. This receivable will be settled in cash.",
+        "balance": "100000",
+        "referenceRate": "1.1"
+      },
+      {
+        "id": "A2",
+        "note": "A lathe bought for workshop production is carried at historical cost. We use the machine rather than receive cash.",
+        "balance": "200000",
+        "referenceRate": "1.1"
+      },
+      {
+        "id": "A3",
+        "note": "Unpaid supplier invoice: we owe a fixed number of euros, payable by bank transfer next month.",
+        "balance": "-50000",
+        "referenceRate": "1.1"
+      },
+      {
+        "id": "A4",
+        "note": "Annual maintenance paid in advance. The remaining benefit is future services, held at historical cost.",
+        "balance": "30000",
+        "referenceRate": "1.1"
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "A1",
+      "profile": "monetary",
+      "balance": "100000",
+      "referenceRate": "1.1",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "monetary",
+          "score": 0.5199185374777731
+        },
+        {
+          "id": "cost",
+          "score": 0.28213221434160635
+        }
+      ]
+    },
+    {
+      "id": "A2",
+      "profile": "cost",
+      "balance": "200000",
+      "referenceRate": "1.1",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "cost",
+          "score": 0.502731119268062
+        },
+        {
+          "id": "monetary",
+          "score": 0.21858278885062174
+        }
+      ]
+    },
+    {
+      "id": "A3",
+      "profile": "monetary",
+      "balance": "-50000",
+      "referenceRate": "1.1",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "monetary",
+          "score": 0.4086167958207474
+        },
+        {
+          "id": "cost",
+          "score": 0.3103338819481601
+        }
+      ]
+    },
+    {
+      "id": "A4",
+      "profile": "cost",
+      "balance": "30000",
+      "referenceRate": "1.1",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "cost",
+          "score": 0.5124033699312444
+        },
+        {
+          "id": "monetary",
+          "score": 0.24046432494306744
+        }
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "id": "A1",
+      "note": "A customer owes us a fixed euro amount for an invoice. This receivable will be settled in cash.",
+      "balance": "100000",
+      "referenceRate": "1.1",
+      "review": {
+        "id": "A1",
+        "profile": "monetary",
+        "balance": "100000",
+        "referenceRate": "1.1",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "monetary",
+            "score": 0.5199185374777731
+          },
+          {
+            "id": "cost",
+            "score": 0.28213221434160635
+          }
+        ]
+      },
+      "rule": "closing",
+      "status": "ready",
+      "calculation": {
+        "rule": "closing",
+        "rate": "1.2",
+        "referenceMinor": "110000",
+        "reviewedMinor": "120000",
+        "movementMinor": "10000",
+        "allClosingMinor": "120000",
+        "baselineMovementMinor": "10000",
+        "differenceMinor": "0",
+        "exactNumerator": "120000000000",
+        "exactDenominator": "1000000",
+        "rounding": "half-away-from-zero; each endpoint once",
+        "reconciled": true
+      }
+    },
+    {
+      "id": "A2",
+      "note": "A lathe bought for workshop production is carried at historical cost. We use the machine rather than receive cash.",
+      "balance": "200000",
+      "referenceRate": "1.1",
+      "review": {
+        "id": "A2",
+        "profile": "cost",
+        "balance": "200000",
+        "referenceRate": "1.1",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "cost",
+            "score": 0.502731119268062
+          },
+          {
+            "id": "monetary",
+            "score": 0.21858278885062174
+          }
+        ]
+      },
+      "rule": "historical",
+      "status": "ready",
+      "calculation": {
+        "rule": "historical",
+        "rate": "1.1",
+        "referenceMinor": "220000",
+        "reviewedMinor": "220000",
+        "movementMinor": "0",
+        "allClosingMinor": "240000",
+        "baselineMovementMinor": "20000",
+        "differenceMinor": "-20000",
+        "exactNumerator": "220000000000",
+        "exactDenominator": "1000000",
+        "rounding": "half-away-from-zero; each endpoint once",
+        "reconciled": true
+      }
+    },
+    {
+      "id": "A3",
+      "note": "Unpaid supplier invoice: we owe a fixed number of euros, payable by bank transfer next month.",
+      "balance": "-50000",
+      "referenceRate": "1.1",
+      "review": {
+        "id": "A3",
+        "profile": "monetary",
+        "balance": "-50000",
+        "referenceRate": "1.1",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "monetary",
+            "score": 0.4086167958207474
+          },
+          {
+            "id": "cost",
+            "score": 0.3103338819481601
+          }
+        ]
+      },
+      "rule": "closing",
+      "status": "ready",
+      "calculation": {
+        "rule": "closing",
+        "rate": "1.2",
+        "referenceMinor": "-55000",
+        "reviewedMinor": "-60000",
+        "movementMinor": "-5000",
+        "allClosingMinor": "-60000",
+        "baselineMovementMinor": "-5000",
+        "differenceMinor": "0",
+        "exactNumerator": "-60000000000",
+        "exactDenominator": "1000000",
+        "rounding": "half-away-from-zero; each endpoint once",
+        "reconciled": true
+      }
+    },
+    {
+      "id": "A4",
+      "note": "Annual maintenance paid in advance. The remaining benefit is future services, held at historical cost.",
+      "balance": "30000",
+      "referenceRate": "1.1",
+      "review": {
+        "id": "A4",
+        "profile": "cost",
+        "balance": "30000",
+        "referenceRate": "1.1",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "cost",
+            "score": 0.5124033699312444
+          },
+          {
+            "id": "monetary",
+            "score": 0.24046432494306744
+          }
+        ]
+      },
+      "rule": "historical",
+      "status": "ready",
+      "calculation": {
+        "rule": "historical",
+        "rate": "1.1",
+        "referenceMinor": "33000",
+        "reviewedMinor": "33000",
+        "movementMinor": "0",
+        "allClosingMinor": "36000",
+        "baselineMovementMinor": "3000",
+        "differenceMinor": "-3000",
+        "exactNumerator": "33000000000",
+        "exactDenominator": "1000000",
+        "rounding": "half-away-from-zero; each endpoint once",
+        "reconciled": true
+      }
+    }
+  ],
+  "metrics": {
+    "records": 4,
+    "ready": 4,
+    "held": 0,
+    "differences": 2
+  },
+  "totals": {
+    "scope": "approved rows only; signed net, not a trial balance",
+    "referenceMinor": "308000",
+    "reviewedMinor": "313000",
+    "movementMinor": "5000",
+    "allClosingMinor": "336000",
+    "differenceMinor": "-23000"
+  },
+  "status": "ready"
+}

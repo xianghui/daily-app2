@@ -51,3 +51,11 @@ After a successful online run, all browser networking was disabled and a **fresh
 Physical phones, other browser engines, cold offline startup, low-memory devices, representative domain-language accuracy and compliance with a specific accounting policy are unverified. Service shares are supplied assumptions; missing costs cannot be detected. Negative credits, self-service, support rows without any production share, dynamic demand feedback, tax and currency conversions are unsupported. No ledger or external system changes occur. Model weights follow upstream main and may change; cache eviction or host changes require retesting. No digest sent.
 
 Public release checks are recorded below after publication; local/build success alone is not proof of publication.
+
+## Public release verified
+
+- Root `npm run deploy` published the combined site; latest Pages build reports **built** at matching gh-pages commit `f8be71d42d84cdf388ec31e0854be659391a22f9`; workflow **45780945124** completed successfully. No rebuild trigger or retry was needed.
+- Public URL: https://xianghui.github.io/daily-app2/20261126-17/
+- Seven public assets returned HTTP 200 and exact SHA-256 matches with assembled production files, including shared worker/factory/WASM.
+- Full public browser suite passed: both real AI fixtures (8/8 simple links), warmed-page fresh-worker offline inference, max batch/reimport, review/edit/hold/undo, cancellation/retry, malformed/oversized inputs, clipboard, real downloads, request privacy and 1440/390/320 layouts. Zero page errors.
+- Independently parsed actual public artifacts: **900 assertions passed**. Public gallery: **893** cards, every older link preserved, working search/categories and no horizontal overflow. See `public-browser-validation.json`, `public-artifact-validation.json`, `public-assets.json` and `public-gallery-browser.json`.

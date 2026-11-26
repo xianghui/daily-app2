@@ -2454,3 +2454,8 @@ Local MiniLM reference-note inference assists complete unit-by-station first-pas
 ## Blendtrace Desk — 20261126-16
 
 Local MiniLM ingredient-note matching supports reviewed recipe mix/yield investigation, distinct from the earlier price/usage/activity-volume bridge. Exact BigInt fractions separate material substitution from total-input-yield effects, preserve every record and export JSON/CSV/Markdown. Six simple labels matched; both negation challenges failed, so mandatory source review remains essential. Shared immutable worker/runtime paths from `20261115-6` and `20261107-2` must be retained. See [workflow and limitations](20261126-16/README.md) and [observed validation](20261126-16/VALIDATION.md).
+
+
+## Reciprocal Desk — 20261126-17
+
+Real local MiniLM department inference assists support-cost handoff reconciliation. Review expense links and amounts; solve exact mutual-service equations, conserve every minor unit, compare direct-only allocation and export complete JSON/CSV/Markdown without uploads or postings. Both simple fixtures matched 8/8 links, while negation and unrelated costs failed and require correction/holds. Independent Python Fraction determinants validate 269 cases / 8,945 assertions. Reuses immutable worker/factory from `20261115-6` and WASM from `20261107-2`; preserve these paths. Offline scope is fresh-worker inference in an already-open warmed page only. See [workflow/privacy](20261126-17/README.md) and [observed validation](20261126-17/VALIDATION.md). No digest sent.

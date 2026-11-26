@@ -1,0 +1,218 @@
+{
+  "schema": "warpwise-v1",
+  "model": "Xenova/all-MiniLM-L6-v2 · q8 · WASM CPU",
+  "original": {
+    "title": "Synthetic weaving-studio handoff",
+    "loomWidthMm": 1000,
+    "maxEnds": 100,
+    "profiles": [
+      {
+        "id": "cotton",
+        "description": "Smooth mercerized cotton weaving yarn for cotton towels and table linens",
+        "endsPer100mm": 80,
+        "widthShrinkBps": 800,
+        "lengthShrinkBps": 600,
+        "takeupBps": 500,
+        "stockM": 2000
+      },
+      {
+        "id": "wool",
+        "description": "Springy sheep wool yarn for warm woollen scarves and blankets",
+        "endsPer100mm": 40,
+        "widthShrinkBps": 1200,
+        "lengthShrinkBps": 1000,
+        "takeupBps": 800,
+        "stockM": 2500
+      },
+      {
+        "id": "linen",
+        "description": "Crisp flax linen weaving yarn for linen napkins and table runners",
+        "endsPer100mm": 70,
+        "widthShrinkBps": 500,
+        "lengthShrinkBps": 400,
+        "takeupBps": 400,
+        "stockM": 2500
+      },
+      {
+        "id": "silk",
+        "description": "Lustrous mulberry silk filament yarn for fine silk scarves and shawls",
+        "endsPer100mm": 100,
+        "widthShrinkBps": 400,
+        "lengthShrinkBps": 300,
+        "takeupBps": 300,
+        "stockM": 2500
+      }
+    ],
+    "records": [
+      {
+        "id": "T-1",
+        "note": "Mercerized cotton towel warp, smooth cotton yarn",
+        "widthMm": 400,
+        "lengthMm": 600,
+        "pieces": 2,
+        "fringeMm": 50,
+        "repeat": 4,
+        "selvedgeEnds": 4,
+        "wasteMm": 500
+      },
+      {
+        "id": "S-1",
+        "note": "Warm sheep wool scarf, springy woollen yarn",
+        "widthMm": 200,
+        "lengthMm": 1600,
+        "pieces": 2,
+        "fringeMm": 50,
+        "repeat": 4,
+        "selvedgeEnds": 4,
+        "wasteMm": 500
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "T-1",
+      "note": "Mercerized cotton towel warp, smooth cotton yarn",
+      "widthMm": 400,
+      "lengthMm": 600,
+      "pieces": 2,
+      "fringeMm": 50,
+      "repeat": 4,
+      "selvedgeEnds": 4,
+      "wasteMm": 500,
+      "profile": "cotton",
+      "decision": "approve",
+      "reviewerNote": "",
+      "candidates": [
+        {
+          "id": "cotton",
+          "score": 0.8359362607666235
+        },
+        {
+          "id": "linen",
+          "score": 0.5686753615199587
+        },
+        {
+          "id": "silk",
+          "score": 0.45704810724543105
+        },
+        {
+          "id": "wool",
+          "score": 0.4546299159583178
+        }
+      ]
+    },
+    {
+      "id": "S-1",
+      "note": "Warm sheep wool scarf, springy woollen yarn",
+      "widthMm": 200,
+      "lengthMm": 1600,
+      "pieces": 2,
+      "fringeMm": 50,
+      "repeat": 4,
+      "selvedgeEnds": 4,
+      "wasteMm": 500,
+      "profile": "wool",
+      "decision": "approve",
+      "reviewerNote": "",
+      "candidates": [
+        {
+          "id": "wool",
+          "score": 0.9333580066515694
+        },
+        {
+          "id": "silk",
+          "score": 0.5484054007688408
+        },
+        {
+          "id": "linen",
+          "score": 0.46566860339051314
+        },
+        {
+          "id": "cotton",
+          "score": 0.453958699594365
+        }
+      ]
+    }
+  ],
+  "plans": [
+    {
+      "id": "T-1",
+      "profile": "cotton",
+      "loomWidthMm": 435,
+      "rawBodyEnds": 348,
+      "bodyEnds": 348,
+      "ends": 352,
+      "reedWidthMm": 440,
+      "lengthPerEndMm": 2041,
+      "totalMm": 718432,
+      "baselineEnds": 324,
+      "baselinePerEndMm": 1900,
+      "baselineMm": 615600,
+      "allowanceMm": 102832,
+      "widthOk": true,
+      "endsOk": false
+    },
+    {
+      "id": "S-1",
+      "profile": "wool",
+      "loomWidthMm": 228,
+      "rawBodyEnds": 92,
+      "bodyEnds": 92,
+      "ends": 96,
+      "reedWidthMm": 240,
+      "lengthPerEndMm": 4540,
+      "totalMm": 435840,
+      "baselineEnds": 84,
+      "baselinePerEndMm": 3900,
+      "baselineMm": 327600,
+      "allowanceMm": 108240,
+      "widthOk": true,
+      "endsOk": true
+    }
+  ],
+  "stock": [
+    {
+      "profile": "cotton",
+      "stockMm": 2000000,
+      "requiredMm": 718432,
+      "baselineMm": 615600,
+      "shortfallMm": 0,
+      "baselineShortfallMm": 0
+    },
+    {
+      "profile": "wool",
+      "stockMm": 2500000,
+      "requiredMm": 435840,
+      "baselineMm": 327600,
+      "shortfallMm": 0,
+      "baselineShortfallMm": 0
+    },
+    {
+      "profile": "linen",
+      "stockMm": 2500000,
+      "requiredMm": 0,
+      "baselineMm": 0,
+      "shortfallMm": 0,
+      "baselineShortfallMm": 0
+    },
+    {
+      "profile": "silk",
+      "stockMm": 2500000,
+      "requiredMm": 0,
+      "baselineMm": 0,
+      "shortfallMm": 0,
+      "baselineShortfallMm": 0
+    }
+  ],
+  "complete": true,
+  "feasible": false,
+  "releaseReady": false,
+  "summary": {
+    "approved": 2,
+    "held": 0,
+    "totalMm": 1154272,
+    "baselineMm": 943200,
+    "shortfallMm": 0,
+    "baselineShortfallMm": 0
+  }
+}

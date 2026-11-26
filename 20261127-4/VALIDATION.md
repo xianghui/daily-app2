@@ -20,4 +20,8 @@ No agronomic threshold validation, field trials, cultivar accuracy, biological s
 
 ## Publication
 
-Pending combined-site deployment and public checks. This section will be updated from observed results, not branch-push assumptions.
+Published through ROOT `npm run deploy` after ROOT predeploy assembled **904 apps**, zero failed/skipped, **821,242,630 bytes**, below the unchanged 1 GB guard. Runtime deduplication rules and older source builds unchanged. Gallery inline scripts compile, the new AI-utility entry appears exactly once/newest first, all 903 previous entries are byte-identical; existing categories and public search/layout work.
+
+GitHub Pages build **3712e95cae5eae3eb2c234630e5af382471970e7** is `built`, matching remote gh-pages; workflow **45881435660** completed successfully. Public gallery/app/CSS/JS/shared worker/factory/WASM: **seven exact byte/hash matches**. Public real CPU AI again matched both fixtures **4/4** and passed the full reviewed/max-batch/invalid-input/cancel/offline/privacy/responsive suite. Downloaded public outputs passed **12,024 independent csv/Decimal/source assertions**. Actual public worker-network failure recovered to real inference; late schema-valid old vectors/errors could not overwrite a newer real run. Public gallery renders all **904 cards**, AI Utilities first, previous categories intact, search works at 1440/390/320px. Public status and sanitized evidence are saved in adjacent JSON reports.
+
+No digest or external announcement was sent. Unrelated pre-existing draft directories remain untouched and excluded.

@@ -1,0 +1,173 @@
+{
+  "fixtures": [
+    {
+      "expected": [
+        "capital",
+        "capital",
+        "expense",
+        "proceeds"
+      ],
+      "actual": [
+        "capital",
+        "capital",
+        "expense",
+        "proceeds"
+      ],
+      "correct": 4,
+      "total": 4,
+      "summary": {
+        "assetBasisMinor": 1290000,
+        "expenseMinor": 40000,
+        "proceedsMinor": 15000,
+        "grossOutflowMinor": 1330000,
+        "netCashMinor": 1315000,
+        "naiveBasisMinor": 1315000,
+        "basisGapMinor": -25000,
+        "identityVerified": true,
+        "rows": [
+          {
+            "id": "machine",
+            "date": "2026-11-01",
+            "type": "capital",
+            "assetMinor": 1200000,
+            "expenseMinor": 0,
+            "receiptMinor": 0
+          },
+          {
+            "id": "install",
+            "date": "2026-11-18",
+            "type": "capital",
+            "assetMinor": 90000,
+            "expenseMinor": 0,
+            "receiptMinor": 0
+          },
+          {
+            "id": "training",
+            "date": "2026-11-19",
+            "type": "expense",
+            "assetMinor": 0,
+            "expenseMinor": 40000,
+            "receiptMinor": 0
+          },
+          {
+            "id": "trial",
+            "date": "2026-11-19",
+            "type": "proceeds",
+            "assetMinor": 0,
+            "expenseMinor": 0,
+            "receiptMinor": 15000
+          }
+        ]
+      }
+    },
+    {
+      "expected": [
+        "expense",
+        "proceeds",
+        "capital",
+        "expense"
+      ],
+      "actual": [
+        "expense",
+        "proceeds",
+        "capital",
+        "capital"
+      ],
+      "correct": 3,
+      "total": 4,
+      "summary": {
+        "assetBasisMinor": 160000,
+        "expenseMinor": 100000,
+        "proceedsMinor": 30000,
+        "grossOutflowMinor": 260000,
+        "netCashMinor": 230000,
+        "naiveBasisMinor": 230000,
+        "basisGapMinor": -70000,
+        "identityVerified": true,
+        "rows": [
+          {
+            "id": "advert",
+            "date": "2026-10-02",
+            "type": "expense",
+            "assetMinor": 0,
+            "expenseMinor": 75000,
+            "receiptMinor": 0
+          },
+          {
+            "id": "samples",
+            "date": "2026-10-09",
+            "type": "proceeds",
+            "assetMinor": 0,
+            "expenseMinor": 0,
+            "receiptMinor": 30000
+          },
+          {
+            "id": "freight",
+            "date": "2026-10-03",
+            "type": "capital",
+            "assetMinor": 160000,
+            "expenseMinor": 0,
+            "receiptMinor": 0
+          },
+          {
+            "id": "repair",
+            "date": "2026-10-25",
+            "type": "expense",
+            "assetMinor": 0,
+            "expenseMinor": 25000,
+            "receiptMinor": 0
+          }
+        ]
+      }
+    }
+  ],
+  "checks": [
+    "Mandatory role review/completeness; amount/type edits; undo; multiline formula note; holds; clipboard; export invalidation",
+    "Real fresh-worker offline inference in warmed open page with GPU disabled",
+    "Maximum 24 records + 3 references / 27 texts / 7 real embedding chunks; audit reimport preserves originals",
+    "Empty/malformed/oversized source, invalid amount/note/term, unsupported/malformed/oversized imports",
+    "Cancellation and real inference retry",
+    {
+      "probe": "This is not equipment installation; it is operator training after readiness.",
+      "actual": "expense",
+      "warning": "Nearest reference is forced; human review required"
+    },
+    {
+      "probe": "Please refill the coffee machine in the kitchen.",
+      "actual": "capital",
+      "warning": "Nearest reference is forced; human review required"
+    },
+    "1440/390/320 no overflow; labels, keyboard and 44px controls"
+  ],
+  "privacy": {
+    "requests": 49,
+    "allGetWithoutBodies": true,
+    "externalPaths": [
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194"
+    ],
+    "queryKeys": [
+      "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "etag",
+      "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "response-content-disposition",
+      "xip",
+      "user_id",
+      "X-Xet-Cas-Uid",
+      "Expires",
+      "Policy",
+      "Signature",
+      "Key-Pair-Id",
+      "Hash-Algorithm"
+    ],
+    "preloadModelRequests": 0
+  },
+  "errors": []
+}

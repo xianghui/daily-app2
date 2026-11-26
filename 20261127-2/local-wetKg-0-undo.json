@@ -1,0 +1,256 @@
+{
+  "schema": "compost-v1",
+  "original": {
+    "title": "Teaching compost bin · synthetic",
+    "minCN": 25,
+    "maxCN": 35,
+    "minMoisture": 0.45,
+    "maxMoisture": 0.6,
+    "profiles": [
+      {
+        "id": "kitchen",
+        "description": "Kitchen vegetable food scraps: fresh fruit peels and vegetable trimmings from cooking.",
+        "carbonDry": 0.45,
+        "nitrogenDry": 0.025
+      },
+      {
+        "id": "grass",
+        "description": "Fresh lawn grass clippings: green cut blades from mowing the garden lawn.",
+        "carbonDry": 0.45,
+        "nitrogenDry": 0.03
+      },
+      {
+        "id": "wood",
+        "description": "Sawdust and wood shavings: dry woody chips from cutting untreated timber.",
+        "carbonDry": 0.5,
+        "nitrogenDry": 0.001
+      }
+    ],
+    "amendments": [
+      {
+        "id": "greens",
+        "description": "Wilted grass clippings",
+        "moisture": 0.6,
+        "carbonDry": 0.45,
+        "nitrogenDry": 0.03,
+        "maxKg": 50
+      },
+      {
+        "id": "water",
+        "description": "Water only",
+        "moisture": 1,
+        "carbonDry": 0,
+        "nitrogenDry": 0,
+        "maxKg": 20
+      }
+    ],
+    "records": [
+      {
+        "id": "shavings",
+        "note": "Sawdust and wood shavings from cutting untreated timber boards.",
+        "wetKg": 2,
+        "moisture": 0.15
+      },
+      {
+        "id": "peels",
+        "note": "Kitchen vegetable food scraps including fruit peels and fresh carrot trimmings.",
+        "wetKg": 1,
+        "moisture": 0.9
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "shavings",
+      "note": "Sawdust and wood shavings from cutting untreated timber boards.",
+      "wetKg": 2,
+      "moisture": 0.15,
+      "profile": "wood",
+      "candidates": [
+        {
+          "id": "wood",
+          "score": 0.8052045478119434
+        },
+        {
+          "id": "grass",
+          "score": 0.4344135237243664
+        },
+        {
+          "id": "kitchen",
+          "score": 0.2786833114518686
+        }
+      ],
+      "decision": "approve",
+      "reviewerNote": ""
+    },
+    {
+      "id": "peels",
+      "note": "Kitchen vegetable food scraps including fruit peels and fresh carrot trimmings.",
+      "wetKg": 1,
+      "moisture": 0.9,
+      "profile": "kitchen",
+      "candidates": [
+        {
+          "id": "kitchen",
+          "score": 0.9252652000186146
+        },
+        {
+          "id": "grass",
+          "score": 0.3966440531206009
+        },
+        {
+          "id": "wood",
+          "score": 0.3314741604640988
+        }
+      ],
+      "decision": "approve",
+      "reviewerNote": ""
+    }
+  ],
+  "complete": true,
+  "worksheet": [
+    {
+      "id": "shavings",
+      "profile": "wood",
+      "wetKg": 2,
+      "waterKg": 0.3,
+      "dryKg": 1.7,
+      "carbonKg": 0.85,
+      "nitrogenKg": 0.0017
+    },
+    {
+      "id": "peels",
+      "profile": "kitchen",
+      "wetKg": 1,
+      "waterKg": 0.9,
+      "dryKg": 0.09999999999999998,
+      "carbonKg": 0.04499999999999999,
+      "nitrogenKg": 0.0024999999999999996
+    }
+  ],
+  "base": {
+    "wetKg": 3,
+    "waterKg": 1.2,
+    "dryKg": 1.7999999999999998,
+    "carbonKg": 0.895,
+    "nitrogenKg": 0.0042,
+    "cn": 213.0952380952381,
+    "moisture": 0.39999999999999997
+  },
+  "recipe": {
+    "feasible": true,
+    "addedKg": 3.116666666666667,
+    "additions": [
+      {
+        "id": "greens",
+        "description": "Wilted grass clippings",
+        "kg": 3.116666666666667,
+        "wetKg": 3.116666666666667,
+        "waterKg": 1.87,
+        "dryKg": 1.246666666666667,
+        "carbonKg": 0.5610000000000002,
+        "nitrogenKg": 0.03740000000000001
+      },
+      {
+        "id": "water",
+        "description": "Water only",
+        "kg": 0,
+        "wetKg": 0,
+        "waterKg": 0,
+        "dryKg": 0,
+        "carbonKg": 0,
+        "nitrogenKg": 0
+      }
+    ],
+    "total": {
+      "wetKg": 6.116666666666667,
+      "waterKg": 3.0700000000000003,
+      "dryKg": 3.046666666666667,
+      "carbonKg": 1.4560000000000002,
+      "nitrogenKg": 0.04160000000000001,
+      "cn": 34.99999999999999,
+      "moisture": 0.5019073569482289
+    },
+    "constraints": [
+      {
+        "name": "minimum C:N",
+        "c": [
+          0.11999999999999997,
+          0
+        ],
+        "b": 0.79,
+        "slack": 0.4160000000000001
+      },
+      {
+        "name": "maximum C:N",
+        "c": [
+          -0.23999999999999996,
+          0
+        ],
+        "b": -0.748,
+        "slack": 0
+      },
+      {
+        "name": "minimum moisture",
+        "c": [
+          -0.14999999999999997,
+          -0.55
+        ],
+        "b": -0.15000000000000013,
+        "slack": 0.31749999999999984
+      },
+      {
+        "name": "maximum moisture",
+        "c": [
+          0,
+          0.4
+        ],
+        "b": 0.5999999999999999,
+        "slack": 0.5999999999999999
+      },
+      {
+        "name": "nonnegative first",
+        "c": [
+          -1,
+          0
+        ],
+        "b": 0,
+        "slack": 3.116666666666667
+      },
+      {
+        "name": "nonnegative second",
+        "c": [
+          0,
+          -1
+        ],
+        "b": 0,
+        "slack": 0
+      },
+      {
+        "name": "first supply",
+        "c": [
+          1,
+          0
+        ],
+        "b": 50,
+        "slack": 46.88333333333333
+      },
+      {
+        "name": "second supply",
+        "c": [
+          0,
+          1
+        ],
+        "b": 20,
+        "slack": 20
+      }
+    ]
+  },
+  "summary": {
+    "records": 2,
+    "approved": 2,
+    "held": 0,
+    "baseline": "No additions",
+    "baselineWithinBands": false
+  }
+}

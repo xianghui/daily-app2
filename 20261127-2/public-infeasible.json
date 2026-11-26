@@ -1,0 +1,217 @@
+{
+  "schema": "compost-v1",
+  "original": {
+    "title": "Community kitchen batch · synthetic",
+    "minCN": 25,
+    "maxCN": 35,
+    "minMoisture": 0.45,
+    "maxMoisture": 0.6,
+    "profiles": [
+      {
+        "id": "kitchen",
+        "description": "Kitchen vegetable food scraps: fresh fruit peels and vegetable trimmings from cooking.",
+        "carbonDry": 0.45,
+        "nitrogenDry": 0.025
+      },
+      {
+        "id": "grass",
+        "description": "Fresh lawn grass clippings: green cut blades from mowing the garden lawn.",
+        "carbonDry": 0.45,
+        "nitrogenDry": 0.03
+      },
+      {
+        "id": "wood",
+        "description": "Sawdust and wood shavings: dry woody chips from cutting untreated timber.",
+        "carbonDry": 0.5,
+        "nitrogenDry": 0.001
+      }
+    ],
+    "amendments": [
+      {
+        "id": "leaves",
+        "description": "Dry shredded leaves",
+        "moisture": 0.1,
+        "carbonDry": 0.48,
+        "nitrogenDry": 0.008,
+        "maxKg": 0
+      },
+      {
+        "id": "coffee",
+        "description": "Dried coffee grounds",
+        "moisture": 0.1,
+        "carbonDry": 0.45,
+        "nitrogenDry": 0.0225,
+        "maxKg": 0
+      }
+    ],
+    "records": [
+      {
+        "id": "prep",
+        "note": "Fresh fruit peels and vegetable trimmings from kitchen meal preparation.",
+        "wetKg": 4,
+        "moisture": 0.85
+      },
+      {
+        "id": "mower",
+        "note": "Fresh green lawn grass clippings from mowing the garden.",
+        "wetKg": 8,
+        "moisture": 0.8
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "prep",
+      "note": "Fresh fruit peels and vegetable trimmings from kitchen meal preparation.",
+      "wetKg": 4,
+      "moisture": 0.85,
+      "profile": "kitchen",
+      "candidates": [
+        {
+          "id": "kitchen",
+          "score": 0.8268442134905154
+        },
+        {
+          "id": "grass",
+          "score": 0.38099396425684223
+        },
+        {
+          "id": "wood",
+          "score": 0.26616278288402334
+        }
+      ],
+      "decision": "approve",
+      "reviewerNote": ""
+    },
+    {
+      "id": "mower",
+      "note": "Fresh green lawn grass clippings from mowing the garden.",
+      "wetKg": 8,
+      "moisture": 0.8,
+      "profile": "grass",
+      "candidates": [
+        {
+          "id": "grass",
+          "score": 0.9103095121373401
+        },
+        {
+          "id": "wood",
+          "score": 0.3575750102863919
+        },
+        {
+          "id": "kitchen",
+          "score": 0.35054091980691576
+        }
+      ],
+      "decision": "approve",
+      "reviewerNote": ""
+    }
+  ],
+  "complete": true,
+  "worksheet": [
+    {
+      "id": "prep",
+      "profile": "kitchen",
+      "wetKg": 4,
+      "waterKg": 3.4,
+      "dryKg": 0.6000000000000001,
+      "carbonKg": 0.2700000000000001,
+      "nitrogenKg": 0.015000000000000003
+    },
+    {
+      "id": "mower",
+      "profile": "grass",
+      "wetKg": 8,
+      "waterKg": 6.4,
+      "dryKg": 1.5999999999999996,
+      "carbonKg": 0.7199999999999999,
+      "nitrogenKg": 0.04799999999999999
+    }
+  ],
+  "base": {
+    "wetKg": 12,
+    "waterKg": 9.8,
+    "dryKg": 2.1999999999999997,
+    "carbonKg": 0.99,
+    "nitrogenKg": 0.06299999999999999,
+    "cn": 15.714285714285717,
+    "moisture": 0.8166666666666668
+  },
+  "recipe": {
+    "feasible": false,
+    "reason": "No recipe meets both bands within the two supplies. Change targets, measured intake or amendment options; do not treat missing output as zero need.",
+    "constraints": [
+      {
+        "name": "minimum C:N",
+        "c": [
+          -0.252,
+          0.10124999999999995
+        ],
+        "b": -0.5849999999999997
+      },
+      {
+        "name": "maximum C:N",
+        "c": [
+          0.18,
+          -0.30374999999999996
+        ],
+        "b": 1.2149999999999996
+      },
+      {
+        "name": "minimum moisture",
+        "c": [
+          0.35,
+          0.35
+        ],
+        "b": 4.4
+      },
+      {
+        "name": "maximum moisture",
+        "c": [
+          -0.5,
+          -0.5
+        ],
+        "b": -2.6000000000000014
+      },
+      {
+        "name": "nonnegative first",
+        "c": [
+          -1,
+          0
+        ],
+        "b": 0
+      },
+      {
+        "name": "nonnegative second",
+        "c": [
+          0,
+          -1
+        ],
+        "b": 0
+      },
+      {
+        "name": "first supply",
+        "c": [
+          1,
+          0
+        ],
+        "b": 0
+      },
+      {
+        "name": "second supply",
+        "c": [
+          0,
+          1
+        ],
+        "b": 0
+      }
+    ]
+  },
+  "summary": {
+    "records": 2,
+    "approved": 2,
+    "held": 0,
+    "baseline": "No additions",
+    "baselineWithinBands": false
+  }
+}

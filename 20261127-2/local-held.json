@@ -1,0 +1,208 @@
+{
+  "schema": "compost-v1",
+  "original": {
+    "title": "Teaching compost bin · synthetic",
+    "minCN": 25,
+    "maxCN": 35,
+    "minMoisture": 0.45,
+    "maxMoisture": 0.6,
+    "profiles": [
+      {
+        "id": "kitchen",
+        "description": "Kitchen vegetable food scraps: fresh fruit peels and vegetable trimmings from cooking.",
+        "carbonDry": 0.45,
+        "nitrogenDry": 0.025
+      },
+      {
+        "id": "grass",
+        "description": "Fresh lawn grass clippings: green cut blades from mowing the garden lawn.",
+        "carbonDry": 0.45,
+        "nitrogenDry": 0.03
+      },
+      {
+        "id": "wood",
+        "description": "Sawdust and wood shavings: dry woody chips from cutting untreated timber.",
+        "carbonDry": 0.5,
+        "nitrogenDry": 0.001
+      }
+    ],
+    "amendments": [
+      {
+        "id": "greens",
+        "description": "Wilted grass clippings",
+        "moisture": 0.6,
+        "carbonDry": 0.45,
+        "nitrogenDry": 0.03,
+        "maxKg": 50
+      },
+      {
+        "id": "water",
+        "description": "Water only",
+        "moisture": 1,
+        "carbonDry": 0,
+        "nitrogenDry": 0,
+        "maxKg": 20
+      }
+    ],
+    "records": [
+      {
+        "id": "shavings",
+        "note": "Sawdust and wood shavings from cutting untreated timber boards.",
+        "wetKg": 2,
+        "moisture": 0.15
+      },
+      {
+        "id": "peels",
+        "note": "Kitchen vegetable food scraps including fruit peels and fresh carrot trimmings.",
+        "wetKg": 1,
+        "moisture": 0.9
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "shavings",
+      "note": "Sawdust and wood shavings from cutting untreated timber boards.",
+      "wetKg": 2,
+      "moisture": 0.15,
+      "profile": "wood",
+      "candidates": [
+        {
+          "id": "wood",
+          "score": 0.8052045478119434
+        },
+        {
+          "id": "grass",
+          "score": 0.4344135237243664
+        },
+        {
+          "id": "kitchen",
+          "score": 0.2786833114518686
+        }
+      ],
+      "decision": "hold",
+      "reviewerNote": "=SUM(1,2)\nReviewed \"bed\", <script> & 🌿"
+    },
+    {
+      "id": "peels",
+      "note": "Kitchen vegetable food scraps including fruit peels and fresh carrot trimmings.",
+      "wetKg": 1,
+      "moisture": 0.9,
+      "profile": "kitchen",
+      "candidates": [
+        {
+          "id": "kitchen",
+          "score": 0.9252652000186146
+        },
+        {
+          "id": "grass",
+          "score": 0.3966440531206009
+        },
+        {
+          "id": "wood",
+          "score": 0.3314741604640988
+        }
+      ],
+      "decision": "approve",
+      "reviewerNote": ""
+    }
+  ],
+  "complete": false,
+  "worksheet": [
+    {
+      "id": "peels",
+      "profile": "kitchen",
+      "wetKg": 1,
+      "waterKg": 0.9,
+      "dryKg": 0.09999999999999998,
+      "carbonKg": 0.04499999999999999,
+      "nitrogenKg": 0.0024999999999999996
+    }
+  ],
+  "base": {
+    "wetKg": 1,
+    "waterKg": 0.9,
+    "dryKg": 0.09999999999999998,
+    "carbonKg": 0.04499999999999999,
+    "nitrogenKg": 0.0024999999999999996,
+    "cn": 18,
+    "moisture": 0.9
+  },
+  "recipe": {
+    "feasible": false,
+    "reason": "No recipe meets both bands within the two supplies. Change targets, measured intake or amendment options; do not treat missing output as zero need.",
+    "constraints": [
+      {
+        "name": "minimum C:N",
+        "c": [
+          0.11999999999999997,
+          0
+        ],
+        "b": -0.0175
+      },
+      {
+        "name": "maximum C:N",
+        "c": [
+          -0.23999999999999996,
+          0
+        ],
+        "b": 0.04249999999999999
+      },
+      {
+        "name": "minimum moisture",
+        "c": [
+          -0.14999999999999997,
+          -0.55
+        ],
+        "b": 0.45
+      },
+      {
+        "name": "maximum moisture",
+        "c": [
+          0,
+          0.4
+        ],
+        "b": -0.30000000000000004
+      },
+      {
+        "name": "nonnegative first",
+        "c": [
+          -1,
+          0
+        ],
+        "b": 0
+      },
+      {
+        "name": "nonnegative second",
+        "c": [
+          0,
+          -1
+        ],
+        "b": 0
+      },
+      {
+        "name": "first supply",
+        "c": [
+          1,
+          0
+        ],
+        "b": 50
+      },
+      {
+        "name": "second supply",
+        "c": [
+          0,
+          1
+        ],
+        "b": 20
+      }
+    ]
+  },
+  "summary": {
+    "records": 2,
+    "approved": 1,
+    "held": 1,
+    "baseline": "No additions",
+    "baselineWithinBands": false
+  }
+}

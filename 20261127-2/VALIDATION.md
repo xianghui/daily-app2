@@ -1,0 +1,21 @@
+# Compost Balance — observed validation
+
+## Local production bundle
+- React/Vite predeploy passed with `/daily-app2/20261127-2/` base.
+- Real Chrome WASM/CPU MiniLM inference, GPU disabled: wet kitchen fixture matched kitchen/grass; dry workshop matched wood/kitchen. **4/4 obvious synthetic labels**, versus 2/4 always-first-reference baseline. Not representative accuracy.
+- Negated wood note incorrectly matched wood instead of kitchen; unrelated credential-demand text forced grass. Both are documented failures; mandatory human review remains necessary. Neither text acquired network/tool authority.
+- Wet fixture: baseline C:N 15.7142857, moisture 81.6667%; minimum 5.2 kg addition (3.1464968 kg dry leaves + 2.0535032 kg dried coffee) gives C:N 25 and moisture 60%. Actual unrounded values are in fixture JSON. Dry fixture also finds a feasible recipe; unavailable stock yields explicit infeasibility, no recipe download.
+- Independent SciPy HiGHS oracle: **320 cases, 53 feasible / 267 infeasible, 691 assertions** comparing feasibility, minimum mass, supplies and all component totals. Not a chemistry validation.
+- Python independently parsed actual downloaded JSON/CSV/Markdown, preserving source IDs, every row, holds, multiline quoted formula-like reviewer text and current reviewed values. Recomputed wet/water/dry/carbon/nitrogen balances and final ratio constraints: **572 local artifact assertions**. Profile, moisture and mass edits change applied totals; undo restores them.
+- Max 24 records + 8 profiles = 32 real model texts / 8 chunks. Audit reimport restores all originals with new mandatory review; no lost records. Empty, invalid/oversized JSON, unsupported/huge imports, invalid measurements/targets, holds, review gating, snapshot invalidation, clipboard, cancel/retry passed.
+- Fully offline fresh-worker real inference passed in the same warmed open page. No offline navigation/reload claim. No model requests before explicit click; observed traffic was bodyless GET file downloads only, with no source text in URL/body. Reports retain hosts/paths/query-key names, not signed query values.
+- Ten defensive cases passed: actual worker-download and model-host failures; unavailable Worker/WASM; worker construction/error; malformed vectors; timeout; stale message; pending-download cancellation. Separate actual network recovery and late schema-valid old response/error after a newer real run passed. Fault injection used only for defenses, never successful inference.
+- 1440/390/320px: no horizontal overflow; labeled fields, keyboard export order and ≥44px touch controls. Desktop hero and narrow-phone results visually inspected. Physical phones, screen readers, other engines and representative semantic accuracy remain untested.
+- Immutable shared runtime hashes/protocol/model settings inspected; credential-pattern scan passed on built text. No remote-provider integration or private data. Pattern scan is not exhaustive secret detection.
+
+## Publication
+Root predeploy and deploy passed: **902 apps**, 0 failed/0 skipped; combined site **820,709,036 bytes**, below unchanged 1 GB guard. All **901 previous entries** remain byte-identical; new entry appears once under AI Utilities, before preserved STL/game categories. Every inline gallery script compiled with Node new Function. Gallery render/search and 1440/390/320px checks passed.
+
+GitHub Pages built exact published commit `44939cca61f38c50b9b3e42d22799d1738a189cd`; workflow `45865318680` completed successfully. Seven public files (root, app HTML/JS/CSS, shared worker/factory/WASM) returned HTTP 200 and matched assembled bytes/SHA-256. The public Chrome suite repeated both real-AI fixtures (4/4 labels), full 24-record/8-profile batch, reviewed edits/holds/undo, invalid inputs, cancellation/retry, current downloads/clipboard and fully offline fresh-worker inference in the warmed page. Public gallery retained all 902 entries and categories, search and narrow layouts passed. Public request audit again found only bodyless GET downloads; no source-content upload. Public artifact parsing and network-recovery/stale-newer-run results are retained in their reports.
+
+No builder digest was sent. Physical-phone hardware, other engines, screen readers, cold offline startup, laboratory compost outcomes and representative semantic accuracy remain untested.

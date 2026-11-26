@@ -2509,3 +2509,10 @@ Local real MiniLM asset-role inference supports a reviewed cash-generating-unit 
 ## Rootwater Planner — 20261127-1
 
 Local MiniLM crop-reference matching turns rough bed notes into reviewed daily root-zone water balances and end-of-day watering worksheets. Verify soil/weather assumptions, preserve unmet ET and compare fixed-daily watering. Complete JSON/CSV/Markdown exports retain every bed; no uploads or irrigation controls. Distinct from catchment/tank sizing and condensation checks. Reuses the immutable worker/factory from `20261115-6` and WASM from `20261107-2`; preserve those paths. See [workflow](20261127-1/README.md) and [observed validation](20261127-1/VALIDATION.md).
+
+
+## Compost Balance — 20261127-2
+
+Local MiniLM material inference turns rough compost-intake notes into reviewed minimum-addition batch recipes. Verify dry carbon/nitrogen references and wet-basis moisture, jointly meet ratio/moisture/supply bounds, preserve held records and export complete JSON/CSV/Markdown without uploads or equipment controls. Real fixtures matched 4/4 easy notes; negation failed and requires review. Independent SciPy LP checks passed 320 cases. Reuses immutable worker/runtime from `20261115-6` and WASM from `20261107-2`; preserve these paths. Offline scope is fresh-worker inference in an already-open warmed page only. See [workflow](20261127-2/README.md) and [observed validation](20261127-2/VALIDATION.md). No digest sent.
+
+Public release verified: matching built Pages commit `44939cca61f38c50b9b3e42d22799d1738a189cd`, successful workflow `45865318680`, seven exact public file matches, both real-AI fixtures and reviewed/export/max-batch/offline/privacy suite, **572** independently parsed public artifact assertions and all **902** gallery cards. Combined site **820,709,036 bytes**, below the unchanged guard; runtime-sharing rules untouched. Actual public network failure recovered to real inference, and late old responses could not replace a newer run. Physical phones, other engines, cold offline startup, representative semantic accuracy and laboratory compost outcomes remain unverified. No digest sent; unrelated drafts preserved/excluded.

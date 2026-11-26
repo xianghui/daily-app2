@@ -1,0 +1,284 @@
+{
+  "schema": "splitvalue-desk/v1",
+  "original": {
+    "title": "Synthetic timber joint-production batch",
+    "currency": "EUR",
+    "products": [
+      {
+        "id": "boards",
+        "label": "Finished boards",
+        "sales": "150001"
+      },
+      {
+        "id": "chips",
+        "label": "Wood chips",
+        "sales": "50000"
+      },
+      {
+        "id": "sawdust",
+        "label": "Sawdust",
+        "sales": "30000"
+      }
+    ],
+    "requests": [
+      {
+        "id": "T1",
+        "note": "Office administration, marketing advertisements and customer distribution delivery expenses.",
+        "cost": "8000",
+        "product": ""
+      },
+      {
+        "id": "T2",
+        "note": "Additional kiln drying and sanding of the board product after the shared sawmill split-off process.",
+        "cost": "60000",
+        "product": "boards"
+      },
+      {
+        "id": "T3",
+        "note": "Common raw log materials consumed jointly to manufacture boards, wood chips and sawdust before separation.",
+        "cost": "90001",
+        "product": ""
+      },
+      {
+        "id": "T4",
+        "note": "Shared initial sawmill manufacturing labor and overhead incurred before joint products split off.",
+        "cost": "10000",
+        "product": ""
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "T1",
+      "profile": "excluded",
+      "cost": "8000",
+      "product": "",
+      "decision": "hold",
+      "note": "=SUM(1,2)\nReviewed \"cost\", <script> & 🪵",
+      "candidates": [
+        {
+          "id": "excluded",
+          "score": 0.6784230987389231
+        },
+        {
+          "id": "separable",
+          "score": 0.30309878402299373
+        },
+        {
+          "id": "joint",
+          "score": 0.22609859087038894
+        }
+      ]
+    },
+    {
+      "id": "T2",
+      "profile": "separable",
+      "cost": "60000",
+      "product": "boards",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "separable",
+          "score": 0.47648213012528223
+        },
+        {
+          "id": "joint",
+          "score": 0.41778884070946426
+        },
+        {
+          "id": "excluded",
+          "score": 0.23359600412564438
+        }
+      ]
+    },
+    {
+      "id": "T3",
+      "profile": "joint",
+      "cost": "90001",
+      "product": "",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "joint",
+          "score": 0.50733017753377
+        },
+        {
+          "id": "separable",
+          "score": 0.3690219689087104
+        },
+        {
+          "id": "excluded",
+          "score": 0.28113447795364155
+        }
+      ]
+    },
+    {
+      "id": "T4",
+      "profile": "joint",
+      "cost": "10000",
+      "product": "",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "joint",
+          "score": 0.7092097384974536
+        },
+        {
+          "id": "separable",
+          "score": 0.5248022635740317
+        },
+        {
+          "id": "excluded",
+          "score": 0.37563065152458913
+        }
+      ]
+    }
+  ],
+  "sales": [
+    {
+      "id": "boards",
+      "sales": "150001"
+    },
+    {
+      "id": "chips",
+      "sales": "50000"
+    },
+    {
+      "id": "sawdust",
+      "sales": "30000"
+    }
+  ],
+  "rows": [
+    {
+      "id": "T1",
+      "note": "Office administration, marketing advertisements and customer distribution delivery expenses.",
+      "cost": "8000",
+      "product": "",
+      "review": {
+        "id": "T1",
+        "profile": "excluded",
+        "cost": "8000",
+        "product": "",
+        "decision": "hold",
+        "note": "=SUM(1,2)\nReviewed \"cost\", <script> & 🪵",
+        "candidates": [
+          {
+            "id": "excluded",
+            "score": 0.6784230987389231
+          },
+          {
+            "id": "separable",
+            "score": 0.30309878402299373
+          },
+          {
+            "id": "joint",
+            "score": 0.22609859087038894
+          }
+        ]
+      },
+      "status": "held"
+    },
+    {
+      "id": "T2",
+      "note": "Additional kiln drying and sanding of the board product after the shared sawmill split-off process.",
+      "cost": "60000",
+      "product": "boards",
+      "review": {
+        "id": "T2",
+        "profile": "separable",
+        "cost": "60000",
+        "product": "boards",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "separable",
+            "score": 0.47648213012528223
+          },
+          {
+            "id": "joint",
+            "score": 0.41778884070946426
+          },
+          {
+            "id": "excluded",
+            "score": 0.23359600412564438
+          }
+        ]
+      },
+      "status": "included"
+    },
+    {
+      "id": "T3",
+      "note": "Common raw log materials consumed jointly to manufacture boards, wood chips and sawdust before separation.",
+      "cost": "90001",
+      "product": "",
+      "review": {
+        "id": "T3",
+        "profile": "joint",
+        "cost": "90001",
+        "product": "",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "joint",
+            "score": 0.50733017753377
+          },
+          {
+            "id": "separable",
+            "score": 0.3690219689087104
+          },
+          {
+            "id": "excluded",
+            "score": 0.28113447795364155
+          }
+        ]
+      },
+      "status": "included"
+    },
+    {
+      "id": "T4",
+      "note": "Shared initial sawmill manufacturing labor and overhead incurred before joint products split off.",
+      "cost": "10000",
+      "product": "",
+      "review": {
+        "id": "T4",
+        "profile": "joint",
+        "cost": "10000",
+        "product": "",
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "joint",
+            "score": 0.7092097384974536
+          },
+          {
+            "id": "separable",
+            "score": 0.5248022635740317
+          },
+          {
+            "id": "excluded",
+            "score": 0.37563065152458913
+          }
+        ]
+      },
+      "status": "included"
+    }
+  ],
+  "products": [],
+  "status": "blocked",
+  "blockers": [
+    "A joint batch cannot be allocated partially. Resolve every held cost record; audit exports still retain everything."
+  ],
+  "metrics": {
+    "records": 4,
+    "reviewed": 3,
+    "held": 1,
+    "baselineDisagreements": 0
+  },
+  "totals": null
+}

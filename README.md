@@ -2440,3 +2440,8 @@ Public release verified: matching built Pages commit `24e27b8d253ef04e66d0b51a23
 ## Unitloom Desk — 20261126-13
 
 Local MiniLM cost-incurrence inference helps workshop reviewers turn informal material, conversion and packaging notes into equivalent-unit cost worksheets. Review start/uniform/completion-only patterns and supplied counts/costs; exact rational allocation conserves every minor unit. Compare all-physical-unit shortcuts and export complete reviewed JSON/CSV/Markdown without uploads or ledger changes. No opening WIP, scrap or transferred-in costs. Eight simple known-answer labels matched; an unrelated note still forced a match, so every proposal requires review. Reuses the immutable MiniLM worker at `20261115-6` and WASM at `20261107-2`; preserve both. See [workflow](20261126-13/README.md) and [observed checks](20261126-13/VALIDATION.md).
+
+
+## Splitvalue Desk — 20261126-14
+
+Joint-production cost review with real local MiniLM role inference and exact net-realizable-value apportionment. Review common/separable/excluded costs and final sales; holds block the dependent batch; JSON/CSV/Markdown retain every source. Eight simple synthetic roles matched, while a negated-cost challenge failed: mandatory review remains essential. Reuses immutable `20261115-6` worker/factory and `20261107-2` WASM. See [workflow](20261126-14/README.md) and [observed validation](20261126-14/VALIDATION.md).

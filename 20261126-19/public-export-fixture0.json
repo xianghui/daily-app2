@@ -1,0 +1,335 @@
+{
+  "format": "allowance-orchard-v1",
+  "original": {
+    "title": "Synthetic workshop trade exposures",
+    "cutoff": "2026-11-30",
+    "scenarios": [
+      {
+        "id": "base",
+        "label": "Base assumption",
+        "weight": 7500
+      },
+      {
+        "id": "stress",
+        "label": "Stress assumption",
+        "weight": 2500
+      }
+    ],
+    "profiles": [
+      {
+        "id": "retail",
+        "label": "Consumer retail",
+        "description": "Consumer retail customers buying household goods for personal home use, individual shoppers and family purchases.",
+        "rates": [
+          [
+            50,
+            200,
+            1000,
+            4000
+          ],
+          [
+            100,
+            500,
+            2500,
+            7000
+          ]
+        ]
+      },
+      {
+        "id": "trade",
+        "label": "Wholesale trade",
+        "description": "Wholesale business trade customers purchasing bulk stock for resale, distributors and commercial resellers.",
+        "rates": [
+          [
+            20,
+            100,
+            500,
+            2000
+          ],
+          [
+            50,
+            300,
+            1500,
+            5000
+          ]
+        ]
+      }
+    ],
+    "records": [
+      {
+        "id": "R1",
+        "note": "Individual shopper buying household furniture for the family home.",
+        "due": "2026-12-15",
+        "exposure": 100001
+      },
+      {
+        "id": "R2",
+        "note": "Commercial distributor ordering bulk stock to resell to shops.",
+        "due": "2026-11-15",
+        "exposure": 200003
+      },
+      {
+        "id": "R3",
+        "note": "Private consumer purchasing kitchen goods for personal home use.",
+        "due": "2026-09-30",
+        "exposure": 50007
+      },
+      {
+        "id": "R4",
+        "note": "Wholesale reseller account purchasing inventory in bulk.",
+        "due": "2026-08-01",
+        "exposure": 80009
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "R1",
+      "profile": "retail",
+      "exposure": 100001,
+      "due": "2026-12-15",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "retail",
+          "reference": "Consumer retail customers buying household goods for personal home use, individual shoppers and family purchases.",
+          "score": 0.7307476877610144
+        },
+        {
+          "id": "trade",
+          "reference": "Wholesale business trade customers purchasing bulk stock for resale, distributors and commercial resellers.",
+          "score": 0.24898870042938814
+        }
+      ]
+    },
+    {
+      "id": "R2",
+      "profile": "trade",
+      "exposure": 200003,
+      "due": "2026-11-15",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "trade",
+          "reference": "Wholesale business trade customers purchasing bulk stock for resale, distributors and commercial resellers.",
+          "score": 0.8275211631400264
+        },
+        {
+          "id": "retail",
+          "reference": "Consumer retail customers buying household goods for personal home use, individual shoppers and family purchases.",
+          "score": 0.29331311924298936
+        }
+      ]
+    },
+    {
+      "id": "R3",
+      "profile": "retail",
+      "exposure": 50007,
+      "due": "2026-09-30",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "retail",
+          "reference": "Consumer retail customers buying household goods for personal home use, individual shoppers and family purchases.",
+          "score": 0.6858733187357311
+        },
+        {
+          "id": "trade",
+          "reference": "Wholesale business trade customers purchasing bulk stock for resale, distributors and commercial resellers.",
+          "score": 0.2639682826214799
+        }
+      ]
+    },
+    {
+      "id": "R4",
+      "profile": "trade",
+      "exposure": 80009,
+      "due": "2026-08-01",
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "trade",
+          "reference": "Wholesale business trade customers purchasing bulk stock for resale, distributors and commercial resellers.",
+          "score": 0.8079843729465457
+        },
+        {
+          "id": "retail",
+          "reference": "Consumer retail customers buying household goods for personal home use, individual shoppers and family purchases.",
+          "score": 0.3702858173553312
+        }
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "id": "R1",
+      "note": "Individual shopper buying household furniture for the family home.",
+      "due": "2026-12-15",
+      "exposure": 100001,
+      "profile": "retail",
+      "reviewedExposure": 100001,
+      "reviewedDue": "2026-12-15",
+      "decision": "approve",
+      "reviewerNote": "",
+      "daysOverdue": 0,
+      "bucket": 0,
+      "bucketLabel": "Current / not yet due"
+    },
+    {
+      "id": "R2",
+      "note": "Commercial distributor ordering bulk stock to resell to shops.",
+      "due": "2026-11-15",
+      "exposure": 200003,
+      "profile": "trade",
+      "reviewedExposure": 200003,
+      "reviewedDue": "2026-11-15",
+      "decision": "approve",
+      "reviewerNote": "",
+      "daysOverdue": 15,
+      "bucket": 1,
+      "bucketLabel": "1–30 days overdue"
+    },
+    {
+      "id": "R3",
+      "note": "Private consumer purchasing kitchen goods for personal home use.",
+      "due": "2026-09-30",
+      "exposure": 50007,
+      "profile": "retail",
+      "reviewedExposure": 50007,
+      "reviewedDue": "2026-09-30",
+      "decision": "approve",
+      "reviewerNote": "",
+      "daysOverdue": 61,
+      "bucket": 2,
+      "bucketLabel": "31–90 days overdue"
+    },
+    {
+      "id": "R4",
+      "note": "Wholesale reseller account purchasing inventory in bulk.",
+      "due": "2026-08-01",
+      "exposure": 80009,
+      "profile": "trade",
+      "reviewedExposure": 80009,
+      "reviewedDue": "2026-08-01",
+      "decision": "approve",
+      "reviewerNote": "",
+      "daysOverdue": 121,
+      "bucket": 3,
+      "bucketLabel": "Over 90 days overdue"
+    }
+  ],
+  "metrics": {
+    "records": 4,
+    "approved": 4,
+    "held": 0
+  },
+  "status": "ready",
+  "summary": {
+    "totalExposure": 430020,
+    "allowance": 32503,
+    "netExposure": 397517,
+    "allCurrentBaseline": 1708,
+    "agingDifference": 30795,
+    "independentlyRounded": 32503,
+    "roundingDifference": 0,
+    "weightedNumerator": "3250348875000",
+    "denominator": "100000000"
+  },
+  "scenarios": [
+    {
+      "id": "base",
+      "label": "Base assumption",
+      "weight": 7500,
+      "allowance": 23503
+    },
+    {
+      "id": "stress",
+      "label": "Stress assumption",
+      "weight": 2500,
+      "allowance": 59506
+    }
+  ],
+  "worksheet": [
+    {
+      "id": "R1",
+      "note": "Individual shopper buying household furniture for the family home.",
+      "due": "2026-12-15",
+      "exposure": 100001,
+      "profile": "retail",
+      "reviewedExposure": 100001,
+      "reviewedDue": "2026-12-15",
+      "decision": "approve",
+      "reviewerNote": "",
+      "daysOverdue": 0,
+      "bucket": 0,
+      "bucketLabel": "Current / not yet due",
+      "allowance": 625,
+      "netExposure": 99376,
+      "weightedRateBps": 62.5,
+      "exactNumerator": "62500625000",
+      "denominator": "100000000"
+    },
+    {
+      "id": "R2",
+      "note": "Commercial distributor ordering bulk stock to resell to shops.",
+      "due": "2026-11-15",
+      "exposure": 200003,
+      "profile": "trade",
+      "reviewedExposure": 200003,
+      "reviewedDue": "2026-11-15",
+      "decision": "approve",
+      "reviewerNote": "",
+      "daysOverdue": 15,
+      "bucket": 1,
+      "bucketLabel": "1–30 days overdue",
+      "allowance": 3000,
+      "netExposure": 197003,
+      "weightedRateBps": 150,
+      "exactNumerator": "300004500000",
+      "denominator": "100000000"
+    },
+    {
+      "id": "R3",
+      "note": "Private consumer purchasing kitchen goods for personal home use.",
+      "due": "2026-09-30",
+      "exposure": 50007,
+      "profile": "retail",
+      "reviewedExposure": 50007,
+      "reviewedDue": "2026-09-30",
+      "decision": "approve",
+      "reviewerNote": "",
+      "daysOverdue": 61,
+      "bucket": 2,
+      "bucketLabel": "31–90 days overdue",
+      "allowance": 6876,
+      "netExposure": 43131,
+      "weightedRateBps": 1375,
+      "exactNumerator": "687596250000",
+      "denominator": "100000000"
+    },
+    {
+      "id": "R4",
+      "note": "Wholesale reseller account purchasing inventory in bulk.",
+      "due": "2026-08-01",
+      "exposure": 80009,
+      "profile": "trade",
+      "reviewedExposure": 80009,
+      "reviewedDue": "2026-08-01",
+      "decision": "approve",
+      "reviewerNote": "",
+      "daysOverdue": 121,
+      "bucket": 3,
+      "bucketLabel": "Over 90 days overdue",
+      "allowance": 22002,
+      "netExposure": 58007,
+      "weightedRateBps": 2750,
+      "exactNumerator": "2200247500000",
+      "denominator": "100000000"
+    }
+  ],
+  "blockers": []
+}

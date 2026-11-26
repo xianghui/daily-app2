@@ -2445,3 +2445,7 @@ Local MiniLM cost-incurrence inference helps workshop reviewers turn informal ma
 ## Splitvalue Desk — 20261126-14
 
 Joint-production cost review with real local MiniLM role inference and exact net-realizable-value apportionment. Review common/separable/excluded costs and final sales; holds block the dependent batch; JSON/CSV/Markdown retain every source. Eight simple synthetic roles matched, while a negated-cost challenge failed: mandatory review remains essential. Reuses immutable `20261115-6` worker/factory and `20261107-2` WASM. See [workflow](20261126-14/README.md) and [observed validation](20261126-14/VALIDATION.md).
+
+## Firstpass Atlas — 20261126-15
+
+Local MiniLM reference-note inference assists complete unit-by-station first-pass inspection audits. Review corrections/holds, compare observed linked-cohort yield with final-pass and independence scenarios, and export source-preserving JSON/CSV/Markdown. Final synthetic fixture matches: 14/16; two assembly-rework notes required human corrections. Shared immutable runtime paths are preserved. See [workflow and requirements](20261126-15/README.md) and [observed validation](20261126-15/VALIDATION.md).

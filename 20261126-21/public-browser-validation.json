@@ -1,0 +1,195 @@
+{
+  "fixtures": [
+    {
+      "expected": [
+        "asset",
+        "liability",
+        "addback",
+        "deduct",
+        "exclude"
+      ],
+      "actual": [
+        "asset",
+        "liability",
+        "addback",
+        "deduct",
+        "exclude"
+      ],
+      "correct": 5,
+      "total": 5,
+      "summary": {
+        "profitMinor": "1000000",
+        "operatingCashMinor": "950000",
+        "adjustmentMinor": "-50000",
+        "profitOnlyBaselineMinor": "1000000",
+        "baselineGapMinor": "-50000",
+        "subtotals": {
+          "asset": "-180000",
+          "liability": "70000",
+          "addback": "80000",
+          "deduct": "-20000",
+          "exclude": "0"
+        },
+        "trail": [
+          {
+            "id": "receivables",
+            "type": "asset",
+            "beforeMinor": "1000000",
+            "effectMinor": "-180000",
+            "afterMinor": "820000"
+          },
+          {
+            "id": "suppliers",
+            "type": "liability",
+            "beforeMinor": "820000",
+            "effectMinor": "70000",
+            "afterMinor": "890000"
+          },
+          {
+            "id": "depreciation",
+            "type": "addback",
+            "beforeMinor": "890000",
+            "effectMinor": "80000",
+            "afterMinor": "970000"
+          },
+          {
+            "id": "disposal_gain",
+            "type": "deduct",
+            "beforeMinor": "970000",
+            "effectMinor": "-20000",
+            "afterMinor": "950000"
+          },
+          {
+            "id": "new_machine",
+            "type": "exclude",
+            "beforeMinor": "950000",
+            "effectMinor": "0",
+            "afterMinor": "950000"
+          }
+        ],
+        "identityVerified": true,
+        "excluded": 1
+      }
+    },
+    {
+      "expected": [
+        "asset",
+        "liability",
+        "addback",
+        "deduct",
+        "exclude"
+      ],
+      "actual": [
+        "asset",
+        "liability",
+        "addback",
+        "deduct",
+        "exclude"
+      ],
+      "correct": 5,
+      "total": 5,
+      "summary": {
+        "profitMinor": "-200000",
+        "operatingCashMinor": "-100000",
+        "adjustmentMinor": "100000",
+        "profitOnlyBaselineMinor": "-200000",
+        "baselineGapMinor": "100000",
+        "subtotals": {
+          "asset": "170000",
+          "liability": "-100000",
+          "addback": "60000",
+          "deduct": "-30000",
+          "exclude": "0"
+        },
+        "trail": [
+          {
+            "id": "stock",
+            "type": "asset",
+            "beforeMinor": "-200000",
+            "effectMinor": "170000",
+            "afterMinor": "-30000"
+          },
+          {
+            "id": "wages",
+            "type": "liability",
+            "beforeMinor": "-30000",
+            "effectMinor": "-100000",
+            "afterMinor": "-130000"
+          },
+          {
+            "id": "amortisation",
+            "type": "addback",
+            "beforeMinor": "-130000",
+            "effectMinor": "60000",
+            "afterMinor": "-70000"
+          },
+          {
+            "id": "valuation",
+            "type": "deduct",
+            "beforeMinor": "-70000",
+            "effectMinor": "-30000",
+            "afterMinor": "-100000"
+          },
+          {
+            "id": "loan",
+            "type": "exclude",
+            "beforeMinor": "-100000",
+            "effectMinor": "0",
+            "afterMinor": "-100000"
+          }
+        ],
+        "identityVerified": true,
+        "excluded": 1
+      }
+    }
+  ],
+  "checks": [
+    "Mandatory treatment review and completeness; opening/closing/amount/type edits; undo; multiline formula note; hold blocks total; clipboard; export invalidation",
+    "Real fresh-worker offline inference in warmed open page with GPU disabled",
+    "Maximum 24 records + 5 references / 29 texts / 8 real embedding chunks; audit reimport preserves originals",
+    "Empty/malformed/oversized source, invalid amounts and notes, unsupported/malformed/oversized imports",
+    "Cancellation and real inference retry",
+    {
+      "probe": "This is not depreciation; cash was spent buying a new machine.",
+      "actual": "addback",
+      "warning": "Nearest reference is forced; human review required"
+    },
+    {
+      "probe": "Please refill the coffee machine in the kitchen.",
+      "actual": "asset",
+      "warning": "Nearest reference is forced; human review required"
+    },
+    "1440/390/320 no overflow; labels, keyboard and 44px controls"
+  ],
+  "privacy": {
+    "requests": 48,
+    "allGetWithoutBodies": true,
+    "externalPaths": [
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx",
+      "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "https://huggingface.co/api/resolve-cache/models/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "https://us.aws.cdn.hf.co/xet-bridge-us/645192b75fb40b9f50b71914/c96f5f1e2aee643bd8191bb520a3e175db7b05821579a02a70acdf31e655d194"
+    ],
+    "queryKeys": [
+      "/Xenova/all-MiniLM-L6-v2/resolve/main/config.json",
+      "etag",
+      "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json",
+      "/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json",
+      "response-content-disposition",
+      "user_id",
+      "X-Xet-Cas-Uid",
+      "xip",
+      "Expires",
+      "Policy",
+      "Signature",
+      "Key-Pair-Id",
+      "Hash-Algorithm"
+    ],
+    "preloadModelRequests": 0
+  },
+  "errors": []
+}

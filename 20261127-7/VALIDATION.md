@@ -24,7 +24,7 @@ Requests captured from navigation through model inference: GET-only with no bodi
 
 907 gallery entries; all 906 old entry strings unchanged, new entry exactly once with ai-utility area, all inline scripts compile with Node new Function. Real-browser gallery categories/order/search and desktop/phone layout passed. Root assembly: 907 built, 0 failed/skipped; deploy-only deduplication leaves 822,035,712 bytes, below existing size guard. Shared dependencies preserved. Assembled-tree real inference/recovery and stale-result checks passed.
 
-Public deployment and verification results are recorded in `pages-build.json`, `public-assets.json` and `public-browser-validation.json` when completed; publication is not established by a branch push alone.
+Public verification completed: Pages built commit `7be19f9f42e7daa9f03a7308810c139dcdc441f5`; matching workflow concluded success. All 9 public gallery/app/runtime assets byte-match the assembled production tree. The full public browser suite reproduced 4/4 real MiniLM links, offline fresh-worker inference, maximum batch/reimport, review/undo/cancel/export and responsive checks. Python independently parsed 16 public audit snapshots and related CSVs. Public gallery and network-failure recovery/new-run stale defenses also passed. See `pages-build.json`, `pages-workflow.json`, `public-assets.json`, `public-browser-validation.json`, `public-artifact-validation.json`, `public-gallery-browser.json` and `public-recovery-validation.json`.
 
 ## Not tested / limitations
 

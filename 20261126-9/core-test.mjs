@@ -1,0 +1,5 @@
+import{schedule,examples,parse,apply,frac}from'./src/core.js';import fs from'node:fs';import assert from'node:assert/strict';
+const cases=[];for(const periods of[1,2,3,6,12,24,60])for(const rateBps of[0,1,100,250,1000,5000])for(const payment of['0','1','10000','999999999999'])for(const rule of['advance','arrears']){const input={periods,rateBps,payment};cases.push({input,rule,actual:schedule(input,rule)})}
+for(const e of examples){const d=parse(JSON.stringify(e.data)),r=d.requests.map((r,i)=>({...r,profile:e.expected[i],decision:'approve',note:'',candidates:[]}));assert.equal(apply(d,r).status,'ready');r[0].decision='pending';assert.throws(()=>apply(d,r));}
+for(const input of[{payment:'1',periods:0,rateBps:1},{payment:'1',periods:61,rateBps:1},{payment:'-1',periods:1,rateBps:0},{payment:'1',periods:1,rateBps:5001},{payment:'1',periods:1,rateBps:NaN},{payment:1,periods:1,rateBps:0}])assert.throws(()=>schedule(input,'advance'));
+fs.writeFileSync('core-cases.json',JSON.stringify(cases));console.log('Generated',cases.length,'exact schedule cases');

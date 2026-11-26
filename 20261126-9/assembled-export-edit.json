@@ -1,0 +1,1293 @@
+{
+  "schema": "payment-cadence/v1",
+  "original": {
+    "title": "Synthetic studio hire review",
+    "currency": "EUR",
+    "periodLabel": "quarter",
+    "profiles": [
+      {
+        "id": "start",
+        "rule": "advance",
+        "description": "Payments in advance at the beginning of each period. The first rental instalment is paid immediately at commencement, before using the equipment."
+      },
+      {
+        "id": "end",
+        "rule": "arrears",
+        "description": "Payments in arrears at the end of each period. The first rental instalment is due only after the first full period of equipment use."
+      }
+    ],
+    "requests": [
+      {
+        "id": "S1",
+        "note": "The studio hire fee is settled at the end of each quarter. Customers use the space for a full quarter before the first bill becomes payable.",
+        "payment": "240000",
+        "periods": 8,
+        "rateBps": 250
+      },
+      {
+        "id": "S2",
+        "note": "First quarterly hire charge is paid upfront on signing and handover. Further charges fall at the start of each quarter, in advance.",
+        "payment": "240000",
+        "periods": 8,
+        "rateBps": 250
+      },
+      {
+        "id": "S3",
+        "note": "A single payment is due at the end of the full hire period, not at handover. Equipment use precedes settlement.",
+        "payment": "100000",
+        "periods": 1,
+        "rateBps": 500
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "S1",
+      "profile": "end",
+      "payment": "250000",
+      "periods": 8,
+      "rateBps": 250,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "start",
+          "score": 0.5347521501778206
+        },
+        {
+          "id": "end",
+          "score": 0.450044620552145
+        }
+      ]
+    },
+    {
+      "id": "S2",
+      "profile": "start",
+      "payment": "240000",
+      "periods": 8,
+      "rateBps": 250,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "start",
+          "score": 0.5085370328279865
+        },
+        {
+          "id": "end",
+          "score": 0.36619071976337925
+        }
+      ]
+    },
+    {
+      "id": "S3",
+      "profile": "end",
+      "payment": "100000",
+      "periods": 1,
+      "rateBps": 500,
+      "decision": "approve",
+      "note": "",
+      "candidates": [
+        {
+          "id": "end",
+          "score": 0.537849160900443
+        },
+        {
+          "id": "start",
+          "score": 0.5342906442348788
+        }
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "id": "S1",
+      "note": "The studio hire fee is settled at the end of each quarter. Customers use the space for a full quarter before the first bill becomes payable.",
+      "payment": "240000",
+      "periods": 8,
+      "rateBps": 250,
+      "review": {
+        "id": "S1",
+        "profile": "end",
+        "payment": "250000",
+        "periods": 8,
+        "rateBps": 250,
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "start",
+            "score": 0.5347521501778206
+          },
+          {
+            "id": "end",
+            "score": 0.450044620552145
+          }
+        ]
+      },
+      "rule": "arrears",
+      "status": "ready",
+      "calculation": {
+        "rule": "arrears",
+        "pv": {
+          "n": "14313252291210000000",
+          "d": "7984925229121"
+        },
+        "immediatePayment": {
+          "n": "0",
+          "d": "1"
+        },
+        "afterImmediate": {
+          "n": "14313252291210000000",
+          "d": "7984925229121"
+        },
+        "totalPayments": {
+          "n": "2000000",
+          "d": "1"
+        },
+        "totalInterest": {
+          "n": "1656598167032000000",
+          "d": "7984925229121"
+        },
+        "closing": {
+          "n": "0",
+          "d": "1"
+        },
+        "rows": [
+          {
+            "at": 1,
+            "opening": {
+              "n": "14313252291210000000",
+              "d": "7984925229121"
+            },
+            "interest": {
+              "n": "357831307280250000",
+              "d": "7984925229121"
+            },
+            "payment": {
+              "n": "250000",
+              "d": "1"
+            },
+            "closing": {
+              "n": "309142738810000000",
+              "d": "194754273881"
+            },
+            "discount": {
+              "n": "40",
+              "d": "41"
+            },
+            "presentValue": {
+              "n": "10000000",
+              "d": "41"
+            }
+          },
+          {
+            "at": 2,
+            "opening": {
+              "n": "309142738810000000",
+              "d": "194754273881"
+            },
+            "interest": {
+              "n": "7728568470250000",
+              "d": "194754273881"
+            },
+            "payment": {
+              "n": "250000",
+              "d": "1"
+            },
+            "closing": {
+              "n": "6541042410000000",
+              "d": "4750104241"
+            },
+            "discount": {
+              "n": "1600",
+              "d": "1681"
+            },
+            "presentValue": {
+              "n": "400000000",
+              "d": "1681"
+            }
+          },
+          {
+            "at": 3,
+            "opening": {
+              "n": "6541042410000000",
+              "d": "4750104241"
+            },
+            "interest": {
+              "n": "163526060250000",
+              "d": "4750104241"
+            },
+            "payment": {
+              "n": "250000",
+              "d": "1"
+            },
+            "closing": {
+              "n": "134562010000000",
+              "d": "115856201"
+            },
+            "discount": {
+              "n": "64000",
+              "d": "68921"
+            },
+            "presentValue": {
+              "n": "16000000000",
+              "d": "68921"
+            }
+          },
+          {
+            "at": 4,
+            "opening": {
+              "n": "134562010000000",
+              "d": "115856201"
+            },
+            "interest": {
+              "n": "3364050250000",
+              "d": "115856201"
+            },
+            "payment": {
+              "n": "250000",
+              "d": "1"
+            },
+            "closing": {
+              "n": "2657610000000",
+              "d": "2825761"
+            },
+            "discount": {
+              "n": "2560000",
+              "d": "2825761"
+            },
+            "presentValue": {
+              "n": "640000000000",
+              "d": "2825761"
+            }
+          },
+          {
+            "at": 5,
+            "opening": {
+              "n": "2657610000000",
+              "d": "2825761"
+            },
+            "interest": {
+              "n": "66440250000",
+              "d": "2825761"
+            },
+            "payment": {
+              "n": "250000",
+              "d": "1"
+            },
+            "closing": {
+              "n": "49210000000",
+              "d": "68921"
+            },
+            "discount": {
+              "n": "102400000",
+              "d": "115856201"
+            },
+            "presentValue": {
+              "n": "25600000000000",
+              "d": "115856201"
+            }
+          },
+          {
+            "at": 6,
+            "opening": {
+              "n": "49210000000",
+              "d": "68921"
+            },
+            "interest": {
+              "n": "1230250000",
+              "d": "68921"
+            },
+            "payment": {
+              "n": "250000",
+              "d": "1"
+            },
+            "closing": {
+              "n": "810000000",
+              "d": "1681"
+            },
+            "discount": {
+              "n": "4096000000",
+              "d": "4750104241"
+            },
+            "presentValue": {
+              "n": "1024000000000000",
+              "d": "4750104241"
+            }
+          },
+          {
+            "at": 7,
+            "opening": {
+              "n": "810000000",
+              "d": "1681"
+            },
+            "interest": {
+              "n": "20250000",
+              "d": "1681"
+            },
+            "payment": {
+              "n": "250000",
+              "d": "1"
+            },
+            "closing": {
+              "n": "10000000",
+              "d": "41"
+            },
+            "discount": {
+              "n": "163840000000",
+              "d": "194754273881"
+            },
+            "presentValue": {
+              "n": "40960000000000000",
+              "d": "194754273881"
+            }
+          },
+          {
+            "at": 8,
+            "opening": {
+              "n": "10000000",
+              "d": "41"
+            },
+            "interest": {
+              "n": "250000",
+              "d": "41"
+            },
+            "payment": {
+              "n": "250000",
+              "d": "1"
+            },
+            "closing": {
+              "n": "0",
+              "d": "1"
+            },
+            "discount": {
+              "n": "6553600000000",
+              "d": "7984925229121"
+            },
+            "presentValue": {
+              "n": "1638400000000000000",
+              "d": "7984925229121"
+            }
+          }
+        ],
+        "reconciled": true
+      },
+      "baseline": {
+        "rule": "arrears",
+        "pv": {
+          "n": "14313252291210000000",
+          "d": "7984925229121"
+        },
+        "immediatePayment": {
+          "n": "0",
+          "d": "1"
+        },
+        "afterImmediate": {
+          "n": "14313252291210000000",
+          "d": "7984925229121"
+        },
+        "totalPayments": {
+          "n": "2000000",
+          "d": "1"
+        },
+        "totalInterest": {
+          "n": "1656598167032000000",
+          "d": "7984925229121"
+        },
+        "closing": {
+          "n": "0",
+          "d": "1"
+        },
+        "rows": [
+          {
+            "at": 1,
+            "opening": {
+              "n": "14313252291210000000",
+              "d": "7984925229121"
+            },
+            "interest": {
+              "n": "357831307280250000",
+              "d": "7984925229121"
+            },
+            "payment": {
+              "n": "250000",
+              "d": "1"
+            },
+            "closing": {
+              "n": "309142738810000000",
+              "d": "194754273881"
+            },
+            "discount": {
+              "n": "40",
+              "d": "41"
+            },
+            "presentValue": {
+              "n": "10000000",
+              "d": "41"
+            }
+          },
+          {
+            "at": 2,
+            "opening": {
+              "n": "309142738810000000",
+              "d": "194754273881"
+            },
+            "interest": {
+              "n": "7728568470250000",
+              "d": "194754273881"
+            },
+            "payment": {
+              "n": "250000",
+              "d": "1"
+            },
+            "closing": {
+              "n": "6541042410000000",
+              "d": "4750104241"
+            },
+            "discount": {
+              "n": "1600",
+              "d": "1681"
+            },
+            "presentValue": {
+              "n": "400000000",
+              "d": "1681"
+            }
+          },
+          {
+            "at": 3,
+            "opening": {
+              "n": "6541042410000000",
+              "d": "4750104241"
+            },
+            "interest": {
+              "n": "163526060250000",
+              "d": "4750104241"
+            },
+            "payment": {
+              "n": "250000",
+              "d": "1"
+            },
+            "closing": {
+              "n": "134562010000000",
+              "d": "115856201"
+            },
+            "discount": {
+              "n": "64000",
+              "d": "68921"
+            },
+            "presentValue": {
+              "n": "16000000000",
+              "d": "68921"
+            }
+          },
+          {
+            "at": 4,
+            "opening": {
+              "n": "134562010000000",
+              "d": "115856201"
+            },
+            "interest": {
+              "n": "3364050250000",
+              "d": "115856201"
+            },
+            "payment": {
+              "n": "250000",
+              "d": "1"
+            },
+            "closing": {
+              "n": "2657610000000",
+              "d": "2825761"
+            },
+            "discount": {
+              "n": "2560000",
+              "d": "2825761"
+            },
+            "presentValue": {
+              "n": "640000000000",
+              "d": "2825761"
+            }
+          },
+          {
+            "at": 5,
+            "opening": {
+              "n": "2657610000000",
+              "d": "2825761"
+            },
+            "interest": {
+              "n": "66440250000",
+              "d": "2825761"
+            },
+            "payment": {
+              "n": "250000",
+              "d": "1"
+            },
+            "closing": {
+              "n": "49210000000",
+              "d": "68921"
+            },
+            "discount": {
+              "n": "102400000",
+              "d": "115856201"
+            },
+            "presentValue": {
+              "n": "25600000000000",
+              "d": "115856201"
+            }
+          },
+          {
+            "at": 6,
+            "opening": {
+              "n": "49210000000",
+              "d": "68921"
+            },
+            "interest": {
+              "n": "1230250000",
+              "d": "68921"
+            },
+            "payment": {
+              "n": "250000",
+              "d": "1"
+            },
+            "closing": {
+              "n": "810000000",
+              "d": "1681"
+            },
+            "discount": {
+              "n": "4096000000",
+              "d": "4750104241"
+            },
+            "presentValue": {
+              "n": "1024000000000000",
+              "d": "4750104241"
+            }
+          },
+          {
+            "at": 7,
+            "opening": {
+              "n": "810000000",
+              "d": "1681"
+            },
+            "interest": {
+              "n": "20250000",
+              "d": "1681"
+            },
+            "payment": {
+              "n": "250000",
+              "d": "1"
+            },
+            "closing": {
+              "n": "10000000",
+              "d": "41"
+            },
+            "discount": {
+              "n": "163840000000",
+              "d": "194754273881"
+            },
+            "presentValue": {
+              "n": "40960000000000000",
+              "d": "194754273881"
+            }
+          },
+          {
+            "at": 8,
+            "opening": {
+              "n": "10000000",
+              "d": "41"
+            },
+            "interest": {
+              "n": "250000",
+              "d": "41"
+            },
+            "payment": {
+              "n": "250000",
+              "d": "1"
+            },
+            "closing": {
+              "n": "0",
+              "d": "1"
+            },
+            "discount": {
+              "n": "6553600000000",
+              "d": "7984925229121"
+            },
+            "presentValue": {
+              "n": "1638400000000000000",
+              "d": "7984925229121"
+            }
+          }
+        ],
+        "reconciled": true
+      }
+    },
+    {
+      "id": "S2",
+      "note": "First quarterly hire charge is paid upfront on signing and handover. Further charges fall at the start of each quarter, in advance.",
+      "payment": "240000",
+      "periods": 8,
+      "rateBps": 250,
+      "review": {
+        "id": "S2",
+        "profile": "start",
+        "payment": "240000",
+        "periods": 8,
+        "rateBps": 250,
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "start",
+            "score": 0.5085370328279865
+          },
+          {
+            "id": "end",
+            "score": 0.36619071976337925
+          }
+        ]
+      },
+      "rule": "advance",
+      "status": "ready",
+      "calculation": {
+        "rule": "advance",
+        "pv": {
+          "n": "343518054989040000",
+          "d": "194754273881"
+        },
+        "immediatePayment": {
+          "n": "240000",
+          "d": "1"
+        },
+        "afterImmediate": {
+          "n": "296777029257600000",
+          "d": "194754273881"
+        },
+        "totalPayments": {
+          "n": "1920000",
+          "d": "1"
+        },
+        "totalInterest": {
+          "n": "30410150862480000",
+          "d": "194754273881"
+        },
+        "closing": {
+          "n": "0",
+          "d": "1"
+        },
+        "rows": [
+          {
+            "at": 0,
+            "opening": {
+              "n": "343518054989040000",
+              "d": "194754273881"
+            },
+            "interest": {
+              "n": "0",
+              "d": "1"
+            },
+            "payment": {
+              "n": "240000",
+              "d": "1"
+            },
+            "closing": {
+              "n": "296777029257600000",
+              "d": "194754273881"
+            },
+            "discount": {
+              "n": "1",
+              "d": "1"
+            },
+            "presentValue": {
+              "n": "240000",
+              "d": "1"
+            }
+          },
+          {
+            "at": 1,
+            "opening": {
+              "n": "296777029257600000",
+              "d": "194754273881"
+            },
+            "interest": {
+              "n": "7419425731440000",
+              "d": "194754273881"
+            },
+            "payment": {
+              "n": "240000",
+              "d": "1"
+            },
+            "closing": {
+              "n": "6279400713600000",
+              "d": "4750104241"
+            },
+            "discount": {
+              "n": "40",
+              "d": "41"
+            },
+            "presentValue": {
+              "n": "9600000",
+              "d": "41"
+            }
+          },
+          {
+            "at": 2,
+            "opening": {
+              "n": "6279400713600000",
+              "d": "4750104241"
+            },
+            "interest": {
+              "n": "156985017840000",
+              "d": "4750104241"
+            },
+            "payment": {
+              "n": "240000",
+              "d": "1"
+            },
+            "closing": {
+              "n": "129179529600000",
+              "d": "115856201"
+            },
+            "discount": {
+              "n": "1600",
+              "d": "1681"
+            },
+            "presentValue": {
+              "n": "384000000",
+              "d": "1681"
+            }
+          },
+          {
+            "at": 3,
+            "opening": {
+              "n": "129179529600000",
+              "d": "115856201"
+            },
+            "interest": {
+              "n": "3229488240000",
+              "d": "115856201"
+            },
+            "payment": {
+              "n": "240000",
+              "d": "1"
+            },
+            "closing": {
+              "n": "2551305600000",
+              "d": "2825761"
+            },
+            "discount": {
+              "n": "64000",
+              "d": "68921"
+            },
+            "presentValue": {
+              "n": "15360000000",
+              "d": "68921"
+            }
+          },
+          {
+            "at": 4,
+            "opening": {
+              "n": "2551305600000",
+              "d": "2825761"
+            },
+            "interest": {
+              "n": "63782640000",
+              "d": "2825761"
+            },
+            "payment": {
+              "n": "240000",
+              "d": "1"
+            },
+            "closing": {
+              "n": "47241600000",
+              "d": "68921"
+            },
+            "discount": {
+              "n": "2560000",
+              "d": "2825761"
+            },
+            "presentValue": {
+              "n": "614400000000",
+              "d": "2825761"
+            }
+          },
+          {
+            "at": 5,
+            "opening": {
+              "n": "47241600000",
+              "d": "68921"
+            },
+            "interest": {
+              "n": "1181040000",
+              "d": "68921"
+            },
+            "payment": {
+              "n": "240000",
+              "d": "1"
+            },
+            "closing": {
+              "n": "777600000",
+              "d": "1681"
+            },
+            "discount": {
+              "n": "102400000",
+              "d": "115856201"
+            },
+            "presentValue": {
+              "n": "24576000000000",
+              "d": "115856201"
+            }
+          },
+          {
+            "at": 6,
+            "opening": {
+              "n": "777600000",
+              "d": "1681"
+            },
+            "interest": {
+              "n": "19440000",
+              "d": "1681"
+            },
+            "payment": {
+              "n": "240000",
+              "d": "1"
+            },
+            "closing": {
+              "n": "9600000",
+              "d": "41"
+            },
+            "discount": {
+              "n": "4096000000",
+              "d": "4750104241"
+            },
+            "presentValue": {
+              "n": "983040000000000",
+              "d": "4750104241"
+            }
+          },
+          {
+            "at": 7,
+            "opening": {
+              "n": "9600000",
+              "d": "41"
+            },
+            "interest": {
+              "n": "240000",
+              "d": "41"
+            },
+            "payment": {
+              "n": "240000",
+              "d": "1"
+            },
+            "closing": {
+              "n": "0",
+              "d": "1"
+            },
+            "discount": {
+              "n": "163840000000",
+              "d": "194754273881"
+            },
+            "presentValue": {
+              "n": "39321600000000000",
+              "d": "194754273881"
+            }
+          }
+        ],
+        "reconciled": true
+      },
+      "baseline": {
+        "rule": "arrears",
+        "pv": {
+          "n": "13740722199561600000",
+          "d": "7984925229121"
+        },
+        "immediatePayment": {
+          "n": "0",
+          "d": "1"
+        },
+        "afterImmediate": {
+          "n": "13740722199561600000",
+          "d": "7984925229121"
+        },
+        "totalPayments": {
+          "n": "1920000",
+          "d": "1"
+        },
+        "totalInterest": {
+          "n": "1590334240350720000",
+          "d": "7984925229121"
+        },
+        "closing": {
+          "n": "0",
+          "d": "1"
+        },
+        "rows": [
+          {
+            "at": 1,
+            "opening": {
+              "n": "13740722199561600000",
+              "d": "7984925229121"
+            },
+            "interest": {
+              "n": "343518054989040000",
+              "d": "7984925229121"
+            },
+            "payment": {
+              "n": "240000",
+              "d": "1"
+            },
+            "closing": {
+              "n": "296777029257600000",
+              "d": "194754273881"
+            },
+            "discount": {
+              "n": "40",
+              "d": "41"
+            },
+            "presentValue": {
+              "n": "9600000",
+              "d": "41"
+            }
+          },
+          {
+            "at": 2,
+            "opening": {
+              "n": "296777029257600000",
+              "d": "194754273881"
+            },
+            "interest": {
+              "n": "7419425731440000",
+              "d": "194754273881"
+            },
+            "payment": {
+              "n": "240000",
+              "d": "1"
+            },
+            "closing": {
+              "n": "6279400713600000",
+              "d": "4750104241"
+            },
+            "discount": {
+              "n": "1600",
+              "d": "1681"
+            },
+            "presentValue": {
+              "n": "384000000",
+              "d": "1681"
+            }
+          },
+          {
+            "at": 3,
+            "opening": {
+              "n": "6279400713600000",
+              "d": "4750104241"
+            },
+            "interest": {
+              "n": "156985017840000",
+              "d": "4750104241"
+            },
+            "payment": {
+              "n": "240000",
+              "d": "1"
+            },
+            "closing": {
+              "n": "129179529600000",
+              "d": "115856201"
+            },
+            "discount": {
+              "n": "64000",
+              "d": "68921"
+            },
+            "presentValue": {
+              "n": "15360000000",
+              "d": "68921"
+            }
+          },
+          {
+            "at": 4,
+            "opening": {
+              "n": "129179529600000",
+              "d": "115856201"
+            },
+            "interest": {
+              "n": "3229488240000",
+              "d": "115856201"
+            },
+            "payment": {
+              "n": "240000",
+              "d": "1"
+            },
+            "closing": {
+              "n": "2551305600000",
+              "d": "2825761"
+            },
+            "discount": {
+              "n": "2560000",
+              "d": "2825761"
+            },
+            "presentValue": {
+              "n": "614400000000",
+              "d": "2825761"
+            }
+          },
+          {
+            "at": 5,
+            "opening": {
+              "n": "2551305600000",
+              "d": "2825761"
+            },
+            "interest": {
+              "n": "63782640000",
+              "d": "2825761"
+            },
+            "payment": {
+              "n": "240000",
+              "d": "1"
+            },
+            "closing": {
+              "n": "47241600000",
+              "d": "68921"
+            },
+            "discount": {
+              "n": "102400000",
+              "d": "115856201"
+            },
+            "presentValue": {
+              "n": "24576000000000",
+              "d": "115856201"
+            }
+          },
+          {
+            "at": 6,
+            "opening": {
+              "n": "47241600000",
+              "d": "68921"
+            },
+            "interest": {
+              "n": "1181040000",
+              "d": "68921"
+            },
+            "payment": {
+              "n": "240000",
+              "d": "1"
+            },
+            "closing": {
+              "n": "777600000",
+              "d": "1681"
+            },
+            "discount": {
+              "n": "4096000000",
+              "d": "4750104241"
+            },
+            "presentValue": {
+              "n": "983040000000000",
+              "d": "4750104241"
+            }
+          },
+          {
+            "at": 7,
+            "opening": {
+              "n": "777600000",
+              "d": "1681"
+            },
+            "interest": {
+              "n": "19440000",
+              "d": "1681"
+            },
+            "payment": {
+              "n": "240000",
+              "d": "1"
+            },
+            "closing": {
+              "n": "9600000",
+              "d": "41"
+            },
+            "discount": {
+              "n": "163840000000",
+              "d": "194754273881"
+            },
+            "presentValue": {
+              "n": "39321600000000000",
+              "d": "194754273881"
+            }
+          },
+          {
+            "at": 8,
+            "opening": {
+              "n": "9600000",
+              "d": "41"
+            },
+            "interest": {
+              "n": "240000",
+              "d": "41"
+            },
+            "payment": {
+              "n": "240000",
+              "d": "1"
+            },
+            "closing": {
+              "n": "0",
+              "d": "1"
+            },
+            "discount": {
+              "n": "6553600000000",
+              "d": "7984925229121"
+            },
+            "presentValue": {
+              "n": "1572864000000000000",
+              "d": "7984925229121"
+            }
+          }
+        ],
+        "reconciled": true
+      }
+    },
+    {
+      "id": "S3",
+      "note": "A single payment is due at the end of the full hire period, not at handover. Equipment use precedes settlement.",
+      "payment": "100000",
+      "periods": 1,
+      "rateBps": 500,
+      "review": {
+        "id": "S3",
+        "profile": "end",
+        "payment": "100000",
+        "periods": 1,
+        "rateBps": 500,
+        "decision": "approve",
+        "note": "",
+        "candidates": [
+          {
+            "id": "end",
+            "score": 0.537849160900443
+          },
+          {
+            "id": "start",
+            "score": 0.5342906442348788
+          }
+        ]
+      },
+      "rule": "arrears",
+      "status": "ready",
+      "calculation": {
+        "rule": "arrears",
+        "pv": {
+          "n": "2000000",
+          "d": "21"
+        },
+        "immediatePayment": {
+          "n": "0",
+          "d": "1"
+        },
+        "afterImmediate": {
+          "n": "2000000",
+          "d": "21"
+        },
+        "totalPayments": {
+          "n": "100000",
+          "d": "1"
+        },
+        "totalInterest": {
+          "n": "100000",
+          "d": "21"
+        },
+        "closing": {
+          "n": "0",
+          "d": "1"
+        },
+        "rows": [
+          {
+            "at": 1,
+            "opening": {
+              "n": "2000000",
+              "d": "21"
+            },
+            "interest": {
+              "n": "100000",
+              "d": "21"
+            },
+            "payment": {
+              "n": "100000",
+              "d": "1"
+            },
+            "closing": {
+              "n": "0",
+              "d": "1"
+            },
+            "discount": {
+              "n": "20",
+              "d": "21"
+            },
+            "presentValue": {
+              "n": "2000000",
+              "d": "21"
+            }
+          }
+        ],
+        "reconciled": true
+      },
+      "baseline": {
+        "rule": "arrears",
+        "pv": {
+          "n": "2000000",
+          "d": "21"
+        },
+        "immediatePayment": {
+          "n": "0",
+          "d": "1"
+        },
+        "afterImmediate": {
+          "n": "2000000",
+          "d": "21"
+        },
+        "totalPayments": {
+          "n": "100000",
+          "d": "1"
+        },
+        "totalInterest": {
+          "n": "100000",
+          "d": "21"
+        },
+        "closing": {
+          "n": "0",
+          "d": "1"
+        },
+        "rows": [
+          {
+            "at": 1,
+            "opening": {
+              "n": "2000000",
+              "d": "21"
+            },
+            "interest": {
+              "n": "100000",
+              "d": "21"
+            },
+            "payment": {
+              "n": "100000",
+              "d": "1"
+            },
+            "closing": {
+              "n": "0",
+              "d": "1"
+            },
+            "discount": {
+              "n": "20",
+              "d": "21"
+            },
+            "presentValue": {
+              "n": "2000000",
+              "d": "21"
+            }
+          }
+        ],
+        "reconciled": true
+      }
+    }
+  ],
+  "metrics": {
+    "contracts": 3,
+    "ready": 3,
+    "held": 0,
+    "timingDifferences": 1
+  },
+  "status": "ready"
+}

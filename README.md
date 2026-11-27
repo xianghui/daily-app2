@@ -2652,3 +2652,7 @@ Local MiniLM matches informal projector-kit handoffs to supplied native-raster/l
 ## Brewpath Bench — 20261128-1
 
 Local MiniLM method recognition turns informal café brew logs into reviewed extraction-yield and minimum-bypass worksheets. Extraction faults cannot be fixed by dilution; strength, serving and water caps gate Service CSV while complete JSON/CSV/Markdown retain every original. Shares the immutable worker/factory from `20261115-6` and WASM from `20261107-2`; preserve those assets. Four simple known-answer methods matched across two synthetic batches; irrelevant text still picks a nearest method, so human review is mandatory. See [workflow](20261128-1/README.md) and [observed validation](20261128-1/VALIDATION.md).
+
+## Cueweave Studio — 20261128-2
+
+Local MiniLM semantic boundaries turn timed transcript fragments into reviewed subtitle cues. Exact contiguous partitioning enforces reading rate, line width, duration and silence limits; all fragments remain in order. Review/edit/hold/undo, compare an equal-spacing legal baseline and export checked WebVTT plus complete JSON/CSV/Markdown. This is not audio transcription or forced alignment. Two synthetic known-answer boundary sets passed; fresh-worker offline inference in a warmed page and actual browser subtitle parsing were tested. Shared immutable CPU runtime paths from `20261115-6` / `20261107-2` must remain available. See [workflow](20261128-2/README.md) and [observed validation](20261128-2/VALIDATION.md).

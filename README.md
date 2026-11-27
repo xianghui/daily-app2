@@ -2669,3 +2669,7 @@ Real local MiniLM retrieves frame profiles from informal print-room handoffs. Re
 ## Gatherfold Studio — 20261128-5
 
 Real local MiniLM retrieves binding profiles from informal booklet briefs. Review numbered-page nested signature plans, final-section padding and shared-stock checks; export complete JSON/CSV/Markdown and guarded press CSV. All four simple known-answer profile links matched; a negated unknown brief still retrieved the negated profile, so review is mandatory. Reuses the immutable worker/runtime documented in [workflow](20261128-5/README.md); see [observed validation](20261128-5/VALIDATION.md). No PDFs or printer controls.
+
+## Coatfolio Desk — 20261128-6
+
+Local MiniLM finish-profile retrieval turns informal coating-job handoffs into reviewed volume and whole-pack worksheets. Verify volume solids and transfer efficiency, compare dry-film-only underestimates, pool approved-job stock once, enforce pack caps and export source-preserving JSON/CSV/Markdown plus gated pack lists. Four simple synthetic profile links matched; a negated unsuitable coating still retrieved the steel profile, so review is mandatory. Reuses immutable runtime assets from `20261115-6` and `20261107-2`; preserve their paths. See [workflow/privacy](20261128-6/README.md) and [observed validation](20261128-6/VALIDATION.md).

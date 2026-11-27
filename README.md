@@ -2647,3 +2647,8 @@ Local-AI destination matching for collection-handling arrivals, with reviewed ro
 ## Throwline Desk — 20261127-24
 
 Local MiniLM matches informal projector-kit handoffs to supplied native-raster/lens specs. Human-reviewed geometry maximizes uncropped content within screen and throw bounds, shows bars and compares a no-bars wall-width shortcut. Export complete JSON/CSV/Markdown plus gated setup CSV. Four simple kit links matched across two fixtures; a negation probe failed, so every link requires human review. 750 enumerated geometry cases, local/assembled/public real inference, warmed-page fresh-worker offline reuse, downloads and narrow layouts passed. Shared immutable runtime paths must be preserved. See [workflow and limitations](20261127-24/README.md), [observed checks](20261127-24/VALIDATION.md) and [publication state](20261127-24/publication-status.json). [Open app](https://xianghui.github.io/daily-app2/20261127-24/).
+
+
+## Brewpath Bench — 20261128-1
+
+Local MiniLM method recognition turns informal café brew logs into reviewed extraction-yield and minimum-bypass worksheets. Extraction faults cannot be fixed by dilution; strength, serving and water caps gate Service CSV while complete JSON/CSV/Markdown retain every original. Shares the immutable worker/factory from `20261115-6` and WASM from `20261107-2`; preserve those assets. Four simple known-answer methods matched across two synthetic batches; irrelevant text still picks a nearest method, so human review is mandatory. See [workflow](20261128-1/README.md) and [observed validation](20261128-1/VALIDATION.md).

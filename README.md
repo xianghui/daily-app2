@@ -2611,3 +2611,8 @@ Public release verified: matching built Pages commit `0ad7dbe68bd87a76c0370424a2
 ## Swatchform Desk — 20261127-17
 
 Real local MiniLM swatch retrieval turns informal knitting-project notes into reviewed rectangular flat-panel worksheets. Verify washed gauges, stitch/row repeats and per-panel yarn reservations; compare repeat-safe counts with simple rounding and export complete JSON/CSV/Markdown plus gated Panel CSV without uploads or machine controls. Four simple synthetic links matched; unrelated prose still forces a nearest candidate and needs human review. Independent exact-rational replay validates 603 cases / 5,427 assertions. Shared immutable worker/factory from `20261115-6` and CPU WASM from `20261107-2` remain required. Offline scope: fresh-worker inference in an already-open warmed page only. See [workflow/privacy](20261127-17/README.md) and [observed validation](20261127-17/VALIDATION.md). Physical knitting/yarn use, phones, other engines, cold offline startup and representative semantic accuracy are unverified. No digest sent; unrelated drafts preserved/excluded.
+
+
+## Looprate Desk — 20261127-18
+
+Local MiniLM clip-description retrieval for reviewed music-edit tempo-conform worksheets. Verify source frames, rates and quarter-note beats, check whole repeats and duration/pitch limits, compare native-speed drift and export complete JSON/CSV/Markdown. No audio analysis, rendering or DAW actions. Reuses immutable shared runtime paths from `20261115-6` and `20261107-2`; preserve those assets. See [workflow](20261127-18/README.md) and [observed validation](20261127-18/VALIDATION.md).

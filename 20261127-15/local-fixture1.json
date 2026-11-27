@@ -1,0 +1,160 @@
+{
+  "schema": "framecadence-v1",
+  "original": {
+    "title": "Two documentary shoots",
+    "profiles": [
+      {
+        "id": "CLOUD",
+        "description": "Fast moving clouds crossing the sky, shifting weather and sunlight over a landscape.",
+        "maxInterval": 5
+      },
+      {
+        "id": "PLANT",
+        "description": "Slow indoor seedling growth, flower opening and plants developing on a windowsill.",
+        "maxInterval": 120
+      },
+      {
+        "id": "BUILD",
+        "description": "Daytime building construction, workers assembling walls and progress on a construction site.",
+        "maxInterval": 30
+      }
+    ],
+    "records": [
+      {
+        "id": "site",
+        "note": "Builders lift bricks into new walls at a busy construction site.",
+        "duration": 14400,
+        "fps": 25,
+        "minPlayback": 12,
+        "frameKB": 5000,
+        "storageKB": 3000000,
+        "exposureMs": 100,
+        "overheadMs": 200
+      },
+      {
+        "id": "storm",
+        "note": "Storm clouds race across the afternoon sky.",
+        "duration": 1200,
+        "fps": 30,
+        "minPlayback": 8,
+        "frameKB": 2000,
+        "storageKB": 600000,
+        "exposureMs": 100,
+        "overheadMs": 200
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "site",
+      "note": "Builders lift bricks into new walls at a busy construction site.",
+      "duration": 14400,
+      "fps": 25,
+      "minPlayback": 12,
+      "frameKB": 5000,
+      "storageKB": 3000000,
+      "exposureMs": 100,
+      "overheadMs": 200,
+      "profile": "BUILD",
+      "maxInterval": 30,
+      "reviewerNote": "",
+      "decision": "approve",
+      "candidates": [
+        {
+          "id": "BUILD",
+          "score": 0.5371836635526173
+        },
+        {
+          "id": "PLANT",
+          "score": 0.181591438273371
+        },
+        {
+          "id": "CLOUD",
+          "score": 0.06376421157252059
+        }
+      ]
+    },
+    {
+      "id": "storm",
+      "note": "Storm clouds race across the afternoon sky.",
+      "duration": 1200,
+      "fps": 30,
+      "minPlayback": 8,
+      "frameKB": 2000,
+      "storageKB": 600000,
+      "exposureMs": 100,
+      "overheadMs": 200,
+      "profile": "CLOUD",
+      "maxInterval": 5,
+      "reviewerNote": "",
+      "decision": "approve",
+      "candidates": [
+        {
+          "id": "CLOUD",
+          "score": 0.6850737776532321
+        },
+        {
+          "id": "BUILD",
+          "score": 0.2324404098555043
+        },
+        {
+          "id": "PLANT",
+          "score": 0.1556535541617929
+        }
+      ]
+    }
+  ],
+  "jobs": [
+    {
+      "id": "site",
+      "status": "ready",
+      "interval": 30,
+      "frames": 480,
+      "storageKB": 2400000,
+      "lastStartMs": 14370000,
+      "finishMs": 14370100,
+      "playback": 19.2,
+      "required": 300,
+      "minInterval": 1,
+      "baseline": {
+        "interval": 60,
+        "frames": 240,
+        "storageKB": 1200000,
+        "playback": 9.6,
+        "meets": false
+      },
+      "reason": "Slowest feasible whole-second interval minimizes frame count (ties use slowest interval)."
+    },
+    {
+      "id": "storm",
+      "status": "ready",
+      "interval": 5,
+      "frames": 240,
+      "storageKB": 480000,
+      "lastStartMs": 1195000,
+      "finishMs": 1195100,
+      "playback": 8,
+      "required": 240,
+      "minInterval": 1,
+      "baseline": {
+        "interval": 60,
+        "frames": 20,
+        "storageKB": 40000,
+        "playback": 0.6666666666666666,
+        "meets": false
+      },
+      "reason": "Slowest feasible whole-second interval minimizes frame count (ties use slowest interval)."
+    }
+  ],
+  "summary": {
+    "records": 2,
+    "held": 0,
+    "infeasible": 0,
+    "ready": 2,
+    "frames": 720,
+    "storageKB": 2880000,
+    "baselinePass": 0,
+    "compared": 2,
+    "manifestReady": true
+  }
+}

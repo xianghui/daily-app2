@@ -1,0 +1,160 @@
+{
+  "schema": "framecadence-v1",
+  "original": {
+    "title": "A day in motion",
+    "profiles": [
+      {
+        "id": "CLOUD",
+        "description": "Fast moving clouds crossing the sky, shifting weather and sunlight over a landscape.",
+        "maxInterval": 5
+      },
+      {
+        "id": "PLANT",
+        "description": "Slow indoor seedling growth, flower opening and plants developing on a windowsill.",
+        "maxInterval": 120
+      },
+      {
+        "id": "BUILD",
+        "description": "Daytime building construction, workers assembling walls and progress on a construction site.",
+        "maxInterval": 30
+      }
+    ],
+    "records": [
+      {
+        "id": "sky",
+        "note": "Quick clouds drift over the mountain with changing shadows.",
+        "duration": 1800,
+        "fps": 24,
+        "minPlayback": 10,
+        "frameKB": 4000,
+        "storageKB": 2000000,
+        "exposureMs": 100,
+        "overheadMs": 200
+      },
+      {
+        "id": "seedling",
+        "note": "A bean sprout slowly unfolds new leaves by the window.",
+        "duration": 86400,
+        "fps": 24,
+        "minPlayback": 20,
+        "frameKB": 3000,
+        "storageKB": 2500000,
+        "exposureMs": 100,
+        "overheadMs": 200
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "sky",
+      "note": "Quick clouds drift over the mountain with changing shadows.",
+      "duration": 1800,
+      "fps": 24,
+      "minPlayback": 10,
+      "frameKB": 4000,
+      "storageKB": 2000000,
+      "exposureMs": 100,
+      "overheadMs": 250,
+      "profile": "CLOUD",
+      "maxInterval": 5,
+      "reviewerNote": "",
+      "decision": "approve",
+      "candidates": [
+        {
+          "id": "CLOUD",
+          "score": 0.7288684821939648
+        },
+        {
+          "id": "BUILD",
+          "score": 0.11824046909716555
+        },
+        {
+          "id": "PLANT",
+          "score": 0.08543860632296844
+        }
+      ]
+    },
+    {
+      "id": "seedling",
+      "note": "A bean sprout slowly unfolds new leaves by the window.",
+      "duration": 86400,
+      "fps": 24,
+      "minPlayback": 20,
+      "frameKB": 3000,
+      "storageKB": 2500000,
+      "exposureMs": 100,
+      "overheadMs": 200,
+      "profile": "PLANT",
+      "maxInterval": 120,
+      "reviewerNote": "",
+      "decision": "approve",
+      "candidates": [
+        {
+          "id": "PLANT",
+          "score": 0.4173941539800239
+        },
+        {
+          "id": "CLOUD",
+          "score": 0.2682251400072482
+        },
+        {
+          "id": "BUILD",
+          "score": -0.026625082852470866
+        }
+      ]
+    }
+  ],
+  "jobs": [
+    {
+      "id": "sky",
+      "status": "ready",
+      "interval": 5,
+      "frames": 360,
+      "storageKB": 1440000,
+      "lastStartMs": 1795000,
+      "finishMs": 1795100,
+      "playback": 15,
+      "required": 240,
+      "minInterval": 1,
+      "baseline": {
+        "interval": 60,
+        "frames": 30,
+        "storageKB": 120000,
+        "playback": 1.25,
+        "meets": false
+      },
+      "reason": "Slowest feasible whole-second interval minimizes frame count (ties use slowest interval)."
+    },
+    {
+      "id": "seedling",
+      "status": "ready",
+      "interval": 120,
+      "frames": 720,
+      "storageKB": 2160000,
+      "lastStartMs": 86280000,
+      "finishMs": 86280100,
+      "playback": 30,
+      "required": 480,
+      "minInterval": 1,
+      "baseline": {
+        "interval": 60,
+        "frames": 1440,
+        "storageKB": 4320000,
+        "playback": 60,
+        "meets": false
+      },
+      "reason": "Slowest feasible whole-second interval minimizes frame count (ties use slowest interval)."
+    }
+  ],
+  "summary": {
+    "records": 2,
+    "held": 0,
+    "infeasible": 0,
+    "ready": 2,
+    "frames": 1080,
+    "storageKB": 3600000,
+    "baselinePass": 0,
+    "compared": 2,
+    "manifestReady": true
+  }
+}

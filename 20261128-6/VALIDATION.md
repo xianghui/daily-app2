@@ -22,7 +22,7 @@
 
 Root gallery inline-script compilation and previous-entry equality checks passed: 930 entries; new folder exactly once, area ai-utility, AI Utilities first. Old entries/categories and search retained. Root predeploy assembled 930 apps with 0 failures / 0 skips, 828,156,782 bytes after existing deploy-only runtime deduplication; below unchanged 1,000,000,000-byte guard. Shared worker/factory/WASM remain immutable.
 
-Public Pages status, byte/hash audit and public real-inference reports are recorded after publishing. See publication-status.json and public-* reports; do not equate a gh-pages push with successful public verification.
+Published and publicly verified at https://xianghui.github.io/daily-app2/20261128-6/. GitHub Pages workflow 46068432211 completed successfully for gh-pages commit `55c02ca16df6522d98147799b1f1e1c55a58a125`; latest Pages build was built at that same commit. Public real-AI workflow, offline fresh-worker inference, all 12-row batch/reimport and review/export checks passed. Public profile correction, cap blocking, undo and actual pooled-pack scenario passed. Independent Python parsed six public downloaded audit pairs and available pack sheets. Public app JS/CSS and shared worker/factory/WASM matched tested byte lengths and SHA-256 hashes. The live gallery retained all 930 entries, older categories and old/new search. See publication-status.json and public-* evidence reports.
 
 ## Limits of testing
 

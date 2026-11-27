@@ -1,0 +1,7 @@
+import a from 'node:assert/strict';import{parse,examples,propose,exposure,calculate,inputFromEnvelope}from './src/core.js';
+let count=0;for(const e of examples){parse(JSON.stringify(e.data));count++}
+for(const [r,expected]of [[{meterSeconds:1,ndStops:0,thresholdSeconds:1,exponent:2},1],[{meterSeconds:1,ndStops:3,thresholdSeconds:2,exponent:2},32],[{meterSeconds:.25,ndStops:2,thresholdSeconds:1,exponent:1},1],[{meterSeconds:.000125,ndStops:0,thresholdSeconds:1,exponent:2},.000125],[{meterSeconds:1,ndStops:.5,thresholdSeconds:60,exponent:2},Math.SQRT2]]){const t=exposure(r,60);a(Math.abs(t.correctedSeconds-expected)<1e-9);a.equal(t.fieldSeconds,Math.ceil(expected));count+=2}
+a.throws(()=>exposure({meterSeconds:3600,ndStops:16,thresholdSeconds:1,exponent:2},60),/safe numeric/);count++;
+const d=examples[0].data,v=Array.from({length:6},(_,i)=>Array.from({length:384},(_,j)=>j===i%4?1:0));const r=propose(d,v).map(r=>({...r,decision:'approve'})),x=calculate(d,r);a.equal(x.review.length,2);a.equal(x.trace.length,2);a.deepEqual(inputFromEnvelope(JSON.stringify(x)),d);a.throws(()=>propose(d,[[NaN]]));a.throws(()=>calculate(d,r.slice(1)));a.throws(()=>calculate(d,[{...r[0],decision:'pending'},r[1]]));count+=6;
+for(const patch of[{maxSeconds:0},{maxSeconds:Infinity},{profiles:[]},{records:[{...d.records[0],ndStops:-1}]},{records:[{...d.records[0],meterSeconds:'1'}]}]){a.throws(()=>parse(JSON.stringify({...d,...patch})));count++}
+console.log('PASS',count,'core assertions');

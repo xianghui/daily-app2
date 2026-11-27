@@ -1,0 +1,197 @@
+{
+  "schema": "scanfolio-v1",
+  "original": {
+    "title": "Synthetic cartographic intake",
+    "maxDpi": 1200,
+    "maxMP": 200,
+    "budgetMiB": 5000,
+    "profiles": [
+      {
+        "id": "TEXT",
+        "description": "Modern black and white typed correspondence, clean printed text, bitonal document scanning",
+        "minDpi": 300,
+        "featurePixels": 8,
+        "bits": 1,
+        "channels": 1
+      },
+      {
+        "id": "PHOTO",
+        "description": "Color photographic prints, continuous tone family photos, full RGB image digitization",
+        "minDpi": 400,
+        "featurePixels": 4,
+        "bits": 8,
+        "channels": 3
+      },
+      {
+        "id": "MAP",
+        "description": "Large engineering maps, fine colored cartographic linework and tiny annotations",
+        "minDpi": 600,
+        "featurePixels": 6,
+        "bits": 8,
+        "channels": 3
+      },
+      {
+        "id": "GRAY",
+        "description": "Faint handwritten pencil manuscripts, grayscale tonal paper and faded handwriting",
+        "minDpi": 400,
+        "featurePixels": 8,
+        "bits": 16,
+        "channels": 1
+      }
+    ],
+    "records": [
+      {
+        "id": "survey",
+        "note": "Engineering map with fine colored cartographic linework and tiny annotations",
+        "width": 420,
+        "height": 594,
+        "feature": 0.3,
+        "pages": 2
+      },
+      {
+        "id": "index",
+        "note": "Clean printed typed correspondence black and white bitonal document",
+        "width": 210,
+        "height": 297,
+        "feature": 0.8,
+        "pages": 20
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "survey",
+      "note": "Engineering map with fine colored cartographic linework and tiny annotations",
+      "width": 420,
+      "height": 594,
+      "feature": 0.3,
+      "pages": 2,
+      "profile": "MAP",
+      "minDpi": 600,
+      "featurePixels": 6,
+      "bits": 8,
+      "channels": 3,
+      "reviewerNote": "",
+      "decision": "approve",
+      "candidates": [
+        {
+          "id": "MAP",
+          "score": 0.9448941488085684
+        },
+        {
+          "id": "PHOTO",
+          "score": 0.3570354245087344
+        },
+        {
+          "id": "TEXT",
+          "score": 0.3321493563531853
+        },
+        {
+          "id": "GRAY",
+          "score": 0.31194393143368687
+        }
+      ]
+    },
+    {
+      "id": "index",
+      "note": "Clean printed typed correspondence black and white bitonal document",
+      "width": 210,
+      "height": 297,
+      "feature": 0.8,
+      "pages": 20,
+      "profile": "TEXT",
+      "minDpi": 300,
+      "featurePixels": 8,
+      "bits": 1,
+      "channels": 1,
+      "reviewerNote": "",
+      "decision": "approve",
+      "candidates": [
+        {
+          "id": "TEXT",
+          "score": 0.8749946011814289
+        },
+        {
+          "id": "GRAY",
+          "score": 0.5075721990075024
+        },
+        {
+          "id": "PHOTO",
+          "score": 0.40765830814956167
+        },
+        {
+          "id": "MAP",
+          "score": 0.1926049453913546
+        }
+      ]
+    }
+  ],
+  "jobs": [
+    {
+      "id": "survey",
+      "status": "feasible",
+      "reason": "Minimum 25-dpi step meets supplied standard and feature sampling",
+      "requiredDpi": 600,
+      "capture": {
+        "dpi": 600,
+        "widthPx": 9922,
+        "heightPx": 14032,
+        "rowBytes": 29766,
+        "pageBytes": 417676512,
+        "totalBytes": 835353024,
+        "featureSamples": 7.086614173228347,
+        "megapixels": 139.225504
+      },
+      "baseline": {
+        "dpi": 300,
+        "widthPx": 4961,
+        "heightPx": 7016,
+        "rowBytes": 14883,
+        "pageBytes": 104419128,
+        "totalBytes": 208838256,
+        "featureSamples": 3.5433070866141736,
+        "megapixels": 34.806376,
+        "passes": false
+      }
+    },
+    {
+      "id": "index",
+      "status": "feasible",
+      "reason": "Minimum 25-dpi step meets supplied standard and feature sampling",
+      "requiredDpi": 300,
+      "capture": {
+        "dpi": 300,
+        "widthPx": 2481,
+        "heightPx": 3508,
+        "rowBytes": 311,
+        "pageBytes": 1090988,
+        "totalBytes": 21819760,
+        "featureSamples": 9.448818897637796,
+        "megapixels": 8.703348
+      },
+      "baseline": {
+        "dpi": 300,
+        "widthPx": 2481,
+        "heightPx": 3508,
+        "rowBytes": 311,
+        "pageBytes": 1090988,
+        "totalBytes": 21819760,
+        "featureSamples": 9.448818897637796,
+        "megapixels": 8.703348,
+        "passes": true
+      }
+    }
+  ],
+  "summary": {
+    "jobs": 2,
+    "pages": 22,
+    "held": 0,
+    "feasible": 2,
+    "infeasible": 0,
+    "baselineFailures": 1,
+    "rawBytes": 857172784,
+    "baselineBytes": 230658016,
+    "budgetExceeded": false,
+    "manifestReady": true
+  }
+}

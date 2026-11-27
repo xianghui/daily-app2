@@ -1,0 +1,265 @@
+{
+  "schema": "scanfolio-v1",
+  "original": {
+    "title": "Synthetic archive intake",
+    "maxDpi": 1200,
+    "maxMP": 100,
+    "budgetMiB": 3000,
+    "profiles": [
+      {
+        "id": "TEXT",
+        "description": "Modern black and white typed correspondence, clean printed text, bitonal document scanning",
+        "minDpi": 300,
+        "featurePixels": 8,
+        "bits": 1,
+        "channels": 1
+      },
+      {
+        "id": "PHOTO",
+        "description": "Color photographic prints, continuous tone family photos, full RGB image digitization",
+        "minDpi": 400,
+        "featurePixels": 4,
+        "bits": 8,
+        "channels": 3
+      },
+      {
+        "id": "MAP",
+        "description": "Large engineering maps, fine colored cartographic linework and tiny annotations",
+        "minDpi": 600,
+        "featurePixels": 6,
+        "bits": 8,
+        "channels": 3
+      },
+      {
+        "id": "GRAY",
+        "description": "Faint handwritten pencil manuscripts, grayscale tonal paper and faded handwriting",
+        "minDpi": 400,
+        "featurePixels": 8,
+        "bits": 16,
+        "channels": 1
+      }
+    ],
+    "records": [
+      {
+        "id": "letters",
+        "note": "Clean black and white typed correspondence printed text for bitonal scanning",
+        "width": 210,
+        "height": 297,
+        "feature": 0.5,
+        "pages": 40
+      },
+      {
+        "id": "prints",
+        "note": "Color family photographic prints with continuous tones, full RGB",
+        "width": 152,
+        "height": 102,
+        "feature": 0.4,
+        "pages": 12
+      },
+      {
+        "id": "diary",
+        "note": "Faint handwritten pencil manuscript with faded handwriting and tonal paper",
+        "width": 180,
+        "height": 240,
+        "feature": 0.3,
+        "pages": 8
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "letters",
+      "note": "Clean black and white typed correspondence printed text for bitonal scanning",
+      "width": 215,
+      "height": 300,
+      "feature": 0.4,
+      "pages": 30,
+      "profile": "PHOTO",
+      "minDpi": 400,
+      "featurePixels": 4,
+      "bits": 8,
+      "channels": 3,
+      "reviewerNote": "=SUM(1,2)\nCheck \"finish\", approved",
+      "decision": "approve",
+      "candidates": [
+        {
+          "id": "TEXT",
+          "score": 0.8821408805438571
+        },
+        {
+          "id": "GRAY",
+          "score": 0.42390148259467086
+        },
+        {
+          "id": "PHOTO",
+          "score": 0.4150864566793666
+        },
+        {
+          "id": "MAP",
+          "score": 0.27389812880129916
+        }
+      ]
+    },
+    {
+      "id": "prints",
+      "note": "Color family photographic prints with continuous tones, full RGB",
+      "width": 152,
+      "height": 102,
+      "feature": 0.4,
+      "pages": 12,
+      "profile": "PHOTO",
+      "minDpi": 400,
+      "featurePixels": 4,
+      "bits": 8,
+      "channels": 3,
+      "reviewerNote": "",
+      "decision": "approve",
+      "candidates": [
+        {
+          "id": "PHOTO",
+          "score": 0.870221474834515
+        },
+        {
+          "id": "TEXT",
+          "score": 0.39188336019826964
+        },
+        {
+          "id": "GRAY",
+          "score": 0.32172571498894725
+        },
+        {
+          "id": "MAP",
+          "score": 0.2588905294186134
+        }
+      ]
+    },
+    {
+      "id": "diary",
+      "note": "Faint handwritten pencil manuscript with faded handwriting and tonal paper",
+      "width": 180,
+      "height": 240,
+      "feature": 0.3,
+      "pages": 8,
+      "profile": "GRAY",
+      "minDpi": 400,
+      "featurePixels": 8,
+      "bits": 16,
+      "channels": 1,
+      "reviewerNote": "",
+      "decision": "approve",
+      "candidates": [
+        {
+          "id": "GRAY",
+          "score": 0.9162649832650848
+        },
+        {
+          "id": "TEXT",
+          "score": 0.44829069316669573
+        },
+        {
+          "id": "PHOTO",
+          "score": 0.31362812494612896
+        },
+        {
+          "id": "MAP",
+          "score": 0.2372174482011486
+        }
+      ]
+    }
+  ],
+  "jobs": [
+    {
+      "id": "letters",
+      "status": "feasible",
+      "reason": "Minimum 25-dpi step meets supplied standard and feature sampling",
+      "requiredDpi": 400,
+      "capture": {
+        "dpi": 400,
+        "widthPx": 3386,
+        "heightPx": 4725,
+        "rowBytes": 10158,
+        "pageBytes": 47996550,
+        "totalBytes": 1439896500,
+        "featureSamples": 6.299212598425197,
+        "megapixels": 15.99885
+      },
+      "baseline": {
+        "dpi": 300,
+        "widthPx": 2540,
+        "heightPx": 3544,
+        "rowBytes": 7620,
+        "pageBytes": 27005280,
+        "totalBytes": 810158400,
+        "featureSamples": 4.724409448818898,
+        "megapixels": 9.00176,
+        "passes": false
+      }
+    },
+    {
+      "id": "prints",
+      "status": "feasible",
+      "reason": "Minimum 25-dpi step meets supplied standard and feature sampling",
+      "requiredDpi": 400,
+      "capture": {
+        "dpi": 400,
+        "widthPx": 2394,
+        "heightPx": 1607,
+        "rowBytes": 7182,
+        "pageBytes": 11541474,
+        "totalBytes": 138497688,
+        "featureSamples": 6.299212598425197,
+        "megapixels": 3.847158
+      },
+      "baseline": {
+        "dpi": 300,
+        "widthPx": 1796,
+        "heightPx": 1205,
+        "rowBytes": 5388,
+        "pageBytes": 6492540,
+        "totalBytes": 77910480,
+        "featureSamples": 4.724409448818898,
+        "megapixels": 2.16418,
+        "passes": false
+      }
+    },
+    {
+      "id": "diary",
+      "status": "feasible",
+      "reason": "Minimum 25-dpi step meets supplied standard and feature sampling",
+      "requiredDpi": 700,
+      "capture": {
+        "dpi": 700,
+        "widthPx": 4961,
+        "heightPx": 6615,
+        "rowBytes": 9922,
+        "pageBytes": 65634030,
+        "totalBytes": 525072240,
+        "featureSamples": 8.267716535433072,
+        "megapixels": 32.817015
+      },
+      "baseline": {
+        "dpi": 300,
+        "widthPx": 2126,
+        "heightPx": 2835,
+        "rowBytes": 4252,
+        "pageBytes": 12054420,
+        "totalBytes": 96435360,
+        "featureSamples": 3.5433070866141736,
+        "megapixels": 6.02721,
+        "passes": false
+      }
+    }
+  ],
+  "summary": {
+    "jobs": 3,
+    "pages": 50,
+    "held": 0,
+    "feasible": 3,
+    "infeasible": 0,
+    "baselineFailures": 3,
+    "rawBytes": 2103466428,
+    "baselineBytes": 984504240,
+    "budgetExceeded": false,
+    "manifestReady": true
+  }
+}

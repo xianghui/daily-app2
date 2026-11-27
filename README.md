@@ -2633,3 +2633,7 @@ Public release verified: built Pages commit `c64195c695dcbc23d51010543b90aaadece
 ## Delayfield Desk — 20261127-21
 
 Local MiniLM speaker-chain retrieval turns rough routing notes into reviewed single-point arrival worksheets. Verify measured hardware latency and path length, compare sample-rounded propagation-aware alignment with distance-only delay, enforce capacity/spread constraints and export complete JSON/CSV/Markdown plus a gated delay sheet. Four simple known-answer matches across two fixtures passed; similarity cannot verify actual routing. Synthetic timing improvements are model estimates, not acoustic measurements. Reuses the immutable `20261115-6` worker/factory and `20261107-2` WASM; preserve those assets. See [workflow](20261127-21/README.md) and [observed validation](20261127-21/VALIDATION.md).
+
+## Register Loom — 20261127-22
+
+Local MiniLM instrument retrieval turns rough ensemble handoffs into reviewed symbolic written-pitch worksheets. Verify sounding offsets/player ranges, find minimal permitted whole-octave moves, retain every concert note event and export JSON/CSV/Markdown plus a guarded note-by-note pitch CSV. Four simple fixture identities matched; a negation challenge failed, so human review is essential. No audio uploads or score engraving. Reuses the immutable worker/runtime from `20261115-6` and `20261107-2`; preserve those assets. See [workflow](20261127-22/README.md) and [observed validation](20261127-22/VALIDATION.md).

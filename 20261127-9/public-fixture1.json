@@ -1,0 +1,189 @@
+{
+  "schema": "rainstore-v1",
+  "original": {
+    "title": "Synthetic arts courtyard",
+    "capacityLiters": 300,
+    "maxCapacityLiters": 4000,
+    "profiles": [
+      {
+        "id": "METAL",
+        "description": "Smooth corrugated metal sheet roof, steel shed roofing",
+        "runoffPermille": 900,
+        "firstFlushMm": 1
+      },
+      {
+        "id": "TILE",
+        "description": "Clay terracotta tiled roof, overlapping baked red roof tiles",
+        "runoffPermille": 800,
+        "firstFlushMm": 2
+      },
+      {
+        "id": "GREEN",
+        "description": "Vegetated living roof, planted sedum and growing substrate",
+        "runoffPermille": 400,
+        "firstFlushMm": 3
+      },
+      {
+        "id": "ASPHALT",
+        "description": "Bituminous asphalt shingle roof, granular composition shingles",
+        "runoffPermille": 750,
+        "firstFlushMm": 2
+      }
+    ],
+    "records": [
+      {
+        "id": "R3",
+        "note": "Sedum plants and growing medium covering the roof garden",
+        "areaM2": 100
+      },
+      {
+        "id": "R4",
+        "note": "Granular bitumen composition shingles over the porch",
+        "areaM2": 50
+      }
+    ],
+    "days": [
+      {
+        "id": "D1",
+        "rainMm": 0,
+        "demandLiters": 100
+      },
+      {
+        "id": "D2",
+        "rainMm": 20,
+        "demandLiters": 150
+      },
+      {
+        "id": "D3",
+        "rainMm": 0,
+        "demandLiters": 200
+      },
+      {
+        "id": "D4",
+        "rainMm": 5,
+        "demandLiters": 100
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "R3",
+      "note": "Sedum plants and growing medium covering the roof garden",
+      "areaM2": 100,
+      "profile": "GREEN",
+      "runoffPermille": 400,
+      "firstFlushMm": 3,
+      "reviewerNote": "",
+      "decision": "approve",
+      "candidates": [
+        {
+          "id": "GREEN",
+          "score": 0.819847483067893
+        },
+        {
+          "id": "ASPHALT",
+          "score": 0.3475768913275168
+        },
+        {
+          "id": "METAL",
+          "score": 0.2592291621420804
+        },
+        {
+          "id": "TILE",
+          "score": 0.25380460507160335
+        }
+      ]
+    },
+    {
+      "id": "R4",
+      "note": "Granular bitumen composition shingles over the porch",
+      "areaM2": 50,
+      "profile": "ASPHALT",
+      "runoffPermille": 750,
+      "firstFlushMm": 2,
+      "reviewerNote": "",
+      "decision": "approve",
+      "candidates": [
+        {
+          "id": "ASPHALT",
+          "score": 0.7801885809315696
+        },
+        {
+          "id": "METAL",
+          "score": 0.41893055979759397
+        },
+        {
+          "id": "TILE",
+          "score": 0.36346969224967274
+        },
+        {
+          "id": "GREEN",
+          "score": 0.3319669621981216
+        }
+      ]
+    }
+  ],
+  "releaseReady": true,
+  "trace": [
+    {
+      "id": "D1",
+      "rainMm": 0,
+      "demandLiters": 100,
+      "start": 0,
+      "inflow": 0,
+      "spill": 0,
+      "delivered": 0,
+      "unmet": 100,
+      "end": 0
+    },
+    {
+      "id": "D2",
+      "rainMm": 20,
+      "demandLiters": 150,
+      "start": 0,
+      "inflow": 1355,
+      "spill": 1055,
+      "delivered": 150,
+      "unmet": 0,
+      "end": 150
+    },
+    {
+      "id": "D3",
+      "rainMm": 0,
+      "demandLiters": 200,
+      "start": 150,
+      "inflow": 0,
+      "spill": 0,
+      "delivered": 150,
+      "unmet": 50,
+      "end": 0
+    },
+    {
+      "id": "D4",
+      "rainMm": 5,
+      "demandLiters": 100,
+      "start": 0,
+      "inflow": 192,
+      "spill": 0,
+      "delivered": 100,
+      "unmet": 0,
+      "end": 92
+    }
+  ],
+  "minimumCapacity": null,
+  "summary": {
+    "roofs": 2,
+    "approved": 2,
+    "held": 0,
+    "days": 4,
+    "inflow": 1547,
+    "demand": 550,
+    "delivered": 400,
+    "spill": 1055,
+    "unmet": 150,
+    "end": 92,
+    "aggregateDelivered": 550,
+    "aggregateOverstatement": 150,
+    "daysFullyMet": 2
+  }
+}

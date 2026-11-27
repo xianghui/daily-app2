@@ -1,0 +1,134 @@
+{
+  "schema": "rainstore-v1",
+  "original": {
+    "title": "Synthetic community workshop",
+    "capacityLiters": 500,
+    "maxCapacityLiters": 5000,
+    "profiles": [
+      {
+        "id": "METAL",
+        "description": "Smooth corrugated metal sheet roof, steel shed roofing",
+        "runoffPermille": 900,
+        "firstFlushMm": 1
+      },
+      {
+        "id": "TILE",
+        "description": "Clay terracotta tiled roof, overlapping baked red roof tiles",
+        "runoffPermille": 800,
+        "firstFlushMm": 2
+      },
+      {
+        "id": "GREEN",
+        "description": "Vegetated living roof, planted sedum and growing substrate",
+        "runoffPermille": 400,
+        "firstFlushMm": 3
+      },
+      {
+        "id": "ASPHALT",
+        "description": "Bituminous asphalt shingle roof, granular composition shingles",
+        "runoffPermille": 750,
+        "firstFlushMm": 2
+      }
+    ],
+    "records": [
+      {
+        "id": "R1",
+        "note": "Corrugated steel sheets on the tool shed",
+        "areaM2": 80
+      },
+      {
+        "id": "R2",
+        "note": "Red terracotta overlapping tiles above the hall",
+        "areaM2": 60
+      }
+    ],
+    "days": [
+      {
+        "id": "D1",
+        "rainMm": 15,
+        "demandLiters": 250
+      },
+      {
+        "id": "D2",
+        "rainMm": 0,
+        "demandLiters": 300
+      },
+      {
+        "id": "D3",
+        "rainMm": 0,
+        "demandLiters": 300
+      },
+      {
+        "id": "D4",
+        "rainMm": 12,
+        "demandLiters": 400
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "R1",
+      "note": "Corrugated steel sheets on the tool shed",
+      "areaM2": 81,
+      "profile": "GREEN",
+      "runoffPermille": 400,
+      "firstFlushMm": 3,
+      "reviewerNote": "=SUM(1,2)\nCheck \"roof\", approved",
+      "decision": "hold",
+      "candidates": [
+        {
+          "id": "METAL",
+          "score": 0.7449402157794143
+        },
+        {
+          "id": "ASPHALT",
+          "score": 0.23288626640670315
+        },
+        {
+          "id": "TILE",
+          "score": 0.1907458103089245
+        },
+        {
+          "id": "GREEN",
+          "score": 0.1679860158976022
+        }
+      ]
+    },
+    {
+      "id": "R2",
+      "note": "Red terracotta overlapping tiles above the hall",
+      "areaM2": 60,
+      "profile": "TILE",
+      "runoffPermille": 800,
+      "firstFlushMm": 2,
+      "reviewerNote": "",
+      "decision": "approve",
+      "candidates": [
+        {
+          "id": "TILE",
+          "score": 0.780153666077797
+        },
+        {
+          "id": "ASPHALT",
+          "score": 0.17046649063034436
+        },
+        {
+          "id": "GREEN",
+          "score": 0.10169451324838813
+        },
+        {
+          "id": "METAL",
+          "score": 0.009610761994408504
+        }
+      ]
+    }
+  ],
+  "releaseReady": false,
+  "trace": [],
+  "minimumCapacity": null,
+  "summary": {
+    "roofs": 2,
+    "approved": 1,
+    "held": 1
+  }
+}

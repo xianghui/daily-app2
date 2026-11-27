@@ -1,0 +1,189 @@
+{
+  "schema": "rainstore-v1",
+  "original": {
+    "title": "Synthetic community workshop",
+    "capacityLiters": 500,
+    "maxCapacityLiters": 5000,
+    "profiles": [
+      {
+        "id": "METAL",
+        "description": "Smooth corrugated metal sheet roof, steel shed roofing",
+        "runoffPermille": 900,
+        "firstFlushMm": 1
+      },
+      {
+        "id": "TILE",
+        "description": "Clay terracotta tiled roof, overlapping baked red roof tiles",
+        "runoffPermille": 800,
+        "firstFlushMm": 2
+      },
+      {
+        "id": "GREEN",
+        "description": "Vegetated living roof, planted sedum and growing substrate",
+        "runoffPermille": 400,
+        "firstFlushMm": 3
+      },
+      {
+        "id": "ASPHALT",
+        "description": "Bituminous asphalt shingle roof, granular composition shingles",
+        "runoffPermille": 750,
+        "firstFlushMm": 2
+      }
+    ],
+    "records": [
+      {
+        "id": "R1",
+        "note": "Corrugated steel sheets on the tool shed",
+        "areaM2": 80
+      },
+      {
+        "id": "R2",
+        "note": "Red terracotta overlapping tiles above the hall",
+        "areaM2": 60
+      }
+    ],
+    "days": [
+      {
+        "id": "D1",
+        "rainMm": 15,
+        "demandLiters": 250
+      },
+      {
+        "id": "D2",
+        "rainMm": 0,
+        "demandLiters": 300
+      },
+      {
+        "id": "D3",
+        "rainMm": 0,
+        "demandLiters": 300
+      },
+      {
+        "id": "D4",
+        "rainMm": 12,
+        "demandLiters": 400
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "R1",
+      "note": "Corrugated steel sheets on the tool shed",
+      "areaM2": 80,
+      "profile": "METAL",
+      "runoffPermille": 900,
+      "firstFlushMm": 1,
+      "reviewerNote": "",
+      "decision": "approve",
+      "candidates": [
+        {
+          "id": "METAL",
+          "score": 0.7449402157794143
+        },
+        {
+          "id": "ASPHALT",
+          "score": 0.23288626640670315
+        },
+        {
+          "id": "TILE",
+          "score": 0.1907458103089245
+        },
+        {
+          "id": "GREEN",
+          "score": 0.1679860158976022
+        }
+      ]
+    },
+    {
+      "id": "R2",
+      "note": "Red terracotta overlapping tiles above the hall",
+      "areaM2": 60,
+      "profile": "TILE",
+      "runoffPermille": 800,
+      "firstFlushMm": 2,
+      "reviewerNote": "",
+      "decision": "approve",
+      "candidates": [
+        {
+          "id": "TILE",
+          "score": 0.780153666077797
+        },
+        {
+          "id": "ASPHALT",
+          "score": 0.17046649063034436
+        },
+        {
+          "id": "GREEN",
+          "score": 0.10169451324838813
+        },
+        {
+          "id": "METAL",
+          "score": 0.009610761994408504
+        }
+      ]
+    }
+  ],
+  "releaseReady": true,
+  "trace": [
+    {
+      "id": "D1",
+      "rainMm": 15,
+      "demandLiters": 250,
+      "start": 0,
+      "inflow": 1632,
+      "spill": 1132,
+      "delivered": 250,
+      "unmet": 0,
+      "end": 250
+    },
+    {
+      "id": "D2",
+      "rainMm": 0,
+      "demandLiters": 300,
+      "start": 250,
+      "inflow": 0,
+      "spill": 0,
+      "delivered": 250,
+      "unmet": 50,
+      "end": 0
+    },
+    {
+      "id": "D3",
+      "rainMm": 0,
+      "demandLiters": 300,
+      "start": 0,
+      "inflow": 0,
+      "spill": 0,
+      "delivered": 0,
+      "unmet": 300,
+      "end": 0
+    },
+    {
+      "id": "D4",
+      "rainMm": 12,
+      "demandLiters": 400,
+      "start": 0,
+      "inflow": 1272,
+      "spill": 772,
+      "delivered": 400,
+      "unmet": 0,
+      "end": 100
+    }
+  ],
+  "minimumCapacity": 850,
+  "summary": {
+    "roofs": 2,
+    "approved": 2,
+    "held": 0,
+    "days": 4,
+    "inflow": 2904,
+    "demand": 1250,
+    "delivered": 900,
+    "spill": 1904,
+    "unmet": 350,
+    "end": 100,
+    "aggregateDelivered": 1250,
+    "aggregateOverstatement": 350,
+    "daysFullyMet": 2
+  }
+}

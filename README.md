@@ -2661,3 +2661,7 @@ Local MiniLM semantic boundaries turn timed transcript fragments into reviewed s
 ## Exposure Folio — 20261128-3
 
 Local MiniLM sensitivity-profile inference turns mixed collection handoffs into reviewed light-budget worksheets. Confirm supplied limits and prior exposure, compare cumulative lux-hours with peak-only checks, maximize quarter-hour daily duration within each budget and export complete JSON/CSV/Markdown plus gated plans. Four simple fixture links passed; a negation challenge failed, so expert review is mandatory. Public real inference, warmed-page fresh-worker offline reuse, downloaded artifacts and seven exact public asset hashes passed. Shared immutable CPU runtime paths must remain available. [Open app](https://xianghui.github.io/daily-app2/20261128-3/). See [workflow](20261128-3/README.md) and [observed validation](20261128-3/VALIDATION.md).
+
+## Border Folio — 20261128-4
+
+Real local MiniLM retrieves frame profiles from informal print-room handoffs. Review usable frame dimensions, overlap and bottom weighting; compare two-orientation minimum-border plans with sheet-only fit checks, then export source-preserving JSON/CSV/Markdown and a gated cut worksheet. No content uploads or machine controls. Preserves shared worker/factory/WASM paths in `20261115-6` and `20261107-2`. See [workflow](20261128-4/README.md) and [observed validation](20261128-4/VALIDATION.md).

@@ -1,0 +1,1274 @@
+{
+  "format": "binwise-bench-v1",
+  "source": {
+    "title": "Synthetic acoustic measurement briefs",
+    "hardware": {
+      "rates": [
+        1000,
+        8000,
+        16000,
+        48000,
+        96000
+      ],
+      "sizes": [
+        256,
+        512,
+        1024,
+        2048,
+        4096,
+        8192,
+        16384,
+        32768
+      ],
+      "guardFactor": 2.5
+    },
+    "profiles": [
+      {
+        "id": "MOTOR",
+        "description": "Slow rotating motor vibration, mechanical hum harmonics and low frequency bearing monitoring",
+        "bandMaxHz": 300,
+        "spacingMaxHz": 1
+      },
+      {
+        "id": "VOICE",
+        "description": "Human speech voice recording, spoken conversation and microphone intelligibility checks",
+        "bandMaxHz": 4000,
+        "spacingMaxHz": 10
+      },
+      {
+        "id": "BIRDS",
+        "description": "Birdsong chirps, wildlife bird calls and outdoor avian acoustic monitoring",
+        "bandMaxHz": 8000,
+        "spacingMaxHz": 20
+      },
+      {
+        "id": "ULTRA",
+        "description": "Ultrasonic transducer test tones, high frequency acoustic emitter and ultrasound bench characterization",
+        "bandMaxHz": 22000,
+        "spacingMaxHz": 100
+      }
+    ],
+    "records": [
+      {
+        "id": "R1",
+        "note": "Outdoor birdsong chirps and wildlife bird call acoustic monitoring",
+        "maxWindowMs": 300,
+        "channels": 1,
+        "bytesPerSample": 4,
+        "bufferCapBytes": 1048576,
+        "baselineRateHz": 48000,
+        "baselineN": 1024
+      },
+      {
+        "id": "R2",
+        "note": "Ultrasonic transducer high frequency emitter test tones on the lab bench",
+        "maxWindowMs": 100,
+        "channels": 1,
+        "bytesPerSample": 4,
+        "bufferCapBytes": 1048576,
+        "baselineRateHz": 48000,
+        "baselineN": 1024
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "R1",
+      "profileId": "BIRDS",
+      "bandMaxHz": 8000,
+      "spacingMaxHz": 20,
+      "maxWindowMs": 300,
+      "channels": 1,
+      "bytesPerSample": 4,
+      "bufferCapBytes": 1048576,
+      "baselineRateHz": 48000,
+      "baselineN": 1024,
+      "settingId": "1000/256",
+      "decision": "approve",
+      "reviewerNote": "",
+      "candidates": [
+        {
+          "id": "BIRDS",
+          "description": "Birdsong chirps, wildlife bird calls and outdoor avian acoustic monitoring",
+          "similarity": 0.9520980832907386
+        },
+        {
+          "id": "VOICE",
+          "description": "Human speech voice recording, spoken conversation and microphone intelligibility checks",
+          "similarity": 0.3189602054524992
+        },
+        {
+          "id": "MOTOR",
+          "description": "Slow rotating motor vibration, mechanical hum harmonics and low frequency bearing monitoring",
+          "similarity": 0.30042174702448116
+        },
+        {
+          "id": "ULTRA",
+          "description": "Ultrasonic transducer test tones, high frequency acoustic emitter and ultrasound bench characterization",
+          "similarity": 0.28953943177400854
+        }
+      ]
+    },
+    {
+      "id": "R2",
+      "profileId": "ULTRA",
+      "bandMaxHz": 22000,
+      "spacingMaxHz": 100,
+      "maxWindowMs": 100,
+      "channels": 1,
+      "bytesPerSample": 4,
+      "bufferCapBytes": 1048576,
+      "baselineRateHz": 48000,
+      "baselineN": 1024,
+      "settingId": "auto",
+      "decision": "approve",
+      "reviewerNote": "",
+      "candidates": [
+        {
+          "id": "ULTRA",
+          "description": "Ultrasonic transducer test tones, high frequency acoustic emitter and ultrasound bench characterization",
+          "similarity": 0.9364508508441945
+        },
+        {
+          "id": "MOTOR",
+          "description": "Slow rotating motor vibration, mechanical hum harmonics and low frequency bearing monitoring",
+          "similarity": 0.2868464409366227
+        },
+        {
+          "id": "BIRDS",
+          "description": "Birdsong chirps, wildlife bird calls and outdoor avian acoustic monitoring",
+          "similarity": 0.2462455586350209
+        },
+        {
+          "id": "VOICE",
+          "description": "Human speech voice recording, spoken conversation and microphone intelligibility checks",
+          "similarity": 0.2256194896148537
+        }
+      ]
+    }
+  ],
+  "jobs": [
+    {
+      "id": "R1",
+      "profileId": "BIRDS",
+      "bandMaxHz": 8000,
+      "spacingMaxHz": 20,
+      "maxWindowMs": 300,
+      "channels": 1,
+      "bytesPerSample": 4,
+      "bufferCapBytes": 1048576,
+      "baselineRateHz": 48000,
+      "baselineN": 1024,
+      "settingId": "1000/256",
+      "decision": "approve",
+      "reviewerNote": "",
+      "candidates": [
+        {
+          "id": "BIRDS",
+          "description": "Birdsong chirps, wildlife bird calls and outdoor avian acoustic monitoring",
+          "similarity": 0.9520980832907386
+        },
+        {
+          "id": "VOICE",
+          "description": "Human speech voice recording, spoken conversation and microphone intelligibility checks",
+          "similarity": 0.3189602054524992
+        },
+        {
+          "id": "MOTOR",
+          "description": "Slow rotating motor vibration, mechanical hum harmonics and low frequency bearing monitoring",
+          "similarity": 0.30042174702448116
+        },
+        {
+          "id": "ULTRA",
+          "description": "Ultrasonic transducer test tones, high frequency acoustic emitter and ultrasound bench characterization",
+          "similarity": 0.28953943177400854
+        }
+      ],
+      "options": [
+        {
+          "id": "1000/256",
+          "rate": 1000,
+          "n": 256,
+          "spacingHz": 3.90625,
+          "windowMs": 256,
+          "bufferBytes": 1024,
+          "failures": [
+            "Bandwidth guard"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "1000/512",
+          "rate": 1000,
+          "n": 512,
+          "spacingHz": 1.953125,
+          "windowMs": 512,
+          "bufferBytes": 2048,
+          "failures": [
+            "Bandwidth guard",
+            "Window duration"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "1000/1024",
+          "rate": 1000,
+          "n": 1024,
+          "spacingHz": 0.9765625,
+          "windowMs": 1024,
+          "bufferBytes": 4096,
+          "failures": [
+            "Bandwidth guard",
+            "Window duration"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "1000/2048",
+          "rate": 1000,
+          "n": 2048,
+          "spacingHz": 0.48828125,
+          "windowMs": 2048,
+          "bufferBytes": 8192,
+          "failures": [
+            "Bandwidth guard",
+            "Window duration"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "1000/4096",
+          "rate": 1000,
+          "n": 4096,
+          "spacingHz": 0.244140625,
+          "windowMs": 4096,
+          "bufferBytes": 16384,
+          "failures": [
+            "Bandwidth guard",
+            "Window duration"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "1000/8192",
+          "rate": 1000,
+          "n": 8192,
+          "spacingHz": 0.1220703125,
+          "windowMs": 8192,
+          "bufferBytes": 32768,
+          "failures": [
+            "Bandwidth guard",
+            "Window duration"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "1000/16384",
+          "rate": 1000,
+          "n": 16384,
+          "spacingHz": 0.06103515625,
+          "windowMs": 16384,
+          "bufferBytes": 65536,
+          "failures": [
+            "Bandwidth guard",
+            "Window duration"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "1000/32768",
+          "rate": 1000,
+          "n": 32768,
+          "spacingHz": 0.030517578125,
+          "windowMs": 32768,
+          "bufferBytes": 131072,
+          "failures": [
+            "Bandwidth guard",
+            "Window duration"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "8000/256",
+          "rate": 8000,
+          "n": 256,
+          "spacingHz": 31.25,
+          "windowMs": 32,
+          "bufferBytes": 1024,
+          "failures": [
+            "Bandwidth guard",
+            "Bin spacing"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "8000/512",
+          "rate": 8000,
+          "n": 512,
+          "spacingHz": 15.625,
+          "windowMs": 64,
+          "bufferBytes": 2048,
+          "failures": [
+            "Bandwidth guard"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "8000/1024",
+          "rate": 8000,
+          "n": 1024,
+          "spacingHz": 7.8125,
+          "windowMs": 128,
+          "bufferBytes": 4096,
+          "failures": [
+            "Bandwidth guard"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "8000/2048",
+          "rate": 8000,
+          "n": 2048,
+          "spacingHz": 3.90625,
+          "windowMs": 256,
+          "bufferBytes": 8192,
+          "failures": [
+            "Bandwidth guard"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "8000/4096",
+          "rate": 8000,
+          "n": 4096,
+          "spacingHz": 1.953125,
+          "windowMs": 512,
+          "bufferBytes": 16384,
+          "failures": [
+            "Bandwidth guard",
+            "Window duration"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "8000/8192",
+          "rate": 8000,
+          "n": 8192,
+          "spacingHz": 0.9765625,
+          "windowMs": 1024,
+          "bufferBytes": 32768,
+          "failures": [
+            "Bandwidth guard",
+            "Window duration"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "8000/16384",
+          "rate": 8000,
+          "n": 16384,
+          "spacingHz": 0.48828125,
+          "windowMs": 2048,
+          "bufferBytes": 65536,
+          "failures": [
+            "Bandwidth guard",
+            "Window duration"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "8000/32768",
+          "rate": 8000,
+          "n": 32768,
+          "spacingHz": 0.244140625,
+          "windowMs": 4096,
+          "bufferBytes": 131072,
+          "failures": [
+            "Bandwidth guard",
+            "Window duration"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "16000/256",
+          "rate": 16000,
+          "n": 256,
+          "spacingHz": 62.5,
+          "windowMs": 16,
+          "bufferBytes": 1024,
+          "failures": [
+            "Bandwidth guard",
+            "Bin spacing"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "16000/512",
+          "rate": 16000,
+          "n": 512,
+          "spacingHz": 31.25,
+          "windowMs": 32,
+          "bufferBytes": 2048,
+          "failures": [
+            "Bandwidth guard",
+            "Bin spacing"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "16000/1024",
+          "rate": 16000,
+          "n": 1024,
+          "spacingHz": 15.625,
+          "windowMs": 64,
+          "bufferBytes": 4096,
+          "failures": [
+            "Bandwidth guard"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "16000/2048",
+          "rate": 16000,
+          "n": 2048,
+          "spacingHz": 7.8125,
+          "windowMs": 128,
+          "bufferBytes": 8192,
+          "failures": [
+            "Bandwidth guard"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "16000/4096",
+          "rate": 16000,
+          "n": 4096,
+          "spacingHz": 3.90625,
+          "windowMs": 256,
+          "bufferBytes": 16384,
+          "failures": [
+            "Bandwidth guard"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "16000/8192",
+          "rate": 16000,
+          "n": 8192,
+          "spacingHz": 1.953125,
+          "windowMs": 512,
+          "bufferBytes": 32768,
+          "failures": [
+            "Bandwidth guard",
+            "Window duration"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "16000/16384",
+          "rate": 16000,
+          "n": 16384,
+          "spacingHz": 0.9765625,
+          "windowMs": 1024,
+          "bufferBytes": 65536,
+          "failures": [
+            "Bandwidth guard",
+            "Window duration"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "16000/32768",
+          "rate": 16000,
+          "n": 32768,
+          "spacingHz": 0.48828125,
+          "windowMs": 2048,
+          "bufferBytes": 131072,
+          "failures": [
+            "Bandwidth guard",
+            "Window duration"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "48000/256",
+          "rate": 48000,
+          "n": 256,
+          "spacingHz": 187.5,
+          "windowMs": 5.333333333333333,
+          "bufferBytes": 1024,
+          "failures": [
+            "Bin spacing"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "48000/512",
+          "rate": 48000,
+          "n": 512,
+          "spacingHz": 93.75,
+          "windowMs": 10.666666666666666,
+          "bufferBytes": 2048,
+          "failures": [
+            "Bin spacing"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "48000/1024",
+          "rate": 48000,
+          "n": 1024,
+          "spacingHz": 46.875,
+          "windowMs": 21.333333333333332,
+          "bufferBytes": 4096,
+          "failures": [
+            "Bin spacing"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "48000/2048",
+          "rate": 48000,
+          "n": 2048,
+          "spacingHz": 23.4375,
+          "windowMs": 42.666666666666664,
+          "bufferBytes": 8192,
+          "failures": [
+            "Bin spacing"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "48000/4096",
+          "rate": 48000,
+          "n": 4096,
+          "spacingHz": 11.71875,
+          "windowMs": 85.33333333333333,
+          "bufferBytes": 16384,
+          "failures": [],
+          "feasible": true
+        },
+        {
+          "id": "48000/8192",
+          "rate": 48000,
+          "n": 8192,
+          "spacingHz": 5.859375,
+          "windowMs": 170.66666666666666,
+          "bufferBytes": 32768,
+          "failures": [],
+          "feasible": true
+        },
+        {
+          "id": "48000/16384",
+          "rate": 48000,
+          "n": 16384,
+          "spacingHz": 2.9296875,
+          "windowMs": 341.3333333333333,
+          "bufferBytes": 65536,
+          "failures": [
+            "Window duration"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "48000/32768",
+          "rate": 48000,
+          "n": 32768,
+          "spacingHz": 1.46484375,
+          "windowMs": 682.6666666666666,
+          "bufferBytes": 131072,
+          "failures": [
+            "Window duration"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "96000/256",
+          "rate": 96000,
+          "n": 256,
+          "spacingHz": 375,
+          "windowMs": 2.6666666666666665,
+          "bufferBytes": 1024,
+          "failures": [
+            "Bin spacing"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "96000/512",
+          "rate": 96000,
+          "n": 512,
+          "spacingHz": 187.5,
+          "windowMs": 5.333333333333333,
+          "bufferBytes": 2048,
+          "failures": [
+            "Bin spacing"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "96000/1024",
+          "rate": 96000,
+          "n": 1024,
+          "spacingHz": 93.75,
+          "windowMs": 10.666666666666666,
+          "bufferBytes": 4096,
+          "failures": [
+            "Bin spacing"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "96000/2048",
+          "rate": 96000,
+          "n": 2048,
+          "spacingHz": 46.875,
+          "windowMs": 21.333333333333332,
+          "bufferBytes": 8192,
+          "failures": [
+            "Bin spacing"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "96000/4096",
+          "rate": 96000,
+          "n": 4096,
+          "spacingHz": 23.4375,
+          "windowMs": 42.666666666666664,
+          "bufferBytes": 16384,
+          "failures": [
+            "Bin spacing"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "96000/8192",
+          "rate": 96000,
+          "n": 8192,
+          "spacingHz": 11.71875,
+          "windowMs": 85.33333333333333,
+          "bufferBytes": 32768,
+          "failures": [],
+          "feasible": true
+        },
+        {
+          "id": "96000/16384",
+          "rate": 96000,
+          "n": 16384,
+          "spacingHz": 5.859375,
+          "windowMs": 170.66666666666666,
+          "bufferBytes": 65536,
+          "failures": [],
+          "feasible": true
+        },
+        {
+          "id": "96000/32768",
+          "rate": 96000,
+          "n": 32768,
+          "spacingHz": 2.9296875,
+          "windowMs": 341.3333333333333,
+          "bufferBytes": 131072,
+          "failures": [
+            "Window duration"
+          ],
+          "feasible": false
+        }
+      ],
+      "feasibleCount": 4,
+      "chosen": {
+        "id": "1000/256",
+        "rate": 1000,
+        "n": 256,
+        "spacingHz": 3.90625,
+        "windowMs": 256,
+        "bufferBytes": 1024,
+        "failures": [
+          "Bandwidth guard"
+        ],
+        "feasible": false
+      },
+      "baseline": {
+        "id": "48000/1024",
+        "rate": 48000,
+        "n": 1024,
+        "spacingHz": 46.875,
+        "windowMs": 21.333333333333332,
+        "bufferBytes": 4096,
+        "failures": [
+          "Bin spacing"
+        ],
+        "feasible": false
+      },
+      "ready": false,
+      "reason": "Selected setting violates: Bandwidth guard"
+    },
+    {
+      "id": "R2",
+      "profileId": "ULTRA",
+      "bandMaxHz": 22000,
+      "spacingMaxHz": 100,
+      "maxWindowMs": 100,
+      "channels": 1,
+      "bytesPerSample": 4,
+      "bufferCapBytes": 1048576,
+      "baselineRateHz": 48000,
+      "baselineN": 1024,
+      "settingId": "auto",
+      "decision": "approve",
+      "reviewerNote": "",
+      "candidates": [
+        {
+          "id": "ULTRA",
+          "description": "Ultrasonic transducer test tones, high frequency acoustic emitter and ultrasound bench characterization",
+          "similarity": 0.9364508508441945
+        },
+        {
+          "id": "MOTOR",
+          "description": "Slow rotating motor vibration, mechanical hum harmonics and low frequency bearing monitoring",
+          "similarity": 0.2868464409366227
+        },
+        {
+          "id": "BIRDS",
+          "description": "Birdsong chirps, wildlife bird calls and outdoor avian acoustic monitoring",
+          "similarity": 0.2462455586350209
+        },
+        {
+          "id": "VOICE",
+          "description": "Human speech voice recording, spoken conversation and microphone intelligibility checks",
+          "similarity": 0.2256194896148537
+        }
+      ],
+      "options": [
+        {
+          "id": "1000/256",
+          "rate": 1000,
+          "n": 256,
+          "spacingHz": 3.90625,
+          "windowMs": 256,
+          "bufferBytes": 1024,
+          "failures": [
+            "Bandwidth guard",
+            "Window duration"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "1000/512",
+          "rate": 1000,
+          "n": 512,
+          "spacingHz": 1.953125,
+          "windowMs": 512,
+          "bufferBytes": 2048,
+          "failures": [
+            "Bandwidth guard",
+            "Window duration"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "1000/1024",
+          "rate": 1000,
+          "n": 1024,
+          "spacingHz": 0.9765625,
+          "windowMs": 1024,
+          "bufferBytes": 4096,
+          "failures": [
+            "Bandwidth guard",
+            "Window duration"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "1000/2048",
+          "rate": 1000,
+          "n": 2048,
+          "spacingHz": 0.48828125,
+          "windowMs": 2048,
+          "bufferBytes": 8192,
+          "failures": [
+            "Bandwidth guard",
+            "Window duration"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "1000/4096",
+          "rate": 1000,
+          "n": 4096,
+          "spacingHz": 0.244140625,
+          "windowMs": 4096,
+          "bufferBytes": 16384,
+          "failures": [
+            "Bandwidth guard",
+            "Window duration"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "1000/8192",
+          "rate": 1000,
+          "n": 8192,
+          "spacingHz": 0.1220703125,
+          "windowMs": 8192,
+          "bufferBytes": 32768,
+          "failures": [
+            "Bandwidth guard",
+            "Window duration"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "1000/16384",
+          "rate": 1000,
+          "n": 16384,
+          "spacingHz": 0.06103515625,
+          "windowMs": 16384,
+          "bufferBytes": 65536,
+          "failures": [
+            "Bandwidth guard",
+            "Window duration"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "1000/32768",
+          "rate": 1000,
+          "n": 32768,
+          "spacingHz": 0.030517578125,
+          "windowMs": 32768,
+          "bufferBytes": 131072,
+          "failures": [
+            "Bandwidth guard",
+            "Window duration"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "8000/256",
+          "rate": 8000,
+          "n": 256,
+          "spacingHz": 31.25,
+          "windowMs": 32,
+          "bufferBytes": 1024,
+          "failures": [
+            "Bandwidth guard"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "8000/512",
+          "rate": 8000,
+          "n": 512,
+          "spacingHz": 15.625,
+          "windowMs": 64,
+          "bufferBytes": 2048,
+          "failures": [
+            "Bandwidth guard"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "8000/1024",
+          "rate": 8000,
+          "n": 1024,
+          "spacingHz": 7.8125,
+          "windowMs": 128,
+          "bufferBytes": 4096,
+          "failures": [
+            "Bandwidth guard",
+            "Window duration"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "8000/2048",
+          "rate": 8000,
+          "n": 2048,
+          "spacingHz": 3.90625,
+          "windowMs": 256,
+          "bufferBytes": 8192,
+          "failures": [
+            "Bandwidth guard",
+            "Window duration"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "8000/4096",
+          "rate": 8000,
+          "n": 4096,
+          "spacingHz": 1.953125,
+          "windowMs": 512,
+          "bufferBytes": 16384,
+          "failures": [
+            "Bandwidth guard",
+            "Window duration"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "8000/8192",
+          "rate": 8000,
+          "n": 8192,
+          "spacingHz": 0.9765625,
+          "windowMs": 1024,
+          "bufferBytes": 32768,
+          "failures": [
+            "Bandwidth guard",
+            "Window duration"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "8000/16384",
+          "rate": 8000,
+          "n": 16384,
+          "spacingHz": 0.48828125,
+          "windowMs": 2048,
+          "bufferBytes": 65536,
+          "failures": [
+            "Bandwidth guard",
+            "Window duration"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "8000/32768",
+          "rate": 8000,
+          "n": 32768,
+          "spacingHz": 0.244140625,
+          "windowMs": 4096,
+          "bufferBytes": 131072,
+          "failures": [
+            "Bandwidth guard",
+            "Window duration"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "16000/256",
+          "rate": 16000,
+          "n": 256,
+          "spacingHz": 62.5,
+          "windowMs": 16,
+          "bufferBytes": 1024,
+          "failures": [
+            "Bandwidth guard"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "16000/512",
+          "rate": 16000,
+          "n": 512,
+          "spacingHz": 31.25,
+          "windowMs": 32,
+          "bufferBytes": 2048,
+          "failures": [
+            "Bandwidth guard"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "16000/1024",
+          "rate": 16000,
+          "n": 1024,
+          "spacingHz": 15.625,
+          "windowMs": 64,
+          "bufferBytes": 4096,
+          "failures": [
+            "Bandwidth guard"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "16000/2048",
+          "rate": 16000,
+          "n": 2048,
+          "spacingHz": 7.8125,
+          "windowMs": 128,
+          "bufferBytes": 8192,
+          "failures": [
+            "Bandwidth guard",
+            "Window duration"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "16000/4096",
+          "rate": 16000,
+          "n": 4096,
+          "spacingHz": 3.90625,
+          "windowMs": 256,
+          "bufferBytes": 16384,
+          "failures": [
+            "Bandwidth guard",
+            "Window duration"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "16000/8192",
+          "rate": 16000,
+          "n": 8192,
+          "spacingHz": 1.953125,
+          "windowMs": 512,
+          "bufferBytes": 32768,
+          "failures": [
+            "Bandwidth guard",
+            "Window duration"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "16000/16384",
+          "rate": 16000,
+          "n": 16384,
+          "spacingHz": 0.9765625,
+          "windowMs": 1024,
+          "bufferBytes": 65536,
+          "failures": [
+            "Bandwidth guard",
+            "Window duration"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "16000/32768",
+          "rate": 16000,
+          "n": 32768,
+          "spacingHz": 0.48828125,
+          "windowMs": 2048,
+          "bufferBytes": 131072,
+          "failures": [
+            "Bandwidth guard",
+            "Window duration"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "48000/256",
+          "rate": 48000,
+          "n": 256,
+          "spacingHz": 187.5,
+          "windowMs": 5.333333333333333,
+          "bufferBytes": 1024,
+          "failures": [
+            "Bandwidth guard",
+            "Bin spacing"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "48000/512",
+          "rate": 48000,
+          "n": 512,
+          "spacingHz": 93.75,
+          "windowMs": 10.666666666666666,
+          "bufferBytes": 2048,
+          "failures": [
+            "Bandwidth guard"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "48000/1024",
+          "rate": 48000,
+          "n": 1024,
+          "spacingHz": 46.875,
+          "windowMs": 21.333333333333332,
+          "bufferBytes": 4096,
+          "failures": [
+            "Bandwidth guard"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "48000/2048",
+          "rate": 48000,
+          "n": 2048,
+          "spacingHz": 23.4375,
+          "windowMs": 42.666666666666664,
+          "bufferBytes": 8192,
+          "failures": [
+            "Bandwidth guard"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "48000/4096",
+          "rate": 48000,
+          "n": 4096,
+          "spacingHz": 11.71875,
+          "windowMs": 85.33333333333333,
+          "bufferBytes": 16384,
+          "failures": [
+            "Bandwidth guard"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "48000/8192",
+          "rate": 48000,
+          "n": 8192,
+          "spacingHz": 5.859375,
+          "windowMs": 170.66666666666666,
+          "bufferBytes": 32768,
+          "failures": [
+            "Bandwidth guard",
+            "Window duration"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "48000/16384",
+          "rate": 48000,
+          "n": 16384,
+          "spacingHz": 2.9296875,
+          "windowMs": 341.3333333333333,
+          "bufferBytes": 65536,
+          "failures": [
+            "Bandwidth guard",
+            "Window duration"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "48000/32768",
+          "rate": 48000,
+          "n": 32768,
+          "spacingHz": 1.46484375,
+          "windowMs": 682.6666666666666,
+          "bufferBytes": 131072,
+          "failures": [
+            "Bandwidth guard",
+            "Window duration"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "96000/256",
+          "rate": 96000,
+          "n": 256,
+          "spacingHz": 375,
+          "windowMs": 2.6666666666666665,
+          "bufferBytes": 1024,
+          "failures": [
+            "Bin spacing"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "96000/512",
+          "rate": 96000,
+          "n": 512,
+          "spacingHz": 187.5,
+          "windowMs": 5.333333333333333,
+          "bufferBytes": 2048,
+          "failures": [
+            "Bin spacing"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "96000/1024",
+          "rate": 96000,
+          "n": 1024,
+          "spacingHz": 93.75,
+          "windowMs": 10.666666666666666,
+          "bufferBytes": 4096,
+          "failures": [],
+          "feasible": true
+        },
+        {
+          "id": "96000/2048",
+          "rate": 96000,
+          "n": 2048,
+          "spacingHz": 46.875,
+          "windowMs": 21.333333333333332,
+          "bufferBytes": 8192,
+          "failures": [],
+          "feasible": true
+        },
+        {
+          "id": "96000/4096",
+          "rate": 96000,
+          "n": 4096,
+          "spacingHz": 23.4375,
+          "windowMs": 42.666666666666664,
+          "bufferBytes": 16384,
+          "failures": [],
+          "feasible": true
+        },
+        {
+          "id": "96000/8192",
+          "rate": 96000,
+          "n": 8192,
+          "spacingHz": 11.71875,
+          "windowMs": 85.33333333333333,
+          "bufferBytes": 32768,
+          "failures": [],
+          "feasible": true
+        },
+        {
+          "id": "96000/16384",
+          "rate": 96000,
+          "n": 16384,
+          "spacingHz": 5.859375,
+          "windowMs": 170.66666666666666,
+          "bufferBytes": 65536,
+          "failures": [
+            "Window duration"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "96000/32768",
+          "rate": 96000,
+          "n": 32768,
+          "spacingHz": 2.9296875,
+          "windowMs": 341.3333333333333,
+          "bufferBytes": 131072,
+          "failures": [
+            "Window duration"
+          ],
+          "feasible": false
+        }
+      ],
+      "feasibleCount": 4,
+      "chosen": {
+        "id": "96000/1024",
+        "rate": 96000,
+        "n": 1024,
+        "spacingHz": 93.75,
+        "windowMs": 10.666666666666666,
+        "bufferBytes": 4096,
+        "failures": [],
+        "feasible": true
+      },
+      "baseline": {
+        "id": "48000/1024",
+        "rate": 48000,
+        "n": 1024,
+        "spacingHz": 46.875,
+        "windowMs": 21.333333333333332,
+        "bufferBytes": 4096,
+        "failures": [
+          "Bandwidth guard"
+        ],
+        "feasible": false
+      },
+      "ready": true,
+      "reason": "All four planning constraints satisfied. Bin spacing is not a spectral-resolution guarantee."
+    }
+  ],
+  "summary": {
+    "records": 2,
+    "approved": 2,
+    "baselineViolations": 2,
+    "reviewedViolations": 1,
+    "chosenBufferBytes": 5120,
+    "planReady": false
+  }
+}

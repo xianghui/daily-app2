@@ -1,0 +1,11 @@
+import a from 'node:assert/strict';import{examples,parse,pretty,propose,calculate,plan,depth,STOPS,inputFromEnvelope}from'./src/core.js';
+const d=parse(pretty(examples[0].data));
+a.throws(()=>propose(d,[[null]]),/Malformed/);
+const review=d.records.map((r,i)=>({...r,profile:d.profiles[i].id,...Object.fromEntries(['focal','coc','open'].map(k=>[k,d.profiles[i][k]])),reviewerNote:'',decision:'approve'}));
+let out=calculate(d,review);a.equal(out.summary.shots,3);a.deepEqual(inputFromEnvelope(pretty(out)),d);a.throws(()=>calculate(d,review.slice(1)),/Preserve/);a.throws(()=>calculate(d,review.map(r=>({...r,decision:'pending'}))),/Approve/);
+a.throws(()=>calculate(d,review.map(r=>({...r,near:r.far}))),/Far subject/);a.throws(()=>calculate(d,review.map(r=>({...r,open:3}))),/listed/);
+a.equal(plan({...review[0],decision:'hold'},16).status,'held');
+a.equal(plan({...review[0],focal:300,coc:.005,near:.5,far:500},1.4).status,'infeasible');
+a.equal(depth(50,.03,16,100000).far,null);a(depth(50,.03,1.4,2000).far>2);
+const approved=calculate(d,review.map(r=>({...r,reviewerNote:'=SUM(1,2)\nCheck "lens", verified'})));a.equal(approved.review[0].reviewerNote.split('\n').length,2);
+a.equal(plan({...review[0],open:32},1.4).aperture,null);a(STOPS.includes(32));console.log('PASS core schema, bounds, hold, unavailable stop range, infinity, source conservation and audit import');

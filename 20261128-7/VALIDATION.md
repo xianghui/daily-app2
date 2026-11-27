@@ -24,6 +24,18 @@ Root `npm run predeploy` passed: 931 apps built/copied, zero failures/skips. Com
 
 The actual assembled production tree passed the full real-inference/export/offline/maximum-batch browser suite, independent artifact parsing, shared runtime byte audits, defensive suite, review/override guards, delayed import, actual model cancellation and recovery/stale-new-run tests. See `assembled-*` reports.
 
-Public publication verification pending; a branch push is not proof of working Pages.
+Public publication verification passed; see final checks below.
 
-Pages build `d1fe3f44fd75ed6df2142af8b3575aa0d6d8c0ec` reached `built`; matching workflow [46074858777](https://github.com/xianghui/daily-app2/actions/runs/46074858777) completed successfully. Public browser verification is running against the deployed URL, not the local server.
+Pages build `d1fe3f44fd75ed6df2142af8b3575aa0d6d8c0ec` reached `built`; matching workflow [46074858777](https://github.com/xianghui/daily-app2/actions/runs/46074858777) completed successfully. Public browser verification passed against the deployed URL, not the local server.
+
+
+## Public production verification
+
+- https://xianghui.github.io/daily-app2/20261128-7/ passed both real CPU-inference fixtures (4/4 intended profile matches), gear feasibility/minimax checks, baseline counts, offline fresh-worker inference, 12-row maximum-batch/reimport, review/hold/undo/multiline/clipboard, cancellation/retry, invalid inputs, keyboard labels/touch targets and 1440/390/320 px layout checks.
+- Public JSON/CSV/Markdown/gear-card downloads were independently parsed; all required rows and reviewed edits survived.
+- Public app HTML, favicon, JS/CSS, shared embedding worker, factory and 26.9 MB WASM matched production byte lengths and SHA-256 (7 assets). Credential-pattern scan: zero matches in built JS/CSS.
+- Public request capture observed only GET/no-body downloads from xianghui.github.io, huggingface.co and us.aws.cdn.hf.co; no model requests before explicit invocation and no fixture content in URLs. No content upload path exists.
+- Public gallery rendered all 931 entries; older categories and old/new search preserved; new AI Utility appears exactly once.
+- Extended public review test passed profile corrections, infeasible-band and blocked-gear release guards, undo and bad imports.
+- Defensive fault injection and delayed import/model-cancel/recovery tests ran against the assembled production tree; they were not all repeated publicly. Real public successes were never mocked.
+- Physical phones, low-memory devices, other browser engines, real riders, physiological suitability and offline app-shell reload remain untested/not claimed. See `public-*` reports/screenshots and `pages-build.json`.

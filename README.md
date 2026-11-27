@@ -2665,3 +2665,7 @@ Local MiniLM sensitivity-profile inference turns mixed collection handoffs into 
 ## Border Folio — 20261128-4
 
 Real local MiniLM retrieves frame profiles from informal print-room handoffs. Review usable frame dimensions, overlap and bottom weighting; compare two-orientation minimum-border plans with sheet-only fit checks, then export source-preserving JSON/CSV/Markdown and a gated cut worksheet. No content uploads or machine controls. Preserves shared worker/factory/WASM paths in `20261115-6` and `20261107-2`. See [workflow](20261128-4/README.md) and [observed validation](20261128-4/VALIDATION.md).
+
+## Gatherfold Studio — 20261128-5
+
+Real local MiniLM retrieves binding profiles from informal booklet briefs. Review numbered-page nested signature plans, final-section padding and shared-stock checks; export complete JSON/CSV/Markdown and guarded press CSV. All four simple known-answer profile links matched; a negated unknown brief still retrieved the negated profile, so review is mandatory. Reuses the immutable worker/runtime documented in [workflow](20261128-5/README.md); see [observed validation](20261128-5/VALIDATION.md). No PDFs or printer controls.

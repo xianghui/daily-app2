@@ -2616,3 +2616,10 @@ Real local MiniLM swatch retrieval turns informal knitting-project notes into re
 ## Looprate Desk — 20261127-18
 
 Local MiniLM clip-description retrieval for reviewed music-edit tempo-conform worksheets. Verify source frames, rates and quarter-note beats, check whole repeats and duration/pitch limits, compare native-speed drift and export complete JSON/CSV/Markdown. No audio analysis, rendering or DAW actions. Reuses immutable shared runtime paths from `20261115-6` and `20261107-2`; preserve those assets. See [workflow](20261127-18/README.md) and [observed validation](20261127-18/VALIDATION.md).
+
+
+## Sweepframe Desk — 20261127-19
+
+Real local MiniLM lens inference turns panorama briefs into reviewed single-row horizontal capture worksheets. Verify actual focal length and sensor dimensions, minimize shots under angular-overlap constraints, compare count-only overlap shortfalls and export complete JSON/CSV/Markdown plus gated yaw Shot CSV without uploads or camera control. Four easy synthetic links matched; a negation probe selected the wrong lens and requires human correction. Independent Python geometry enumeration checks 600 cases / 3,600 assertions. Reuses immutable shared worker/factory from `20261115-6` and WASM from `20261107-2`; preserve these paths. Offline scope is fresh-worker inference in an already-open warmed page only. See [workflow/privacy](20261127-19/README.md) and [observed validation](20261127-19/VALIDATION.md). No digest sent; unrelated drafts preserved/excluded.
+
+Public release verified: matching built Pages commit `21e271f6e6bf42907397dde68b3c61833db19252`, successful workflow `45979762294`, nine exact public asset matches, both real-AI fixtures and complete review/export/max-batch/offline/privacy suite, **803** independent public-artifact assertions, public recovery/stale/import safeguards and all **919** gallery cards. Combined site **825,218,784 bytes**, below unchanged guard; shared-runtime rules untouched. Physical cameras/stitching, phones, other engines, cold offline startup and representative semantic accuracy remain unverified. No digest sent; unrelated drafts preserved/excluded.

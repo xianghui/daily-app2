@@ -26,3 +26,13 @@ No OCR/image processing or automatic optical/legibility verification. Standards,
 ## Assembled production site
 
 Root predeploy: **913 built, 0 failed, 0 skipped**; shared-runtime assembly **823,624,413 bytes**, unchanged size guard. Full real-browser production-bundle suite and network recovery/stale-new-run checks pass again from the assembled tree. Independently parsed artifacts: **568 assertions** each on local and assembled downloads. Browser gallery: **913 cards**, new entry once, AI Utilities first, earlier categories intact, search works and no JS errors/overflow at 1440/390/320px. An additional 371 exact-threshold sampling probes found no DPI-step over-rounding failures. Public checks follow separately.
+
+## Public release — verified
+
+- Matching Pages build **4363a9c6445499da231133d9c5e15670212ddb60** reached `built`; workflow **45938217912** completed successfully (build/deploy/report jobs). No rebuild trigger or repeated publication was needed.
+- **9 public files** match assembled bytes exactly: root gallery, app entry/assets and shared CPU runtime dependencies. See public-assets.json.
+- Full public real-inference workflow passes again: **TEXT/PHOTO/GRAY** and **MAP/TEXT** fixture links; reviewed edits/undo, held and infeasible/budget gates, batch/reimport, clipboard/downloads, cancellation/retry, defensive inputs, private GET-only download traffic and fresh-worker inference with the network offline in the already-open warmed page.
+- Actual public worker-download failure recovers to real inference; delayed old schema-valid result/error cannot replace a newer real run.
+- **568 independent public artifact assertions** pass; all source records and reviewed edits survive JSON/CSV/Markdown.
+- Public gallery: **913 cards**, all older categories preserved, first entry once, functional search and no JS errors/overflow at desktop/phone viewport widths.
+- Physical devices/scanners, other engines, screen readers, cold offline startup, real scan quality and representative semantic accuracy remain unverified. No digest sent.

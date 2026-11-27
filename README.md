@@ -2642,3 +2642,8 @@ Local MiniLM instrument retrieval turns rough ensemble handoffs into reviewed sy
 ## Dewpoint Dock — 20261127-23
 
 Local-AI destination matching for collection-handling arrivals, with reviewed room readings and transparent modeled closed-crate acclimatization waits. Compare a fixed-hour shortcut, block unreachable/cooling/over-limit plans, preserve originals and export JSON/CSV/Markdown. Planning only, not opening clearance. Four real MiniLM fixture matches, independent wait/artifact checks, offline fresh-worker inference and defensive workflows validated locally. See [workflow](20261127-23/README.md) and [observed validation](20261127-23/VALIDATION.md). Shared immutable worker/runtime dependencies are documented; preserve their originating apps.
+
+
+## Throwline Desk — 20261127-24
+
+Local MiniLM matches informal projector-kit handoffs to supplied native-raster/lens specs. Human-reviewed geometry maximizes uncropped content within screen and throw bounds, shows bars and compares a no-bars wall-width shortcut. Export complete JSON/CSV/Markdown plus gated setup CSV. Four simple kit links matched across two fixtures; a negation probe failed, so every link requires human review. 750 enumerated geometry cases, local/assembled/public real inference, warmed-page fresh-worker offline reuse, downloads and narrow layouts passed. Shared immutable runtime paths must be preserved. See [workflow and limitations](20261127-24/README.md), [observed checks](20261127-24/VALIDATION.md) and [publication state](20261127-24/publication-status.json). [Open app](https://xianghui.github.io/daily-app2/20261127-24/).

@@ -2673,3 +2673,8 @@ Real local MiniLM retrieves binding profiles from informal booklet briefs. Revie
 ## Coatfolio Desk — 20261128-6
 
 Local MiniLM finish-profile retrieval turns informal coating-job handoffs into reviewed volume and whole-pack worksheets. Verify volume solids and transfer efficiency, compare dry-film-only underestimates, pool approved-job stock once, enforce pack caps and export source-preserving JSON/CSV/Markdown plus gated pack lists. Four simple synthetic profile links matched; a negated unsuitable coating still retrieved the steel profile, so review is mandatory. Reuses immutable runtime assets from `20261115-6` and `20261107-2`; preserve their paths. See [workflow/privacy](20261128-6/README.md) and [observed validation](20261128-6/VALIDATION.md).
+
+
+## Cadence Atlas — 20261128-7
+
+Local MiniLM maps informal cycling route notes to supplied cadence profiles. Review rider bands, speed windows and explicit blocked gear pairs; compare full-window feasible minimax gear choices against supplied current gears; export complete JSON/CSV/Markdown plus guarded gear cards. Four tiny synthetic profile matches passed; negation still retrieved the rejected sprint profile, so approval or hold is mandatory. Reuses immutable same-origin worker/runtime from `20261115-6` and WASM from `20261107-2`; preserve those paths. See [workflow](20261128-7/README.md) and [observed validation](20261128-7/VALIDATION.md).

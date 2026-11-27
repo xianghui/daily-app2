@@ -1,0 +1,145 @@
+{
+  "schema": "dewpointdock-v1",
+  "original": {
+    "title": "Synthetic morning crate intake",
+    "marginC": 2,
+    "profiles": [
+      {
+        "id": "TROPICAL",
+        "description": "Tropical botany exhibition room, warm humid conservatory display gallery with plant cases.",
+        "roomC": 26,
+        "rh": 75
+      },
+      {
+        "id": "PAPER",
+        "description": "Paper archive study room, cool dry document reading area for manuscripts and prints.",
+        "roomC": 20,
+        "rh": 40
+      },
+      {
+        "id": "CERAMIC",
+        "description": "Ceramics teaching studio, pottery workshop bench beside the clay demonstration shelves.",
+        "roomC": 24,
+        "rh": 60
+      },
+      {
+        "id": "PHOTO",
+        "description": "Photography exhibition gallery, photographic print display room with controlled dry air.",
+        "roomC": 22,
+        "rh": 35
+      }
+    ],
+    "records": [
+      {
+        "id": "crate-A",
+        "note": "Deliver to the humid tropical botany plant exhibition, conservatory display room.",
+        "initialC": 8,
+        "tauMinutes": 90,
+        "maxMinutes": 360
+      },
+      {
+        "id": "crate-B",
+        "note": "Move to the cool dry manuscript paper archive reading room.",
+        "initialC": 8,
+        "tauMinutes": 60,
+        "maxMinutes": 180
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "crate-A",
+      "note": "Deliver to the humid tropical botany plant exhibition, conservatory display room.",
+      "initialC": 8,
+      "tauMinutes": 90,
+      "maxMinutes": 360,
+      "profile": "TROPICAL",
+      "roomC": 26,
+      "rh": 75,
+      "decision": "approve",
+      "reviewerNote": "=SUM(1,2)\nCheck \"crate\", approved",
+      "candidates": [
+        {
+          "id": "TROPICAL",
+          "score": 0.8455945238884457
+        },
+        {
+          "id": "PHOTO",
+          "score": 0.48512984237908946
+        },
+        {
+          "id": "CERAMIC",
+          "score": 0.3872978741969193
+        },
+        {
+          "id": "PAPER",
+          "score": 0.36017265420453964
+        }
+      ]
+    },
+    {
+      "id": "crate-B",
+      "note": "Move to the cool dry manuscript paper archive reading room.",
+      "initialC": 8,
+      "tauMinutes": 60,
+      "maxMinutes": 180,
+      "profile": "PAPER",
+      "roomC": 20,
+      "rh": 40,
+      "decision": "approve",
+      "reviewerNote": "",
+      "candidates": [
+        {
+          "id": "PAPER",
+          "score": 0.7993498156248452
+        },
+        {
+          "id": "PHOTO",
+          "score": 0.357412404583227
+        },
+        {
+          "id": "TROPICAL",
+          "score": 0.3283001341534693
+        },
+        {
+          "id": "CERAMIC",
+          "score": 0.23405516202647103
+        }
+      ]
+    }
+  ],
+  "jobs": [
+    {
+      "id": "crate-A",
+      "dewpointC": 21.222516435502,
+      "targetC": 23.222516435502,
+      "baselineC": 16.758491857413343,
+      "baselineMeets": false,
+      "status": "ready",
+      "waitMinutes": 169,
+      "predictedC": 23.247267705337002,
+      "reason": "Minimum whole-minute modeled wait. This estimate is not opening clearance; measure the coldest surface and reassess current room readings."
+    },
+    {
+      "id": "crate-B",
+      "dewpointC": 5.9804193980043046,
+      "targetC": 7.9804193980043046,
+      "baselineC": 15.585446705942692,
+      "baselineMeets": true,
+      "status": "ready",
+      "waitMinutes": 0,
+      "predictedC": 8,
+      "reason": "The supplied initial surface is already above the modeled dewpoint plus margin. Verify actual surfaces and conditions before opening."
+    }
+  ],
+  "summary": {
+    "records": 2,
+    "approved": 2,
+    "held": 0,
+    "ready": 2,
+    "baselineMeets": 1,
+    "baselineCompared": 2,
+    "waitTotal": 169,
+    "manifestReady": true
+  }
+}

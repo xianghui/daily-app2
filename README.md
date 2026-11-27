@@ -2637,3 +2637,8 @@ Local MiniLM speaker-chain retrieval turns rough routing notes into reviewed sin
 ## Register Loom — 20261127-22
 
 Local MiniLM instrument retrieval turns rough ensemble handoffs into reviewed symbolic written-pitch worksheets. Verify sounding offsets/player ranges, find minimal permitted whole-octave moves, retain every concert note event and export JSON/CSV/Markdown plus a guarded note-by-note pitch CSV. Four simple fixture identities matched; a negation challenge failed, so human review is essential. No audio uploads or score engraving. Reuses the immutable worker/runtime from `20261115-6` and `20261107-2`; preserve those assets. See [workflow](20261127-22/README.md) and [observed validation](20261127-22/VALIDATION.md).
+
+
+## Dewpoint Dock — 20261127-23
+
+Local-AI destination matching for collection-handling arrivals, with reviewed room readings and transparent modeled closed-crate acclimatization waits. Compare a fixed-hour shortcut, block unreachable/cooling/over-limit plans, preserve originals and export JSON/CSV/Markdown. Planning only, not opening clearance. Four real MiniLM fixture matches, independent wait/artifact checks, offline fresh-worker inference and defensive workflows validated locally. See [workflow](20261127-23/README.md) and [observed validation](20261127-23/VALIDATION.md). Shared immutable worker/runtime dependencies are documented; preserve their originating apps.

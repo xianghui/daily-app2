@@ -1,0 +1,145 @@
+{
+  "schema": "dewpointdock-v1",
+  "original": {
+    "title": "Synthetic workshop transfer",
+    "marginC": 1.5,
+    "profiles": [
+      {
+        "id": "TROPICAL",
+        "description": "Tropical botany exhibition room, warm humid conservatory display gallery with plant cases.",
+        "roomC": 26,
+        "rh": 75
+      },
+      {
+        "id": "PAPER",
+        "description": "Paper archive study room, cool dry document reading area for manuscripts and prints.",
+        "roomC": 20,
+        "rh": 40
+      },
+      {
+        "id": "CERAMIC",
+        "description": "Ceramics teaching studio, pottery workshop bench beside the clay demonstration shelves.",
+        "roomC": 24,
+        "rh": 60
+      },
+      {
+        "id": "PHOTO",
+        "description": "Photography exhibition gallery, photographic print display room with controlled dry air.",
+        "roomC": 22,
+        "rh": 35
+      }
+    ],
+    "records": [
+      {
+        "id": "pottery",
+        "note": "Destination is the ceramics teaching workshop, clay demonstration studio bench.",
+        "initialC": 5,
+        "tauMinutes": 120,
+        "maxMinutes": 300
+      },
+      {
+        "id": "prints",
+        "note": "For the photographic print exhibition gallery, controlled dry photography display room.",
+        "initialC": 4,
+        "tauMinutes": 75,
+        "maxMinutes": 180
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "pottery",
+      "note": "Destination is the ceramics teaching workshop, clay demonstration studio bench.",
+      "initialC": 5,
+      "tauMinutes": 120,
+      "maxMinutes": 300,
+      "profile": "CERAMIC",
+      "roomC": 24,
+      "rh": 60,
+      "decision": "approve",
+      "reviewerNote": "",
+      "candidates": [
+        {
+          "id": "CERAMIC",
+          "score": 0.8277327209852346
+        },
+        {
+          "id": "PHOTO",
+          "score": 0.3307153325306571
+        },
+        {
+          "id": "TROPICAL",
+          "score": 0.30559038403414324
+        },
+        {
+          "id": "PAPER",
+          "score": 0.2919565601951958
+        }
+      ]
+    },
+    {
+      "id": "prints",
+      "note": "For the photographic print exhibition gallery, controlled dry photography display room.",
+      "initialC": 4,
+      "tauMinutes": 75,
+      "maxMinutes": 180,
+      "profile": "PHOTO",
+      "roomC": 22,
+      "rh": 35,
+      "decision": "approve",
+      "reviewerNote": "",
+      "candidates": [
+        {
+          "id": "PHOTO",
+          "score": 0.9021937168560092
+        },
+        {
+          "id": "TROPICAL",
+          "score": 0.5315705568334778
+        },
+        {
+          "id": "PAPER",
+          "score": 0.4933667783013654
+        },
+        {
+          "id": "CERAMIC",
+          "score": 0.37944367548233293
+        }
+      ]
+    }
+  ],
+  "jobs": [
+    {
+      "id": "pottery",
+      "dewpointC": 15.754044296611925,
+      "targetC": 17.254044296611923,
+      "baselineC": 12.475917465459965,
+      "baselineMeets": false,
+      "status": "ready",
+      "waitMinutes": 125,
+      "predictedC": 17.29554445228187,
+      "reason": "Minimum whole-minute modeled wait. This estimate is not opening clearance; measure the coldest surface and reassess current room readings."
+    },
+    {
+      "id": "prints",
+      "dewpointC": 5.82532384978749,
+      "targetC": 7.32532384978749,
+      "baselineC": 13.912078645890013,
+      "baselineMeets": true,
+      "status": "ready",
+      "waitMinutes": 16,
+      "predictedC": 7.4580376588601585,
+      "reason": "Minimum whole-minute modeled wait. This estimate is not opening clearance; measure the coldest surface and reassess current room readings."
+    }
+  ],
+  "summary": {
+    "records": 2,
+    "approved": 2,
+    "held": 0,
+    "ready": 2,
+    "baselineMeets": 1,
+    "baselineCompared": 2,
+    "waitTotal": 141,
+    "manifestReady": true
+  }
+}

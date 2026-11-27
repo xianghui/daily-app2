@@ -2656,3 +2656,8 @@ Local MiniLM method recognition turns informal café brew logs into reviewed ext
 ## Cueweave Studio — 20261128-2
 
 Local MiniLM semantic boundaries turn timed transcript fragments into reviewed subtitle cues. Exact contiguous partitioning enforces reading rate, line width, duration and silence limits; all fragments remain in order. Review/edit/hold/undo, compare an equal-spacing legal baseline and export checked WebVTT plus complete JSON/CSV/Markdown. This is not audio transcription or forced alignment. Two synthetic known-answer boundary sets passed; fresh-worker offline inference in a warmed page and actual browser subtitle parsing were tested. Shared immutable CPU runtime paths from `20261115-6` / `20261107-2` must remain available. See [workflow](20261128-2/README.md) and [observed validation](20261128-2/VALIDATION.md).
+
+
+## Exposure Folio — 20261128-3
+
+Local MiniLM sensitivity-profile inference turns mixed collection handoffs into reviewed light-budget worksheets. Confirm supplied limits and prior exposure, compare cumulative lux-hours with peak-only checks, maximize quarter-hour daily duration within each budget and export complete JSON/CSV/Markdown plus gated plans. Four simple fixture links passed; a negation challenge failed, so expert review is mandatory. Shared immutable CPU runtime paths must remain available. See [workflow](20261128-3/README.md) and [observed validation](20261128-3/VALIDATION.md).

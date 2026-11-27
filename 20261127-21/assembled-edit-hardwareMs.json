@@ -1,0 +1,131 @@
+{
+  "schema": "delayfield-v1",
+  "original": {
+    "title": "Hall listening-point alignment",
+    "temperatureC": 20,
+    "sampleRate": 48000,
+    "toleranceMs": 0.03,
+    "profiles": [
+      {
+        "id": "MAIN",
+        "description": "Front of house main loudspeaker array using a wired digital mixing console and local amplifier rack.",
+        "hardwareMs": 4,
+        "maxDelayMs": 100
+      },
+      {
+        "id": "FILL",
+        "description": "Under balcony distributed ceiling fill speakers fed by a networked audio processor over Ethernet.",
+        "hardwareMs": 9,
+        "maxDelayMs": 100
+      },
+      {
+        "id": "WIRELESS",
+        "description": "Battery powered portable rear loudspeaker receiving wireless radio audio from a remote transmitter.",
+        "hardwareMs": 18,
+        "maxDelayMs": 100
+      }
+    ],
+    "records": [
+      {
+        "id": "front-array",
+        "note": "Front of house main line array, wired mixing desk and amplifier rack.",
+        "distanceM": 30
+      },
+      {
+        "id": "balcony-fill",
+        "note": "Under balcony ceiling fills on the Ethernet audio network processor.",
+        "distanceM": 8
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "front-array",
+      "note": "Front of house main line array, wired mixing desk and amplifier rack.",
+      "distanceM": 30,
+      "profile": "MAIN",
+      "hardwareMs": 6,
+      "maxDelayMs": 100,
+      "decision": "approve",
+      "reviewerNote": "",
+      "candidates": [
+        {
+          "id": "MAIN",
+          "score": 0.8199135099040477
+        },
+        {
+          "id": "FILL",
+          "score": 0.517123620137305
+        },
+        {
+          "id": "WIRELESS",
+          "score": 0.27367916926202634
+        }
+      ]
+    },
+    {
+      "id": "balcony-fill",
+      "note": "Under balcony ceiling fills on the Ethernet audio network processor.",
+      "distanceM": 8,
+      "profile": "FILL",
+      "hardwareMs": 9,
+      "maxDelayMs": 100,
+      "decision": "approve",
+      "reviewerNote": "",
+      "candidates": [
+        {
+          "id": "FILL",
+          "score": 0.8318658243213405
+        },
+        {
+          "id": "MAIN",
+          "score": 0.4072252244332306
+        },
+        {
+          "id": "WIRELESS",
+          "score": 0.2669664323008113
+        }
+      ]
+    }
+  ],
+  "jobs": [
+    {
+      "id": "front-array",
+      "status": "ready",
+      "propagationMs": 87.35658959874206,
+      "rawArrivalMs": 93.35658959874206,
+      "idealDelayMs": 0,
+      "delaySamples": 0,
+      "delayMs": 0,
+      "arrivalMs": 93.35658959874206,
+      "baselineSamples": 0,
+      "baselineArrivalMs": 93.35658959874206,
+      "reason": "Rounded to nearest whole sample. Verify with an impulse measurement at the shared listening point."
+    },
+    {
+      "id": "balcony-fill",
+      "status": "ready",
+      "propagationMs": 23.29509055966455,
+      "rawArrivalMs": 32.29509055966455,
+      "idealDelayMs": 61.06149903907751,
+      "delaySamples": 2931,
+      "delayMs": 61.0625,
+      "arrivalMs": 93.35759055966454,
+      "baselineSamples": 3075,
+      "baselineArrivalMs": 96.35759055966454,
+      "reason": "Rounded to nearest whole sample. Verify with an impulse measurement at the shared listening point."
+    }
+  ],
+  "summary": {
+    "records": 2,
+    "approved": 2,
+    "held": 0,
+    "ready": 2,
+    "speedMps": 343.42,
+    "targetMs": 93.35658959874206,
+    "arrivalSpreadMs": 0.0010009609224823635,
+    "baselineSpreadMs": 3.0010009609224824,
+    "withinTolerance": true,
+    "manifestReady": true
+  }
+}

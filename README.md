@@ -2689,3 +2689,7 @@ Public release verified: matching built Pages commit `fc617ca47e16c64b481c5f23f2
 ## Bitbudget Studio — 20261128-9
 
 Local MiniLM content-profile retrieval turns rough video handoffs into reviewed upload-size budgets. A finite ladder search includes audio, overhead and fixed reserves, compares video-only overruns, and exports complete JSON/CSV/Markdown plus gated delivery CSV. Four simple semantic fixtures matched; a negated sports example mismatched, so human review is mandatory. Estimates are not measured encoding sizes or quality guarantees. Reuses immutable worker/runtime from `20261115-6` and WASM from `20261107-2`; preserve those apps. See [workflow](20261128-9/README.md) and [observed validation](20261128-9/VALIDATION.md).
+
+## Headroom Folio — 20261128-10
+
+Local MiniLM semantic destination matching turns mixed audio handoffs into reviewed gain-only worksheets. Explicit true-peak/gain bounds expose loudness targets that cannot be reached without separate processing; complete audits preserve holds and gated gain CSV requires every target to fit. Four simple known-answer matches passed; a negation challenge failed and remains documented. No audio analysis/changes or content uploads. Reuses the immutable `20261115-6` worker/runtime and `20261107-2` WASM; preserve their paths. See [workflow and model requirements](20261128-10/README.md) and [observed validation](20261128-10/VALIDATION.md).

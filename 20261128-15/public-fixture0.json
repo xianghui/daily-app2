@@ -1,0 +1,274 @@
+{
+  "format": "divider-bench-v1",
+  "source": {
+    "title": "Synthetic high-impedance bench handoff",
+    "resistors": [
+      100,
+      220,
+      470,
+      1000,
+      2200,
+      4700,
+      10000,
+      22000,
+      47000,
+      100000,
+      220000,
+      470000
+    ],
+    "profiles": [
+      {
+        "id": "DMM",
+        "description": "Digital multimeter DC voltage input high impedance handheld voltmeter",
+        "loadOHM": 10000000
+      },
+      {
+        "id": "SCOPE",
+        "description": "Oscilloscope one megohm input direct cable no probe attenuation",
+        "loadOHM": 1000000
+      },
+      {
+        "id": "DAQ",
+        "description": "Data acquisition analog voltage channel resistive input load ten kilohms",
+        "loadOHM": 10000
+      },
+      {
+        "id": "PANEL",
+        "description": "Analog moving coil panel voltmeter low resistance one kilohm input",
+        "loadOHM": 1000
+      }
+    ],
+    "records": [
+      {
+        "id": "M1",
+        "note": "Handheld digital multimeter DC voltmeter high impedance input",
+        "vin": 12,
+        "target": 4,
+        "tolerance": 10,
+        "currentCapMA": 10,
+        "powerCapMW": 100,
+        "oldTop": 220000,
+        "oldBottom": 100000
+      },
+      {
+        "id": "M2",
+        "note": "Oscilloscope direct cable into one megohm input without attenuation probe",
+        "vin": 12,
+        "target": 4,
+        "tolerance": 10,
+        "currentCapMA": 10,
+        "powerCapMW": 100,
+        "oldTop": 220000,
+        "oldBottom": 100000
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "M1",
+      "note": "Handheld digital multimeter DC voltmeter high impedance input",
+      "vin": 12,
+      "target": 4,
+      "tolerance": 10,
+      "currentCapMA": 10,
+      "powerCapMW": 100,
+      "oldTop": 220000,
+      "oldBottom": 100000,
+      "profileId": "DMM",
+      "loadOHM": 10000000,
+      "decision": "approve",
+      "reviewerNote": "",
+      "candidates": [
+        {
+          "id": "DMM",
+          "description": "Digital multimeter DC voltage input high impedance handheld voltmeter",
+          "similarity": 0.9713288247421111
+        },
+        {
+          "id": "PANEL",
+          "description": "Analog moving coil panel voltmeter low resistance one kilohm input",
+          "similarity": 0.5375485500455542
+        },
+        {
+          "id": "DAQ",
+          "description": "Data acquisition analog voltage channel resistive input load ten kilohms",
+          "similarity": 0.48987808068298516
+        },
+        {
+          "id": "SCOPE",
+          "description": "Oscilloscope one megohm input direct cable no probe attenuation",
+          "similarity": 0.36402601201125917
+        }
+      ]
+    },
+    {
+      "id": "M2",
+      "note": "Oscilloscope direct cable into one megohm input without attenuation probe",
+      "vin": 12,
+      "target": 4,
+      "tolerance": 10,
+      "currentCapMA": 10,
+      "powerCapMW": 100,
+      "oldTop": 220000,
+      "oldBottom": 100000,
+      "profileId": "SCOPE",
+      "loadOHM": 1000000,
+      "decision": "approve",
+      "reviewerNote": "",
+      "candidates": [
+        {
+          "id": "SCOPE",
+          "description": "Oscilloscope one megohm input direct cable no probe attenuation",
+          "similarity": 0.9101507194783303
+        },
+        {
+          "id": "DAQ",
+          "description": "Data acquisition analog voltage channel resistive input load ten kilohms",
+          "similarity": 0.33968946603999894
+        },
+        {
+          "id": "DMM",
+          "description": "Digital multimeter DC voltage input high impedance handheld voltmeter",
+          "similarity": 0.2570372301647266
+        },
+        {
+          "id": "PANEL",
+          "description": "Analog moving coil panel voltmeter low resistance one kilohm input",
+          "similarity": 0.2365779672517899
+        }
+      ]
+    }
+  ],
+  "jobs": [
+    {
+      "id": "M1",
+      "note": "Handheld digital multimeter DC voltmeter high impedance input",
+      "vin": 12,
+      "target": 4,
+      "tolerance": 10,
+      "currentCapMA": 10,
+      "powerCapMW": 100,
+      "oldTop": 220000,
+      "oldBottom": 100000,
+      "profileId": "DMM",
+      "loadOHM": 10000000,
+      "decision": "approve",
+      "reviewerNote": "",
+      "candidates": [
+        {
+          "id": "DMM",
+          "description": "Digital multimeter DC voltage input high impedance handheld voltmeter",
+          "similarity": 0.9713288247421111
+        },
+        {
+          "id": "PANEL",
+          "description": "Analog moving coil panel voltmeter low resistance one kilohm input",
+          "similarity": 0.5375485500455542
+        },
+        {
+          "id": "DAQ",
+          "description": "Data acquisition analog voltage channel resistive input load ten kilohms",
+          "similarity": 0.48987808068298516
+        },
+        {
+          "id": "SCOPE",
+          "description": "Oscilloscope one megohm input direct cable no probe attenuation",
+          "similarity": 0.36402601201125917
+        }
+      ],
+      "selected": {
+        "top": 470000,
+        "bottom": 220000,
+        "voltage": 3.7695976240111944,
+        "currentMA": 0.01751149441699746,
+        "topPowerMW": 0.1441266452567706,
+        "bottomPowerMW": 0.06459030112250382,
+        "unloadedV": 3.8260869565217392
+      },
+      "feasible": 9,
+      "baseline": {
+        "top": 220000,
+        "bottom": 100000,
+        "voltage": 3.724394785847299,
+        "currentMA": 0.03761638733705773,
+        "topPowerMW": 0.3112983711841426,
+        "bottomPowerMW": 0.1387111652084655,
+        "unloadedV": 3.75
+      },
+      "baselineFits": true,
+      "unloadedPass": true,
+      "falsePass": false,
+      "ready": true,
+      "reason": "Lowest supply current among offered pairs meeting loaded-voltage, current and nominal resistor-power bounds."
+    },
+    {
+      "id": "M2",
+      "note": "Oscilloscope direct cable into one megohm input without attenuation probe",
+      "vin": 12,
+      "target": 4,
+      "tolerance": 10,
+      "currentCapMA": 10,
+      "powerCapMW": 100,
+      "oldTop": 220000,
+      "oldBottom": 100000,
+      "profileId": "SCOPE",
+      "loadOHM": 1000000,
+      "decision": "approve",
+      "reviewerNote": "",
+      "candidates": [
+        {
+          "id": "SCOPE",
+          "description": "Oscilloscope one megohm input direct cable no probe attenuation",
+          "similarity": 0.9101507194783303
+        },
+        {
+          "id": "DAQ",
+          "description": "Data acquisition analog voltage channel resistive input load ten kilohms",
+          "similarity": 0.33968946603999894
+        },
+        {
+          "id": "DMM",
+          "description": "Digital multimeter DC voltage input high impedance handheld voltmeter",
+          "similarity": 0.2570372301647266
+        },
+        {
+          "id": "PANEL",
+          "description": "Analog moving coil panel voltmeter low resistance one kilohm input",
+          "similarity": 0.2365779672517899
+        }
+      ],
+      "selected": {
+        "top": 100000,
+        "bottom": 47000,
+        "voltage": 3.717864205669084,
+        "currentMA": 0.08282135794330918,
+        "topPowerMW": 0.6859377331573739,
+        "bottomPowerMW": 0.29409604791054067,
+        "unloadedV": 3.836734693877551
+      },
+      "feasible": 7,
+      "baseline": {
+        "top": 220000,
+        "bottom": 100000,
+        "voltage": 3.508771929824561,
+        "currentMA": 0.03859649122807018,
+        "topPowerMW": 0.3277316097260695,
+        "bottomPowerMW": 0.12311480455524774,
+        "unloadedV": 3.75
+      },
+      "baselineFits": false,
+      "unloadedPass": true,
+      "falsePass": true,
+      "ready": true,
+      "reason": "Lowest supply current among offered pairs meeting loaded-voltage, current and nominal resistor-power bounds."
+    }
+  ],
+  "summary": {
+    "records": 2,
+    "approved": 2,
+    "blocked": 0,
+    "baselineFailures": 1,
+    "unloadedFalsePasses": 1,
+    "planReady": true
+  }
+}

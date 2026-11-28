@@ -2775,3 +2775,10 @@ Public release verified: matching built Pages commit `7ec4576c575af964851ce6b0e7
 ## Beltpath Bench — 20261128-24
 
 Local MiniLM setup retrieval for ideal open flat-belt drive worksheets; human-reviewed stock/specifications, exact pitch geometry, center/wrap constraints and fit-aware speed selection. Reuses immutable Circuit Cove worker/factory and Pulse Ledger WASM; preserve their paths. No equipment controls or rated-drive approval. [Workflow and model requirements](20261128-24/README.md) · [Observed validation](20261128-24/VALIDATION.md).
+
+
+## Postfolio Desk — 20261129-1
+
+Real local MiniLM retrieves paper kits from informal mailroom notes; mandatory identity/specification review feeds all-in envelope/service planning. Include paper GSM, envelope tare and wall thickness, compare insert-only false passes and export complete JSON/CSV/Markdown plus eligible minimum-cost worksheets. Eight simple known-answer kit matches passed; a negated report/invitation note failed and required correction. Synthetic sample rates, not live postage. Reuses immutable worker/factory from `20261115-6` and WASM from `20261107-2`; preserve those paths. See [workflow/privacy](20261129-1/README.md) and [observed validation](20261129-1/VALIDATION.md). No uploads, label purchases or digest sent.
+
+Public release verified: matching built Pages commit `9aca8c706979dccf8ab25a301ee6f09d24f00b33`, successful workflow [46163627296](https://github.com/xianghui/daily-app2/actions/runs/46163627296), eight exact public asset hashes, both real-AI batches/full workflow/offline/defensive recovery suite plus eight paraphrases, **741** independent artifact assertions per scope and all **949** gallery cards. Combined site **833,176,154 bytes**, below the unchanged guard. No physical mailing/phone, other-engine or cold offline startup claim. Unrelated drafts untouched; no digest sent. [Open app](https://xianghui.github.io/daily-app2/20261129-1/).

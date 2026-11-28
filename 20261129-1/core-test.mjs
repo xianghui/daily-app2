@@ -1,0 +1,6 @@
+import assert from 'node:assert/strict';import{examples,validate,propose,apply,evaluate,texts,pretty,restore}from'./src/core.js';
+let checks=0;const test=f=>{f();checks++};
+for(const e of examples){test(()=>assert.deepEqual(restore(pretty(e.data)),e.data));test(()=>assert.throws(()=>propose(e.data,[[null]])));const d=e.data;const v=texts(d).map((_,i)=>Array.from({length:384},(_,j)=>j===i%d.kits.length?1:0));let rows=propose(d,v).map(r=>({...r,decision:'approve'}));test(()=>assert.equal(rows.length,4));test(()=>assert(apply(d,rows).result.ready));test(()=>assert.throws(()=>apply(d,rows.slice(1))));test(()=>assert.throws(()=>apply(d,rows.map(r=>({...r,decision:'pending'})))))}
+const r={widthMm:148,heightMm:210,sheets:10,gsm:150,caliperMm:.48,quantity:3},d=structuredClone(examples[0].data),e={...d.envelopes[0],capacityMm:5},rate=d.rates[0];test(()=>assert(evaluate(r,e,rate,true).feasible));test(()=>assert(!evaluate(r,e,rate).feasible));test(()=>assert(evaluate({...r,caliperMm:.1,widthMm:210,heightMm:148},e,{...rate,maxGrams:60}).feasible));
+for(const [k,v]of[['quantity',1.2],['sheets',0],['gsm',NaN],['caliperMm',-1]]){test(()=>{const q=structuredClone(d);if(k==='quantity')q.records[0][k]=v;else q.kits[0][k]=v;assert.throws(()=>validate(q))})}
+console.log('PASS core bounds, malformed embeddings, review guards, rotation, tare/thickness',checks);

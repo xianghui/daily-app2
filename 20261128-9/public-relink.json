@@ -1,0 +1,442 @@
+{
+  "format": "bitbudget-studio-v1",
+  "source": {
+    "title": "Synthetic event delivery handoff",
+    "hardware": {
+      "rates": [
+        250,
+        500,
+        1000,
+        1500,
+        2000,
+        3000,
+        4000,
+        6000,
+        8000,
+        12000
+      ]
+    },
+    "profiles": [
+      {
+        "id": "SLIDES",
+        "description": "Static presentation slides, screen capture of text documents and lecture diagrams",
+        "minVideoKbps": 500,
+        "audioKbps": 96
+      },
+      {
+        "id": "INTERVIEW",
+        "description": "Talking head interview, spoken presenter portrait and seated conversation",
+        "minVideoKbps": 1500,
+        "audioKbps": 128
+      },
+      {
+        "id": "SPORT",
+        "description": "Fast moving sports action, running athletes and soccer match highlights",
+        "minVideoKbps": 4000,
+        "audioKbps": 192
+      },
+      {
+        "id": "CONCERT",
+        "description": "Live music concert performance, band musicians on stage and detailed stereo sound",
+        "minVideoKbps": 3000,
+        "audioKbps": 320
+      }
+    ],
+    "records": [
+      {
+        "id": "R1",
+        "note": "Fast moving soccer match sports highlights with running athletes",
+        "durationSec": 60,
+        "capBytes": 62500000,
+        "overheadPermille": 30,
+        "headerBytes": 100000
+      },
+      {
+        "id": "R2",
+        "note": "Live concert band musicians on stage, preserve detailed stereo music",
+        "durationSec": 90,
+        "capBytes": 62500000,
+        "overheadPermille": 30,
+        "headerBytes": 100000
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "R1",
+      "profileId": "SLIDES",
+      "minVideoKbps": 500,
+      "audioKbps": 96,
+      "durationSec": 60,
+      "capBytes": 62500000,
+      "overheadPermille": 30,
+      "headerBytes": 100000,
+      "settingId": "auto",
+      "decision": "approve",
+      "reviewerNote": "",
+      "candidates": [
+        {
+          "id": "SPORT",
+          "description": "Fast moving sports action, running athletes and soccer match highlights",
+          "similarity": 0.9281024476858463
+        },
+        {
+          "id": "CONCERT",
+          "description": "Live music concert performance, band musicians on stage and detailed stereo sound",
+          "similarity": 0.29195723576040983
+        },
+        {
+          "id": "SLIDES",
+          "description": "Static presentation slides, screen capture of text documents and lecture diagrams",
+          "similarity": 0.16949335139111163
+        },
+        {
+          "id": "INTERVIEW",
+          "description": "Talking head interview, spoken presenter portrait and seated conversation",
+          "similarity": 0.1090222601334471
+        }
+      ]
+    },
+    {
+      "id": "R2",
+      "profileId": "CONCERT",
+      "minVideoKbps": 3000,
+      "audioKbps": 320,
+      "durationSec": 90,
+      "capBytes": 62500000,
+      "overheadPermille": 30,
+      "headerBytes": 100000,
+      "settingId": "auto",
+      "decision": "approve",
+      "reviewerNote": "",
+      "candidates": [
+        {
+          "id": "CONCERT",
+          "description": "Live music concert performance, band musicians on stage and detailed stereo sound",
+          "similarity": 0.8736395867897168
+        },
+        {
+          "id": "SLIDES",
+          "description": "Static presentation slides, screen capture of text documents and lecture diagrams",
+          "similarity": 0.23673854194980987
+        },
+        {
+          "id": "SPORT",
+          "description": "Fast moving sports action, running athletes and soccer match highlights",
+          "similarity": 0.18237174876923187
+        },
+        {
+          "id": "INTERVIEW",
+          "description": "Talking head interview, spoken presenter portrait and seated conversation",
+          "similarity": 0.13252559397415392
+        }
+      ]
+    }
+  ],
+  "jobs": [
+    {
+      "id": "R1",
+      "profileId": "SLIDES",
+      "minVideoKbps": 500,
+      "audioKbps": 96,
+      "durationSec": 60,
+      "capBytes": 62500000,
+      "overheadPermille": 30,
+      "headerBytes": 100000,
+      "settingId": "auto",
+      "decision": "approve",
+      "reviewerNote": "",
+      "candidates": [
+        {
+          "id": "SPORT",
+          "description": "Fast moving sports action, running athletes and soccer match highlights",
+          "similarity": 0.9281024476858463
+        },
+        {
+          "id": "CONCERT",
+          "description": "Live music concert performance, band musicians on stage and detailed stereo sound",
+          "similarity": 0.29195723576040983
+        },
+        {
+          "id": "SLIDES",
+          "description": "Static presentation slides, screen capture of text documents and lecture diagrams",
+          "similarity": 0.16949335139111163
+        },
+        {
+          "id": "INTERVIEW",
+          "description": "Talking head interview, spoken presenter portrait and seated conversation",
+          "similarity": 0.1090222601334471
+        }
+      ],
+      "options": [
+        {
+          "id": "12000",
+          "rate": 12000,
+          "estimatedBytes": 93541600,
+          "headroomBytes": -31041600,
+          "failures": [
+            "Estimated file exceeds cap"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "8000",
+          "rate": 8000,
+          "estimatedBytes": 62641600,
+          "headroomBytes": -141600,
+          "failures": [
+            "Estimated file exceeds cap"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "6000",
+          "rate": 6000,
+          "estimatedBytes": 47191600,
+          "headroomBytes": 15308400,
+          "failures": [],
+          "feasible": true
+        },
+        {
+          "id": "4000",
+          "rate": 4000,
+          "estimatedBytes": 31741600,
+          "headroomBytes": 30758400,
+          "failures": [],
+          "feasible": true
+        },
+        {
+          "id": "3000",
+          "rate": 3000,
+          "estimatedBytes": 24016600,
+          "headroomBytes": 38483400,
+          "failures": [],
+          "feasible": true
+        },
+        {
+          "id": "2000",
+          "rate": 2000,
+          "estimatedBytes": 16291600,
+          "headroomBytes": 46208400,
+          "failures": [],
+          "feasible": true
+        },
+        {
+          "id": "1500",
+          "rate": 1500,
+          "estimatedBytes": 12429100,
+          "headroomBytes": 50070900,
+          "failures": [],
+          "feasible": true
+        },
+        {
+          "id": "1000",
+          "rate": 1000,
+          "estimatedBytes": 8566600,
+          "headroomBytes": 53933400,
+          "failures": [],
+          "feasible": true
+        },
+        {
+          "id": "500",
+          "rate": 500,
+          "estimatedBytes": 4704100,
+          "headroomBytes": 57795900,
+          "failures": [],
+          "feasible": true
+        },
+        {
+          "id": "250",
+          "rate": 250,
+          "estimatedBytes": 2772850,
+          "headroomBytes": 59727150,
+          "failures": [
+            "Below supplied video minimum"
+          ],
+          "feasible": false
+        }
+      ],
+      "feasibleCount": 7,
+      "chosen": {
+        "id": "6000",
+        "rate": 6000,
+        "estimatedBytes": 47191600,
+        "headroomBytes": 15308400,
+        "failures": [],
+        "feasible": true
+      },
+      "baseline": {
+        "id": "8000",
+        "rate": 8000,
+        "estimatedBytes": 62641600,
+        "headroomBytes": -141600,
+        "failures": [
+          "Estimated file exceeds cap"
+        ],
+        "feasible": false
+      },
+      "ready": true,
+      "reason": "Supplied minimum and estimated size cap fit. Verify the actual encoded file."
+    },
+    {
+      "id": "R2",
+      "profileId": "CONCERT",
+      "minVideoKbps": 3000,
+      "audioKbps": 320,
+      "durationSec": 90,
+      "capBytes": 62500000,
+      "overheadPermille": 30,
+      "headerBytes": 100000,
+      "settingId": "auto",
+      "decision": "approve",
+      "reviewerNote": "",
+      "candidates": [
+        {
+          "id": "CONCERT",
+          "description": "Live music concert performance, band musicians on stage and detailed stereo sound",
+          "similarity": 0.8736395867897168
+        },
+        {
+          "id": "SLIDES",
+          "description": "Static presentation slides, screen capture of text documents and lecture diagrams",
+          "similarity": 0.23673854194980987
+        },
+        {
+          "id": "SPORT",
+          "description": "Fast moving sports action, running athletes and soccer match highlights",
+          "similarity": 0.18237174876923187
+        },
+        {
+          "id": "INTERVIEW",
+          "description": "Talking head interview, spoken presenter portrait and seated conversation",
+          "similarity": 0.13252559397415392
+        }
+      ],
+      "options": [
+        {
+          "id": "12000",
+          "rate": 12000,
+          "estimatedBytes": 142858000,
+          "headroomBytes": -80358000,
+          "failures": [
+            "Estimated file exceeds cap"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "8000",
+          "rate": 8000,
+          "estimatedBytes": 96508000,
+          "headroomBytes": -34008000,
+          "failures": [
+            "Estimated file exceeds cap"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "6000",
+          "rate": 6000,
+          "estimatedBytes": 73333000,
+          "headroomBytes": -10833000,
+          "failures": [
+            "Estimated file exceeds cap"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "4000",
+          "rate": 4000,
+          "estimatedBytes": 50158000,
+          "headroomBytes": 12342000,
+          "failures": [],
+          "feasible": true
+        },
+        {
+          "id": "3000",
+          "rate": 3000,
+          "estimatedBytes": 38570500,
+          "headroomBytes": 23929500,
+          "failures": [],
+          "feasible": true
+        },
+        {
+          "id": "2000",
+          "rate": 2000,
+          "estimatedBytes": 26983000,
+          "headroomBytes": 35517000,
+          "failures": [
+            "Below supplied video minimum"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "1500",
+          "rate": 1500,
+          "estimatedBytes": 21189250,
+          "headroomBytes": 41310750,
+          "failures": [
+            "Below supplied video minimum"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "1000",
+          "rate": 1000,
+          "estimatedBytes": 15395500,
+          "headroomBytes": 47104500,
+          "failures": [
+            "Below supplied video minimum"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "500",
+          "rate": 500,
+          "estimatedBytes": 9601750,
+          "headroomBytes": 52898250,
+          "failures": [
+            "Below supplied video minimum"
+          ],
+          "feasible": false
+        },
+        {
+          "id": "250",
+          "rate": 250,
+          "estimatedBytes": 6704875,
+          "headroomBytes": 55795125,
+          "failures": [
+            "Below supplied video minimum"
+          ],
+          "feasible": false
+        }
+      ],
+      "feasibleCount": 2,
+      "chosen": {
+        "id": "4000",
+        "rate": 4000,
+        "estimatedBytes": 50158000,
+        "headroomBytes": 12342000,
+        "failures": [],
+        "feasible": true
+      },
+      "baseline": {
+        "id": "4000",
+        "rate": 4000,
+        "estimatedBytes": 50158000,
+        "headroomBytes": 12342000,
+        "failures": [],
+        "feasible": true
+      },
+      "ready": true,
+      "reason": "Supplied minimum and estimated size cap fit. Verify the actual encoded file."
+    }
+  ],
+  "summary": {
+    "records": 2,
+    "approved": 2,
+    "baselineViolations": 1,
+    "reviewedViolations": 0,
+    "estimatedBytes": 97349600,
+    "planReady": true
+  }
+}

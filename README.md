@@ -2742,3 +2742,7 @@ Public release verified: matching built Pages commit `6256b4c7d8014bd760c3a8795a
 ## Skyfield Desk — 20261128-18
 
 Visual telescope eyepiece worksheets from informal target handoffs, real local MiniLM observing-profile retrieval and reviewed field/magnification/exit-pupil constraints. Four seeded target notes matched expected profiles; an extended paraphrase set matched 3/4, with the gas-cloud mismatch corrected in review. Reuses the immutable `20261115-6` worker/factory and `20261107-2` WASM; preserve those assets. See [workflow and requirements](20261128-18/README.md) and [observed validation](20261128-18/VALIDATION.md). No content uploads, telescope controls or sky-visibility claims.
+
+## Filterstep Bench — 20261128-19
+
+Real local MiniLM retrieves supplied response profiles from mixed sensor-channel handoffs. Review identities and nominal pass/rejection/settling/source-resistance bounds, enumerate offered RC pairs, compare cutoff-only misses and export complete JSON/CSV/Markdown plus gated bench worksheets. Four simple known-answer matches passed; a negated vibration note incorrectly retrieved the climate profile, so human review is mandatory. Ideal unloaded single-pole estimates, not circuit simulation or physical authorization. Reuses immutable runtime assets from `20261115-6` and `20261107-2`; preserve those paths. See [workflow/privacy](20261128-19/README.md) and [observed validation](20261128-19/VALIDATION.md). No uploads or hardware controls; no digest sent.

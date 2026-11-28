@@ -1,0 +1,29 @@
+# Observed validation — Beltpath Bench
+
+## Local production bundle
+
+- `npm run predeploy`: passes Vite production build. Local tests serve `dist` at the real `/daily-app2/20261128-24/` base and real immutable shared worker paths, not a Vite development server.
+- **Real default MiniLM WASM inference** (Chrome, GPU disabled): Workshop mockup retrieved LATHE / FAN / SEW / POLISH; Exhibit mockup retrieved POTTERY / CONVEYOR / TUMBLER / PUMP. **8/8 supplied known-answer links**, only these simple synthetic fixtures; not an accuracy benchmark. Actual rankings/similarities saved in browser-validation reports.
+- Distinct reviewed outputs: Workshop uses 60:120 mm, 700 mm belt, center ~206.444710 mm; target speeds met exactly. Exhibit uses 50:180 mm, 800 mm belt, center ~209.175521 mm, ~7.407407% speed error within 15% limit, small wrap ~143.791876°. In each fixture four speed-first baseline choices fail the allowed center travel. Exact method finds all four feasible. No claimed percent productivity gain.
+- **Observed AI failure:** “Not the woodturning lathe spindle. Use the ventilation fan impeller instead.” retrieves LATHE, not intended FAN. Manually selecting FAN copies its 1,500 RPM setup; reviewed export retains the original note and correction. Explicit warning: semantic proximity does not establish negation understanding.
+- Fresh worker real inference with context network disabled passes after online warmup. This verifies only same-open-page warmed offline inference, not offline navigation/reload.
+- 24 jobs + 8 profiles, eight actual model chunks; all records preserved and audit reimported. Max numerical-stock test enumerates 41,472 candidates; 240 generated geometry cases and boundary tests pass (732 explicit core checks plus thrown-error assertions).
+- Browser workflow: approve/hold/reject link, numeric edits/reset approval, changed profile copies specs, apply, export invalidation, undo, multiline comma/quote/formula-like note, clipboard and actual downloads. Independent Python CSV/JSON parsing and alternate-angle geometry recomputation verify all rows, current notes, exact roots/wrap/RPM, stock membership, feasibility counts, minimum objective and baseline failure counts across eight artifact variants. Worksheet is approved-only; no-fit blocks worksheet while audits remain usable.
+- Empty/broken/oversized source; over-limit batch; invalid IDs, numbers, ranges, empty stock, duplicates and text; wrong/large/malformed file imports rejected before inference.
+- Network abort at worker and actual model host; missing Worker/WASM, worker constructor/error, malformed vectors, timeout, late old-worker message and cancellation during pending worker fetch all fail without fabricated results. Same-page recovery runs the real model. Delayed file import cannot replace newer fixture. Cancellation while an actual model-host request is pending followed by real retry passes.
+- Request capture from production navigation through inference: only GETs with no bodies; source text absent from URLs; no model-host traffic until explicit Run. Persistent audit reports omit signed CDN queries. Asset audit checks exact public/local bytes and scans built text for credential patterns; source integration inspection confirms no credentials or remote inference path. Pattern scan alone is not an exhaustive secret detector.
+- 1440 / 390 / 320 px viewport checks: no horizontal overflow, labels present for all controls, 44 px+ touch controls, export keyboard focus order. Normal viewport screenshots saved for hero/input/review/results; desktop and narrow review visually inspected. Physical phone/browser assistive-tech testing not performed.
+
+## Assembly and publication
+
+Root predeploy and root deploy completed: 948 apps, zero failed/skipped, 832,908,937 assembled bytes (existing 1 GB guard preserved). Pages workflow 46158517374 completed successfully for gh-pages commit afcd72e9efd5be213d87696416fd80e97cdf449f; Pages API reports built for that same head. The public URL https://xianghui.github.io/daily-app2/20261128-24/ passed the full real-AI workflow, warmed-page fresh-worker offline inference, actual exports/independent artifact parsing, desktop/phone layouts, failure injection, real network recovery, actual model-download cancellation/retry, input guards and delayed file identity checks. All eight app/shared asset bytes and hashes match the production build; the public root HTML exactly matches the source gallery. Public gallery renders 948 entries with all earlier categories preserved. See public-* reports and publication-status.json.
+
+Assembled/public test reports and publication-status.json record the final site checks. No build-only claim of AI success. Root gallery inline scripts compile, new entry appears exactly once, all previous entries/category labels/order preserved; browser verifies gallery rendering and search. Root predeploy/deploy uses the combined site and existing size guard. Public worker, factory, WASM and app asset hashes must match local builds, and real public inference/artifact tests must pass before publication is marked complete.
+
+## Test harness note
+
+One assembled Chrome run completed every assertion and saved its report, then hung during `browser.close()` despite its browser child having exited. Only that completed dedicated test process was terminated. The suite was rerun successfully with an explicit 10-second browser-shutdown bound after all assertions/reports; this is a harness cleanup limit, not an inference timeout or bypass of any workflow assertion.
+
+## Limits not tested
+
+Other browsers/physical phones, low-memory devices, offline navigation/app-shell startup, real personal data, physical belt/drive performance, manufacturer compatibility, shared quantity-limited inventory, torque/power/tension/guarding. No external actions implemented. No universal matching accuracy, hardware safety, or measured labor-saving claim.

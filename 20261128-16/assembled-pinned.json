@@ -1,0 +1,152 @@
+{
+  "format": "chord-ledger-v1",
+  "source": {
+    "title": "Synthetic editor shortcut migration",
+    "context": "Editor text pane only",
+    "actions": [
+      {
+        "id": "SAVE",
+        "description": "Save the current document file to disk",
+        "options": [
+          "Ctrl+S",
+          "Ctrl+K Ctrl+S"
+        ]
+      },
+      {
+        "id": "SEARCH",
+        "description": "Search for text inside the current document",
+        "options": [
+          "Ctrl+F",
+          "Ctrl+K Ctrl+F"
+        ]
+      },
+      {
+        "id": "COMMENT",
+        "description": "Comment out selected source code lines",
+        "options": [
+          "Ctrl+K Ctrl+C",
+          "Ctrl+Shift+C"
+        ]
+      },
+      {
+        "id": "FORMAT",
+        "description": "Format source code indentation and whitespace",
+        "options": [
+          "Ctrl+K",
+          "Ctrl+Shift+F"
+        ]
+      }
+    ],
+    "records": [
+      {
+        "id": "E1",
+        "note": "Comment out the selected source code lines",
+        "current": "Ctrl+K Ctrl+C"
+      },
+      {
+        "id": "E2",
+        "note": "Format the source code indentation and whitespace",
+        "current": "Ctrl+K"
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "E1",
+      "note": "Comment out the selected source code lines",
+      "current": "Ctrl+K Ctrl+C",
+      "actionId": "COMMENT",
+      "pinned": "Ctrl+K Ctrl+C",
+      "decision": "approve",
+      "reviewerNote": "",
+      "candidates": [
+        {
+          "id": "COMMENT",
+          "description": "Comment out selected source code lines",
+          "similarity": 0.9791360920813718
+        },
+        {
+          "id": "FORMAT",
+          "description": "Format source code indentation and whitespace",
+          "similarity": 0.4685509680207296
+        },
+        {
+          "id": "SEARCH",
+          "description": "Search for text inside the current document",
+          "similarity": 0.2204262941842185
+        },
+        {
+          "id": "SAVE",
+          "description": "Save the current document file to disk",
+          "similarity": 0.09223550494869659
+        }
+      ]
+    },
+    {
+      "id": "E2",
+      "note": "Format the source code indentation and whitespace",
+      "current": "Ctrl+K",
+      "actionId": "FORMAT",
+      "pinned": "",
+      "decision": "approve",
+      "reviewerNote": "",
+      "candidates": [
+        {
+          "id": "FORMAT",
+          "description": "Format source code indentation and whitespace",
+          "similarity": 0.9793158769614331
+        },
+        {
+          "id": "COMMENT",
+          "description": "Comment out selected source code lines",
+          "similarity": 0.48146987225028687
+        },
+        {
+          "id": "SEARCH",
+          "description": "Search for text inside the current document",
+          "similarity": 0.0963477934969115
+        },
+        {
+          "id": "SAVE",
+          "description": "Save the current document file to disk",
+          "similarity": 0.07245025038354935
+        }
+      ]
+    }
+  ],
+  "plan": {
+    "ready": true,
+    "reason": "Exact minimum changed bindings; ties minimize total strokes, then lexical shortcut order.",
+    "bindings": [
+      {
+        "recordId": "E1",
+        "actionId": "COMMENT",
+        "shortcut": "Ctrl+K Ctrl+C"
+      },
+      {
+        "recordId": "E2",
+        "actionId": "FORMAT",
+        "shortcut": "Ctrl+Shift+F"
+      }
+    ],
+    "changes": 1,
+    "strokes": 3,
+    "key": "Ctrl+K Ctrl+C|Ctrl+Shift+F",
+    "leaves": 1
+  },
+  "baselinePairs": [
+    [
+      "E1",
+      "E2"
+    ]
+  ],
+  "summary": {
+    "records": 2,
+    "approved": 2,
+    "held": 0,
+    "baselineConflicts": 1,
+    "plannedConflicts": 0,
+    "changedBindings": 1,
+    "planReady": true
+  }
+}

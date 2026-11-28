@@ -1,0 +1,152 @@
+{
+  "format": "chord-ledger-v1",
+  "source": {
+    "title": "Synthetic document shortcut cleanup",
+    "context": "Document workspace only",
+    "actions": [
+      {
+        "id": "SAVE",
+        "description": "Save the current document file to disk",
+        "options": [
+          "Ctrl+S",
+          "Ctrl+K Ctrl+S"
+        ]
+      },
+      {
+        "id": "SEARCH",
+        "description": "Search for text inside the current document",
+        "options": [
+          "Ctrl+F",
+          "Ctrl+K Ctrl+F"
+        ]
+      },
+      {
+        "id": "COMMENT",
+        "description": "Comment out selected source code lines",
+        "options": [
+          "Ctrl+K Ctrl+C",
+          "Ctrl+Shift+C"
+        ]
+      },
+      {
+        "id": "FORMAT",
+        "description": "Format source code indentation and whitespace",
+        "options": [
+          "Ctrl+K",
+          "Ctrl+Shift+F"
+        ]
+      }
+    ],
+    "records": [
+      {
+        "id": "D1",
+        "note": "Save this document file to the disk",
+        "current": "Ctrl+S"
+      },
+      {
+        "id": "D2",
+        "note": "Search for text within the open document",
+        "current": "Ctrl+S"
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": "D1",
+      "note": "Save this document file to the disk",
+      "current": "Ctrl+S",
+      "actionId": "SAVE",
+      "pinned": "",
+      "decision": "approve",
+      "reviewerNote": "=SUM(1,2)\nCheck \"binding\", approved",
+      "candidates": [
+        {
+          "id": "SAVE",
+          "description": "Save the current document file to disk",
+          "similarity": 0.8864438145433609
+        },
+        {
+          "id": "SEARCH",
+          "description": "Search for text inside the current document",
+          "similarity": 0.219123424044698
+        },
+        {
+          "id": "FORMAT",
+          "description": "Format source code indentation and whitespace",
+          "similarity": 0.10404073949622597
+        },
+        {
+          "id": "COMMENT",
+          "description": "Comment out selected source code lines",
+          "similarity": 0.0981486279046399
+        }
+      ]
+    },
+    {
+      "id": "D2",
+      "note": "Search for text within the open document",
+      "current": "Ctrl+S",
+      "actionId": "SEARCH",
+      "pinned": "",
+      "decision": "approve",
+      "reviewerNote": "",
+      "candidates": [
+        {
+          "id": "SEARCH",
+          "description": "Search for text inside the current document",
+          "similarity": 0.8694388858071936
+        },
+        {
+          "id": "SAVE",
+          "description": "Save the current document file to disk",
+          "similarity": 0.22337434952584542
+        },
+        {
+          "id": "COMMENT",
+          "description": "Comment out selected source code lines",
+          "similarity": 0.22119323795533286
+        },
+        {
+          "id": "FORMAT",
+          "description": "Format source code indentation and whitespace",
+          "similarity": 0.12639280992205953
+        }
+      ]
+    }
+  ],
+  "plan": {
+    "ready": true,
+    "reason": "Exact minimum changed bindings; ties minimize total strokes, then lexical shortcut order.",
+    "bindings": [
+      {
+        "recordId": "D1",
+        "actionId": "SAVE",
+        "shortcut": "Ctrl+S"
+      },
+      {
+        "recordId": "D2",
+        "actionId": "SEARCH",
+        "shortcut": "Ctrl+F"
+      }
+    ],
+    "changes": 1,
+    "strokes": 2,
+    "key": "Ctrl+S|Ctrl+F",
+    "leaves": 2
+  },
+  "baselinePairs": [
+    [
+      "D1",
+      "D2"
+    ]
+  ],
+  "summary": {
+    "records": 2,
+    "approved": 2,
+    "held": 0,
+    "baselineConflicts": 1,
+    "plannedConflicts": 0,
+    "changedBindings": 1,
+    "planReady": true
+  }
+}
